@@ -1,0 +1,28 @@
+import React from 'react'
+
+import BuildIcon from '@material-ui/icons/Build'
+import List from '@material-ui/core/List'
+
+import { ROUTES } from '../routes.js'
+import RouteItem from './RouteItem.jsx'
+
+const Routes = ({ locationhandler }) => (
+  <List>
+    <RouteItem route={ROUTES.nemeses} clickhandler={locationhandler}>
+      <i className="ra ra-lg ra-broken-skull" />
+    </RouteItem>
+    <RouteItem route={ROUTES.mages} clickhandler={locationhandler}>
+      <i className="ra ra-lg ra-crystal-wand" />
+    </RouteItem>
+    <RouteItem route={ROUTES.supply} clickhandler={locationhandler}>
+      <i className="ra ra-lg ra-campfire" />
+    </RouteItem>
+    <RouteItem route={ROUTES.settings} clickhandler={locationhandler}>
+      <BuildIcon style={{
+        width: '0.9em'
+      }} />
+    </RouteItem>
+  </List>
+)
+
+export default Routes
