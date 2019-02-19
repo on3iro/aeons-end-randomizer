@@ -11,29 +11,22 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import useSelectedSets from '../hooks/useSelectedSets.jsx'
-import config from '../config'
 
 import ShuffleButton from './ShuffleButton'
+import {
+  createSlotList,
+  getListOfAvailableEntity,
+  getRandomEntity
+} from './helpers.js'
 
-const getListOfAvailableMages = (selectedSets) => selectedSets.reduce(
-  (acc, set) => {
-    return [ ...acc, ...config.DATA[set].mages ]
-  },[]
-)
-
-const getRandomMage = (availableMages) => availableMages[Math.floor(Math.random() * availableMages.length)]
-
-const createSlotList = (amount) => {
-    return Array.from({ length: amount }, (_, i) => 0 + i);
-}
 
 const createMageList = (availableMages, amount) => {
   const slotList = createSlotList(amount)
   const mages = slotList.reduce(
     (acc, slot, i) => {
       const lastMage = i === slotList.length - 1
-      const newMage = getRandomMage(acc.availableMages)
-      
+      const newMage = getRandomEntity(acc.availableMages)
+
       if (lastMage) {
         return [ ...acc.result, newMage]
       }
@@ -63,14 +56,13 @@ const Mages = () => {
     return noSelectedSetsComponent
   }
 
-  const availableMages = getListOfAvailableMages(selectedSets)
+  const availableMages = getListOfAvailableEntity(selectedSets, "mages")
   const handleShuffle = () => {
     const mages = createMageList(availableMages, amount)
     setMages(mages)
   }
 
-  // Small hack to determine, if we have already got mages
-  const firstSlotStillEmpty = mages[0] === 1 || mages.length === 0
+  const hasEmptySlots = mages.indexOf("EMPTY") > -1 || mages.length === 0
 
   return (
     <React.Fragment>
@@ -89,7 +81,7 @@ const Mages = () => {
           </RadioGroup>
         </FormControl>
       {
-        firstSlotStillEmpty
+        hasEmptySlots
           ? <Typography>Tap button to recruit mages</Typography>
           : <List>
             {

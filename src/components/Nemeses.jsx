@@ -4,18 +4,13 @@ import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
 import useSelectedSets from '../hooks/useSelectedSets.jsx'
-import config from '../config'
 
 import ShuffleButton from './ShuffleButton.jsx'
+import {
+  getListOfAvailableEntity,
+  getRandomEntity
+} from './helpers.js'
 
-
-const getListOfAvailableNemesis = (selectedSets) => selectedSets.reduce(
-  (acc, set) => {
-    return [ ...acc, ...config.DATA[set].nemeses ]
-  },[]
-)
-
-const getRandomNemesis = (availableNemeses) => availableNemeses[Math.floor(Math.random() * availableNemeses.length)]
 
 const Nemeses = () => {
   const { selectedSets, noSelectedSetsComponent } = useSelectedSets()
@@ -25,9 +20,9 @@ const Nemeses = () => {
     return noSelectedSetsComponent
   }
 
-  const availableNemeses = getListOfAvailableNemesis(selectedSets)
+  const availableNemeses = getListOfAvailableEntity(selectedSets, "nemeses")
   const handleShuffle = () => {
-    setNemesis(getRandomNemesis(availableNemeses))
+    setNemesis(getRandomEntity(availableNemeses))
   }
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
@@ -11,6 +11,9 @@ import CardContent from '@material-ui/core/CardContent'
 
 import useSelectedSets from '../hooks/useSelectedSets.jsx'
 import config from '../config'
+
+import ShuffleButton from './ShuffleButton.jsx'
+import { createSlotList } from './helpers.js'
 
 const TILECONFIGS = {
   "market1": {
@@ -29,7 +32,7 @@ const TILECONFIGS = {
   }
 }
 
-const createTiles = (tileConfig, classes) => {
+const createTiles = (tileConfig, cards, classes) => {
   return tileConfig.tiles.map(({ type, operation, threshold }, i) => (
       <GridListTile key={i} cols={1} style={{ height: 'auto' }}>
         <Card className={classes.card}>
@@ -38,10 +41,10 @@ const createTiles = (tileConfig, classes) => {
               {type} {operation} {threshold ? threshold : ""}
             </Typography>
             <Typography component="p">
-              -
+              { cards[i].name ? cards[i].name : "-" }
             </Typography>
             <Typography className={classes.pos} color="textSecondary">
-              Cost:
+              Cost: { cards[i].cost ? cards[i].cost : "-" }
             </Typography>
           </CardContent>
         </Card>
@@ -49,8 +52,16 @@ const createTiles = (tileConfig, classes) => {
   ))
 }
 
+const getListOfAvailableMages = (selectedSets) => selectedSets.reduce(
+  (acc, set) => {
+    return [ ...acc, ...config.DATA[set].mages ]
+  },[]
+)
+
 const Supply = ({ classes }) => {
   const { selectedSets, noneSelectedComponent } = useSelectedSets()
+  const emptySlotList = createSlotList(9)
+  const [cards, setCards] = useState(emptySlotList)
 
   if (noneSelectedComponent) {
     return noneSelectedComponent
@@ -58,13 +69,24 @@ const Supply = ({ classes }) => {
 
   const tileConfig = TILECONFIGS["market1"]
 
+  const handleShuffle = () => console.log("clicked")
+
   return (
-    <GridList cellHeight={180} className={classes.gridList} cols={3}>
-      <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
-        <ListSubheader component="div">{tileConfig.name}</ListSubheader>
-      </GridListTile>
-      { createTiles(tileConfig, classes) }
-    </GridList>
+    <React.Fragment>
+      <GridList cellHeight={180} className={classes.gridList} cols={3}>
+        <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
+          <ListSubheader component="div">{tileConfig.name}</ListSubheader>
+        </GridListTile>
+        { createTiles(tileConfig, cards, classes) }
+      </GridList>
+      <ShuffleButton
+        onClick={handleShuffle}
+        color="primary" 
+        variant="extended"
+      >
+        Create Market
+      </ShuffleButton>
+    </React.Fragment>
   )
 }
 
