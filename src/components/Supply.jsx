@@ -13,7 +13,12 @@ import useSelectedSets from '../hooks/useSelectedSets.jsx'
 import config from '../config'
 
 import ShuffleButton from './ShuffleButton.jsx'
-import { createSlotList } from './helpers.js'
+import {
+  createSlotList,
+  getListOfAvailableEntity,
+  getRandomEntity,
+  createEntityList
+} from './helpers.js'
 
 const TILECONFIGS = {
   "market1": {
@@ -41,10 +46,13 @@ const createTiles = (tileConfig, cards, classes) => {
               {type} {operation} {threshold ? threshold : ""}
             </Typography>
             <Typography component="p">
-              { cards[i].name ? cards[i].name : "-" }
+              { cards[i].name !== undefined ? cards[i].name : "-" }
             </Typography>
             <Typography className={classes.pos} color="textSecondary">
-              Cost: { cards[i].cost ? cards[i].cost : "-" }
+              Set: { cards[i].set !== undefined ? cards[i].set : "-" }
+            </Typography>
+            <Typography className={classes.pos} color="textSecondary">
+              Cost: { cards[i].cost !== undefined ? cards[i].cost : "-" }
             </Typography>
           </CardContent>
         </Card>
@@ -52,29 +60,42 @@ const createTiles = (tileConfig, cards, classes) => {
   ))
 }
 
-const getListOfAvailableMages = (selectedSets) => selectedSets.reduce(
-  (acc, set) => {
-    return [ ...acc, ...config.DATA[set].mages ]
-  },[]
-)
-
 const Supply = ({ classes }) => {
-  const { selectedSets, noneSelectedComponent } = useSelectedSets()
+  const { selectedSets, noSelectedSetsComponent } = useSelectedSets()
   const emptySlotList = createSlotList(9)
   const [cards, setCards] = useState(emptySlotList)
 
-  if (noneSelectedComponent) {
-    return noneSelectedComponent
+  if (noSelectedSetsComponent) {
+    return noSelectedSetsComponent
   }
 
   const tileConfig = TILECONFIGS["market1"]
 
-  const handleShuffle = () => console.log("clicked")
+  const handleShuffle = () => {
+    const tiles = tileConfig.tiles
+    const availableCards = getListOfAvailableEntity(selectedSets, "cards")
+    // Gems
+    const gemSlots = tiles.filter(({ type }) => type === "Gem")
+    const availableGems = availableCards.filter(({ type }) => type === "Gem")
+    const gems = createEntityList(availableGems, gemSlots)
+
+    // Relics
+    const relicSlots = tiles.filter(({ type }) => type === "Relic")
+    const availableRelics = availableCards.filter(({ type }) => type === "Relic")
+    const relics = createEntityList(availableRelics, relicSlots)
+
+    // Spells
+    const spellSlots = tiles.filter(({ type }) => type === "Spell")
+    const availableSpells = availableCards.filter(({ type }) => type === "Spell")
+    const spells = createEntityList(availableSpells, spellSlots)
+
+    setCards([...gems, ...relics, ...spells])
+  }
 
   return (
     <React.Fragment>
-      <GridList cellHeight={180} className={classes.gridList} cols={3}>
-        <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
+      <GridList cellHeight={180} className={classes.gridList} cols={2}>
+        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
           <ListSubheader component="div">{tileConfig.name}</ListSubheader>
         </GridListTile>
         { createTiles(tileConfig, cards, classes) }

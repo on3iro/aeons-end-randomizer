@@ -16,33 +16,10 @@ import ShuffleButton from './ShuffleButton'
 import {
   createSlotList,
   getListOfAvailableEntity,
-  getRandomEntity
+  getRandomEntity,
+  createEntityList
 } from './helpers.js'
 
-
-const createMageList = (availableMages, amount) => {
-  const slotList = createSlotList(amount)
-  const mages = slotList.reduce(
-    (acc, slot, i) => {
-      const lastMage = i === slotList.length - 1
-      const newMage = getRandomEntity(acc.availableMages)
-
-      if (lastMage) {
-        return [ ...acc.result, newMage]
-      }
-
-      const remainingMages = acc.availableMages.filter(
-        mage => mage.name !== newMage.name
-      )
-
-      return { 
-        availableMages: remainingMages,
-        result: [ ...acc.result, newMage]
-      }
-  }, { availableMages, result: [] })
-
-  return mages
-}
 
 const Mages = () => {
   const { selectedSets, noSelectedSetsComponent } = useSelectedSets()
@@ -58,7 +35,8 @@ const Mages = () => {
 
   const availableMages = getListOfAvailableEntity(selectedSets, "mages")
   const handleShuffle = () => {
-    const mages = createMageList(availableMages, amount)
+    const slotList = createSlotList(amount)
+    const mages = createEntityList(availableMages, slotList)
     setMages(mages)
   }
 

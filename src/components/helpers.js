@@ -11,3 +11,26 @@ export const getListOfAvailableEntity = (selectedSets, entity) => selectedSets.r
 )
 
 export const getRandomEntity = (availableEntities) => availableEntities[Math.floor(Math.random() * availableEntities.length)]
+
+export const createEntityList = (availableEntities, slotList) => {
+  const entities = slotList.reduce(
+    (acc, slot, i) => {
+      const last = i === slotList.length - 1
+      const newEntity = getRandomEntity(acc.availableEntities)
+
+      if (last) {
+        return [ ...acc.result, newEntity ]
+      }
+
+      const remainingEntitites = acc.availableEntities.filter(
+        entity => entity.name !== newEntity.name
+      )
+
+      return {
+        availableEntities: remainingEntitites,
+        result: [ ...acc.result, newEntity]
+      }
+  }, { availableEntities, result: [] })
+
+  return entities
+}
