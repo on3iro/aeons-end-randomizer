@@ -6,17 +6,14 @@ import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
 import ListSubheader from '@material-ui/core/ListSubheader'
 import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 
 import useSelectedSets from '../hooks/useSelectedSets.jsx'
-import config from '../config'
 
 import ShuffleButton from './ShuffleButton.jsx'
 import {
   createSlotList,
   getListOfAvailableEntity,
-  getRandomEntity,
   createEntityList
 } from './helpers.js'
 
@@ -74,6 +71,7 @@ const Supply = ({ classes }) => {
   const handleShuffle = () => {
     const tiles = tileConfig.tiles
     const availableCards = getListOfAvailableEntity(selectedSets, "cards")
+
     // Gems
     const gemSlots = tiles.filter(({ type }) => type === "Gem")
     const availableGems = availableCards.filter(({ type }) => type === "Gem")

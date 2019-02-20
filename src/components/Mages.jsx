@@ -16,7 +16,6 @@ import ShuffleButton from './ShuffleButton'
 import {
   createSlotList,
   getListOfAvailableEntity,
-  getRandomEntity,
   createEntityList
 } from './helpers.js'
 
@@ -64,7 +63,7 @@ const Mages = () => {
           : <List>
             {
               mages.map(mage => (
-                <ListItem>
+                <ListItem key={mage.name}>
                   <ListItemText>{mage.name}, {mage.set}</ListItemText>
                 </ListItem>
               ))
