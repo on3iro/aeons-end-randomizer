@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "d58dff56851335b3b58a",
-    "url": "/aeons-end-randomizer/static/js/main.d58dff56.chunk.js"
+    "revision": "27ae7cadc73ce08b0a06",
+    "url": "/aeons-end-randomizer/static/js/main.27ae7cad.chunk.js"
   },
   {
     "revision": "465f9b7c77422f0f53c5",
     "url": "/aeons-end-randomizer/static/js/runtime~main.465f9b7c.js"
   },
   {
-    "revision": "7af395c0d736dd7198d7",
+    "revision": "b487751a81ef3021decc",
     "url": "/aeons-end-randomizer/static/css/2.78b8c355.chunk.css"
   },
   {
-    "revision": "7af395c0d736dd7198d7",
-    "url": "/aeons-end-randomizer/static/js/2.7af395c0.chunk.js"
+    "revision": "b487751a81ef3021decc",
+    "url": "/aeons-end-randomizer/static/js/2.b487751a.chunk.js"
   },
   {
     "revision": "cbfd0298f008558557418d19abfc2f42",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/aeons-end-randomizer/static/media/rpgawesome-webfont.c243adb6.svg"
   },
   {
-    "revision": "4ef6a4258e696e605ac96dba1e55087a",
+    "revision": "538afa26e61ac0b5552a5f587f3704d3",
     "url": "/aeons-end-randomizer/index.html"
   }
 ];
