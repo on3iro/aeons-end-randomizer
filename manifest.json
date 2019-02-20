@@ -8,6 +8,21 @@
       "type": "image/x-icon"
     },
     {
+      "src": "/images/icons-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/images/icons-72.png",
+      "type": "image/png",
+      "sizes": "78x78"
+    },
+    {
+      "src": "/images/icons-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
       "src": "/images/icons-192.png",
       "type": "image/png",
       "sizes": "192x192"
@@ -20,6 +35,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#41D0DD",
+  "background_color": "#41D0DD"
 }
