@@ -90,6 +90,8 @@ const App = ({ classes, theme }) => {
         </div>
         <Divider />
         <Routes locationhandler={moveTo} />
+        <Divider />
+        <Typography>{process.env.REACT_APP_VERSION}</Typography>
       </Drawer>
       <SetContext.Provider value={{ setConfiguration, setSets, sets: config.DATA.sets }}>
         <Content

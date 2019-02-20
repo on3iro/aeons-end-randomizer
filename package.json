@@ -1,11 +1,12 @@
 {
   "name": "aeons-randomizer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
     "classnames": "^2.2.6",
+    "cross-env": "^5.2.0",
     "gh-pages": "^2.0.1",
     "idb-keyval": "^3.1.0",
     "react": "^16.8.2",
@@ -16,8 +17,8 @@
   },
   "homepage": "https://on3iro.github.io/aeons-end-randomizer/",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "cross-env REACT_APP_VERSION=$npm_package_version react-scripts start",
+    "build": "cross-env REACT_APP_VERSION=$npm_package_version react-scripts build",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
