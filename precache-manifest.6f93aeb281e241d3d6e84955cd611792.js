@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "23f5c7d2c8a335a0243f",
-    "url": "/aeons-end-randomizer/static/js/main.23f5c7d2.chunk.js"
+    "revision": "515ad263667cdaf1e7c6",
+    "url": "/aeons-end-randomizer/static/js/main.515ad263.chunk.js"
   },
   {
     "revision": "465f9b7c77422f0f53c5",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/aeons-end-randomizer/static/media/rpgawesome-webfont.c243adb6.svg"
   },
   {
-    "revision": "908b91ac056d1aad4181e20be7ad410b",
+    "revision": "9b57cc6cbec8415201a60d0d46a35f7a",
     "url": "/aeons-end-randomizer/index.html"
   }
 ];
