@@ -11,9 +11,18 @@ import Checkbox from '@material-ui/core/Checkbox'
 import { SetContext } from '../App.jsx'
 
 const Settings = () => {
-  const { setConfiguration, sets, setSets } = useContext(SetContext)
+  const { configurationOfSets, sets, setSets } = useContext(SetContext)
   const handleChange= (set) => {
-    const newSets = { ...setConfiguration, [set]: !setConfiguration[set] }
+    const newSets = { ...configurationOfSets, [set]: !configurationOfSets[set] }
+    setSets(newSets)
+    setToDb('sets', newSets)
+  }
+
+  const allSetsSelected = Object.values(configurationOfSets).every(val => val === true)
+  const handleSelectAll = () => {
+    const newSets = sets.reduce((acc, set) => {
+      return { ...acc, [set]: !allSetsSelected }
+    }, {})
     setSets(newSets)
     setToDb('sets', newSets)
   }
@@ -21,6 +30,22 @@ const Settings = () => {
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend">Select active sets</FormLabel>
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={allSetsSelected}
+            onChange={handleSelectAll}
+            value={ allSetsSelected
+              ? "Deselect All"
+              : "Select All"
+            }
+          />
+        }
+        label={ allSetsSelected
+          ? "Deselect All"
+          : "Select All"
+        }
+      />
       <FormGroup>
         {
           sets.map(set => (
@@ -28,7 +53,7 @@ const Settings = () => {
               key={set}
               control={
                 <Checkbox
-                  checked={setConfiguration[set]}
+                  checked={configurationOfSets[set]}
                   onChange={() => handleChange(set)}
                   value={set}
                 />

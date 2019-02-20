@@ -39,7 +39,7 @@ const App = ({ classes, theme }) => {
   const defaultSets = config.DATA.sets.reduce(
     (acc, set) => ({ ...acc, [set]: false }) , {}
   )
-  const [ setConfiguration, setSets ] = useState(defaultSets)
+  const [ configurationOfSets, setSets ] = useState(defaultSets)
 
   // Get sets from indexedDB
   useEffect(() => {
@@ -48,7 +48,7 @@ const App = ({ classes, theme }) => {
         setSets(sets)
       }
     })
-  })
+  }, [])
 
   return (
     <div className={classes.root}>
@@ -93,7 +93,7 @@ const App = ({ classes, theme }) => {
         <Divider />
         <Typography>{process.env.REACT_APP_VERSION}</Typography>
       </Drawer>
-      <SetContext.Provider value={{ setConfiguration, setSets, sets: config.DATA.sets }}>
+      <SetContext.Provider value={{ configurationOfSets, setSets, sets: config.DATA.sets }}>
         <Content
           route={currentLocation}
           classes={classes}

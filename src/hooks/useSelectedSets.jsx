@@ -5,10 +5,10 @@ import Typography from '@material-ui/core/Typography'
 import { SetContext } from '../App.jsx'
 
 const useSelectedSets = () => {
-  const { setConfiguration } = useContext(SetContext)
+  const { configurationOfSets } = useContext(SetContext)
   const selectedSets = Object
-    .keys(setConfiguration)
-    .filter( key => setConfiguration[key])
+    .keys(configurationOfSets)
+    .filter( key => configurationOfSets[key])
   const noSetsSelected = selectedSets.length < 1
 
   const noSelectedSetsComponent = noSetsSelected
