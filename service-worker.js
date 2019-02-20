@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/aeons-end-randomizer/precache-manifest.882fb8975b4b3447452de03921065a12.js"
+  "/aeons-end-randomizer/precache-manifest.af9235d5cec10c9426ca259a38c18f79.js"
 );
 
 workbox.clientsClaim();
