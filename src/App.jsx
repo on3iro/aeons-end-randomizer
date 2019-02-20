@@ -1,4 +1,6 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { get as getFromDb } from 'idb-keyval'
 
 import classNames from 'classnames'
 import 'rpg-awesome/css/rpg-awesome.min.css'
@@ -22,17 +24,6 @@ import Routes from './components/Routes.jsx'
 import Content from './components/Content.jsx'
 
 
-const SetsReducer = (state, action) => {
-  switch (action.type) {
-    case ("SET_TOGGLE"): {
-      return { ...state, ...action.payload }
-    }
-    default: {
-      return state
-    }
-  }
-}
-
 export const SetContext = React.createContext(null)
 
 const App = ({ classes, theme }) => {
@@ -48,7 +39,16 @@ const App = ({ classes, theme }) => {
   const defaultSets = config.DATA.sets.reduce(
     (acc, set) => ({ ...acc, [set]: false }) , {}
   )
-  const [ setConfiguration, dispatch ] = useReducer(SetsReducer, defaultSets)
+  const [ setConfiguration, setSets ] = useState(defaultSets)
+
+  // Get sets from indexedDB
+  useEffect(() => {
+    getFromDb('sets').then(sets => {
+      if (sets !== undefined) {
+        setSets(sets)
+      }
+    })
+  })
 
   return (
     <div className={classes.root}>
@@ -91,7 +91,7 @@ const App = ({ classes, theme }) => {
         <Divider />
         <Routes locationhandler={moveTo} />
       </Drawer>
-      <SetContext.Provider value={{ setConfiguration, dispatch, sets: config.DATA.sets }}>
+      <SetContext.Provider value={{ setConfiguration, setSets, sets: config.DATA.sets }}>
         <Content
           route={currentLocation}
           classes={classes}
