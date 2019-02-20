@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/on3iro/aeons-end-randomizer/precache-manifest.1a1ec4901bec3d16e9df13dec41999b3.js"
+  "/aeons-end-randomizer/precache-manifest.11dc7c8a5c1ebc5aa5bd2e4af6c4c55e.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/on3iro/aeons-end-randomizer/index.html", {
+workbox.routing.registerNavigationRoute("/aeons-end-randomizer/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
