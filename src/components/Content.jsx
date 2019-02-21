@@ -4,6 +4,7 @@ import Nemeses from 'components/pages/Nemeses'
 import Mages from 'components/pages/Mages'
 import Supply from 'components/pages/Supply'
 import Settings from 'components/pages/Settings'
+import TurnOrder from './TurnOrder.jsx'
 
 import { ROUTES } from 'routes'
 
@@ -16,6 +17,7 @@ const Content = ({ classes, route, ...rest }) => (
         [ROUTES.nemeses]: <Nemeses />,
         [ROUTES.mages]: <Mages />,
         [ROUTES.supply]: <Supply />,
+        [ROUTES.turnOrder]: <TurnOrder />,
         [ROUTES.settings]: <Settings />
       }[route]
     }
