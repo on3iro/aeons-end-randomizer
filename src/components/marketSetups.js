@@ -1,6 +1,7 @@
 export default {
   "market1": {
-    name: "MARKET SETUP 1",
+    id: "market1",
+    name: "Market Setup 1",
     tiles: [
       { type: "Gem", operation: "<", threshold: 4 },
       { type: "Gem", operation: "=", threshold: 4 },
@@ -14,7 +15,8 @@ export default {
     ]
   },
   "market2": {
-    name: "MARKET SETUP 2",
+    id: "market2",
+    name: "Market Setup 2",
     tiles: [
       { type: "Gem", operation: "<", threshold: 3 },
       { type: "Gem", operation: ">", threshold: 3 },
@@ -28,7 +30,8 @@ export default {
     ]
   },
   "market3": {
-    name: "MARKET SETUP 3",
+    id: "market3",
+    name: "Market Setup 3",
     tiles: [
       { type: "Gem", operation: "<", threshold: 4 },
       { type: "Gem", operation: "OR", values: [4, 5] },
@@ -42,7 +45,8 @@ export default {
     ]
   },
   "market4": {
-    name: "MARKET SETUP 4",
+    id: "market4",
+    name: "Market Setup 4",
     tiles: [
       { type: "Gem", operation: ">", threshold: 4 },
       { type: "Gem", operation: "ANY" },
@@ -56,7 +60,8 @@ export default {
     ]
   },
   "market5": {
-    name: "MARKET SETUP 5",
+    id: "market5",
+    name: "Market Setup 5",
     tiles: [
       { type: "Gem", operation: "=", threshold: 2 },
       { type: "Gem", operation: "=", threshold: 3 },
@@ -70,7 +75,8 @@ export default {
     ]
   },
   "market6": {
-    name: "MARKET SETUP 6",
+    id: "market6",
+    name: "Market Setup 6",
     tiles: [
       { type: "Gem", operation: "=", threshold: 3 },
       { type: "Gem", operation: "=", threshold: 4 },
@@ -84,7 +90,8 @@ export default {
     ]
   },
   "random": {
-    name: "RANDOM SETUP",
+    id: "random",
+    name: "Random Setup",
     tiles: [
       { type: "Gem", operation: "ANY" },
       { type: "Gem", operation: "ANY" },
