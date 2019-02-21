@@ -2,10 +2,17 @@ import React, { useContext } from 'react'
 
 import Typography from '@material-ui/core/Typography'
 
-import { SetContext } from '../App.jsx'
+import { SetConfigurationContext } from 'globalContexts'
 
+/**
+ * Custom hook to make the users configured sets available to a component.
+ * If no sets have been selected a simple noSelectedSetsComponent will
+ * be created, which can be rendered to warn the user. (this component will otherwise be null)
+ *
+ * returns { selectedSets, noSelectedSetsComponent } 
+  */
 const useSelectedSets = () => {
-  const { configurationOfSets } = useContext(SetContext)
+  const { configurationOfSets } = useContext(SetConfigurationContext)
   const selectedSets = Object
     .keys(configurationOfSets)
     .filter( key => configurationOfSets[key])

@@ -1,11 +1,11 @@
 import React from 'react'
 
-import Nemeses from './Nemeses.jsx'
-import Mages from './Mages.jsx'
-import Supply from './Supply.jsx'
-import Settings from './Settings.jsx'
+import Nemeses from 'components/pages/Nemeses'
+import Mages from 'components/pages/Mages'
+import Supply from 'components/pages/Supply'
+import Settings from 'components/pages/Settings'
 
-import { ROUTES } from '../routes.js'
+import { ROUTES } from 'routes'
 
 
 const Content = ({ classes, route, ...rest }) => (
