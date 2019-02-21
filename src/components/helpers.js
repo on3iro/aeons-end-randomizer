@@ -25,7 +25,7 @@ const filterByCost = (entity, slot) => {
       return entity.cost === slot.threshold
     }
     case "OR": {
-      return slot.values.indexOf(entity.cost) != -1
+      return slot.values.indexOf(entity.cost) !== -1
     }
     default: {
       return true
