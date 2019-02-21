@@ -4,216 +4,255 @@ export const DATA = {
     "nemeses": [
       {
         "set": "WE",
-        "name": "GateWitch"
+        "name": "Gate Witch",
+        "id": "GateWitch"
       },
       {
         "set": "WE",
-        "name": "HollowCrown"
+        "name": "Hollow Crown",
+        "id": "HollowCrown"
       },
       {
         "set": "WE",
-        "name": "MagusOfCloaks"
+        "name": "Magus Of Cloaks",
+        "id": "MagusOfCloaks"
       },
       {
         "set": "WE",
-        "name": "UmbraTitan"
+        "name": "Umbra Titan",
+        "id": "UmbraTitan"
       }
     ],
     "mages": [
       {
         "set": "WE",
-        "name": "Dezmodia"
+        "name": "Dezmodia",
+        "id": "Dezmodia"
       },
       {
         "set": "WE",
-        "name": "Garu"
+        "name": "Garu",
+        "id": "Garu"
       },
       {
         "set": "WE",
-        "name": "Gex"
+        "name": "Gex",
+        "id": "Gex"
       },
       {
         "set": "WE",
-        "name": "Mazahaedron"
+        "name": "Mazahaedron",
+        "id": "Mazahaedron"
       },
       {
         "set": "WE",
-        "name": "MistWE"
+        "name": "MistWE",
+        "id": "MistWE"
       },
       {
         "set": "WE",
-        "name": "Quilius"
+        "name": "Quilius",
+        "id": "Quilius"
       },
       {
         "set": "WE",
-        "name": "Ulgimor"
+        "name": "Ulgimor",
+        "id": "Ulgimor"
       },
       {
         "set": "WE",
-        "name": "YanMagda"
+        "name": "Yan Magda",
+        "id": "YanMagda"
       }
     ],
     "cards": [
       {
         "type": "Gem",
         "set": "WE",
-        "name": "ErraticIngot",
+        "name": "Erratic Ingot",
+        "id": "ErraticIngot",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "WE",
-        "name": "ReduceToAsh",
+        "name": "Reduce To Ash",
+        "id": "ReduceToAsh",
         "cost": 7
       },
       {
         "type": "Relic",
         "set": "WE",
-        "name": "VortexGauntlet",
+        "name": "Vortex Gauntlet",
+        "id": "VortexGauntlet",
         "cost": 6
       },
       {
         "type": "Spell",
         "set": "WE",
         "name": "Carbonize",
+        "id": "Carbonize",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "WE",
         "name": "Equilibrium",
+        "id": "Equilibrium",
         "cost": 7
       },
       {
         "type": "Gem",
         "set": "WE",
-        "name": "VolcanicGlass",
+        "name": "Volcanic Glass",
+        "id": "VolcanicGlass",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "WE",
-        "name": "ConvectionField",
+        "name": "Convection Field",
+        "id": "ConvectionField",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "WE",
-        "name": "JaggedLightning",
+        "name": "Jagged Lightning",
+        "id": "JaggedLightning",
         "cost": 4
       },
       {
         "type": "Gem",
         "set": "WE",
-        "name": "BloodstoneJewel",
+        "name": "Bloodstone Jewel",
+        "id": "BloodstoneJewel",
         "cost": 6
       },
       {
         "type": "Spell",
         "set": "WE",
         "name": "Kindle",
+        "id": "Kindle",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "WE",
-        "name": "ThoughtformFamiliar",
+        "name": "Thoughtform Familiar",
+        "id": "ThoughtformFamiliar",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "WE",
         "name": "Crystallize",
+        "id": "Crystallize",
         "cost": 8
       },
       {
         "type": "Spell",
         "set": "WE",
-        "name": "FieryTorrent",
+        "name": "Fiery Torrent",
+        "id": "FieryTorrent",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "WE",
-        "name": "CelestialSpire",
+        "name": "Celestial Spire",
+        "id": "CelestialSpire",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "WE",
-        "name": "ConjureTheLost",
+        "name": "Conjure The Lost",
+        "id": "ConjureTheLost",
         "cost": 6
       },
       {
         "type": "Spell",
         "set": "WE",
-        "name": "NovaForge",
+        "name": "Nova Forge",
+        "id": "NovaForge",
         "cost": 6
       },
       {
         "type": "Gem",
         "set": "WE",
-        "name": "DreadDiamond",
+        "name": "Dread Diamond",
+        "id": "DreadDiamond",
         "cost": 3
       },
       {
         "type": "Relic",
         "set": "WE",
-        "name": "CairnCompass",
+        "name": "Cairn Compass",
+        "id": "CairnCompass",
         "cost": 4
       },
       {
         "type": "Gem",
         "set": "WE",
-        "name": "ScoriaSlag",
+        "name": "Scoria Slag",
+        "id": "ScoriaSlag",
         "cost": 4
       },
       {
         "type": "Gem",
         "set": "WE",
-        "name": "BreachOre",
+        "name": "Breach Ore",
+        "id": "BreachOre",
         "cost": 4
       },
       {
         "type": "Relic",
         "set": "WE",
-        "name": "FiendCatcher",
+        "name": "Fiend Catcher",
+        "id": "FiendCatcher",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "WE",
-        "name": "PyrotechnicSurge",
+        "name": "Pyrotechnic Surge",
+        "id": "PyrotechnicSurge",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "WE",
         "name": "Aurora",
+        "id": "Aurora",
         "cost": 5
       },
       {
         "type": "Relic",
         "set": "WE",
-        "name": "ConclaveScroll",
+        "name": "Conclave Scroll",
+        "id": "ConclaveScroll",
         "cost": 3
       },
       {
         "type": "Relic",
         "set": "WE",
-        "name": "PrimordialFetish",
+        "name": "Primordial Fetish",
+        "id": "PrimordialFetish",
         "cost": 4
       },
       {
         "type": "Gem",
         "set": "WE",
-        "name": "FrozenMagmite",
+        "name": "Frozen Magmite",
+        "id": "FrozenMagmite",
         "cost": 3
       },
       {
         "type": "Relic",
         "set": "WE",
-        "name": "MagesTotem",
+        "name": "Mages Totem",
+        "id": "MagesTotem",
         "cost": 2
       }
     ]
@@ -222,70 +261,82 @@ export const DATA = {
     "nemeses": [
       {
         "set": "TV",
-        "name": "KnightOfShackles"
+        "name": "Knight Of Shackles",
+        "id": "KnightOfShackles"
       },
       {
         "set": "TV",
-        "name": "MaidenOfThorns"
+        "name": "Maiden Of Thorns",
+        "id": "MaidenOfThorns"
       }
     ],
     "mages": [
       {
         "set": "TV",
-        "name": "Sparrow"
+        "name": "Sparrow",
+        "id": "Sparrow"
       },
       {
         "set": "TV",
-        "name": "XaxosTV"
+        "name": "XaxosTV",
+        "id": "XaxosTV"
       }
     ],
     "cards": [
       {
         "type": "Gem",
         "set": "TV",
-        "name": "FossilizedScarab",
+        "name": "Fossilized Scarab",
+        "id": "FossilizedScarab",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "TV",
-        "name": "ThermalDart",
+        "name": "Thermal Dart",
+        "id": "ThermalDart",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "TV",
         "name": "Resonate",
+        "id": "Resonate",
         "cost": 6
       },
       {
         "type": "Spell",
         "set": "TV",
         "name": "Conflagration",
+        "id": "Conflagration",
         "cost": 3
       },
       {
         "type": "Relic",
         "set": "TV",
-        "name": "DimensionalKey",
+        "name": "Dimensional Key",
+        "id": "DimensionalKey",
         "cost": 8
       },
       {
         "type": "Spell",
         "set": "TV",
-        "name": "InnerFire",
+        "name": "Inner Fire",
+        "id": "InnerFire",
         "cost": 2
       },
       {
         "type": "Spell",
         "set": "TV",
         "name": "Fulminate",
+        "id": "Fulminate",
         "cost": 5
       },
       {
         "type": "Relic",
         "set": "TV",
-        "name": "EternityCharm",
+        "name": "Eternity Charm",
+        "id": "EternityCharm",
         "cost": 3
       }
     ]
@@ -294,21 +345,25 @@ export const DATA = {
     "nemeses": [
       {
         "set": "OD",
-        "name": "ThriceDeadProphet"
+        "name": "Thrice Dead Prophet",
+        "id": "ThriceDeadProphet"
       },
       {
         "set": "OD",
-        "name": "Wraithmonger"
+        "name": "Wraithmonger",
+        "id": "Wraithmonger"
       }
     ],
     "mages": [
       {
         "set": "OD",
-        "name": "Indira"
+        "name": "Indira",
+        "id": "Indira"
       },
       {
         "set": "OD",
-        "name": "Remnant"
+        "name": "Remnant",
+        "id": "Remnant"
       }
     ],
     "cards": [
@@ -316,66 +371,77 @@ export const DATA = {
         "type": "Spell",
         "set": "OD",
         "name": "Char",
+        "id": "Char",
         "cost": 8
       },
       {
         "type": "Gem",
         "set": "OD",
-        "name": "AlienElement",
+        "name": "Alien Element",
+        "id": "AlienElement",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "OD",
         "name": "Scorch",
+        "id": "Scorch",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "OD",
         "name": "Pyromancy",
+        "id": "Pyromancy",
         "cost": 7
       },
       {
         "type": "Spell",
         "set": "OD",
-        "name": "FeedbackAura",
+        "name": "Feedback Aura",
+        "id": "FeedbackAura",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "OD",
         "name": "Catalyst",
+        "id": "Catalyst",
         "cost": 6
       },
       {
         "type": "Gem",
         "set": "OD",
-        "name": "PainStone",
+        "name": "Pain Stone",
+        "id": "PainStone",
         "cost": 6
       },
       {
         "type": "Relic",
         "set": "OD",
-        "name": "AstralCube",
+        "name": "Astral Cube",
+        "id": "AstralCube",
         "cost": 5
       },
       {
         "type": "Relic",
         "set": "OD",
-        "name": "RiddleSphere",
+        "name": "Riddle Sphere",
+        "id": "RiddleSphere",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "OD",
-        "name": "NetherConduit",
+        "name": "Nether Conduit",
+        "id": "NetherConduit",
         "cost": 7
       },
       {
         "type": "Gem",
         "set": "OD",
-        "name": "HauntedBerylite",
+        "name": "Haunted Berylite",
+        "id": "HauntedBerylite",
         "cost": 3
       }
     ]
@@ -384,60 +450,70 @@ export const DATA = {
     "nemeses": [
       {
         "set": "Nameless",
-        "name": "BlightLord"
+        "name": "Blight Lord",
+        "id": "BlightLord"
       },
       {
         "set": "Nameless",
-        "name": "WaywardOne"
+        "name": "Wayward One",
+        "id": "WaywardOne"
       }
     ],
     "mages": [
       {
         "set": "Nameless",
-        "name": "Malastar"
+        "name": "Malastar",
+        "id": "Malastar"
       }
     ],
     "cards": [
       {
         "type": "Relic",
         "set": "Nameless",
-        "name": "MoltenHammer",
+        "name": "Molten Hammer",
+        "id": "MoltenHammer",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "Nameless",
         "name": "Radiance",
+        "id": "Radiance",
         "cost": 8
       },
       {
         "type": "Spell",
         "set": "Nameless",
         "name": "Blaze",
+        "id": "Blaze",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "Nameless",
-        "name": "ScryingBolt",
+        "name": "Scrying Bolt",
+        "id": "ScryingBolt",
         "cost": 6
       },
       {
         "type": "Spell",
         "set": "Nameless",
-        "name": "SagesBrand",
+        "name": "Sages Brand",
+        "id": "SagesBrand",
         "cost": 7
       },
       {
         "type": "Gem",
         "set": "Nameless",
-        "name": "LeechingAgate",
+        "name": "Leeching Agate",
+        "id": "LeechingAgate",
         "cost": 3
       },
       {
         "type": "Relic",
         "set": "Nameless",
-        "name": "TemporalHelix",
+        "name": "Temporal Helix",
+        "id": "TemporalHelix",
         "cost": 7
       }
     ]
@@ -446,27 +522,33 @@ export const DATA = {
     "nemeses": [
       {
         "set": "Legacy",
-        "name": "Bladius"
+        "name": "Bladius",
+        "id": "Bladius"
       },
       {
         "set": "Legacy",
-        "name": "Deathmind"
+        "name": "Deathmind",
+        "id": "Deathmind"
       },
       {
         "set": "Legacy",
-        "name": "FungalMesh"
+        "name": "Fungal Mesh",
+        "id": "FungalMesh"
       },
       {
         "set": "Legacy",
-        "name": "MaelstromRisen"
+        "name": "Maelstrom Risen",
+        "id": "MaelstromRisen"
       },
       {
         "set": "Legacy",
-        "name": "SpawningHorror"
+        "name": "Spawning Horror",
+        "id": "SpawningHorror"
       },
       {
         "set": "Legacy",
-        "name": "XaxosAscended"
+        "name": "Xaxos Ascended",
+        "id": "XaxosAscended"
       }
     ],
     "mages": [],
@@ -474,223 +556,260 @@ export const DATA = {
       {
         "type": "Gem",
         "set": "Legacy",
-        "name": "BranchingRadite",
+        "name": "Branching Radite",
+        "id": "BranchingRadite",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "FireChakram",
+        "name": "Fire Chakram",
+        "id": "FireChakram",
         "cost": 2
       },
       {
         "type": "Relic",
         "set": "Legacy",
-        "name": "BraneKnife",
+        "name": "Brane Knife",
+        "id": "BraneKnife",
         "cost": 3
       },
       {
         "type": "Gem",
         "set": "Legacy",
-        "name": "FulmiteSlab",
+        "name": "Fulmite Slab",
+        "id": "FulmiteSlab",
         "cost": 6
       },
       {
         "type": "Gem",
         "set": "Legacy",
-        "name": "GildedMarble",
+        "name": "Gilded Marble",
+        "id": "GildedMarble",
         "cost": 6
       },
       {
         "type": "Relic",
         "set": "Legacy",
-        "name": "VoltaicRelay",
+        "name": "Voltaic Relay",
+        "id": "VoltaicRelay",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "SparkingSiphon",
+        "name": "Sparking Siphon",
+        "id": "SparkingSiphon",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "BreachCommunion",
+        "name": "Breach Communion",
+        "id": "BreachCommunion",
         "cost": 4
       },
       {
         "type": "Relic",
         "set": "Legacy",
-        "name": "InfernalMirror",
+        "name": "Infernal Mirror",
+        "id": "InfernalMirror",
         "cost": 5
       },
       {
         "type": "Relic",
         "set": "Legacy",
         "name": "Geophage",
+        "id": "Geophage",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "ForceTransfusion",
+        "name": "Force Transfusion",
+        "id": "ForceTransfusion",
         "cost": 4
       },
       {
         "type": "Gem",
         "set": "Legacy",
-        "name": "ConductiveGrit",
+        "name": "Conductive Grit",
+        "id": "ConductiveGrit",
         "cost": 3
       },
       {
         "type": "Gem",
         "set": "Legacy",
-        "name": "AncientCyanolith",
+        "name": "Ancient Cyanolith",
+        "id": "AncientCyanolith",
         "cost": 3
       },
       {
         "type": "Relic",
         "set": "Legacy",
-        "name": "EtherealHand",
+        "name": "Ethereal Hand",
+        "id": "EtherealHand",
         "cost": 6
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "BendingBeam",
+        "name": "Bending Beam",
+        "id": "BendingBeam",
         "cost": 5
       },
       {
         "type": "Gem",
         "set": "Legacy",
-        "name": "EntangledShard",
+        "name": "Entangled Shard",
+        "id": "EntangledShard",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "ArcaneSalvo",
+        "name": "Arcane Salvo",
+        "id": "ArcaneSalvo",
         "cost": 5
       },
       {
         "type": "Gem",
         "set": "Legacy",
-        "name": "PhasedPortalite",
+        "name": "Phased Portalite",
+        "id": "PhasedPortalite",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "PyroGeist",
+        "name": "Pyro Geist",
+        "id": "PyroGeist",
         "cost": 6
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "BreachFlare",
+        "name": "Breach Flare",
+        "id": "BreachFlare",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "ThunderousOath",
+        "name": "Thunderous Oath",
+        "id": "ThunderousOath",
         "cost": 8
       },
       {
         "type": "Gem",
         "set": "Legacy",
-        "name": "SoothingTorporene",
+        "name": "Soothing Torporene",
+        "id": "SoothingTorporene",
         "cost": 3
       },
       {
         "type": "Gem",
         "set": "Legacy",
-        "name": "ArcingSilicate",
+        "name": "Arcing Silicate",
+        "id": "ArcingSilicate",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "WarpingHaze",
+        "name": "Warping Haze",
+        "id": "WarpingHaze",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "IncineratingFist",
+        "name": "Incinerating Fist",
+        "id": "IncineratingFist",
         "cost": 4
       },
       {
         "type": "Relic",
         "set": "Legacy",
-        "name": "RealityStabilizer",
+        "name": "Reality Stabilizer",
+        "id": "RealityStabilizer",
         "cost": 6
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "BreachCollision",
+        "name": "Breach Collision",
+        "id": "BreachCollision",
         "cost": 7
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "FieryConclusion",
+        "name": "Fiery Conclusion",
+        "id": "FieryConclusion",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "StarfireFrenzy",
+        "name": "Starfire Frenzy",
+        "id": "StarfireFrenzy",
         "cost": 6
       },
       {
         "type": "Gem",
         "set": "Legacy",
-        "name": "CrumblingCompound",
+        "name": "Crumbling Compound",
+        "id": "CrumblingCompound",
         "cost": 5
       },
       {
         "type": "Relic",
         "set": "Legacy",
-        "name": "PropheticLens",
+        "name": "Prophetic Lens",
+        "id": "PropheticLens",
         "cost": 4
       },
       {
         "type": "Relic",
         "set": "Legacy",
-        "name": "AdrenalBatteries",
+        "name": "Adrenal Batteries",
+        "id": "AdrenalBatteries",
         "cost": 7
       },
       {
         "type": "Gem",
         "set": "Legacy",
-        "name": "RefinedLumenium",
+        "name": "Refined Lumenium",
+        "id": "RefinedLumenium",
         "cost": 5
       },
       {
         "type": "Relic",
         "set": "Legacy",
-        "name": "VoidMill",
+        "name": "Void Mill",
+        "id": "VoidMill",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "GravityNode",
+        "name": "Gravity Node",
+        "id": "GravityNode",
         "cost": 5
       },
       {
         "type": "Relic",
         "set": "Legacy",
-        "name": "NeuralWreath",
+        "name": "Neural Wreath",
+        "id": "NeuralWreath",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "Legacy",
-        "name": "SphereOfInversion",
+        "name": "Sphere OfInversion",
+        "id": "SphereOfInversion",
         "cost": 9
       }
     ]
@@ -699,70 +818,82 @@ export const DATA = {
     "nemeses": [
       {
         "set": "Depths",
-        "name": "HordeCrone"
+        "name": "Horde Crone",
+        "id": "HordeCrone"
       }
     ],
     "mages": [
       {
         "set": "Depths",
-        "name": "Nym"
+        "name": "Nym",
+        "id": "Nym"
       },
       {
         "set": "Depths",
-        "name": "Reeve"
+        "name": "Reeve",
+        "id": "Reeve"
       },
       {
         "set": "Depths",
-        "name": "Zhana"
+        "name": "Zhana",
+        "id": "Zhana"
       }
     ],
     "cards": [
       {
         "type": "Spell",
         "set": "Depths",
-        "name": "VoidBond",
+        "name": "Void Bond",
+        "id": "VoidBond",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "Depths",
         "name": "Combustion",
+        "id": "Combustion",
         "cost": 5
       },
       {
         "type": "Relic",
         "set": "Depths",
-        "name": "VimDynamo",
+        "name": "Vim Dynamo",
+        "id": "VimDynamo",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "Depths",
-        "name": "DisintegratingScythe",
+        "name": "Disintegrating Scythe",
+        "id": "DisintegratingScythe",
         "cost": 7
       },
       {
         "type": "Spell",
         "set": "Depths",
-        "name": "MonstrousInferno",
+        "name": "Monstrous Inferno",
+        "id": "MonstrousInferno",
         "cost": 8
       },
       {
         "type": "Spell",
         "set": "Depths",
-        "name": "DevouringShadow",
+        "name": "Devouring Shadow",
+        "id": "DevouringShadow",
         "cost": 6
       },
       {
         "type": "Gem",
         "set": "Depths",
-        "name": "BanishingTopaz",
+        "name": "Banishing Topaz",
+        "id": "BanishingTopaz",
         "cost": 5
       },
       {
         "type": "Relic",
         "set": "Depths",
         "name": "Transmogrifier",
+        "id": "Transmogrifier",
         "cost": 4
       }
     ]
@@ -774,133 +905,155 @@ export const DATA = {
       {
         "type": "Gem",
         "set": "BS",
-        "name": "TripliteCore",
+        "name": "Triplite Core",
+        "id": "TripliteCore",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "BS",
-        "name": "NerveJab",
+        "name": "Nerve Jab",
+        "id": "NerveJab",
         "cost": 2
       },
       {
         "type": "Spell",
         "set": "BS",
-        "name": "DoubleTap",
+        "name": "Double Tap",
+        "id": "DoubleTap",
         "cost": 3
       },
       {
         "type": "Gem",
         "set": "BS",
-        "name": "ObliviumResin",
+        "name": "Oblivium Resin",
+        "id": "ObliviumResin",
         "cost": 5
       },
       {
         "type": "Gem",
         "set": "BS",
         "name": "Summonite",
+        "id": "Summonite",
         "cost": 3
       },
       {
         "type": "Relic",
         "set": "BS",
-        "name": "ManifoldContainer",
+        "name": "Manifold Container",
+        "id": "ManifoldContainer",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "BS",
-        "name": "DrainingTouch",
+        "name": "Draining Touch",
+        "id": "DrainingTouch",
         "cost": 2
       },
       {
         "type": "Gem",
         "set": "BS",
-        "name": "JoltingCrust",
+        "name": "Jolting Crust",
+        "id": "JoltingCrust",
         "cost": 3
       },
       {
         "type": "Gem",
         "set": "BS",
-        "name": "MentiteChunk",
+        "name": "Mentite Chunk",
+        "id": "MentiteChunk",
         "cost": 5
       },
       {
         "type": "Relic",
         "set": "BS",
-        "name": "SoulCords",
+        "name": "Soul Cords",
+        "id": "SoulCords",
         "cost": 5
       },
       {
         "type": "Gem",
         "set": "BS",
-        "name": "VoidiumSpike",
+        "name": "Voidium Spike",
+        "id": "VoidiumSpike",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "BS",
-        "name": "PrecisionShot",
+        "name": "Precision Shot",
+        "id": "PrecisionShot",
         "cost": 3
       },
       {
         "type": "Gem",
         "set": "BS",
-        "name": "MutedLacosite",
+        "name": "Muted Lacosite",
+        "id": "MutedLacosite",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "BS",
-        "name": "BladeOfWisdom",
+        "name": "Blade Of Wisdom",
+        "id": "BladeOfWisdom",
         "cost": 6
       },
       {
         "type": "Spell",
         "set": "BS",
-        "name": "StunningForce",
+        "name": "Stunning Force",
+        "id": "StunningForce",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "BS",
-        "name": "FlashOfIntellect",
+        "name": "Flash Of Intellect",
+        "id": "FlashOfIntellect",
         "cost": 4
       },
       {
         "type": "Relic",
         "set": "BS",
-        "name": "ScholarsOpus",
+        "name": "Scholars Opus",
+        "id": "ScholarsOpus",
         "cost": 3
       },
       {
         "type": "Relic",
         "set": "BS",
-        "name": "BottledStar",
+        "name": "Bottled Star",
+        "id": "BottledStar",
         "cost": 7
       },
       {
         "type": "Spell",
         "set": "BS",
-        "name": "BurningCurrent",
+        "name": "Burning Current",
+        "id": "BurningCurrent",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "BS",
-        "name": "PsychicEruption",
+        "name": "Psychic Eruption",
+        "id": "PsychicEruption",
         "cost": 8
       },
       {
         "type": "Relic",
         "set": "BS",
-        "name": "LivingGauntlet",
+        "name": "Living Gauntlet",
+        "id": "LivingGauntlet",
         "cost": 4
       },
       {
         "type": "Gem",
         "set": "BS",
-        "name": "ShiningTetrite",
+        "name": "Shining Tetrite",
+        "id": "ShiningTetrite",
         "cost": 6
       }
     ]
@@ -909,216 +1062,255 @@ export const DATA = {
     "nemeses": [
       {
         "set": "AE",
-        "name": "CarapaceQueen"
+        "name": "Carapace Queen",
+        "id": "CarapaceQueen"
       },
       {
         "set": "AE",
-        "name": "CrookedMask"
+        "name": "Crooked Mask",
+        "id": "CrookedMask"
       },
       {
         "set": "AE",
-        "name": "PrinceOfGluttons"
+        "name": "Prince Of Gluttons",
+        "id": "PrinceOfGluttons"
       },
       {
         "set": "AE",
-        "name": "RageBorne"
+        "name": "Rage Borne",
+        "id": "RageBorne"
       }
     ],
     "mages": [
       {
         "set": "AE",
-        "name": "Adelheim"
+        "name": "Adelheim",
+        "id": "Adelheim"
       },
       {
         "set": "AE",
-        "name": "Brama"
+        "name": "Brama",
+        "id": "Brama"
       },
       {
         "set": "AE",
-        "name": "Jian"
+        "name": "Jian",
+        "id": "Jian"
       },
       {
         "set": "AE",
-        "name": "Kadir"
+        "name": "Kadir",
+        "id": "Kadir"
       },
       {
         "set": "AE",
-        "name": "Lash"
+        "name": "Lash",
+        "id": "Lash"
       },
       {
         "set": "AE",
-        "name": "Mist"
+        "name": "Mist",
+        "id": "Mist"
       },
       {
         "set": "AE",
-        "name": "Phaedraxa"
+        "name": "Phaedraxa",
+        "id": "Phaedraxa"
       },
       {
         "set": "AE",
-        "name": "Xaxos"
+        "name": "Xaxos",
+        "id": "Xaxos"
       }
     ],
     "cards": [
       {
         "type": "Gem",
         "set": "AE",
-        "name": "DiamondCluster",
+        "name": "Diamond Cluster",
+        "id": "DiamondCluster",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "ChaosArc",
+        "name": "Chaos Arc",
+        "id": "ChaosArc",
         "cost": 6
       },
       {
         "type": "Spell",
         "set": "AE",
         "name": "Ignite",
+        "id": "Ignite",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "EssenceTheft",
+        "name": "Essence Theft",
+        "id": "EssenceTheft",
         "cost": 5
       },
       {
         "type": "Gem",
         "set": "AE",
-        "name": "SearingRuby",
+        "name": "Searing Ruby",
+        "id": "SearingRuby",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "FeralLightning",
+        "name": "Feral Lightning",
+        "id": "FeralLightning",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "PlanarInsight",
+        "name": "Planar Insight",
+        "id": "PlanarInsight",
         "cost": 6
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "SpectralEcho",
+        "name": "Spectral Echo",
+        "id": "SpectralEcho",
         "cost": 3
       },
       {
         "type": "Gem",
         "set": "AE",
-        "name": "BurningOpal",
+        "name": "Burning Opal",
+        "id": "BurningOpal",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "ConsumingVoid",
+        "name": "Consuming Void",
+        "id": "ConsumingVoid",
         "cost": 7
       },
       {
         "type": "Relic",
         "set": "AE",
-        "name": "UnstablePrism",
+        "name": "Unstable Prism",
+        "id": "UnstablePrism",
         "cost": 3
       },
       {
         "type": "Gem",
         "set": "AE",
-        "name": "CloudedSapphire",
+        "name": "Clouded Sapphire",
+        "id": "CloudedSapphire",
         "cost": 6
       },
       {
         "type": "Relic",
         "set": "AE",
-        "name": "MagesTalisman",
+        "name": "Mages Talisman",
+        "id": "MagesTalisman",
         "cost": 5
       },
       {
         "type": "Relic",
         "set": "AE",
-        "name": "FlexingDagger",
+        "name": "Flexing Dagger",
+        "id": "FlexingDagger",
         "cost": 2
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "LavaTendril",
+        "name": "Lava Tendril",
+        "id": "LavaTendril",
         "cost": 4
       },
       {
         "type": "Relic",
         "set": "AE",
-        "name": "BottledVortex",
+        "name": "Bottled Vortex",
+        "id": "BottledVortex",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "ArcaneNexus",
+        "name": "Arcane Nexus",
+        "id": "ArcaneNexus",
         "cost": 7
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "DarkFire",
+        "name": "Dark Fire",
+        "id": "DarkFire",
         "cost": 5
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "PhoenixFlame",
+        "name": "Phoenix Flame",
+        "id": "PhoenixFlame",
         "cost": 3
       },
       {
         "type": "Gem",
         "set": "AE",
         "name": "Jade",
+        "id": "Jade",
         "cost": 2
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "AmplifyVision",
+        "name": "Amplify Vision",
+        "id": "AmplifyVision",
         "cost": 4
       },
       {
         "type": "Gem",
         "set": "AE",
-        "name": "VriswoodAmber",
+        "name": "Vriswood Amber",
+        "id": "VriswoodAmber",
         "cost": 3
       },
       {
         "type": "Relic",
         "set": "AE",
-        "name": "BlastingStaff",
+        "name": "Blasting Staff",
+        "id": "BlastingStaff",
         "cost": 4
       },
       {
         "type": "Gem",
         "set": "AE",
-        "name": "SiftersPearl",
+        "name": "Sifters Pearl",
+        "id": "SiftersPearl",
         "cost": 3
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "WildfireWhip",
+        "name": "Wildfire Whip",
+        "id": "WildfireWhip",
         "cost": 6
       },
       {
         "type": "Relic",
         "set": "AE",
-        "name": "FocusingOrb",
+        "name": "Focusing Orb",
+        "id": "FocusingOrb",
         "cost": 4
       },
       {
         "type": "Spell",
         "set": "AE",
-        "name": "OblivionSwell",
+        "name": "Oblivion Swell",
+        "id": "OblivionSwell",
         "cost": 5
       }
     ]
