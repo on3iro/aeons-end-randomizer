@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 
 import Typography from '@material-ui/core/Typography'
 
-import useSelectedSets from '../hooks/useSelectedSets.jsx'
+import useSelectedSets from 'hooks/useSelectedSets'
 
-import ShuffleButton from './ShuffleButton.jsx'
+import ShuffleButton from 'components/ShuffleButton'
 import {
   getListOfAvailableEntity,
   getRandomEntity
