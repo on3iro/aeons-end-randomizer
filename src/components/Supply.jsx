@@ -16,26 +16,10 @@ import {
   getListOfAvailableEntity,
   createEntityList
 } from './helpers.js'
+import MARKETSETUPS from './marketSetups.js'
 
-const TILECONFIGS = {
-  "market1": {
-    name: "MARKET SETUP 1",
-    tiles: [
-      { type: "Gem", operation: "<", threshold: 4 },
-      { type: "Gem", operation: "=", threshold: 4 },
-      { type: "Gem", operation: "ANY" },
-      { type: "Relic", operation: "ANY" },
-      { type: "Relic", operation: "ANY" },
-      { type: "Spell", operation: "<", threshold: 5 },
-      { type: "Spell", operation: "<", threshold: 5 },
-      { type: "Spell", operation: ">", threshold: 5 },
-      { type: "Spell", operation: ">", threshold: 5 },
-    ]
-  }
-}
-
-const createTiles = (tileConfig, cards, classes) => {
-  return tileConfig.tiles.map(({ type, operation, threshold }, i) => (
+const createTiles = (marketSetup, cards, classes) => {
+  return marketSetup.tiles.map(({ type, operation, threshold }, i) => (
       <GridListTile key={i} cols={1} style={{ height: 'auto' }}>
         <Card className={classes.card}>
           <CardContent>
@@ -66,10 +50,10 @@ const Supply = ({ classes }) => {
     return noSelectedSetsComponent
   }
 
-  const tileConfig = TILECONFIGS["market1"]
+  const marketSetup = MARKETSETUPS["market1"]
 
   const handleShuffle = () => {
-    const tiles = tileConfig.tiles
+    const tiles = marketSetup.tiles
     const availableCards = getListOfAvailableEntity(selectedSets, "cards")
 
     // Gems
@@ -94,9 +78,9 @@ const Supply = ({ classes }) => {
     <React.Fragment>
       <GridList cellHeight={180} className={classes.gridList} cols={2}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">{tileConfig.name}</ListSubheader>
+          <ListSubheader component="div">{marketSetup.name}</ListSubheader>
         </GridListTile>
-        { createTiles(tileConfig, cards, classes) }
+        { createTiles(marketSetup, cards, classes) }
       </GridList>
       <ShuffleButton
         onClick={handleShuffle}
