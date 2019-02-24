@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
 
 import useSelectedSets from 'hooks/useSelectedSets'
 import config from 'config'
@@ -11,10 +12,11 @@ import ShuffleButton from 'components/ShuffleButton'
 import {
   getListOfAvailableEntity,
   getRandomEntity
-} from './helpers.js'
+} from '../helpers.js'
 
+import nemesesStyles from './nemesesStyles'
 
-const Nemeses = React.memo(() => {
+const Nemeses = React.memo(({classes}) => {
   const { selectedSets, noSelectedSetsComponent } = useSelectedSets()
   const [nemesis, setNemesis] = useState(null)
 
@@ -33,11 +35,12 @@ const Nemeses = React.memo(() => {
         nemesis
           ? (
             <React.Fragment>
-              <Card>
+              <Card className={classes.card}>
                 <CardContent>
                   <Typography color="textSecondary">{config.DATA[nemesis['set']].name}</Typography>
                   <Typography variant="h6" component="h2">{nemesis['name']}</Typography>
                 </CardContent>
+                <i className={`ra ra-lg ra-broken-skull ${classes.cardIcon}`} />
               </Card>
 
             </React.Fragment>
@@ -55,4 +58,4 @@ const Nemeses = React.memo(() => {
   )
 })
 
-export default Nemeses
+export default withStyles(nemesesStyles)(Nemeses)

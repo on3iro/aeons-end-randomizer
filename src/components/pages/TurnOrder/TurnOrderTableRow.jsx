@@ -9,13 +9,14 @@ import TurnOrderTableCell from './TurnOrderTableCell'
 
 const TurnOrderTableRow = React.memo(({
   card,
-  handlers
+  handlers,
+  classes
 }) => (
-  <TableRow>
+  <TableRow className={`${classes.cardRow} ${classes[card.cssClass]}`}>
     <TurnOrderTableCell>
       <Typography component='p'>{card.name}</Typography>
     </TurnOrderTableCell>
-    <TurnOrderTableCell align="center">
+    <TurnOrderTableCell align="right">
       <IconButton
         aria-label="Add to top" 
         title="Add to top" 
@@ -24,7 +25,7 @@ const TurnOrderTableRow = React.memo(({
         <Publish fontSize="small" />
       </IconButton>
     </TurnOrderTableCell>
-    <TurnOrderTableCell align="center">
+    <TurnOrderTableCell align="right">
       <IconButton 
         aria-label="Add to bottom"
         title="Add to bottom"
@@ -33,7 +34,7 @@ const TurnOrderTableRow = React.memo(({
         <GetApp fontSize="small" />
       </IconButton>
     </TurnOrderTableCell>
-    <TurnOrderTableCell align="center">
+    <TurnOrderTableCell align="right">
       <IconButton 
         aria-label="Shuffle into Turn Order Deck"
         title="Shuffle into Turn Order Deck"
