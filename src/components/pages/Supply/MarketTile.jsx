@@ -7,6 +7,8 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Typography from '@material-ui/core/Typography'
 
+import config from 'config'
+
 import CardTypeIcon from './CardTypeIcon'
 
 const getOperationString = (operation, values, threshold) => {
@@ -32,7 +34,10 @@ const MarketTile = React.memo(({ tileSetup, index, cards, classes, ...rest }) =>
             {type} { getOperationString(operation, values, threshold) }
           </Typography>
           <Typography className={classes.cardName} component="p">
-            { cards[index].name !== undefined ? cards[index].name : "-" }
+            { cards[index].name !== undefined
+                ? cards[index].name
+                : "-"
+            }
           </Typography>
           <List>
             <ListItem className={classes.cardInfoListItem}>
@@ -40,7 +45,10 @@ const MarketTile = React.memo(({ tileSetup, index, cards, classes, ...rest }) =>
                 Set:
               </Typography>
               <Typography className={classes.infoText} component="span">
-                { cards[index].set !== undefined ? cards[index].set : "-" }
+                { cards[index].set !== undefined
+                    ? config.DATA[cards[index].set].name
+                    : "-"
+                }
               </Typography>
             </ListItem>
             <ListItem className={classes.cardInfoListItem}>
@@ -48,7 +56,10 @@ const MarketTile = React.memo(({ tileSetup, index, cards, classes, ...rest }) =>
                 Cost:
               </Typography>
               <Typography className={classes.infoText} component="span">
-                { cards[index].cost !== undefined ? cards[index].cost : "-" }
+                { cards[index].cost !== undefined
+                    ? cards[index].cost
+                    : "-"
+                }
               </Typography>
             </ListItem>
           </List>
