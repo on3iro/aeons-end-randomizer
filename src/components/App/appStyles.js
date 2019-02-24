@@ -55,4 +55,18 @@ export const styles = theme => ({
     }),
     marginLeft: 0,
   },
+  appInfo: {
+    margin: theme.spacing.unit * 2
+  },
+  githubLink: {
+    display: 'block',
+    lineHeight: '24px',
+    marginTop: theme.spacing.unit * 2
+  },
+  githubLogo: {
+    width: '24px',
+    display: 'inline-block',
+    verticalAlign: 'middle',
+    marginRight: theme.spacing.unit
+  }
 })
