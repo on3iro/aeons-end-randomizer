@@ -1,19 +1,28 @@
 import React from 'react'
 
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import Grid from '@material-ui/core/Grid'
+import MageGridWrapper from './MageGridWrapper'
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
 
 const MageList = ({ mages }) => (
-  <List>
-    {
-      mages.map(mage => (
-        <ListItem key={mage.name}>
-          <ListItemText>{mage.name}, {mage.set}</ListItemText>
-        </ListItem>
-      ))
-    }
-  </List>
+  <MageGridWrapper>
+    <Grid container spacing={16}>
+      {
+        mages.map(mage => (
+          <Grid item xs={6} md={3} key={mage.name}>
+            <Card>
+              <CardContent>
+                <Typography color="textSecondary">{mage.set}</Typography>
+                <Typography variant="h6" component="h2">{mage.name}</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))
+      }
+    </Grid>
+  </MageGridWrapper>
 )
 
 export default MageList

@@ -4,8 +4,9 @@ import Fab from '@material-ui/core/Fab'
 const ShuffleButton = withStyles({
   root: {
     position: 'fixed',
-    bottom: '30px',
-    right: '30px'
+    bottom: '24px',
+    right: '24px',
+    zIndex: 10,
   }
 })(Fab)
 

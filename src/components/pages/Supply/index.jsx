@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
 import useSelectedSets from 'hooks/useSelectedSets'
+import useExpansionHandling from 'hooks/useExpansionHandling'
 import config from 'config'
 
+import AoeExpansionPanel from 'components/AoeExpansionPanel'
+import AoeExpansionPanelSummary from 'components/AoeExpansionPanelSummary'
 import ShuffleButton from 'components/ShuffleButton'
 import {
   createSlotList,
@@ -55,14 +56,7 @@ const createSupply = (selectedSets, tileSetups) => {
 
 // Component
 const Supply = ({ classes }) => {
-  // Expansion handling
-  const [ expanded, setExpanded ] = useState(null)
-  const handleExpansion = (panel) => (event, expanded) => {
-    const panelExpanded = expanded
-      ? panel
-      : false
-    setExpanded(panelExpanded)
-  }
+  const { expanded, handleExpansion, setExpanded } = useExpansionHandling()
 
   // Market setup handling
   const [ marketSetup, setMarketSetup ] = useState(config.MARKETSETUPS['market1'])
@@ -87,17 +81,17 @@ const Supply = ({ classes }) => {
 
   return (
     <React.Fragment>
-      <ExpansionPanel expanded={expanded === 'setup'} onChange={handleExpansion('setup')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+      <AoeExpansionPanel expanded={expanded === 'setup'} onChange={handleExpansion('setup')}>
+        <AoeExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>{marketSetup.name}</Typography>
-        </ExpansionPanelSummary>
+        </AoeExpansionPanelSummary>
         <ExpansionPanelDetails>
           <MarketOptions
             marketSetupId={marketSetup.id}
             changeHandler={handleMarketSetup}
           />
         </ExpansionPanelDetails>
-      </ExpansionPanel>
+      </AoeExpansionPanel>
       <SupplyList
         marketSetup={marketSetup}
         cards={cards}
