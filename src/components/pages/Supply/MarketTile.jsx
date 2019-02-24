@@ -7,6 +7,8 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Typography from '@material-ui/core/Typography'
 
+import CardTypeIcon from './CardTypeIcon'
+
 const getOperationString = (operation, values, threshold) => {
   if (operation === "OR" && values) {
     return values.join("/")
@@ -19,7 +21,7 @@ const getOperationString = (operation, values, threshold) => {
   return `${operation} ${thresholdValue}`
 }
 
-const MarketTile = ({ tileSetup, index, cards, classes, ...rest }) => {
+const MarketTile = React.memo(({ tileSetup, index, cards, classes, ...rest }) => {
   const { type, operation, values, threshold } = tileSetup
 
   return (
@@ -51,12 +53,10 @@ const MarketTile = ({ tileSetup, index, cards, classes, ...rest }) => {
             </ListItem>
           </List>
         </CardContent>
-        { (type.toLowerCase() === 'gem') ? <i className={`ra ra-lg ra-crystals ${classes.cardIcon} ${classes[type.toLowerCase() + 'Icon']}`} /> : ''}
-        { (type.toLowerCase() === 'relic') ? <i className={`ra ra-lg ra-crystal-wand ${classes.cardIcon} ${classes[type.toLowerCase() + 'Icon']}`} /> : ''}
-        { (type.toLowerCase() === 'spell') ? <i className={`ra ra-lg ra-scroll-unfurled ${classes.cardIcon} ${classes[type.toLowerCase() + 'Icon']}`} /> : ''}
+        <CardTypeIcon type={type.toLowerCase()} classes={classes} />
       </Card>
     </Grid>
   )
-}
+})
 
 export default MarketTile

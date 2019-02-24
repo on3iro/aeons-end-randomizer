@@ -32,7 +32,7 @@ const renderTurnOrderSetups = (turnOrderSetup) => turnOrderSetup
     )
   )
 
-const TurnOrderSetup = ({
+const TurnOrderSetup = React.memo(({
   turnOrderSetup,
   startGame,
   chooseSetup
@@ -65,6 +65,6 @@ const TurnOrderSetup = ({
       </ShuffleButton>
     </React.Fragment>
   )
-}
+})
 
 export default TurnOrderSetup

@@ -1,14 +1,15 @@
 import React from 'react'
 
+import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
 
 import config from 'config'
 
+
 const renderMarketOptions = () => Object
   .values(config.MARKETSETUPS)
-  .map(setup => (
+  .map(setup => ( 
     <FormControlLabel
       key={setup.id}
       value={setup.id}
@@ -17,7 +18,7 @@ const renderMarketOptions = () => Object
     />
   ))
 
-const MarketOptions = ({ marketSetupId, changeHandler }) => (
+const MarketOptions = React.memo(({ marketSetupId, changeHandler }) => (
   <RadioGroup
     aria-label="Market Setup Options"
     name="marketOptions"
@@ -26,6 +27,6 @@ const MarketOptions = ({ marketSetupId, changeHandler }) => (
   >
     { renderMarketOptions() }
   </RadioGroup>
-)
+))
 
 export default MarketOptions

@@ -8,7 +8,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-const MageCountPicker = ({ selectedValue, handleAmountChange }) => (
+const MageCountPicker = React.memo(({ selectedValue, handleAmountChange }) => (
   <Card>
     <CardContent>
       <FormControl component="fieldset">
@@ -28,6 +28,6 @@ const MageCountPicker = ({ selectedValue, handleAmountChange }) => (
       </FormControl>
     </CardContent>
   </Card>
-)
+))
 
 export default MageCountPicker

@@ -6,7 +6,7 @@ import List from '@material-ui/core/List'
 import { ROUTES } from '../routes.js'
 import RouteItem from './RouteItem.jsx'
 
-const Routes = ({ locationhandler }) => (
+const Routes = React.memo(({ locationhandler }) => (
   <List>
     <RouteItem route={ROUTES.nemeses} clickhandler={locationhandler}>
       <i className='ra ra-lg ra-broken-skull' />
@@ -26,6 +26,6 @@ const Routes = ({ locationhandler }) => (
  }} />
     </RouteItem>
   </List>
-)
+))
 
 export default Routes

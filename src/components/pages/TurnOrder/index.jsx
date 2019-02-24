@@ -8,7 +8,7 @@ import {
 } from './hooks'
 
 
-const TurnOrder = () => {
+const TurnOrder = React.memo(() => {
   const { turnOrderSetup, handleTurnOrderSetupChange } = useTurnOrderSetup()
 
   const {
@@ -49,6 +49,6 @@ const TurnOrder = () => {
           )}
     </React.Fragment>
   )
-}
+})
 
 export default TurnOrder

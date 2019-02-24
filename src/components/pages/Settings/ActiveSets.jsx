@@ -6,22 +6,19 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormLabel from '@material-ui/core/FormLabel'
 
+import ConfiguredSet from './ConfiguredSet'
+
 
 const renderConfiguredSets = (configurationOfSets, sets, handleChange) => sets.map(set => (
-  <FormControlLabel
+  <ConfiguredSet
     key={set}
-    control={
-      <Checkbox
-        checked={configurationOfSets[set]}
-        onChange={() => handleChange(set)}
-        value={set}
-      />
-    }
-    label={set}
+    set={set}
+    configurationOfSets={configurationOfSets} 
+    handleChange={handleChange}
   />
 ))
 
-const ActiveSets = ({
+const ActiveSets = React.memo(({
   allSetsSelected,
   handleSelectAll,
   sets,
@@ -52,6 +49,6 @@ const ActiveSets = ({
       }
     </FormGroup>
   </FormControl>
-)
+))
 
 export default ActiveSets

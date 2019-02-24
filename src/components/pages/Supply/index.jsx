@@ -55,7 +55,7 @@ const createSupply = (selectedSets, tileSetups) => {
 }
 
 // Component
-const Supply = ({ classes }) => {
+const Supply = React.memo(({ classes }) => {
   const { expanded, handleExpansion, setExpanded } = useExpansionHandling()
 
   // Market setup handling
@@ -67,7 +67,7 @@ const Supply = ({ classes }) => {
 
   // Set handling
   const { selectedSets, noSelectedSetsComponent } = useSelectedSets()
-  const emptySlotList = createSlotList(9)
+  const emptySlotList = () => createSlotList(9)
   const [cards, setCards] = useState(emptySlotList)
 
   if (noSelectedSetsComponent) {
@@ -106,6 +106,6 @@ const Supply = ({ classes }) => {
       </ShuffleButton>
     </React.Fragment>
   )
-}
+})
 
 export default withStyles(supplyStyles)(Supply)
