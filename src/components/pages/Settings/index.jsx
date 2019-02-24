@@ -7,8 +7,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography'
 
-import AoeExpansionPanel from 'components/AoeExpansionPanel'
-import AoeExpansionPanelSummary from 'components/AoeExpansionPanelSummary'
+import StyledExpansionPanel from 'components/StyledExpansionPanel'
+import StyledExpansionPanelSummary from 'components/StyledExpansionPanelSummary'
 
 import useExpansionHandling from 'hooks/useExpansionHandling'
 import { SetConfigurationContext } from 'globalContexts'
@@ -38,10 +38,10 @@ const Settings = React.memo(({ classes }) => {
   }
 
   return (
-    <AoeExpansionPanel expanded={expanded === 'sets'} onChange={handleExpansion('sets')}>
-      <AoeExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+    <StyledExpansionPanel expanded={expanded === 'sets'} onChange={handleExpansion('sets')}>
+      <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
         <Typography className={classes.heading}>Configured Sets</Typography>
-      </AoeExpansionPanelSummary>
+      </StyledExpansionPanelSummary>
       <ExpansionPanelDetails>
         <ActiveSets
           allSetsSelected={allSetsSelected}
@@ -51,7 +51,7 @@ const Settings = React.memo(({ classes }) => {
           handleChange={handleChange}
         />
       </ExpansionPanelDetails>
-    </AoeExpansionPanel>
+    </StyledExpansionPanel>
   )
 })
 

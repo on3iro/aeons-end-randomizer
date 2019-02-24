@@ -9,8 +9,8 @@ import useSelectedSets from 'hooks/useSelectedSets'
 import useExpansionHandling from 'hooks/useExpansionHandling'
 import config from 'config'
 
-import AoeExpansionPanel from 'components/AoeExpansionPanel'
-import AoeExpansionPanelSummary from 'components/AoeExpansionPanelSummary'
+import StyledExpansionPanel from 'components/StyledExpansionPanel'
+import StyledExpansionPanelSummary from 'components/StyledExpansionPanelSummary'
 import ShuffleButton from 'components/ShuffleButton'
 import {
   createSlotList,
@@ -81,17 +81,17 @@ const Supply = React.memo(({ classes }) => {
 
   return (
     <React.Fragment>
-      <AoeExpansionPanel expanded={expanded === 'setup'} onChange={handleExpansion('setup')}>
-        <AoeExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+      <StyledExpansionPanel expanded={expanded === 'setup'} onChange={handleExpansion('setup')}>
+        <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>{marketSetup.name}</Typography>
-        </AoeExpansionPanelSummary>
+        </StyledExpansionPanelSummary>
         <ExpansionPanelDetails>
           <MarketOptions
             marketSetupId={marketSetup.id}
             changeHandler={handleMarketSetup}
           />
         </ExpansionPanelDetails>
-      </AoeExpansionPanel>
+      </StyledExpansionPanel>
       <SupplyList
         marketSetup={marketSetup}
         cards={cards}

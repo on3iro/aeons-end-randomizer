@@ -1,7 +1,7 @@
 import { withStyles } from '@material-ui/core/styles'
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 
-const AoeExpansionPanelSummary = withStyles({
+const StyledExpansionPanelSummary = withStyles({
   root: {
     minHeight: 48,
     '&$expanded': {
@@ -16,4 +16,4 @@ const AoeExpansionPanelSummary = withStyles({
   expanded: {},
 })(ExpansionPanelSummary);
 
-export default AoeExpansionPanelSummary
+export default StyledExpansionPanelSummary

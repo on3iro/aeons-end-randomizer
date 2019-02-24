@@ -10,6 +10,7 @@ const supplyStyles = (theme) => ({
   },
   card: {
     minWidth: 30,
+    minHeight: 148,
     position: 'relative',
   },
   cardContent: {

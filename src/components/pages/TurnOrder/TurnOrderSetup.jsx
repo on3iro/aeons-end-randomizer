@@ -7,12 +7,17 @@ import ShuffleButton from 'components/ShuffleButton.jsx'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent'
+import { withStyles } from '@material-ui/core/styles'
 
-import AoeExpansionPanel from 'components/AoeExpansionPanel'
-import AoeExpansionPanelSummary from 'components/AoeExpansionPanelSummary'
+import StyledExpansionPanel from 'components/StyledExpansionPanel'
+import StyledExpansionPanelSummary from 'components/StyledExpansionPanelSummary'
 
 import useExpansionHandling from 'hooks/useExpansionHandling'
 import config from 'config'
+
+import turnOrderStyles from './turnOrderStyles'
 
 const renderSetupOptions = () => Object.values(config.TURNORDERSETUPS).map(setup => (
   <FormControlLabel
@@ -35,7 +40,8 @@ const renderTurnOrderSetups = (turnOrderSetup) => turnOrderSetup
 const TurnOrderSetup = React.memo(({
   turnOrderSetup,
   startGame,
-  chooseSetup
+  chooseSetup,
+  classes
 }) => {
   const { expanded, handleExpansion, setExpanded } = useExpansionHandling()
   const handleSetupChange = (event) => {
@@ -45,10 +51,10 @@ const TurnOrderSetup = React.memo(({
 
   return (
     <React.Fragment>
-      <AoeExpansionPanel expanded={expanded === 'setup'} onChange={handleExpansion('setup')}>
-        <AoeExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+      <StyledExpansionPanel expanded={expanded === 'setup'} onChange={handleExpansion('setup')}>
+        <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>{turnOrderSetup.name}</Typography>
-        </AoeExpansionPanelSummary>
+        </StyledExpansionPanelSummary>
         <ExpansionPanelDetails>
           <RadioGroup
             aria-label='Players'
@@ -58,8 +64,13 @@ const TurnOrderSetup = React.memo(({
             {renderSetupOptions()}
           </RadioGroup>
         </ExpansionPanelDetails>
-      </AoeExpansionPanel>
-      { renderTurnOrderSetups(turnOrderSetup) }
+      </StyledExpansionPanel>
+      <Card className={classes.cardDeck}>
+        <CardContent>
+          <Typography color="textSecondary" gutterBottom>Turn order cards</Typography>
+          { renderTurnOrderSetups(turnOrderSetup) }
+        </CardContent>
+      </Card>
       <ShuffleButton color='primary' variant='extended' onClick={startGame}>
         Start Game
       </ShuffleButton>
@@ -67,4 +78,4 @@ const TurnOrderSetup = React.memo(({
   )
 })
 
-export default TurnOrderSetup
+export default withStyles(turnOrderStyles)(TurnOrderSetup)

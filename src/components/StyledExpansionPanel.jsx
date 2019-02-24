@@ -1,7 +1,7 @@
 import { withStyles } from '@material-ui/core/styles'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 
-const AoeExpansionPanel = withStyles({
+const StyledExpansionPanel = withStyles({
   root: {
     borderRadius: 4,
     '&:before': {
@@ -13,4 +13,4 @@ const AoeExpansionPanel = withStyles({
   },
 })(ExpansionPanel);
 
-export default AoeExpansionPanel
+export default StyledExpansionPanel
