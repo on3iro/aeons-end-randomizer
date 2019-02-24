@@ -1,6 +1,8 @@
 export const DATA = {
   sets: ["WE", "AE", "BS", "Legacy", "Nameless", "Depths", "TV", "OD"],
   "WE": {
+    "id": "WE",
+    "name": "War Eternal",
     "nemeses": [
       {
         "set": "WE",
@@ -258,6 +260,8 @@ export const DATA = {
     ]
   },
   "TV": {
+    "id": "TV",
+    "name": "Void",
     "nemeses": [
       {
         "set": "TV",
@@ -342,6 +346,8 @@ export const DATA = {
     ]
   },
   "OD": {
+    "id": "OD",
+    "name": "Outer Dark",
     "nemeses": [
       {
         "set": "OD",
@@ -447,6 +453,8 @@ export const DATA = {
     ]
   },
   "Nameless": {
+    "id": "Nameless",
+    "name": "Nameless",
     "nemeses": [
       {
         "set": "Nameless",
@@ -519,6 +527,8 @@ export const DATA = {
     ]
   },
   "Legacy": {
+    "id": "Legacy",
+    "name": "Legacy",
     "nemeses": [
       {
         "set": "Legacy",
@@ -815,6 +825,8 @@ export const DATA = {
     ]
   },
   "Depths": {
+    "id": "Depths",
+    "name": "Depths",
     "nemeses": [
       {
         "set": "Depths",
@@ -899,6 +911,8 @@ export const DATA = {
     ]
   },
   "BS": {
+    "id": "BS",
+    "name": "Buried Secrets",
     "nemeses": [],
     "mages": [],
     "cards": [
@@ -1059,6 +1073,8 @@ export const DATA = {
     ]
   },
   "AE": {
+    "id": "AE",
+    "name": "Aeons End",
     "nemeses": [
       {
         "set": "AE",

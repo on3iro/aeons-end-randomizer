@@ -3,6 +3,8 @@ import React from 'react'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 
+import config from 'config'
+
 const ConfiguredSet = React.memo(({
   set,
   configurationOfSets,
@@ -16,7 +18,7 @@ const ConfiguredSet = React.memo(({
         value={set}
       />
     }
-    label={set}
+    label={config.DATA[set].name}
   />
 ))
 

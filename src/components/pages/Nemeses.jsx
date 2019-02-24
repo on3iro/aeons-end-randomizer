@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 
 import useSelectedSets from 'hooks/useSelectedSets'
+import config from 'config'
 
 import ShuffleButton from 'components/ShuffleButton'
 import {
@@ -34,7 +35,7 @@ const Nemeses = React.memo(() => {
             <React.Fragment>
               <Card>
                 <CardContent>
-                  <Typography color="textSecondary">{nemesis['set']}</Typography>
+                  <Typography color="textSecondary">{config.DATA[nemesis['set']].name}</Typography>
                   <Typography variant="h6" component="h2">{nemesis['name']}</Typography>
                 </CardContent>
               </Card>
