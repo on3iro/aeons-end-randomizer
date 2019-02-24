@@ -10,8 +10,7 @@ import Link from '@material-ui/core/Link'
 import Routes from 'components/Routes.jsx'
 
 
-
-const DrawerMenu = ({
+const DrawerMenu = React.memo(({
   drawerIsOpen,
   toggleDrawer,
   classes,
@@ -42,6 +41,6 @@ const DrawerMenu = ({
       </Link>
     </Typography>
   </Drawer>
-)
+))
 
 export default DrawerMenu

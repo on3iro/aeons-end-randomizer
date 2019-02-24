@@ -9,7 +9,7 @@ import TurnOrder from 'components/pages/TurnOrder'
 import { ROUTES } from 'routes'
 
 
-const Content = ({ classes, route, ...rest }) => (
+const Content = React.memo(({ classes, route, ...rest }) => (
   <div {...rest}>
     <div className={classes.drawerHeader} />
     {
@@ -22,6 +22,6 @@ const Content = ({ classes, route, ...rest }) => (
       }[route]
     }
   </div>
-)
+))
 
 export default Content

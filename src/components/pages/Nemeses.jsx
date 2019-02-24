@@ -13,7 +13,7 @@ import {
 } from './helpers.js'
 
 
-const Nemeses = () => {
+const Nemeses = React.memo(() => {
   const { selectedSets, noSelectedSetsComponent } = useSelectedSets()
   const [nemesis, setNemesis] = useState(null)
 
@@ -52,6 +52,6 @@ const Nemeses = () => {
       </ShuffleButton>
     </React.Fragment>
   )
-}
+})
 
 export default Nemeses

@@ -5,7 +5,7 @@ import ShuffleButton from 'components/ShuffleButton.jsx'
 
 import TurnOrderTable from './TurnOrderTable'
 
-const ActiveTurnOrder = ({
+const ActiveTurnOrder = React.memo(({
   deckIsEmpty,
   discard,
   handlers
@@ -37,6 +37,6 @@ const ActiveTurnOrder = ({
         Reset Game
     </ShuffleButton>
   </React.Fragment>
-)
+))
 
 export default ActiveTurnOrder

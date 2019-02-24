@@ -19,7 +19,7 @@ const renderTiles = (marketSetup, cards, classes) => {
   )
 }
 
-const SupplyList = ({marketSetup, cards, classes}) => (
+const SupplyList = React.memo(({marketSetup, cards, classes}) => (
   <ListWrapper>
     <Grid
       container
@@ -28,6 +28,6 @@ const SupplyList = ({marketSetup, cards, classes}) => (
       { renderTiles(marketSetup, cards, classes) }
     </Grid>
   </ListWrapper>
-)
+))
 
 export default SupplyList

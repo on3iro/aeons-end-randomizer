@@ -8,7 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 
-const TopBar = ({ classes, drawerIsOpen, currentLocation, toggleDrawer }) => (
+const TopBar = React.memo(({ classes, drawerIsOpen, currentLocation, toggleDrawer }) => (
   <AppBar
     position="fixed"
     className={classNames(classes.appBar, {
@@ -29,6 +29,6 @@ const TopBar = ({ classes, drawerIsOpen, currentLocation, toggleDrawer }) => (
       </Typography>
     </Toolbar>
   </AppBar>
-)
+))
 
 export default TopBar

@@ -17,12 +17,12 @@ import settingStyles from './settingStyles'
 import ActiveSets from './ActiveSets'
 
 
-const Settings = ({ classes }) => {
+const Settings = React.memo(({ classes }) => {
   const { expanded, handleExpansion } = useExpansionHandling()
 
   // Sets
   const { configurationOfSets, sets, setSets } = useContext(SetConfigurationContext)
-  const handleChange= (set) => {
+  const handleChange = (set) => {
     const newSets = { ...configurationOfSets, [set]: !configurationOfSets[set] }
     setSets(newSets)
     setToDb('sets', newSets)
@@ -53,6 +53,6 @@ const Settings = ({ classes }) => {
       </ExpansionPanelDetails>
     </AoeExpansionPanel>
   )
-}
+})
 
 export default withStyles(settingStyles)(Settings)

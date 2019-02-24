@@ -14,7 +14,7 @@ import MageList from './MageList'
 import EmptyMageListHint from './EmptyMageListHint'
 
 
-const Mages = () => {
+const Mages = React.memo(() => {
   const { selectedSets, noSelectedSetsComponent } = useSelectedSets()
   const [mages, setMages] = useState([])
   const [amount, setAmount] = useState(1)
@@ -55,6 +55,6 @@ const Mages = () => {
       </ShuffleButton>
     </React.Fragment>
   )
-}
+})
 
 export default Mages
