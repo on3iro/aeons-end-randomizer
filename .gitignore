@@ -185,3 +185,5 @@ src/css
 */**/_svg-sprite.scss
 
 .tern-port
+
+.idea

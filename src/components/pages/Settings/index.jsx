@@ -1,14 +1,16 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
 import { set as setToDb } from 'idb-keyval'
 
 import { withStyles } from '@material-ui/core/styles'
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography'
 
+import AoeExpansionPanel from 'components/AoeExpansionPanel'
+import AoeExpansionPanelSummary from 'components/AoeExpansionPanelSummary'
+
+import useExpansionHandling from 'hooks/useExpansionHandling'
 import { SetConfigurationContext } from 'globalContexts'
 
 import settingStyles from './settingStyles'
@@ -16,14 +18,7 @@ import ActiveSets from './ActiveSets'
 
 
 const Settings = ({ classes }) => {
-  // Expansion handling
-  const [ expanded, setExpanded ] = useState(null)
-  const handleExpansion = (panel) => (event, expanded) => {
-    const panelExpanded = expanded
-      ? panel
-      : false
-    setExpanded(panelExpanded)
-  }
+  const { expanded, handleExpansion } = useExpansionHandling()
 
   // Sets
   const { configurationOfSets, sets, setSets } = useContext(SetConfigurationContext)
@@ -43,10 +38,10 @@ const Settings = ({ classes }) => {
   }
 
   return (
-    <ExpansionPanel expanded={expanded === 'sets'} onChange={handleExpansion('sets')}>
-      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+    <AoeExpansionPanel expanded={expanded === 'sets'} onChange={handleExpansion('sets')}>
+      <AoeExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
         <Typography className={classes.heading}>Configured Sets</Typography>
-      </ExpansionPanelSummary>
+      </AoeExpansionPanelSummary>
       <ExpansionPanelDetails>
         <ActiveSets
           allSetsSelected={allSetsSelected}
@@ -56,7 +51,7 @@ const Settings = ({ classes }) => {
           handleChange={handleChange}
         />
       </ExpansionPanelDetails>
-    </ExpansionPanel>
+    </AoeExpansionPanel>
   )
 }
 

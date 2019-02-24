@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 
-import Typography from '@material-ui/core/Typography'
-
 import useSelectedSets from 'hooks/useSelectedSets'
 
 import ShuffleButton from 'components/ShuffleButton'
@@ -13,6 +11,7 @@ import {
 
 import MageCountPicker from './MageCountPicker'
 import MageList from './MageList'
+import EmptyMageListHint from './EmptyMageListHint'
 
 
 const Mages = () => {
@@ -44,7 +43,7 @@ const Mages = () => {
       />
       {
         hasEmptySlots
-          ? <Typography>Tap button to recruit mages</Typography>
+          ? <EmptyMageListHint>Tap button to recruit mages</EmptyMageListHint>
           : <MageList mages={mages} />
       }
       <ShuffleButton

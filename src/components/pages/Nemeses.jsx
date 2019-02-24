@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 
 import useSelectedSets from 'hooks/useSelectedSets'
@@ -28,7 +30,17 @@ const Nemeses = () => {
     <React.Fragment>
       {
         nemesis
-          ? <Typography>{nemesis['name']}, {nemesis['set']}</Typography>
+          ? (
+            <React.Fragment>
+              <Card>
+                <CardContent>
+                  <Typography color="textSecondary">{nemesis['set']}</Typography>
+                  <Typography variant="h6" component="h2">{nemesis['name']}</Typography>
+                </CardContent>
+              </Card>
+
+            </React.Fragment>
+          )
           : <Typography>Tab button to spawn new nemesis!</Typography>
       }
       <ShuffleButton
