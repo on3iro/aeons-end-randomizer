@@ -4,7 +4,7 @@ import Nemeses from 'components/pages/Nemeses'
 import Mages from 'components/pages/Mages'
 import Supply from 'components/pages/Supply'
 import Settings from 'components/pages/Settings'
-import TurnOrder from './TurnOrder.jsx'
+import TurnOrder from 'components/pages/TurnOrder'
 
 import { ROUTES } from 'routes'
 

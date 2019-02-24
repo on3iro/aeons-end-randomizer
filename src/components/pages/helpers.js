@@ -65,15 +65,15 @@ const filterByCost = (card, setupBlueprint) => {
  * list of available entities for the rest of the function run, as soon as it has been
  * picked for a slot once.
   */
-export const createEntityList = (availableEntities, slotList) => {
-  const entities = slotList.reduce(
-    (acc, slot, i) => {
-      const last = i === slotList.length - 1
+export const createEntityList = (availableEntities, blueprintList) => {
+  const entities = blueprintList.reduce(
+    (acc, blueprint, i) => {
+      const last = i === blueprintList.length - 1
 
       // Check for cards
-      const hasCostOperation = slot.operation !== undefined
+      const hasCostOperation = blueprint.operation !== undefined
       const newEntity = hasCostOperation
-        ? getRandomEntity(acc.availableEntities.filter(entity => filterByCost(entity, slot)))
+        ? getRandomEntity(acc.availableEntities.filter(entity => filterByCost(entity, blueprint)))
         : getRandomEntity(acc.availableEntities)
 
       if (last) {
@@ -82,7 +82,7 @@ export const createEntityList = (availableEntities, slotList) => {
 
       // Make sure each entity will only be added to the result list once
       const remainingEntitites = acc.availableEntities.filter(
-        entity => entity.name !== newEntity.name
+        entity => entity.id !== newEntity.id
       )
 
       return {
