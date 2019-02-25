@@ -32,7 +32,8 @@ const App = ({ classes }) => {
     setCurrentLocation(route)
   }
 
-  const defaultSets = config.DATA.sets.reduce(
+  const setsAndPromos = [ ...config.DATA.sets, ...config.DATA.promos ]
+  const defaultSets = setsAndPromos.reduce(
     (acc, set) => ({ ...acc, [set]: false }) , {}
   )
   const [ configurationOfSets, setSets ] = useState(defaultSets)
@@ -72,13 +73,18 @@ const App = ({ classes }) => {
           classes={classes}
           moveTo={moveTo}
         />
-        <SetConfigurationContext.Provider value={{ configurationOfSets, setSets, sets: config.DATA.sets }}>
+        <SetConfigurationContext.Provider
+          value={{ configurationOfSets, setSets, sets: setsAndPromos }}
+        >
           <Content
             route={currentLocation}
             classes={classes}
-            className={classNames(classes.content, {
-              [classes.contentShift]: drawerIsOpen,
-            })}
+            className={
+              classNames(
+                classes.content,
+                { [classes.contentShift]: drawerIsOpen }
+              )
+            }
           />
         </SetConfigurationContext.Provider>
       </div>
