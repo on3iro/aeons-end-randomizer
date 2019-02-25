@@ -1,8 +1,25 @@
 export const DATA = {
-  sets: ["WE", "AE", "BS", "Legacy", "Nameless", "Depths", "TV", "OD"],
+  sets: [
+    "WE",
+    "AE",
+    "BS",
+    "Legacy",
+    "Nameless",
+    "Depths",
+    "TV",
+    "OD"
+  ],
+  promos: [
+    "p-1",
+    "p-2",
+    "p-3",
+    "p-4",
+    "p-5"
+  ],
   "WE": {
     "id": "WE",
     "name": "War Eternal",
+    "type": "standalone",
     "nemeses": [
       {
         "set": "WE",
@@ -262,6 +279,7 @@ export const DATA = {
   "TV": {
     "id": "TV",
     "name": "Void",
+    "type": "mini",
     "nemeses": [
       {
         "set": "TV",
@@ -348,6 +366,7 @@ export const DATA = {
   "OD": {
     "id": "OD",
     "name": "Outer Dark",
+    "type": "mini",
     "nemeses": [
       {
         "set": "OD",
@@ -455,6 +474,7 @@ export const DATA = {
   "Nameless": {
     "id": "Nameless",
     "name": "Nameless",
+    "type": "mini",
     "nemeses": [
       {
         "set": "Nameless",
@@ -529,6 +549,7 @@ export const DATA = {
   "Legacy": {
     "id": "Legacy",
     "name": "Legacy",
+    "type": "standalone",
     "nemeses": [
       {
         "set": "Legacy",
@@ -561,7 +582,28 @@ export const DATA = {
         "id": "XaxosAscended"
       }
     ],
-    "mages": [],
+    "mages": [ 
+      {
+        "set": "Legacy",
+        "name": "Legacy 1",
+        "id": "Legacy1"
+      },
+      {
+        "set": "Legacy",
+        "name": "Legacy 2",
+        "id": "Legacy2"
+      },
+      {
+        "set": "Legacy",
+        "name": "Legacy 3",
+        "id": "Legacy3"
+      },
+      {
+        "set": "Legacy",
+        "name": "Legacy 4",
+        "id": "Legacy4"
+      }
+    ],
     "cards": [
       {
         "type": "Gem",
@@ -827,6 +869,7 @@ export const DATA = {
   "Depths": {
     "id": "Depths",
     "name": "Depths",
+    "type": "mini",
     "nemeses": [
       {
         "set": "Depths",
@@ -913,6 +956,7 @@ export const DATA = {
   "BS": {
     "id": "BS",
     "name": "Buried Secrets",
+    "type": "mini",
     "nemeses": [],
     "mages": [],
     "cards": [
@@ -1075,6 +1119,7 @@ export const DATA = {
   "AE": {
     "id": "AE",
     "name": "Aeons End",
+    "type": "standalone",
     "nemeses": [
       {
         "set": "AE",
@@ -1093,7 +1138,7 @@ export const DATA = {
       },
       {
         "set": "AE",
-        "name": "Rage Borne",
+        "name": "Rageborne",
         "id": "RageBorne"
       }
     ],
@@ -1327,6 +1372,86 @@ export const DATA = {
         "set": "AE",
         "name": "Oblivion Swell",
         "id": "OblivionSwell",
+        "cost": 5
+      }
+    ]
+  },
+  "p-1": {
+    "id": "p-1",
+    "name": "Drown in Flames",
+    "type": "promo",
+    "mages": [],
+    "nemeses": [],
+    "cards": [
+      {
+        "type": "Spell",
+        "set": "p-1",
+        "name": "Drown in Flames",
+        "id": "DrownInFlames",
+        "cost": 6
+      }
+    ]
+  },
+  "p-2": {
+    "id": "p-2",
+    "name": "Fleeting Vision",
+    "type": "promo",
+    "mages": [],
+    "nemeses": [],
+    "cards": [
+      {
+        "type": "Spell",
+        "set": "p-2",
+        "name": "Fleeting Vision",
+        "id": "FleetingVision",
+        "cost": 3
+      }
+    ]
+  },
+  "p-3": {
+    "id": "p-3",
+    "name": "Splinter Missile",
+    "type": "promo",
+    "mages": [],
+    "nemeses": [],
+    "cards": [
+      {
+        "type": "Spell",
+        "set": "p-3",
+        "name": "Splinter Missile",
+        "id": "SplinterMissile",
+        "cost": 5
+      }
+    ]
+  },
+  "p-4": {
+    "id": "p-4",
+    "name": "Echo Stone",
+    "type": "promo",
+    "mages": [],
+    "nemeses": [],
+    "cards": [
+      {
+        "type": "Gem",
+        "set": "p-4",
+        "name": "Echo Stone",
+        "id": "EchoStone",
+        "cost": 4
+      }
+    ]
+  },
+  "p-5": {
+    "id": "p-5",
+    "name": "Thieving Spirit",
+    "type": "promo",
+    "mages": [],
+    "nemeses": [],
+    "cards": [
+      {
+        "type": "Spell",
+        "set": "p-5",
+        "name": "Thieving Spirit",
+        "id": "ThievingSpirit",
         "cost": 5
       }
     ]

@@ -45,7 +45,7 @@ const MarketTile = React.memo(({ tileSetup, index, cards, classes, ...rest }) =>
                 Set:
               </Typography>
               <Typography className={classes.infoText} component="span">
-                { cards[index].set !== undefined
+                { config.DATA[cards[index].set] !== undefined
                     ? config.DATA[cards[index].set].name
                     : "-"
                 }

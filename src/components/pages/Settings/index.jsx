@@ -46,7 +46,7 @@ const Settings = React.memo(({ classes }) => {
         <ActiveSets
           allSetsSelected={allSetsSelected}
           handleSelectAll={handleSelectAll}
-          sets={sets}
+          setsAndPromos={sets}
           configurationOfSets={configurationOfSets}
           handleChange={handleChange}
         />
