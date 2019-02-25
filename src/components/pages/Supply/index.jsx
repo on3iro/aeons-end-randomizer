@@ -1,19 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
-import useSelectedSets from 'hooks/useSelectedSets'
 import useExpansionHandling from 'hooks/useExpansionHandling'
-import config from 'config'
 
 import StyledExpansionPanel from 'components/StyledExpansionPanel'
 import StyledExpansionPanelSummary from 'components/StyledExpansionPanelSummary'
 import ShuffleButton from 'components/ShuffleButton'
+
 import {
-  createSlotList,
   getListOfAvailableEntity,
   createEntityList
 } from '../helpers.js'
@@ -21,6 +19,10 @@ import {
 import supplyStyles from './supplyStyles'
 import SupplyList from './SupplyList'
 import MarketOptions from './MarketOptions'
+import {
+  useMarketSetup,
+  useSetHandling
+} from './hooks'
 
 /**
   * Creates a list of randomly selected cards from a given pool of cards by a specific type.
@@ -57,18 +59,13 @@ const createSupply = (selectedSets, tileSetups) => {
 // Component
 const Supply = React.memo(({ classes }) => {
   const { expanded, handleExpansion, setExpanded } = useExpansionHandling()
-
-  // Market setup handling
-  const [ marketSetup, setMarketSetup ] = useState(config.MARKETSETUPS['market1'])
-  const handleMarketSetup = (event) => {
-    setMarketSetup(config.MARKETSETUPS[event.target.value])
-    setExpanded(false)
-  }
-
-  // Set handling
-  const { selectedSets, noSelectedSetsComponent } = useSelectedSets()
-  const emptySlotList = () => createSlotList(9)
-  const [cards, setCards] = useState(emptySlotList)
+  const {
+    selectedSets,
+    noSelectedSetsComponent,
+    cards,
+    setCards
+  } = useSetHandling()
+  const { marketSetup, handleMarketSetup } = useMarketSetup(setExpanded, setCards)
 
   if (noSelectedSetsComponent) {
     return noSelectedSetsComponent
