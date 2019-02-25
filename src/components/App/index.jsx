@@ -18,8 +18,11 @@ import Content from 'components/Content.jsx'
 import TopBar from './TopBar'
 import DrawerMenu from './DrawerMenu'
 
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+import pink from '@material-ui/core/colors/pink';
 
-const App = ({ classes, theme }) => {
+const App = ({ classes }) => {
   const [ drawerIsOpen, setDrawerIsOpen ] = useState(false)
   const toggleDrawer = () => setDrawerIsOpen(!drawerIsOpen)
 
@@ -34,6 +37,16 @@ const App = ({ classes, theme }) => {
   )
   const [ configurationOfSets, setSets ] = useState(defaultSets)
 
+  const theme = createMuiTheme({
+    palette: {
+      primary: blue,
+      secondary: pink,
+    },
+    typography: {
+      useNextVariants: true,
+    },
+  });
+
   // Get sets from indexedDB
   useEffect(() => {
     getFromDb('sets').then(sets => {
@@ -44,30 +57,32 @@ const App = ({ classes, theme }) => {
   }, [])
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <TopBar
-        classes={classes}
-        drawerIsOpen={drawerIsOpen}
-        currentLocation={currentLocation}
-        toggleDrawer={toggleDrawer}
-      />
-      <DrawerMenu
-        drawerIsOpen={drawerIsOpen}
-        toggleDrawer={toggleDrawer}
-        classes={classes}
-        moveTo={moveTo}
-      />
-      <SetConfigurationContext.Provider value={{ configurationOfSets, setSets, sets: config.DATA.sets }}>
-        <Content
-          route={currentLocation}
+    <MuiThemeProvider theme={theme}>
+      <div className={classes.root}>
+        <CssBaseline />
+        <TopBar
           classes={classes}
-          className={classNames(classes.content, {
-            [classes.contentShift]: drawerIsOpen,
-          })}
+          drawerIsOpen={drawerIsOpen}
+          currentLocation={currentLocation}
+          toggleDrawer={toggleDrawer}
         />
-      </SetConfigurationContext.Provider>
-    </div>
+        <DrawerMenu
+          drawerIsOpen={drawerIsOpen}
+          toggleDrawer={toggleDrawer}
+          classes={classes}
+          moveTo={moveTo}
+        />
+        <SetConfigurationContext.Provider value={{ configurationOfSets, setSets, sets: config.DATA.sets }}>
+          <Content
+            route={currentLocation}
+            classes={classes}
+            className={classNames(classes.content, {
+              [classes.contentShift]: drawerIsOpen,
+            })}
+          />
+        </SetConfigurationContext.Provider>
+      </div>
+    </MuiThemeProvider>
   );
 }
 
