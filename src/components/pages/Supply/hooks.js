@@ -10,7 +10,7 @@ import { createSlotList } from '../helpers'
 const DEFAULTSUPPLYCOUNT = 9
 
 export const useMarketSetup = (setExpanded, setCards) => {
-  const [ marketSetup, setMarketSetup ] = useState(config.MARKETSETUPS['market1'])
+  const [ marketSetup, setMarketSetup ] = useState(config.MARKETSETUPS['market1Inc'])
   const handleMarketSetup = (event) => {
     setMarketSetup(config.MARKETSETUPS[event.target.value])
     setExpanded(false)
