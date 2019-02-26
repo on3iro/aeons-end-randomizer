@@ -5,6 +5,10 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
+    "@types/jest": "^24.0.9",
+    "@types/node": "^11.9.5",
+    "@types/react": "^16.8.5",
+    "@types/react-dom": "^16.8.2",
     "classnames": "^2.2.6",
     "cross-env": "^5.2.0",
     "gh-pages": "^2.0.1",
@@ -13,7 +17,8 @@
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.5",
     "rpg-awesome": "^0.2.0",
-    "styled-components": "^4.1.3"
+    "styled-components": "^4.1.3",
+    "typescript": "^3.3.3333"
   },
   "homepage": "https://on3iro.github.io/aeons-end-randomizer/",
   "scripts": {
@@ -34,6 +39,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/styled-components": "^4.1.11",
     "babel-plugin-macros": "^2.5.0"
   }
 }
