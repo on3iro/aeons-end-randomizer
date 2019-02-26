@@ -43,6 +43,12 @@ const filterByCost = (card, setupBlueprint) => {
     case ">": {
       return card.cost > setupBlueprint.threshold
     }
+    case "<=": {
+      return card.cost <= setupBlueprint.threshold
+    }
+    case ">=": {
+      return card.cost >= setupBlueprint.threshold
+    }
     case "=": {
       return card.cost === setupBlueprint.threshold
     }
@@ -72,9 +78,12 @@ export const createEntityList = (availableEntities, blueprintList) => {
 
       // Check for cards
       const hasCostOperation = blueprint.operation !== undefined
-      const newEntity = hasCostOperation
+      const randomEntity = hasCostOperation
         ? getRandomEntity(acc.availableEntities.filter(entity => filterByCost(entity, blueprint)))
         : getRandomEntity(acc.availableEntities)
+
+      // If not entity is left, simply return the actual blueprint
+      const newEntity = randomEntity || blueprint
 
       if (last) {
         return [ ...acc.result, newEntity ]
