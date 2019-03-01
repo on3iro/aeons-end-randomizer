@@ -1,6 +1,8 @@
+import { createStyles } from '@material-ui/core'
+
 const drawerWidth = 240;
 
-export const styles = (theme: any) => ({
+export const styles = (theme: any) => createStyles({
   root: {
     display: 'flex',
     paddingBottom: 72
@@ -69,5 +71,9 @@ export const styles = (theme: any) => ({
     display: 'inline-block',
     verticalAlign: 'middle',
     marginRight: theme.spacing.unit
+  },
+  loading: {
+    textAlign: 'center',
+    paddingTop: '150px'
   }
 })
