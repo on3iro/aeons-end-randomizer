@@ -6,9 +6,9 @@ import classNames from 'classnames'
 import 'rpg-awesome/css/rpg-awesome.min.css'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
-import blue from '@material-ui/core/colors/blue';
-import pink from '@material-ui/core/colors/pink';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue'
+import pink from '@material-ui/core/colors/pink'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { withStyles } from '@material-ui/core/styles'
 
 import { styles } from './appStyles'
@@ -32,11 +32,13 @@ const App = ({ classes }: { classes: any }) => {
     setCurrentLocation(route)
   }
 
+  const [ isLoading, setLoading ] = useState<boolean>(true)
+
   const setsAndPromos = config.EXPANSIONS
-  const defaultSets = setsAndPromos.reduce(
+  const defaultExpansionConfig = setsAndPromos.reduce(
     (acc, set) => ({ ...acc, [set]: false }) , {}
   )
-  const [ configurationOfSets, setSets ] = useState<{[key: string]: boolean}>(defaultSets)
+  const [ configurationOfSets, setSets ] = useState<{[key: string]: boolean}>(defaultExpansionConfig)
 
   const theme = createMuiTheme({
     palette: {
@@ -50,11 +52,15 @@ const App = ({ classes }: { classes: any }) => {
 
   // Get sets from indexedDB
   useEffect(() => {
-    getFromDb('sets').then(sets => {
-      if (sets !== undefined) {
-        setSets((sets as {[key: string]: boolean}))
-      }
-    })
+    getFromDb('sets')
+      .then(sets => {
+        if (sets !== undefined) {
+          setSets((sets as {[key: string]: boolean}))
+        }
+        setLoading(false)
+      }).catch(() => {
+        setLoading(false)
+      })
   }, [])
 
   return (
@@ -76,16 +82,18 @@ const App = ({ classes }: { classes: any }) => {
         <SetConfigurationContext.Provider
           value={{ configurationOfSets, setSets, sets: setsAndPromos }}
         >
-          <Content
-            route={currentLocation}
-            classes={classes}
-            className={
-              classNames(
-                classes.content,
-                { [classes.contentShift]: drawerIsOpen }
-              )
-            }
-          />
+        <Content
+          isLoading={isLoading}
+          route={currentLocation}
+          classes={classes}
+          className={
+            classNames(
+              classes.content,
+              { [classes.contentShift]: drawerIsOpen },
+              { [classes.loading]: isLoading }
+            )
+          }
+        />
         </SetConfigurationContext.Provider>
       </div>
     </MuiThemeProvider>
