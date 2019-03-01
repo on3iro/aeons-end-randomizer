@@ -27,6 +27,8 @@
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
+    "analyze:app": "source-map-explorer build/static/js/main.*",
+    "analyze:vendor": "source-map-explorer build/static/js/2.*",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -41,6 +43,7 @@
   "devDependencies": {
     "@types/classnames": "^2.2.7",
     "@types/styled-components": "^4.1.11",
-    "babel-plugin-macros": "^2.5.0"
+    "babel-plugin-macros": "^2.5.0",
+    "source-map-explorer": "^1.7.0"
   }
 }
