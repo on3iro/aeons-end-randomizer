@@ -1,65 +1,54 @@
 import React, { useState, useEffect } from 'react';
 
-import { get as getFromDb } from 'idb-keyval'
-
-import classNames from 'classnames'
 import 'rpg-awesome/css/rpg-awesome.min.css'
 
+import axios from 'axios'
+
 import CssBaseline from '@material-ui/core/CssBaseline'
-import blue from '@material-ui/core/colors/blue'
-import pink from '@material-ui/core/colors/pink'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import blue from '@material-ui/core/colors/blue';
+import pink from '@material-ui/core/colors/pink';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles'
 
 import { styles } from './appStyles'
-import { ROUTES } from '../../routes'
-import config from '../../config'
-import { SetConfigurationContext } from '../../globalContexts'
 
-import Content from '../Content'
-
-import TopBar from './TopBar'
-import DrawerMenu from './DrawerMenu'
+import UpdateScreen from './UpdateScreen'
+import MainApp from './MainApp'
 
 
-const App = ({ classes }: { classes: any }) => {
-  const [ drawerIsOpen, setDrawerIsOpen ] = useState(false)
-  const toggleDrawer = () => setDrawerIsOpen(!drawerIsOpen)
+const theme = createMuiTheme({
+  palette: {
+    primary: blue,
+    secondary: pink,
+  },
+  typography: {
+    useNextVariants: true,
+  },
+});
 
-  const [ currentLocation, setCurrentLocation ] = useState(ROUTES.nemeses)
-  const moveTo = (route: string) => {
-    toggleDrawer()
-    setCurrentLocation(route)
-  }
+type UpdateInformation = {
+  updateAvailable: boolean,
+  newVersion: string
+}
 
-  const [ isLoading, setLoading ] = useState<boolean>(true)
+const App = React.memo(({ classes }: { classes: any }) => {
+  const [ updateInformation, setUpdateAvailable ] = useState<UpdateInformation>({
+    updateAvailable: false,
+    newVersion: ''
+  })
 
-  const setsAndPromos = config.EXPANSIONS
-  const defaultExpansionConfig = setsAndPromos.reduce(
-    (acc, set) => ({ ...acc, [set]: false }) , {}
-  )
-  const [ configurationOfSets, setSets ] = useState<{[key: string]: boolean}>(defaultExpansionConfig)
-
-  const theme = createMuiTheme({
-    palette: {
-      primary: blue,
-      secondary: pink,
-    },
-    typography: {
-      useNextVariants: true,
-    },
-  });
-
-  // Get sets from indexedDB
   useEffect(() => {
-    getFromDb('sets')
-      .then(sets => {
-        if (sets !== undefined) {
-          setSets((sets as {[key: string]: boolean}))
+    axios.get('https://api.github.com/repos/on3iro/aeons-end-randomizer/releases')
+      .then(response => {
+        const newestRelease = response.data[0]
+        const localAppVersion = process.env.REACT_APP_VERSION
+        const newVersion = newestRelease['tag_name']
+        if (newVersion !== `v${localAppVersion}`) {
+          setUpdateAvailable({
+            updateAvailable: true,
+            newVersion
+          })
         }
-        setLoading(false)
-      }).catch(() => {
-        setLoading(false)
       })
   }, [])
 
@@ -67,37 +56,14 @@ const App = ({ classes }: { classes: any }) => {
     <MuiThemeProvider theme={theme}>
       <div className={classes.root}>
         <CssBaseline />
-        <TopBar
-          classes={classes}
-          drawerIsOpen={drawerIsOpen}
-          currentLocation={currentLocation}
-          toggleDrawer={toggleDrawer}
-        />
-        <DrawerMenu
-          drawerIsOpen={drawerIsOpen}
-          toggleDrawer={toggleDrawer}
-          classes={classes}
-          moveTo={moveTo}
-        />
-        <SetConfigurationContext.Provider
-          value={{ configurationOfSets, setSets, sets: setsAndPromos }}
-        >
-        <Content
-          isLoading={isLoading}
-          route={currentLocation}
-          classes={classes}
-          className={
-            classNames(
-              classes.content,
-              { [classes.contentShift]: drawerIsOpen },
-              { [classes.loading]: isLoading }
-            )
-          }
-        />
-        </SetConfigurationContext.Provider>
+        {
+          updateInformation.updateAvailable
+            ? <UpdateScreen newVersion={updateInformation.newVersion} />
+            : <MainApp classes={classes} />
+        }
       </div>
     </MuiThemeProvider>
   );
-}
+})
 
 export default withStyles(styles, { withTheme: true })(App)

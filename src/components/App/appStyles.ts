@@ -4,6 +4,7 @@ const drawerWidth = 240;
 
 export const styles = (theme: any) => createStyles({
   root: {
+    height: '100%',
     display: 'flex',
     paddingBottom: 72
   },
