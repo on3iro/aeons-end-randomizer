@@ -5,10 +5,12 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
+    "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.9",
     "@types/node": "^11.9.5",
     "@types/react": "^16.8.5",
     "@types/react-dom": "^16.8.2",
+    "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "cross-env": "^5.2.0",
     "gh-pages": "^2.0.1",

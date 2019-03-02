@@ -173,6 +173,15 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
+# https://raw.githubusercontent.com/github/gitignore/master/Global/VisualStudioCode.gitignore
+# ======================================================================================================================
+# Logs
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # Project
 # ======================================================================================================================
 src/js/main.bundle.*
