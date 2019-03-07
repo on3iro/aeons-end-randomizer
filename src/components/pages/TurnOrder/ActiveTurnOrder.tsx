@@ -32,9 +32,11 @@ const ActiveTurnOrder = React.memo(({
     <React.Fragment>
       {
         deckIsEmpty
-          ? (<Button color='secondary' onClick={startNewRound}>New Round</Button>)
+          ? (<Button size='large' variant='contained' color='secondary' onClick={startNewRound}>New Round</Button>)
           : (
             <Button
+              size='large'
+              variant='contained'
               color='secondary' 
               onClick={drawTurnOrderCard}
             >
