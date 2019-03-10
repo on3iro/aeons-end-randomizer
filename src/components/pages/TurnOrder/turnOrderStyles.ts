@@ -88,6 +88,18 @@ const turnOrderStyles = (theme: any) => createStyles({
       },
     },
   },
+  maelstrom: {
+    background: '#EFEBE9',
+    '& td': {
+      borderColor: '#EFEBE9',
+    },
+    '&:first-child': {
+      background: '#795548',
+      '& td': {
+        borderColor: '#795548',
+      },
+    },
+  }
 })
 
 export default turnOrderStyles

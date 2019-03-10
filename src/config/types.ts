@@ -80,6 +80,7 @@ export type Player =
   | "Player 4"
   | "Nemesis"
   | "Wild"
+  | "Maelstrom Assault"
 
 export interface ITurnOrderCard {
   id: string;
