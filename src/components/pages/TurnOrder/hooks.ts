@@ -10,6 +10,7 @@ import {
   ITurnOrderCard,
   ITurnOrderSetup
 } from '../../../config/types'
+import { CARDS } from '../../../config/turnOrderSetups'
 
 import {
   getRandomEntity
@@ -67,14 +68,31 @@ const shuffleDeck = (deck: ITurnOrderCard[]): ITurnOrderCard[] => {
   return createTurnOrderCardList(deck, deck, getRandomEntity).result
 }
 
+const adjustSetup = (setup: ITurnOrderSetup, mode: string): ITurnOrderSetup => {
+  if (mode === "Default") {
+    return setup
+  }
+
+  return {
+    id: setup.id,
+    name: setup.name,
+    turnOrderCards: setup.turnOrderCards.map(card => {
+      return (card.id === 'nemesis-1')
+        ? CARDS["maelstrom"]
+        : card
+    })
+  }
+}
+
 export const useTurnOrderSetup = () => {
   const [turnOrderSetup, setTurnOrderSetup] = useState(
     config.TURNORDERSETUPS['onePlayerThreeToc']
   )
-  const handleTurnOrderSetupChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const setup = config.TURNORDERSETUPS[event.currentTarget.value]
-    setTurnOrderSetup(setup)
-    setToDb('turnOrderSetup', setup)
+  const handleTurnOrderSetupChange = (setupId: string, mode: string) => {
+    const setup = config.TURNORDERSETUPS[setupId]
+    const adjustedSetup = adjustSetup(setup, mode)
+    setTurnOrderSetup(adjustedSetup)
+    setToDb('turnOrderSetup', adjustedSetup)
   }
 
   useEffect(() => {

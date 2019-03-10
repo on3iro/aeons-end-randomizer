@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Radio from '@material-ui/core/Radio'
@@ -27,10 +27,11 @@ const renderSetupOptions = () => Object.values(config.TURNORDERSETUPS).map(setup
     key={setup.id}
     value={setup.id}
     control={<Radio />}
-    label={setup.name} />
+    label={setup.name}
+  />
 ))
 
-const renderTurnOrderSetups = (turnOrderSetup: ITurnOrderSetup) => turnOrderSetup
+const renderCardNames = (turnOrderSetup: ITurnOrderSetup) => turnOrderSetup
   .turnOrderCards
   .map(
     (card, i) => (
@@ -40,7 +41,7 @@ const renderTurnOrderSetups = (turnOrderSetup: ITurnOrderSetup) => turnOrderSetu
     )
   )
 
-const TurnOrderSetup = React.memo(({
+const TurnOrderSetupSelection = React.memo(({
   turnOrderSetup,
   startGame,
   chooseSetup,
@@ -48,12 +49,14 @@ const TurnOrderSetup = React.memo(({
 }: {
   turnOrderSetup: ITurnOrderSetup,
   startGame: () => void,
-  chooseSetup: (event: React.ChangeEvent<HTMLInputElement>) => void,
+  chooseSetup: (setupId: string, mode: string) => void,
   classes: any
 }) => {
+  const [ turnOrderMode, setTurnOrderMode ] = useState("Default")
   const { expanded, handleExpansion, setExpanded } = useExpansionHandling()
-  const handleSetupChange = (event: React.ChangeEvent<any>) => {
-    chooseSetup(event)
+  const handleSetupChange = (setupId: string, mode: string) => {
+    setTurnOrderMode(mode)
+    chooseSetup(setupId, mode)
     setExpanded(false)
   }
 
@@ -68,15 +71,44 @@ const TurnOrderSetup = React.memo(({
             aria-label='Players'
             name='turnOrderOptions'
             value={turnOrderSetup.id}
-            onChange={handleSetupChange}>
+            onChange={
+              (event: React.ChangeEvent<any>) => handleSetupChange(event.currentTarget.value, turnOrderMode)
+            }
+          >
             {renderSetupOptions()}
           </RadioGroup>
         </ExpansionPanelDetails>
       </StyledExpansionPanel>
       <Card className={classes.cardDeck}>
         <CardContent>
+          <Typography color="textSecondary" gutterBottom>Mode</Typography>
+          <RadioGroup
+            aria-label='mode'
+            name='turnOrderMode'
+            value={turnOrderMode}
+            onChange={
+              (event: React.ChangeEvent<any>) => handleSetupChange(turnOrderSetup.id, event.currentTarget.value)
+            }
+          >
+            <FormControlLabel
+              key="Default"
+              value="Default"
+              control={<Radio />}
+              label="Default"
+            />
+            <FormControlLabel
+              key="Maelstrom"
+              value="Maelstrom"
+              control={<Radio />}
+              label="Maelstrom"
+            />
+          </RadioGroup>
+        </CardContent>
+      </Card>
+      <Card className={classes.cardDeck}>
+        <CardContent>
           <Typography color="textSecondary" gutterBottom>Turn order cards</Typography>
-          { renderTurnOrderSetups(turnOrderSetup) }
+          { renderCardNames(turnOrderSetup) }
         </CardContent>
       </Card>
       <ShuffleButton color='primary' variant='extended' onClick={startGame}>
@@ -86,4 +118,4 @@ const TurnOrderSetup = React.memo(({
   )
 })
 
-export default withStyles(turnOrderStyles)(TurnOrderSetup)
+export default withStyles(turnOrderStyles)(TurnOrderSetupSelection)
