@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ActiveTurnOrder from './ActiveTurnOrder'
-import TurnOrderSetup from './TurnOrderSetup'
+import TurnOrderSetupSelection from './TurnOrderSetupSelection'
 import {
   useTurnOrderSetup,
   useGameState
@@ -41,7 +41,7 @@ const TurnOrder = React.memo(() => {
             />
           )
           : (
-            <TurnOrderSetup
+            <TurnOrderSetupSelection
               turnOrderSetup={turnOrderSetup}
               startGame={handleStartGame}
               chooseSetup={handleTurnOrderSetupChange}
