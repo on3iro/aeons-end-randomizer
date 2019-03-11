@@ -1,25 +1,19 @@
 import React from 'react'
 
-import ActiveTurnOrder from './ActiveTurnOrder'
-import TurnOrderSetupSelection from './TurnOrderSetupSelection'
-import {
-  useTurnOrderSetup,
-  useGameState
-} from './hooks'
+import ActiveGame from './ActiveGame'
+import TurnOrderConfiguration from './TurnOrderConfiguration'
+import { useGameState } from './hooks/useGameState'
+import { useTurnOrderSetup } from './hooks/useTurnOrderSetup'
 
 
 const TurnOrder = React.memo(() => {
   const { turnOrderSetup, handleTurnOrderSetupChange } = useTurnOrderSetup()
 
   const {
-    addToBottom,
-    addToTop,
-    drawTurnOrderCard,
+    dispatch,
     gameState,
     handleResetGame,
     handleStartGame,
-    shuffleIntoDeck,
-    startNewRound,
     turnOrderState
   } = useGameState(turnOrderSetup)
 
@@ -27,21 +21,16 @@ const TurnOrder = React.memo(() => {
     <React.Fragment>
       {gameState.started
           ? (
-            <ActiveTurnOrder
+            <ActiveGame
+              availableCards={turnOrderSetup.turnOrderCards}
               deckIsEmpty={turnOrderState.deck.length === 0}
               discard={turnOrderState.discard}
-              handlers={{
-                addToBottom,
-                addToTop,
-                drawTurnOrderCard,
-                handleResetGame,
-                shuffleIntoDeck,
-                startNewRound
-              }}
+              dispatch={dispatch}
+              handleResetGame={handleResetGame}
             />
           )
           : (
-            <TurnOrderSetupSelection
+            <TurnOrderConfiguration
               turnOrderSetup={turnOrderSetup}
               startGame={handleStartGame}
               chooseSetup={handleTurnOrderSetupChange}
