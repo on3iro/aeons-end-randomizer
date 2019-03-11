@@ -1,7 +1,7 @@
 import React from 'react'
 
 import IconButton from '@material-ui/core/IconButton'
-import TableRow from '@material-ui/core/TableRow'
+import MuiTableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 import { Loop, Publish, GetApp } from '@material-ui/icons'
 
@@ -9,53 +9,50 @@ import {
   ITurnOrderCard
 } from '../../../config/types'
 
-import TurnOrderTableCell from './TurnOrderTableCell'
+import TableCell from './TableCell'
+import { TurnOrderAction } from './hooks/TurnOrderStateReducer'
 
-const TurnOrderTableRow = React.memo(({
+const TableRow = React.memo(({
   card,
-  handlers,
+  dispatch,
   classes
 }: {
   card: ITurnOrderCard,
-  handlers: {
-    addToTop: (id: string) => void,
-    addToBottom: (id: string) => void,
-    shuffleIntoDeck: (id: string) => void
-  },
+  dispatch: (action: TurnOrderAction) => void,
   classes: any
 }) => (
-  <TableRow className={`${classes.cardRow} ${classes[card.cssClass]}`}>
-    <TurnOrderTableCell>
+  <MuiTableRow className={`${classes.cardRow} ${classes[card.cssClass]}`}>
+    <TableCell>
       <Typography component='p'>{card.name}</Typography>
-    </TurnOrderTableCell>
-    <TurnOrderTableCell align="right">
+    </TableCell>
+    <TableCell align="right">
       <IconButton
         aria-label="Add to top" 
         title="Add to top" 
-        onClick={() => handlers.addToTop(card.id)}
+        onClick={() => dispatch({ type: 'ADD_TO_TOP', payload: card.id })}
       >
         <Publish fontSize="small" />
       </IconButton>
-    </TurnOrderTableCell>
-    <TurnOrderTableCell align="right">
+    </TableCell>
+    <TableCell align="right">
       <IconButton 
         aria-label="Add to bottom"
         title="Add to bottom"
-        onClick={() => handlers.addToBottom(card.id)}
+        onClick={() => dispatch({ type: 'ADD_TO_BOTTOM', payload: card.id })}
       >
         <GetApp fontSize="small" />
       </IconButton>
-    </TurnOrderTableCell>
-    <TurnOrderTableCell align="right">
+    </TableCell>
+    <TableCell align="right">
       <IconButton 
         aria-label="Shuffle into Turn Order Deck"
         title="Shuffle into Turn Order Deck"
-        onClick={() => handlers.shuffleIntoDeck(card.id)}
+        onClick={() => dispatch({ type: 'SHUFFLE_INTO_DECK', payload: card.id })}
       >
         <Loop fontSize="small" />
       </IconButton>
-    </TurnOrderTableCell>
-  </TableRow>
+    </TableCell>
+  </MuiTableRow>
 ))
 
-export default TurnOrderTableRow
+export default TableRow
