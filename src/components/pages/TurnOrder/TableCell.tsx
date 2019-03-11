@@ -1,7 +1,7 @@
 import { withStyles } from '@material-ui/core/styles'
-import TableCell from '@material-ui/core/TableCell'
+import MuiTableCell from '@material-ui/core/TableCell'
 
-const DiscardTableCell = withStyles({
+const TableCell = withStyles({
     root: {
       padding: '4px 8px',
       '&:first-child': {
@@ -11,6 +11,6 @@ const DiscardTableCell = withStyles({
         paddingRight: 8
       },
     }
-})(TableCell)
+})(MuiTableCell)
 
-export default DiscardTableCell
+export default TableCell
