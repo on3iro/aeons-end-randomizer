@@ -1,24 +1,29 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import IconButton from '@material-ui/core/IconButton'
 import MuiTableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 import { Loop, Publish, GetApp } from '@material-ui/icons'
 
-import {
-  ITurnOrderCard
-} from '../../../config/types'
+import { ITurnOrderCard } from '../../../types'
+import { RootState } from '../../../Redux/Store'
+import * as TurnOrderGame from '../../../Redux/Store/TurnOrder/ActiveGame'
 
 import TableCell from './TableCell'
-import { TurnOrderAction } from './hooks/TurnOrderStateReducer'
+
 
 const TableRow = React.memo(({
   card,
-  dispatch,
+  addToTop,
+  addToBottom,
+  shuffleIntoDeck,
   classes
 }: {
   card: ITurnOrderCard,
-  dispatch: (action: TurnOrderAction) => void,
+  addToTop: (cardId: string) => TurnOrderGame.Action,
+  addToBottom: (cardId: string) => TurnOrderGame.Action,
+  shuffleIntoDeck: (cardId: string) => TurnOrderGame.Action,
   classes: any
 }) => (
   <MuiTableRow className={`${classes.cardRow} ${classes[card.cssClass]}`}>
@@ -29,7 +34,7 @@ const TableRow = React.memo(({
       <IconButton
         aria-label="Add to top" 
         title="Add to top" 
-        onClick={() => dispatch({ type: 'ADD_TO_TOP', payload: card.id })}
+        onClick={() => addToTop(card.id)}
       >
         <Publish fontSize="small" />
       </IconButton>
@@ -38,7 +43,7 @@ const TableRow = React.memo(({
       <IconButton 
         aria-label="Add to bottom"
         title="Add to bottom"
-        onClick={() => dispatch({ type: 'ADD_TO_BOTTOM', payload: card.id })}
+        onClick={() => addToBottom(card.id)}
       >
         <GetApp fontSize="small" />
       </IconButton>
@@ -47,7 +52,7 @@ const TableRow = React.memo(({
       <IconButton 
         aria-label="Shuffle into Turn Order Deck"
         title="Shuffle into Turn Order Deck"
-        onClick={() => dispatch({ type: 'SHUFFLE_INTO_DECK', payload: card.id })}
+        onClick={() => shuffleIntoDeck(card.id)}
       >
         <Loop fontSize="small" />
       </IconButton>
@@ -55,4 +60,12 @@ const TableRow = React.memo(({
   </MuiTableRow>
 ))
 
-export default TableRow
+const mapStateToProps = (state: RootState) => ({ })
+
+const mapDispatchToProps = {
+  addToTop: TurnOrderGame.actions.addToTop,
+  addToBottom: TurnOrderGame.actions.addToBottom,
+  shuffleIntoDeck: TurnOrderGame.actions.shuffleIntoDeck,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TableRow)

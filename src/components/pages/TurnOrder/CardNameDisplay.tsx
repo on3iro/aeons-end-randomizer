@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent'
 
 import {
   ITurnOrderSetup
-} from '../../../config/types'
+} from '../../../types'
 
 
 const renderCardNames = (turnOrderSetup: ITurnOrderSetup) => turnOrderSetup

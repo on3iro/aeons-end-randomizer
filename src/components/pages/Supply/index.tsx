@@ -1,57 +1,66 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
+import { RootState } from '../../../Redux/Store'
+import * as SelectedExpansions from '../../../Redux/Store/Settings/Expansions/Selected'
+import * as SupplySelection from '../../../Redux/Store/Supply/Selection'
+import * as SupplySetups from '../../../Redux/Store/Settings/SupplySetups'
+import * as RandomSupply from '../../../Redux/Store/Supply/RandomSetup'
+
 import useExpandedHandling from '../../../hooks/useExpansionHandling'
+import { ICard, Slot, IMarketSetup } from '../../../types'
 
 import StyledExpansionPanel from '../../StyledExpansionPanel'
 import StyledExpansionPanelSummary from '../../StyledExpansionPanelSummary'
 import ShuffleButton from '../../ShuffleButton'
+import NoSelectedExpansions from '../../NoSelectedExpansions'
 
 import supplyStyles from './supplyStyles'
 import SupplyList from './SupplyList'
 import MarketOptions from './MarketOptions'
-import {
-  useMarketSetup,
-  useSetHandling
-} from './hooks'
-import {
-  createSupply
-} from './helpers'
 
 
-const Supply = React.memo(({ classes }: { classes: any }) => {
-  const { expanded, handleExpansion, setExpanded } = useExpandedHandling()
-  const {
-    selectedSets,
-    NoSelectedExpansionsComponent,
-    cards,
-    setCards
-  } = useSetHandling()
-  const { marketSetup, handleMarketSetup } = useMarketSetup(setExpanded, setCards)
+const Supply = React.memo(({
+  classes,
+  cards,
+  createMarket,
+  hasStandaloneExpansionSelected,
+  marketSetup,
+  selectedExpansions,
+}: {
+  classes: any,
+  cards: ReadonlyArray<Slot | ICard>,
+  createMarket: (expansions: ReadonlyArray<string>, tiles: ReadonlyArray<Slot>) => RandomSupply.Action,
+  hasStandaloneExpansionSelected: boolean,
+  marketSetup: IMarketSetup,
+  selectedExpansions: ReadonlyArray<string>,
+}) => {
+  const { expanded, createExpansionHandler } = useExpandedHandling()
+  const expansionHandler = createExpansionHandler('setup')
 
-  if (NoSelectedExpansionsComponent) {
-    return <NoSelectedExpansionsComponent />
+  if (!hasStandaloneExpansionSelected) {
+    return <NoSelectedExpansions />
   }
 
   const handleShuffle = () => {
-    const { gems, relics, spells } = createSupply(selectedSets, marketSetup.tiles)
-    setCards([...gems.result, ...relics.result, ...spells.result])
+    createMarket(selectedExpansions, marketSetup.tiles)
   }
 
   return (
     <React.Fragment>
-      <StyledExpansionPanel expanded={expanded === 'setup'} onChange={handleExpansion('setup')}>
+      <StyledExpansionPanel expanded={expanded === 'setup'} onChange={expansionHandler}>
         <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>{marketSetup.name}</Typography>
         </StyledExpansionPanelSummary>
         <ExpansionPanelDetails>
           <MarketOptions
             marketSetupId={marketSetup.id}
-            changeHandler={handleMarketSetup}
+            expansionHandler={expansionHandler}
           />
         </ExpansionPanelDetails>
       </StyledExpansionPanel>
@@ -71,4 +80,14 @@ const Supply = React.memo(({ classes }: { classes: any }) => {
   )
 })
 
-export default withStyles(supplyStyles)(Supply)
+const mapStateToProps = (state: RootState) => ({
+  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(state),
+  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(state),
+  marketSetup: SupplySelection.selectors.getSelectedSetup(state),
+  cards: RandomSupply.selectors.getCards(state)
+})
+const mapDispatchToProps = {
+  createMarket: RandomSupply.actions.createMarket,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(supplyStyles)(Supply))

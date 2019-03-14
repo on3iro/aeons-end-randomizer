@@ -1,7 +1,7 @@
 import React from 'react'
 import {
 
-} from './config/types'
+} from './types'
 
 interface ISetConfiguration {
   configurationOfSets: { [key: string]: boolean };

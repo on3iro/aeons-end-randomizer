@@ -1,7 +1,7 @@
 import React from 'react'
 
 const CardTypeIcon = React.memo(({type, classes}: {
-  type: string
+  type: string,
   classes: any,
 }) => {
   const typeClass = classes[`${type}Icon`]
