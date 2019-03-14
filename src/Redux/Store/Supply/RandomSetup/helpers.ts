@@ -2,13 +2,12 @@ import {
    ICard, 
    IBluePrint, 
    CardType,
-   Operation
-} from '../../../config/types'
+} from '../../../../types'
 import {
   getListOfAvailableEntity,
   getRandomEntity,
   isCardArray
-} from '../helpers'
+} from '../../../helpers'
 
 
 type CardListReduceResult = {
@@ -95,8 +94,8 @@ const createCardList = (
   * return List<Card>
   */
 const getRandomCardsByType = (
-    availableCards: ICard[],
-    tileSetups: IBluePrint[],
+    availableCards: ReadonlyArray<ICard>,
+    tileSetups: ReadonlyArray<IBluePrint>,
     cardType: CardType
 ) => {
     const cardSlots = tileSetups.filter(({ type }) => type === cardType)
@@ -113,8 +112,8 @@ const getRandomCardsByType = (
  * return { gems, relics, spells }
   */
 export const createSupply = (
-    selectedExpansions: string[],
-    tileSetups: IBluePrint[]
+    selectedExpansions: ReadonlyArray<string>,
+    tileSetups: ReadonlyArray<IBluePrint>
 ) => {
   const availableCards = getListOfAvailableEntity(selectedExpansions, "cards")
 
@@ -129,18 +128,3 @@ export const createSupply = (
   return { gems, relics, spells }
 }
 
-export const getOperationString = (
-  operation: Operation, 
-  values?: number[], 
-  threshold?: number
-) => {
-  if (operation === "OR" && values) {
-    return values.join("/")
-  }
-
-  const thresholdValue = threshold
-    ? threshold
-    : ""
-
-  return `${operation} ${thresholdValue}`
-}

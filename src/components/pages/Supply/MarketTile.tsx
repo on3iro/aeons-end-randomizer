@@ -9,13 +9,30 @@ import Typography from '@material-ui/core/Typography'
 
 import config from '../../../config'
 import {
-   Slot, 
-   ICard,
-   isCard
-} from '../../../config/types'
+  Slot,
+  ICard,
+  isCard,
+  Operation,
+} from '../../../types'
 
 import CardTypeIcon from './CardTypeIcon'
-import { getOperationString } from './helpers'
+
+
+const getOperationString = (
+  operation: Operation,
+  values?: number[], 
+  threshold?: number
+) => {
+  if (operation === "OR" && values) {
+    return values.join("/")
+  }
+
+  const thresholdValue = threshold
+    ? threshold
+    : ""
+
+  return `${operation} ${thresholdValue}`
+}
 
 const MarketTile = React.memo(({ tileSetup, card, classes, ...rest }: {
   tileSetup: Slot,

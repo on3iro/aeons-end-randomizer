@@ -1,10 +1,11 @@
-import { IMarketSetups } from './types'
+import { IMarketSetups } from '../types'
 
 export const MARKETSETUPS: IMarketSetups = {
   "market1Inc": {
     id: "market1Inc",
     name: "Market Setup 1 (inclusive)",
     type: "custom",
+    active: true,
     tiles: [
       { type: "Gem", operation: "<", threshold: 4 },
       { type: "Gem", operation: "=", threshold: 4 },
@@ -21,6 +22,7 @@ export const MARKETSETUPS: IMarketSetups = {
     id: "market1",
     name: "Market Setup 1",
     type: "official",
+    active: true,
     tiles: [
       { type: "Gem", operation: "<", threshold: 4 },
       { type: "Gem", operation: "=", threshold: 4 },
@@ -37,6 +39,7 @@ export const MARKETSETUPS: IMarketSetups = {
     id: "market2",
     name: "Market Setup 2",
     type: "official",
+    active: true,
     tiles: [
       { type: "Gem", operation: "<", threshold: 3 },
       { type: "Gem", operation: ">", threshold: 3 },
@@ -53,6 +56,7 @@ export const MARKETSETUPS: IMarketSetups = {
     id: "market3",
     name: "Market Setup 3",
     type: "official",
+    active: true,
     tiles: [
       { type: "Gem", operation: "<", threshold: 4 },
       { type: "Gem", operation: "OR", values: [4, 5] },
@@ -69,6 +73,7 @@ export const MARKETSETUPS: IMarketSetups = {
     id: "market4",
     name: "Market Setup 4",
     type: "official",
+    active: true,
     tiles: [
       { type: "Gem", operation: ">", threshold: 4 },
       { type: "Gem", operation: "ANY" },
@@ -85,6 +90,7 @@ export const MARKETSETUPS: IMarketSetups = {
     id: "market5",
     name: "Market Setup 5",
     type: "official",
+    active: true,
     tiles: [
       { type: "Gem", operation: "=", threshold: 2 },
       { type: "Gem", operation: "=", threshold: 3 },
@@ -101,6 +107,7 @@ export const MARKETSETUPS: IMarketSetups = {
     id: "market6",
     name: "Market Setup 6",
     type: "official",
+    active: true,
     tiles: [
       { type: "Gem", operation: "=", threshold: 3 },
       { type: "Gem", operation: "=", threshold: 4 },
@@ -117,6 +124,8 @@ export const MARKETSETUPS: IMarketSetups = {
     id: "random",
     name: "Random Setup",
     type: "official",
+    default: true, // this flag removes the setup from the settings, so it will always be active
+    active: true,
     tiles: [
       { type: "Gem", operation: "ANY" },
       { type: "Gem", operation: "ANY" },

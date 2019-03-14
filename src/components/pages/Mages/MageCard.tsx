@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 
 import config from '../../../config'
-import { ICreature } from '../../../config/types'
+import { ICreature } from '../../../types'
 
 const MageCard = React.memo(({mage, classes}: {
   mage: ICreature,

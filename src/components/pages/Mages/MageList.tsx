@@ -4,13 +4,13 @@ import Grid from '@material-ui/core/Grid'
 import MageGridWrapper from './MageGridWrapper'
 import { withStyles } from '@material-ui/core/styles'
 
-import { ICreature } from '../../../config/types'
+import { ICreature } from '../../../types'
 
 import MageCard from './MageCard'
 import mageStyles from './mageStyles'
 
 const MageList = React.memo(({ mages, classes }: {
-  mages: Array<ICreature>,
+  mages: ReadonlyArray<ICreature>,
   classes: any
 }) => (
   <MageGridWrapper>

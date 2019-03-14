@@ -1,4 +1,13 @@
-// DATA
+//////////
+// UTIL //
+//////////
+
+type List = string | number | boolean | undefined | null | void | {};
+export const tuple = <T extends List[]>(...args: T) => args;
+
+//////////
+// DATA //
+//////////
 
 export interface ICreature {
   expansion: string;
@@ -34,7 +43,9 @@ export interface IExpansionData {
   [key: string]: IExpansion;
 }
 
-// Market
+////////////
+// Market //
+////////////
 
 export type MarketType = "official" | "custom"
 export type Operation =
@@ -60,18 +71,20 @@ export interface IEmptyBluePrint extends IBluePrint {
 }
 export type Slot = IBluePrint | IEmptyBluePrint
 
-export interface IMarketSetup {
+export type IMarketSetup = Readonly<{
   id: string;
   name: string;
   type: MarketType;
+  default?: boolean;
+  active: boolean;
   tiles: Array<Slot>;
-}
+}>
 
-export interface IMarketSetups {
-  [key: string]: IMarketSetup
-}
+export type IMarketSetups = Readonly<{ [key: string]: IMarketSetup }>
 
-// TurnOrder
+///////////////
+// TurnOrder //
+///////////////
 
 export type Player =
   "Player 1"
@@ -101,3 +114,6 @@ export interface ITurnOrderSetups {
 export const isCard = (card: ICard | Slot): card is ICard => {
   return (<ICard>card).name !== undefined
 }
+
+export const MODES = tuple("Default", "Maelstrom")
+export type Mode = typeof MODES[number] // automatically creates union from tuple

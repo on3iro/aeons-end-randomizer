@@ -6,14 +6,14 @@ import {
   IMarketSetup,
   ICard,
   Slot
-} from '../../../config/types'
+} from '../../../types'
 
 import ListWrapper from './ListWrapper'
 import MarketTile from './MarketTile'
 
 const renderTiles = (
   marketSetup: IMarketSetup, 
-  cards: Array<Slot | ICard>, 
+  cards: ReadonlyArray<Slot | ICard>, 
   classes: any
 ) => {
   return marketSetup.tiles.map(
@@ -30,7 +30,7 @@ const renderTiles = (
 
 const SupplyList = React.memo(({marketSetup, cards, classes}: {
   marketSetup: IMarketSetup,
-  cards: Array<Slot | ICard>,
+  cards: ReadonlyArray<Slot | ICard>,
   classes: any
 }) => (
   <ListWrapper>
