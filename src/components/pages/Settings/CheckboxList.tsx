@@ -8,7 +8,7 @@ import ConfiguredSet from './ConfiguredSet'
 
 const renderConfiguredSets = (
   configurationOfSets: { [key: string]: boolean },
-  sets: string[],
+  sets: ReadonlyArray<string>,
   handleChange: (set: string) => void
 ) => sets.map(set => (
   <ConfiguredSet
@@ -28,7 +28,7 @@ const CheckboxList = React.memo(({
 }: {
     label: string,
     setConfig: { [key: string]: boolean },
-    expansions: string[],
+    expansions: ReadonlyArray<string>,
     changeHandler: (set: string) => void
 }) => (
     <React.Fragment>

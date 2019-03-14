@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent'
@@ -7,7 +8,9 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Typography from '@material-ui/core/Typography'
 
-import { MODES, Mode } from './hooks/useTurnOrderSetup'
+import { MODES, Mode } from '../../../types'
+import { RootState } from '../../../Redux/Store'
+import * as TurnOrderConfiguration from '../../../Redux/Store/TurnOrder/Configuration'
 
 const renderModeOptions = () => MODES.map(mode => (
   <FormControlLabel
@@ -20,14 +23,12 @@ const renderModeOptions = () => MODES.map(mode => (
 
 const ModeSelection = React.memo(({
   classes,
-  turnOrderMode,
-  handleSetupChange,
-  turnOrderSetupId
+  mode,
+  setMode,
 }: {
   classes: any,
-  turnOrderMode: Mode,
-  handleSetupChange: (setupId: string, mode: Mode) => void,
-  turnOrderSetupId: string
+  mode: Mode,
+  setMode: (mode: Mode) => TurnOrderConfiguration.Action
 }) => (
   <Card className={classes.cardDeck}>
     <CardContent>
@@ -35,9 +36,9 @@ const ModeSelection = React.memo(({
       <RadioGroup
         aria-label='mode'
         name='turnOrderMode'
-        value={turnOrderMode}
+        value={mode}
         onChange={
-          (event: React.ChangeEvent<any>) => handleSetupChange(turnOrderSetupId, event.currentTarget.value)
+          (event: React.ChangeEvent<any>) => setMode(event.currentTarget.value)
         }
       >
        { renderModeOptions() }
@@ -46,4 +47,12 @@ const ModeSelection = React.memo(({
   </Card>
 ))
 
-export default ModeSelection
+const mapStateToProps = (state: RootState) => ({
+  mode: TurnOrderConfiguration.selectors.getMode(state),
+})
+
+const mapDispatchToProps = {
+  setMode: TurnOrderConfiguration.actions.setMode
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModeSelection)

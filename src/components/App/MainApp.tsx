@@ -1,50 +1,41 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 
-import { get as getFromDb } from 'idb-keyval'
 import classNames from 'classnames'
 
+import { RootState } from '../../Redux/Store'
+import * as MainContentLoading from '../../Redux/Store/MainContentLoading'
+import * as SelectedExpansions from '../../Redux/Store/Settings/Expansions/Selected'
+import * as TurnOrderConfig from '../../Redux/Store/TurnOrder/Configuration'
 import { ROUTES } from '../../routes'
-import config from '../../config'
-import { SetConfigurationContext } from '../../globalContexts'
-
 import Content from '../Content'
-
 import TopBar from './TopBar'
 import DrawerMenu from './DrawerMenu'
 
-const MainApp = ({ classes }: { classes: any }) => { 
+const MainApp = ({
+  classes,
+  fetchExpansionsFromDB,
+  fetchTurnOrderConfigFromDB,
+  isLoading,
+}: {
+  classes: any,
+  fetchExpansionsFromDB: () => SelectedExpansions.Action,
+  fetchTurnOrderConfigFromDB: () => TurnOrderConfig.Action,
+  isLoading: boolean,
+}) => {
   const [ currentLocation, setCurrentLocation ] = useState(ROUTES.nemeses)
   const moveTo = (route: string) => {
     toggleDrawer()
     setCurrentLocation(route)
   }
 
-  const [ isLoading, setLoading ] = useState<boolean>(true)
-
   const [ drawerIsOpen, setDrawerIsOpen ] = useState(false)
   const toggleDrawer = () => setDrawerIsOpen(!drawerIsOpen)
 
-  const setsAndPromos = config.EXPANSIONS
-  const defaultSets = setsAndPromos.reduce(
-    (acc, set) => ({ ...acc, [set]: false }) , {}
-  )
-  const [ configurationOfSets, setSets ] = useState<{[key: string]: boolean}>(defaultSets)
-
   // Get sets from indexedDB
   useEffect(() => {
-    getFromDb('sets')
-      .then(sets => {
-        if (sets !== undefined) {
-          setSets((sets as {[key: string]: boolean}))
-        }
-        setLoading(false)
-      }).catch(() => {
-        setLoading(false)
-      })
-
-    // Effect clean up, used if the component unmounts before the effect is
-    // fully resolved. In this case just ignore the incoming promise result.
-    return () => { return /* NoOp */ }
+    fetchExpansionsFromDB()
+    fetchTurnOrderConfigFromDB()
   }, [])
 
   return (
@@ -61,24 +52,28 @@ const MainApp = ({ classes }: { classes: any }) => {
         classes={classes}
         moveTo={moveTo}
       />
-      <SetConfigurationContext.Provider
-        value={{ configurationOfSets, setSets, sets: setsAndPromos }}
-      >
-        <Content
-          isLoading={isLoading}
-          route={currentLocation}
-          classes={classes}
-          className={
-            classNames(
-              classes.content,
-              { [classes.contentShift]: drawerIsOpen },
-              { [classes.loading]: isLoading }
-            )
-          }
-        />
-      </SetConfigurationContext.Provider>
+      <Content
+        isLoading={isLoading}
+        route={currentLocation}
+        classes={classes}
+        className={
+          classNames(
+            classes.content,
+            { [classes.contentShift]: drawerIsOpen },
+            { [classes.loading]: isLoading }
+          )
+        }
+      />
     </React.Fragment>
   )
 }
 
-export default MainApp
+const mapStateToProps = (state: RootState) => ({
+  isLoading: MainContentLoading.selectors.getIsLoading(state)
+})
+const mapDispatchToProps = {
+  fetchExpansionsFromDB: SelectedExpansions.actions.fetchFromDB,
+  fetchTurnOrderConfigFromDB: TurnOrderConfig.actions.fetchFromDB,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainApp)

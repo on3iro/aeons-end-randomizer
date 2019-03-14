@@ -1,4 +1,4 @@
-import { IExpansionData } from './types'
+import { IExpansionData } from '../types'
 
 export const DATA: IExpansionData = {
   "WE": {

@@ -4,8 +4,8 @@ const useExpandedHandling = () => {
   // Expansion handling
   const [ expanded, setExpanded ] = useState<boolean |  string>(false)
 
-  const handleExpansion = (panel: string) => (
-    event: React.ChangeEvent<any>,
+  const createExpansionHandler = (panel: string) => (
+    event: React.ChangeEvent<any> | undefined,
     expanded: boolean | string
   ) => {
     const panelExpanded = expanded
@@ -14,7 +14,7 @@ const useExpandedHandling = () => {
     setExpanded(panelExpanded)
   }
 
-  return { expanded, handleExpansion, setExpanded }
+  return { expanded, createExpansionHandler, setExpanded }
 }
 
 export default useExpandedHandling

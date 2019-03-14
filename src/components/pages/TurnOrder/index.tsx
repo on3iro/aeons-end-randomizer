@@ -1,43 +1,30 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import { RootState } from '../../../Redux/Store'
+import * as TurnOrderGame from '../../../Redux/Store/TurnOrder/ActiveGame'
 
 import ActiveGame from './ActiveGame'
 import TurnOrderConfiguration from './TurnOrderConfiguration'
-import { useGameState } from './hooks/useGameState'
-import { useTurnOrderSetup } from './hooks/useTurnOrderSetup'
 
 
-const TurnOrder = React.memo(() => {
-  const { turnOrderSetup, handleTurnOrderSetupChange } = useTurnOrderSetup()
+const TurnOrder = React.memo(({
+  gameHasStarted,
+}: {
+  gameHasStarted: boolean,
+}) => (
+  <React.Fragment>
+    {gameHasStarted
+        ? <ActiveGame />
+        : <TurnOrderConfiguration />
+    }
+  </React.Fragment>
+))
 
-  const {
-    dispatch,
-    gameState,
-    handleResetGame,
-    handleStartGame,
-    turnOrderState
-  } = useGameState(turnOrderSetup)
-
-  return (
-    <React.Fragment>
-      {gameState.started
-          ? (
-            <ActiveGame
-              availableCards={turnOrderSetup.turnOrderCards}
-              deckIsEmpty={turnOrderState.deck.length === 0}
-              discard={turnOrderState.discard}
-              dispatch={dispatch}
-              handleResetGame={handleResetGame}
-            />
-          )
-          : (
-            <TurnOrderConfiguration
-              turnOrderSetup={turnOrderSetup}
-              startGame={handleStartGame}
-              chooseSetup={handleTurnOrderSetupChange}
-            />
-          )}
-    </React.Fragment>
-  )
+const mapStateToProps = (state: RootState) => ({
+  gameHasStarted: TurnOrderGame.selectors.getHasStarted(state),
 })
 
-export default TurnOrder
+const mapDispatchToProps = { }
+
+export default connect(mapStateToProps, mapDispatchToProps)(TurnOrder)

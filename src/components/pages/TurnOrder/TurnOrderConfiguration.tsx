@@ -1,53 +1,48 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 
 import { withStyles } from '@material-ui/core/styles'
 
-import { ITurnOrderSetup } from '../../../config/types'
+import { ITurnOrderSetup, ITurnOrderCard } from '../../../types'
+import { RootState } from '../../../Redux/Store'
+import * as TurnOrderConfig from '../../../Redux/Store/TurnOrder/Configuration'
+import * as TurnOrderGame from '../../../Redux/Store/TurnOrder/ActiveGame'
 
 import ShuffleButton from '../../ShuffleButton'
-
 import turnOrderStyles from './styles'
-import { Mode } from './hooks/useTurnOrderSetup'
 import CardNameDisplay from './CardNameDisplay'
 import ModeSelection from './ModeSelection'
 import SetupSelection from './SetupSelection'
 
 const TurnOrderConfiguration = React.memo(({
-  turnOrderSetup,
+  currentConfiguration,
   startGame,
-  chooseSetup,
   classes
 }: {
-  turnOrderSetup: ITurnOrderSetup,
-  startGame: () => void,
-  chooseSetup: (setupId: string, mode: Mode) => void,
+  currentConfiguration: ITurnOrderSetup,
+  startGame: (deck: ITurnOrderCard[]) => TurnOrderGame.Action,
   classes: any
-}) => {
-  const [ turnOrderMode, setTurnOrderMode ] = useState<Mode>("Default")
-  const handleSetupChange = (setupId: string, mode: Mode) => {
-    setTurnOrderMode(mode)
-    chooseSetup(setupId, mode)
-  }
+}) => (
+  <React.Fragment>
+    <SetupSelection />
+    <ModeSelection classes={classes} />
+    <CardNameDisplay classes={classes} turnOrderSetup={currentConfiguration} />
+    <ShuffleButton
+      color='primary'
+      variant='extended'
+      onClick={() => startGame(currentConfiguration.turnOrderCards)}
+    >
+      Start Game
+    </ShuffleButton>
+  </React.Fragment>
+))
 
-  return (
-    <React.Fragment>
-      <SetupSelection
-        turnOrderSetup={turnOrderSetup}
-        turnOrderMode={turnOrderMode}
-        handleSetupChange={handleSetupChange}
-      />
-      <ModeSelection
-        classes={classes}
-        turnOrderMode={turnOrderMode}
-        handleSetupChange={handleSetupChange}
-        turnOrderSetupId={turnOrderSetup.id}
-      />
-      <CardNameDisplay classes={classes} turnOrderSetup={turnOrderSetup} />
-      <ShuffleButton color='primary' variant='extended' onClick={startGame}>
-        Start Game
-      </ShuffleButton>
-    </React.Fragment>
-  )
+const mapStateToProps = (state: RootState) => ({
+  currentConfiguration: TurnOrderConfig.selectors.getConfiguration(state)
 })
 
-export default withStyles(turnOrderStyles)(TurnOrderConfiguration)
+const mapDispatchToProps = {
+  startGame: TurnOrderGame.actions.startGame
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(turnOrderStyles)(TurnOrderConfiguration))

@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
@@ -9,11 +10,12 @@ import Typography from '@material-ui/core/Typography'
 
 import config from '../../../config'
 import useExpansionHandling from '../../../hooks/useExpansionHandling'
-import { ITurnOrderSetup } from '../../../config/types'
+import { ITurnOrderSetup } from '../../../types'
+import { RootState } from '../../../Redux/Store'
+import * as TurnOrderConfiguration from '../../../Redux/Store/TurnOrder/Configuration'
 
 import StyledExpansionPanel from '../../StyledExpansionPanel'
 import StyledExpansionPanelSummary from '../../StyledExpansionPanelSummary'
-import { Mode } from './hooks/useTurnOrderSetup'
 
 const renderSetupOptions = () => Object.values(config.TURNORDERSETUPS).map(setup => (
   <FormControlLabel
@@ -25,32 +27,30 @@ const renderSetupOptions = () => Object.values(config.TURNORDERSETUPS).map(setup
 ))
 
 const SetupSelection = React.memo(({
-  turnOrderSetup,
-  handleSetupChange,
-  turnOrderMode
+  selectSetup,
+  selectedSetup,
 }: {
-  turnOrderSetup: ITurnOrderSetup,
-  handleSetupChange: (setupId: string, mode: Mode) => void,
-  turnOrderMode: Mode
+  selectSetup: (setupId: string) => TurnOrderConfiguration.Action,
+  selectedSetup: ITurnOrderSetup,
 }) => {
-  const { expanded, handleExpansion, setExpanded } = useExpansionHandling()
+  const { expanded, createExpansionHandler, setExpanded } = useExpansionHandling()
 
   return (
     <StyledExpansionPanel
       expanded={expanded === 'setup'}
-      onChange={handleExpansion('setup')}
+      onChange={createExpansionHandler('setup')}
     >
       <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography>{turnOrderSetup.name}</Typography>
+        <Typography>{selectedSetup.name}</Typography>
       </StyledExpansionPanelSummary>
       <ExpansionPanelDetails>
         <RadioGroup
           aria-label='Players'
           name='turnOrderOptions'
-          value={turnOrderSetup.id}
+          value={selectedSetup.id}
           onChange={
             (event: React.ChangeEvent<any>) => {
-              handleSetupChange(event.currentTarget.value, turnOrderMode)
+              selectSetup(event.currentTarget.value)
               setExpanded(false)
             }
           }
@@ -62,4 +62,12 @@ const SetupSelection = React.memo(({
   )}
 )
 
-export default SetupSelection
+const mapStateToProps = (state: RootState) => ({
+  selectedSetup: TurnOrderConfiguration.selectors.getSelectedSetup(state)
+})
+
+const mapDispatchToProps = {
+  selectSetup: TurnOrderConfiguration.actions.selectSetup
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SetupSelection)
