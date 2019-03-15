@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
+import * as serviceWorker from '../../serviceWorker';
 
 const Wrapper = styled('div')`
   display: flex;
@@ -53,7 +54,10 @@ const UpdateScreen = React.memo(({ newVersion }: {
           </Typography>
           <ButtonWrapper>
             <Button
-              onClick={() => window.location.reload(true)}
+              onClick={() => {
+                serviceWorker.register()
+                window.location.reload(true)
+              }}
               variant="contained"
               color="secondary"
               className="update-button"
