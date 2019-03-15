@@ -570,23 +570,23 @@ export const DATA: IExpansionData = {
     "mages": [ 
       {
         "expansion": "Legacy",
-        "name": "Legacy 1",
-        "id": "Legacy1"
+        "name": "Legacy Green",
+        "id": "LegacyGreen"
       },
       {
         "expansion": "Legacy",
-        "name": "Legacy 2",
-        "id": "Legacy2"
+        "name": "Legacy Yellow",
+        "id": "LegacyYellow"
       },
       {
         "expansion": "Legacy",
-        "name": "Legacy 3",
-        "id": "Legacy3"
+        "name": "Legacy Orange",
+        "id": "LegacyOrange"
       },
       {
         "expansion": "Legacy",
-        "name": "Legacy 4",
-        "id": "Legacy4"
+        "name": "Legacy Blue",
+        "id": "LegacyBlue"
       }
     ],
     "cards": [
