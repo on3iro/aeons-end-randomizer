@@ -14,6 +14,7 @@ const supplyStyles = (theme: any) => createStyles({
     minWidth: 30,
     minHeight: 148,
     position: 'relative',
+    height: '100%',
   },
   cardContent: {
     position: 'relative',

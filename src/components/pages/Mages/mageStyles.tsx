@@ -3,6 +3,7 @@ import { createStyles } from '@material-ui/core'
 const mageStyles = (theme: any) => createStyles({
   card: {
     position: 'relative',
+    height: '100%',
   },
   cardContent: {
     position: 'relative',
