@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
+import * as serviceWorker from '../../serviceWorker';
 
 const Wrapper = styled('div')`
   display: flex;
@@ -47,7 +48,6 @@ const UpdateScreen = React.memo(({ newVersion }: {
           </StyledHeadline>
           <Typography paragraph>
             Good news, a new Version of Aeons End Randomizer is available :)
-            To update press the button below and fully close the app afterwards and restart it.
           </Typography>
           <Typography paragraph>
             <Link href="https://github.com/on3iro/aeons-end-randomizer/releases" target="_blank">Changelog</Link>
@@ -55,6 +55,7 @@ const UpdateScreen = React.memo(({ newVersion }: {
           <ButtonWrapper>
             <Button
               onClick={() => {
+                serviceWorker.register()
                 window.location.reload(true)
               }}
               variant="contained"
