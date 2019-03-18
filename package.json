@@ -30,7 +30,7 @@
   },
   "homepage": "https://on3iro.github.io/aeons-end-randomizer/",
   "scripts": {
-    "start": "cross-env REACT_APP_VERSION=$npm_package_version react-scripts start",
+    "start": "BROWSER=none cross-env REACT_APP_VERSION=$npm_package_version react-scripts start",
     "build": "cross-env REACT_APP_VERSION=$npm_package_version react-scripts build",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
