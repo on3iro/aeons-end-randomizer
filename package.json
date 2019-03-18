@@ -1,6 +1,6 @@
 {
   "name": "aeons-randomizer",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "private": true,
   "dependencies": {
     "@martin_hotell/rex-tils": "^2.1.1",
