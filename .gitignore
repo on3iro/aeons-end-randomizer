@@ -196,3 +196,6 @@ src/css
 .tern-port
 
 .idea
+
+# ignore package-lock.json because we use yarn
+package-lock.json
