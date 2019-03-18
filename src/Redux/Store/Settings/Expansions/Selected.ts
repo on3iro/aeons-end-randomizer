@@ -6,6 +6,9 @@ import { get as getFromDb, set as setToDb } from 'idb-keyval'
 import config from '../../../../config'
 import { RootState } from '../../'
 
+
+const EXPANSIONS_DB_KEY = 'expansions'
+
 ///////////
 // STATE //
 ///////////
@@ -64,7 +67,7 @@ export const Reducer: LoopReducer<State, Action> = (
       return loop(
         newState,
         Cmd.run<Action>( setToDb, {
-          args: ['sets', newState],
+          args: [EXPANSIONS_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
         })
@@ -76,7 +79,7 @@ export const Reducer: LoopReducer<State, Action> = (
       return loop(
         newState,
         Cmd.run<Action>( setToDb, {
-          args: ['sets', newState],
+          args: [EXPANSIONS_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
         })
@@ -87,15 +90,19 @@ export const Reducer: LoopReducer<State, Action> = (
       return loop(
         state,
         Cmd.run<Action>( getFromDb, {
+          args: [EXPANSIONS_DB_KEY],
           successActionCreator: actions.fetchFromDBSuccessful,
           failActionCreator: actions.fetchFromDBFailed,
-          args: ['sets']
         })
       )
     }
 
     case ActionTypes.FETCH_FROM_DB_SUCCESS: {
-      return action.payload
+      return action.payload || initialState
+    }
+
+    case ActionTypes.FETCH_FROM_DB_FAILURE: {
+      return state
     }
 
     default: {
