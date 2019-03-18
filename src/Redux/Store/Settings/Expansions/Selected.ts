@@ -115,29 +115,28 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getSelectedExpansions = (state: RootState) => state.Settings.Expansions.Selected
+const getSelectedExpansionsState = (state: RootState) => state.Settings.Expansions.Selected
 
 const getSelectedExpansionsArray = createSelector(
-  [ getSelectedExpansions ],
+  [ getSelectedExpansionsState ],
   (selectedExpansions) => Object
     .keys(selectedExpansions)
     .filter(key => selectedExpansions[key])
 )
 
 const getAllSetsSelected = createSelector(
-  [ getSelectedExpansions ],
+  [ getSelectedExpansionsState ],
   (selectedExpansions) => allSetsAreSelected(selectedExpansions)
 )
 
 const getHasStandaloneSet = createSelector(
-  [ getSelectedExpansions ],
-  (selectedExpansions) => Object
-    .keys(selectedExpansions)
+  [ getSelectedExpansionsArray ],
+  (selectedExpansions) => selectedExpansions
     .some(expansion => config.DATA[expansion].type === "standalone")
 )
 
 export const selectors = {
-  getSelectedExpansions,
+  getSelectedExpansionsState,
   getSelectedExpansionsArray,
   getAllSetsSelected,
   getHasStandaloneSet,

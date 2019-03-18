@@ -77,7 +77,7 @@ const mapStateToProps = (state: RootState) => ({
   standalones: Expansions.selectors.getStandaloneExpansions,
   miniExpansions: Expansions.selectors.getMiniExpansions,
   promos: Expansions.selectors.getPromos,
-  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansions(state),
+  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsState(state),
   allSetsSelected: SelectedExpansions.selectors.getAllSetsSelected(state)
 })
 
