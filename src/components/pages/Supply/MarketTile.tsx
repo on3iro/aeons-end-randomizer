@@ -17,22 +17,7 @@ import {
 
 import CardTypeIcon from './CardTypeIcon'
 
-
-const getOperationString = (
-  operation: Operation,
-  values?: number[], 
-  threshold?: number
-) => {
-  if (operation === "OR" && values) {
-    return values.join("/")
-  }
-
-  const thresholdValue = threshold
-    ? threshold
-    : ""
-
-  return `${operation} ${thresholdValue}`
-}
+import { getOperationString } from './helpers'
 
 const MarketTile = React.memo(({ tileSetup, card, classes, ...rest }: {
   tileSetup: Slot,

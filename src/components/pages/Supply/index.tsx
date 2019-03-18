@@ -61,6 +61,7 @@ const Supply = React.memo(({
           <MarketOptions
             marketSetupId={marketSetup.id}
             expansionHandler={expansionHandler}
+            classes={classes}
           />
         </ExpansionPanelDetails>
       </StyledExpansionPanel>

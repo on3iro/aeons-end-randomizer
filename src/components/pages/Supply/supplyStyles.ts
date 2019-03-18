@@ -3,8 +3,7 @@ import { createStyles } from '@material-ui/core'
 const supplyStyles = (theme: any) => createStyles({
   heading: {
     fontSize: theme.typography.pxToRem(15),
-    flexBasis: '51%',
-    flexShrink: 0,
+    flex: '1 1 auto',
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
@@ -59,6 +58,15 @@ const supplyStyles = (theme: any) => createStyles({
   spellIcon: {
     color: '#FFCC80',
   },
+  cardLabel: {
+    color: theme.palette.text.secondary,
+  },
+  cardSelected: {
+    borderColor: theme.palette.secondary.main
+  },
+  cardLabelSelected: {
+    color: theme.palette.secondary.main
+  }
 })
 
 export default supplyStyles
