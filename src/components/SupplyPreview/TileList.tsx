@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-const PreviewTileList = styled('ul')`
+const TileList = styled('ul')`
   margin: 0 -4px;
   list-style: none;
   padding: 0;
@@ -9,4 +9,4 @@ const PreviewTileList = styled('ul')`
   width: calc(100% + 8px);
 `
 
-export default PreviewTileList
+export default TileList
