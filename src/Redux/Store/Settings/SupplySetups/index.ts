@@ -6,14 +6,13 @@ import config from '../../../../config'
 import * as types from '../../../../types'
 import { RootState } from '../../'
 
-
 ///////////
 // STATE //
 ///////////
 
 export type State = {
-  Predefined: types.IMarketSetups,
-  Custom: types.IMarketSetups,
+  Predefined: types.IMarketSetups
+  Custom: types.IMarketSetups
 }
 export const initialState: State = {
   Predefined: config.MARKETSETUPS,
@@ -24,44 +23,44 @@ export const initialState: State = {
 // ACTIONS //
 /////////////
 
-export enum ActionTypes { }
+export enum ActionTypes {}
 
 export const actions = {
-  noOp: () => createAction('NOOP')
+  noOp: () => createAction('NOOP'),
 }
 
 export type Action = ActionsUnion<typeof actions>
 
-  /////////////
-  // REDUCER //
-  /////////////
+/////////////
+// REDUCER //
+/////////////
 
-  export const Reducer: LoopReducer<State, Action> = (
-    state: State = initialState,
-    action: Action
-  ) => {
-    switch (action.type) {
-      default: {
-        return state
-      }
+export const Reducer: LoopReducer<State, Action> = (
+  state: State = initialState,
+  action: Action
+) => {
+  switch (action.type) {
+    default: {
+      return state
     }
   }
+}
 
 ///////////////
 // SELECTORS //
 ///////////////
 
-const getPredefined = (state: RootState) => state.Settings.SupplySetups.Predefined
+const getPredefined = (state: RootState) =>
+  state.Settings.SupplySetups.Predefined
 const getCustom = (state: RootState) => state.Settings.SupplySetups.Custom
 const getCustomAndPredefined = createSelector(
-  [ getPredefined, getCustom ],
+  [getPredefined, getCustom],
   (predefined, custom) => ({ ...predefined, ...custom })
 )
 const getActiveSetups = createSelector(
-  [ getCustomAndPredefined ],
-  (customAndPredefined) => Object
-    .values(customAndPredefined)
-    .filter(setup => setup.active)
+  [getCustomAndPredefined],
+  customAndPredefined =>
+    Object.values(customAndPredefined).filter(setup => setup.active)
 )
 
 export const selectors = {

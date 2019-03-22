@@ -17,57 +17,65 @@ import * as TurnOrderConfiguration from '../../../Redux/Store/TurnOrder/Configur
 import StyledExpansionPanel from '../../StyledExpansionPanel'
 import StyledExpansionPanelSummary from '../../StyledExpansionPanelSummary'
 
-const renderSetupOptions = () => Object.values(config.TURNORDERSETUPS).map(setup => (
-  <FormControlLabel
-    key={setup.id}
-    value={setup.id}
-    control={<Radio />}
-    label={setup.name}
-  />
-))
+const renderSetupOptions = () =>
+  Object.values(config.TURNORDERSETUPS).map(setup => (
+    <FormControlLabel
+      key={setup.id}
+      value={setup.id}
+      control={<Radio />}
+      label={setup.name}
+    />
+  ))
 
-const SetupSelection = React.memo(({
-  selectSetup,
-  selectedSetup,
-}: {
-  selectSetup: (setupId: string) => TurnOrderConfiguration.Action,
-  selectedSetup: ITurnOrderSetup,
-}) => {
-  const { expanded, createExpansionHandler, setExpanded } = useExpansionHandling()
+const SetupSelection = React.memo(
+  ({
+    selectSetup,
+    selectedSetup,
+  }: {
+    selectSetup: (setupId: string) => TurnOrderConfiguration.Action
+    selectedSetup: ITurnOrderSetup
+  }) => {
+    const {
+      expanded,
+      createExpansionHandler,
+      setExpanded,
+    } = useExpansionHandling()
 
-  return (
-    <StyledExpansionPanel
-      expanded={expanded === 'setup'}
-      onChange={createExpansionHandler('setup')}
-    >
-      <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography>{selectedSetup.name}</Typography>
-      </StyledExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        <RadioGroup
-          aria-label='Players'
-          name='turnOrderOptions'
-          value={selectedSetup.id}
-          onChange={
-            (event: React.ChangeEvent<any>) => {
+    return (
+      <StyledExpansionPanel
+        expanded={expanded === 'setup'}
+        onChange={createExpansionHandler('setup')}
+      >
+        <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography>{selectedSetup.name}</Typography>
+        </StyledExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <RadioGroup
+            aria-label="Players"
+            name="turnOrderOptions"
+            value={selectedSetup.id}
+            onChange={(event: React.ChangeEvent<any>) => {
               selectSetup(event.currentTarget.value)
               setExpanded(false)
-            }
-          }
-        >
-          {renderSetupOptions()}
-        </RadioGroup>
-      </ExpansionPanelDetails>
-    </StyledExpansionPanel>
-  )}
+            }}
+          >
+            {renderSetupOptions()}
+          </RadioGroup>
+        </ExpansionPanelDetails>
+      </StyledExpansionPanel>
+    )
+  }
 )
 
 const mapStateToProps = (state: RootState) => ({
-  selectedSetup: TurnOrderConfiguration.selectors.getSelectedSetup(state)
+  selectedSetup: TurnOrderConfiguration.selectors.getSelectedSetup(state),
 })
 
 const mapDispatchToProps = {
-  selectSetup: TurnOrderConfiguration.actions.selectSetup
+  selectSetup: TurnOrderConfiguration.actions.selectSetup,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SetupSelection)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SetupSelection)

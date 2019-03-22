@@ -49,5 +49,5 @@ export const Reducer: LoopReducer<State, Action> = (
 const getIsLoading = (state: RootState) => state.MainContentLoading
 
 export const selectors = {
-  getIsLoading
+  getIsLoading,
 }

@@ -24,71 +24,83 @@ import supplyStyles from './supplyStyles'
 import SupplyList from './SupplyList'
 import MarketOptions from './MarketOptions'
 
+const Supply = React.memo(
+  ({
+    classes,
+    cards,
+    createMarket,
+    hasStandaloneExpansionSelected,
+    marketSetup,
+    selectedExpansions,
+  }: {
+    classes: any
+    cards: ReadonlyArray<Slot | ICard>
+    createMarket: (
+      expansions: ReadonlyArray<string>,
+      tiles: ReadonlyArray<Slot>
+    ) => RandomSupply.Action
+    hasStandaloneExpansionSelected: boolean
+    marketSetup: IMarketSetup
+    selectedExpansions: ReadonlyArray<string>
+  }) => {
+    const { expanded, createExpansionHandler } = useExpandedHandling()
+    const expansionHandler = createExpansionHandler('setup')
 
-const Supply = React.memo(({
-  classes,
-  cards,
-  createMarket,
-  hasStandaloneExpansionSelected,
-  marketSetup,
-  selectedExpansions,
-}: {
-  classes: any,
-  cards: ReadonlyArray<Slot | ICard>,
-  createMarket: (expansions: ReadonlyArray<string>, tiles: ReadonlyArray<Slot>) => RandomSupply.Action,
-  hasStandaloneExpansionSelected: boolean,
-  marketSetup: IMarketSetup,
-  selectedExpansions: ReadonlyArray<string>,
-}) => {
-  const { expanded, createExpansionHandler } = useExpandedHandling()
-  const expansionHandler = createExpansionHandler('setup')
+    if (!hasStandaloneExpansionSelected) {
+      return <NoSelectedExpansions />
+    }
 
-  if (!hasStandaloneExpansionSelected) {
-    return <NoSelectedExpansions />
+    const handleShuffle = () => {
+      createMarket(selectedExpansions, marketSetup.tiles)
+    }
+
+    return (
+      <React.Fragment>
+        <StyledExpansionPanel
+          expanded={expanded === 'setup'}
+          onChange={expansionHandler}
+        >
+          <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              {marketSetup.name}
+            </Typography>
+          </StyledExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <MarketOptions
+              marketSetupId={marketSetup.id}
+              expansionHandler={expansionHandler}
+              classes={classes}
+            />
+          </ExpansionPanelDetails>
+        </StyledExpansionPanel>
+        <SupplyList marketSetup={marketSetup} cards={cards} classes={classes} />
+        <ShuffleButton
+          onClick={handleShuffle}
+          color="primary"
+          variant="extended"
+        >
+          Create Market
+        </ShuffleButton>
+      </React.Fragment>
+    )
   }
-
-  const handleShuffle = () => {
-    createMarket(selectedExpansions, marketSetup.tiles)
-  }
-
-  return (
-    <React.Fragment>
-      <StyledExpansionPanel expanded={expanded === 'setup'} onChange={expansionHandler}>
-        <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>{marketSetup.name}</Typography>
-        </StyledExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <MarketOptions
-            marketSetupId={marketSetup.id}
-            expansionHandler={expansionHandler}
-            classes={classes}
-          />
-        </ExpansionPanelDetails>
-      </StyledExpansionPanel>
-      <SupplyList
-        marketSetup={marketSetup}
-        cards={cards}
-        classes={classes}
-      />
-      <ShuffleButton
-        onClick={handleShuffle}
-        color="primary" 
-        variant="extended"
-      >
-        Create Market
-      </ShuffleButton>
-    </React.Fragment>
-  )
-})
+)
 
 const mapStateToProps = (state: RootState) => ({
-  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(state),
-  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(state),
+  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(
+    state
+  ),
+  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(
+    state
+  ),
   marketSetup: SupplySelection.selectors.getSelectedSetup(state),
-  cards: RandomSupply.selectors.getCards(state)
+  cards: RandomSupply.selectors.getCards(state),
 })
 const mapDispatchToProps = {
   createMarket: RandomSupply.actions.createMarket,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(supplyStyles)(Supply))
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(supplyStyles)(Supply))

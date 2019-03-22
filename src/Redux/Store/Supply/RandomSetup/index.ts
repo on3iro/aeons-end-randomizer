@@ -8,7 +8,6 @@ import config from '../../../../config'
 import { RootState } from '../../'
 import { createSupply } from './helpers'
 
-
 ///////////
 // STATE //
 ///////////
@@ -17,7 +16,7 @@ export type State = Readonly<{
   Cards: ReadonlyArray<Slot | ICard>
 }>
 export const initialState: State = {
-  Cards: createSlotList(config.DEFAULTSUPPLYCOUNT)
+  Cards: createSlotList(config.DEFAULTSUPPLYCOUNT),
 }
 
 /////////////
@@ -58,7 +57,7 @@ export const Reducer: LoopReducer<State, Action> = (
       const { gems, relics, spells } = createSupply(expansions, tiles)
       return {
         ...state,
-        Cards: [...gems.result, ...relics.result, ...spells.result]
+        Cards: [...gems.result, ...relics.result, ...spells.result],
       }
     }
 
@@ -75,5 +74,5 @@ export const Reducer: LoopReducer<State, Action> = (
 const getCards = (state: RootState) => state.Supply.RandomSetup.Cards
 
 export const selectors = {
-  getCards
+  getCards,
 }

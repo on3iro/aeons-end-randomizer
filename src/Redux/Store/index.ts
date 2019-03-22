@@ -8,16 +8,16 @@ import * as Supply from './Supply'
 import * as TurnOrder from './TurnOrder'
 
 export type RootState = {
-  Settings: Settings.State,
-  MainContentLoading: MainContentLoading.State,
-  Nemesis: Nemesis.State,
-  Mages: Mages.State,
-  Supply: Supply.State,
-  TurnOrder: TurnOrder.State,
+  Settings: Settings.State
+  MainContentLoading: MainContentLoading.State
+  Nemesis: Nemesis.State
+  Mages: Mages.State
+  Supply: Supply.State
+  TurnOrder: TurnOrder.State
 }
 
 export type RootAction =
-  Settings.Action
+  | Settings.Action
   | MainContentLoading.Action
   | Nemesis.Action
   | Mages.Action
