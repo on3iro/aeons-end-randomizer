@@ -1,5 +1,5 @@
 import { withStyles } from '@material-ui/core/styles'
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel'
 
 const StyledExpansionPanel = withStyles({
   root: {
@@ -11,6 +11,6 @@ const StyledExpansionPanel = withStyles({
   expanded: {
     margin: 'auto',
   },
-})(ExpansionPanel);
+})(ExpansionPanel)
 
 export default StyledExpansionPanel

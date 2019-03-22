@@ -4,15 +4,21 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 
-const RouteItem = React.memo(({ route, clickhandler, children }: {
-  route: string,
-  clickhandler: (route: string) => any,
-  children: any
-}) => (
-  <ListItem button key={route} onClick={() => clickhandler(route)}>
-    <ListItemIcon>{children}</ListItemIcon>
-    <ListItemText primary={route} />
-  </ListItem>
-))
+const RouteItem = React.memo(
+  ({
+    route,
+    clickhandler,
+    children,
+  }: {
+    route: string
+    clickhandler: (route: string) => any
+    children: any
+  }) => (
+    <ListItem button key={route} onClick={() => clickhandler(route)}>
+      <ListItemIcon>{children}</ListItemIcon>
+      <ListItemText primary={route} />
+    </ListItem>
+  )
+)
 
 export default RouteItem

@@ -26,12 +26,13 @@ export const initialState: State = []
 /////////////
 
 export enum ActionTypes {
-  SET_RANDOM = 'Mages/Recruited/SET_RANDOM'
+  SET_RANDOM = 'Mages/Recruited/SET_RANDOM',
 }
 
 export const actions = {
-  setRandomMages: (expansions: ReadonlyArray<string>, count: MageCount) => createAction(ActionTypes.SET_RANDOM, { expansions, count }),
-  noOp: () => createAction('NOOP')
+  setRandomMages: (expansions: ReadonlyArray<string>, count: MageCount) =>
+    createAction(ActionTypes.SET_RANDOM, { expansions, count }),
+  noOp: () => createAction('NOOP'),
 }
 
 export type Action = ActionsUnion<typeof actions>
@@ -47,9 +48,13 @@ export const Reducer: LoopReducer<State, Action> = (
   switch (action.type) {
     case ActionTypes.SET_RANDOM: {
       const { expansions, count } = action.payload
-      const availableMages = getListOfAvailableEntity(expansions, "mages")
+      const availableMages = getListOfAvailableEntity(expansions, 'mages')
       const slotList = createSlotList(count)
-      const { result } = createMageList(availableMages, slotList, getRandomEntity)
+      const { result } = createMageList(
+        availableMages,
+        slotList,
+        getRandomEntity
+      )
       return result
     }
 
@@ -66,6 +71,5 @@ export const Reducer: LoopReducer<State, Action> = (
 const getMages = (state: RootState) => state.Mages.Recruited
 
 export const selectors = {
-  getMages
+  getMages,
 }
-

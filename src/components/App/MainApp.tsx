@@ -18,18 +18,18 @@ const MainApp = ({
   fetchTurnOrderConfigFromDB,
   isLoading,
 }: {
-  classes: any,
-  fetchExpansionsFromDB: () => SelectedExpansions.Action,
-  fetchTurnOrderConfigFromDB: () => TurnOrderConfig.Action,
-  isLoading: boolean,
+  classes: any
+  fetchExpansionsFromDB: () => SelectedExpansions.Action
+  fetchTurnOrderConfigFromDB: () => TurnOrderConfig.Action
+  isLoading: boolean
 }) => {
-  const [ currentLocation, setCurrentLocation ] = useState(ROUTES.nemeses)
+  const [currentLocation, setCurrentLocation] = useState(ROUTES.nemeses)
   const moveTo = (route: string) => {
     toggleDrawer()
     setCurrentLocation(route)
   }
 
-  const [ drawerIsOpen, setDrawerIsOpen ] = useState(false)
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false)
   const toggleDrawer = () => setDrawerIsOpen(!drawerIsOpen)
 
   // Get sets from indexedDB
@@ -56,24 +56,25 @@ const MainApp = ({
         isLoading={isLoading}
         route={currentLocation}
         classes={classes}
-        className={
-          classNames(
-            classes.content,
-            { [classes.contentShift]: drawerIsOpen },
-            { [classes.loading]: isLoading }
-          )
-        }
+        className={classNames(
+          classes.content,
+          { [classes.contentShift]: drawerIsOpen },
+          { [classes.loading]: isLoading }
+        )}
       />
     </React.Fragment>
   )
 }
 
 const mapStateToProps = (state: RootState) => ({
-  isLoading: MainContentLoading.selectors.getIsLoading(state)
+  isLoading: MainContentLoading.selectors.getIsLoading(state),
 })
 const mapDispatchToProps = {
   fetchExpansionsFromDB: SelectedExpansions.actions.fetchFromDB,
   fetchTurnOrderConfigFromDB: TurnOrderConfig.actions.fetchFromDB,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainApp)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainApp)

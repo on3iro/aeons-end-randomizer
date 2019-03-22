@@ -7,7 +7,7 @@ const ShuffleButton = withStyles({
     bottom: '24px',
     right: '24px',
     zIndex: 10,
-  }
+  },
 })(Fab)
 
 export default ShuffleButton

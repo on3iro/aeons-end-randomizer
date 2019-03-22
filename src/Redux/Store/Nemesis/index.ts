@@ -5,10 +5,7 @@ import { createSelector } from 'reselect'
 import config from '../../../config'
 import { ICreature } from '../../../types'
 import { RootState } from '../'
-import {
-  getListOfAvailableEntity,
-  getRandomEntity
-} from '../../helpers'
+import { getListOfAvailableEntity, getRandomEntity } from '../../helpers'
 
 ///////////
 // STATE //
@@ -22,12 +19,13 @@ export const initialState: State = undefined
 /////////////
 
 export enum ActionTypes {
-  SET_RANDOM = 'Nemesis/SET_RANDOM'
+  SET_RANDOM = 'Nemesis/SET_RANDOM',
 }
 
 export const actions = {
-  setRandomNemesis: (expansions: ReadonlyArray<string>) => createAction(ActionTypes.SET_RANDOM, expansions),
-  noOp: () => createAction('NOOP')
+  setRandomNemesis: (expansions: ReadonlyArray<string>) =>
+    createAction(ActionTypes.SET_RANDOM, expansions),
+  noOp: () => createAction('NOOP'),
 }
 
 export type Action = ActionsUnion<typeof actions>
@@ -43,7 +41,7 @@ export const Reducer: LoopReducer<State, Action> = (
   switch (action.type) {
     case ActionTypes.SET_RANDOM: {
       const expansions = action.payload
-      const availableNemeses = getListOfAvailableEntity(expansions, "nemeses")
+      const availableNemeses = getListOfAvailableEntity(expansions, 'nemeses')
       return getRandomEntity(availableNemeses)
     }
 
@@ -60,5 +58,5 @@ export const Reducer: LoopReducer<State, Action> = (
 const getNemesis = (state: RootState) => state.Nemesis
 
 export const selectors = {
-  getNemesis
+  getNemesis,
 }

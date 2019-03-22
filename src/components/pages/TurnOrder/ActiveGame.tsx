@@ -12,55 +12,49 @@ import ShuffleButton from '../../ShuffleButton'
 
 import DiscardTable from './DiscardTable'
 
-const ActiveTurnOrder = React.memo(({
-  availableCards,
-  deck,
-  resetGame,
-  newRound,
-  drawCard,
-}: {
-  availableCards: ITurnOrderCard[],
-  deck: ITurnOrderCard[],
-  resetGame: () => TurnOrderGame.Action,
-  newRound: (availableCards: ITurnOrderCard[]) => TurnOrderGame.Action,
-  drawCard: () => TurnOrderGame.Action,
-}) => (
-  <React.Fragment>
-    {
-      deck.length === 0
-        ? (
-          <Button
-            size='large' 
-            variant='contained' 
-            color='secondary' 
-            onClick={() => newRound(availableCards)}
-          >
-            New Round
-          </Button>
-        )
-        : (
-          <Button
-            size='large'
-            variant='contained'
-            color='secondary' 
-            onClick={drawCard}
-          >
-            Draw a card
-          </Button>
-        )
-    }
+const ActiveTurnOrder = React.memo(
+  ({
+    availableCards,
+    deck,
+    resetGame,
+    newRound,
+    drawCard,
+  }: {
+    availableCards: ITurnOrderCard[]
+    deck: ITurnOrderCard[]
+    resetGame: () => TurnOrderGame.Action
+    newRound: (availableCards: ITurnOrderCard[]) => TurnOrderGame.Action
+    drawCard: () => TurnOrderGame.Action
+  }) => (
+    <React.Fragment>
+      {deck.length === 0 ? (
+        <Button
+          size="large"
+          variant="contained"
+          color="secondary"
+          onClick={() => newRound(availableCards)}
+        >
+          New Round
+        </Button>
+      ) : (
+        <Button
+          size="large"
+          variant="contained"
+          color="secondary"
+          onClick={drawCard}
+        >
+          Draw a card
+        </Button>
+      )}
 
-    <DiscardTable />
+      <DiscardTable />
 
-    <ShuffleButton 
-      color='primary'
-      variant='extended'
-      onClick={resetGame}
-    >
+      <ShuffleButton color="primary" variant="extended" onClick={resetGame}>
         Reset Game
-    </ShuffleButton>
-  </React.Fragment>
-))
+      </ShuffleButton>
+    </React.Fragment>
+  )
+)
 
 const mapStateToProps = (state: RootState) => ({
   deck: TurnOrderGame.selectors.getDeck(state),
@@ -70,7 +64,10 @@ const mapStateToProps = (state: RootState) => ({
 const mapDispatchToProps = {
   resetGame: TurnOrderGame.actions.resetGame,
   drawCard: TurnOrderGame.actions.draw,
-  newRound: TurnOrderGame.actions.newRound
+  newRound: TurnOrderGame.actions.newRound,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ActiveTurnOrder)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ActiveTurnOrder)
