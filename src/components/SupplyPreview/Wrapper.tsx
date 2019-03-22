@@ -1,11 +1,12 @@
 import styled from 'styled-components/macro'
 
-const PreviewTile = styled('div')`
+const Wrapper = styled('div')`
   border: 1px solid rgba(0, 0, 0, 0.12);
   padding: 4px 8px;
   display: inline-block;
   width: calc(100% - 16px);
   margin: 0 8px 24px;
+  cursor: pointer;
 
   &:nth-last-child(2) {
     margin-bottom: 0;
@@ -22,4 +23,4 @@ const PreviewTile = styled('div')`
   }
 `
 
-export default PreviewTile
+export default Wrapper
