@@ -116,3 +116,17 @@ export const shuffleDeck = (
  */
 export const getRandomEntity = <E>(availableEntities: Array<E>) =>
   availableEntities[Math.floor(Math.random() * availableEntities.length)]
+
+export const getOperationString = (
+  operation: types.Operation,
+  values?: number[],
+  threshold?: number
+) => {
+  if (operation === 'OR' && values) {
+    return values.join('/')
+  }
+
+  const thresholdValue = threshold ? threshold : ''
+
+  return `${operation} ${thresholdValue}`
+}
