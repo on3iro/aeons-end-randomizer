@@ -5,20 +5,17 @@ import { RootReducer, RootState } from './Store'
 
 const configureStore = (initialState: RootState) => {
   // Add middleware to this array if necessary
-  const middleWares: any[] = [ ]
+  const middleWares: any[] = []
 
-  const enhancers = [
-    applyMiddleware(...middleWares),
-    install<RootState>()
-  ]
+  const enhancers = [applyMiddleware(...middleWares), install<RootState>()]
 
   const composeEnhancers =
     process.env.NODE_ENV !== 'production' &&
     typeof window === 'object' &&
     // @ts-ignore
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-      // @ts-ignore
-      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      ? // @ts-ignore
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       : compose
 
   const enhancedCreateStore = createStore as StoreCreator
@@ -31,6 +28,4 @@ const configureStore = (initialState: RootState) => {
   return store
 }
 
-export {
-  configureStore as default
-}
+export { configureStore as default }

@@ -14,61 +14,69 @@ import EmptyMageListHint from './EmptyMageListHint'
 import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
 
+const Mages = React.memo(
+  ({
+    hasStandaloneExpansionSelected,
+    selectedExpansions,
+    mageCount,
+    setMageCount,
+    setMages,
+    mages,
+  }: {
+    hasStandaloneExpansionSelected: boolean
+    selectedExpansions: ReadonlyArray<string>
+    mageCount: MageCount.MageCount
+    setMageCount: (count: MageCount.MageCount) => MageCount.Action
+    setMages: (
+      expansions: ReadonlyArray<string>,
+      count: MageCount.MageCount
+    ) => RecruitedMages.Action
+    mages: ReadonlyArray<ICreature>
+  }) => {
+    if (!hasStandaloneExpansionSelected) {
+      return <NoSelectedExpansions />
+    }
 
-const Mages = React.memo(({
-  hasStandaloneExpansionSelected,
-  selectedExpansions,
-  mageCount,
-  setMageCount,
-  setMages,
-  mages,
-}: {
-  hasStandaloneExpansionSelected: boolean,
-  selectedExpansions: ReadonlyArray<string>,
-  mageCount: MageCount.MageCount,
-  setMageCount: (count: MageCount.MageCount) => MageCount.Action,
-  setMages: (expansions: ReadonlyArray<string>, count: MageCount.MageCount) => RecruitedMages.Action,
-  mages: ReadonlyArray<ICreature>
-}) => {
-  if (!hasStandaloneExpansionSelected) {
-    return <NoSelectedExpansions />
+    const handleShuffle = () => {
+      setMages(selectedExpansions, mageCount)
+    }
+
+    const noMagesGeneratedYet = mages.length === 0
+
+    const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setMageCount(parseInt(e.currentTarget.value) as MageCount.MageCount)
+    }
+
+    return (
+      <React.Fragment>
+        <MageCountPicker
+          selectedValue={mageCount.toString()}
+          handleAmountChange={handleAmountChange}
+        />
+        {noMagesGeneratedYet ? (
+          <EmptyMageListHint>Tap button to recruit mages</EmptyMageListHint>
+        ) : (
+          <MageList mages={mages} />
+        )}
+        <ShuffleButton
+          onClick={handleShuffle}
+          color="primary"
+          variant="extended"
+        >
+          Recruit Mages
+        </ShuffleButton>
+      </React.Fragment>
+    )
   }
-
-  const handleShuffle = () => {
-    setMages(selectedExpansions, mageCount)
-  }
-
-  const noMagesGeneratedYet = mages.length === 0
-
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setMageCount(parseInt(e.currentTarget.value) as MageCount.MageCount)
-  }
-
-  return (
-    <React.Fragment>
-      <MageCountPicker
-        selectedValue={mageCount.toString()}
-        handleAmountChange={handleAmountChange}
-      />
-      {
-        noMagesGeneratedYet
-          ? <EmptyMageListHint>Tap button to recruit mages</EmptyMageListHint>
-          : <MageList mages={mages} />
-      }
-      <ShuffleButton
-        onClick={handleShuffle}
-        color="primary" 
-        variant="extended"
-      >
-        Recruit Mages
-      </ShuffleButton>
-    </React.Fragment>
-  )
-})
+)
 
 const mapStateToProps = (state: RootState) => ({
-  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(state),
-  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(state),
+  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(
+    state
+  ),
+  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(
+    state
+  ),
   mageCount: MageCount.selectors.getCount(state),
   mages: RecruitedMages.selectors.getMages(state),
 })
@@ -78,4 +86,7 @@ const mapDispatchToProps = {
   setMages: RecruitedMages.actions.setRandomMages,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Mages)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Mages)

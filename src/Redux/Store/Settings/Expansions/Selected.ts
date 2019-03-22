@@ -6,7 +6,6 @@ import { get as getFromDb, set as setToDb } from 'idb-keyval'
 import config from '../../../../config'
 import { RootState } from '../../'
 
-
 const EXPANSIONS_DB_KEY = 'expansions'
 
 ///////////
@@ -15,7 +14,8 @@ const EXPANSIONS_DB_KEY = 'expansions'
 
 export type State = Readonly<{ [key: string]: boolean }>
 export const initialState: State = config.EXPANSIONS.reduce(
-  (acc, set) => ({ ...acc, [set]: false }) , {}
+  (acc, set) => ({ ...acc, [set]: false }),
+  {}
 )
 
 /////////////
@@ -26,8 +26,8 @@ export enum ActionTypes {
   TOGGLE_ALL = 'Settings/Expansions/SelectedExpansions/TOGGLE_ALL',
   TOGGLE_EXPANSION = 'Settings/Expansions/SelectedExpansions/TOGGLE_EXPANSION',
   SET_TO_DB = 'Settings/Expansions/SelectedExpansions/SET_TO_DB',
-  SET_TO_DB_SUCCESS ='Settings/Expansions/SelectedExpansions/SET_TO_DB_SUCCESS',
-  SET_TO_DB_FAILURE ='Settings/Expansions/SelectedExpansions/SET_TO_DB_FAILURE',
+  SET_TO_DB_SUCCESS = 'Settings/Expansions/SelectedExpansions/SET_TO_DB_SUCCESS',
+  SET_TO_DB_FAILURE = 'Settings/Expansions/SelectedExpansions/SET_TO_DB_FAILURE',
   FETCH_FROM_DB = 'Settings/Expansions/SelectedExpansions/FETCH_FROM_DB',
   FETCH_FROM_DB_SUCCESS = 'Settings/Expansions/SelectedExpansions/FETCH_FROM_DB_SUCCESS',
   FETCH_FROM_DB_FAILURE = 'Settings/Expansions/SelectedExpansions/FETCH_FROM_DB_FAILURE',
@@ -35,13 +35,17 @@ export enum ActionTypes {
 
 export const actions = {
   toggleAll: () => createAction(ActionTypes.TOGGLE_ALL),
-  toggleExpansion: (expansion: string) => createAction(ActionTypes.TOGGLE_EXPANSION, expansion),
+  toggleExpansion: (expansion: string) =>
+    createAction(ActionTypes.TOGGLE_EXPANSION, expansion),
   setToDB: (state: State) => createAction(ActionTypes.SET_TO_DB, state),
   setToDBSuccessful: () => createAction(ActionTypes.SET_TO_DB_SUCCESS),
-  setToDBFailed: (error: Object) => createAction(ActionTypes.SET_TO_DB_FAILURE, error),
+  setToDBFailed: (error: Object) =>
+    createAction(ActionTypes.SET_TO_DB_FAILURE, error),
   fetchFromDB: () => createAction(ActionTypes.FETCH_FROM_DB),
-  fetchFromDBSuccessful: (state: State) => createAction(ActionTypes.FETCH_FROM_DB_SUCCESS, state),
-  fetchFromDBFailed: (error: Object) => createAction(ActionTypes.FETCH_FROM_DB_FAILURE, error),
+  fetchFromDBSuccessful: (state: State) =>
+    createAction(ActionTypes.FETCH_FROM_DB_SUCCESS, state),
+  fetchFromDBFailed: (error: Object) =>
+    createAction(ActionTypes.FETCH_FROM_DB_FAILURE, error),
 }
 
 export type Action = ActionsUnion<typeof actions>
@@ -50,9 +54,8 @@ export type Action = ActionsUnion<typeof actions>
 // REDUCER //
 /////////////
 
-const allSetsAreSelected = (state: State) => Object
-  .values(state)
-  .every(val => val === true)
+const allSetsAreSelected = (state: State) =>
+  Object.values(state).every(val => val === true)
 
 export const Reducer: LoopReducer<State, Action> = (
   state: State = initialState,
@@ -61,12 +64,14 @@ export const Reducer: LoopReducer<State, Action> = (
   switch (action.type) {
     case ActionTypes.TOGGLE_ALL: {
       const allSetsSelected = allSetsAreSelected(state)
-      const newState = config.EXPANSIONS
-        .reduce((acc, set) => ({ ...acc, [set]: !allSetsSelected }), {})
+      const newState = config.EXPANSIONS.reduce(
+        (acc, set) => ({ ...acc, [set]: !allSetsSelected }),
+        {}
+      )
 
       return loop(
         newState,
-        Cmd.run<Action>( setToDb, {
+        Cmd.run<Action>(setToDb, {
           args: [EXPANSIONS_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
@@ -78,7 +83,7 @@ export const Reducer: LoopReducer<State, Action> = (
       const newState = { ...state, [action.payload]: !state[action.payload] }
       return loop(
         newState,
-        Cmd.run<Action>( setToDb, {
+        Cmd.run<Action>(setToDb, {
           args: [EXPANSIONS_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
@@ -89,7 +94,7 @@ export const Reducer: LoopReducer<State, Action> = (
     case ActionTypes.FETCH_FROM_DB: {
       return loop(
         state,
-        Cmd.run<Action>( getFromDb, {
+        Cmd.run<Action>(getFromDb, {
           args: [EXPANSIONS_DB_KEY],
           successActionCreator: actions.fetchFromDBSuccessful,
           failActionCreator: actions.fetchFromDBFailed,
@@ -115,24 +120,26 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getSelectedExpansionsState = (state: RootState) => state.Settings.Expansions.Selected
+const getSelectedExpansionsState = (state: RootState) =>
+  state.Settings.Expansions.Selected
 
 const getSelectedExpansionsArray = createSelector(
-  [ getSelectedExpansionsState ],
-  (selectedExpansions) => Object
-    .keys(selectedExpansions)
-    .filter(key => selectedExpansions[key])
+  [getSelectedExpansionsState],
+  selectedExpansions =>
+    Object.keys(selectedExpansions).filter(key => selectedExpansions[key])
 )
 
 const getAllSetsSelected = createSelector(
-  [ getSelectedExpansionsState ],
-  (selectedExpansions) => allSetsAreSelected(selectedExpansions)
+  [getSelectedExpansionsState],
+  selectedExpansions => allSetsAreSelected(selectedExpansions)
 )
 
 const getHasStandaloneSet = createSelector(
-  [ getSelectedExpansionsArray ],
-  (selectedExpansions) => selectedExpansions
-    .some(expansion => config.DATA[expansion].type === "standalone")
+  [getSelectedExpansionsArray],
+  selectedExpansions =>
+    selectedExpansions.some(
+      expansion => config.DATA[expansion].type === 'standalone'
+    )
 )
 
 export const selectors = {

@@ -5,13 +5,11 @@ export const getOperationString = (
   values?: number[],
   threshold?: number
 ) => {
-  if (operation === "OR" && values) {
-    return values.join("/")
+  if (operation === 'OR' && values) {
+    return values.join('/')
   }
 
-  const thresholdValue = threshold
-    ? threshold
-    : ""
+  const thresholdValue = threshold ? threshold : ''
 
   return `${operation} ${thresholdValue}`
 }

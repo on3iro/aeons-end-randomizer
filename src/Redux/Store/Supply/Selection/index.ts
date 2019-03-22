@@ -24,12 +24,13 @@ export const initialState: State = {
 /////////////
 
 export enum ActionTypes {
-  SELECT_SETUP = "Supply/Selection/SELECT_SETUP"
+  SELECT_SETUP = 'Supply/Selection/SELECT_SETUP',
 }
 
 export const actions = {
   noOp: () => createAction('NOOP'),
-  selectSetup: (setup: Readonly<types.IMarketSetup>) => createAction(ActionTypes.SELECT_SETUP, setup),
+  selectSetup: (setup: Readonly<types.IMarketSetup>) =>
+    createAction(ActionTypes.SELECT_SETUP, setup),
 }
 
 export type Action = ActionsUnion<typeof actions>
@@ -46,7 +47,7 @@ export const Reducer: LoopReducer<State, Action> = (
     case ActionTypes.SELECT_SETUP: {
       return {
         ...state,
-        Selected: action.payload
+        Selected: action.payload,
       }
     }
 
