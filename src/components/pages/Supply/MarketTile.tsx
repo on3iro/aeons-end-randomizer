@@ -12,7 +12,7 @@ import { Slot, ICard, isCard, Operation } from '../../../types'
 
 import CardTypeIcon from './CardTypeIcon'
 
-import { getOperationString } from './helpers'
+import { getOperationString } from '../../../Redux/helpers'
 
 const MarketTile = React.memo(
   ({

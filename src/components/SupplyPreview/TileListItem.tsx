@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-const PreviewTileListItem = styled('li')`
+const TileListItem = styled('li')`
   margin: 4px;
   min-width: 36px;
   width: calc(33.33333% - 8px);
@@ -18,4 +18,4 @@ const PreviewTileListItem = styled('li')`
   }
 `
 
-export default PreviewTileListItem
+export default TileListItem
