@@ -6,8 +6,10 @@ import { get as getFromDb, set as setToDb } from 'idb-keyval'
 import config from '../../../../config'
 import { ITurnOrderSetup, Mode } from '../../../../types'
 import { RootState } from '../../'
-import { actions as activeGameActions, Action as ActiveGameAction } from '../ActiveGame'
-
+import {
+  actions as activeGameActions,
+  Action as ActiveGameAction,
+} from '../ActiveGame'
 
 const TURNORDER_CONFIG_DB_KEY = 'turnOrderConfig'
 
@@ -22,10 +24,10 @@ const adjustSetup = (mode: Mode, setup: ITurnOrderSetup): ITurnOrderSetup => {
         id: setup.id,
         name: setup.name,
         turnOrderCards: setup.turnOrderCards.map(card => {
-          return (card.id === 'nemesis-1')
-            ? config.TURNORDERCARDS["maelstrom"]
+          return card.id === 'nemesis-1'
+            ? config.TURNORDERCARDS['maelstrom']
             : card
-        })
+        }),
       }
     }
 
@@ -41,12 +43,12 @@ const adjustSetup = (mode: Mode, setup: ITurnOrderSetup): ITurnOrderSetup => {
 ///////////
 
 export type State = Readonly<{
-  Mode: Mode,
+  Mode: Mode
   SelectedSetup: ITurnOrderSetup
 }>
 export const initialState: State = {
   Mode: 'Default',
-  SelectedSetup: config.TURNORDERSETUPS['onePlayerThreeToc']
+  SelectedSetup: config.TURNORDERSETUPS['onePlayerThreeToc'],
 }
 
 /////////////
@@ -67,12 +69,14 @@ export enum ActionTypes {
 export const actions = {
   noOp: () => createAction('NOOP'),
   setMode: (mode: Mode) => createAction(ActionTypes.SET_MODE, mode),
-  selectSetup: (setupId: string) => createAction(ActionTypes.SELECT_SETUP, setupId),
+  selectSetup: (setupId: string) =>
+    createAction(ActionTypes.SELECT_SETUP, setupId),
   setToDB: () => createAction(ActionTypes.SET_TO_DB),
   setToDBSuccessful: () => createAction(ActionTypes.SET_TO_DB_SUCCESS),
   setToDBFailed: () => createAction(ActionTypes.SET_TO_DB_FAILURE),
   fetchFromDB: () => createAction(ActionTypes.FETCH_FROM_DB),
-  fetchFromDBSuccessful: (state: State) => createAction(ActionTypes.FETCH_FROM_DB_SUCCESS, state),
+  fetchFromDBSuccessful: (state: State) =>
+    createAction(ActionTypes.FETCH_FROM_DB_SUCCESS, state),
   fetchFromDBFailed: () => createAction(ActionTypes.FETCH_FROM_DB_FAILURE),
 }
 
@@ -91,7 +95,7 @@ export const Reducer: LoopReducer<State, Action | ActiveGameAction> = (
       const newState = { ...state, Mode: action.payload }
       return loop(
         newState,
-        Cmd.run<Action>( setToDb, {
+        Cmd.run<Action>(setToDb, {
           args: [TURNORDER_CONFIG_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
@@ -100,10 +104,13 @@ export const Reducer: LoopReducer<State, Action | ActiveGameAction> = (
     }
 
     case ActionTypes.SELECT_SETUP: {
-      const newState = { ...state, SelectedSetup: config.TURNORDERSETUPS[action.payload] }
+      const newState = {
+        ...state,
+        SelectedSetup: config.TURNORDERSETUPS[action.payload],
+      }
       return loop(
         newState,
-        Cmd.run<Action>( setToDb, {
+        Cmd.run<Action>(setToDb, {
           args: [TURNORDER_CONFIG_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
@@ -114,7 +121,7 @@ export const Reducer: LoopReducer<State, Action | ActiveGameAction> = (
     case ActionTypes.FETCH_FROM_DB: {
       return loop(
         state,
-        Cmd.run<Action>( getFromDb, {
+        Cmd.run<Action>(getFromDb, {
           args: [TURNORDER_CONFIG_DB_KEY],
           successActionCreator: actions.fetchFromDBSuccessful,
           failActionCreator: actions.fetchFromDBFailed,
@@ -144,14 +151,15 @@ export const Reducer: LoopReducer<State, Action | ActiveGameAction> = (
 ///////////////
 
 const getMode = (state: RootState) => state.TurnOrder.Configuration.Mode
-const getSelectedSetup = (state: RootState) => state.TurnOrder.Configuration.SelectedSetup
+const getSelectedSetup = (state: RootState) =>
+  state.TurnOrder.Configuration.SelectedSetup
 const getConfiguration = createSelector(
-  [ getMode, getSelectedSetup ],
+  [getMode, getSelectedSetup],
   (mode, selectedSetup) => adjustSetup(mode, selectedSetup)
 )
 const getAvailableCards = createSelector(
-  [ getConfiguration ],
-  (config) => config.turnOrderCards
+  [getConfiguration],
+  config => config.turnOrderCards
 )
 
 export const selectors = {

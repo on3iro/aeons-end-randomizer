@@ -3,15 +3,12 @@ import { combineReducers } from 'redux-loop'
 import * as Configuration from './Configuration'
 import * as ActiveGame from './ActiveGame'
 
-
 export type State = {
-  Configuration: Configuration.State,
-  ActiveGame: ActiveGame.State,
+  Configuration: Configuration.State
+  ActiveGame: ActiveGame.State
 }
 
-export type Action =
-  Configuration.Action
-  | ActiveGame.Action
+export type Action = Configuration.Action | ActiveGame.Action
 
 export const initialState = {
   Configuration: Configuration.initialState,

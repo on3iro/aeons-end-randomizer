@@ -10,27 +10,33 @@ import TurnOrder from './pages/TurnOrder'
 
 import { ROUTES } from '../routes'
 
-
-const Content = React.memo(({ classes, route, isLoading, ...rest }: {
-  classes: any,
-  route: string,
-  isLoading: boolean,
-  className: string
-}) => (
-  <div {...rest}>
-    <div className={classes.drawerHeader} />
-    {
-      isLoading
-        ? <CircularProgress />
-        : {
+const Content = React.memo(
+  ({
+    classes,
+    route,
+    isLoading,
+    ...rest
+  }: {
+    classes: any
+    route: string
+    isLoading: boolean
+    className: string
+  }) => (
+    <div {...rest}>
+      <div className={classes.drawerHeader} />
+      {isLoading ? (
+        <CircularProgress />
+      ) : (
+        {
           [ROUTES.nemeses]: <Nemeses />,
           [ROUTES.mages]: <Mages />,
           [ROUTES.supply]: <Supply />,
           [ROUTES.turnOrder]: <TurnOrder />,
-          [ROUTES.settings]: <Settings />
+          [ROUTES.settings]: <Settings />,
         }[route]
-    }
-  </div>
-))
+      )}
+    </div>
+  )
+)
 
 export default Content

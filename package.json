@@ -40,6 +40,11 @@
     "analyze:vendor": "source-map-explorer build/static/js/2.*",
     "eject": "react-scripts eject"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -53,6 +58,9 @@
     "@types/classnames": "^2.2.7",
     "@types/styled-components": "^4.1.11",
     "babel-plugin-macros": "^2.5.0",
+    "husky": "^1.3.1",
+    "prettier": "1.16.4",
+    "pretty-quick": "^1.10.0",
     "source-map-explorer": "^1.7.0"
   }
 }

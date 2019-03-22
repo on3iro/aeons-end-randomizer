@@ -1,5 +1,5 @@
 const settingStyles = (theme: any) => ({
-   heading: {
+  heading: {
     fontSize: theme.typography.pxToRem(15),
   },
   secondaryHeading: {

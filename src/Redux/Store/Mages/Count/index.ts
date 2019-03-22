@@ -4,7 +4,6 @@ import { createSelector } from 'reselect'
 
 import { RootState } from '../../'
 
-
 ///////////
 // STATE //
 ///////////
@@ -18,12 +17,12 @@ export const initialState: State = 1
 /////////////
 
 export enum ActionTypes {
-  SET = 'Mages/Count/SET'
+  SET = 'Mages/Count/SET',
 }
 
 export const actions = {
   setCount: (count: MageCount) => createAction(ActionTypes.SET, count),
-  noOp: () => createAction('NOOP')
+  noOp: () => createAction('NOOP'),
 }
 
 export type Action = ActionsUnion<typeof actions>
@@ -54,5 +53,5 @@ export const Reducer: LoopReducer<State, Action> = (
 const getCount = (state: RootState) => state.Mages.Count
 
 export const selectors = {
-  getCount
+  getCount,
 }

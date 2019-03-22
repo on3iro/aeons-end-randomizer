@@ -12,31 +12,16 @@ import * as TurnOrderGame from '../../../Redux/Store/TurnOrder/ActiveGame'
 import TableRow from './TableRow'
 import styles from './styles'
 
+const renderTableRows = (discard: ITurnOrderCard[], classes: any) =>
+  discard.map((card, i) => <TableRow key={i} card={card} classes={classes} />)
 
-const renderTableRows = (
-  discard: ITurnOrderCard[],
-  classes: any
-) => discard.map((card, i) => (
-  <TableRow
-    key={i}
-    card={card}
-    classes={classes}
-  />
-))
-
-const DiscardTable = React.memo(({
-  discard,
-  classes,
-}: {
-  discard: ITurnOrderCard[],
-  classes: any,
-}) => (
- <MuiTable className={classes.cardTable}>
-   <TableBody>
-     { renderTableRows(discard, classes) }
-   </TableBody>
- </MuiTable>
-))
+const DiscardTable = React.memo(
+  ({ discard, classes }: { discard: ITurnOrderCard[]; classes: any }) => (
+    <MuiTable className={classes.cardTable}>
+      <TableBody>{renderTableRows(discard, classes)}</TableBody>
+    </MuiTable>
+  )
+)
 
 const mapStateToProps = (state: RootState) => ({
   discard: TurnOrderGame.selectors.getDiscard(state),
@@ -44,4 +29,7 @@ const mapStateToProps = (state: RootState) => ({
 
 const mapDispatchToProps = {}
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(DiscardTable))
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(DiscardTable))
