@@ -13,23 +13,20 @@ const renderCardNames = (turnOrderSetup: ITurnOrderSetup) =>
     </Typography>
   ))
 
-const CardNameDisplay = React.memo(
-  ({
-    classes,
-    turnOrderSetup,
-  }: {
-    classes: any
-    turnOrderSetup: ITurnOrderSetup
-  }) => (
-    <Card className={classes.cardDeck}>
-      <CardContent>
-        <Typography color="textSecondary" gutterBottom>
-          Turn order cards
-        </Typography>
-        {renderCardNames(turnOrderSetup)}
-      </CardContent>
-    </Card>
-  )
-)
+type Props = {
+  classes: any
+  turnOrderSetup: ITurnOrderSetup
+}
+
+const CardNameDisplay = React.memo(({ classes, turnOrderSetup }: Props) => (
+  <Card className={classes.cardDeck}>
+    <CardContent>
+      <Typography color="textSecondary" gutterBottom>
+        Turn order cards
+      </Typography>
+      {renderCardNames(turnOrderSetup)}
+    </CardContent>
+  </Card>
+))
 
 export default CardNameDisplay

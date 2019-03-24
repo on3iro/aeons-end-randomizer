@@ -14,17 +14,14 @@ import CardTypeIcon from './CardTypeIcon'
 
 import { getOperationString } from '../../../Redux/helpers'
 
+type Props = {
+  tileSetup: Slot
+  card: Slot | ICard
+  classes: any
+}
+
 const MarketTile = React.memo(
-  ({
-    tileSetup,
-    card,
-    classes,
-    ...rest
-  }: {
-    tileSetup: Slot
-    card: Slot | ICard
-    classes: any
-  }) => {
+  ({ tileSetup, card, classes, ...rest }: Props) => {
     const { type, operation, values, threshold } = tileSetup
 
     return (

@@ -14,6 +14,23 @@ import * as SelectedExpansions from '../../../Redux/Store/Settings/Expansions/Se
 
 import CheckboxList from './CheckboxList'
 
+const mapStateToProps = (state: RootState) => ({
+  standalones: Expansions.selectors.getStandaloneExpansions,
+  miniExpansions: Expansions.selectors.getMiniExpansions,
+  promos: Expansions.selectors.getPromos,
+  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsState(
+    state
+  ),
+  allSetsSelected: SelectedExpansions.selectors.getAllSetsSelected(state),
+})
+
+const mapDispatchToProps = {
+  handleSelectAll: SelectedExpansions.actions.toggleAll,
+  handleChange: SelectedExpansions.actions.toggleExpansion,
+}
+
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
+
 const ActiveSets = React.memo(
   ({
     allSetsSelected,
@@ -23,15 +40,7 @@ const ActiveSets = React.memo(
     promos,
     selectedExpansions,
     handleChange,
-  }: {
-    allSetsSelected: boolean
-    handleSelectAll: () => void
-    standalones: ReadonlyArray<string>
-    miniExpansions: ReadonlyArray<string>
-    promos: ReadonlyArray<string>
-    selectedExpansions: SelectedExpansions.State
-    handleChange: (set: string) => void
-  }) => (
+  }: Props) => (
     <FormControl component={'fieldset' as 'div'}>
       <FormLabel />
       <FormGroup style={{ marginBottom: '20px' }}>
@@ -68,20 +77,7 @@ const ActiveSets = React.memo(
   )
 )
 
-const mapStateToProps = (state: RootState) => ({
-  standalones: Expansions.selectors.getStandaloneExpansions,
-  miniExpansions: Expansions.selectors.getMiniExpansions,
-  promos: Expansions.selectors.getPromos,
-  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsState(
-    state
-  ),
-  allSetsSelected: SelectedExpansions.selectors.getAllSetsSelected(state),
-})
-
 export default connect(
   mapStateToProps,
-  {
-    handleSelectAll: SelectedExpansions.actions.toggleAll,
-    handleChange: SelectedExpansions.actions.toggleExpansion,
-  }
+  mapDispatchToProps
 )(ActiveSets)

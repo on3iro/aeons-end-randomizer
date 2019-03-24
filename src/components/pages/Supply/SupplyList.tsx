@@ -22,22 +22,18 @@ const renderTiles = (
   ))
 }
 
-const SupplyList = React.memo(
-  ({
-    marketSetup,
-    cards,
-    classes,
-  }: {
-    marketSetup: IMarketSetup
-    cards: ReadonlyArray<Slot | ICard>
-    classes: any
-  }) => (
-    <ListWrapper>
-      <Grid container spacing={16}>
-        {renderTiles(marketSetup, cards, classes)}
-      </Grid>
-    </ListWrapper>
-  )
-)
+type Props = {
+  marketSetup: IMarketSetup
+  cards: ReadonlyArray<Slot | ICard>
+  classes: any
+}
+
+const SupplyList = React.memo(({ marketSetup, cards, classes }: Props) => (
+  <ListWrapper>
+    <Grid container spacing={16}>
+      {renderTiles(marketSetup, cards, classes)}
+    </Grid>
+  </ListWrapper>
+))
 
 export default SupplyList

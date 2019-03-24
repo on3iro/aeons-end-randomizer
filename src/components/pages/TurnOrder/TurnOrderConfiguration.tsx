@@ -14,16 +14,21 @@ import CardNameDisplay from './CardNameDisplay'
 import ModeSelection from './ModeSelection'
 import SetupSelection from './SetupSelection'
 
-const TurnOrderConfiguration = React.memo(
-  ({
-    currentConfiguration,
-    startGame,
-    classes,
-  }: {
-    currentConfiguration: ITurnOrderSetup
-    startGame: (deck: ITurnOrderCard[]) => TurnOrderGame.Action
+const mapStateToProps = (state: RootState) => ({
+  currentConfiguration: TurnOrderConfig.selectors.getConfiguration(state),
+})
+
+const mapDispatchToProps = {
+  startGame: TurnOrderGame.actions.startGame,
+}
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps & {
     classes: any
-  }) => (
+  }
+
+const TurnOrderConfiguration = React.memo(
+  ({ currentConfiguration, startGame, classes }: Props) => (
     <React.Fragment>
       <SetupSelection />
       <ModeSelection classes={classes} />
@@ -41,14 +46,6 @@ const TurnOrderConfiguration = React.memo(
     </React.Fragment>
   )
 )
-
-const mapStateToProps = (state: RootState) => ({
-  currentConfiguration: TurnOrderConfig.selectors.getConfiguration(state),
-})
-
-const mapDispatchToProps = {
-  startGame: TurnOrderGame.actions.startGame,
-}
 
 export default connect(
   mapStateToProps,

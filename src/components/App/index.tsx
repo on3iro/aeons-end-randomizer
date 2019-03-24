@@ -22,7 +22,9 @@ const theme = createMuiTheme({
   },
 })
 
-const App = React.memo(({ classes }: { classes: any }) => (
+type Props = { classes: any }
+
+const App = React.memo(({ classes }: Props) => (
   <MuiThemeProvider theme={theme}>
     <div className={classes.root}>
       <CssBaseline />

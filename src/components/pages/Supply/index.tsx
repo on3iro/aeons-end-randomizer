@@ -24,6 +24,26 @@ import supplyStyles from './supplyStyles'
 import SupplyList from './SupplyList'
 import MarketOptions from './MarketOptions'
 
+const mapStateToProps = (state: RootState) => ({
+  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(
+    state
+  ),
+  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(
+    state
+  ),
+  marketSetup: SupplySelection.selectors.getSelectedSetup(state),
+  cards: RandomSupply.selectors.getCards(state),
+})
+
+const mapDispatchToProps = {
+  createMarket: RandomSupply.actions.createMarket,
+}
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps & {
+    classes: any
+  }
+
 const Supply = React.memo(
   ({
     classes,
@@ -32,17 +52,7 @@ const Supply = React.memo(
     hasStandaloneExpansionSelected,
     marketSetup,
     selectedExpansions,
-  }: {
-    classes: any
-    cards: ReadonlyArray<Slot | ICard>
-    createMarket: (
-      expansions: ReadonlyArray<string>,
-      tiles: ReadonlyArray<Slot>
-    ) => RandomSupply.Action
-    hasStandaloneExpansionSelected: boolean
-    marketSetup: IMarketSetup
-    selectedExpansions: ReadonlyArray<string>
-  }) => {
+  }: Props) => {
     const { expanded, createExpansionHandler } = useExpandedHandling()
     const expansionHandler = createExpansionHandler('setup')
 
@@ -84,20 +94,6 @@ const Supply = React.memo(
     )
   }
 )
-
-const mapStateToProps = (state: RootState) => ({
-  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(
-    state
-  ),
-  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(
-    state
-  ),
-  marketSetup: SupplySelection.selectors.getSelectedSetup(state),
-  cards: RandomSupply.selectors.getCards(state),
-})
-const mapDispatchToProps = {
-  createMarket: RandomSupply.actions.createMarket,
-}
 
 export default connect(
   mapStateToProps,

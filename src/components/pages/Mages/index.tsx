@@ -14,6 +14,24 @@ import EmptyMageListHint from './EmptyMageListHint'
 import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
 
+const mapStateToProps = (state: RootState) => ({
+  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(
+    state
+  ),
+  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(
+    state
+  ),
+  mageCount: MageCount.selectors.getCount(state),
+  mages: RecruitedMages.selectors.getMages(state),
+})
+
+const mapDispatchToProps = {
+  setMageCount: MageCount.actions.setCount,
+  setMages: RecruitedMages.actions.setRandomMages,
+}
+
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
+
 const Mages = React.memo(
   ({
     hasStandaloneExpansionSelected,
@@ -22,17 +40,7 @@ const Mages = React.memo(
     setMageCount,
     setMages,
     mages,
-  }: {
-    hasStandaloneExpansionSelected: boolean
-    selectedExpansions: ReadonlyArray<string>
-    mageCount: MageCount.MageCount
-    setMageCount: (count: MageCount.MageCount) => MageCount.Action
-    setMages: (
-      expansions: ReadonlyArray<string>,
-      count: MageCount.MageCount
-    ) => RecruitedMages.Action
-    mages: ReadonlyArray<ICreature>
-  }) => {
+  }: Props) => {
     if (!hasStandaloneExpansionSelected) {
       return <NoSelectedExpansions />
     }
@@ -69,22 +77,6 @@ const Mages = React.memo(
     )
   }
 )
-
-const mapStateToProps = (state: RootState) => ({
-  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(
-    state
-  ),
-  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(
-    state
-  ),
-  mageCount: MageCount.selectors.getCount(state),
-  mages: RecruitedMages.selectors.getMages(state),
-})
-
-const mapDispatchToProps = {
-  setMageCount: MageCount.actions.setCount,
-  setMages: RecruitedMages.actions.setRandomMages,
-}
 
 export default connect(
   mapStateToProps,
