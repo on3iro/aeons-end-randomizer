@@ -3,7 +3,7 @@ import React from 'react'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 
-import config from '../../../config'
+import config from '../../../../config'
 
 type Props = {
   set: string
