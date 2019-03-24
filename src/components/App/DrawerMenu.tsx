@@ -9,18 +9,15 @@ import Link from '@material-ui/core/Link'
 
 import Routes from '../Routes'
 
+type Props = {
+  drawerIsOpen: boolean
+  toggleDrawer: () => void
+  classes: any
+  moveTo: (route: string) => void
+}
+
 const DrawerMenu = React.memo(
-  ({
-    drawerIsOpen,
-    toggleDrawer,
-    classes,
-    moveTo,
-  }: {
-    drawerIsOpen: boolean
-    toggleDrawer: () => void
-    classes: any
-    moveTo: (route: string) => void
-  }) => (
+  ({ drawerIsOpen, toggleDrawer, classes, moveTo }: Props) => (
     <Drawer
       open={drawerIsOpen}
       onClose={toggleDrawer}

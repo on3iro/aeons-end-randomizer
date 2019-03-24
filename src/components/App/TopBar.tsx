@@ -8,18 +8,15 @@ import MenuIcon from '@material-ui/icons/Menu'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 
+type Props = {
+  classes: any
+  drawerIsOpen: boolean
+  currentLocation: string
+  toggleDrawer: () => void
+}
+
 const TopBar = React.memo(
-  ({
-    classes,
-    drawerIsOpen,
-    currentLocation,
-    toggleDrawer,
-  }: {
-    classes: any
-    drawerIsOpen: boolean
-    currentLocation: string
-    toggleDrawer: () => void
-  }) => (
+  ({ classes, drawerIsOpen, currentLocation, toggleDrawer }: Props) => (
     <AppBar
       position="fixed"
       className={classNames(classes.appBar, {

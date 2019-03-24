@@ -17,6 +17,25 @@ import NoSelectedExpansions from '../../NoSelectedExpansions'
 
 import nemesesStyles from './nemesesStyles'
 
+const mapStateToProps = (state: RootState) => ({
+  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(
+    state
+  ),
+  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(
+    state
+  ),
+  nemesis: Nemesis.selectors.getNemesis(state),
+})
+
+const mapDispatchToProps = {
+  setRandomNemesis: Nemesis.actions.setRandomNemesis,
+}
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps & {
+    classes: any
+  }
+
 const Nemeses = React.memo(
   ({
     classes,
@@ -24,13 +43,7 @@ const Nemeses = React.memo(
     nemesis,
     selectedExpansions,
     setRandomNemesis,
-  }: {
-    classes: any
-    hasStandaloneExpansionSelected: boolean
-    nemesis: ICreature | undefined
-    selectedExpansions: ReadonlyArray<string>
-    setRandomNemesis: (expansions: ReadonlyArray<string>) => Nemesis.Action
-  }) => {
+  }: Props) => {
     if (!hasStandaloneExpansionSelected) {
       return <NoSelectedExpansions />
     }
@@ -65,20 +78,6 @@ const Nemeses = React.memo(
     )
   }
 )
-
-const mapStateToProps = (state: RootState) => ({
-  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(
-    state
-  ),
-  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(
-    state
-  ),
-  nemesis: Nemesis.selectors.getNemesis(state),
-})
-
-const mapDispatchToProps = {
-  setRandomNemesis: Nemesis.actions.setRandomNemesis,
-}
 
 export default connect(
   mapStateToProps,
