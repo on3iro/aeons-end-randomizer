@@ -22,6 +22,12 @@ export const TURNORDERCARDS: { [key: string]: ITurnOrderCard } = {
     name: 'Maelstrom Assault',
     cssClass: 'maelstrom',
   },
+
+  blitz: {
+    id: 'blitz',
+    name: 'Blitz',
+    cssClass: 'blitz',
+  },
 }
 
 export const TURNORDERSETUPS: ITurnOrderSetups = {

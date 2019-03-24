@@ -86,6 +86,7 @@ export type Player =
   | 'Nemesis'
   | 'Wild'
   | 'Maelstrom Assault'
+  | 'Blitz'
 
 export interface ITurnOrderCard {
   id: string
@@ -107,5 +108,5 @@ export const isCard = (card: ICard | Slot): card is ICard => {
   return (<ICard>card).name !== undefined
 }
 
-export const MODES = tuple('Default', 'Maelstrom')
+export const MODES = tuple('Default', 'Maelstrom', 'Blitz')
 export type Mode = typeof MODES[number] // automatically creates union from tuple

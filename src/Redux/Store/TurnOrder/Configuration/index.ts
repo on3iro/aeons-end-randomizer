@@ -24,8 +24,20 @@ const adjustSetup = (mode: Mode, setup: ITurnOrderSetup): ITurnOrderSetup => {
         id: setup.id,
         name: setup.name,
         turnOrderCards: setup.turnOrderCards.map(card => {
-          return card.id === 'nemesis-1'
+          return card.id === 'nemesis-1' || card.id === 'blitz'
             ? config.TURNORDERCARDS['maelstrom']
+            : card
+        }),
+      }
+    }
+
+    case 'Blitz': {
+      return {
+        id: setup.id,
+        name: setup.name,
+        turnOrderCards: setup.turnOrderCards.map(card => {
+          return card.id === 'nemesis-1' || card.id === 'maelstrom'
+            ? config.TURNORDERCARDS['blitz']
             : card
         }),
       }
