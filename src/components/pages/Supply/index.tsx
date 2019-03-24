@@ -1,9 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
-import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
 import { RootState } from '../../../Redux/Store'
@@ -15,8 +12,7 @@ import * as RandomSupply from '../../../Redux/Store/Supply/RandomSetup'
 import useExpandedHandling from '../../../hooks/useExpansionHandling'
 import { ICard, Slot, IMarketSetup } from '../../../types'
 
-import StyledExpansionPanel from '../../StyledExpansionPanel'
-import StyledExpansionPanelSummary from '../../StyledExpansionPanelSummary'
+import ExpansionPanel from '../../ExpansionPanel'
 import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
 
@@ -54,7 +50,8 @@ const Supply = React.memo(
     selectedExpansions,
   }: Props) => {
     const { expanded, createExpansionHandler } = useExpandedHandling()
-    const expansionHandler = createExpansionHandler('setup')
+    const expansionKey = 'setup'
+    const expansionHandler = createExpansionHandler(expansionKey)
 
     if (!hasStandaloneExpansionSelected) {
       return <NoSelectedExpansions />
@@ -66,22 +63,18 @@ const Supply = React.memo(
 
     return (
       <React.Fragment>
-        <StyledExpansionPanel
-          expanded={expanded === 'setup'}
-          onChange={expansionHandler}
+        <ExpansionPanel
+          expanded={expanded}
+          classes={classes}
+          expansionKey={expansionKey}
+          summary={marketSetup.name}
+          expansionHandler={expansionHandler}
         >
-          <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>
-              {marketSetup.name}
-            </Typography>
-          </StyledExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <MarketOptions
-              expansionHandler={expansionHandler}
-              classes={classes}
-            />
-          </ExpansionPanelDetails>
-        </StyledExpansionPanel>
+          <MarketOptions
+            expansionHandler={expansionHandler}
+            classes={classes}
+          />
+        </ExpansionPanel>
         <SupplyList marketSetup={marketSetup} cards={cards} classes={classes} />
         <ShuffleButton
           onClick={handleShuffle}
