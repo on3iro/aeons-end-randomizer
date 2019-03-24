@@ -12,20 +12,21 @@ import ShuffleButton from '../../ShuffleButton'
 
 import DiscardTable from './DiscardTable'
 
+const mapStateToProps = (state: RootState) => ({
+  deck: TurnOrderGame.selectors.getDeck(state),
+  availableCards: TurnOrderConfig.selectors.getAvailableCards(state),
+})
+
+const mapDispatchToProps = {
+  resetGame: TurnOrderGame.actions.resetGame,
+  drawCard: TurnOrderGame.actions.draw,
+  newRound: TurnOrderGame.actions.newRound,
+}
+
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
+
 const ActiveTurnOrder = React.memo(
-  ({
-    availableCards,
-    deck,
-    resetGame,
-    newRound,
-    drawCard,
-  }: {
-    availableCards: ITurnOrderCard[]
-    deck: ITurnOrderCard[]
-    resetGame: () => TurnOrderGame.Action
-    newRound: (availableCards: ITurnOrderCard[]) => TurnOrderGame.Action
-    drawCard: () => TurnOrderGame.Action
-  }) => (
+  ({ availableCards, deck, resetGame, newRound, drawCard }: Props) => (
     <React.Fragment>
       {deck.length === 0 ? (
         <Button
@@ -55,17 +56,6 @@ const ActiveTurnOrder = React.memo(
     </React.Fragment>
   )
 )
-
-const mapStateToProps = (state: RootState) => ({
-  deck: TurnOrderGame.selectors.getDeck(state),
-  availableCards: TurnOrderConfig.selectors.getAvailableCards(state),
-})
-
-const mapDispatchToProps = {
-  resetGame: TurnOrderGame.actions.resetGame,
-  drawCard: TurnOrderGame.actions.draw,
-  newRound: TurnOrderGame.actions.newRound,
-}
 
 export default connect(
   mapStateToProps,

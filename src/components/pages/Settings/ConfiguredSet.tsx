@@ -5,16 +5,14 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 import config from '../../../config'
 
+type Props = {
+  set: string
+  configurationOfSets: { [key: string]: boolean }
+  handleChange: (set: string) => void
+}
+
 const ConfiguredSet = React.memo(
-  ({
-    set,
-    configurationOfSets,
-    handleChange,
-  }: {
-    set: string
-    configurationOfSets: { [key: string]: boolean }
-    handleChange: (set: string) => void
-  }) => (
+  ({ set, configurationOfSets, handleChange }: Props) => (
     <FormControlLabel
       control={
         <Checkbox

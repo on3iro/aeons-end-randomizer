@@ -12,20 +12,22 @@ import * as TurnOrderGame from '../../../Redux/Store/TurnOrder/ActiveGame'
 
 import TableCell from './TableCell'
 
-const TableRow = React.memo(
-  ({
-    card,
-    addToTop,
-    addToBottom,
-    shuffleIntoDeck,
-    classes,
-  }: {
+const mapStateToProps = (state: RootState) => ({})
+
+const mapDispatchToProps = {
+  addToTop: TurnOrderGame.actions.addToTop,
+  addToBottom: TurnOrderGame.actions.addToBottom,
+  shuffleIntoDeck: TurnOrderGame.actions.shuffleIntoDeck,
+}
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps & {
     card: ITurnOrderCard
-    addToTop: (cardId: string) => TurnOrderGame.Action
-    addToBottom: (cardId: string) => TurnOrderGame.Action
-    shuffleIntoDeck: (cardId: string) => TurnOrderGame.Action
     classes: any
-  }) => (
+  }
+
+const TableRow = React.memo(
+  ({ card, addToTop, addToBottom, shuffleIntoDeck, classes }: Props) => (
     <MuiTableRow className={`${classes.cardRow} ${classes[card.cssClass]}`}>
       <TableCell>
         <Typography component="p">{card.name}</Typography>
@@ -60,14 +62,6 @@ const TableRow = React.memo(
     </MuiTableRow>
   )
 )
-
-const mapStateToProps = (state: RootState) => ({})
-
-const mapDispatchToProps = {
-  addToTop: TurnOrderGame.actions.addToTop,
-  addToBottom: TurnOrderGame.actions.addToBottom,
-  shuffleIntoDeck: TurnOrderGame.actions.shuffleIntoDeck,
-}
 
 export default connect(
   mapStateToProps,

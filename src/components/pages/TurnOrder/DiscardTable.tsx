@@ -15,19 +15,22 @@ import styles from './styles'
 const renderTableRows = (discard: ITurnOrderCard[], classes: any) =>
   discard.map((card, i) => <TableRow key={i} card={card} classes={classes} />)
 
-const DiscardTable = React.memo(
-  ({ discard, classes }: { discard: ITurnOrderCard[]; classes: any }) => (
-    <MuiTable className={classes.cardTable}>
-      <TableBody>{renderTableRows(discard, classes)}</TableBody>
-    </MuiTable>
-  )
-)
-
 const mapStateToProps = (state: RootState) => ({
   discard: TurnOrderGame.selectors.getDiscard(state),
 })
 
 const mapDispatchToProps = {}
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps & {
+    classes: any
+  }
+
+const DiscardTable = React.memo(({ discard, classes }: Props) => (
+  <MuiTable className={classes.cardTable}>
+    <TableBody>{renderTableRows(discard, classes)}</TableBody>
+  </MuiTable>
+))
 
 export default connect(
   mapStateToProps,

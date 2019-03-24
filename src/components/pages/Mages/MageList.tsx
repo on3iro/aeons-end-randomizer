@@ -9,16 +9,19 @@ import { ICreature } from '../../../types'
 import MageCard from './MageCard'
 import mageStyles from './mageStyles'
 
-const MageList = React.memo(
-  ({ mages, classes }: { mages: ReadonlyArray<ICreature>; classes: any }) => (
-    <MageGridWrapper>
-      <Grid container spacing={16}>
-        {mages.map(mage => (
-          <MageCard classes={classes} mage={mage} key={mage.name} />
-        ))}
-      </Grid>
-    </MageGridWrapper>
-  )
-)
+type Props = {
+  mages: ReadonlyArray<ICreature>
+  classes: any
+}
+
+const MageList = React.memo(({ mages, classes }: Props) => (
+  <MageGridWrapper>
+    <Grid container spacing={16}>
+      {mages.map(mage => (
+        <MageCard classes={classes} mage={mage} key={mage.name} />
+      ))}
+    </Grid>
+  </MageGridWrapper>
+))
 
 export default withStyles(mageStyles)(MageList)

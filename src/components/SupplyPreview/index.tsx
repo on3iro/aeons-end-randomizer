@@ -20,6 +20,27 @@ const renderMarketSetupItems = (tiles: any, classes: any) =>
     </TileListItem>
   ))
 
+const makeMapStateToProps = () => {
+  const getCustomAndPredefined = SupplySetups.selectors.makeGetCustomAndPredefined()
+  const mapStateToProps = (state: RootState) => ({
+    allMarketSetups: getCustomAndPredefined(state),
+    selectedSetup: SupplySelection.selectors.getSelectedSetup(state),
+  })
+
+  return mapStateToProps
+}
+
+const mapDispatchToProps = {
+  selectSetup: SupplySelection.actions.selectSetup,
+}
+
+type Props = ReturnType<ReturnType<typeof makeMapStateToProps>> &
+  typeof mapDispatchToProps & {
+    classes: any
+    clickHandler: Function
+    setup: IMarketSetup
+  }
+
 const SupplyPreview = React.memo(
   ({
     allMarketSetups,
@@ -28,14 +49,7 @@ const SupplyPreview = React.memo(
     setup,
     selectSetup,
     selectedSetup,
-  }: {
-    allMarketSetups: IMarketSetups
-    classes: any
-    clickHandler: Function
-    setup: IMarketSetup
-    selectedSetup: IMarketSetup
-    selectSetup: (setup: Readonly<IMarketSetup>) => SupplySelection.Action
-  }) => (
+  }: Props) => (
     <Wrapper
       key={setup.id}
       onClick={(event: any) => {
@@ -57,20 +71,6 @@ const SupplyPreview = React.memo(
     </Wrapper>
   )
 )
-
-const makeMapStateToProps = () => {
-  const getCustomAndPredefined = SupplySetups.selectors.makeGetCustomAndPredefined()
-  const mapStateToProps = (state: RootState) => ({
-    allMarketSetups: getCustomAndPredefined(state),
-    selectedSetup: SupplySelection.selectors.getSelectedSetup(state),
-  })
-
-  return mapStateToProps
-}
-
-const mapDispatchToProps = {
-  selectSetup: SupplySelection.actions.selectSetup,
-}
 
 export default connect(
   makeMapStateToProps,
