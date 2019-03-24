@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
 import { withStyles } from '@material-ui/core/styles'
 
 import { ITurnOrderSetup, ITurnOrderCard } from '../../../types'
@@ -8,8 +7,8 @@ import { RootState } from '../../../Redux/Store'
 import * as TurnOrderConfig from '../../../Redux/Store/TurnOrder/Configuration'
 import * as TurnOrderGame from '../../../Redux/Store/TurnOrder/ActiveGame'
 
-import ShuffleButton from '../../ShuffleButton'
 import turnOrderStyles from './styles'
+import ShuffleButton from '../../ShuffleButton'
 import CardNameDisplay from './CardNameDisplay'
 import ModeSelection from './ModeSelection'
 import SetupSelection from './SetupSelection'

@@ -7,10 +7,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormLabel from '@material-ui/core/FormLabel'
 
-import config from '../../../config'
-import { RootState } from '../../../Redux/Store'
-import * as Expansions from '../../../Redux/Store/Settings/Expansions'
-import * as SelectedExpansions from '../../../Redux/Store/Settings/Expansions/Selected'
+import config from '../../../../config'
+import { RootState } from '../../../../Redux/Store'
+import * as Expansions from '../../../../Redux/Store/Settings/Expansions'
+import * as SelectedExpansions from '../../../../Redux/Store/Settings/Expansions/Selected'
 
 import CheckboxList from './CheckboxList'
 
