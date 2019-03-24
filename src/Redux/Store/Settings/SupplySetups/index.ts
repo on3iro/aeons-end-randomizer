@@ -57,6 +57,9 @@ const getCustomAndPredefined = createSelector(
   [getPredefined, getCustom],
   (predefined, custom) => ({ ...predefined, ...custom })
 )
+
+const makeGetCustomAndPredefined = () => getCustomAndPredefined
+
 const getActiveSetups = createSelector(
   [getCustomAndPredefined],
   customAndPredefined =>
@@ -67,5 +70,6 @@ export const selectors = {
   getPredefined,
   getCustom,
   getCustomAndPredefined,
+  makeGetCustomAndPredefined,
   getActiveSetups,
 }

@@ -58,16 +58,21 @@ const SupplyPreview = React.memo(
   )
 )
 
-const mapStateToProps = (state: RootState) => ({
-  allMarketSetups: SupplySetups.selectors.getCustomAndPredefined(state),
-  selectedSetup: SupplySelection.selectors.getSelectedSetup(state),
-})
+const makeMapStateToProps = () => {
+  const getCustomAndPredefined = SupplySetups.selectors.makeGetCustomAndPredefined()
+  const mapStateToProps = (state: RootState) => ({
+    allMarketSetups: getCustomAndPredefined(state),
+    selectedSetup: SupplySelection.selectors.getSelectedSetup(state),
+  })
+
+  return mapStateToProps
+}
 
 const mapDispatchToProps = {
   selectSetup: SupplySelection.actions.selectSetup,
 }
 
 export default connect(
-  mapStateToProps,
+  makeMapStateToProps,
   mapDispatchToProps
 )(SupplyPreview)
