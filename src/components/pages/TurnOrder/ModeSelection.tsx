@@ -22,36 +22,6 @@ const renderModeOptions = () =>
     />
   ))
 
-const ModeSelection = React.memo(
-  ({
-    classes,
-    mode,
-    setMode,
-  }: {
-    classes: any
-    mode: Mode
-    setMode: (mode: Mode) => TurnOrderConfiguration.Action
-  }) => (
-    <Card className={classes.cardDeck}>
-      <CardContent>
-        <Typography color="textSecondary" gutterBottom>
-          Mode
-        </Typography>
-        <RadioGroup
-          aria-label="mode"
-          name="turnOrderMode"
-          value={mode}
-          onChange={(event: React.ChangeEvent<any>) =>
-            setMode(event.currentTarget.value)
-          }
-        >
-          {renderModeOptions()}
-        </RadioGroup>
-      </CardContent>
-    </Card>
-  )
-)
-
 const mapStateToProps = (state: RootState) => ({
   mode: TurnOrderConfiguration.selectors.getMode(state),
 })
@@ -59,6 +29,31 @@ const mapStateToProps = (state: RootState) => ({
 const mapDispatchToProps = {
   setMode: TurnOrderConfiguration.actions.setMode,
 }
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps & {
+    classes: any
+  }
+
+const ModeSelection = React.memo(({ classes, mode, setMode }: Props) => (
+  <Card className={classes.cardDeck}>
+    <CardContent>
+      <Typography color="textSecondary" gutterBottom>
+        Mode
+      </Typography>
+      <RadioGroup
+        aria-label="mode"
+        name="turnOrderMode"
+        value={mode}
+        onChange={(event: React.ChangeEvent<any>) =>
+          setMode(event.currentTarget.value)
+        }
+      >
+        {renderModeOptions()}
+      </RadioGroup>
+    </CardContent>
+  </Card>
+))
 
 export default connect(
   mapStateToProps,

@@ -12,17 +12,27 @@ import Content from '../Content'
 import TopBar from './TopBar'
 import DrawerMenu from './DrawerMenu'
 
+const mapStateToProps = (state: RootState) => ({
+  isLoading: MainContentLoading.selectors.getIsLoading(state),
+})
+
+const mapDispatchToProps = {
+  fetchExpansionsFromDB: SelectedExpansions.actions.fetchFromDB,
+  fetchTurnOrderConfigFromDB: TurnOrderConfig.actions.fetchFromDB,
+}
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps & {
+    classes: any
+    isLoading: boolean
+  }
+
 const MainApp = ({
   classes,
   fetchExpansionsFromDB,
   fetchTurnOrderConfigFromDB,
   isLoading,
-}: {
-  classes: any
-  fetchExpansionsFromDB: () => SelectedExpansions.Action
-  fetchTurnOrderConfigFromDB: () => TurnOrderConfig.Action
-  isLoading: boolean
-}) => {
+}: Props) => {
   const [currentLocation, setCurrentLocation] = useState(ROUTES.nemeses)
   const moveTo = (route: string) => {
     toggleDrawer()
@@ -64,14 +74,6 @@ const MainApp = ({
       />
     </React.Fragment>
   )
-}
-
-const mapStateToProps = (state: RootState) => ({
-  isLoading: MainContentLoading.selectors.getIsLoading(state),
-})
-const mapDispatchToProps = {
-  fetchExpansionsFromDB: SelectedExpansions.actions.fetchFromDB,
-  fetchTurnOrderConfigFromDB: TurnOrderConfig.actions.fetchFromDB,
 }
 
 export default connect(

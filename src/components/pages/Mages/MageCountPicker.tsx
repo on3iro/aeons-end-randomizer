@@ -8,14 +8,13 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 
+type Props = {
+  selectedValue: string
+  handleAmountChange: (e: React.ChangeEvent<any>) => void
+}
+
 const MageCountPicker = React.memo(
-  ({
-    selectedValue,
-    handleAmountChange,
-  }: {
-    selectedValue: string
-    handleAmountChange: (e: React.ChangeEvent<any>) => void
-  }) => (
+  ({ selectedValue, handleAmountChange }: Props) => (
     <Card>
       <CardContent>
         <FormControl component={'fieldset' as 'div'}>

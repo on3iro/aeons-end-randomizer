@@ -13,7 +13,11 @@ import useExpansionHandling from '../../../hooks/useExpansionHandling'
 import settingStyles from './settingStyles'
 import ActiveSets from './ActiveSets'
 
-const Settings = React.memo(({ classes }: { classes: any }) => {
+type Props = {
+  classes: any
+}
+
+const Settings = React.memo(({ classes }: Props) => {
   const { expanded, createExpansionHandler } = useExpansionHandling()
 
   return (
