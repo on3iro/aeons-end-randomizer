@@ -101,6 +101,18 @@ const turnOrderStyles = (theme: any) =>
         },
       },
     },
+    blitz: {
+      background: '#ECEFF1',
+        '& td': {
+        borderColor: '#ECEFF1',
+      },
+      '&:first-child': {
+        background: '#607D8B',
+          '& td': {
+          borderColor: '#607D8B',
+        },
+      },
+    },
   })
 
 export default turnOrderStyles
