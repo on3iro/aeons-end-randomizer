@@ -122,7 +122,7 @@ export const MARKETSETUPS: IMarketSetups = {
   },
   random: {
     id: 'random',
-    name: 'Random Setup',
+    name: 'Random Setup (Default)',
     type: 'official',
     default: true, // this flag removes the setup from the settings, so it will always be active
     active: true,
