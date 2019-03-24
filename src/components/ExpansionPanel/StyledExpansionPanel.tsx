@@ -7,9 +7,10 @@ const StyledExpansionPanel = withStyles({
     '&:before': {
       display: 'none',
     },
+    marginBottom: '15px',
   },
   expanded: {
-    margin: 'auto',
+    margin: 'auto auto 15px',
   },
 })(ExpansionPanel)
 
