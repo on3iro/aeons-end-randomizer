@@ -1,5 +1,4 @@
-import { createSlotList } from '../helpers'
-import { createMageList } from './helpers'
+import { createMageList, createSlotList } from './helpers'
 
 
 describe('createMageList()', () => {
