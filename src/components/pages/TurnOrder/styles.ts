@@ -10,107 +10,112 @@ const turnOrderStyles = (theme: any) =>
       borderCollapse: 'collapse',
     },
     cardRow: {
-      borderBottom: '4px solid #fafafa',
       '&:first-child': {
         '& *': {
           color: '#fff',
         },
       },
     },
+    setupCard: {
+      marginTop: 24,
+    },
     player1: {
       background: '#F1F8E9',
       '& td': {
-        borderColor: '#F1F8E9',
+        borderBottom: '4px solid #fafafa',
       },
       '&:first-child': {
         background: '#8BC34A',
-        '& td': {
-          borderColor: '#8BC34A',
-        },
       },
     },
     player2: {
       background: '#FFF3E0',
       '& td': {
-        borderColor: '#FFF3E0',
+        borderBottom: '4px solid #fafafa',
       },
       '&:first-child': {
         background: '#FF9800',
-        '& td': {
-          borderColor: '#FF9800',
-        },
       },
     },
     player3: {
       background: '#E3F2FD',
       '& td': {
-        borderColor: '#E3F2FD',
+        borderBottom: '4px solid #fafafa',
       },
       '&:first-child': {
         background: '#2196F3',
-        '& td': {
-          borderColor: '#2196F3',
-        },
       },
     },
     player4: {
       background: '#F3E5F5',
       '& td': {
-        borderColor: '#F3E5F5',
+        borderBottom: '4px solid #fafafa',
       },
       '&:first-child': {
         background: '#9C27B0',
-        '& td': {
-          borderColor: '#9C27B0',
-        },
+      },
+    },
+    player12: {
+      background: 'linear-gradient(135deg, #F1F8E9 0%, #F1F8E9 50%, #FFF3E0 50%, #FFF3E0 100%)',
+      '& td': {
+        borderBottom: '4px solid #fafafa',
+      },
+      '&:first-child': {
+        background: 'linear-gradient(135deg, #8BC34A 0%, #8BC34A 50%, #FF9800 50%, #FF9800 100%)',
+      },
+    },
+    player34: {
+      background: 'linear-gradient(135deg, #E3F2FD 0%, #E3F2FD 50%, #F3E5F5 50%, #F3E5F5 100%)',
+      '& td': {
+        borderBottom: '4px solid #fafafa',
+      },
+      '&:first-child': {
+        background: 'linear-gradient(135deg, #2196F3 0%, #2196F3 50%, #9C27B0 50%, #9C27B0 100%)',
       },
     },
     nemesis: {
       background: '#ffebee',
       '& td': {
-        borderColor: '#ffebee',
+        borderBottom: '4px solid #fafafa',
       },
       '&:first-child': {
         background: '#f44336',
-        '& td': {
-          borderColor: '#f44336',
-        },
       },
     },
     wild: {
       background: '#FAFAFA',
       '& td': {
-        borderColor: '#FAFAFA',
+        borderBottom: '4px solid #fafafa',
       },
       '&:first-child': {
         background: '#9E9E9E',
-        '& td': {
-          borderColor: '#9E9E9E',
-        },
+      },
+    },
+    'wild-token': {
+      background: 'linear-gradient(135deg, #F1F8E9 0%, #F1F8E9 33%, #FFF3E0 33%, #FFF3E0 66%, #E3F2FD 66%, #E3F2FD 100%)',
+      '& td': {
+        borderBottom: '4px solid #fafafa',
+      },
+      '&:first-child': {
+        background: 'linear-gradient(135deg, #8BC34A 0%, #8BC34A 33%, #FF9800 33%, #FF9800 66%, #2196F3 66%, #2196F3 100%)',
       },
     },
     maelstrom: {
       background: '#EFEBE9',
       '& td': {
-        borderColor: '#EFEBE9',
+        borderBottom: '4px solid #fafafa',
       },
       '&:first-child': {
         background: '#795548',
-        '& td': {
-          borderColor: '#795548',
-        },
       },
     },
     blitz: {
       background: '#ECEFF1',
         '& td': {
-        borderColor: '#ECEFF1',
+          borderBottom: '4px solid #fafafa',
       },
       '&:first-child': {
         background: '#607D8B',
-          '& td': {
-          borderColor: '#607D8B',
-        },
       },
     },
   })

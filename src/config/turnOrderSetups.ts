@@ -12,7 +12,13 @@ export const TURNORDERCARDS: { [key: string]: ITurnOrderCard } = {
   'player3-1': { id: 'player3-1', name: 'Player 3', cssClass: 'player3' },
   'player4-1': { id: 'player4-1', name: 'Player 4', cssClass: 'player4' },
 
+  'player12-1': { id: 'player12-1', name: 'Player 1/2', cssClass: 'player12' },
+  'player12-2': { id: 'player12-2', name: 'Player 1/2', cssClass: 'player12' },
+  'player34-1': { id: 'player34-1', name: 'Player 3/4', cssClass: 'player34' },
+  'player34-2': { id: 'player34-2', name: 'Player 3/4', cssClass: 'player34' },
+
   wild: { id: 'wild', name: 'Wild', cssClass: 'wild' },
+  wildToken: { id: 'wildToken', name: 'Wild Token', cssClass: 'wild-token' },
 
   'nemesis-1': { id: 'nemesis-1', name: 'Nemesis', cssClass: 'nemesis' },
   'nemesis-2': { id: 'nemesis-2', name: 'Nemesis', cssClass: 'nemesis' },
@@ -31,63 +37,111 @@ export const TURNORDERCARDS: { [key: string]: ITurnOrderCard } = {
 }
 
 export const TURNORDERSETUPS: ITurnOrderSetups = {
-  onePlayerThreeToc: {
-    id: 'onePlayerThreeToc',
-    name: '1 Player (3 toc)',
-    turnOrderCards: [
-      TURNORDERCARDS['player1-1'],
-      TURNORDERCARDS['player1-2'],
-      TURNORDERCARDS['player1-3'],
-      TURNORDERCARDS['nemesis-1'],
-      TURNORDERCARDS['nemesis-2'],
-    ],
+  'onePlayer': {
+    id: 'onePlayer',
+    name: '1',
+    variations: {
+      'default': {
+        id: 'default',
+        name: 'Default (3 ToC)',
+        turnOrderCards: [
+          TURNORDERCARDS['player1-1'],
+          TURNORDERCARDS['player1-2'],
+          TURNORDERCARDS['player1-3'],
+          TURNORDERCARDS['nemesis-1'],
+          TURNORDERCARDS['nemesis-2'],
+        ]
+      },
+      '4toc': {
+        id: '4toc',
+        name: '4 ToC',
+        turnOrderCards: [
+          TURNORDERCARDS['player1-1'],
+          TURNORDERCARDS['player1-2'],
+          TURNORDERCARDS['player1-3'],
+          TURNORDERCARDS['player1-4'],
+          TURNORDERCARDS['nemesis-1'],
+          TURNORDERCARDS['nemesis-2'],
+        ]
+      }
+    }
   },
-  onePlayerFourToc: {
-    id: 'onePlayerFourToc',
-    name: '1 Player (4 toc)',
-    turnOrderCards: [
-      TURNORDERCARDS['player1-1'],
-      TURNORDERCARDS['player1-2'],
-      TURNORDERCARDS['player1-3'],
-      TURNORDERCARDS['player1-4'],
-      TURNORDERCARDS['nemesis-1'],
-      TURNORDERCARDS['nemesis-2'],
-    ],
-  },
-  twoPlayers: {
+  'twoPlayers': {
     id: 'twoPlayers',
-    name: '2 Players',
-    turnOrderCards: [
-      TURNORDERCARDS['player1-1'],
-      TURNORDERCARDS['player1-2'],
-      TURNORDERCARDS['player2-1'],
-      TURNORDERCARDS['player2-2'],
-      TURNORDERCARDS['nemesis-1'],
-      TURNORDERCARDS['nemesis-2'],
-    ],
+    name: '2',
+    variations: {
+      'default': {
+        id: 'default',
+        name: 'Default',
+        turnOrderCards: [
+          TURNORDERCARDS['player1-1'],
+          TURNORDERCARDS['player1-2'],
+          TURNORDERCARDS['player2-1'],
+          TURNORDERCARDS['player2-2'],
+          TURNORDERCARDS['nemesis-1'],
+          TURNORDERCARDS['nemesis-2'],
+        ]
+      }
+    }
   },
-  threePlayers: {
+  'threePlayers': {
     id: 'threePlayers',
-    name: '3 Players',
-    turnOrderCards: [
-      TURNORDERCARDS['player1-1'],
-      TURNORDERCARDS['player2-1'],
-      TURNORDERCARDS['player3-1'],
-      TURNORDERCARDS['wild'],
-      TURNORDERCARDS['nemesis-1'],
-      TURNORDERCARDS['nemesis-2'],
-    ],
+    name: '3',
+    variations: {
+      'default': {
+        id: 'default',
+        name: 'Default',
+        turnOrderCards: [
+          TURNORDERCARDS['player1-1'],
+          TURNORDERCARDS['player2-1'],
+          TURNORDERCARDS['player3-1'],
+          TURNORDERCARDS['wild'],
+          TURNORDERCARDS['nemesis-1'],
+          TURNORDERCARDS['nemesis-2'],
+        ]
+      },
+      'wildToken': {
+        id: 'wildToken',
+        name: 'Wild Token',
+        turnOrderCards: [
+          TURNORDERCARDS['player1-1'],
+          TURNORDERCARDS['player2-1'],
+          TURNORDERCARDS['player3-1'],
+          TURNORDERCARDS['wildToken'],
+          TURNORDERCARDS['nemesis-1'],
+          TURNORDERCARDS['nemesis-2'],
+        ]
+      }
+    }
   },
-  fourPlayers: {
+  'fourPlayers': {
     id: 'fourPlayers',
-    name: '4 Players',
-    turnOrderCards: [
-      TURNORDERCARDS['player1-1'],
-      TURNORDERCARDS['player2-1'],
-      TURNORDERCARDS['player3-1'],
-      TURNORDERCARDS['player4-1'],
-      TURNORDERCARDS['nemesis-1'],
-      TURNORDERCARDS['nemesis-2'],
-    ],
-  },
+    name: '4',
+    variations: {
+      'default': {
+        id: 'default',
+        name: 'Default',
+        turnOrderCards: [
+          TURNORDERCARDS['player1-1'],
+          TURNORDERCARDS['player2-1'],
+          TURNORDERCARDS['player3-1'],
+          TURNORDERCARDS['player4-1'],
+          TURNORDERCARDS['nemesis-1'],
+          TURNORDERCARDS['nemesis-2'],
+        ]
+      },
+      'splitPlayers': {
+        id: 'splitPlayers',
+        name: 'Split Player Cards (1/2, 3/4)',
+        turnOrderCards: [
+          TURNORDERCARDS['player12-1'],
+          TURNORDERCARDS['player12-2'],
+          TURNORDERCARDS['player34-1'],
+          TURNORDERCARDS['player34-2'],
+          TURNORDERCARDS['nemesis-1'],
+          TURNORDERCARDS['nemesis-2'],
+        ]
+      }
+    }
+  }
 }
