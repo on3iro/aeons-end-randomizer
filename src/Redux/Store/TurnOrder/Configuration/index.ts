@@ -4,14 +4,14 @@ import { createSelector } from 'reselect'
 import { get as getFromDb, set as setToDb } from 'idb-keyval'
 
 import config from '../../../../config'
-import { ITurnOrderSetup, Mode } from '../../../../types'
+import { ITurnOrderPlayerCount, ITurnOrderSetup, Mode } from '../../../../types'
 import { RootState } from '../../'
 import {
   actions as activeGameActions,
   Action as ActiveGameAction,
 } from '../ActiveGame'
 
-const TURNORDER_CONFIG_DB_KEY = 'turnOrderConfig'
+const TURNORDER_CONFIG_DB_KEY = 'turnOrderConfiguration'
 
 /////////////
 // HELPERS //
@@ -56,11 +56,18 @@ const adjustSetup = (mode: Mode, setup: ITurnOrderSetup): ITurnOrderSetup => {
 
 export type State = Readonly<{
   Mode: Mode
+  SelectedPlayerCount: ITurnOrderPlayerCount
   SelectedSetup: ITurnOrderSetup
 }>
+
+const INITIAL_MODE = 'Default'
+const INITIAL_PLAYER_SETUP = config.TURNORDERSETUPS['onePlayer']
+const INITIAL_VARIATION = INITIAL_PLAYER_SETUP.variations['default']
+
 export const initialState: State = {
-  Mode: 'Default',
-  SelectedSetup: config.TURNORDERSETUPS['onePlayerThreeToc'],
+  Mode: INITIAL_MODE,
+  SelectedPlayerCount: INITIAL_PLAYER_SETUP,
+  SelectedSetup: INITIAL_VARIATION,
 }
 
 /////////////
@@ -69,6 +76,7 @@ export const initialState: State = {
 
 export enum ActionTypes {
   SET_MODE = 'TurnOrder/Configuration/SET_MODE',
+  SELECT_PLAYER_COUNT = 'TurnOrder/Configuration/SELECT_PLAYER_COUNT',
   SELECT_SETUP = 'TurnOrder/Configuration/SELECT_SETUP',
   SET_TO_DB = 'TurnOrder/Configuration/SET_TO_DB',
   SET_TO_DB_SUCCESS = 'TurnOrder/Configuration/SET_TO_DB_SUCCESS',
@@ -81,6 +89,8 @@ export enum ActionTypes {
 export const actions = {
   noOp: () => createAction('NOOP'),
   setMode: (mode: Mode) => createAction(ActionTypes.SET_MODE, mode),
+  selectPlayerCount: (playerCountId: string) =>
+    createAction(ActionTypes.SELECT_PLAYER_COUNT, playerCountId),
   selectSetup: (setupId: string) =>
     createAction(ActionTypes.SELECT_SETUP, setupId),
   setToDB: () => createAction(ActionTypes.SET_TO_DB),
@@ -115,10 +125,27 @@ export const Reducer: LoopReducer<State, Action | ActiveGameAction> = (
       )
     }
 
+    case ActionTypes.SELECT_PLAYER_COUNT: {
+      const newState = {
+        ...state,
+        SelectedPlayerCount: config.TURNORDERSETUPS[action.payload],
+        SelectedSetup:
+          config.TURNORDERSETUPS[action.payload].variations['default'],
+      }
+      return loop(
+        newState,
+        Cmd.run<Action>(setToDb, {
+          args: [TURNORDER_CONFIG_DB_KEY, newState],
+          successActionCreator: actions.setToDBSuccessful,
+          failActionCreator: actions.setToDBFailed,
+        })
+      )
+    }
+
     case ActionTypes.SELECT_SETUP: {
       const newState = {
         ...state,
-        SelectedSetup: config.TURNORDERSETUPS[action.payload],
+        SelectedSetup: state.SelectedPlayerCount.variations[action.payload],
       }
       return loop(
         newState,
@@ -163,6 +190,8 @@ export const Reducer: LoopReducer<State, Action | ActiveGameAction> = (
 ///////////////
 
 const getMode = (state: RootState) => state.TurnOrder.Configuration.Mode
+const getSelectedPlayerCount = (state: RootState) =>
+  state.TurnOrder.Configuration.SelectedPlayerCount
 const getSelectedSetup = (state: RootState) =>
   state.TurnOrder.Configuration.SelectedSetup
 const getConfiguration = createSelector(
@@ -176,6 +205,7 @@ const getAvailableCards = createSelector(
 
 export const selectors = {
   getMode,
+  getSelectedPlayerCount,
   getSelectedSetup,
   getConfiguration,
   getAvailableCards,

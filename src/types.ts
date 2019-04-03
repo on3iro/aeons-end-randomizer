@@ -83,8 +83,11 @@ export type Player =
   | 'Player 2'
   | 'Player 3'
   | 'Player 4'
+  | 'Player 1/2'
+  | 'Player 3/4'
   | 'Nemesis'
   | 'Wild'
+  | 'Wild Token'
   | 'Maelstrom Assault'
   | 'Blitz'
 
@@ -94,14 +97,24 @@ export interface ITurnOrderCard {
   cssClass: string
 }
 
+export interface ITurnOrderSetups {
+  [key: string]: ITurnOrderPlayerCount
+}
+
+export interface ITurnOrderPlayerCount {
+  id: string
+  name: string
+  variations: ITurnOrderVariations
+}
+
+export interface ITurnOrderVariations {
+  [key: string]: ITurnOrderSetup
+}
+
 export interface ITurnOrderSetup {
   id: string
   name: string
   turnOrderCards: Array<ITurnOrderCard>
-}
-
-export interface ITurnOrderSetups {
-  [key: string]: ITurnOrderSetup
 }
 
 export const isCard = (card: ICard | Slot): card is ICard => {
