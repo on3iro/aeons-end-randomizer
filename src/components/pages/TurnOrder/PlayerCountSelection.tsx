@@ -10,49 +10,45 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 
 import config from '../../../config'
-import { ITurnOrderPlayerCount } from '../../../types'
 import { RootState } from '../../../Redux/Store'
 import * as TurnOrderConfiguration from '../../../Redux/Store/TurnOrder/Configuration'
 
-const renderSetupOptions = (selectedPlayerCount: ITurnOrderPlayerCount) =>
-  Object.values(config.TURNORDERSETUPS[selectedPlayerCount.id].variations).map(setup => (
+const renderPlayerCountOptions = () =>
+  Object.values(config.TURNORDERSETUPS).map(playerCount => (
     <FormControlLabel
-      key={setup.id}
-      value={setup.id}
+      key={playerCount.id}
+      value={playerCount.id}
       control={<Radio />}
-      label={setup.name}
+      label={playerCount.name}
     />
   ))
 
 const mapStateToProps = (state: RootState) => ({
   selectedPlayerCount: TurnOrderConfiguration.selectors.getSelectedPlayerCount(state),
-  selectedSetup: TurnOrderConfiguration.selectors.getSelectedSetup(state),
 })
 
 const mapDispatchToProps = {
-  selectSetup: TurnOrderConfiguration.actions.selectSetup,
+  selectPlayerCount: TurnOrderConfiguration.actions.selectPlayerCount,
 }
 
-type Props = ReturnType<typeof mapStateToProps> &
-  typeof mapDispatchToProps & {
-    classes: any
-  }
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const SetupSelection = React.memo(
-  ({ classes, selectSetup, selectedSetup, selectedPlayerCount }: Props) => (
-    <Card className={classes.setupCard}>
+const PlayerCountSelection = React.memo(
+  ({ selectPlayerCount, selectedPlayerCount }: Props) => (
+    <Card>
       <CardContent>
         <FormControl component={'fieldset' as 'div'}>
-          <FormLabel>Player Cards Variants</FormLabel>
+          <FormLabel>Amount of Players</FormLabel>
           <RadioGroup
-            aria-label="Players Variant"
-            name="turnOrderOptions"
-            value={selectedSetup.id}
+            aria-label="Players"
+            name="turnOrderPlayerCountOptions"
+            value={selectedPlayerCount.id}
             onChange={(event: React.ChangeEvent<any>) => {
-              selectSetup(event.currentTarget.value)
+              selectPlayerCount(event.currentTarget.value)
             }}
+            row={true}
           >
-            {renderSetupOptions(selectedPlayerCount)}
+            {renderPlayerCountOptions()}
           </RadioGroup>
         </FormControl>
       </CardContent>
@@ -60,9 +56,7 @@ const SetupSelection = React.memo(
   )
 )
 
-SetupSelection.displayName = 'SetupSelection'
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SetupSelection)
+)(PlayerCountSelection)

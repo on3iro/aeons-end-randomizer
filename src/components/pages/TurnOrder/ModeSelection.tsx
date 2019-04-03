@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormLabel from '@material-ui/core/FormLabel'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Typography from '@material-ui/core/Typography'
@@ -38,9 +39,9 @@ type Props = ReturnType<typeof mapStateToProps> &
 const ModeSelection = React.memo(({ classes, mode, setMode }: Props) => (
   <Card className={classes.cardDeck}>
     <CardContent>
-      <Typography color="textSecondary" gutterBottom>
+      <FormLabel>
         Mode
-      </Typography>
+      </FormLabel>
       <RadioGroup
         aria-label="mode"
         name="turnOrderMode"
