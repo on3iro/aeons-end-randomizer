@@ -29,4 +29,6 @@ const CardNameDisplay = React.memo(({ classes, turnOrderSetup }: Props) => (
   </Card>
 ))
 
+CardNameDisplay.displayName = 'CardNameDisplay'
+
 export default CardNameDisplay

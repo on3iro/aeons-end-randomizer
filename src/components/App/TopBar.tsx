@@ -43,4 +43,6 @@ const TopBar = React.memo(
   )
 )
 
+TopBar.displayName = 'TopBar'
+
 export default TopBar

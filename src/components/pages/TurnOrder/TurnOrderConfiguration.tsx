@@ -46,6 +46,8 @@ const TurnOrderConfiguration = React.memo(
   )
 )
 
+TurnOrderConfiguration.displayName = 'TurnOrderConfiguration'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

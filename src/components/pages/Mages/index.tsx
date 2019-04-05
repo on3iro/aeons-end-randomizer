@@ -78,6 +78,8 @@ const Mages = React.memo(
   }
 )
 
+Mages.displayName = 'Mages'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

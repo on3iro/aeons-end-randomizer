@@ -13,4 +13,6 @@ const TableCell = withStyles({
   },
 })(MuiTableCell)
 
+TableCell.displayName = 'TableCell'
+
 export default TableCell

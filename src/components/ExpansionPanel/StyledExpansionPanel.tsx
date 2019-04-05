@@ -13,4 +13,6 @@ const StyledExpansionPanel = withStyles({
   },
 })(ExpansionPanel)
 
+StyledExpansionPanel.displayName = 'StyledExpansionPanel'
+
 export default StyledExpansionPanel

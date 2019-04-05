@@ -17,4 +17,6 @@ const RouteItem = React.memo(({ route, clickhandler, children }: Props) => (
   </ListItem>
 ))
 
+RouteItem.displayName = 'RouteItem'
+
 export default RouteItem

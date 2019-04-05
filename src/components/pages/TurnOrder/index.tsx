@@ -24,6 +24,8 @@ const TurnOrder = React.memo(({ gameHasStarted }: Props) => (
   </React.Fragment>
 ))
 
+TurnOrder.displayName = 'TurnOrder'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

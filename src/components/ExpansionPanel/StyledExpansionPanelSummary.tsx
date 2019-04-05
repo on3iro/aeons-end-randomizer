@@ -16,4 +16,6 @@ const StyledExpansionPanelSummary = withStyles({
   expanded: {},
 })(ExpansionPanelSummary)
 
+StyledExpansionPanelSummary.displayName = 'StyledExpansionPanelSummary'
+
 export default StyledExpansionPanelSummary

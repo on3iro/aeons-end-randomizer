@@ -18,4 +18,6 @@ const TileListItem = styled('li')`
   }
 `
 
+TileListItem.displayName = 'TileListItem'
+
 export default TileListItem

@@ -29,4 +29,6 @@ const MageCard = React.memo(({ mage, classes }: Props) => (
   </Grid>
 ))
 
+MageCard.displayName = 'MageCard'
+
 export default MageCard

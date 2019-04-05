@@ -40,4 +40,6 @@ const ExpansionPanel = React.memo(
   )
 )
 
+ExpansionPanel.displayName = 'ExpansionPanel'
+
 export default ExpansionPanel

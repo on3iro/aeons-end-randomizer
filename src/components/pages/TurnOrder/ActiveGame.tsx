@@ -57,6 +57,8 @@ const ActiveTurnOrder = React.memo(
   )
 )
 
+ActiveTurnOrder.displayName = 'ActiveTurnOrder'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

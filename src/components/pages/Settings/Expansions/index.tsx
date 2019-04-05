@@ -26,4 +26,6 @@ const Expansions = React.memo(({ classes }: Props) => {
   )
 })
 
+Expansions.displayName = 'Expansions'
+
 export default Expansions

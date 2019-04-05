@@ -13,4 +13,6 @@ const Settings = React.memo(({ classes }: Props) => (
   <Expansions classes={classes} />
 ))
 
+Settings.displayName = 'Settings'
+
 export default withStyles(settingStyles)(Settings)

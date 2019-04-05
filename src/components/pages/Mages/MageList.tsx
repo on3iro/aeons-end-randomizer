@@ -24,4 +24,6 @@ const MageList = React.memo(({ mages, classes }: Props) => (
   </MageGridWrapper>
 ))
 
+MageList.displayName = 'MageList'
+
 export default withStyles(mageStyles)(MageList)
