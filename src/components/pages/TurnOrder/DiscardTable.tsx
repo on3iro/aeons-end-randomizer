@@ -32,6 +32,8 @@ const DiscardTable = React.memo(({ discard, classes }: Props) => (
   </MuiTable>
 ))
 
+DiscardTable.displayName = 'DiscardTable'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

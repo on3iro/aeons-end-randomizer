@@ -34,4 +34,6 @@ const Routes = React.memo(({ locationhandler }: Props) => (
   </List>
 ))
 
+Routes.displayName = 'Routes'
+
 export default Routes

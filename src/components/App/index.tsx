@@ -33,4 +33,6 @@ const App = React.memo(({ classes }: Props) => (
   </MuiThemeProvider>
 ))
 
+App.displayName = 'App'
+
 export default withStyles(styles, { withTheme: true })(App)

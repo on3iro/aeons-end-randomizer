@@ -79,6 +79,8 @@ const Nemeses = React.memo(
   }
 )
 
+Nemeses.displayName = 'Nemeses'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

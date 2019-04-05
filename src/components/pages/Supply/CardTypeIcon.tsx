@@ -40,4 +40,6 @@ const CardTypeIcon = React.memo(({ type, classes }: Props) => {
   }
 })
 
+CardTypeIcon.displayName = 'CardTypeIcon'
+
 export default CardTypeIcon

@@ -7,4 +7,6 @@ const EmptyMageListHint = withStyles({
   },
 })(Typography)
 
+EmptyMageListHint.displayName = 'EmptyMageListHint'
+
 export default EmptyMageListHint

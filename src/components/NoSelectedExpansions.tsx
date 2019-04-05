@@ -9,4 +9,6 @@ const NoSelectedExpansions = React.memo(() => (
   </Typography>
 ))
 
+NoSelectedExpansions.displayName = 'NoSelectedExpansions'
+
 export default NoSelectedExpansions

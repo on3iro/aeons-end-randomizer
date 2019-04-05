@@ -37,4 +37,6 @@ const MageCountPicker = React.memo(
   )
 )
 
+MageCountPicker.displayName = 'MageCountPicker'
+
 export default MageCountPicker
