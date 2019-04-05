@@ -1,18 +1,30 @@
 import React from 'react'
+import { ThemeProvider } from 'styled-components/macro'
 
 import 'rpg-awesome/css/rpg-awesome.min.css'
 
+import JssProvider from 'react-jss/lib/JssProvider'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import blue from '@material-ui/core/colors/blue'
 import pink from '@material-ui/core/colors/pink'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { withStyles } from '@material-ui/core/styles'
+import { create } from 'jss'
+import { createGenerateClassName, jssPreset } from '@material-ui/core/styles'
 
 import { styles } from './appStyles'
 
 import MainApp from './MainApp'
 
-const theme = createMuiTheme({
+const generateClassName = createGenerateClassName()
+// @ts-ignore
+const jss = create({
+  ...jssPreset(),
+  // We define a custom insertion point that JSS will look for injecting the styles in the DOM.
+  insertionPoint: document.getElementById('jss-insertion-point'),
+})
+
+const muiTheme = createMuiTheme({
   palette: {
     primary: blue,
     secondary: pink,
@@ -22,15 +34,41 @@ const theme = createMuiTheme({
   },
 })
 
+const mainTheme = {
+  colors: {
+    primary: muiTheme.palette.primary,
+    secondary: muiTheme.palette.secondary,
+    text: muiTheme.palette.text,
+    cards: {
+      gem: {
+        color: '#B39DDB',
+        background: '#EDE7F6',
+      },
+      relic: {
+        color: '#90CAF9',
+        background: '#E3F2FD',
+      },
+      spell: {
+        color: '#FFCC80',
+        background: '#FFF3E0',
+      },
+    },
+  },
+}
+
 type Props = { classes: any }
 
 const App = React.memo(({ classes }: Props) => (
-  <MuiThemeProvider theme={theme}>
-    <div className={classes.root}>
-      <CssBaseline />
-      <MainApp classes={classes} />
-    </div>
-  </MuiThemeProvider>
+  <JssProvider jss={jss} generateClassName={generateClassName}>
+    <MuiThemeProvider theme={muiTheme}>
+      <ThemeProvider theme={mainTheme}>
+        <div className={classes.root}>
+          <CssBaseline />
+          <MainApp classes={classes} />
+        </div>
+      </ThemeProvider>
+    </MuiThemeProvider>
+  </JssProvider>
 ))
 
 App.displayName = 'App'

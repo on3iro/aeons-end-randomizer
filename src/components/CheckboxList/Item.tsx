@@ -35,4 +35,6 @@ const Item = React.memo(({ Component = DefaultCheckbox, ...rest }: Props) => {
   return <Component {...rest} />
 })
 
+Item.displayName = 'Item'
+
 export default Item
