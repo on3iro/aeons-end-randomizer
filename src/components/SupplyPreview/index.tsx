@@ -72,6 +72,8 @@ const SupplyPreview = React.memo(
   )
 )
 
+SupplyPreview.displayName = 'SupplyPreview'
+
 export default connect(
   makeMapStateToProps,
   mapDispatchToProps

@@ -62,4 +62,6 @@ const MarketTile = React.memo(
   }
 )
 
+MarketTile.displayName = 'MarketTile'
+
 export default MarketTile

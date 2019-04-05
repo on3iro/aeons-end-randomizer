@@ -55,6 +55,8 @@ const ModeSelection = React.memo(({ classes, mode, setMode }: Props) => (
   </Card>
 ))
 
+ModeSelection.displayName = 'ModeSelection'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

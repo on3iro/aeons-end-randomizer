@@ -38,6 +38,8 @@ const MarketOptions = React.memo(
   )
 )
 
+MarketOptions.displayName = 'MarketOptions'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

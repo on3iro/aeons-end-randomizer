@@ -56,4 +56,6 @@ const DrawerMenu = React.memo(
   )
 )
 
+DrawerMenu.displayName = 'DrawerMenu'
+
 export default DrawerMenu

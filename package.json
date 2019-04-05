@@ -26,7 +26,7 @@
     "reselect": "^4.0.0",
     "rpg-awesome": "^0.2.0",
     "styled-components": "^4.1.3",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.4000"
   },
   "homepage": "https://on3iro.github.io/aeons-end-randomizer/",
   "scripts": {
