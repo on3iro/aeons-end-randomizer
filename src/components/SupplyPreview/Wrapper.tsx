@@ -1,7 +1,15 @@
 import styled from 'styled-components/macro'
 
-const Wrapper = styled('div')`
-  border: 1px solid rgba(0, 0, 0, 0.12);
+type Props = {
+  selected: boolean
+}
+
+const Wrapper = styled('div')<Props>`
+  border: 1px solid
+    ${props =>
+      props.selected
+        ? props.theme.colors.secondary.main
+        : 'rgba(0, 0, 0, 0.12)'};
   padding: 4px 8px;
   display: inline-block;
   width: calc(100% - 16px);

@@ -16,7 +16,6 @@ const mapDispatchToProps = {}
 
 type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps & {
-    classes: any
     expansionHandler: (
       event: React.ChangeEvent<any> | undefined,
       expanded: boolean | string
@@ -24,14 +23,13 @@ type Props = ReturnType<typeof mapStateToProps> &
   }
 
 const MarketOptions = React.memo(
-  ({ activeMarketSetups, expansionHandler, classes }: Props) => (
+  ({ activeMarketSetups, expansionHandler }: Props) => (
     <MarketOptionsWrapper>
       {activeMarketSetups.map(setup => (
         <SupplyPreview
           key={setup.id}
           setup={setup}
           clickHandler={() => expansionHandler(undefined, false)}
-          classes={classes}
         />
       ))}
     </MarketOptionsWrapper>

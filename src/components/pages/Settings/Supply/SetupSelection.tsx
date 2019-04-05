@@ -74,9 +74,8 @@ const SetupSelection = React.memo(
                 }
                 label={label}
               />
-              {setup /* TODO: add CSS */ ? (
+              {setup ? (
                 <SupplyPreview
-                  classes={{}}
                   clickHandler={() => 'Not implemented!'}
                   setup={setup}
                 />
@@ -88,6 +87,8 @@ const SetupSelection = React.memo(
     </FormControl>
   )
 )
+
+SetupSelection.displayName = 'SetupSelection'
 
 export default connect(
   mapStateToProps,

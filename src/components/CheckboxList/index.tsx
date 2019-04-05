@@ -45,4 +45,6 @@ const CheckboxList = React.memo(
   )
 )
 
+CheckboxList.displayName = 'CheckboxList'
+
 export default CheckboxList
