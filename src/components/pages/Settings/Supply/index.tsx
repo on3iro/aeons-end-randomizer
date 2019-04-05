@@ -27,4 +27,6 @@ const Supply = React.memo(({ classes }: Props) => {
   )
 })
 
+Supply.displayName = 'Supply'
+
 export default Supply

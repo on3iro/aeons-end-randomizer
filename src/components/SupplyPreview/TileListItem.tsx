@@ -1,6 +1,10 @@
 import styled from 'styled-components/macro'
 
-const TileListItem = styled('li')`
+type Props = {
+  type: string
+}
+
+const TileListItem = styled('li')<Props>`
   margin: 4px;
   min-width: 36px;
   width: calc(33.33333% - 8px);
@@ -10,7 +14,8 @@ const TileListItem = styled('li')`
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.54);
+  color: ${props => props.theme.colors.text.secondary};
+  background: ${props => props.theme.colors.cards[props.type].background};
   font-family: 'Roboto', sans-serif;
 
   @media all and (min-width: 502px) {

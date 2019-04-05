@@ -70,12 +70,9 @@ const Supply = React.memo(
           summary={marketSetup.name}
           expansionHandler={expansionHandler}
         >
-          <MarketOptions
-            expansionHandler={expansionHandler}
-            classes={classes}
-          />
+          <MarketOptions expansionHandler={expansionHandler} />
         </ExpansionPanel>
-        <SupplyList marketSetup={marketSetup} cards={cards} classes={classes} />
+        <SupplyList marketSetup={marketSetup} cards={cards} />
         <ShuffleButton
           onClick={handleShuffle}
           color="primary"
