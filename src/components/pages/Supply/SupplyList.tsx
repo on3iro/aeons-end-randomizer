@@ -9,29 +9,22 @@ import MarketTile from './MarketTile'
 
 const renderTiles = (
   marketSetup: IMarketSetup,
-  cards: ReadonlyArray<Slot | ICard>,
-  classes: any
+  cards: ReadonlyArray<Slot | ICard>
 ) => {
   return marketSetup.tiles.map((tileSetup, i) => (
-    <MarketTile
-      key={i}
-      tileSetup={tileSetup}
-      card={cards[i]}
-      classes={classes}
-    />
+    <MarketTile key={i} tileSetup={tileSetup} card={cards[i]} />
   ))
 }
 
 type Props = {
   marketSetup: IMarketSetup
   cards: ReadonlyArray<Slot | ICard>
-  classes: any
 }
 
-const SupplyList = React.memo(({ marketSetup, cards, classes }: Props) => (
+const SupplyList = React.memo(({ marketSetup, cards }: Props) => (
   <ListWrapper>
     <Grid container spacing={16}>
-      {renderTiles(marketSetup, cards, classes)}
+      {renderTiles(marketSetup, cards)}
     </Grid>
   </ListWrapper>
 ))

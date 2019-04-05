@@ -12,10 +12,12 @@ import * as SupplySetups from '../../Redux/Store/Settings/SupplySetups'
 import Wrapper from './Wrapper'
 import TileList from './TileList'
 import TileListItem from './TileListItem'
+import SupplyName from './SupplyName'
 
-const renderMarketSetupItems = (tiles: any, classes: any) =>
+// FIXME tiles are untyped!!!
+const renderMarketSetupItems = (tiles: any) =>
   tiles.map((tile: any, index: number) => (
-    <TileListItem key={index} className={`${classes[tile.type.toLowerCase()]}`}>
+    <TileListItem key={index} type={tile.type.toLowerCase()}>
       {getOperationString(tile.operation, tile.values, tile.threshold)}
     </TileListItem>
   ))
@@ -36,7 +38,6 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<ReturnType<typeof makeMapStateToProps>> &
   typeof mapDispatchToProps & {
-    classes: any
     clickHandler: Function
     setup: IMarketSetup
   }
@@ -44,7 +45,6 @@ type Props = ReturnType<ReturnType<typeof makeMapStateToProps>> &
 const SupplyPreview = React.memo(
   ({
     allMarketSetups,
-    classes,
     clickHandler,
     setup,
     selectSetup,
@@ -57,17 +57,12 @@ const SupplyPreview = React.memo(
         selectSetup(allMarketSetups[event.currentTarget.dataset.value])
       }}
       data-value={setup.id}
-      className={selectedSetup.id === setup.id ? classes.cardSelected : ''}
+      selected={selectedSetup.id === setup.id}
     >
-      <TileList>{renderMarketSetupItems(setup.tiles, classes)}</TileList>
-      <Typography
-        variant="caption"
-        className={`${classes.cardLabel} ${
-          selectedSetup.id === setup.id ? classes.cardLabelSelected : ''
-        }`}
-      >
+      <TileList>{renderMarketSetupItems(setup.tiles)}</TileList>
+      <SupplyName variant="caption" selected={selectedSetup.id === setup.id}>
         {setup.name}
-      </Typography>
+      </SupplyName>
     </Wrapper>
   )
 )
