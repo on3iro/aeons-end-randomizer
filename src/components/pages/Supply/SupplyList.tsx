@@ -36,4 +36,6 @@ const SupplyList = React.memo(({ marketSetup, cards, classes }: Props) => (
   </ListWrapper>
 ))
 
+SupplyList.displayName = 'SupplyList'
+
 export default SupplyList

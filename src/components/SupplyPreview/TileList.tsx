@@ -9,4 +9,6 @@ const TileList = styled('ul')`
   width: calc(100% + 8px);
 `
 
+TileList.displayName = 'TileList'
+
 export default TileList

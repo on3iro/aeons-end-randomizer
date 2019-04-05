@@ -63,6 +63,8 @@ const TableRow = React.memo(
   )
 )
 
+TableRow.displayName = 'TableRow'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

@@ -10,4 +10,6 @@ const ShuffleButton = withStyles({
   },
 })(Fab)
 
+ShuffleButton.displayName = 'ShuffleButton'
+
 export default ShuffleButton

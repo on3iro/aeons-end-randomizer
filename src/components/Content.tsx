@@ -34,4 +34,6 @@ const Content = React.memo(({ classes, route, isLoading, ...rest }: Props) => (
   </div>
 ))
 
+Content.displayName = 'Content'
+
 export default Content

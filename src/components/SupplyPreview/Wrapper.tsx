@@ -23,4 +23,6 @@ const Wrapper = styled('div')`
   }
 `
 
+Wrapper.displayName = 'Wrapper'
+
 export default Wrapper

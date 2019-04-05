@@ -76,6 +76,8 @@ const MainApp = ({
   )
 }
 
+MainApp.displayName = 'MainApp'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

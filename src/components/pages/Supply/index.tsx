@@ -88,6 +88,8 @@ const Supply = React.memo(
   }
 )
 
+Supply.displayName = 'Supply'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

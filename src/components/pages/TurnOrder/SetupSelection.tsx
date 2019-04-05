@@ -66,6 +66,8 @@ const SetupSelection = React.memo(({ selectSetup, selectedSetup }: Props) => {
   )
 })
 
+SetupSelection.displayName = 'SetupSelection'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

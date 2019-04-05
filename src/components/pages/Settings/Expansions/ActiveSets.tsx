@@ -77,6 +77,8 @@ const ActiveSets = React.memo(
   )
 )
 
+ActiveSets.displayName = 'ActiveSets'
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
