@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import { ICreature } from '../../../types'
-
 import { RootState, actions, selectors } from '../../../Redux/Store'
 import { MageCount } from '../../../Redux/Store/Mages/Count'
 
 import MageCountPicker from './MageCountPicker'
 import MageList from './MageList'
 import EmptyMageListHint from './EmptyMageListHint'
+
 import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
+
 
 const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.Selected.getHasStandaloneSet(
