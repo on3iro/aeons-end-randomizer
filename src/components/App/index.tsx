@@ -41,6 +41,9 @@ const mainTheme = {
         color: '#FFCC80',
         background: '#FFF3E0',
       },
+      nemesis: {
+        color: '#E0E0E0',
+      },
     },
   },
 }
