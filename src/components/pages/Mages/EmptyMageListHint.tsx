@@ -1,11 +1,9 @@
-import { withStyles } from '@material-ui/core/styles'
+import styled from 'styled-components/macro'
 import Typography from '@material-ui/core/Typography'
 
-const EmptyMageListHint = withStyles({
-  root: {
-    marginTop: 24,
-  },
-})(Typography)
+const EmptyMageListHint = styled(Typography)`
+  margin-top: 24px;
+`
 
 EmptyMageListHint.displayName = 'EmptyMageListHint'
 
