@@ -44,6 +44,9 @@ const mainTheme = {
       nemesis: {
         color: '#E0E0E0',
       },
+      mage: {
+        color: '#E0E0E0',
+      },
     },
   },
 }
