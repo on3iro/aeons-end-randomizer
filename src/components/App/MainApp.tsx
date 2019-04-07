@@ -3,11 +3,9 @@ import { connect } from 'react-redux'
 
 import classNames from 'classnames'
 
-import { RootState } from '../../Redux/Store'
+import { RootState, actions } from '../../Redux/Store'
 import * as MainContentLoading from '../../Redux/Store/MainContentLoading'
-import * as SelectedExpansions from '../../Redux/Store/Settings/Expansions/Selected'
-import * as SupplySetups from '../../Redux/Store/Settings/SupplySetups'
-import * as TurnOrderConfig from '../../Redux/Store/TurnOrder/Configuration'
+
 import { ROUTES } from '../../routes'
 import Content from '../Content'
 import TopBar from './TopBar'
@@ -18,9 +16,7 @@ const mapStateToProps = (state: RootState) => ({
 })
 
 const mapDispatchToProps = {
-  fetchExpansionsFromDB: SelectedExpansions.actions.fetchFromDB,
-  fetchSupplySetupsFromDB: SupplySetups.actions.fetchFromDB,
-  fetchTurnOrderConfigFromDB: TurnOrderConfig.actions.fetchFromDB,
+  getUserConfiguration: actions.Main.getUserConfiguration,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
@@ -29,13 +25,7 @@ type Props = ReturnType<typeof mapStateToProps> &
     isLoading: boolean
   }
 
-const MainApp = ({
-  classes,
-  fetchExpansionsFromDB,
-  fetchSupplySetupsFromDB,
-  fetchTurnOrderConfigFromDB,
-  isLoading,
-}: Props) => {
+const MainApp = ({ classes, getUserConfiguration, isLoading }: Props) => {
   const [currentLocation, setCurrentLocation] = useState(ROUTES.nemeses)
   const moveTo = (route: string) => {
     toggleDrawer()
@@ -45,11 +35,8 @@ const MainApp = ({
   const [drawerIsOpen, setDrawerIsOpen] = useState(false)
   const toggleDrawer = () => setDrawerIsOpen(!drawerIsOpen)
 
-  // Get sets from indexedDB
   useEffect(() => {
-    fetchExpansionsFromDB()
-    fetchSupplySetupsFromDB()
-    fetchTurnOrderConfigFromDB()
+    getUserConfiguration()
   }, [])
 
   return (

@@ -10,6 +10,16 @@ export type State = {
 
 export type Action = Expansions.Action | SupplySetups.Action
 
+export const actions = {
+  Expansions: Expansions.actions,
+  SupplySetups: SupplySetups.actions,
+}
+
+export const selectors = {
+  Expansions: Expansions.selectors,
+  SupplySetups: SupplySetups.selectors,
+}
+
 export const initialState = {
   Expansions: Expansions.initialState,
   SupplySetups: SupplySetups.initialState,

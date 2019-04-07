@@ -21,6 +21,10 @@ export const initialState = {
 
 export type Action = Selected.Action
 
+export const actions = {
+  Selected: Selected.actions,
+}
+
 /////////////
 // REDUCER //
 /////////////
@@ -53,4 +57,5 @@ export const selectors = {
 
     return 0
   }),
+  Selected: Selected.selectors,
 }
