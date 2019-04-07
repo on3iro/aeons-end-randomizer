@@ -11,7 +11,7 @@ import { RootState } from '../../../../Redux/Store'
 import * as SupplySetups from '../../../../Redux/Store/Settings/SupplySetups'
 
 import CheckboxList from '../../../CheckboxList'
-import SupplyPreview from '../../../SupplyPreview'
+import CheckboxWithPreview from './CheckboxWithPreview'
 
 const mapStateToProps = (state: RootState) => ({
   allSetsSelected: SupplySetups.selectors.getAllSetsSelected(state),
@@ -33,59 +33,50 @@ const SetupSelection = React.memo(
     predefinedSetups,
     toggleAll,
     toggleSetup,
-  }: Props) => (
-    <FormControl component={'fieldset' as 'div'}>
-      <FormLabel />
-      <FormGroup style={{ marginBottom: '20px' }}>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={allSetsSelected}
-              onChange={toggleAll}
-              value={allSetsSelected ? 'Deselect All' : 'Select All'}
-            />
-          }
-          label={allSetsSelected ? 'Deselect All' : 'Select All'}
-        />
-      </FormGroup>
-      <CheckboxList
-        label="Predefined Setups"
-        changeHandler={item => toggleSetup(item, 'Predefined')}
-        items={predefinedSetups.map(setup => ({
-          name: setup.id,
-          label: setup.name,
-          checked: setup.active,
-          setup: setup,
-        }))}
-        Component={({ checked, item, label, changeHandler, ...rest }) => {
-          const setup = predefinedSetups.find(setup => setup.id === item)
-          // TODO Refactor!!!
+  }: Props) => {
+    const items = predefinedSetups.map(setup => ({
+      name: setup.id,
+      label: setup.name,
+      checked: setup.active,
+      setup: setup,
+    }))
 
-          return (
-            <div>
-              {/* TODO extract Checkbox-Component */}
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={checked}
-                    onChange={() => changeHandler(item)}
-                    value={item}
-                  />
-                }
-                label={label}
+    return (
+      <FormControl component={'fieldset' as 'div'}>
+        <FormLabel />
+        <FormGroup style={{ marginBottom: '20px' }}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={allSetsSelected}
+                onChange={toggleAll}
+                value={allSetsSelected ? 'Deselect All' : 'Select All'}
               />
-              {setup ? (
-                <SupplyPreview
-                  clickHandler={() => 'Not implemented!'}
-                  setup={setup}
-                />
-              ) : null}
-            </div>
-          )
-        }}
-      />
-    </FormControl>
-  )
+            }
+            label={allSetsSelected ? 'Deselect All' : 'Select All'}
+          />
+        </FormGroup>
+        <CheckboxList
+          label="Predefined Setups"
+          changeHandler={item => toggleSetup(item, 'Predefined')}
+          items={items}
+          Component={({ checked, item, label, changeHandler, ...rest }) => {
+            const setup = predefinedSetups.find(setup => setup.id === item)
+
+            return (
+              <CheckboxWithPreview
+                changeHandler={changeHandler}
+                checked={checked}
+                item={item}
+                label={label}
+                setup={setup}
+              />
+            )
+          }}
+        />
+      </FormControl>
+    )
+  }
 )
 
 SetupSelection.displayName = 'SetupSelection'

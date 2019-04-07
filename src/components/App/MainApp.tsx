@@ -6,6 +6,7 @@ import classNames from 'classnames'
 import { RootState } from '../../Redux/Store'
 import * as MainContentLoading from '../../Redux/Store/MainContentLoading'
 import * as SelectedExpansions from '../../Redux/Store/Settings/Expansions/Selected'
+import * as SupplySetups from '../../Redux/Store/Settings/SupplySetups'
 import * as TurnOrderConfig from '../../Redux/Store/TurnOrder/Configuration'
 import { ROUTES } from '../../routes'
 import Content from '../Content'
@@ -18,6 +19,7 @@ const mapStateToProps = (state: RootState) => ({
 
 const mapDispatchToProps = {
   fetchExpansionsFromDB: SelectedExpansions.actions.fetchFromDB,
+  fetchSupplySetupsFromDB: SupplySetups.actions.fetchFromDB,
   fetchTurnOrderConfigFromDB: TurnOrderConfig.actions.fetchFromDB,
 }
 
@@ -30,6 +32,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 const MainApp = ({
   classes,
   fetchExpansionsFromDB,
+  fetchSupplySetupsFromDB,
   fetchTurnOrderConfigFromDB,
   isLoading,
 }: Props) => {
@@ -45,6 +48,7 @@ const MainApp = ({
   // Get sets from indexedDB
   useEffect(() => {
     fetchExpansionsFromDB()
+    fetchSupplySetupsFromDB()
     fetchTurnOrderConfigFromDB()
   }, [])
 

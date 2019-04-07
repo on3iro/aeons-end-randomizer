@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 import Typography from '@material-ui/core/Typography'
 
@@ -22,54 +21,31 @@ const renderMarketSetupItems = (tiles: any) =>
     </TileListItem>
   ))
 
-const makeMapStateToProps = () => {
-  const getCustomAndPredefined = SupplySetups.selectors.makeGetCustomAndPredefined()
-  const mapStateToProps = (state: RootState) => ({
-    allMarketSetups: getCustomAndPredefined(state),
-    selectedSetup: SupplySelection.selectors.getSelectedSetup(state),
-  })
-
-  return mapStateToProps
+type Props = {
+  clickHandler: (event: any) => void
+  setup: IMarketSetup
+  selected?: boolean
+  showName?: boolean
 }
-
-const mapDispatchToProps = {
-  selectSetup: SupplySelection.actions.selectSetup,
-}
-
-type Props = ReturnType<ReturnType<typeof makeMapStateToProps>> &
-  typeof mapDispatchToProps & {
-    clickHandler: Function
-    setup: IMarketSetup
-  }
 
 const SupplyPreview = React.memo(
-  ({
-    allMarketSetups,
-    clickHandler,
-    setup,
-    selectSetup,
-    selectedSetup,
-  }: Props) => (
+  ({ clickHandler, setup, selected = false, showName = true }: Props) => (
     <Wrapper
       key={setup.id}
-      onClick={(event: any) => {
-        clickHandler()
-        selectSetup(allMarketSetups[event.currentTarget.dataset.value])
-      }}
+      onClick={clickHandler}
       data-value={setup.id}
-      selected={selectedSetup.id === setup.id}
+      selected={selected}
     >
       <TileList>{renderMarketSetupItems(setup.tiles)}</TileList>
-      <SupplyName variant="caption" selected={selectedSetup.id === setup.id}>
-        {setup.name}
-      </SupplyName>
+      {showName ? (
+        <SupplyName variant="caption" selected={selected}>
+          {setup.name}
+        </SupplyName>
+      ) : null}
     </Wrapper>
   )
 )
 
 SupplyPreview.displayName = 'SupplyPreview'
 
-export default connect(
-  makeMapStateToProps,
-  mapDispatchToProps
-)(SupplyPreview)
+export default SupplyPreview
