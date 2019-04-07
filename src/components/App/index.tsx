@@ -3,26 +3,15 @@ import { ThemeProvider } from 'styled-components/macro'
 
 import 'rpg-awesome/css/rpg-awesome.min.css'
 
-import JssProvider from 'react-jss/lib/JssProvider'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import blue from '@material-ui/core/colors/blue'
 import pink from '@material-ui/core/colors/pink'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { withStyles } from '@material-ui/core/styles'
-import { create } from 'jss'
-import { createGenerateClassName, jssPreset } from '@material-ui/core/styles'
 
 import { styles } from './appStyles'
 
 import MainApp from './MainApp'
-
-const generateClassName = createGenerateClassName()
-// @ts-ignore
-const jss = create({
-  ...jssPreset(),
-  // We define a custom insertion point that JSS will look for injecting the styles in the DOM.
-  insertionPoint: document.getElementById('jss-insertion-point'),
-})
 
 const muiTheme = createMuiTheme({
   palette: {
@@ -59,16 +48,14 @@ const mainTheme = {
 type Props = { classes: any }
 
 const App = React.memo(({ classes }: Props) => (
-  <JssProvider jss={jss} generateClassName={generateClassName}>
+  <ThemeProvider theme={mainTheme}>
     <MuiThemeProvider theme={muiTheme}>
-      <ThemeProvider theme={mainTheme}>
-        <div className={classes.root}>
-          <CssBaseline />
-          <MainApp classes={classes} />
-        </div>
-      </ThemeProvider>
+      <div className={classes.root}>
+        <CssBaseline />
+        <MainApp classes={classes} />
+      </div>
     </MuiThemeProvider>
-  </JssProvider>
+  </ThemeProvider>
 ))
 
 App.displayName = 'App'
