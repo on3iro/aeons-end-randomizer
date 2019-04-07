@@ -10,6 +10,16 @@ export type State = {
 
 export type Action = Count.Action | Recruited.Action
 
+export const selectors = {
+  Count: Count.selectors,
+  Recruited: Recruited.selectors,
+}
+
+export const actions = {
+  Count: Count.actions,
+  Recruited: Recruited.actions,
+}
+
 export const initialState = {
   Count: Count.initialState,
   Recruited: Recruited.initialState,

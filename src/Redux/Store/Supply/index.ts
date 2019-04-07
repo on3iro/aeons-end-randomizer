@@ -10,6 +10,16 @@ export type State = {
 
 export type Action = Selection.Action | RandomSetup.Action
 
+export const actions = {
+  Selection: Selection.actions,
+  RandomSetup: RandomSetup.actions,
+}
+
+export const selectors = {
+  Selection: Selection.selectors,
+  RandomSetup: RandomSetup.selectors,
+}
+
 export const initialState = {
   Selection: Selection.initialState,
   RandomSetup: RandomSetup.initialState,

@@ -15,8 +15,16 @@ export const initialState = {
   ActiveGame: ActiveGame.initialState,
 }
 
-// TODO extract initial fetch from subReducers and use here
-// (i am not yet sure of how to actually do that, but it would be neat =D)
+export const actions = {
+  Configuration: Configuration.actions,
+  ActiveGame: ActiveGame.actions,
+}
+
+export const selectors = {
+  Configuration: Configuration.selectors,
+  ActiveGame: ActiveGame.selectors,
+}
+
 export const Reducer = combineReducers<State, Action>({
   Configuration: Configuration.Reducer,
   ActiveGame: ActiveGame.Reducer,
