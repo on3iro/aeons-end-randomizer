@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 
 import classNames from 'classnames'
 
-import { RootState, actions } from '../../Redux/Store'
-import * as MainContentLoading from '../../Redux/Store/MainContentLoading'
+import { RootState, actions, selectors } from '../../Redux/Store'
 
 import { ROUTES } from '../../routes'
 import Content from '../Content'
@@ -12,7 +11,7 @@ import TopBar from './TopBar'
 import DrawerMenu from './DrawerMenu'
 
 const mapStateToProps = (state: RootState) => ({
-  isLoading: MainContentLoading.selectors.getIsLoading(state),
+  isLoading: selectors.Main.ContentLoading.getIsLoading(state),
 })
 
 const mapDispatchToProps = {

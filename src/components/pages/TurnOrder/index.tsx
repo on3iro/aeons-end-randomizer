@@ -1,14 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { RootState } from '../../../Redux/Store'
-import * as TurnOrderGame from '../../../Redux/Store/TurnOrder/ActiveGame'
+import { RootState, selectors } from '../../../Redux/Store'
 
 import ActiveGame from './ActiveGame'
 import TurnOrderConfiguration from './TurnOrderConfiguration'
 
 const mapStateToProps = (state: RootState) => ({
-  gameHasStarted: TurnOrderGame.selectors.getHasStarted(state),
+  gameHasStarted: selectors.TurnOrder.ActiveGame.getHasStarted(state),
 })
 
 const mapDispatchToProps = {}

@@ -3,11 +3,7 @@ import { connect } from 'react-redux'
 
 import { withStyles } from '@material-ui/core/styles'
 
-import { RootState } from '../../../Redux/Store'
-import * as SelectedExpansions from '../../../Redux/Store/Settings/Expansions/Selected'
-import * as SupplySelection from '../../../Redux/Store/Supply/Selection'
-import * as SupplySetups from '../../../Redux/Store/Settings/SupplySetups'
-import * as RandomSupply from '../../../Redux/Store/Supply/RandomSetup'
+import { RootState, actions, selectors } from '../../../Redux/Store'
 
 import useExpandedHandling from '../../../hooks/useExpansionHandling'
 import { ICard, Slot, IMarketSetup } from '../../../types'
@@ -21,18 +17,18 @@ import SupplyList from './SupplyList'
 import MarketOptions from './MarketOptions'
 
 const mapStateToProps = (state: RootState) => ({
-  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(
+  hasStandaloneExpansionSelected: selectors.Settings.Expansions.Selected.getHasStandaloneSet(
     state
   ),
-  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(
+  selectedExpansions: selectors.Settings.Expansions.Selected.getSelectedExpansionsArray(
     state
   ),
-  marketSetup: SupplySelection.selectors.getSelectedSetup(state),
-  cards: RandomSupply.selectors.getCards(state),
+  marketSetup: selectors.Supply.Selection.getSelectedSetup(state),
+  cards: selectors.Supply.RandomSetup.getCards(state),
 })
 
 const mapDispatchToProps = {
-  createMarket: RandomSupply.actions.createMarket,
+  createMarket: actions.Supply.RandomSetup.createMarket,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
