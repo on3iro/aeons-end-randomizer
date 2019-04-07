@@ -7,21 +7,20 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormLabel from '@material-ui/core/FormLabel'
 
-import { RootState } from '../../../../Redux/Store'
-import * as SupplySetups from '../../../../Redux/Store/Settings/SupplySetups'
+import { RootState, actions, selectors } from '../../../../Redux/Store'
 
 import CheckboxList from '../../../CheckboxList'
 import CheckboxWithPreview from './CheckboxWithPreview'
 
 const mapStateToProps = (state: RootState) => ({
-  allSetsSelected: SupplySetups.selectors.getAllSetsSelected(state),
-  predefinedSetups: SupplySetups.selectors.getPredefinedAsArray(state),
-  customSetups: SupplySetups.selectors.getCustomAsArray(state),
+  allSetsSelected: selectors.Settings.SupplySetups.getAllSetsSelected(state),
+  predefinedSetups: selectors.Settings.SupplySetups.getPredefinedAsArray(state),
+  customSetups: selectors.Settings.SupplySetups.getCustomAsArray(state),
 })
 
 const mapDispatchToProps = {
-  toggleAll: SupplySetups.actions.toggleAll,
-  toggleSetup: SupplySetups.actions.toggleSetup,
+  toggleAll: actions.Settings.SupplySetups.toggleAll,
+  toggleSetup: actions.Settings.SupplySetups.toggleSetup,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}

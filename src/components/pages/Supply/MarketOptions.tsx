@@ -2,24 +2,21 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { IMarketSetup } from '../../../types'
-import { RootState } from '../../../Redux/Store'
-import * as SupplySetups from '../../../Redux/Store/Settings/SupplySetups'
-import * as SupplySelection from '../../../Redux/Store/Supply/Selection'
-import * as RandomSetup from '../../../Redux/Store/Supply/RandomSetup'
+import { RootState, selectors, actions } from '../../../Redux/Store'
 
 import MarketOptionsWrapper from './MarketOptionsWrapper'
 import SupplyPreview from '../../SupplyPreview'
 
-const getCustomAndPredefined = SupplySetups.selectors.makeGetCustomAndPredefined()
+const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
 const mapStateToProps = (state: RootState) => ({
-  activeMarketSetups: SupplySetups.selectors.getActiveSetups(state),
+  activeMarketSetups: selectors.Settings.SupplySetups.getActiveSetups(state),
   allMarketSetups: getCustomAndPredefined(state),
-  selectedSetup: SupplySelection.selectors.getSelectedSetup(state),
+  selectedSetup: selectors.Supply.Selection.getSelectedSetup(state),
 })
 
 const mapDispatchToProps = {
-  selectSetup: SupplySelection.actions.selectSetup,
-  resetMarket: RandomSetup.actions.resetMarket,
+  selectSetup: actions.Supply.Selection.selectSetup,
+  resetMarket: actions.Supply.RandomSetup.resetMarket,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &

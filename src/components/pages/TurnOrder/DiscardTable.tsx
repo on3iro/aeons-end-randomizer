@@ -6,8 +6,7 @@ import TableBody from '@material-ui/core/TableBody'
 import { withStyles } from '@material-ui/core/styles'
 
 import { ITurnOrderCard } from '../../../types'
-import { RootState } from '../../../Redux/Store'
-import * as TurnOrderGame from '../../../Redux/Store/TurnOrder/ActiveGame'
+import { RootState, selectors } from '../../../Redux/Store'
 
 import TableRow from './TableRow'
 import styles from './styles'
@@ -16,7 +15,7 @@ const renderTableRows = (discard: ITurnOrderCard[], classes: any) =>
   discard.map((card, i) => <TableRow key={i} card={card} classes={classes} />)
 
 const mapStateToProps = (state: RootState) => ({
-  discard: TurnOrderGame.selectors.getDiscard(state),
+  discard: selectors.TurnOrder.ActiveGame.getDiscard(state),
 })
 
 const mapDispatchToProps = {}

@@ -10,8 +10,7 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 
 import config from '../../../config'
-import { RootState } from '../../../Redux/Store'
-import * as TurnOrderConfiguration from '../../../Redux/Store/TurnOrder/Configuration'
+import { RootState, actions, selectors } from '../../../Redux/Store'
 
 const renderPlayerCountOptions = () =>
   Object.values(config.TURNORDERSETUPS).map(playerCount => (
@@ -24,11 +23,13 @@ const renderPlayerCountOptions = () =>
   ))
 
 const mapStateToProps = (state: RootState) => ({
-  selectedPlayerCount: TurnOrderConfiguration.selectors.getSelectedPlayerCount(state),
+  selectedPlayerCount: selectors.TurnOrder.Configuration.getSelectedPlayerCount(
+    state
+  ),
 })
 
 const mapDispatchToProps = {
-  selectPlayerCount: TurnOrderConfiguration.actions.selectPlayerCount,
+  selectPlayerCount: actions.TurnOrder.Configuration.selectPlayerCount,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
