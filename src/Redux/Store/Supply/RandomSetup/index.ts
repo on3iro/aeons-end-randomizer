@@ -7,6 +7,7 @@ import { createSlotList } from '../../../helpers'
 import config from '../../../../config'
 import { RootState } from '../../'
 import { createSupply } from './helpers'
+import * as SupplySelection from '../Selection'
 
 ///////////
 // STATE //
@@ -37,7 +38,7 @@ export const actions = {
   ) => createAction(ActionTypes.CREATE, { expansions, tiles }),
 }
 
-export type Action = ActionsUnion<typeof actions>
+export type Action = ActionsUnion<typeof actions> | SupplySelection.Action
 
 /////////////
 // REDUCER //
@@ -48,6 +49,7 @@ export const Reducer: LoopReducer<State, Action> = (
   action: Action
 ) => {
   switch (action.type) {
+    case SupplySelection.ActionTypes.SELECT_SETUP:
     case ActionTypes.RESET: {
       return initialState
     }
