@@ -4,15 +4,21 @@ import { connect } from 'react-redux'
 import { IMarketSetup } from '../../../types'
 import { RootState } from '../../../Redux/Store'
 import * as SupplySetups from '../../../Redux/Store/Settings/SupplySetups'
+import * as SupplySelection from '../../../Redux/Store/Supply/Selection'
 
 import MarketOptionsWrapper from './MarketOptionsWrapper'
 import SupplyPreview from '../../SupplyPreview'
 
+const getCustomAndPredefined = SupplySetups.selectors.makeGetCustomAndPredefined()
 const mapStateToProps = (state: RootState) => ({
   activeMarketSetups: SupplySetups.selectors.getActiveSetups(state),
+  allMarketSetups: getCustomAndPredefined(state),
+  selectedSetup: SupplySelection.selectors.getSelectedSetup(state),
 })
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+  selectSetup: SupplySelection.actions.selectSetup,
+}
 
 type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps & {
@@ -23,13 +29,23 @@ type Props = ReturnType<typeof mapStateToProps> &
   }
 
 const MarketOptions = React.memo(
-  ({ activeMarketSetups, expansionHandler }: Props) => (
+  ({
+    activeMarketSetups,
+    allMarketSetups,
+    expansionHandler,
+    selectSetup,
+    selectedSetup,
+  }: Props) => (
     <MarketOptionsWrapper>
       {activeMarketSetups.map(setup => (
         <SupplyPreview
           key={setup.id}
           setup={setup}
-          clickHandler={() => expansionHandler(undefined, false)}
+          clickHandler={(event: any) => {
+            expansionHandler(undefined, false)
+            selectSetup(allMarketSetups[event.currentTarget.dataset.value])
+          }}
+          selected={selectedSetup.id === setup.id}
         />
       ))}
     </MarketOptionsWrapper>

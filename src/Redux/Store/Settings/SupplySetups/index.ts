@@ -32,6 +32,9 @@ export enum ActionTypes {
   SET_TO_DB = 'Settings/Expansions/SupplySetups/SET_TO_DB',
   SET_TO_DB_SUCCESS = 'Settings/Expansions/SupplySetups/SET_TO_DB_SUCCESS',
   SET_TO_DB_FAILURE = 'Settings/Expansions/SupplySetups/SET_TO_DB_FAILURE',
+  FETCH_FROM_DB = 'Settings/Expansions/SupplySetups/FETCH_FROM_DB',
+  FETCH_FROM_DB_SUCCESS = 'Settings/Expansions/SupplySetups/FETCH_FROM_DB_SUCCESS',
+  FETCH_FROM_DB_FAILURE = 'Settings/Expansions/SupplySetups/FETCH_FROM_DB_FAILURE',
 }
 
 type SetupType = 'Predefined' | 'Custom'
@@ -45,6 +48,11 @@ export const actions = {
   setToDBSuccessful: () => createAction(ActionTypes.SET_TO_DB_SUCCESS),
   setToDBFailed: (error: Object) =>
     createAction(ActionTypes.SET_TO_DB_FAILURE, error),
+  fetchFromDB: () => createAction(ActionTypes.FETCH_FROM_DB),
+  fetchFromDBSuccessful: (state: State) =>
+    createAction(ActionTypes.FETCH_FROM_DB_SUCCESS, state),
+  fetchFromDBFailed: (error: Object) =>
+    createAction(ActionTypes.FETCH_FROM_DB_FAILURE, error),
 }
 
 export type Action = ActionsUnion<typeof actions>
@@ -115,6 +123,25 @@ export const Reducer: LoopReducer<State, Action> = (
           failActionCreator: actions.setToDBFailed,
         })
       )
+    }
+
+    case ActionTypes.FETCH_FROM_DB: {
+      return loop(
+        state,
+        Cmd.run<Action>(getFromDb, {
+          args: [SUPPLY_DB_KEY],
+          successActionCreator: actions.fetchFromDBSuccessful,
+          failActionCreator: actions.fetchFromDBFailed,
+        })
+      )
+    }
+
+    case ActionTypes.FETCH_FROM_DB_SUCCESS: {
+      return action.payload || initialState
+    }
+
+    case ActionTypes.FETCH_FROM_DB_FAILURE: {
+      return state
     }
 
     default: {
