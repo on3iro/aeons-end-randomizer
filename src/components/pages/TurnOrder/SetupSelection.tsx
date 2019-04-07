@@ -11,26 +11,29 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 
 import config from '../../../config'
 import { ITurnOrderPlayerCount } from '../../../types'
-import { RootState } from '../../../Redux/Store'
-import * as TurnOrderConfiguration from '../../../Redux/Store/TurnOrder/Configuration'
+import { RootState, actions, selectors } from '../../../Redux/Store'
 
 const renderSetupOptions = (selectedPlayerCount: ITurnOrderPlayerCount) =>
-  Object.values(config.TURNORDERSETUPS[selectedPlayerCount.id].variations).map(setup => (
-    <FormControlLabel
-      key={setup.id}
-      value={setup.id}
-      control={<Radio />}
-      label={setup.name}
-    />
-  ))
+  Object.values(config.TURNORDERSETUPS[selectedPlayerCount.id].variations).map(
+    setup => (
+      <FormControlLabel
+        key={setup.id}
+        value={setup.id}
+        control={<Radio />}
+        label={setup.name}
+      />
+    )
+  )
 
 const mapStateToProps = (state: RootState) => ({
-  selectedPlayerCount: TurnOrderConfiguration.selectors.getSelectedPlayerCount(state),
-  selectedSetup: TurnOrderConfiguration.selectors.getSelectedSetup(state),
+  selectedPlayerCount: selectors.TurnOrder.Configuration.getSelectedPlayerCount(
+    state
+  ),
+  selectedSetup: selectors.TurnOrder.Configuration.getSelectedSetup(state),
 })
 
 const mapDispatchToProps = {
-  selectSetup: TurnOrderConfiguration.actions.selectSetup,
+  selectSetup: actions.TurnOrder.Configuration.selectSetup,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &

@@ -8,9 +8,7 @@ import { withStyles } from '@material-ui/core/styles'
 
 import config from '../../../config'
 import { ICreature } from '../../../types'
-import { RootState } from '../../../Redux/Store'
-import * as SelectedExpansions from '../../../Redux/Store/Settings/Expansions/Selected'
-import * as Nemesis from '../../../Redux/Store/Nemesis'
+import { RootState, actions, selectors } from '../../../Redux/Store'
 
 import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
@@ -18,17 +16,17 @@ import NoSelectedExpansions from '../../NoSelectedExpansions'
 import nemesesStyles from './nemesesStyles'
 
 const mapStateToProps = (state: RootState) => ({
-  hasStandaloneExpansionSelected: SelectedExpansions.selectors.getHasStandaloneSet(
+  hasStandaloneExpansionSelected: selectors.Settings.Expansions.Selected.getHasStandaloneSet(
     state
   ),
-  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsArray(
+  selectedExpansions: selectors.Settings.Expansions.Selected.getSelectedExpansionsArray(
     state
   ),
-  nemesis: Nemesis.selectors.getNemesis(state),
+  nemesis: selectors.Nemesis.getNemesis(state),
 })
 
 const mapDispatchToProps = {
-  setRandomNemesis: Nemesis.actions.setRandomNemesis,
+  setRandomNemesis: actions.Nemesis.setRandomNemesis,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &

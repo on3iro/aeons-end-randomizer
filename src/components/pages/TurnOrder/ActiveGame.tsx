@@ -4,23 +4,21 @@ import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button'
 
 import { ITurnOrderCard } from '../../../types'
-import { RootState } from '../../../Redux/Store'
-import * as TurnOrderGame from '../../../Redux/Store/TurnOrder/ActiveGame'
-import * as TurnOrderConfig from '../../../Redux/Store/TurnOrder/Configuration'
+import { RootState, selectors, actions } from '../../../Redux/Store'
 
 import ShuffleButton from '../../ShuffleButton'
 
 import DiscardTable from './DiscardTable'
 
 const mapStateToProps = (state: RootState) => ({
-  deck: TurnOrderGame.selectors.getDeck(state),
-  availableCards: TurnOrderConfig.selectors.getAvailableCards(state),
+  deck: selectors.TurnOrder.ActiveGame.getDeck(state),
+  availableCards: selectors.TurnOrder.Configuration.getAvailableCards(state),
 })
 
 const mapDispatchToProps = {
-  resetGame: TurnOrderGame.actions.resetGame,
-  drawCard: TurnOrderGame.actions.draw,
-  newRound: TurnOrderGame.actions.newRound,
+  resetGame: actions.TurnOrder.ActiveGame.resetGame,
+  drawCard: actions.TurnOrder.ActiveGame.draw,
+  newRound: actions.TurnOrder.ActiveGame.newRound,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}

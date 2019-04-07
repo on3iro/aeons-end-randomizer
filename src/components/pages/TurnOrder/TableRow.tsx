@@ -7,17 +7,16 @@ import Typography from '@material-ui/core/Typography'
 import { Loop, Publish, GetApp } from '@material-ui/icons'
 
 import { ITurnOrderCard } from '../../../types'
-import { RootState } from '../../../Redux/Store'
-import * as TurnOrderGame from '../../../Redux/Store/TurnOrder/ActiveGame'
+import { RootState, actions } from '../../../Redux/Store'
 
 import TableCell from './TableCell'
 
 const mapStateToProps = (state: RootState) => ({})
 
 const mapDispatchToProps = {
-  addToTop: TurnOrderGame.actions.addToTop,
-  addToBottom: TurnOrderGame.actions.addToBottom,
-  shuffleIntoDeck: TurnOrderGame.actions.shuffleIntoDeck,
+  addToTop: actions.TurnOrder.ActiveGame.addToTop,
+  addToBottom: actions.TurnOrder.ActiveGame.addToBottom,
+  shuffleIntoDeck: actions.TurnOrder.ActiveGame.shuffleIntoDeck,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
