@@ -16,7 +16,6 @@ const mapStateToProps = (state: RootState) => ({
 
 const mapDispatchToProps = {
   selectSetup: actions.Supply.Selection.selectSetup,
-  resetMarket: actions.Supply.RandomSetup.resetMarket,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
@@ -32,7 +31,6 @@ const MarketOptions = React.memo(
     activeMarketSetups,
     allMarketSetups,
     expansionHandler,
-    resetMarket,
     selectSetup,
     selectedSetup,
   }: Props) => (
@@ -44,7 +42,6 @@ const MarketOptions = React.memo(
           clickHandler={(event: any) => {
             expansionHandler(undefined, false)
             selectSetup(allMarketSetups[event.currentTarget.dataset.value])
-            resetMarket()
           }}
           selected={selectedSetup.id === setup.id}
         />
