@@ -5,6 +5,7 @@ import { IMarketSetup } from '../../../types'
 import { RootState } from '../../../Redux/Store'
 import * as SupplySetups from '../../../Redux/Store/Settings/SupplySetups'
 import * as SupplySelection from '../../../Redux/Store/Supply/Selection'
+import * as RandomSetup from '../../../Redux/Store/Supply/RandomSetup'
 
 import MarketOptionsWrapper from './MarketOptionsWrapper'
 import SupplyPreview from '../../SupplyPreview'
@@ -18,6 +19,7 @@ const mapStateToProps = (state: RootState) => ({
 
 const mapDispatchToProps = {
   selectSetup: SupplySelection.actions.selectSetup,
+  resetMarket: RandomSetup.actions.resetMarket,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
@@ -33,6 +35,7 @@ const MarketOptions = React.memo(
     activeMarketSetups,
     allMarketSetups,
     expansionHandler,
+    resetMarket,
     selectSetup,
     selectedSetup,
   }: Props) => (
@@ -44,6 +47,7 @@ const MarketOptions = React.memo(
           clickHandler={(event: any) => {
             expansionHandler(undefined, false)
             selectSetup(allMarketSetups[event.currentTarget.dataset.value])
+            resetMarket()
           }}
           selected={selectedSetup.id === setup.id}
         />
