@@ -8,25 +8,25 @@ import FormGroup from '@material-ui/core/FormGroup'
 import FormLabel from '@material-ui/core/FormLabel'
 
 import config from '../../../../config'
-import { RootState } from '../../../../Redux/Store'
-import * as Expansions from '../../../../Redux/Store/Settings/Expansions'
-import * as SelectedExpansions from '../../../../Redux/Store/Settings/Expansions/Selected'
+import { RootState, selectors, actions } from '../../../../Redux/Store'
 
 import CheckboxList from '../../../CheckboxList'
 
 const mapStateToProps = (state: RootState) => ({
-  standalones: Expansions.selectors.getStandaloneExpansions,
-  miniExpansions: Expansions.selectors.getMiniExpansions,
-  promos: Expansions.selectors.getPromos,
-  selectedExpansions: SelectedExpansions.selectors.getSelectedExpansionsState(
+  standalones: selectors.Settings.Expansions.getStandaloneExpansions,
+  miniExpansions: selectors.Settings.Expansions.getMiniExpansions,
+  promos: selectors.Settings.Expansions.getPromos,
+  selectedExpansions: selectors.Settings.Expansions.Selected.getSelectedExpansionsState(
     state
   ),
-  allSetsSelected: SelectedExpansions.selectors.getAllSetsSelected(state),
+  allSetsSelected: selectors.Settings.Expansions.Selected.getAllSetsSelected(
+    state
+  ),
 })
 
 const mapDispatchToProps = {
-  handleSelectAll: SelectedExpansions.actions.toggleAll,
-  handleChange: SelectedExpansions.actions.toggleExpansion,
+  handleSelectAll: actions.Settings.Expansions.Selected.toggleAll,
+  handleChange: actions.Settings.Expansions.Selected.toggleExpansion,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}

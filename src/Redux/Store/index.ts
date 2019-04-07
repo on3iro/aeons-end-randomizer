@@ -39,7 +39,9 @@ export const actions = {
 
 export const selectors = {
   Settings: Settings.selectors,
-  Main: mainActions,
+  Main: {
+    ContentLoading: MainContentLoading.selectors,
+  },
   TurnOrder: TurnOrder.selectors,
   Nemesis: Nemesis.selectors,
   Mages: Mages.selectors,

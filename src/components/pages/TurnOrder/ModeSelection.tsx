@@ -10,8 +10,7 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import Typography from '@material-ui/core/Typography'
 
 import { MODES, Mode } from '../../../types'
-import { RootState } from '../../../Redux/Store'
-import * as TurnOrderConfiguration from '../../../Redux/Store/TurnOrder/Configuration'
+import { RootState, actions, selectors } from '../../../Redux/Store'
 
 const renderModeOptions = () =>
   MODES.map(mode => (
@@ -24,11 +23,11 @@ const renderModeOptions = () =>
   ))
 
 const mapStateToProps = (state: RootState) => ({
-  mode: TurnOrderConfiguration.selectors.getMode(state),
+  mode: selectors.TurnOrder.Configuration.getMode(state),
 })
 
 const mapDispatchToProps = {
-  setMode: TurnOrderConfiguration.actions.setMode,
+  setMode: actions.TurnOrder.Configuration.setMode,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
@@ -39,9 +38,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 const ModeSelection = React.memo(({ classes, mode, setMode }: Props) => (
   <Card className={classes.cardDeck}>
     <CardContent>
-      <FormLabel>
-        Mode
-      </FormLabel>
+      <FormLabel>Mode</FormLabel>
       <RadioGroup
         aria-label="mode"
         name="turnOrderMode"
