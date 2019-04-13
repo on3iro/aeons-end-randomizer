@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormLabel from '@material-ui/core/FormLabel'
@@ -11,6 +10,8 @@ import Typography from '@material-ui/core/Typography'
 
 import { MODES, Mode } from '../../../types'
 import { RootState, actions, selectors } from '../../../Redux/Store'
+
+import Card from './Card'
 
 const renderModeOptions = () =>
   MODES.map(mode => (
@@ -30,13 +31,10 @@ const mapDispatchToProps = {
   setMode: actions.TurnOrder.Configuration.setMode,
 }
 
-type Props = ReturnType<typeof mapStateToProps> &
-  typeof mapDispatchToProps & {
-    classes: any
-  }
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const ModeSelection = React.memo(({ classes, mode, setMode }: Props) => (
-  <Card className={classes.cardDeck}>
+const ModeSelection = React.memo(({ mode, setMode }: Props) => (
+  <Card>
     <CardContent>
       <FormLabel>Mode</FormLabel>
       <RadioGroup
