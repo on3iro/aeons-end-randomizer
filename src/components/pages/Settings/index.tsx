@@ -2,21 +2,18 @@ import React from 'react'
 
 import { withStyles } from '@material-ui/core/styles'
 
-import settingStyles from './settingStyles'
 import Expansions from './Expansions'
 import Supply from './Supply'
 
-type Props = {
-  classes: any
-}
+type Props = {}
 
-const Settings = React.memo(({ classes }: Props) => (
+const Settings = React.memo(() => (
   <React.Fragment>
-    <Expansions classes={classes} />
-    <Supply classes={classes} />
+    <Expansions />
+    <Supply />
   </React.Fragment>
 ))
 
 Settings.displayName = 'Settings'
 
-export default withStyles(settingStyles)(Settings)
+export default Settings
