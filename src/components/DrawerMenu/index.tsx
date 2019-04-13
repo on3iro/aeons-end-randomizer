@@ -1,57 +1,49 @@
 import React from 'react'
 
 import Divider from '@material-ui/core/Divider'
-import Drawer from '@material-ui/core/Drawer'
 import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-import Typography from '@material-ui/core/Typography'
-import Link from '@material-ui/core/Link'
 
 import Routes from '../Routes'
+import Header from './Header'
+import AppInfo from './AppInfo'
+import GitHubLink from './GitHubLink'
+import GitHubLogo from './GitHubLogo'
+import Drawer from './Drawer'
 
 type Props = {
   drawerIsOpen: boolean
   toggleDrawer: () => void
-  classes: any
   moveTo: (route: string) => void
 }
 
 const DrawerMenu = React.memo(
-  ({ drawerIsOpen, toggleDrawer, classes, moveTo }: Props) => (
+  ({ drawerIsOpen, toggleDrawer, moveTo }: Props) => (
     <Drawer
       open={drawerIsOpen}
       onClose={toggleDrawer}
       variant="persistent"
-      className={classes.drawer}
       anchor="left"
-      classes={{
-        paper: classes.drawerPaper,
-      }}
     >
-      <div className={classes.drawerHeader}>
+      <Header>
         <IconButton onClick={toggleDrawer}>
           <ChevronLeftIcon />
         </IconButton>
-      </div>
+      </Header>
       <Divider />
       <Routes locationhandler={moveTo} />
       <Divider />
-      <Typography className={classes.appInfo}>
+      <AppInfo>
         Version: {process.env.REACT_APP_VERSION}
-        <Link
+        <GitHubLink
           href="https://github.com/on3iro/aeons-end-randomizer"
           color="inherit"
-          className={classes.githubLink}
           target="_blank"
         >
-          <img
-            src="images/github-logo.svg"
-            alt="SVG: Github logo"
-            className={classes.githubLogo}
-          />
+          <GitHubLogo src="images/github-logo.svg" alt="SVG: Github logo" />
           Github
-        </Link>
-      </Typography>
+        </GitHubLink>
+      </AppInfo>
     </Drawer>
   )
 )

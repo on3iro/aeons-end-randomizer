@@ -35,6 +35,14 @@ export const mainTheme = {
   heading: {
     fontSize: muiTheme.typography.pxToRem(15),
   },
+  spacing: muiTheme.spacing,
+  drawerWidth: 240,
+  muiTransitions: {
+    appBarShift: muiTheme.transitions.create(['margin', 'width'], {
+      easing: muiTheme.transitions.easing.easeOut,
+      duration: muiTheme.transitions.duration.enteringScreen,
+    }),
+  },
   colors: {
     primary: muiTheme.palette.primary,
     secondary: muiTheme.palette.secondary,
