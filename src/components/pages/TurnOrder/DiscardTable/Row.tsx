@@ -2,14 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import IconButton from '@material-ui/core/IconButton'
-import MuiTableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 import { Loop, Publish, GetApp } from '@material-ui/icons'
 
-import { ITurnOrderCard } from '../../../types'
-import { RootState, actions } from '../../../Redux/Store'
+import { ITurnOrderCard } from '../../../../types'
+import { RootState, actions } from '../../../../Redux/Store'
 
-import TableCell from './TableCell'
+import Cell from './Cell'
+import RowWrapper from './RowWrapper'
 
 const mapStateToProps = (state: RootState) => ({})
 
@@ -22,16 +22,15 @@ const mapDispatchToProps = {
 type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps & {
     card: ITurnOrderCard
-    classes: any
   }
 
-const TableRow = React.memo(
-  ({ card, addToTop, addToBottom, shuffleIntoDeck, classes }: Props) => (
-    <MuiTableRow className={`${classes.cardRow} ${classes[card.cssClass]}`}>
-      <TableCell>
+const Row = React.memo(
+  ({ card, addToTop, addToBottom, shuffleIntoDeck }: Props) => (
+    <RowWrapper type={card.type}>
+      <Cell>
         <Typography component="p">{card.name}</Typography>
-      </TableCell>
-      <TableCell align="right">
+      </Cell>
+      <Cell align="right">
         <IconButton
           aria-label="Add to top"
           title="Add to top"
@@ -39,8 +38,8 @@ const TableRow = React.memo(
         >
           <Publish fontSize="small" />
         </IconButton>
-      </TableCell>
-      <TableCell align="right">
+      </Cell>
+      <Cell align="right">
         <IconButton
           aria-label="Add to bottom"
           title="Add to bottom"
@@ -48,8 +47,8 @@ const TableRow = React.memo(
         >
           <GetApp fontSize="small" />
         </IconButton>
-      </TableCell>
-      <TableCell align="right">
+      </Cell>
+      <Cell align="right">
         <IconButton
           aria-label="Shuffle into Turn Order Deck"
           title="Shuffle into Turn Order Deck"
@@ -57,14 +56,14 @@ const TableRow = React.memo(
         >
           <Loop fontSize="small" />
         </IconButton>
-      </TableCell>
-    </MuiTableRow>
+      </Cell>
+    </RowWrapper>
   )
 )
 
-TableRow.displayName = 'TableRow'
+Row.displayName = 'Row'
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TableRow)
+)(Row)
