@@ -24,6 +24,9 @@ const muiTheme = createMuiTheme({
 })
 
 const mainTheme = {
+  heading: {
+    fontSize: muiTheme.typography.pxToRem(15),
+  },
   colors: {
     primary: muiTheme.palette.primary,
     secondary: muiTheme.palette.secondary,

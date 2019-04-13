@@ -5,18 +5,15 @@ import useExpansionHandling from '../../../../hooks/useExpansionHandling'
 
 import SetupSelection from './SetupSelection'
 
-type Props = {
-  classes: any
-}
+type Props = {}
 
-const Supply = React.memo(({ classes }: Props) => {
+const Supply = React.memo(() => {
   const { expanded, createExpansionHandler } = useExpansionHandling()
   const expansionKey = 'supplySets'
   const expansionHandler = createExpansionHandler(expansionKey)
 
   return (
     <ExpansionPanel
-      classes={classes}
       expanded={expanded}
       expansionHandler={expansionHandler}
       expansionKey={expansionKey}
