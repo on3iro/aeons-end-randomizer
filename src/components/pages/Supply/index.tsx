@@ -12,7 +12,6 @@ import ExpansionPanel from '../../ExpansionPanel'
 import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
 
-import supplyStyles from './supplyStyles'
 import SupplyList from './SupplyList'
 import MarketOptions from './MarketOptions'
 
@@ -31,14 +30,10 @@ const mapDispatchToProps = {
   createMarket: actions.Supply.RandomSetup.createMarket,
 }
 
-type Props = ReturnType<typeof mapStateToProps> &
-  typeof mapDispatchToProps & {
-    classes: any
-  }
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
 const Supply = React.memo(
   ({
-    classes,
     cards,
     createMarket,
     hasStandaloneExpansionSelected,
@@ -61,7 +56,6 @@ const Supply = React.memo(
       <React.Fragment>
         <ExpansionPanel
           expanded={expanded}
-          classes={classes}
           expansionKey={expansionKey}
           summary={marketSetup.name}
           expansionHandler={expansionHandler}
@@ -86,4 +80,4 @@ Supply.displayName = 'Supply'
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(supplyStyles)(Supply))
+)(Supply)
