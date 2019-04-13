@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -12,6 +11,8 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import config from '../../../config'
 import { ITurnOrderPlayerCount } from '../../../types'
 import { RootState, actions, selectors } from '../../../Redux/Store'
+
+import Card from './Card'
 
 const renderSetupOptions = (selectedPlayerCount: ITurnOrderPlayerCount) =>
   Object.values(config.TURNORDERSETUPS[selectedPlayerCount.id].variations).map(
@@ -36,14 +37,11 @@ const mapDispatchToProps = {
   selectSetup: actions.TurnOrder.Configuration.selectSetup,
 }
 
-type Props = ReturnType<typeof mapStateToProps> &
-  typeof mapDispatchToProps & {
-    classes: any
-  }
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
 const SetupSelection = React.memo(
-  ({ classes, selectSetup, selectedSetup, selectedPlayerCount }: Props) => (
-    <Card className={classes.setupCard}>
+  ({ selectSetup, selectedSetup, selectedPlayerCount }: Props) => (
+    <Card>
       <CardContent>
         <FormControl component={'fieldset' as 'div'}>
           <FormLabel>Player Cards Variants</FormLabel>
