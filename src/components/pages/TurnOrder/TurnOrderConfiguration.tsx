@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
 
