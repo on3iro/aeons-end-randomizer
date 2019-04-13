@@ -1,14 +1,12 @@
-import { withStyles } from '@material-ui/core/styles'
+import styled from 'styled-components/macro'
 import Fab from '@material-ui/core/Fab'
 
-const ShuffleButton = withStyles({
-  root: {
-    position: 'fixed',
-    bottom: '24px',
-    right: '24px',
-    zIndex: 10,
-  },
-})(Fab)
+const ShuffleButton = styled(Fab)`
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10;
+`
 
 ShuffleButton.displayName = 'ShuffleButton'
 

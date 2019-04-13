@@ -1,18 +1,14 @@
-import { withStyles } from '@material-ui/core/styles'
+import styled from 'styled-components/macro'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel'
 
-const StyledExpansionPanel = withStyles({
-  root: {
-    borderRadius: 4,
-    '&:before': {
-      display: 'none',
-    },
-    marginBottom: '15px',
-  },
-  expanded: {
-    margin: 'auto auto 15px',
-  },
-})(ExpansionPanel)
+const StyledExpansionPanel = styled(ExpansionPanel)`
+  border-radius: 4px;
+  margin-bottom: 15px;
+
+  &:before {
+    display: none;
+  }
+`
 
 StyledExpansionPanel.displayName = 'StyledExpansionPanel'
 
