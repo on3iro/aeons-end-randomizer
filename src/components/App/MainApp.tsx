@@ -7,8 +7,8 @@ import { RootState, actions, selectors } from '../../Redux/Store'
 
 import { ROUTES } from '../../routes'
 import Content from '../Content'
-import TopBar from './TopBar'
-import DrawerMenu from './DrawerMenu'
+import TopBar from '../TopBar'
+import DrawerMenu from '../DrawerMenu'
 
 const mapStateToProps = (state: RootState) => ({
   isLoading: selectors.Main.ContentLoading.getIsLoading(state),
@@ -41,7 +41,6 @@ const MainApp = ({ classes, getUserConfiguration, isLoading }: Props) => {
   return (
     <React.Fragment>
       <TopBar
-        classes={classes}
         drawerIsOpen={drawerIsOpen}
         currentLocation={currentLocation}
         toggleDrawer={toggleDrawer}
@@ -49,7 +48,6 @@ const MainApp = ({ classes, getUserConfiguration, isLoading }: Props) => {
       <DrawerMenu
         drawerIsOpen={drawerIsOpen}
         toggleDrawer={toggleDrawer}
-        classes={classes}
         moveTo={moveTo}
       />
       <Content
