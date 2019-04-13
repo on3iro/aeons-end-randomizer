@@ -91,10 +91,23 @@ export type Player =
   | 'Maelstrom Assault'
   | 'Blitz'
 
+export type TurnOrderCardType =
+  | 'player1'
+  | 'player2'
+  | 'player3'
+  | 'player4'
+  | 'player12'
+  | 'player34'
+  | 'wild'
+  | 'wild-token'
+  | 'nemesis'
+  | 'maelstrom'
+  | 'blitz'
+
 export interface ITurnOrderCard {
   id: string
   name: Player
-  cssClass: string
+  type: TurnOrderCardType
 }
 
 export interface ITurnOrderSetups {
