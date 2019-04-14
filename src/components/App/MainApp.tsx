@@ -53,12 +53,7 @@ const MainApp = ({ classes, getUserConfiguration, isLoading }: Props) => {
       <Content
         isLoading={isLoading}
         route={currentLocation}
-        classes={classes}
-        className={classNames(
-          classes.content,
-          { [classes.contentShift]: drawerIsOpen },
-          { [classes.loading]: isLoading }
-        )}
+        drawerIsOpen={drawerIsOpen}
       />
     </React.Fragment>
   )

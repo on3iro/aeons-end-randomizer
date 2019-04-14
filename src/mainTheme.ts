@@ -42,6 +42,14 @@ export const mainTheme = {
       easing: muiTheme.transitions.easing.easeOut,
       duration: muiTheme.transitions.duration.enteringScreen,
     }),
+    content: muiTheme.transitions.create('margin', {
+      easing: muiTheme.transitions.easing.sharp,
+      duration: muiTheme.transitions.duration.leavingScreen,
+    }),
+    contentShift: muiTheme.transitions.create('margin', {
+      easing: muiTheme.transitions.easing.easeOut,
+      duration: muiTheme.transitions.duration.enteringScreen,
+    }),
   },
   colors: {
     primary: muiTheme.palette.primary,
