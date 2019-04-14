@@ -1,6 +1,5 @@
 import React from 'react'
 
-import MenuIcon from '@material-ui/icons/Menu'
 import Toolbar from '@material-ui/core/Toolbar'
 
 import Title from './Title'
@@ -17,13 +16,7 @@ const TopBar = React.memo(
   ({ drawerIsOpen, currentLocation, toggleDrawer }: Props) => (
     <AppBar drawerIsOpen={drawerIsOpen}>
       <Toolbar disableGutters={!drawerIsOpen}>
-        <MenuButton
-          drawerIsOpen={drawerIsOpen}
-          aria-label="Menu"
-          onClick={toggleDrawer}
-        >
-          <MenuIcon />
-        </MenuButton>
+        <MenuButton drawerIsOpen={drawerIsOpen} onClick={toggleDrawer} />
         <Title variant="h6" color="inherit">
           {currentLocation}
         </Title>
