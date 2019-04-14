@@ -21,13 +21,8 @@ const Wrapper = styled('div')<Props>`
   }
 
   &:last-child {
+    margin-top: 24px;
     margin-bottom: 0;
-  }
-
-  @media all and (min-width: 502px) {
-    &:nth-last-child(2) {
-      margin-bottom: 24px;
-    }
   }
 `
 
