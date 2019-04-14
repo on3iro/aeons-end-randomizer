@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { css } from 'styled-components/macro'
 import MuiAppBar from '@material-ui/core/AppBar'
 
@@ -11,7 +12,9 @@ const openDrawerMixin = css`
   transition: ${props => props.theme.muiTransitions.appBarShift};
 `
 
-const AppBar = styled(MuiAppBar)<Props>`
+const AppBar = styled(({ drawerIsOpen, ...rest }) => <MuiAppBar {...rest} />)<
+  Props
+>`
   position: fixed;
 
   ${props => (props.drawerIsOpen ? openDrawerMixin : '')}
