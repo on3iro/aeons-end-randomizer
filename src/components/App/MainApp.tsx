@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import classNames from 'classnames'
-
 import { RootState, actions, selectors } from '../../Redux/Store'
 
 import { ROUTES } from '../../routes'
@@ -20,11 +18,10 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps & {
-    classes: any
     isLoading: boolean
   }
 
-const MainApp = ({ classes, getUserConfiguration, isLoading }: Props) => {
+const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
   const [currentLocation, setCurrentLocation] = useState(ROUTES.nemeses)
   const moveTo = (route: string) => {
     toggleDrawer()
