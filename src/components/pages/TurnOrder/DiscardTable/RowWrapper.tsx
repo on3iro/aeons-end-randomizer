@@ -33,7 +33,7 @@ const RowWrapper = styled(MuiTableRow)<Props>`
   ${props =>
     getTurnOrderCardStyles(props.theme.colors.turnOrderCards, props.type)}
 
-  &:first-child: {
+  &:first-child {
     & * {
       color: #fff;
     }
