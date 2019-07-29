@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components/macro'
 import MuiCard from '@material-ui/core/Card'
 

@@ -35,7 +35,7 @@ export const getListOfAvailableEntity = (
 export const isCardArray = (
   entityList: Array<types.ICard | types.ICreature>
 ): entityList is Array<types.ICard> => {
-  return (<types.ICard>entityList[0]).name !== undefined
+  return (entityList[0] as types.ICard).name !== undefined
 }
 
 // TODO Refactor turnorder cards and mages (code duplication)

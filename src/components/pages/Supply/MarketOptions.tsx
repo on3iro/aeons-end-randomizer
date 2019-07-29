@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { IMarketSetup } from '../../../types'
 import { RootState, selectors, actions } from '../../../Redux/Store'
 
 import MarketOptionsWrapper from './MarketOptionsWrapper'

@@ -1,8 +1,6 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
-import { createSelector } from 'reselect'
 
-import config from '../../../config'
 import { ICreature } from '../../../types'
 import { RootState } from '../'
 import { getListOfAvailableEntity, getRandomEntity } from '../../helpers'

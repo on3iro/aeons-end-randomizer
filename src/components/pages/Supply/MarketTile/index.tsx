@@ -2,10 +2,8 @@ import React from 'react'
 
 import Grid from '@material-ui/core/Grid'
 import List from '@material-ui/core/List'
-import Typography from '@material-ui/core/Typography'
 
-import config from '../../../../config'
-import { Slot, ICard, isCard, Operation } from '../../../../types'
+import { Slot, ICard, isCard } from '../../../../types'
 
 import { getOperationString } from '../../../../Redux/helpers'
 

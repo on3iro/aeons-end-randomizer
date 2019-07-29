@@ -1,12 +1,7 @@
 import React from 'react'
 
-import Typography from '@material-ui/core/Typography'
-
 import { getOperationString } from '../../Redux/helpers'
-import { IMarketSetup, IMarketSetups } from '../../types'
-import { RootState } from '../../Redux/Store'
-import * as SupplySelection from '../../Redux/Store/Supply/Selection'
-import * as SupplySetups from '../../Redux/Store/Settings/SupplySetups'
+import { IMarketSetup } from '../../types'
 
 import Wrapper from './Wrapper'
 import TileList from './TileList'

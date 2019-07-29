@@ -22,7 +22,7 @@
     "react-dom": "^16.8.2",
     "react-jss": "^8.6.1",
     "react-redux": "^6.0.1",
-    "react-scripts": "2.1.8",
+    "react-scripts": "3.0.1",
     "redux": "^4.0.1",
     "redux-loop": "^4.5.4",
     "reselect": "^4.0.0",
