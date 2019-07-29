@@ -32,13 +32,15 @@ type Props = {
   items: ReadonlyArray<Item>
   changeHandler: (selection: string) => void
   Component?: RenderComponent
+  children?: React.ReactNode
 }
 
 const CheckboxList = React.memo(
-  ({ label, items, changeHandler, Component, ...rest }: Props) => (
+  ({ children, label, items, changeHandler, Component, ...rest }: Props) => (
     <React.Fragment>
       <FormLabel {...rest}>{label}</FormLabel>
       <FormGroup {...rest} style={{ marginBottom: '20px' }}>
+        {children}
         {renderCheckboxes(items, changeHandler, Component)}
       </FormGroup>
     </React.Fragment>

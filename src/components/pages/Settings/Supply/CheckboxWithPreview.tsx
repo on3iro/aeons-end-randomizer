@@ -13,10 +13,11 @@ type Props = {
   item: string
   label: string
   setup?: IMarketSetup
+  children?: React.ReactNode
 }
 
 const CheckboxWithPreview = React.memo(
-  ({ changeHandler, checked, item, label, setup }: Props) => (
+  ({ changeHandler, checked, item, label, setup, children }: Props) => (
     <div>
       <FormControlLabel
         control={
@@ -28,6 +29,7 @@ const CheckboxWithPreview = React.memo(
         }
         label={label}
       />
+      {children}
       {setup ? (
         <SupplyPreview
           clickHandler={() => changeHandler(item)}

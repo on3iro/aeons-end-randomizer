@@ -1,11 +1,4 @@
 //////////
-// UTIL //
-//////////
-
-type List = string | number | boolean | undefined | null | void | {}
-export const tuple = <T extends List[]>(...args: T) => args
-
-//////////
 // DATA //
 //////////
 
@@ -15,7 +8,8 @@ export interface ICreature {
   id: string
 }
 
-export type CardType = 'Gem' | 'Relic' | 'Spell' | 'EMPTY'
+export const CARD_TYPES = ['Gem', 'Relic', 'Spell', 'EMPTY'] as const
+export type CardType = typeof CARD_TYPES[number]
 
 export interface ICard {
   type: CardType
@@ -48,9 +42,20 @@ export interface IExpansionData {
 ////////////
 
 export type MarketType = 'official' | 'custom'
-export type Operation = '<' | '>' | '=' | '<=' | '>=' | 'ANY' | 'OR' | 'NoOp'
+export const SUPPLY_OPERATIONS = [
+  '<',
+  '>',
+  '=',
+  '<=',
+  '>=',
+  'ANY',
+  'OR',
+  'NoOp',
+] as const
+export type Operation = typeof SUPPLY_OPERATIONS[number]
 
 export interface IBluePrint {
+  id?: string // the optional id is only used for blueprints used inside custom setups
   type: CardType
   operation: Operation
   threshold?: number
@@ -70,6 +75,8 @@ export type IMarketSetup = Readonly<{
   default?: boolean
   active: boolean
   tiles: Array<Slot>
+  isDirty?: boolean // Flag to mark new/edited items
+  isNew?: boolean // Flag to mark if an item has already been actively saved
 }>
 
 export type IMarketSetups = Readonly<{ [key: string]: IMarketSetup }>
@@ -131,8 +138,9 @@ export interface ITurnOrderSetup {
 }
 
 export const isCard = (card: ICard | Slot): card is ICard => {
+  if (!card) return false
   return (card as ICard).name !== undefined
 }
 
-export const MODES = tuple('Default', 'Maelstrom', 'Blitz')
+export const MODES = ['Default', 'Maelstrom', 'Blitz'] as const
 export type Mode = typeof MODES[number] // automatically creates union from tuple

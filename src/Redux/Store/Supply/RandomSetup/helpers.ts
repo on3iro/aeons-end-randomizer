@@ -51,8 +51,8 @@ const createCardList = (
   availableCards: ICard[],
   blueprints: Array<IBluePrint>,
   getEntity: <T>(list: Array<T>) => T
-): CardListReduceResult => {
-  const result = blueprints.reduce(
+): CardListReduceResult =>
+  blueprints.reduce(
     (acc: CardListReduceResult, blueprint: IBluePrint, i: number) => {
       const filteredByCost = acc.availableCards.filter(card =>
         filterByCost(card, blueprint)
@@ -73,9 +73,6 @@ const createCardList = (
     },
     { availableCards, result: [] }
   )
-
-  return result
-}
 
 /**
  * Creates a list of randomly selected cards from a given pool of cards by a specific type.
