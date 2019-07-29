@@ -3,7 +3,6 @@ import { createStyles } from '@material-ui/core'
 const drawerWidth = 240
 
 export const styles = (theme: any) => {
-  console.log({ theme })
   return createStyles({
     root: {
       height: '100%',

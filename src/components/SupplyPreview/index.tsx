@@ -24,21 +24,27 @@ type Props = {
 }
 
 const SupplyPreview = React.memo(
-  ({ clickHandler, setup, selected = false, showName = true }: Props) => (
-    <Wrapper
-      key={setup.id}
-      onClick={clickHandler}
-      data-value={setup.id}
-      selected={selected}
-    >
-      <TileList>{renderMarketSetupItems(setup.tiles)}</TileList>
-      {showName ? (
-        <SupplyName variant="caption" selected={selected}>
-          {setup.name}
-        </SupplyName>
-      ) : null}
-    </Wrapper>
-  )
+  ({ clickHandler, setup, selected = false, showName = true }: Props) => {
+    if (!setup.tiles || setup.tiles.length < 1) {
+      return null
+    }
+
+    return (
+      <Wrapper
+        key={setup.id}
+        onClick={clickHandler}
+        data-value={setup.id}
+        selected={selected}
+      >
+        <TileList>{renderMarketSetupItems(setup.tiles)}</TileList>
+        {showName ? (
+          <SupplyName variant="caption" selected={selected}>
+            {setup.name}
+          </SupplyName>
+        ) : null}
+      </Wrapper>
+    )
+  }
 )
 
 SupplyPreview.displayName = 'SupplyPreview'
