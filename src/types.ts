@@ -131,7 +131,7 @@ export interface ITurnOrderSetup {
 }
 
 export const isCard = (card: ICard | Slot): card is ICard => {
-  return (<ICard>card).name !== undefined
+  return (card as ICard).name !== undefined
 }
 
 export const MODES = tuple('Default', 'Maelstrom', 'Blitz')

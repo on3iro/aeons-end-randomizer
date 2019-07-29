@@ -1,6 +1,5 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
-import { createSelector } from 'reselect'
 
 import config from '../../../../config'
 import * as types from '../../../../types'

@@ -33,7 +33,7 @@ const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
 
   useEffect(() => {
     getUserConfiguration()
-  }, [])
+  }, [getUserConfiguration])
 
   return (
     <React.Fragment>

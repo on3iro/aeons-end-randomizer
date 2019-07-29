@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { RootState, actions, selectors } from '../../../Redux/Store'
 
 import useExpandedHandling from '../../../hooks/useExpansionHandling'
-import { ICard, Slot, IMarketSetup } from '../../../types'
 
 import ExpansionPanel from '../../ExpansionPanel'
 import ShuffleButton from '../../ShuffleButton'

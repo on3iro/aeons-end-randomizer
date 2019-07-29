@@ -1,6 +1,5 @@
 import React from 'react'
 
-import config from '../../../../config'
 import { Slot, ICard, isCard } from '../../../../types'
 
 import CardInfoItem from './CardInfoItem'

@@ -12,6 +12,7 @@ const openDrawerMixin = css`
   transition: ${props => props.theme.muiTransitions.appBarShift};
 `
 
+// eslint-disable-next-line no-unexpected-multiline
 const AppBar = styled(({ drawerIsOpen, ...rest }) => <MuiAppBar {...rest} />)<
   Props
 >`

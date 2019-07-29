@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import Button from '@material-ui/core/Button'
 
-import { ITurnOrderCard } from '../../../types'
 import { RootState, selectors, actions } from '../../../Redux/Store'
 
 import ShuffleButton from '../../ShuffleButton'

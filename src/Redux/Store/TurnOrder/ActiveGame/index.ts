@@ -1,6 +1,5 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer, loop, Cmd } from 'redux-loop'
-import { createSelector } from 'reselect'
 import { get as getFromDb, set as setToDb } from 'idb-keyval'
 
 import { RootState } from '../../'
