@@ -1,14 +1,16 @@
 {
-  "main.js": "/aeons-end-randomizer/static/js/main.76168f8d.chunk.js",
-  "main.js.map": "/aeons-end-randomizer/static/js/main.76168f8d.chunk.js.map",
-  "runtime~main.js": "/aeons-end-randomizer/static/js/runtime~main.cbb11ef6.js",
-  "runtime~main.js.map": "/aeons-end-randomizer/static/js/runtime~main.cbb11ef6.js.map",
-  "static/css/2.78b8c355.chunk.css": "/aeons-end-randomizer/static/css/2.78b8c355.chunk.css",
-  "static/js/2.0ec31d31.chunk.js": "/aeons-end-randomizer/static/js/2.0ec31d31.chunk.js",
-  "static/js/2.0ec31d31.chunk.js.map": "/aeons-end-randomizer/static/js/2.0ec31d31.chunk.js.map",
-  "index.html": "/aeons-end-randomizer/index.html",
-  "precache-manifest.5c45c210d614d8b1ad9faeb384785f40.js": "/aeons-end-randomizer/precache-manifest.5c45c210d614d8b1ad9faeb384785f40.js",
-  "service-worker.js": "/aeons-end-randomizer/service-worker.js",
-  "static/css/2.78b8c355.chunk.css.map": "/aeons-end-randomizer/static/css/2.78b8c355.chunk.css.map",
-  "static/media/rpg-awesome.min.css": "/aeons-end-randomizer/static/media/rpgawesome-webfont.e31a701a.woff"
+  "files": {
+    "main.js": "/aeons-end-randomizer/static/js/main.a5f0cd31.chunk.js",
+    "main.js.map": "/aeons-end-randomizer/static/js/main.a5f0cd31.chunk.js.map",
+    "runtime~main.js": "/aeons-end-randomizer/static/js/runtime~main.ef7d43b0.js",
+    "runtime~main.js.map": "/aeons-end-randomizer/static/js/runtime~main.ef7d43b0.js.map",
+    "static/css/2.927dc64a.chunk.css": "/aeons-end-randomizer/static/css/2.927dc64a.chunk.css",
+    "static/js/2.4a912977.chunk.js": "/aeons-end-randomizer/static/js/2.4a912977.chunk.js",
+    "static/js/2.4a912977.chunk.js.map": "/aeons-end-randomizer/static/js/2.4a912977.chunk.js.map",
+    "index.html": "/aeons-end-randomizer/index.html",
+    "precache-manifest.c506f3f475448f6e02381460a9479110.js": "/aeons-end-randomizer/precache-manifest.c506f3f475448f6e02381460a9479110.js",
+    "service-worker.js": "/aeons-end-randomizer/service-worker.js",
+    "static/css/2.927dc64a.chunk.css.map": "/aeons-end-randomizer/static/css/2.927dc64a.chunk.css.map",
+    "static/media/rpg-awesome.min.css": "/aeons-end-randomizer/static/media/rpgawesome-webfont.e31a701a.woff"
+  }
 }
