@@ -42,12 +42,9 @@ export interface IExpansionData {
 ////////////
 
 export type MarketType = 'official' | 'custom'
+export const THRESHOLD_OPERATIONS = ['<', '>', '=', '<=', '>='] // Note: should not be a const, because we want to treat it as regular list
 export const SUPPLY_OPERATIONS = [
-  '<',
-  '>',
-  '=',
-  '<=',
-  '>=',
+  ...THRESHOLD_OPERATIONS,
   'ANY',
   'OR',
   'NoOp',
