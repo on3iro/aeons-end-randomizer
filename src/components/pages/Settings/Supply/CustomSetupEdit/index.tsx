@@ -74,7 +74,7 @@ const CustomSetupEdit = React.memo(
       setup.tiles,
       initialStateFromTiles
     )
-    const bluePrintList = Object.values(bluePrints)
+    const bluePrintList = Object.values(bluePrints).reverse()
 
     return (
       <Wrapper>

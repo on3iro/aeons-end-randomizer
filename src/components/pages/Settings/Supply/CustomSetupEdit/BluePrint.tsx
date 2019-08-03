@@ -1,4 +1,5 @@
 import React from 'react'
+import FormControl from '@material-ui/core/FormControl'
 import * as types from '../../../../../types'
 
 import InputField from './InputField'
@@ -6,6 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import SelectField from './SelectField'
 import SelectFieldsWrapper from './SelectFieldsWrapper'
 import BluePrintWrapper from './BluePrintWrapper'
+import CancelButton from './CancelButton'
 
 type Props = {
   bluePrint: types.IBluePrint
@@ -14,15 +16,8 @@ type Props = {
 
 // TODO refactor this file!
 
-// FIXME
-// * add delete handle
-// * fix ids
-// * reverse list add order
-
-const THRESHOLD_OPERATIONS = ['<', '>', '=', '<=', '>=']
-
 const isThresholdOperation = (operation: types.Operation) =>
-  THRESHOLD_OPERATIONS.includes(operation)
+  types.THRESHOLD_OPERATIONS.includes(operation)
 
 const renderInputFieldsByOperation = (
   bluePrint: types.IBluePrint,
@@ -30,22 +25,24 @@ const renderInputFieldsByOperation = (
 ) => {
   if (isThresholdOperation(bluePrint.operation)) {
     return (
-      <InputField
-        id="threshold"
-        label="Threshold"
-        value={bluePrint.threshold || ''}
-        onChange={(e: React.ChangeEvent<{ name?: string; value: string }>) =>
-          dispatch({
-            type: 'UPDATE',
-            payload: {
-              ...bluePrint,
-              threshold: parseInt(e.target.value || '0'),
-            },
-          })
-        }
-        type="number"
-        margin="normal"
-      />
+      <FormControl>
+        <InputField
+          id={`threshold-${bluePrint.id}`}
+          label="Threshold"
+          value={bluePrint.threshold || ''}
+          onChange={(e: React.ChangeEvent<{ name?: string; value: string }>) =>
+            dispatch({
+              type: 'UPDATE',
+              payload: {
+                ...bluePrint,
+                threshold: parseInt(e.target.value || '0'),
+              },
+            })
+          }
+          type="number"
+          margin="normal"
+        />
+      </FormControl>
     )
   }
 
@@ -62,38 +59,46 @@ const renderInputFieldsByOperation = (
 
     return (
       <React.Fragment>
-        <InputField
-          id="value-1"
-          label="Value 1"
-          value={valueA}
-          onChange={(e: React.ChangeEvent<{ name?: string; value: string }>) =>
-            dispatch({
-              type: 'UPDATE',
-              payload: {
-                ...bluePrint,
-                values: [parseInt(e.target.value || '0'), parseInt(valueB)],
-              },
-            })
-          }
-          type="number"
-          margin="normal"
-        />
-        <InputField
-          id="value-2"
-          label="Value 2"
-          value={valueB}
-          onChange={(e: React.ChangeEvent<{ name?: string; value: string }>) =>
-            dispatch({
-              type: 'UPDATE',
-              payload: {
-                ...bluePrint,
-                values: [parseInt(valueA), parseInt(e.target.value || '0')],
-              },
-            })
-          }
-          type="number"
-          margin="normal"
-        />
+        <FormControl>
+          <InputField
+            id={`value-1-${bluePrint.id}`}
+            label="Value 1"
+            value={valueA}
+            onChange={(
+              e: React.ChangeEvent<{ name?: string; value: string }>
+            ) =>
+              dispatch({
+                type: 'UPDATE',
+                payload: {
+                  ...bluePrint,
+                  values: [parseInt(e.target.value || '0'), parseInt(valueB)],
+                },
+              })
+            }
+            type="number"
+            margin="normal"
+          />
+        </FormControl>
+        <FormControl>
+          <InputField
+            id={`value-2-${bluePrint.id}`}
+            label="Value 2"
+            value={valueB}
+            onChange={(
+              e: React.ChangeEvent<{ name?: string; value: string }>
+            ) =>
+              dispatch({
+                type: 'UPDATE',
+                payload: {
+                  ...bluePrint,
+                  values: [parseInt(valueA), parseInt(e.target.value || '0')],
+                },
+              })
+            }
+            type="number"
+            margin="normal"
+          />
+        </FormControl>
       </React.Fragment>
     )
   }
@@ -104,6 +109,16 @@ const renderInputFieldsByOperation = (
 const BluePrint = React.memo(({ bluePrint, dispatch }: Props) => {
   return (
     <BluePrintWrapper>
+      <CancelButton
+        onClick={() =>
+          dispatch({
+            type: 'DELETE',
+            payload: {
+              id: bluePrint.id,
+            },
+          })
+        }
+      />
       <SelectFieldsWrapper>
         <SelectField
           key="type"
@@ -119,7 +134,7 @@ const BluePrint = React.memo(({ bluePrint, dispatch }: Props) => {
           }
           inputProps={{
             name: 'type',
-            id: 'type',
+            id: `type-${bluePrint.id}`,
           }}
         >
           {types.CARD_TYPES.filter(TYPE => TYPE !== 'EMPTY').map(TYPE => (
@@ -142,7 +157,7 @@ const BluePrint = React.memo(({ bluePrint, dispatch }: Props) => {
           }
           inputProps={{
             name: 'operation',
-            id: 'operation',
+            id: `operation-${bluePrint.id}`,
           }}
         >
           {types.SUPPLY_OPERATIONS.filter(
