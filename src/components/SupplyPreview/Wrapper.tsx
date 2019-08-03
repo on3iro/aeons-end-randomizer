@@ -13,16 +13,11 @@ const Wrapper = styled('div')<Props>`
   padding: 4px 8px;
   display: inline-block;
   width: calc(100% - 16px);
-  margin: 0 8px 24px;
+  margin: 24px 8px 0;
   cursor: pointer;
 
-  &:nth-last-child(2) {
-    margin-bottom: 0;
-  }
-
-  &:last-child {
-    margin-top: 24px;
-    margin-bottom: 0;
+  &:first-child {
+    margin-top: 0;
   }
 `
 

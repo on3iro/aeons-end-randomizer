@@ -14,8 +14,7 @@ const BluePrintList = React.memo(({ bluePrintList, dispatch }: Props) => {
   return (
     <ListWrapper>
       <Button
-        size="large"
-        variant="contained"
+        variant="outlined"
         color="primary"
         onClick={() => dispatch({ type: 'ADD' })}
       >
