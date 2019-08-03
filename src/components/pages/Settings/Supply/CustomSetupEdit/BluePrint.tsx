@@ -4,6 +4,8 @@ import * as types from '../../../../../types'
 import InputField from './InputField'
 import MenuItem from '@material-ui/core/MenuItem'
 import SelectField from './SelectField'
+import SelectFieldsWrapper from './SelectFieldsWrapper'
+import BluePrintWrapper from './BluePrintWrapper'
 
 type Props = {
   bluePrint: types.IBluePrint
@@ -11,6 +13,11 @@ type Props = {
 }
 
 // TODO refactor this file!
+
+// FIXME
+// * add delete handle
+// * fix ids
+// * reverse list add order
 
 const THRESHOLD_OPERATIONS = ['<', '>', '=', '<=', '>=']
 
@@ -96,57 +103,59 @@ const renderInputFieldsByOperation = (
 
 const BluePrint = React.memo(({ bluePrint, dispatch }: Props) => {
   return (
-    <React.Fragment>
-      <SelectField
-        key="type"
-        value={bluePrint.type}
-        onChange={(e: React.ChangeEvent<{ name?: string; value: unknown }>) =>
-          dispatch({
-            type: 'UPDATE',
-            payload: {
-              ...bluePrint,
-              type: e.target.value,
-            },
-          })
-        }
-        inputProps={{
-          name: 'type',
-          id: 'type',
-        }}
-      >
-        {types.CARD_TYPES.filter(TYPE => TYPE !== 'EMPTY').map(TYPE => (
-          <MenuItem key={TYPE} value={TYPE}>
-            {TYPE}
-          </MenuItem>
-        ))}
-      </SelectField>
-      <SelectField
-        key="operation"
-        value={bluePrint.operation}
-        onChange={(e: React.ChangeEvent<{ name?: string; value: unknown }>) =>
-          dispatch({
-            type: 'UPDATE',
-            payload: {
-              ...bluePrint,
-              operation: e.target.value,
-            },
-          })
-        }
-        inputProps={{
-          name: 'operation',
-          id: 'operation',
-        }}
-      >
-        {types.SUPPLY_OPERATIONS.filter(OPERATION => OPERATION !== 'NoOp').map(
-          OPERATION => (
+    <BluePrintWrapper>
+      <SelectFieldsWrapper>
+        <SelectField
+          key="type"
+          value={bluePrint.type}
+          onChange={(e: React.ChangeEvent<{ name?: string; value: unknown }>) =>
+            dispatch({
+              type: 'UPDATE',
+              payload: {
+                ...bluePrint,
+                type: e.target.value,
+              },
+            })
+          }
+          inputProps={{
+            name: 'type',
+            id: 'type',
+          }}
+        >
+          {types.CARD_TYPES.filter(TYPE => TYPE !== 'EMPTY').map(TYPE => (
+            <MenuItem key={TYPE} value={TYPE}>
+              {TYPE}
+            </MenuItem>
+          ))}
+        </SelectField>
+        <SelectField
+          key="operation"
+          value={bluePrint.operation}
+          onChange={(e: React.ChangeEvent<{ name?: string; value: unknown }>) =>
+            dispatch({
+              type: 'UPDATE',
+              payload: {
+                ...bluePrint,
+                operation: e.target.value,
+              },
+            })
+          }
+          inputProps={{
+            name: 'operation',
+            id: 'operation',
+          }}
+        >
+          {types.SUPPLY_OPERATIONS.filter(
+            OPERATION => OPERATION !== 'NoOp'
+          ).map(OPERATION => (
             <MenuItem key={OPERATION} value={OPERATION}>
               {OPERATION}
             </MenuItem>
-          )
-        )}
-      </SelectField>
+          ))}
+        </SelectField>
+      </SelectFieldsWrapper>
       {renderInputFieldsByOperation(bluePrint, dispatch)}
-    </React.Fragment>
+    </BluePrintWrapper>
   )
 })
 

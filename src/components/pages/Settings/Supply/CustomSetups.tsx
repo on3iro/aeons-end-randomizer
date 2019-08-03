@@ -1,5 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import IconButton from '@material-ui/core/IconButton'
+import EditIcon from '@material-ui/icons/Edit'
+import DeleteIcon from '@material-ui/icons/Delete'
 import Button from '@material-ui/core/Button'
 
 import CheckboxList from '../../../CheckboxList'
@@ -7,6 +10,7 @@ import CheckboxWithPreview from './CheckboxWithPreview'
 import CustomSetupEdit from './CustomSetupEdit'
 
 import { RootState, actions, selectors } from '../../../../Redux/Store'
+import CheckboxWithPreviewControls from './CheckboxWithPreviewControls'
 
 const mapStateToProps = (state: RootState) => ({
   customSetups: selectors.Settings.SupplySetups.getCustomAsArray(state),
@@ -58,30 +62,30 @@ const CustomSetups = React.memo(
               label={label}
               setup={setup}
             >
-              <Button
-                size="large"
-                variant="contained"
-                color="primary"
-                onClick={() => editSetup(setup.id)}
-              >
-                Edit
-              </Button>
-              <Button
-                size="large"
-                variant="contained"
-                color="secondary"
-                onClick={() => deleteSetup(setup.id)}
-              >
-                Delete
-              </Button>
+              <CheckboxWithPreviewControls>
+                <IconButton
+                  color="primary"
+                  aria-label="Edit"
+                  onClick={() => editSetup(setup.id)}
+                >
+                  <EditIcon />
+                </IconButton>
+                <IconButton
+                  color="secondary"
+                  aria-label="Delete"
+                  onClick={() => deleteSetup(setup.id)}
+                >
+                  <DeleteIcon />
+                </IconButton>
+              </CheckboxWithPreviewControls>
             </CheckboxWithPreview>
           )
         }}
       >
         <Button
-          size="large"
           variant="contained"
           color="secondary"
+          style={{ marginTop: '16px' }}
           onClick={() => createSetup()}
         >
           Add

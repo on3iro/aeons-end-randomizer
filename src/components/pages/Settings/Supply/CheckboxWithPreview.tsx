@@ -5,7 +5,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 import { IMarketSetup } from '../../../../types'
 
-import SupplyPreview from '../../../SupplyPreview'
+import SettingsSupplyPreview from './SettingsSupplyPreview'
+import CheckboxWithPreviewWrapper from './CheckboxWithPreviewWrapper'
 
 type Props = {
   changeHandler: (selection: string) => void
@@ -18,7 +19,7 @@ type Props = {
 
 const CheckboxWithPreview = React.memo(
   ({ changeHandler, checked, item, label, setup, children }: Props) => (
-    <div>
+    <CheckboxWithPreviewWrapper>
       <FormControlLabel
         control={
           <Checkbox
@@ -31,13 +32,13 @@ const CheckboxWithPreview = React.memo(
       />
       {children}
       {setup ? (
-        <SupplyPreview
+        <SettingsSupplyPreview
           clickHandler={() => changeHandler(item)}
           setup={setup}
           showName={false}
         />
       ) : null}
-    </div>
+    </CheckboxWithPreviewWrapper>
   )
 )
 

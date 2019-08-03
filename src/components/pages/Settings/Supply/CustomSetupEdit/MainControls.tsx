@@ -1,5 +1,7 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+import IconButton from '@material-ui/core/IconButton'
+import SaveIcon from '@material-ui/icons/Save'
+import CancelIcon from '@material-ui/icons/Cancel'
 
 import * as types from '../../../../../types'
 
@@ -34,24 +36,22 @@ const MainControls = React.memo(
           onChange={e => setSetupName(e.currentTarget.value)}
           margin="normal"
         />
-        <Button
-          size="large"
-          variant="contained"
+        <IconButton
           color="primary"
+          aria-label="Save"
           onClick={() =>
             saveCustomSetup({ ...setup, name: setupName, tiles: bluePrintList })
           }
         >
-          Save
-        </Button>
-        <Button
-          size="large"
-          variant="contained"
+          <SaveIcon />
+        </IconButton>
+        <IconButton
           color="secondary"
+          aria-label="Cancel"
           onClick={() => cancelEdit(setup.id)}
         >
-          Cancel
-        </Button>
+          <CancelIcon />
+        </IconButton>
       </MainControlsWrapper>
     )
   }

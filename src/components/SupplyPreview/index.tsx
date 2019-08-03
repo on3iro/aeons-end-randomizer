@@ -21,16 +21,24 @@ type Props = {
   setup: IMarketSetup
   selected?: boolean
   showName?: boolean
+  className?: string
 }
 
 const SupplyPreview = React.memo(
-  ({ clickHandler, setup, selected = false, showName = true }: Props) => {
+  ({
+    clickHandler,
+    setup,
+    selected = false,
+    showName = true,
+    className,
+  }: Props) => {
     if (!setup.tiles || setup.tiles.length < 1) {
       return null
     }
 
     return (
       <Wrapper
+        className={className}
         key={setup.id}
         onClick={clickHandler}
         data-value={setup.id}

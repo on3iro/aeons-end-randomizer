@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Checkbox from '@material-ui/core/Checkbox'
-import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormLabel from '@material-ui/core/FormLabel'
@@ -11,6 +10,7 @@ import { RootState, actions, selectors } from '../../../../Redux/Store'
 
 import CustomSetups from './CustomSetups'
 import PredefinedSetups from './PredefinedSetups'
+import SetupSelectionWrapper from './SetupSelectionWrapper'
 
 const mapStateToProps = (state: RootState) => ({
   allSetsSelected: selectors.Settings.SupplySetups.getAllSetsSelected(state),
@@ -24,9 +24,9 @@ type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
 const SetupSelection = React.memo(({ allSetsSelected, toggleAll }: Props) => {
   return (
-    <FormControl component={'fieldset' as 'div'}>
+    <SetupSelectionWrapper component={'fieldset' as 'div'}>
       <FormLabel />
-      <FormGroup style={{ marginBottom: '20px' }}>
+      <FormGroup>
         <FormControlLabel
           control={
             <Checkbox
@@ -40,7 +40,7 @@ const SetupSelection = React.memo(({ allSetsSelected, toggleAll }: Props) => {
       </FormGroup>
       <CustomSetups />
       <PredefinedSetups />
-    </FormControl>
+    </SetupSelectionWrapper>
   )
 })
 

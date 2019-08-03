@@ -38,8 +38,10 @@ type Props = {
 const CheckboxList = React.memo(
   ({ children, label, items, changeHandler, Component, ...rest }: Props) => (
     <React.Fragment>
-      <FormLabel {...rest}>{label}</FormLabel>
-      <FormGroup {...rest} style={{ marginBottom: '20px' }}>
+      <FormLabel {...rest} style={{ marginTop: '24px' }}>
+        {label}
+      </FormLabel>
+      <FormGroup {...rest}>
         {children}
         {renderCheckboxes(items, changeHandler, Component)}
       </FormGroup>
