@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { useRedirect } from 'hookrouter'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../Redux/Store'
 
-import { ROUTES } from '../../routes'
 import Content from '../Content'
 import TopBar from '../TopBar'
 import DrawerMenu from '../DrawerMenu'
@@ -22,11 +22,9 @@ type Props = ReturnType<typeof mapStateToProps> &
   }
 
 const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
-  const [currentLocation, setCurrentLocation] = useState(ROUTES.nemeses)
-  const moveTo = (route: string) => {
-    toggleDrawer()
-    setCurrentLocation(route)
-  }
+  // If no endpoint has been provided we redirect to the nemesis randomizer
+  // because we currently do not have a dedicated landingpage
+  useRedirect('/', '/nemesis')
 
   const [drawerIsOpen, setDrawerIsOpen] = useState(false)
   const toggleDrawer = () => setDrawerIsOpen(!drawerIsOpen)
@@ -37,21 +35,9 @@ const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
 
   return (
     <React.Fragment>
-      <TopBar
-        drawerIsOpen={drawerIsOpen}
-        currentLocation={currentLocation}
-        toggleDrawer={toggleDrawer}
-      />
-      <DrawerMenu
-        drawerIsOpen={drawerIsOpen}
-        toggleDrawer={toggleDrawer}
-        moveTo={moveTo}
-      />
-      <Content
-        isLoading={isLoading}
-        route={currentLocation}
-        drawerIsOpen={drawerIsOpen}
-      />
+      <TopBar drawerIsOpen={drawerIsOpen} toggleDrawer={toggleDrawer} />
+      <DrawerMenu drawerIsOpen={drawerIsOpen} toggleDrawer={toggleDrawer} />
+      <Content isLoading={isLoading} drawerIsOpen={drawerIsOpen} />
     </React.Fragment>
   )
 }
