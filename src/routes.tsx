@@ -8,6 +8,8 @@ import Supply from './components/pages/Supply'
 import Settings from './components/pages/Settings'
 import ContentCustomization from './components/pages/Settings/Expansions/ContentCustomization'
 import TurnOrder from './components/pages/TurnOrder'
+import Expeditions from './components/pages/Expeditions'
+import Expedition from './components/pages/Expeditions/Expedition'
 
 type Match = {
   urlParameters?: Object
@@ -48,10 +50,18 @@ const routes = {
     ({ id }: { id: string }) => <ContentCustomization expansionId={id} />,
     ({ id }: { id: string }) => `Settings: Expansions/${id}`
   ),
+  '/expeditions': createRoutingTarget(
+    () => <Expeditions />,
+    () => 'Expeditions'
+  ),
+  '/expeditions/:id': createRoutingTarget(
+    ({ id }: { id: string }) => <Expedition id={id} />,
+    () => 'Expedition'
+  ),
 }
 
 export const useRouting = () => {
-  // If no endpoint has been provided we redirect to the nemesis randomizer
+  // If no endpoint has been provided we redirect to the nemesis randomizerngng
   // because we currently do not have a dedicated landingpage
   useRedirect('/', '/nemesis')
   const match = useRoutes(routes)

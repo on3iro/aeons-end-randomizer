@@ -8,6 +8,7 @@ import * as Nemesis from './Nemesis'
 import * as Mages from './Mages'
 import * as Supply from './Supply'
 import * as TurnOrder from './TurnOrder'
+import * as Expeditions from './Expeditions'
 
 export type RootState = {
   Settings: Settings.State
@@ -16,6 +17,7 @@ export type RootState = {
   Mages: Mages.State
   Supply: Supply.State
   TurnOrder: TurnOrder.State
+  Expeditions: Expeditions.State
 }
 
 export enum ActionTypes {
@@ -35,6 +37,7 @@ export const actions = {
   Nemesis: Nemesis.actions,
   Mages: Mages.actions,
   Supply: Supply.actions,
+  Expeditions: Expeditions.actions,
 }
 
 export const selectors = {
@@ -46,6 +49,7 @@ export const selectors = {
   Nemesis: Nemesis.selectors,
   Mages: Mages.selectors,
   Supply: Supply.selectors,
+  Expeditions: Expeditions.selectors,
 }
 
 export type RootAction =
@@ -56,6 +60,7 @@ export type RootAction =
   | Mages.Action
   | Supply.Action
   | TurnOrder.Action
+  | Expeditions.Action
 
 export const initialState = {
   Settings: Settings.initialState,
@@ -64,6 +69,7 @@ export const initialState = {
   Mages: Mages.initialState,
   Supply: Supply.initialState,
   TurnOrder: TurnOrder.initialState,
+  Expeditions: Expeditions.initialState,
 }
 
 export const MainReducer: LoopReducer<RootState, RootAction> = (
@@ -102,5 +108,6 @@ export const RootReducer = reduceReducers(
     Mages: Mages.Reducer,
     Supply: Supply.Reducer,
     TurnOrder: TurnOrder.Reducer,
+    Expeditions: Expeditions.Reducer,
   })
 )

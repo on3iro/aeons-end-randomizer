@@ -33,7 +33,11 @@ const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
   return (
     <React.Fragment>
       <TopBar
-        title={match.title}
+        title={
+          match.urlParameters
+            ? `${match.title} ${match.urlParameters.id}`
+            : match.title
+        }
         drawerIsOpen={drawerIsOpen}
         toggleDrawer={toggleDrawer}
       />

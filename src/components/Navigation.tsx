@@ -24,6 +24,9 @@ const Navigation = React.memo(({ clickHandler }: Props) => (
     <Link text="Turn Order" to="/turnorder" onClick={clickHandler}>
       <i className="ra ra-lg ra-player-lift" />
     </Link>
+    <Link text="Expeditions" to="/expeditions" onClick={clickHandler}>
+      <i className="ra ra-lg ra-player-lift" />
+    </Link>
     <Link text="Settings" to="/settings" onClick={clickHandler}>
       <BuildIcon
         style={{
