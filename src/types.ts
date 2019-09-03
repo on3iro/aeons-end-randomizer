@@ -28,6 +28,16 @@ export type ExpansionType = 'standalone' | 'mini' | 'promo'
 export type EntityType = 'nemeses' | 'mages' | 'cards'
 export type Entity = ICard | ICreature
 
+export type NemesisCardType = 'Power' | 'Minion' | 'Attack'
+
+export type UpgradedBasicNemesisCard = {
+  id: string
+  name: string
+  expansion: string
+  tier: 1 | 2 | 3
+  type: NemesisCardType
+}
+
 export interface IExpansion {
   id: string
   name: string
@@ -35,6 +45,8 @@ export interface IExpansion {
   nemeses: Array<Nemesis>
   mages: Array<Mage>
   cards: Array<ICard>
+  treasures?: Array<Treasure>
+  upgradedBasicNemesisCards?: Array<UpgradedBasicNemesisCard>
 }
 
 export interface IExpansionData {
@@ -210,3 +222,70 @@ export const isCard = (card: ICard | Slot): card is ICard => {
 
 export const MODES = ['Default', 'Maelstrom', 'Blitz'] as const
 export type Mode = typeof MODES[number] // automatically creates union from tuple
+
+/////////////////
+// Expeditions //
+/////////////////
+
+export type Expeditions = Array<Expedition>
+
+export type Expedition = {
+  id: string
+  name: string
+}
+
+export type Treasure = {
+  id: string
+  expansion: string
+  name: string
+  level: 1 | 2 | 3
+  subtype?: CardType
+  effect: string
+}
+
+export type Battle = {
+  id: number
+  nemesis: ICreature
+  nemesisTier: 1 | 2 | 3 | 4
+  status: 'locked' | 'unlocked'
+  triesToWin: number
+}
+
+// ToDo: complete mode model
+type DefaultMode = {
+  id: 'default'
+  expeditionLength: 4
+}
+
+type ShortMode = {
+  id: 'short'
+  expeditionLength: 3
+}
+type ExtendedMode = {
+  id: 'extended'
+  expeditionLength: 8
+}
+
+type ExpeditionMode = DefaultMode | ShortMode | ExtendedMode
+
+export type ExpeditionFull = {
+  id: string
+  name: string
+  score: number
+  barracks: {
+    mages: Mage[]
+    supply: ICard[]
+    treasures: Treasure[]
+  }
+  banished: string[]
+  battles: Battle[]
+  mode: ExpeditionMode
+  bigPocketMode: boolean
+}
+
+// Gamestates:
+//  - new = tier 1 unlocked?
+//  - tier won
+//  - tier lost
+//  - new tier
+//  - repeat tier
