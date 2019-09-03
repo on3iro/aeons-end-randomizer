@@ -3,6 +3,9 @@ import MuiCard from '@material-ui/core/Card'
 
 const Card = styled(MuiCard)`
   position: relative;
+
+  background: ${props =>
+    props.theme.colors.turnOrderCards['nemesis']['normal']};
 `
 
 Card.displayName = 'Card'

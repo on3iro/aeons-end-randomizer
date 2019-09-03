@@ -55,6 +55,7 @@ export const mainTheme = {
     primary: muiTheme.palette.primary,
     secondary: muiTheme.palette.secondary,
     text: muiTheme.palette.text,
+    playerColors,
     turnOrderCards: {
       ...playerColors,
       player12: {

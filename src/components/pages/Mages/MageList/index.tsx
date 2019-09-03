@@ -14,8 +14,8 @@ type Props = {
 const MageList = React.memo(({ mages }: Props) => (
   <MageGridWrapper>
     <Grid container spacing={16}>
-      {mages.map(mage => (
-        <MageTile mage={mage} key={mage.name} />
+      {mages.map((mage, index) => (
+        <MageTile mage={mage} key={mage.name} playerNumber={index + 1} />
       ))}
     </Grid>
   </MageGridWrapper>
