@@ -75,7 +75,9 @@ export const MainReducer: LoopReducer<RootState, RootAction> = (
       return loop(
         state,
         Cmd.list<RootAction>([
-          Cmd.action(actions.Settings.Expansions.Selected.fetchFromDB()),
+          Cmd.action(
+            actions.Settings.Expansions.SelectedExpansions.fetchFromDB()
+          ),
           Cmd.action(actions.TurnOrder.Configuration.fetchFromDB()),
           Cmd.action(actions.Settings.SupplySetups.fetchFromDB()),
         ])

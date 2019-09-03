@@ -7,26 +7,27 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormLabel from '@material-ui/core/FormLabel'
 
-import config from '../../../../config'
 import { RootState, selectors, actions } from '../../../../Redux/Store'
+import * as types from '../../../../types'
 
 import CheckboxList from '../../../CheckboxList'
 
 const mapStateToProps = (state: RootState) => ({
-  standalones: selectors.Settings.Expansions.getStandaloneExpansions,
-  miniExpansions: selectors.Settings.Expansions.getMiniExpansions,
-  promos: selectors.Settings.Expansions.getPromos,
-  selectedExpansions: selectors.Settings.Expansions.Selected.getSelectedExpansionsState(
+  standalones: selectors.Settings.Expansions.SelectedExpansions.getStandaloneExpansions(
     state
   ),
-  allSetsSelected: selectors.Settings.Expansions.Selected.getAllSetsSelected(
+  miniExpansions: selectors.Settings.Expansions.SelectedExpansions.getMiniExpansions(
+    state
+  ),
+  promos: selectors.Settings.Expansions.SelectedExpansions.getPromos(state),
+  allSetsSelected: selectors.Settings.Expansions.SelectedExpansions.getAllExpansionsSelected(
     state
   ),
 })
 
 const mapDispatchToProps = {
-  handleSelectAll: actions.Settings.Expansions.Selected.toggleAll,
-  handleChange: actions.Settings.Expansions.Selected.toggleExpansion,
+  handleSelectAll: actions.Settings.Expansions.SelectedExpansions.toggleAll,
+  handleChange: actions.Settings.Expansions.SelectedExpansions.toggleExpansion,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
@@ -38,15 +39,16 @@ const ActiveSets = React.memo(
     standalones,
     miniExpansions,
     promos,
-    selectedExpansions,
     handleChange,
   }: Props) => {
-    const expansionsToItems = (expansions: ReadonlyArray<string>) =>
+    const expansionsToItems = (
+      expansions: ReadonlyArray<types.Expansion & { selected: boolean }>
+    ) =>
       expansions.map(expansion => ({
-        name: expansion,
-        item: expansion,
-        label: config.DATA[expansion].name,
-        checked: selectedExpansions[expansion],
+        name: expansion.name,
+        id: expansion.id,
+        label: expansion.name,
+        checked: expansion.selected,
       }))
 
     return (

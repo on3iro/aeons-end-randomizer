@@ -19,6 +19,7 @@ type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 const PredefinedSetups = React.memo(
   ({ predefinedSetups, toggleSetup }: Props) => {
     const predefinedItems = predefinedSetups.map(setup => ({
+      id: setup.id,
       name: setup.id,
       label: setup.name,
       checked: setup.active,
