@@ -12,11 +12,12 @@ import Name from './Name'
 
 type Props = {
   mage: ICreature
+  playerNumber: number
 }
 
-const MageTile = React.memo(({ mage }: Props) => (
+const MageTile = React.memo(({ mage, playerNumber }: Props) => (
   <Wrapper item xs={6} md={3}>
-    <Card>
+    <Card playerNumber={playerNumber}>
       <CardContent>
         <ExpansionName color="textSecondary">
           {config.DATA[mage.expansion].name}

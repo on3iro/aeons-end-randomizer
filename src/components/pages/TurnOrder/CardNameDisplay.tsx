@@ -6,12 +6,13 @@ import CardContent from '@material-ui/core/CardContent'
 import { ITurnOrderSetup } from '../../../types'
 
 import Card from './Card'
+import ConfigurationCardDisplay from './ConfigurationCardDisplay'
 
 const renderCardNames = (turnOrderSetup: ITurnOrderSetup) =>
   turnOrderSetup.turnOrderCards.map((card, i) => (
-    <Typography component="p" key={i}>
+    <ConfigurationCardDisplay component="p" key={i} type={card.type}>
       {card.name}
-    </Typography>
+    </ConfigurationCardDisplay>
   ))
 
 type Props = {
