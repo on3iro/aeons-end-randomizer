@@ -34,6 +34,7 @@ const CustomSetups = React.memo(
     deleteSetup,
   }: Props) => {
     const customItems = customSetups.map(setup => ({
+      id: setup.id,
       name: setup.id,
       label: setup.name,
       checked: setup.active,

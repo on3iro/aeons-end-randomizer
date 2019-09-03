@@ -6,6 +6,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Item, { RenderComponent } from './Item'
 
 type Item = {
+  id: string
   name: string
   label: string
   checked: boolean
@@ -19,8 +20,8 @@ const renderCheckboxes = (
   items.map(item => (
     <Item
       Component={Component}
-      key={item.name}
-      item={item.name}
+      key={item.id}
+      item={item.id}
       label={item.label}
       checked={item.checked}
       changeHandler={handleChange}

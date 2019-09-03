@@ -13,10 +13,10 @@ import SupplyList from './SupplyList'
 import MarketOptions from './MarketOptions'
 
 const mapStateToProps = (state: RootState) => ({
-  hasStandaloneExpansionSelected: selectors.Settings.Expansions.Selected.getHasStandaloneSet(
+  hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
     state
   ),
-  selectedExpansions: selectors.Settings.Expansions.Selected.getSelectedExpansionsArray(
+  selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsArray(
     state
   ),
   marketSetup: selectors.Supply.Selection.getSelectedSetup(state),

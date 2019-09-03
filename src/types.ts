@@ -37,6 +37,39 @@ export interface IExpansionData {
   [key: string]: IExpansion
 }
 
+export type Expansion = {
+  id: string
+  name: string
+  type: ExpansionType
+}
+
+export type Expansions = {
+  [id: string]: Expansion
+}
+
+export type Nemeses = {
+  [id: string]: ICreature
+}
+
+export type Mages = {
+  [id: string]: ICreature
+}
+
+export type Cards = {
+  [id: string]: ICreature
+}
+
+export type NormalizedData = {
+  expansions: Expansions
+  nemeses: Nemeses
+  mages: Mages
+  cards: Cards
+  expansionIds: string[]
+  nemesisIds: string[]
+  mageIds: string[]
+  cardIds: string[]
+}
+
 ////////////
 // Market //
 ////////////

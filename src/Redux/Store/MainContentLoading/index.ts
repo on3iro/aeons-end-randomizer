@@ -1,7 +1,7 @@
 import { LoopReducer } from 'redux-loop'
 
 import { RootState } from '../'
-import * as SelectedExpansions from '../Settings/Expansions/Selected'
+import * as SelectedExpansions from '../Settings/Expansions/SelectedExpansions'
 
 ///////////
 // STATE //
