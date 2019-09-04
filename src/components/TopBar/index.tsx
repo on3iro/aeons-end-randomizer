@@ -1,5 +1,4 @@
 import React from 'react'
-import { usePath } from 'hookrouter'
 
 import Toolbar from '@material-ui/core/Toolbar'
 
@@ -10,31 +9,19 @@ import MenuButton from './MenuButton'
 type Props = {
   drawerIsOpen: boolean
   toggleDrawer: () => void
+  title: string
 }
 
-const TopBar = React.memo(({ drawerIsOpen, toggleDrawer }: Props) => {
-  const path = usePath()
-  const pathMappings: { [key: string]: string } = {
-    '/': 'Home',
-    '/nemesis': 'Nemesis',
-    '/mages': 'Mages',
-    '/supply': 'Supply',
-    '/turnorder': 'Turn Order',
-    '/settings': 'Settings',
-  }
-  const currentLocation = pathMappings[path]
-
-  return (
-    <AppBar drawerIsOpen={drawerIsOpen}>
-      <Toolbar disableGutters={!drawerIsOpen}>
-        <MenuButton drawerIsOpen={drawerIsOpen} onClick={toggleDrawer} />
-        <Title variant="h6" color="inherit">
-          {currentLocation}
-        </Title>
-      </Toolbar>
-    </AppBar>
-  )
-})
+const TopBar = React.memo(({ drawerIsOpen, toggleDrawer, title }: Props) => (
+  <AppBar drawerIsOpen={drawerIsOpen}>
+    <Toolbar disableGutters={!drawerIsOpen}>
+      <MenuButton drawerIsOpen={drawerIsOpen} onClick={toggleDrawer} />
+      <Title variant="h6" color="inherit">
+        {title}
+      </Title>
+    </Toolbar>
+  </AppBar>
+))
 
 TopBar.displayName = 'TopBar'
 
