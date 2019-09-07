@@ -199,3 +199,6 @@ src/css
 
 # ignore package-lock.json because we use yarn
 package-lock.json
+
+# Local Netlify folder
+.netlify

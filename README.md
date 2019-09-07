@@ -1,5 +1,6 @@
 [![CircleCI](https://circleci.com/gh/on3iro/aeons-end-randomizer/tree/master.svg?style=svg)](https://circleci.com/gh/on3iro/aeons-end-randomizer/tree/master)
-[![App](https://img.shields.io/badge/App%3A-https%3A%2F%2Fon3iro.github.io%2Faeons--end--randomizer%2F-%232196f3.svg?style=flat-square)](https://on3iro.github.io/aeons-end-randomizer/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/210c9bd3-9f4d-4554-b9fc-0b319d89b81e/deploy-status)](https://app.netlify.com/sites/aer/deploys)
+[![App](https://img.shields.io/badge/App-aeons--end--randomizer.de-%232196f3)](https://aeons-end-randomizer.de)
 [![Official Aeons End Discord](https://img.shields.io/badge/AE%20Discord-https%3A%2F%2Fdiscord.gg%2FPvjcfPt-%237289DA.svg?style=flat-squar)](https://discord.gg/PvjcfPt)
 
 ![AER](./public/images/android-icon-96x96.png)
@@ -8,22 +9,20 @@
 
 <!-- vim-markdown-toc GFM -->
 
-* [About](#about)
-* [Updating to the newest version](#updating-to-the-newest-version)
-* [Available Scripts](#available-scripts)
-  * [`yarn start`](#yarn-start)
-  * [`yarn test`](#yarn-test)
-  * [`yarn run build`](#yarn-run-build)
-  * [`yarn run build:for_testing`](#yarn-run-buildfor_testing)
-  * [`yarn run deploy`](#yarn-run-deploy)
-  * [`yarn run analyze:app`](#yarn-run-analyzeapp)
-  * [`yarn run analyze:vendor`](#yarn-run-analyzevendor)
-  * [`yarn run eject`](#yarn-run-eject)
-* [Contribution Guidelines](#contribution-guidelines)
-* [Code of Conduct](#code-of-conduct)
+- [About](#about)
+- [Updating to the newest version](#updating-to-the-newest-version)
+- [Available Scripts](#available-scripts)
+  - [`yarn start`](#yarn-start)
+  - [`yarn test`](#yarn-test)
+  - [`yarn run build`](#yarn-run-build)
+  - [`yarn run build:gh-pages`](#yarn-run-buildgh-pages)
+  - [`yarn run deploy`](#yarn-run-deploy)
+  - [`yarn run analyze:app`](#yarn-run-analyzeapp)
+  - [`yarn run analyze:vendor`](#yarn-run-analyzevendor)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Code of Conduct](#code-of-conduct)
 
 <!-- vim-markdown-toc -->
-
 
 ## About
 
@@ -38,7 +37,6 @@ AER currently does not communicate with any kind of backend. All user data, like
 your settings are saved locally on you device in your browsers instance of [indexedDB](https://boardgamegeek.com/boardgame/191189/aeons-end).
 This way you will always be able to use the app, even during periods where you do not have an internet connection.
 
-
 ## Updating to the newest version
 
 Currently updating is a bit cumbersome (don't worry, we are working on it).
@@ -46,7 +44,6 @@ To receive the newest version of the app close all instances of it (browser tabs
 instances added to your homescreen) and re-open them.
 In most cases this should do the trick. If you still do not have the newest version
 (check by referencing the version number inside the apps drawer), repeat the process.
-
 
 ## Available Scripts
 
@@ -77,41 +74,24 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `yarn run build:gh-pages`
 
-### `yarn run build:for_testing`
-
-This builds the app for test environments. The regular `build` command will resolve
-all file paths relative to the `homepage` set inside the `package.json`. To create a bundle
-deployable to other environments, e.g. `surge.sh`, use this build command.
-
+This builds the app for github pages. _This should no longer be used, as production moved to netlify!_
 
 ### `yarn run deploy`
 
+_This is currently used as a our legacy way of deployment! We now deploy manually to surge instead._
 Creates the regular build and pushes to the repositories `gh-pages` branch afterwards.
-
 
 ### `yarn run analyze:app`
 
 Runs the source-map-explorer and displays its results inside the browser.
 This analyzes only app data. `node_modules` are skipped.
 
-
 ### `yarn run analyze:vendor`
 
 Runs the source-map-explorer and displays its results inside the browser.
 This analyzes only vendor data. `app` data is skipped.
-
-
-### `yarn run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
 
 ## [Contribution Guidelines](CONTRIBUTING.md)
 
