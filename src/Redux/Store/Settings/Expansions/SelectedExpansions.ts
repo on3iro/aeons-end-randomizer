@@ -60,8 +60,8 @@ export const actions = {
   setToDBFailed: (error: Object) =>
     createAction(ActionTypes.SET_TO_DB_FAILURE, error),
   fetchFromDB: () => createAction(ActionTypes.FETCH_FROM_DB),
-  fetchFromDBSuccessful: (state: State) =>
-    createAction(ActionTypes.FETCH_FROM_DB_SUCCESS, state),
+  fetchFromDBSuccessful: (selectedExpansions: string[]) =>
+    createAction(ActionTypes.FETCH_FROM_DB_SUCCESS, selectedExpansions),
   fetchFromDBFailed: (error: Object) =>
     createAction(ActionTypes.FETCH_FROM_DB_FAILURE, error),
 }
@@ -93,15 +93,19 @@ export const Reducer: LoopReducer<State, Action> = (
         {}
       )
 
-      const newState = {
+      const newState: State = {
         ...state,
         expansions: newExpansionsState,
       }
 
+      const selectedExpansionsToSave = state.expansionIds.filter(
+        id => newState.expansions[id].selected
+      )
+
       return loop(
         newState,
         Cmd.run<Action>(setToDb, {
-          args: [EXPANSIONS_DB_KEY, newState],
+          args: [EXPANSIONS_DB_KEY, selectedExpansionsToSave],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
         })
@@ -121,10 +125,14 @@ export const Reducer: LoopReducer<State, Action> = (
         },
       }
 
+      const selectedExpansionsToSave = state.expansionIds.filter(
+        id => newState.expansions[id].selected
+      )
+
       return loop(
         newState,
         Cmd.run<Action>(setToDb, {
-          args: [EXPANSIONS_DB_KEY, newState],
+          args: [EXPANSIONS_DB_KEY, selectedExpansionsToSave],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
         })
@@ -143,7 +151,22 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.FETCH_FROM_DB_SUCCESS: {
-      return action.payload || initialState
+      const selectedExpansions: string[] = action.payload || []
+      const newState = Object.values(state.expansions).reduce(
+        (acc, exp) => ({
+          ...acc,
+          expansions: {
+            ...acc.expansions,
+            [exp.id]: {
+              ...exp,
+              selected: selectedExpansions.includes(exp.id),
+            },
+          },
+        }),
+        state
+      )
+
+      return newState || initialState
     }
 
     case ActionTypes.FETCH_FROM_DB_FAILURE: {
