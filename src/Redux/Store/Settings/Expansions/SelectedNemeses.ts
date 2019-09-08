@@ -112,7 +112,11 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.FETCH_FROM_DB_SUCCESS: {
-      const selectedCards: string[] = action.payload || []
+      if (!action.payload) {
+        return initialState
+      }
+
+      const selectedCards: string[] = action.payload
       const newState = Object.values(state.nemeses).reduce(
         (acc, card) => ({
           ...acc,
