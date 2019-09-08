@@ -6,7 +6,6 @@ import { RootState } from '../../'
 import {
   createSlotList,
   createMageList,
-  getListOfAvailableEntity,
   getRandomEntity,
 } from '../../../helpers'
 
@@ -28,8 +27,10 @@ export enum ActionTypes {
 }
 
 export const actions = {
-  setRandomMages: (expansions: ReadonlyArray<string>, count: MageCount) =>
-    createAction(ActionTypes.SET_RANDOM, { expansions, count }),
+  setRandomMages: (
+    availableMages: ReadonlyArray<ICreature>,
+    count: MageCount
+  ) => createAction(ActionTypes.SET_RANDOM, { availableMages, count }),
   noOp: () => createAction('NOOP'),
 }
 
@@ -45,9 +46,9 @@ export const Reducer: LoopReducer<State, Action> = (
 ) => {
   switch (action.type) {
     case ActionTypes.SET_RANDOM: {
-      const { expansions, count } = action.payload
-      const availableMages = getListOfAvailableEntity(expansions, 'mages')
-      const slotList = createSlotList(count)
+      const { availableMages, count } = action.payload
+      const length = Math.min(availableMages.length, count)
+      const slotList = createSlotList(length)
       const { result } = createMageList(
         availableMages,
         slotList,

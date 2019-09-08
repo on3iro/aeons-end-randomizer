@@ -1,9 +1,5 @@
 import { ICard, IBluePrint, CardType } from '../../../../types'
-import {
-  getListOfAvailableEntity,
-  getRandomEntity,
-  isCardArray,
-} from '../../../helpers'
+import { getRandomEntity } from '../../../helpers'
 
 type CardListReduceResult = {
   availableCards: ICard[]
@@ -103,19 +99,9 @@ const getRandomCardsByType = (
  * return { gems, relics, spells }
  */
 export const createSupply = (
-  selectedExpansions: ReadonlyArray<string>,
+  availableCards: ReadonlyArray<ICard>,
   tileSetups: ReadonlyArray<IBluePrint>
 ) => {
-  const availableCards = getListOfAvailableEntity(selectedExpansions, 'cards')
-
-  if (!isCardArray(availableCards)) {
-    return {
-      gems: { result: [] },
-      relics: { result: [] },
-      spells: { result: [] },
-    }
-  }
-
   const gems = getRandomCardsByType(availableCards, tileSetups, 'Gem')
   const relics = getRandomCardsByType(availableCards, tileSetups, 'Relic')
   const spells = getRandomCardsByType(availableCards, tileSetups, 'Spell')

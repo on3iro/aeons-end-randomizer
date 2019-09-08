@@ -56,7 +56,7 @@ export type Mages = {
 }
 
 export type Cards = {
-  [id: string]: ICreature
+  [id: string]: ICard
 }
 
 export type NormalizedData = {

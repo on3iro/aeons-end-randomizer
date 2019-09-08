@@ -41,14 +41,14 @@ export const initialState: State = {
 /////////////
 
 export enum ActionTypes {
-  TOGGLE_ALL = 'Expansiontings/Expansions/SelectedExpansions/TOGGLE_ALL',
-  TOGGLE_EXPANSION = 'Expansiontings/Expansions/SelectedExpansions/TOGGLE_EXPANSION',
-  SET_TO_DB = 'Expansiontings/Expansions/SelectedExpansions/SET_TO_DB',
-  SET_TO_DB_SUCCESS = 'Expansiontings/Expansions/SelectedExpansions/SET_TO_DB_SUCCESS',
-  SET_TO_DB_FAILURE = 'Expansiontings/Expansions/SelectedExpansions/SET_TO_DB_FAILURE',
-  FETCH_FROM_DB = 'Expansiontings/Expansions/SelectedExpansions/FETCH_FROM_DB',
-  FETCH_FROM_DB_SUCCESS = 'Expansiontings/Expansions/SelectedExpansions/FETCH_FROM_DB_SUCCESS',
-  FETCH_FROM_DB_FAILURE = 'Expansiontings/Expansions/SelectedExpansions/FETCH_FROM_DB_FAILURE',
+  TOGGLE_ALL = 'Settings/Expansions/SelectedExpansions/TOGGLE_ALL',
+  TOGGLE_EXPANSION = 'Settings/Expansions/SelectedExpansions/TOGGLE_EXPANSION',
+  SET_TO_DB = 'Settings/Expansions/SelectedExpansions/SET_TO_DB',
+  SET_TO_DB_SUCCESS = 'Settings/Expansions/SelectedExpansions/SET_TO_DB_SUCCESS',
+  SET_TO_DB_FAILURE = 'Settings/Expansions/SelectedExpansions/SET_TO_DB_FAILURE',
+  FETCH_FROM_DB = 'Settings/Expansions/SelectedExpansions/FETCH_FROM_DB',
+  FETCH_FROM_DB_SUCCESS = 'Settings/Expansions/SelectedExpansions/FETCH_FROM_DB_SUCCESS',
+  FETCH_FROM_DB_FAILURE = 'Settings/Expansions/SelectedExpansions/FETCH_FROM_DB_FAILURE',
 }
 
 export const actions = {
@@ -113,7 +113,6 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.TOGGLE_EXPANSION: {
-      console.log(action.payload)
       const newState = {
         ...state,
         expansions: {

@@ -7,6 +7,7 @@ import config from '../../../../config'
 import { RootState } from '../../'
 import { createSupply } from './helpers'
 import * as SupplySelection from '../Selection'
+import * as types from '../../../../types'
 
 ///////////
 // STATE //
@@ -32,9 +33,9 @@ export const actions = {
   noOp: () => createAction('NOOP'),
   resetMarket: () => createAction(ActionTypes.RESET),
   createMarket: (
-    expansions: ReadonlyArray<string>,
+    availableCards: ReadonlyArray<types.ICard>,
     tiles: ReadonlyArray<Slot>
-  ) => createAction(ActionTypes.CREATE, { expansions, tiles }),
+  ) => createAction(ActionTypes.CREATE, { availableCards, tiles }),
 }
 
 export type Action = ActionsUnion<typeof actions> | SupplySelection.Action
@@ -54,8 +55,8 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.CREATE: {
-      const { expansions, tiles } = action.payload
-      const { gems, relics, spells } = createSupply(expansions, tiles)
+      const { availableCards, tiles } = action.payload
+      const { gems, relics, spells } = createSupply(availableCards, tiles)
       return {
         ...state,
         Cards: [...gems.result, ...relics.result, ...spells.result],
