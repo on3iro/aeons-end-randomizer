@@ -7,7 +7,7 @@ import * as types from '../../../../types'
 import config from '../../../../config'
 import { RootState } from '../..'
 
-const EXPANSIONS_DB_KEY = 'expansions-1.7'
+const EXPANSIONS_DB_KEY = 'expansions-1.8'
 
 ///////////
 // STATE //
@@ -150,7 +150,11 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.FETCH_FROM_DB_SUCCESS: {
-      const selectedExpansions: string[] = action.payload || []
+      if (!action.payload) {
+        return initialState
+      }
+
+      const selectedExpansions: string[] = action.payload
       const newState = Object.values(state.expansions).reduce(
         (acc, exp) => ({
           ...acc,
