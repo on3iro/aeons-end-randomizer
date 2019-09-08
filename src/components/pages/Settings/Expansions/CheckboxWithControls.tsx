@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
+import { navigate } from 'hookrouter'
+
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 
-import A from '../../../A'
+import IconButton from '@material-ui/core/IconButton'
+import EditIcon from '@material-ui/icons/Edit'
 
 const Wrapper = styled('div')``
 
@@ -29,7 +32,13 @@ const CheckboxWithControls = React.memo(
         }
         label={label}
       />
-      <A href={`/settings/expansions/${id}`}>Configure</A>
+      <IconButton
+        color="primary"
+        aria-label="Edit"
+        onClick={() => navigate(`/settings/expansions/${id}`)}
+      >
+        <EditIcon />
+      </IconButton>
     </Wrapper>
   )
 )
