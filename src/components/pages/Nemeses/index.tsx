@@ -13,7 +13,7 @@ const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
     state
   ),
-  selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsArray(
+  availableNemeses: selectors.Settings.Expansions.getSelectedNemesesForSelectedExpansions(
     state
   ),
   nemesis: selectors.Nemesis.getNemesis(state),
@@ -29,7 +29,7 @@ const Nemeses = React.memo(
   ({
     hasStandaloneExpansionSelected,
     nemesis,
-    selectedExpansions,
+    availableNemeses,
     setRandomNemesis,
   }: Props) => {
     if (!hasStandaloneExpansionSelected) {
@@ -44,7 +44,7 @@ const Nemeses = React.memo(
           <EmptyNemesisHint>Tab button to spawn new nemesis!</EmptyNemesisHint>
         )}
         <ShuffleButton
-          onClick={() => setRandomNemesis(selectedExpansions)}
+          onClick={() => setRandomNemesis(availableNemeses)}
           color="primary"
           variant="extended"
         >

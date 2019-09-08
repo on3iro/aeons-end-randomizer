@@ -15,7 +15,7 @@ const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
     state
   ),
-  selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsArray(
+  availableMages: selectors.Settings.Expansions.getSelectedMagesForSelectedExpansions(
     state
   ),
   mageCount: selectors.Mages.Count.getCount(state),
@@ -32,7 +32,7 @@ type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 const Mages = React.memo(
   ({
     hasStandaloneExpansionSelected,
-    selectedExpansions,
+    availableMages,
     mageCount,
     setMageCount,
     setMages,
@@ -43,7 +43,7 @@ const Mages = React.memo(
     }
 
     const handleShuffle = () => {
-      setMages(selectedExpansions, mageCount)
+      setMages(availableMages, mageCount)
     }
 
     const noMagesGeneratedYet = mages.length === 0

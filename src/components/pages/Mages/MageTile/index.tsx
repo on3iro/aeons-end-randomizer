@@ -20,6 +20,7 @@ const MageTile = React.memo(({ mage, playerNumber }: Props) => (
     <Card playerNumber={playerNumber}>
       <CardContent>
         <ExpansionName color="textSecondary">
+          {/* FIXME remove direct connection to config and use store instead! */}
           {config.DATA[mage.expansion].name}
         </ExpansionName>
         <Name variant="h6" component="h2">

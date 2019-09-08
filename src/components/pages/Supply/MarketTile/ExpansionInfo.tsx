@@ -15,6 +15,7 @@ const ExpansionInfo = React.memo(({ card }: Props) => (
   <CardInfoItem>
     <InfoLabel color="textSecondary">Set:</InfoLabel>
     <Info component="span">
+      {/* FIXME remove direct connection to config and use store instead! */}
       {isCard(card) && config.DATA[card.expansion] !== undefined
         ? config.DATA[card.expansion].name
         : '-'}

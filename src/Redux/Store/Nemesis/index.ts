@@ -3,7 +3,7 @@ import { LoopReducer } from 'redux-loop'
 
 import { ICreature } from '../../../types'
 import { RootState } from '../'
-import { getListOfAvailableEntity, getRandomEntity } from '../../helpers'
+import { getRandomEntity } from '../../helpers'
 
 ///////////
 // STATE //
@@ -21,8 +21,8 @@ export enum ActionTypes {
 }
 
 export const actions = {
-  setRandomNemesis: (expansions: ReadonlyArray<string>) =>
-    createAction(ActionTypes.SET_RANDOM, expansions),
+  setRandomNemesis: (availableNemeses: ReadonlyArray<ICreature>) =>
+    createAction(ActionTypes.SET_RANDOM, availableNemeses),
   noOp: () => createAction('NOOP'),
 }
 
@@ -38,8 +38,7 @@ export const Reducer: LoopReducer<State, Action> = (
 ) => {
   switch (action.type) {
     case ActionTypes.SET_RANDOM: {
-      const expansions = action.payload
-      const availableNemeses = getListOfAvailableEntity(expansions, 'nemeses')
+      const availableNemeses = action.payload
       return getRandomEntity(availableNemeses)
     }
 

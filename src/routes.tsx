@@ -5,6 +5,7 @@ import Nemeses from './components/pages/Nemeses'
 import Mages from './components/pages/Mages'
 import Supply from './components/pages/Supply'
 import Settings from './components/pages/Settings'
+import ContentCustomization from './components/pages/Settings/Expansions/ContentCustomization'
 import TurnOrder from './components/pages/TurnOrder'
 
 type Match = {
@@ -26,20 +27,25 @@ type Match = {
  *    or with desctructoring
  *  createRoutingTarget(({id}: {id: string}) => <Component {id} />, 'Title')
  */
-const createRoutingTarget = (renderComponent: Function, title: string) => (
-  urlParameters: Object
-): Match => ({
+const createRoutingTarget = (
+  renderComponent: Function,
+  renderTitle: Function
+) => (urlParameters: Object): Match => ({
   urlParameters,
   contentComponent: renderComponent(urlParameters),
-  title,
+  title: renderTitle(urlParameters),
 })
 
 const routes = {
-  '/nemesis': createRoutingTarget(() => <Nemeses />, 'Nemesis'),
-  '/mages': createRoutingTarget(() => <Mages />, 'Mages'),
-  '/supply': createRoutingTarget(() => <Supply />, 'Supply'),
-  '/turnorder': createRoutingTarget(() => <TurnOrder />, 'Turn Order'),
-  '/settings': createRoutingTarget(() => <Settings />, 'Settings'),
+  '/nemesis': createRoutingTarget(() => <Nemeses />, () => 'Nemesis'),
+  '/mages': createRoutingTarget(() => <Mages />, () => 'Mages'),
+  '/supply': createRoutingTarget(() => <Supply />, () => 'Supply'),
+  '/turnorder': createRoutingTarget(() => <TurnOrder />, () => 'Turn Order'),
+  '/settings': createRoutingTarget(() => <Settings />, () => 'Settings'),
+  '/settings/expansions/:id': createRoutingTarget(
+    ({ id }: { id: string }) => <ContentCustomization expansionId={id} />,
+    ({ id }: { id: string }) => `Settings: Expansions/${id}`
+  ),
 }
 
 export const useRouting = () => {

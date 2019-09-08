@@ -18,6 +18,7 @@ const NemesisTile = React.memo(({ nemesis, ...rest }: Props) => {
     <Card>
       <CardContent>
         <ExpansionName color="textSecondary">
+          {/* FIXME remove direct connection to config and use store instead! */}
           {config.DATA[nemesis.expansion].name}
         </ExpansionName>
         <Name variant="h6" component="h2">

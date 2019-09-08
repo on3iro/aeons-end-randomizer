@@ -11,6 +11,17 @@ import { RootState, selectors, actions } from '../../../../Redux/Store'
 import * as types from '../../../../types'
 
 import CheckboxList from '../../../CheckboxList'
+import CheckboxWithControls from './CheckboxWithControls'
+
+const expansionsToItems = (
+  expansions: ReadonlyArray<types.Expansion & { selected: boolean }>
+) =>
+  expansions.map(expansion => ({
+    name: expansion.name,
+    id: expansion.id,
+    label: expansion.name,
+    checked: expansion.selected,
+  }))
 
 const mapStateToProps = (state: RootState) => ({
   standalones: selectors.Settings.Expansions.SelectedExpansions.getStandaloneExpansions(
@@ -40,50 +51,71 @@ const ActiveSets = React.memo(
     miniExpansions,
     promos,
     handleChange,
-  }: Props) => {
-    const expansionsToItems = (
-      expansions: ReadonlyArray<types.Expansion & { selected: boolean }>
-    ) =>
-      expansions.map(expansion => ({
-        name: expansion.name,
-        id: expansion.id,
-        label: expansion.name,
-        checked: expansion.selected,
-      }))
-
-    return (
-      <FormControl component={'fieldset' as 'div'}>
-        <FormLabel />
-        <FormGroup style={{ marginBottom: '20px' }}>
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={allSetsSelected}
-                onChange={handleSelectAll}
-                value={allSetsSelected ? 'Deselect All' : 'Select All'}
-              />
-            }
-            label={allSetsSelected ? 'Deselect All' : 'Select All'}
-          />
-        </FormGroup>
-        <CheckboxList
-          label="Standalone Sets"
-          items={expansionsToItems(standalones)}
-          changeHandler={handleChange}
+  }: Props) => (
+    <FormControl component={'fieldset' as 'div'}>
+      <FormLabel />
+      <FormGroup style={{ marginBottom: '20px' }}>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={allSetsSelected}
+              onChange={handleSelectAll}
+              value={allSetsSelected ? 'Deselect All' : 'Select All'}
+            />
+          }
+          label={allSetsSelected ? 'Deselect All' : 'Select All'}
         />
-        <CheckboxList
-          label="Mini Expansions"
-          items={expansionsToItems(miniExpansions)}
-          changeHandler={handleChange}
-        />
-        <CheckboxList
-          label="Promos"
-          items={expansionsToItems(promos)}
-          changeHandler={handleChange}
-        />
-      </FormControl>
-    )
-  }
+      </FormGroup>
+      <CheckboxList
+        label="Standalone Sets"
+        items={expansionsToItems(standalones)}
+        Component={({ checked, item, label, changeHandler }) => {
+          return (
+            <CheckboxWithControls
+              id={item}
+              checked={checked}
+              item={item}
+              label={label}
+              changeHandler={changeHandler}
+            />
+          )
+        }}
+        changeHandler={handleChange}
+      />
+      <CheckboxList
+        label="Mini Expansions"
+        items={expansionsToItems(miniExpansions)}
+        Component={({ checked, item, label, changeHandler }) => {
+          return (
+            <CheckboxWithControls
+              id={item}
+              checked={checked}
+              item={item}
+              label={label}
+              changeHandler={changeHandler}
+            />
+          )
+        }}
+        changeHandler={handleChange}
+      />
+      <CheckboxList
+        label="Promos"
+        items={expansionsToItems(promos)}
+        Component={({ checked, item, label, changeHandler }) => {
+          return (
+            <CheckboxWithControls
+              id={item}
+              checked={checked}
+              item={item}
+              label={label}
+              changeHandler={changeHandler}
+            />
+          )
+        }}
+        changeHandler={handleChange}
+      />
+    </FormControl>
+  )
 )
 
 ActiveSets.displayName = 'ActiveSets'
