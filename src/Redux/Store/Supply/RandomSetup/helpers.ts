@@ -1,9 +1,9 @@
-import { ICard, IBluePrint, CardType } from '../../../../types'
+import { ICard, IBluePrint, CardType, MarketTile } from '../../../../types'
 import { getRandomEntity } from '../../../helpers'
 
 type CardListReduceResult = {
   availableCards: ICard[]
-  result: ICard[]
+  result: MarketTile[]
 }
 
 /**
@@ -49,13 +49,13 @@ const createCardList = (
   getEntity: <T>(list: Array<T>) => T
 ): CardListReduceResult =>
   blueprints.reduce(
-    (acc: CardListReduceResult, blueprint: IBluePrint, i: number) => {
+    (acc: CardListReduceResult, blueprint: IBluePrint) => {
       const filteredByCost = acc.availableCards.filter(card =>
         filterByCost(card, blueprint)
       )
 
       // If no entity is left, simply return the actual empty slot
-      const card = getEntity(filteredByCost) || blueprint
+      const card = { ...blueprint, ...getEntity(filteredByCost) }
 
       // Make sure each entity will only be added to the result list once
       const remainingCards = acc.availableCards.filter(

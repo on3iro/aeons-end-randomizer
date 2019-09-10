@@ -20,7 +20,7 @@ const mapStateToProps = (state: RootState) => ({
     state
   ),
   marketSetup: selectors.Supply.Selection.getSelectedSetup(state),
-  cards: selectors.Supply.RandomSetup.getCards(state),
+  tiles: selectors.Supply.RandomSetup.getTiles(state),
 })
 
 const mapDispatchToProps = {
@@ -31,7 +31,7 @@ type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
 const Supply = React.memo(
   ({
-    cards,
+    tiles,
     availableCards,
     createMarket,
     hasStandaloneExpansionSelected,
@@ -59,7 +59,7 @@ const Supply = React.memo(
         >
           <MarketOptions expansionHandler={expansionHandler} />
         </ExpansionPanel>
-        <SupplyList marketSetup={marketSetup} cards={cards} />
+        <SupplyList tiles={tiles} />
         <ShuffleButton
           onClick={handleShuffle}
           color="primary"

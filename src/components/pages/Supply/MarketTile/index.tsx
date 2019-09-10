@@ -3,7 +3,7 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import List from '@material-ui/core/List'
 
-import { Slot, ICard, isCard } from '../../../../types'
+import * as types from '../../../../types'
 
 import { getOperationString } from '../../../../Redux/helpers'
 
@@ -16,12 +16,11 @@ import CostOperation from './CostOperation'
 import ExpansionInfo from './ExpansionInfo'
 
 type Props = {
-  tileSetup: Slot
-  card: Slot | ICard
+  marketTile: types.MarketTile
 }
 
-const MarketTile = React.memo(({ tileSetup, card, ...rest }: Props) => {
-  const { type, operation, values, threshold } = tileSetup
+const MarketTile = React.memo(({ marketTile, ...rest }: Props) => {
+  const { type, operation, values, threshold } = marketTile
 
   return (
     <Grid item xs={6} md={4} {...rest}>
@@ -30,10 +29,12 @@ const MarketTile = React.memo(({ tileSetup, card, ...rest }: Props) => {
           <CostOperation color="textSecondary">
             {type} {getOperationString(operation, values, threshold)}
           </CostOperation>
-          <CardName component="p">{isCard(card) ? card.name : '-'}</CardName>
+          <CardName component="p">
+            {types.isCard(marketTile) ? marketTile.name : '-'}
+          </CardName>
           <List>
-            <ExpansionInfo card={card} />
-            <CostInfo card={card} />
+            <ExpansionInfo card={marketTile} />
+            <CostInfo card={marketTile} />
           </List>
         </CardContent>
         <CardTypeIcon type={type.toLowerCase()} />
