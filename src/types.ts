@@ -98,6 +98,17 @@ export interface IEmptyBluePrint extends IBluePrint {
 }
 export type Slot = IBluePrint | IEmptyBluePrint
 
+export type MarketTile = {
+  id?: string
+  type: CardType
+  expansion?: string
+  name?: string
+  cost?: number
+  operation: Operation
+  threshold?: number
+  values?: Array<number>
+}
+
 export type IMarketSetup = Readonly<{
   id: string
   name: string

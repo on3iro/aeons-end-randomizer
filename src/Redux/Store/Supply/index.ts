@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux-loop'
+import { combineReducers, reduceReducers } from 'redux-loop'
 
 import * as Selection from './Selection'
 import * as RandomSetup from './RandomSetup'
@@ -25,7 +25,22 @@ export const initialState = {
   RandomSetup: RandomSetup.initialState,
 }
 
+const randomSelectionReducer = (
+  state: RandomSetup.State,
+  action: RandomSetup.Action | Selection.Action
+) => {
+  switch (action.type) {
+    case Selection.ActionTypes.SELECT_SETUP: {
+      return { Tiles: action.payload.tiles }
+    }
+
+    default: {
+      return state
+    }
+  }
+}
+
 export const Reducer = combineReducers<State, Action>({
   Selection: Selection.Reducer,
-  RandomSetup: RandomSetup.Reducer,
+  RandomSetup: reduceReducers(RandomSetup.Reducer, randomSelectionReducer),
 })

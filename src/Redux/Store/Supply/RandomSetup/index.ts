@@ -1,23 +1,47 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import { Slot, ICard } from '../../../../types'
-import { createSlotList } from '../../../helpers'
 import config from '../../../../config'
 import { RootState } from '../../'
 import { createSupply } from './helpers'
 import * as SupplySelection from '../Selection'
 import * as types from '../../../../types'
 
+/////////////
+// HELPERS //
+/////////////
+
+const byCost = (a: types.MarketTile, b: types.MarketTile) => {
+  if (!a.cost) {
+    return -1
+  }
+
+  if (!b.cost) {
+    return 1
+  }
+
+  if (a.cost < b.cost) {
+    return -1
+  }
+
+  if (a.cost > b.cost) {
+    return 1
+  }
+
+  return 0
+}
+
 ///////////
 // STATE //
 ///////////
 
 export type State = Readonly<{
-  Cards: ReadonlyArray<Slot | ICard>
+  Tiles: ReadonlyArray<types.MarketTile>
 }>
+
+// FIXME state duplication (see Supply/Selection/index.ts)
 export const initialState: State = {
-  Cards: createSlotList(config.DEFAULTSUPPLYCOUNT),
+  Tiles: config.MARKETSETUPS['random'].tiles,
 }
 
 /////////////
@@ -34,7 +58,7 @@ export const actions = {
   resetMarket: () => createAction(ActionTypes.RESET),
   createMarket: (
     availableCards: ReadonlyArray<types.ICard>,
-    tiles: ReadonlyArray<Slot>
+    tiles: ReadonlyArray<types.Slot>
   ) => createAction(ActionTypes.CREATE, { availableCards, tiles }),
 }
 
@@ -57,9 +81,12 @@ export const Reducer: LoopReducer<State, Action> = (
     case ActionTypes.CREATE: {
       const { availableCards, tiles } = action.payload
       const { gems, relics, spells } = createSupply(availableCards, tiles)
+      const gemsByCost = gems.result.sort(byCost)
+      const relicsByCost = relics.result.sort(byCost)
+      const spellsByCost = spells.result.sort(byCost)
       return {
         ...state,
-        Cards: [...gems.result, ...relics.result, ...spells.result],
+        Tiles: [...gemsByCost, ...relicsByCost, ...spellsByCost],
       }
     }
 
@@ -73,8 +100,8 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getCards = (state: RootState) => state.Supply.RandomSetup.Cards
+const getTiles = (state: RootState) => state.Supply.RandomSetup.Tiles
 
 export const selectors = {
-  getCards,
+  getTiles,
 }

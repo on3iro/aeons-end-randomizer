@@ -10,6 +10,22 @@ import { RootState } from '../../'
 
 const SUPPLY_DB_KEY = 'supplySetups-1.6' // FIXME this is a quickfix, see https://github.com/on3iro/aeons-end-randomizer/issues/138
 
+/////////////
+// Helpers //
+/////////////
+
+const sortByCardType = (a: types.Slot, b: types.Slot) => {
+  if (a.type === 'Gem') {
+    return -1
+  }
+
+  if (a.type === 'Relic' && b.type === 'Spell') {
+    return -1
+  }
+
+  return 1
+}
+
 ///////////
 // STATE //
 ///////////
@@ -183,17 +199,7 @@ export const Reducer: LoopReducer<State, Action> = (
       // Because we currently do not have a specific mapping from Blueprints
       // to actual cards in the supply it is important,
       // that we keep the order of Gem -> Relic -> Spell for supply sets.
-      const tiles = [...setup.tiles].sort((a, b) => {
-        if (a.type === 'Gem') {
-          return -1
-        }
-
-        if (a.type === 'Relic' && b.type === 'Spell') {
-          return -1
-        }
-
-        return 1
-      })
+      const tiles = [...setup.tiles].sort(sortByCardType)
 
       const newState = {
         ...state,
