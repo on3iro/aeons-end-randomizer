@@ -5,6 +5,8 @@ const StyledExpansionPanel = styled(ExpansionPanel)`
   border-radius: 4px;
   margin-bottom: 15px;
 
+  transition: none;
+
   &:before {
     display: none;
   }

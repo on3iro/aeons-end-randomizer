@@ -10,6 +10,17 @@ export const muiTheme = createMuiTheme({
   typography: {
     useNextVariants: true,
   },
+  props: {
+    // Name of the component ⚛️
+    MuiButtonBase: {
+      // The properties to apply
+      disableRipple: true, // No more ripple, on the whole application 💣!
+    },
+  },
+  transitions: {
+    // So we have `transition: none;` everywhere
+    create: () => 'none',
+  },
 })
 
 const playerColors = {
