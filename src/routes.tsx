@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRedirect, useRoutes } from 'hookrouter'
 
+import About from './components/pages/About'
 import Nemeses from './components/pages/Nemeses'
 import Mages from './components/pages/Mages'
 import Supply from './components/pages/Supply'
@@ -42,6 +43,7 @@ const routes = {
   '/supply': createRoutingTarget(() => <Supply />, () => 'Supply'),
   '/turnorder': createRoutingTarget(() => <TurnOrder />, () => 'Turn Order'),
   '/settings': createRoutingTarget(() => <Settings />, () => 'Settings'),
+  '/about': createRoutingTarget(() => <About />, () => 'About'),
   '/settings/expansions/:id': createRoutingTarget(
     ({ id }: { id: string }) => <ContentCustomization expansionId={id} />,
     ({ id }: { id: string }) => `Settings: Expansions/${id}`

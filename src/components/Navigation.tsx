@@ -1,6 +1,7 @@
 import React from 'react'
 
 import BuildIcon from '@material-ui/icons/Build'
+import InfoIcon from '@material-ui/icons/Info'
 import List from '@material-ui/core/List'
 
 import Link from './Link'
@@ -25,6 +26,13 @@ const Navigation = React.memo(({ clickHandler }: Props) => (
     </Link>
     <Link text="Settings" to="/settings" onClick={clickHandler}>
       <BuildIcon
+        style={{
+          width: '0.9em',
+        }}
+      />
+    </Link>
+    <Link text="About" to="/about" onClick={clickHandler}>
+      <InfoIcon
         style={{
           width: '0.9em',
         }}
