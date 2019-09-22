@@ -11,12 +11,16 @@ export interface ICreature {
 export const CARD_TYPES = ['Gem', 'Relic', 'Spell', 'EMPTY'] as const
 export type CardType = typeof CARD_TYPES[number]
 
-export interface ICard {
+// FIXME As soon as we have implemented all respective data
+// we should remove the optional '?' flags
+export type ICard = {
   type: CardType
   expansion: string
   name: string
   id: string
   cost: number
+  effect?: string
+  keywords?: string[]
 }
 
 export type ExpansionType = 'standalone' | 'mini' | 'promo'
@@ -28,8 +32,8 @@ export interface IExpansion {
   id: string
   name: string
   type: ExpansionType
-  nemeses: Array<ICreature>
-  mages: Array<ICreature>
+  nemeses: Array<Nemesis>
+  mages: Array<Mage>
   cards: Array<ICard>
 }
 
@@ -47,12 +51,31 @@ export type Expansions = {
   [id: string]: Expansion
 }
 
+// FIXME As soon as we have implemented all respective data
+// we should remove the optional '?' flags
+// FIXME use this datatype throughout the whole app
+export type Nemesis = ICreature & {
+  additionalInfo?: string
+  difficulty?: number
+  expeditionRating?: 1 | 2 | 3 | 4
+}
+
+// FIXME As soon as we have implemented all respective data
+// we should remove the optional '?' flags
+// FIXME use this datatype throughout the whole app
+export type Mage = ICreature & {
+  uniqueStarters?: ICard[]
+  ability?: string
+  complexityRating?: number // keep this optional
+  numberOfCharges?: number
+}
+
 export type Nemeses = {
-  [id: string]: ICreature
+  [id: string]: Nemesis
 }
 
 export type Mages = {
-  [id: string]: ICreature
+  [id: string]: Mage
 }
 
 export type Cards = {

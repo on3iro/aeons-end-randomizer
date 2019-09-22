@@ -274,7 +274,7 @@ export const DATA: IExpansionData = {
     ],
   },
   SD: {
-    id: 'SE',
+    id: 'SD',
     name: 'Shattered Dreams',
     type: 'mini',
     nemeses: [
@@ -1548,21 +1548,33 @@ export const DATA: IExpansionData = {
         expansion: 'AE',
         name: 'Carapace Queen',
         id: 'CarapaceQueen',
+        additionalInfo: '',
+        difficulty: 3,
+        expeditionRating: 1,
       },
       {
         expansion: 'AE',
         name: 'Crooked Mask',
         id: 'CrookedMask',
+        additionalInfo: '',
+        difficulty: 5,
+        expeditionRating: 2,
       },
       {
         expansion: 'AE',
         name: 'Prince Of Gluttons',
         id: 'PrinceOfGluttons',
+        additionalInfo: '',
+        difficulty: 5,
+        expeditionRating: 2,
       },
       {
         expansion: 'AE',
         name: 'Rageborne',
         id: 'RageBorne',
+        additionalInfo: '',
+        difficulty: 2,
+        expeditionRating: 1,
       },
     ],
     mages: [
@@ -1570,6 +1582,24 @@ export const DATA: IExpansionData = {
         expansion: 'AE',
         name: 'Adelheim',
         id: 'Adelheim',
+        ability: `Activate during the nemesis draw phase:
+          When a nemesis attach or power card is drawn but before it is resolved,
+          you may discard it. It has no effect.
+        `,
+        numberOfCharges: 5,
+        uniqueStarters: [
+          {
+            type: 'Gem',
+            name: 'Amethyst Shard',
+            expansion: 'AE',
+            id: 'AmethystShard',
+            cost: 0,
+            effect: `Gain 1 Aether.
+              Any ally may draw a card and then discard a card in hand.
+            `,
+            keywords: [],
+          },
+        ],
       },
       {
         expansion: 'AE',
@@ -1614,6 +1644,11 @@ export const DATA: IExpansionData = {
         name: 'Diamond Cluster',
         id: 'DiamondCluster',
         cost: 4,
+        effect: `Gain 2 Aether.
+          If this is the second time you have played Diamond Cluster this turn
+          gain an additional 2 Aether.
+        `,
+        keywords: [],
       },
       {
         type: 'Spell',
