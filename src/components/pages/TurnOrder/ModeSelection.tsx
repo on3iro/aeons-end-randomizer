@@ -10,7 +10,7 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import { MODES } from '../../../types'
 import { RootState, actions, selectors } from '../../../Redux/Store'
 
-import Card from './Card'
+import Card from '../../Card'
 
 const renderModeOptions = () =>
   MODES.map(mode => (
