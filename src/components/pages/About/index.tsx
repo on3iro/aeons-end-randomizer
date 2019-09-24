@@ -12,17 +12,26 @@ const About = React.memo(() => (
     <CardContent>
       <H1>Aeons End Randomizer</H1>
       <P>
-        Aeons End Randomizer is an unofficial companion app for the popular deck
-        building game Aeons End. It helps you draw random mages, nemeses and
-        supply cards (gems, relics, spells) and also provides a simulated turn
-        order deck. You still need at least one Aeons End standalone box to
-        actually play the game.
+        <b>Aeons End Randomizer</b> is an unofficial companion app for the
+        popular deck building game Aeons End. It helps you draw random mages,
+        nemeses and supply cards (gems, relics, spells) and also provides a
+        simulated turn order deck. You still need at least one Aeons End
+        standalone box to actually play the game.
       </P>
       <P>
         To get started simply select which expansions you own and would like to
         use for randomization inside the settings. You can also disable specific
         cards/mages/nemeses inside the settings.
         <A href="/settings"> Click here to go to the settings</A>.
+      </P>
+      <H2>Supported Expansions</H2>
+      <P>
+        <b>Aeons End Randomizer</b> supports all expansions released to date as
+        well as all promos. The following expansions are supported:
+        <i>Aeons End</i>, <i>Aeons End: War Eternal</i>, <i>Aeons End Legacy</i>
+        , <i>Aeons End: The New Age</i>, <i>The Depths</i>, <i>The Nameless</i>,{' '}
+        <i>The Void</i>, <i>Outer Dark</i>, <i>Buried Secrets</i>,{' '}
+        <i>Into The Wild</i>, <i>The Ancients</i>, <i>Shattered Dreams</i>.
       </P>
       <H2>A note on collected user data</H2>
       <P>We do not track any user specific data whatsoever.</P>
