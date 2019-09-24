@@ -64,10 +64,11 @@ export type Nemesis = ICreature & {
 // we should remove the optional '?' flags
 // FIXME use this datatype throughout the whole app
 export type Mage = ICreature & {
-  uniqueStarters?: ICard[]
-  ability?: string
+  uniqueStarters: ICard[]
+  mageTitle: string | 'Custom'
+  ability: string | 'Custom'
   complexityRating?: number // keep this optional
-  numberOfCharges?: number
+  numberOfCharges: number | 'Custom'
 }
 
 export type Nemeses = {
