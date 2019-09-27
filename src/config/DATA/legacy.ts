@@ -218,7 +218,8 @@ export const legacyData: IExpansion = {
         <p>
           While prepped, once per turn during your main phase 
           you may gain 1 pulse token. <br/>
-          <b>Cast:</b> Deal 2 damage. You may lose 2 pulse tokens. 
+          <b>Cast:</b> Deal 2 damage.<br/>
+          You may lose 2 pulse tokens. 
           If you do, deal 3 additional damage.
         </p>
       `,
@@ -317,7 +318,7 @@ export const legacyData: IExpansion = {
       cost: 5,
       effect: `
         <p>
-          <b>Cast:<b/> Deal 2 damage. <br/>
+          <b>Cast:</b> Deal 2 damage. <br/>
           If this spel was cast from an opened III breach, 
           deal 3 additional damage.
         </p>
@@ -404,8 +405,9 @@ export const legacyData: IExpansion = {
       cost: 8,
       effect: `
         <p>
-          <b>Cast:</b> Deal 6 damage. Gain 1 pulse token. 
-          You may lose any number  of pulse tokens. 
+          <b>Cast:</b> Deal 6 damage.<br/> 
+          Gain 1 pulse token.<br/>
+          You may lose any number of pulse tokens. 
           If you do, any ally draws cards equal to the number 
           of pulse tokens lost this way.
         </p>
@@ -507,9 +509,9 @@ export const legacyData: IExpansion = {
       cost: 5,
       effect: `
         <p>
-          <b>Cast:</b> Deal 4 damage. If there are 
-          three or more empty supply piles, deal
-          3 additional damage.
+          <b>Cast:</b> Deal 4 damage.<br/>
+          If there are three or more empty supply piles, 
+          deal 3 additional damage.
         </p>
       `,
       keywords: ['strong'],
@@ -522,8 +524,8 @@ export const legacyData: IExpansion = {
       cost: 6,
       effect: `
         <p>
-          <b>Cast:</b> Deal 4 damage. You may discard 
-          a spell in hand. If you do, deal 1 additional 
+          <b>Cast:</b> Deal 4 damage.<br/>
+          You may discard a spell in hand. If you do, deal 1 additional 
           damage and gain 1 charge.
         </p>
       `,

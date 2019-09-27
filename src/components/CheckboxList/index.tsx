@@ -21,7 +21,7 @@ const renderCheckboxes = (
     <Item
       Component={Component}
       key={item.id}
-      item={item.id}
+      item={item}
       label={item.label}
       checked={item.checked}
       changeHandler={handleChange}

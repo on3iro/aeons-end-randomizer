@@ -193,7 +193,7 @@ export const theDepthsData: IExpansion = {
       effect: `
       <p>
         While prepped, once per turn during your main phase you may 
-        destroy a card in hand.
+        destroy a card in hand.<br/>
         <b>Cast:</b> Deal 3 damage.
         </p>
         `,

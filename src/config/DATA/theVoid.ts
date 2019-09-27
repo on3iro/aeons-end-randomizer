@@ -111,6 +111,8 @@ export const theVoidData: IExpansion = {
       effect: `
       <p>
       <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>
+      </p>
+      <p>
       <b>Cast:</b> Deal 3 damage.<br/>
       If this is not the first Thermal Dart you have cast this turn, gain 1 charge.
         </p>
@@ -141,6 +143,8 @@ export const theVoidData: IExpansion = {
       effect: `
       <p>
       <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>
+      </p>
+      <p>
       <b>Cast:</b> Deal 2 damage.<br/>
       Gain 1 <span class="aether">&AElig;</span>.
         </p>
@@ -172,6 +176,8 @@ export const theVoidData: IExpansion = {
       effect: `
       <p>
         <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>
+      </p>
+      <p>
         <b>Cast:</b> Deal 1 damage.<br/>
         If the nemesis tier is 2 or higher, deal 1 additional damage.
         </p>
@@ -186,9 +192,12 @@ export const theVoidData: IExpansion = {
       cost: 5,
       effect: `
       <p>
-      While prepped, other spells you cast deal 1 additional damage.<br/>
+      While prepped, other spells you cast deal 1 additional damage.
+      </p>
+      <p>
       <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>
-        <b>Cast:</b> Deal 3 damage.
+      </p>  
+      <b>Cast:</b> Deal 3 damage.
         </p>
         `,
       keywords: ['link'],

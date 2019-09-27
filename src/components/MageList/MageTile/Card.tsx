@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components/macro'
 import MuiCard from '@material-ui/core/Card'
 
@@ -5,7 +6,9 @@ type Props = {
   playerNumber: number
 }
 
-const Card = styled(MuiCard)<Props>`
+const Card = styled(({ playerNumber, ...rest }) => <MuiCard {...rest} />)<
+  Props
+>`
   position: relative;
   height: 100%;
 

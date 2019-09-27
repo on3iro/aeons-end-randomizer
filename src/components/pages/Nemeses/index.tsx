@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
@@ -8,6 +8,8 @@ import EmptyNemesisHint from './EmptyNemesisHint'
 
 import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
+
+import NemesisModal from './NemesisModal'
 
 const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
@@ -36,10 +38,25 @@ const Nemeses = React.memo(
       return <NoSelectedExpansions />
     }
 
+    const [modalIsVisible, setModalVisible] = useState<boolean | string>(false)
+    const [modalContentId, setModalContentId] = useState<string>('')
+
+    const handleNemesisDetails = (nemesisId: string) => {
+      setModalVisible(true)
+      setModalContentId(nemesisId)
+    }
+
+    const handleModalClose = () => {
+      setModalVisible(false)
+    }
+
     return (
       <React.Fragment>
         {nemesis ? (
-          <NemesisTile nemesis={nemesis} />
+          <NemesisTile
+            nemesis={nemesis}
+            showNemesisDetails={handleNemesisDetails}
+          />
         ) : (
           <EmptyNemesisHint>Tab button to spawn new nemesis!</EmptyNemesisHint>
         )}
@@ -50,6 +67,11 @@ const Nemeses = React.memo(
         >
           Open Breach
         </ShuffleButton>
+        <NemesisModal
+          id={modalContentId}
+          visible={modalIsVisible}
+          closeModal={handleModalClose}
+        />
       </React.Fragment>
     )
   }

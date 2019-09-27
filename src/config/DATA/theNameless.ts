@@ -92,7 +92,7 @@ export const theNamelessData: IExpansion = {
       cost: 4,
       effect: `
       <p>
-        When you gain this, you may place it on top of any player's discard pile.
+        When you gain this, you may place it on top of any player's discard pile.<br/>
           <b>Cast:</b> Deal 2 damage.<br/>
         Deal 1 additional damage for each other time you have cast Blaze this 
           turn and for each other Blaze you currently have prepped.

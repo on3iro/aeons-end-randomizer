@@ -39,7 +39,7 @@ export const theAncientsData: IExpansion = {
           expansion: 'TA',
           id: 'MazrasStudies',
           cost: 0,
-          effect: `<p><b>Cast:</b> Deal 1 demage.
+          effect: `<p><b>Cast:</b> Deal 1 damage.
             <span class="or">OR</span>
             <b>Cast:</b> Focus your III breach.</p>`,
           keywords: [],
@@ -137,7 +137,9 @@ export const theAncientsData: IExpansion = {
       cost: 5,
       effect: `
       <p>
-        <b>Attach</b> this to any player's breach.<br/>
+        <b>Attach</b> this to any player's breach.
+      </p>
+      <p>
         At the end of that player's casting phase, focus this breach.
         When this breach is opened, destory this card.
       </p>
@@ -185,6 +187,8 @@ export const theAncientsData: IExpansion = {
       <p>
         If there is another Symbiotic Synapse in any player's discard pile, this
         gains <b>Echo</b>.
+        </p>
+        <p>
         <b>Cast:</b> Deal 4 damage.
         </p>
         `,
@@ -214,7 +218,8 @@ export const theAncientsData: IExpansion = {
       subtype: 'Spell',
       effect: `
       <p>
-      <b>Cast:</b> Deal 1 damage. If this damages a minion, deal 1 additional damage.
+      <b>Cast:</b> Deal 1 damage.<br/>
+      If this damages a minion, deal 1 additional damage.
       </p>
       `,
     },

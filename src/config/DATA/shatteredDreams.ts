@@ -84,7 +84,9 @@ export const shatteredDreamsData: IExpansion = {
       cost: 3,
       effect: `
       <p>
-      <b>Attach<b/> this to any player's breach.<br/>
+      <b>Attach</b> this to any player's breach.
+      </p>
+      <p>
       When a spell is cast from this breach, the player who cast that spell may 
       return it to their hand instead of discarding it. If they do, discard this.
       </p>
@@ -114,6 +116,8 @@ export const shatteredDreamsData: IExpansion = {
       effect: `
       <p>
       <b>Echo</b>
+      </p>
+      <p>
       <b>Cast:</b> Deal 1 damage.<br/>
       Focus any ally's breach.
         </p>
@@ -159,8 +163,9 @@ export const shatteredDreamsData: IExpansion = {
       effect: `
       <p>
       <b>Cast:</b> Any player focuses their closed breach wich the highest 
-      focus cost. Deal 1 damage. You may destroy this. If you do, deal 2 
-      additional damage.
+      focus cost.<br/>
+      Deal 1 damage.<br/>
+      You may destroy this. If you do, deal 2 additional damage.
         </p>
       `,
       keywords: [],

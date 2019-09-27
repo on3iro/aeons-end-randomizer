@@ -15,8 +15,8 @@ export const promosData: IExpansion = {
       cost: 6,
       effect: `
       <p>
-      <b>Cast:</b> Deal 4 damage to a minion or the nemesis.
-        You may lose 2 charges. If you do, repeat this.
+      <b>Cast:</b> Deal 4 damage to a minion or the nemesis.<br/>
+        You may lose 2 charges. If you do, repeat this.<br/>
         <span class="hint">(Effects that modify damage affect each 
         instance of damage this spell deals)</span>
         </p>
@@ -46,8 +46,9 @@ export const promosData: IExpansion = {
       cost: 5,
       effect: `
       <p>
-      <b>Cast:</b> Deal 4 damage. Any ally may discard a card in hand. 
-        If they do, divide this damage however you choose among the nemesis 
+      <b>Cast:</b> Deal 4 damage.<br/>
+      Any ally may discard a card in hand. 
+      If they do, divide this damage however you choose among the nemesis 
       and any number of minions.
         </p>
       `,
@@ -76,7 +77,8 @@ export const promosData: IExpansion = {
       cost: 5,
       effect: `
       <p>
-        <b>Cast:</b> Deal 4 damage. Gain 1 <span class="aether">&AElig;</span>.
+        <b>Cast:</b> Deal 4 damage.<br/>
+        Gain 1 <span class="aether">&AElig;</span>.
         </p>
         `,
       keywords: [],
@@ -147,8 +149,9 @@ export const promosData: IExpansion = {
       effect: `
       <p>
         This spell must be prepped to two adjacent breaches so that this card 
-        touches both breaches. This fully occupies both breaches.
-        <b>Cast:</b> Deal 4 damage. You may place this card into your hand.
+        touches both breaches. This fully occupies both breaches.<br/>
+        <b>Cast:</b> Deal 4 damage.<br/>
+        You may place this card into your hand.
         </p>
         `,
       keywords: [],
@@ -176,7 +179,7 @@ export const promosData: IExpansion = {
       subtype: 'Spell',
       effect: `
       <p>
-      <b>Cast:</b> Deal 1 damage.
+      <b>Cast:</b> Deal 1 damage.<br/>
       Reveal the top card of the nemesis deck. If you revealed an attack, gain 
       2 <span class="aether">&AElig;</span>.
       </p>

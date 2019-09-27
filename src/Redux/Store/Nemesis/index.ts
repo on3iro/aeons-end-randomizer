@@ -1,7 +1,7 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import { ICreature } from '../../../types'
+import { Nemesis } from '../../../types'
 import { RootState } from '../'
 import { getRandomEntity } from '../../helpers'
 
@@ -9,7 +9,7 @@ import { getRandomEntity } from '../../helpers'
 // STATE //
 ///////////
 
-export type State = Readonly<ICreature> | undefined
+export type State = Readonly<Nemesis> | undefined
 export const initialState: State = undefined
 
 /////////////
@@ -21,7 +21,7 @@ export enum ActionTypes {
 }
 
 export const actions = {
-  setRandomNemesis: (availableNemeses: ReadonlyArray<ICreature>) =>
+  setRandomNemesis: (availableNemeses: ReadonlyArray<Nemesis>) =>
     createAction(ActionTypes.SET_RANDOM, availableNemeses),
   noOp: () => createAction('NOOP'),
 }

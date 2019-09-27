@@ -9,6 +9,8 @@ import * as types from '../../../types'
 import { RootState, selectors } from '../../../Redux/Store'
 import { getOperationString } from '../../../Redux/helpers'
 
+import SupplyShowDetailsButton from './SupplyShowDetailsButton'
+
 import Card from './Card'
 import CardContent from './CardContent'
 import CardName from './CardName'
@@ -40,35 +42,45 @@ type Props = ReturnType<typeof mapStateToProps> &
       threshold?: number
       values?: Array<number>
     }
+    showSupplyDetails?: Function
   }
 
-const MarketTile = React.memo(({ marketTile, expansion, ...rest }: Props) => {
-  const { type, operation, values, threshold } = marketTile
+const MarketTile = React.memo(
+  ({ marketTile, expansion, showSupplyDetails, ...rest }: Props) => {
+    const { type, operation, values, threshold } = marketTile
 
-  return (
-    <Grid item xs={6} md={4} {...rest}>
-      <Card type={type.toLowerCase()}>
-        <CardContent>
-          {operation && (
-            <CostOperation color="textSecondary">
-              {type} {getOperationString(operation, values, threshold)}
-            </CostOperation>
-          )}
-          <CardName component="p">
-            {marketTile && marketTile.name ? marketTile.name : '-'}
-          </CardName>
-          <List>
-            <ExpansionInfo expansionName={expansion ? expansion.name : ''} />
-            <CostInfo
-              cost={marketTile && marketTile.cost ? marketTile.cost : undefined}
+    return (
+      <Grid item xs={6} md={4} {...rest}>
+        <Card type={type.toLowerCase()}>
+          <CardContent>
+            {operation && (
+              <CostOperation color="textSecondary">
+                {type} {getOperationString(operation, values, threshold)}
+              </CostOperation>
+            )}
+            <CardName component="p">
+              {marketTile && marketTile.name ? marketTile.name : '-'}
+            </CardName>
+            <List>
+              <ExpansionInfo expansionName={expansion ? expansion.name : ''} />
+              <CostInfo
+                cost={
+                  marketTile && marketTile.cost ? marketTile.cost : undefined
+                }
+              />
+            </List>
+          </CardContent>
+          <CardTypeIcon type={type.toLowerCase()} />
+          {showSupplyDetails && marketTile.name ? (
+            <SupplyShowDetailsButton
+              onClick={() => showSupplyDetails(marketTile.id)}
             />
-          </List>
-        </CardContent>
-        <CardTypeIcon type={type.toLowerCase()} />
-      </Card>
-    </Grid>
-  )
-})
+          ) : null}
+        </Card>
+      </Grid>
+    )
+  }
+)
 
 MarketTile.displayName = 'MarketTile'
 

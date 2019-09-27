@@ -37,7 +37,7 @@ const PredefinedSetups = React.memo(
             <CheckboxWithPreview
               changeHandler={changeHandler}
               checked={checked}
-              item={item}
+              item={item.id}
               label={label}
               setup={setup}
             />
