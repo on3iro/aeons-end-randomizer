@@ -9,6 +9,10 @@ export const intoTheWildData: IExpansion = {
       expansion: 'IW',
       name: 'Necroswarm',
       id: 'Necroswarm',
+      health: 70,
+      difficulty: 7,
+      expeditionRating: 4,
+      additionalInfo: '',
     },
   ],
   mages: [

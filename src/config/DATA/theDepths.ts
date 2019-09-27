@@ -7,8 +7,12 @@ export const theDepthsData: IExpansion = {
   nemeses: [
     {
       expansion: 'Depths',
-      name: 'Horde Crone',
+      name: 'Horde-Crone',
       id: 'HordeCrone',
+      health: 60,
+      difficulty: 6,
+      expeditionRating: 2,
+      additionalInfo: '',
     },
   ],
   mages: [

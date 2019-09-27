@@ -8,7 +8,11 @@ export const shatteredDreamsData: IExpansion = {
     {
       expansion: 'SD',
       name: 'The Wailing',
-      id: 'The Wailing',
+      id: 'TheWailing',
+      health: 50,
+      difficulty: 6,
+      expeditionRating: 3,
+      additionalInfo: '',
     },
   ],
   mages: [

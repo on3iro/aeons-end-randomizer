@@ -8,7 +8,11 @@ export const theAncientsData: IExpansion = {
     {
       expansion: 'TA',
       name: 'The Wanderer',
-      id: 'The Wanderer',
+      id: 'TheWanderer',
+      health: 40,
+      difficulty: 5,
+      expeditionRating: 3,
+      additionalInfo: '',
     },
   ],
   mages: [

@@ -55,9 +55,10 @@ export type Expansions = {
 // we should remove the optional '?' flags
 // FIXME use this datatype throughout the whole app
 export type Nemesis = ICreature & {
-  additionalInfo?: string
-  difficulty?: number
-  expeditionRating?: 1 | 2 | 3 | 4
+  health: number
+  additionalInfo: string
+  difficulty: number
+  expeditionRating: 1 | 2 | 3 | 4
 }
 
 // FIXME As soon as we have implemented all respective data
