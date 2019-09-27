@@ -156,7 +156,8 @@ export const outerDarkData: IExpansion = {
           <b>Cast:</b> Deal 3 damage.<br/>
           If you have 4 or more charges, deal 3 additional damage.
         </p>
-      `,
+          `,
+      keywords: [],
     },
     {
       type: 'Spell',
