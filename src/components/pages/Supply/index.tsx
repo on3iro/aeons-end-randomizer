@@ -9,6 +9,8 @@ import NoSelectedExpansions from '../../NoSelectedExpansions'
 import SupplyList from '../../SupplyList'
 import MarketSelect from '../../MarketSelect'
 
+import SupplyModal from './SupplyModal'
+
 const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
 const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
@@ -50,6 +52,18 @@ const Supply = React.memo(
 
     const tiles = allMarketSetups[selectedMarketId].tiles
 
+    const [modalIsVisible, setModalVisible] = useState<boolean | string>(false)
+    const [modalContentId, setModalContentId] = useState<string>('')
+
+    const handleSupplyDetails = (cardId: string) => {
+      setModalVisible(true)
+      setModalContentId(cardId)
+    }
+
+    const handleModalClose = () => {
+      setModalVisible(false)
+    }
+
     const handleShuffle = () => {
       createMarket(availableCards, tiles)
     }
@@ -60,7 +74,10 @@ const Supply = React.memo(
           selectedMarketId={selectedMarketId}
           clickHandler={clickHandler}
         />
-        <SupplyList tiles={randomCards || tiles} />
+        <SupplyList
+          tiles={randomCards || tiles}
+          showSupplyDetails={handleSupplyDetails}
+        />
         <ShuffleButton
           onClick={handleShuffle}
           color="primary"
@@ -68,6 +85,11 @@ const Supply = React.memo(
         >
           Create Market
         </ShuffleButton>
+        <SupplyModal
+          id={modalContentId}
+          visible={modalIsVisible}
+          closeModal={handleModalClose}
+        />
       </React.Fragment>
     )
   }

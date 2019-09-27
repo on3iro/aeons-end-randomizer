@@ -5,7 +5,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 type BaseProps = {
   checked: boolean
-  item: string
+  item: any // FIXME
   label: string
   changeHandler: (selection: string) => void
 }
@@ -22,8 +22,8 @@ const DefaultCheckbox = React.memo(
       control={
         <Checkbox
           checked={checked}
-          onChange={() => changeHandler(item)}
-          value={item}
+          onChange={() => changeHandler(item.id)}
+          value={item.id}
         />
       }
       label={label}

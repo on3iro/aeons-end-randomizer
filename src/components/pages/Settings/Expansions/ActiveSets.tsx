@@ -72,9 +72,9 @@ const ActiveSets = React.memo(
         Component={({ checked, item, label, changeHandler }) => {
           return (
             <CheckboxWithControls
-              id={item}
+              id={item.id}
               checked={checked}
-              item={item}
+              item={item.id}
               label={label}
               changeHandler={changeHandler}
             />
@@ -88,9 +88,9 @@ const ActiveSets = React.memo(
         Component={({ checked, item, label, changeHandler }) => {
           return (
             <CheckboxWithControls
-              id={item}
+              id={item.id}
               checked={checked}
-              item={item}
+              item={item.id}
               label={label}
               changeHandler={changeHandler}
             />
@@ -104,9 +104,9 @@ const ActiveSets = React.memo(
         Component={({ checked, item, label, changeHandler }) => {
           return (
             <CheckboxWithControls
-              id={item}
+              id={item.id}
               checked={checked}
-              item={item}
+              item={item.id}
               label={label}
               changeHandler={changeHandler}
             />

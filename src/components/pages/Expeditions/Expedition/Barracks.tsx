@@ -29,7 +29,10 @@ const Barracks = React.memo(({ expedition, cards, mages }: Props) => {
 
   return (
     <div>
-      <MageList mages={magelist} />
+      <MageList
+        mages={magelist}
+        showMageDetails={() => console.log('TODO: Implement me')}
+      />
       <SupplyList tiles={supply} />
     </div>
   )

@@ -351,7 +351,7 @@ export const newAgeData: IExpansion = {
       <p>
       Gain 2 <span class="aether">&AElig;</span>.<br/>
       Any ally may discard a Resonant Pearl in hand and draw a card. 
-        If they do, gain an additional 1 <span class="aether">&AElig;</span>/
+        If they do, gain an additional 1 <span class="aether">&AElig;</span>.
       </p>
       `,
       keywords: [],
@@ -394,7 +394,9 @@ export const newAgeData: IExpansion = {
       cost: 4,
       effect: `
       <p>
-      <b>Attach<b/> this to any player's breach.<br/>
+      <b>Attach</b> this to any player's breach.
+      </p>
+      <p>
       Whena spell is cast from this breach, the player who cast that spell 
       gains 1 <span class="aether">&AElig;</span>.
       </p>
@@ -424,7 +426,9 @@ export const newAgeData: IExpansion = {
       cost: 3,
       effect: `
       <p>
-      <b>Attach<b/> this to any player's breach.<br/>
+      <b>Attach</b> this to any player's breach.
+      </p>
+      <p>
       When a spell is cast from this breach, it deals 2 additional damage, 
       and discard this card.
       </p>
@@ -439,7 +443,9 @@ export const newAgeData: IExpansion = {
       cost: 6,
       effect: `
       <p>
-      <b>Attach<b/> this to any player's breach.<br/>
+      <b>Attach</b> this to any player's breach.
+      </p>
+      <p>
       Two spells may be prepped to this breach.
       </p>
       `,
@@ -468,10 +474,10 @@ export const newAgeData: IExpansion = {
       cost: 6,
       effect: `
       <p>
-      <b>Cast:</b> Deal 4 damage.<br/>
-      Any ally may discard up to two cards in hand. They draw a card for each 
+        <b>Cast:</b> Deal 4 damage.<br/>
+        Any ally may discard up to two cards in hand. They draw a card for each 
         card discarded this way.
-        </p>
+      </p>
       `,
       keywords: [],
     },
@@ -483,11 +489,13 @@ export const newAgeData: IExpansion = {
       cost: 4,
       effect: `
       <p>
-      <b>Echo<b/><br/>
-      <b>Cast:</b> Deal 1 damage.<br/>
-      Gain 1 <span class="aether">&AElig;</span> that can only be used to 
-      gain cards.
-        </p>
+        <b>Echo</b>
+      </p>
+      <p>
+        <b>Cast:</b> Deal 1 damage.<br/>
+        Gain 1 <span class="aether">&AElig;</span> that can only be used to 
+        gain cards.
+      </p>
       `,
       keywords: ['echo'],
     },
@@ -501,7 +509,8 @@ export const newAgeData: IExpansion = {
       <p>
       <b>Cast:</b> Deal 4 damage.<br/>
       Any ally may discard a Fatal Harmony in hand and draw a card.<br/>
-      If they do, deal 3 damage. <span class="hint">(Effects that 
+      If they do, deal 3 damage.<br/>
+      <span class="hint">(Effects that 
       modify damage affect both instances of damage.)</span>
         </p>
         `,
@@ -515,7 +524,9 @@ export const newAgeData: IExpansion = {
       cost: 6,
       effect: `
       <p>
-      <b>Echo</b><br/>
+      <b>Echo</b>
+      </p>
+      <p>
         <b>Cast:</b> Deal 2 damage.
         </p>
         `,
@@ -575,7 +586,7 @@ export const newAgeData: IExpansion = {
       effect: `
       <p>
       <b>Cast:</b> Deal 4 damage.<br/>
-      You may discard a card in hand. If you do, deal 2 damage to the nemesis.
+      You may discard a card in hand. If you do, deal 2 damage to the nemesis.<br/>
         <span class="hint">(Effects that modify damage affect both 
         instances of damage.)</span>
         </p>
@@ -663,7 +674,7 @@ export const newAgeData: IExpansion = {
       subtype: 'Spell',
       effect: `
       <p>
-      <b>Cast:<b/> Reveal the top card of the turn order deck, and then place it 
+      <b>Cast:</b> Reveal the top card of the turn order deck, and then place it 
       back on top of the turn order deck. If you revealed a player turn order 
       card, deal 3 damage. Otherwise, deal 1 damage.
       </p>
@@ -690,7 +701,8 @@ export const newAgeData: IExpansion = {
       subtype: 'Spell',
       effect: `
       <p>
-      <b>Cast:<b/> Deal 1 damage. Gain 1 <span class="aether">&AElig;</span>.
+      <b>Cast:</b> Deal 1 damage.<br/>
+      Gain 1 <span class="aether">&AElig;</span>.
       </p>
       `,
     },

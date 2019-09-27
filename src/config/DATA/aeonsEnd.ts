@@ -93,7 +93,8 @@ export const aeonsEndData: IExpansion = {
           cost: 0,
           effect: `
             <p>
-              <b>Cast:</b> Deal 1 damage. Gain 1 <span class="aether">&AElig;</span>.
+              <b>Cast:</b> Deal 1 damage.<br/>
+              Gain 1 <span class="aether">&AElig;</span>.
             </p>
           `,
           keywords: [],
@@ -364,7 +365,7 @@ export const aeonsEndData: IExpansion = {
       cost: 5,
       effect: `
         <p>
-          This spell may be prepped to a closed breach without focusing it.
+          This spell may be prepped to a closed breach without focusing it.<br/>
           <b>Cast:</b> Deal 3 damage.
         </p>
       `,
@@ -378,7 +379,7 @@ export const aeonsEndData: IExpansion = {
       cost: 6,
       effect: `
       <p>
-      <b>Cast:</b> Deal 2 damage.<br>/
+      <b>Cast:</b> Deal 2 damage.<br/>
         Deal 1 addtional damage for each of your opened breaches.
         </p>
       `,
@@ -494,7 +495,7 @@ export const aeonsEndData: IExpansion = {
       cost: 4,
       effect: `
       <p>
-        While prepped, at the end of your casting phase deal 1 damage.
+        While prepped, at the end of your casting phase deal 1 damage.<br/>
         <b>Cast:</b> Deal 3 damage.
         </p>
         `,
@@ -524,7 +525,7 @@ export const aeonsEndData: IExpansion = {
       effect: `
       <p>
       While prepped, once per turn during your main phase you may return a gem 
-      you played this turn to your hand.
+      you played this turn to your hand.<br/>
         <b>Cast:</b> Deal 4 damage.
         </p>
       `,
@@ -538,8 +539,8 @@ export const aeonsEndData: IExpansion = {
       cost: 5,
       effect: `
         <p>
-        <b>Cast:</b> Discard up to two cards in hand. Deal 3 damage for each 
-          card discarded this way.
+        <b>Cast:</b> Discard up to two cards in hand.<br/>
+        Deal 3 damage for each card discarded this way.
         </p>
         `,
       keywords: [],
@@ -552,7 +553,7 @@ export const aeonsEndData: IExpansion = {
       cost: 3,
       effect: `
         <p>
-          <b>Cast:</b> Deal 2 damage.</br>
+          <b>Cast:</b> Deal 2 damage.<br/>
           You may lose 1 charge to deal 2 additional damage.
         </p>
       `,
@@ -580,7 +581,8 @@ export const aeonsEndData: IExpansion = {
       effect: `
       <p>
       <b>Cast:</b> Focus your closed breach with the lowest focus cost.<br/>
-      Deal 2 damage. IF all of your breaches are opened, deal 1 additional damage.
+      Deal 2 damage.<br/>
+      If all of your breaches are opened, deal 1 additional damage.
         </p>
       `,
       keywords: [],
@@ -637,7 +639,7 @@ export const aeonsEndData: IExpansion = {
       effect: `
       <p>
       While prepped, during your main phase you may spend 2 <span class="aether">&AElig;</span> 
-      to cast any player's prepped spell.
+      to cast any player's prepped spell.<br/>
         <b>Cast:</b> Deal 4 damage.
         </p>
       `,
@@ -668,8 +670,8 @@ export const aeonsEndData: IExpansion = {
       <p>
       While prepped, once per turn during your main phase you may gain 1 
       <span class="aether">&AElig;</span>.<br/>
-      <b>Cast:</b> Deal 2 damage. You may discard a gem. If you do, deal 
-      additional damage equal to its cost.
+      <b>Cast:</b> Deal 2 damage.<br/>
+      You may discard a gem. If you do, deal additional damage equal to its cost.
         </p>
       `,
       keywords: [],

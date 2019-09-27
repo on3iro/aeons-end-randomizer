@@ -14,7 +14,7 @@ const NEMESES_DB_KEY = 'nemeses-1.8'
 ///////////
 
 type Nemeses = {
-  [key: string]: types.ICreature & { selected: boolean }
+  [key: string]: types.Nemesis & { selected: boolean }
 }
 
 export type State = Readonly<{
@@ -155,6 +155,9 @@ const getSelectedNemesesState = (state: RootState) =>
 
 const getExpansionId = (_: any, id: string) => id
 
+const getNemesisById = (state: RootState, props: { id: string }) =>
+  state.Settings.Expansions.SelectedNemeses.nemeses[props.id]
+
 const getNemesisIdsArray = createSelector(
   [getSelectedNemesesState],
   state => state.nemesisIds
@@ -188,4 +191,5 @@ const getSelectedNemeses = createSelector(
 export const selectors = {
   getSelectedNemeses,
   getNemesesByExpansionId,
+  getNemesisById,
 }

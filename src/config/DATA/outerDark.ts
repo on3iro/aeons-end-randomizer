@@ -127,7 +127,7 @@ export const outerDarkData: IExpansion = {
         <p>
           <b>Cast:</b> Deal 4 damage.<br/>
           If this damage causes a minion from the nemesis deck to be discarded, 
-          anay ally gains 2 charges.
+          any ally gains 2 charges.
         </p>
       `,
       keywords: [],
@@ -225,8 +225,9 @@ export const outerDarkData: IExpansion = {
       id: 'NetherConduit',
       cost: 7,
       effect: `
-        <b>Cast:<b/> Reveal a card in hand that costs 2 <span class="aether">&AElig;</span> 
-        or more. If you do, deal damage equal to the number of cards missing in 
+        <b>Cast:</b> Reveal a card in hand that costs 2 <span class="aether">&AElig;</span> 
+        or more.<br/>
+        If you do, deal damage equal to the number of cards missing in 
         that card's supply pile. Then, any ally may gain a card from that supply
         pile.<br/>
         <span class="hint">(Gem supply piles start with 7 cards. Relic and 

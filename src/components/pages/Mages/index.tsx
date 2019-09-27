@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
@@ -10,6 +10,8 @@ import EmptyMageListHint from './EmptyMageListHint'
 
 import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
+
+import MageModal from './MageModal'
 
 const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
@@ -42,6 +44,20 @@ const Mages = React.memo(
       return <NoSelectedExpansions />
     }
 
+    const [modalIsVisible, setModalVisible] = useState<boolean | string>(false)
+    const [modalContentId, setModalContentId] = useState<string>('')
+    const [modalPlayerNumber, setModalPlayerNumber] = useState<number>(1)
+
+    const handleMageDetails = (mageId: string, playerNumber: number) => {
+      setModalVisible(true)
+      setModalContentId(mageId)
+      setModalPlayerNumber(playerNumber)
+    }
+
+    const handleModalClose = () => {
+      setModalVisible(false)
+    }
+
     const handleShuffle = () => {
       setMages(availableMages, mageCount)
     }
@@ -61,7 +77,7 @@ const Mages = React.memo(
         {noMagesGeneratedYet ? (
           <EmptyMageListHint>Tap button to recruit mages</EmptyMageListHint>
         ) : (
-          <MageList mages={mages} />
+          <MageList mages={mages} showMageDetails={handleMageDetails} />
         )}
         <ShuffleButton
           onClick={handleShuffle}
@@ -70,6 +86,12 @@ const Mages = React.memo(
         >
           Recruit Mages
         </ShuffleButton>
+        <MageModal
+          id={modalContentId}
+          playerNumber={modalPlayerNumber}
+          visible={modalIsVisible}
+          closeModal={handleModalClose}
+        />
       </React.Fragment>
     )
   }

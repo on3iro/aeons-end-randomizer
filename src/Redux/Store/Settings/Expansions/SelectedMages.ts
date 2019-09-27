@@ -155,6 +155,9 @@ const getSelectedMagesState = (state: RootState) =>
 
 const getExpansionId = (_: any, id: string) => id
 
+const getMageById = (state: RootState, props: { id: string }) =>
+  state.Settings.Expansions.SelectedMages.mages[props.id]
+
 const getMageIdsArray = createSelector(
   [getSelectedMagesState],
   state => state.mageIds
@@ -193,4 +196,5 @@ export const selectors = {
   getSelectedMagesLookupObject,
   getSelectedMagesIds,
   getMagesByExpansionId,
+  getMageById,
 }

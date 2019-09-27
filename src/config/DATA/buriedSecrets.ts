@@ -178,7 +178,10 @@ export const buriedSecretsData: IExpansion = {
       effect: `
       <p>
         <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>
-        <b>Cast:</b> Deal 2 damage. If there are six or more other cards in your 
+        </p>
+        <p>
+        <b>Cast:</b> Deal 2 damage.<br/>
+        If there are six or more other cards in your 
         discard pile, deal 2 additional damage.
         </p>
         `,
@@ -207,7 +210,7 @@ export const buriedSecretsData: IExpansion = {
       effect: `
       <p>
       When you gain this, if there are seven or more other cards in your 
-        discard pile, gain 2 life.
+        discard pile, gain 2 life.<br/>
         <b>Cast:</b> Deal 5 damage.
         </p>
       `,
@@ -236,7 +239,10 @@ export const buriedSecretsData: IExpansion = {
       effect: `
       <p>
       <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>
-      <b>Cast:</b> Deal 3 damage. If there are six or more other cards in your 
+      </p>
+      <p>
+      <b>Cast:</b> Deal 3 damage.<br/>
+      If there are six or more other cards in your 
       discard pile, you may gain a Flash of Intellect from the supply and 
       place it on top of your deck.
         </p>
@@ -280,8 +286,9 @@ export const buriedSecretsData: IExpansion = {
       effect: `
       <p>
       While prepped, during your casting phase you may lose 2 pulse tokens. 
-        If you do, spells you cast this turn deal 1 additional damage.
-        <b>Cast:</b> Deal 1 damage. Gain 1 pulse token.
+        If you do, spells you cast this turn deal 1 additional damage.<br/>
+        <b>Cast:</b> Deal 1 damage.<br/>
+        Gain 1 pulse token.
         </p>
       `,
       keywords: ['pulse'],

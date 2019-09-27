@@ -112,7 +112,9 @@ export const intoTheWildData: IExpansion = {
       cost: 8,
       effect: `
         <p>
-          <b>Echo</b><br/>
+          <b>Echo</b>
+        </p>
+        <p>
           <b>Cast:</b> Deal 2 damage.<br/>
           If this was cast from an opened III or IV breach, gain 1 life.
         </p>
@@ -295,7 +297,7 @@ export const intoTheWildData: IExpansion = {
       effect: `
       <p>
       Add an additional level 1 treasure to your starting deck using the level 1 treasure rules. <br/>
-      </br>
+      <br/>
       Your group can use an additional level 2 treasure.
       </p>
       `,
