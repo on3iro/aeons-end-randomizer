@@ -19,8 +19,8 @@ export type ICard = {
   name: string
   id: string
   cost: number
-  effect?: string
-  keywords?: string[]
+  effect: string
+  keywords: string[]
 }
 
 export type ExpansionType = 'standalone' | 'mini' | 'promo'

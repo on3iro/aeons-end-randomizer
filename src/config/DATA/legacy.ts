@@ -365,7 +365,8 @@ export const legacyData: IExpansion = {
           Gain 2 <span class="aether">&AElig;</span>. If your III breach is 
           opened, gain and additional 1 <span class="aether">&AElig;</span>.
         </p>
-      `,
+          `,
+      keywords: [],
     },
     {
       type: 'Spell',
