@@ -1,7 +1,7 @@
 import React from 'react'
 
-import config from '../../../../config'
-import { ICreature } from '../../../../types'
+import config from '../../../config'
+import { Mage } from '../../../types'
 
 import Wrapper from './Wrapper'
 import Card from './Card'
@@ -11,7 +11,7 @@ import ExpansionName from './ExpansionName'
 import Name from './Name'
 
 type Props = {
-  mage: ICreature
+  mage: Mage
   playerNumber: number
 }
 

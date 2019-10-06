@@ -189,6 +189,8 @@ export const Reducer: LoopReducer<State, Action> = (
 const getSelectedExpansionsState = (state: RootState) =>
   state.Settings.Expansions.SelectedExpansions
 
+const getExpansionId = (_: RootState, id: string) => id
+
 const getSelectedExpansionsArray = createSelector(
   [getSelectedExpansionsState],
   state => state.expansionIds.filter(id => state.expansions[id].selected)
@@ -197,6 +199,11 @@ const getSelectedExpansionsArray = createSelector(
 const getAllExpansionsSelected = createSelector(
   [getSelectedExpansionsState],
   state => allExpansionsAreSelected(state.expansions)
+)
+
+const getExpansionById = createSelector(
+  [getSelectedExpansionsState, getExpansionId],
+  ({ expansions }, id) => expansions[id]
 )
 
 const getHasStandaloneExpansion = createSelector(
@@ -261,4 +268,5 @@ export const selectors = {
   getStandaloneExpansions,
   getMiniExpansions,
   getPromos,
+  getExpansionById,
 }

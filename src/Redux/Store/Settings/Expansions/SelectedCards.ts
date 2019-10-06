@@ -153,6 +153,9 @@ export const Reducer: LoopReducer<State, Action> = (
 const getSelectedCardsState = (state: RootState) =>
   state.Settings.Expansions.SelectedCards
 
+const getSelectedCardsLookupObject = (state: RootState) =>
+  state.Settings.Expansions.SelectedCards.cards
+
 const getExpansionId = (_: any, id: string) => id
 
 const getCardIdsArray = createSelector(
@@ -199,6 +202,7 @@ const getSelectedCards = createSelector(
 )
 
 export const selectors = {
+  getSelectedCardsLookupObject,
   getSelectedCards,
   getGemsByExpansionId,
   getRelicsByExpansionId,

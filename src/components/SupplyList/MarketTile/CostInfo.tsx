@@ -1,19 +1,17 @@
 import React from 'react'
 
-import { Slot, ICard, isCard } from '../../../../types'
-
 import CardInfoItem from './CardInfoItem'
 import Info from './Info'
 import InfoLabel from './InfoLabel'
 
 type Props = {
-  card: Slot | ICard
+  cost?: number
 }
 
-const CostInfo = React.memo(({ card }: Props) => (
+const CostInfo = React.memo(({ cost }: Props) => (
   <CardInfoItem>
     <InfoLabel color="textSecondary">Cost:</InfoLabel>
-    <Info component="span">{isCard(card) ? card.cost : '-'}</Info>
+    <Info component="span">{cost ? cost : '-'}</Info>
   </CardInfoItem>
 ))
 

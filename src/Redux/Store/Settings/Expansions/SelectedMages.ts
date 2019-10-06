@@ -14,7 +14,7 @@ const MAGES_DB_KEY = 'mages-1.8'
 ///////////
 
 type Mages = {
-  [key: string]: types.ICreature & { selected: boolean }
+  [key: string]: types.Mage & { selected: boolean }
 }
 
 export type State = Readonly<{
@@ -178,6 +178,11 @@ const getSelectedMagesIds = createSelector(
   state => state.mageIds.filter(id => state.mages[id].selected)
 )
 
+const getSelectedMagesLookupObject = createSelector(
+  [getSelectedMagesState],
+  state => state.mages
+)
+
 const getSelectedMages = createSelector(
   [getSelectedMagesState, getSelectedMagesIds],
   (state, mageIds) => mageIds.map(mageId => state.mages[mageId])
@@ -185,5 +190,7 @@ const getSelectedMages = createSelector(
 
 export const selectors = {
   getSelectedMages,
+  getSelectedMagesLookupObject,
+  getSelectedMagesIds,
   getMagesByExpansionId,
 }

@@ -1,47 +1,20 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import config from '../../../../config'
+import { byCost, createSupply } from '../../../helpers'
 import { RootState } from '../../'
-import { createSupply } from './helpers'
-import * as SupplySelection from '../Selection'
 import * as types from '../../../../types'
-
-/////////////
-// HELPERS //
-/////////////
-
-const byCost = (a: types.MarketTile, b: types.MarketTile) => {
-  if (!a.cost) {
-    return -1
-  }
-
-  if (!b.cost) {
-    return 1
-  }
-
-  if (a.cost < b.cost) {
-    return -1
-  }
-
-  if (a.cost > b.cost) {
-    return 1
-  }
-
-  return 0
-}
 
 ///////////
 // STATE //
 ///////////
 
 export type State = Readonly<{
-  Tiles: ReadonlyArray<types.MarketTile>
+  Tiles: ReadonlyArray<types.ICard> | null
 }>
 
-// FIXME state duplication (see Supply/Selection/index.ts)
 export const initialState: State = {
-  Tiles: config.MARKETSETUPS['random'].tiles,
+  Tiles: null,
 }
 
 /////////////
@@ -62,7 +35,7 @@ export const actions = {
   ) => createAction(ActionTypes.CREATE, { availableCards, tiles }),
 }
 
-export type Action = ActionsUnion<typeof actions> | SupplySelection.Action
+export type Action = ActionsUnion<typeof actions>
 
 /////////////
 // REDUCER //
@@ -73,7 +46,6 @@ export const Reducer: LoopReducer<State, Action> = (
   action: Action
 ) => {
   switch (action.type) {
-    case SupplySelection.ActionTypes.SELECT_SETUP:
     case ActionTypes.RESET: {
       return initialState
     }
@@ -84,6 +56,7 @@ export const Reducer: LoopReducer<State, Action> = (
       const gemsByCost = gems.result.sort(byCost)
       const relicsByCost = relics.result.sort(byCost)
       const spellsByCost = spells.result.sort(byCost)
+
       return {
         ...state,
         Tiles: [...gemsByCost, ...relicsByCost, ...spellsByCost],

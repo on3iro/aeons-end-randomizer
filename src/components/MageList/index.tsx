@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { ICreature } from '../../../../types'
+import { Mage } from '../../types'
 
 import MageGridWrapper from './MageGridWrapper'
-import MageTile from '../MageTile'
+import MageTile from './MageTile'
 
 import Grid from '@material-ui/core/Grid'
 
 type Props = {
-  mages: ReadonlyArray<ICreature>
+  mages: ReadonlyArray<Mage>
 }
 
 const MageList = React.memo(({ mages }: Props) => (
