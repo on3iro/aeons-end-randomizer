@@ -25,7 +25,7 @@ export interface IEmptyBluePrint extends IBluePrint {
 export type Slot = IBluePrint | IEmptyBluePrint
 
 export type MarketTile = {
-  id?: string
+  id: string
   type: Data.CardType
   expansion?: string
   name?: string

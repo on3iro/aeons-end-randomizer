@@ -5,7 +5,7 @@ import { RootState, actions, selectors } from '../../../Redux/Store'
 import { MageCount } from '../../../Redux/Store/Mages/Count'
 
 import MageCountPicker from './MageCountPicker'
-import MageList from './MageList'
+import MageList from '../../MageList'
 import EmptyMageListHint from './EmptyMageListHint'
 
 import ShuffleButton from '../../ShuffleButton'

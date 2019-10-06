@@ -1,17 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
 
-import useExpandedHandling from '../../../hooks/useExpansionHandling'
-
-import ExpansionPanel from '../../ExpansionPanel'
 import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
 
-import SupplyList from './SupplyList'
-import MarketOptions from './MarketOptions'
+import SupplyList from '../../SupplyList'
+import MarketSelect from '../../MarketSelect'
 
+const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
 const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
     state
@@ -19,47 +17,50 @@ const mapStateToProps = (state: RootState) => ({
   availableCards: selectors.Settings.Expansions.getSelectedCardsForSelectedExpansions(
     state
   ),
-  marketSetup: selectors.Supply.Selection.getSelectedSetup(state),
-  tiles: selectors.Supply.RandomSetup.getTiles(state),
+  allMarketSetups: getCustomAndPredefined(state),
+  randomCards: selectors.Supply.RandomSetup.getTiles(state),
 })
 
 const mapDispatchToProps = {
   createMarket: actions.Supply.RandomSetup.createMarket,
+  resetMarket: actions.Supply.RandomSetup.resetMarket,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
 const Supply = React.memo(
   ({
-    tiles,
+    allMarketSetups,
     availableCards,
     createMarket,
     hasStandaloneExpansionSelected,
-    marketSetup,
+    resetMarket,
+    randomCards,
   }: Props) => {
-    const { expanded, createExpansionHandler } = useExpandedHandling()
-    const expansionKey = 'setup'
-    const expansionHandler = createExpansionHandler(expansionKey)
-
     if (!hasStandaloneExpansionSelected) {
       return <NoSelectedExpansions />
     }
 
+    const [selectedMarketId, selectMarketId] = useState('random')
+
+    const clickHandler = (id: string) => {
+      selectMarketId(id)
+      resetMarket()
+    }
+
+    const tiles = allMarketSetups[selectedMarketId].tiles
+
     const handleShuffle = () => {
-      createMarket(availableCards, marketSetup.tiles)
+      createMarket(availableCards, tiles)
     }
 
     return (
       <React.Fragment>
-        <ExpansionPanel
-          expanded={expanded}
-          expansionKey={expansionKey}
-          summary={marketSetup.name}
-          expansionHandler={expansionHandler}
-        >
-          <MarketOptions expansionHandler={expansionHandler} />
-        </ExpansionPanel>
-        <SupplyList tiles={tiles} />
+        <MarketSelect
+          selectedMarketId={selectedMarketId}
+          clickHandler={clickHandler}
+        />
+        <SupplyList tiles={randomCards || tiles} />
         <ShuffleButton
           onClick={handleShuffle}
           color="primary"

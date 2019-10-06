@@ -6,6 +6,8 @@ import * as SelectedCards from './SelectedCards'
 import * as SelectedNemeses from './SelectedNemeses'
 import * as SelectedMages from './SelectedMages'
 
+import * as types from '../../../../types'
+
 ///////////
 // STATE //
 ///////////
@@ -65,6 +67,17 @@ const getSelectedCardsForSelectedExpansions = createSelector(
     cards.filter(card => expansionIds.includes(card.expansion))
 )
 
+const createIdsByCardTypeSelector = (type: types.CardType) =>
+  createSelector(
+    [getSelectedCardsForSelectedExpansions],
+    selectedCards =>
+      selectedCards.filter(card => card.type === type).map(card => card.id)
+  )
+
+const getGemIdsForSelectedExpansions = createIdsByCardTypeSelector('Gem')
+const getRelicIdsForSelectedExpansions = createIdsByCardTypeSelector('Relic')
+const getSpellIdsForSelectedExpansions = createIdsByCardTypeSelector('Spell')
+
 const getSelectedNemesesForSelectedExpansions = createSelector(
   [
     SelectedExpansions.selectors.getSelectedExpansionsArray,
@@ -91,4 +104,7 @@ export const selectors = {
   getSelectedCardsForSelectedExpansions,
   getSelectedNemesesForSelectedExpansions,
   getSelectedMagesForSelectedExpansions,
+  getGemIdsForSelectedExpansions,
+  getRelicIdsForSelectedExpansions,
+  getSpellIdsForSelectedExpansions,
 }

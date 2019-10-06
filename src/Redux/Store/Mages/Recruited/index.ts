@@ -1,7 +1,7 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import { ICreature } from '../../../../types'
+import { Mage } from '../../../../types'
 import { RootState } from '../../'
 import {
   createSlotList,
@@ -15,7 +15,7 @@ import { MageCount } from '../Count'
 // STATE //
 ///////////
 
-export type State = ReadonlyArray<ICreature>
+export type State = ReadonlyArray<Mage>
 export const initialState: State = []
 
 /////////////
@@ -27,10 +27,8 @@ export enum ActionTypes {
 }
 
 export const actions = {
-  setRandomMages: (
-    availableMages: ReadonlyArray<ICreature>,
-    count: MageCount
-  ) => createAction(ActionTypes.SET_RANDOM, { availableMages, count }),
+  setRandomMages: (availableMages: ReadonlyArray<Mage>, count: MageCount) =>
+    createAction(ActionTypes.SET_RANDOM, { availableMages, count }),
   noOp: () => createAction('NOOP'),
 }
 

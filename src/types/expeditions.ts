@@ -1,48 +1,66 @@
 import * as Data from './data'
 
-export type Expeditions = Array<Expedition>
+export const modes = {
+  DEFAULT: {
+    id: 'DEFAULT',
+    name: 'Default',
+    startingTier: 1,
+    tierIncrement: 1,
+    numberOfBattles: 4,
+  },
+  SHORT: {
+    id: 'SHORT',
+    name: 'Short',
+    startingTier: 2,
+    tierIncrement: 1,
+    numberOfBattles: 3,
+  },
+  EXTENDED: {
+    id: 'EXTENDED',
+    name: 'Extended',
+    startingTier: 1,
+    tierIncrement: 2,
+    numberOfBattles: 8,
+  },
+}
+
+// Automagically generate union type of mode ids from modes
+// object
+export const modeIds = Object.values(modes).map(val => val.id)
+export type ModeId = typeof modeIds[number]
+
+export type Battle = {
+  id: number
+  nemesisId: string
+  nemesisTier: 1 | 2 | 3 | 4
+  status: 'locked' | 'unlocked'
+  tries: number
+}
+
+export type ExpeditionMode = {
+  id: string
+  name: string
+  startingTier: number
+  tierIncrement: number
+  numberOfBattles: number
+}
 
 export type Expedition = {
   id: string
   name: string
-}
-
-export type Battle = {
-  id: number
-  nemesis: Data.ICreature
-  nemesisTier: 1 | 2 | 3 | 4
-  status: 'locked' | 'unlocked'
-  triesToWin: number
-}
-
-// ToDo: complete mode model
-type DefaultMode = {
-  id: 'default'
-  expeditionLength: 4
-}
-
-type ShortMode = {
-  id: 'short'
-  expeditionLength: 3
-}
-type ExtendedMode = {
-  id: 'extended'
-  expeditionLength: 8
-}
-
-type ExpeditionMode = DefaultMode | ShortMode | ExtendedMode
-
-export type ExpeditionFull = {
-  id: string
-  name: string
   score: number
   barracks: {
-    mages: Data.Mage[]
-    supply: Data.ICard[]
-    treasures: Data.Treasure[]
+    mageIds: string[]
+    supplyIds: string[]
+    treasureIds: string[]
   }
+  upgradedBasicNemesisCards: Data.UpgradedBasicNemesisCard[]
   banished: string[]
   battles: Battle[]
-  mode: ExpeditionMode
+  modeId: string
   bigPocketMode: boolean
+}
+
+export type Expeditions = {
+  [id: string]: Expedition
 }

@@ -24,23 +24,25 @@ type Props = {
 const Routing = React.memo(() => (
   <Switch>
     <Redirect exact={true} from="/" to="/nemesis" />
-    <Route path="/nemesis" component={Nemeses} />
-    <Route path="/mages" component={Mages} />
-    <Route path="/supply" component={Supply} />
-    <Route path="/turnorder" component={TurnOrder} />
-    <Route path="/about" component={About} />
+    <Route exact={true} path="/nemesis" component={Nemeses} />
+    <Route exact={true} path="/mages" component={Mages} />
+    <Route exact={true} path="/supply" component={Supply} />
+    <Route exact={true} path="/turnorder" component={TurnOrder} />
+    <Route exact={true} path="/about" component={About} />
     <Route
+      exact={true}
       path="/settings/expansions/:id"
       render={props => (
         <ContentCustomization expansionId={props.match.params.id} />
       )}
     />
-    <Route path="/settings" component={Settings} />
+    <Route exact={true} path="/settings" component={Settings} />
     <Route
+      exact={true}
       path="/expeditions/:id"
       render={props => <Expedition id={props.match.params.id} />}
     />
-    <Route path="/expeditions" component={Expeditions} />
+    <Route exact={true} path="/expeditions" component={Expeditions} />
   </Switch>
 ))
 
