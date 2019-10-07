@@ -1,5 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components/macro'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import 'rpg-awesome/css/rpg-awesome.min.css'
 
@@ -11,15 +12,15 @@ import { mainTheme, muiTheme } from '../../mainTheme'
 import MainApp from './MainApp'
 import Wrapper from './Wrapper'
 
-type Props = { classes: any }
-
 const App = React.memo(() => (
   <ThemeProvider theme={mainTheme}>
     <MuiThemeProvider theme={muiTheme}>
-      <Wrapper>
-        <CssBaseline />
-        <MainApp />
-      </Wrapper>
+      <Router>
+        <Wrapper>
+          <CssBaseline />
+          <MainApp />
+        </Wrapper>
+      </Router>
     </MuiThemeProvider>
   </ThemeProvider>
 ))

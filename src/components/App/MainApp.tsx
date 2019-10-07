@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../Redux/Store'
-import { useRouting } from '../../routes'
 
 import Content from '../Content'
 import TopBar from '../TopBar'
@@ -22,7 +21,6 @@ type Props = ReturnType<typeof mapStateToProps> &
   }
 
 const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
-  const match = useRouting()
   const [drawerIsOpen, setDrawerIsOpen] = useState(false)
   const toggleDrawer = () => setDrawerIsOpen(!drawerIsOpen)
 
@@ -32,21 +30,9 @@ const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
 
   return (
     <React.Fragment>
-      <TopBar
-        title={
-          match.urlParameters
-            ? `${match.title} ${match.urlParameters.id}`
-            : match.title
-        }
-        drawerIsOpen={drawerIsOpen}
-        toggleDrawer={toggleDrawer}
-      />
+      <TopBar drawerIsOpen={drawerIsOpen} toggleDrawer={toggleDrawer} />
       <DrawerMenu drawerIsOpen={drawerIsOpen} toggleDrawer={toggleDrawer} />
-      <Content
-        contentComponent={match.contentComponent}
-        isLoading={isLoading}
-        drawerIsOpen={drawerIsOpen}
-      />
+      <Content isLoading={isLoading} drawerIsOpen={drawerIsOpen} />
     </React.Fragment>
   )
 }

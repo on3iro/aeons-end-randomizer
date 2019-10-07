@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { A as routerA } from 'hookrouter'
+import { Link } from 'react-router-dom'
 
-const A = styled(routerA)`
+const A = styled(Link)`
   text-decoration: none;
 `
 

@@ -28,7 +28,7 @@ const Expeditions = React.memo(({ expeditions, createExpedition }: Props) => {
       const url = `/expeditions/${expedition.id}`
       return (
         <li key={expedition.id}>
-          <A href={url}>
+          <A to={url}>
             {expedition.name} {expedition.id}
           </A>
         </li>

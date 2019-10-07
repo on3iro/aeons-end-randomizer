@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-
-import { navigate } from 'hookrouter'
+import { useHistory } from 'react-router-dom'
 
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -20,27 +19,31 @@ type Props = {
 }
 
 const CheckboxWithControls = React.memo(
-  ({ checked, item, label, changeHandler, id }: Props) => (
-    <Wrapper>
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={checked}
-            onChange={() => changeHandler(item)}
-            value={item}
-          />
-        }
-        label={label}
-      />
-      <IconButton
-        color="primary"
-        aria-label="Edit"
-        onClick={() => navigate(`/settings/expansions/${id}`)}
-      >
-        <EditIcon />
-      </IconButton>
-    </Wrapper>
-  )
+  ({ checked, item, label, changeHandler, id }: Props) => {
+    const history = useHistory()
+
+    return (
+      <Wrapper>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={checked}
+              onChange={() => changeHandler(item)}
+              value={item}
+            />
+          }
+          label={label}
+        />
+        <IconButton
+          color="primary"
+          aria-label="Edit"
+          onClick={() => history.push(`/settings/expansions/${id}`)}
+        >
+          <EditIcon />
+        </IconButton>
+      </Wrapper>
+    )
+  }
 )
 
 export default CheckboxWithControls

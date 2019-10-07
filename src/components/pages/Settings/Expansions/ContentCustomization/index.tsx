@@ -73,7 +73,7 @@ const ContentCustomization = React.memo(
     <Card>
       <CardContent>
         <Typography>
-          <BackLink href="/settings">
+          <BackLink to="/settings">
             <ChevronLeftIcon /> Back to settings
           </BackLink>
         </Typography>
