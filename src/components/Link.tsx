@@ -14,7 +14,7 @@ type Props = {
 }
 
 const Link = React.memo(({ text, to, children, onClick }: Props) => (
-  <A href={to}>
+  <A to={to}>
     <ListItem button key={text} onClick={onClick}>
       <ListItemIcon>{children}</ListItemIcon>
       <ListItemText primary={text} />

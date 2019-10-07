@@ -9,7 +9,7 @@ type Props = {
 const Expedition = React.memo(({ id }: Props) => {
   return (
     <React.Fragment>
-      <A href="/expeditions">Zurück</A>
+      <A to="/expeditions">Zurück</A>
       <p>Expedition {id}</p>
     </React.Fragment>
   )

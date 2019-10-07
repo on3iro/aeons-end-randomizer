@@ -22,7 +22,7 @@ const About = React.memo(() => (
         To get started simply select which expansions you own and would like to
         use for randomization inside the settings. You can also disable specific
         cards/mages/nemeses inside the settings.
-        <A href="/settings"> Click here to go to the settings</A>.
+        <A to="/settings"> Click here to go to the settings</A>.
       </P>
       <H2>Supported Expansions</H2>
       <P>
