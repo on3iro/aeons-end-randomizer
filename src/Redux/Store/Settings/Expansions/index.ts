@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux-loop'
-import { createSelector } from 'reselect'
+import { createSelector, OutputSelector } from 'reselect'
 
 import * as SelectedExpansions from './SelectedExpansions'
 import * as SelectedCards from './SelectedCards'
 import * as SelectedNemeses from './SelectedNemeses'
 import * as SelectedMages from './SelectedMages'
+import * as Treasures from './Treasures'
+import * as UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
 
 import * as types from '../../../../types'
+import { RootState } from '../../'
 
 ///////////
 // STATE //
@@ -17,6 +20,8 @@ export type State = {
   SelectedCards: SelectedCards.State
   SelectedNemeses: SelectedNemeses.State
   SelectedMages: SelectedMages.State
+  Treasures: Treasures.State
+  UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.State
 }
 
 export const initialState: State = {
@@ -24,6 +29,8 @@ export const initialState: State = {
   SelectedCards: SelectedCards.initialState,
   SelectedNemeses: SelectedNemeses.initialState,
   SelectedMages: SelectedMages.initialState,
+  Treasures: Treasures.initialState,
+  UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.initialState,
 }
 
 /////////////
@@ -35,12 +42,16 @@ export type Action =
   | SelectedCards.Action
   | SelectedNemeses.Action
   | SelectedMages.Action
+  | Treasures.Action
+  | UpgradedBasicNemesisCards.Action
 
 export const actions = {
   SelectedExpansions: SelectedExpansions.actions,
   SelectedCards: SelectedCards.actions,
   SelectedNemeses: SelectedNemeses.actions,
   SelectedMages: SelectedMages.actions,
+  Treasures: Treasures.actions,
+  UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.actions,
 }
 
 /////////////
@@ -52,25 +63,36 @@ export const Reducer = combineReducers<State, Action>({
   SelectedCards: SelectedCards.Reducer,
   SelectedNemeses: SelectedNemeses.Reducer,
   SelectedMages: SelectedMages.Reducer,
+  Treasures: Treasures.Reducer,
+  UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.Reducer,
 })
 
 ///////////////
 // SELECTORS //
 ///////////////
 
-const getSelectedCardsForSelectedExpansions = createSelector(
-  [
-    SelectedExpansions.selectors.getSelectedExpansionsArray,
-    SelectedCards.selectors.getSelectedCards,
-  ],
-  (expansionIds, cards) =>
-    cards.filter(card => expansionIds.includes(card.expansion))
+// FIXME any typing sucks ;)
+const getSelectedEntitiesForSelectedExpansions = <T>(
+  entitySelector: OutputSelector<
+    RootState,
+    Array<{ expansion: string } & T>,
+    any
+  >
+) =>
+  createSelector(
+    [SelectedExpansions.selectors.getSelectedExpansionsArray, entitySelector],
+    (expansionIds, entities) =>
+      entities.filter(entity => expansionIds.includes(entity.expansion))
+  )
+
+const getSelectedCardsForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
+  SelectedCards.selectors.getSelectedCards
 )
 
 const createIdsByCardTypeSelector = (type: types.CardType) =>
   createSelector(
     [getSelectedCardsForSelectedExpansions],
-    selectedCards =>
+    (selectedCards: types.ICard[]) =>
       selectedCards.filter(card => card.type === type).map(card => card.id)
   )
 
@@ -78,22 +100,19 @@ const getGemIdsForSelectedExpansions = createIdsByCardTypeSelector('Gem')
 const getRelicIdsForSelectedExpansions = createIdsByCardTypeSelector('Relic')
 const getSpellIdsForSelectedExpansions = createIdsByCardTypeSelector('Spell')
 
-const getSelectedNemesesForSelectedExpansions = createSelector(
-  [
-    SelectedExpansions.selectors.getSelectedExpansionsArray,
-    SelectedNemeses.selectors.getSelectedNemeses,
-  ],
-  (expansionIds, nemeses) =>
-    nemeses.filter(nemesis => expansionIds.includes(nemesis.expansion))
+const getSelectedNemesesForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
+  SelectedNemeses.selectors.getSelectedNemeses
 )
 
-const getSelectedMagesForSelectedExpansions = createSelector(
-  [
-    SelectedExpansions.selectors.getSelectedExpansionsArray,
-    SelectedMages.selectors.getSelectedMages,
-  ],
-  (expansionIds, mages) =>
-    mages.filter(mage => expansionIds.includes(mage.expansion))
+const getSelectedMagesForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
+  SelectedMages.selectors.getSelectedMages
+)
+
+const getTreasuresForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
+  Treasures.selectors.getTreasureList
+)
+const getUpgradedBasicNemesisCardsForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
+  UpgradedBasicNemesisCards.selectors.getUpgradedBasicNemesisCardList
 )
 
 export const selectors = {
@@ -101,9 +120,13 @@ export const selectors = {
   SelectedCards: SelectedCards.selectors,
   SelectedNemeses: SelectedNemeses.selectors,
   SelectedMages: SelectedMages.selectors,
+  Treasures: Treasures.selectors,
+  UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.selectors,
   getSelectedCardsForSelectedExpansions,
   getSelectedNemesesForSelectedExpansions,
   getSelectedMagesForSelectedExpansions,
+  getTreasuresForSelectedExpansions,
+  getUpgradedBasicNemesisCardsForSelectedExpansions,
   getGemIdsForSelectedExpansions,
   getRelicIdsForSelectedExpansions,
   getSpellIdsForSelectedExpansions,

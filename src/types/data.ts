@@ -93,13 +93,25 @@ export type Treasure = {
   effect: string
 }
 
+export type Treasures = {
+  [id: string]: Treasure
+}
+
+export type UpgradedBasicNemesisCards = {
+  [id: string]: UpgradedBasicNemesisCard
+}
+
 export type NormalizedData = {
   expansions: Expansions
   nemeses: Nemeses
   mages: Mages
   cards: Cards
+  treasures: Treasures
+  upgradedBasicNemesisCards: UpgradedBasicNemesisCards
   expansionIds: string[]
   nemesisIds: string[]
   mageIds: string[]
   cardIds: string[]
+  treasureIds: string[]
+  upgradedBasicNemesisCardIds: string[]
 }
