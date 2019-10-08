@@ -84,11 +84,13 @@ export type Cards = {
   [id: string]: ICard
 }
 
+export type TreasureLevel = 1 | 2 | 3
+
 export type Treasure = {
   id: string
   expansion: string
   name: string
-  level: 1 | 2 | 3
+  level: TreasureLevel
   subtype?: CardType
   effect: string
 }
