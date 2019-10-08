@@ -3,24 +3,24 @@ import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
 import { RootState } from '../'
-import { ExpeditionMode, ModeId, modes, modeIds } from '../../../types'
+import { Variant, VariantId, variants, variantIds } from '../../../types'
 
 ///////////
 // STATE //
 ///////////
 
 export type State = {
-  modes: {
-    [id: string]: ExpeditionMode
+  variants: {
+    [id: string]: Variant
   }
-  selected: ModeId
-  modeIds: ModeId[]
+  selected: VariantId
+  variantIds: VariantId[]
 }
 
 export const initialState: State = {
-  modes: modes,
+  variants: variants,
   selected: 'DEFAULT',
-  modeIds,
+  variantIds,
 }
 
 /////////////
@@ -28,11 +28,11 @@ export const initialState: State = {
 /////////////
 
 export enum ActionTypes {
-  UPDATE_SELECTED = 'Expeditions/Mode/UPDATE_SELECTED',
+  UPDATE_SELECTED = 'Expeditions/Variant/UPDATE_SELECTED',
 }
 
 export const actions = {
-  updateSelected: (id: ModeId) =>
+  updateSelected: (id: VariantId) =>
     createAction(ActionTypes.UPDATE_SELECTED, { id }),
   noOp: () => createAction('NOOP'),
 }
@@ -66,18 +66,26 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getModes = (state: RootState) => state.Expeditions.Modes.modes
-const getSelectedMode = (state: RootState) => state.Expeditions.Modes.selected
-const getModeIds = (state: RootState) => state.Expeditions.Modes.modeIds
+const getVariants = (state: RootState) => state.Expeditions.Variants.variants
+const getSelectedVariantId = (state: RootState) =>
+  state.Expeditions.Variants.selected
+const getVariantIds = (state: RootState) =>
+  state.Expeditions.Variants.variantIds
 
-const getModeList = createSelector(
-  [getModeIds, getModes],
-  (ids, modes) => ids.map(id => modes[id])
+const getSelectedVariant = createSelector(
+  [getVariants, getSelectedVariantId],
+  (variants, id) => variants[id]
+)
+
+const getVariantList = createSelector(
+  [getVariantIds, getVariants],
+  (ids, variants) => ids.map(id => variants[id])
 )
 
 export const selectors = {
-  getModes,
-  getSelectedMode,
-  getModeIds,
-  getModeList,
+  getVariants,
+  getSelectedVariantId,
+  getSelectedVariant,
+  getVariantIds,
+  getVariantList,
 }

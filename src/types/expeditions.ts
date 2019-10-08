@@ -1,6 +1,14 @@
 import * as Data from './data'
 
-export const modes = {
+export type Variant = {
+  id: string
+  name: string
+  startingTier: number
+  tierIncrement: number
+  numberOfBattles: number
+}
+
+export const variants = {
   DEFAULT: {
     id: 'DEFAULT',
     name: 'Default',
@@ -24,10 +32,10 @@ export const modes = {
   },
 }
 
-// Automagically generate union type of mode ids from modes
+// Automagically generate union type of variant ids from variants
 // object
-export const modeIds = Object.values(modes).map(val => val.id)
-export type ModeId = typeof modeIds[number]
+export const variantIds = Object.values(variants).map(val => val.id)
+export type VariantId = typeof variantIds[number]
 
 export type Battle = {
   id: number
@@ -35,14 +43,6 @@ export type Battle = {
   nemesisTier: 1 | 2 | 3 | 4
   status: 'locked' | 'unlocked'
   tries: number
-}
-
-export type ExpeditionMode = {
-  id: string
-  name: string
-  startingTier: number
-  tierIncrement: number
-  numberOfBattles: number
 }
 
 export type Expedition = {
@@ -57,8 +57,8 @@ export type Expedition = {
   upgradedBasicNemesisCards: Data.UpgradedBasicNemesisCard[]
   banished: string[]
   battles: Battle[]
-  modeId: string
-  bigPocketMode: boolean
+  variantId: string
+  bigPocketVariant: boolean
 }
 
 export type Expeditions = {

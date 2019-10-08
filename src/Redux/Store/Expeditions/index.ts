@@ -1,31 +1,31 @@
 import { combineReducers } from 'redux-loop'
 
 import * as Expeditions from './Expeditions'
-import * as Modes from './Modes'
+import * as Variants from './Variants'
 
 export type State = {
   Expeditions: Expeditions.State
-  Modes: Modes.State
+  Variants: Variants.State
 }
 
-export type Action = Expeditions.Action | Modes.Action
+export type Action = Expeditions.Action | Variants.Action
 
 export const selectors = {
   Expeditions: Expeditions.selectors,
-  Modes: Modes.selectors,
+  Variants: Variants.selectors,
 }
 
 export const actions = {
   Expeditions: Expeditions.actions,
-  Modes: Modes.actions,
+  Variants: Variants.actions,
 }
 
 export const initialState = {
   Expeditions: Expeditions.initialState,
-  Modes: Modes.initialState,
+  Variants: Variants.initialState,
 }
 
 export const Reducer = combineReducers<State, Action>({
   Expeditions: Expeditions.Reducer,
-  Modes: Modes.Reducer,
+  Variants: Variants.Reducer,
 })

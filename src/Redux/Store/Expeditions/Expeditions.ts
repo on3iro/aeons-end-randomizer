@@ -45,18 +45,20 @@ export enum ActionTypes {
 }
 
 const createExpeditionAction = ({
-  modeId,
+  variant,
   name,
-  bigPocketMode,
+  bigPocketVariant,
   availableMageIds,
   availableCards,
+  availableLevel1TreasureIds,
   tiles,
 }: {
-  modeId: types.ModeId
+  variant: types.Variant
   name: string
-  bigPocketMode: boolean
+  bigPocketVariant: boolean
   availableMageIds: string[]
   availableCards: types.ICard[]
+  availableLevel1TreasureIds: string[]
   tiles: types.Slot[]
 }) => {
   const mageIds = createIdList(
@@ -73,12 +75,22 @@ const createExpeditionAction = ({
     card => card.id
   )
 
+  const startsWithTreasure = variant.startingTier > 1
+  const treasureIds = startsWithTreasure
+    ? createIdList(
+        availableLevel1TreasureIds,
+        createArrayWithDefaultValues(5, 'EMPTY'),
+        getRandomEntity
+      ).result
+    : []
+
   const config = {
-    modeId,
+    variantId: variant.id,
     name,
-    bigPocketMode,
+    bigPocketVariant,
     mageIds,
     supplyIds,
+    treasureIds,
     expeditionId: shortid.generate(),
   }
 
@@ -111,12 +123,13 @@ export const Reducer: LoopReducer<State, Action> = (
   switch (action.type) {
     case ActionTypes.CREATE_EXPEDITION: {
       const {
-        modeId,
+        variantId,
         name,
-        bigPocketMode,
+        bigPocketVariant,
         expeditionId,
         mageIds,
         supplyIds,
+        treasureIds,
       } = action.payload
 
       const newState = {
@@ -130,12 +143,12 @@ export const Reducer: LoopReducer<State, Action> = (
             barracks: {
               mageIds,
               supplyIds,
-              treasureIds: [],
+              treasureIds,
             },
             upgradedBasicNemesisCards: [],
             banished: [],
-            modeId,
-            bigPocketMode: bigPocketMode,
+            variantId,
+            bigPocketVariant: bigPocketVariant,
             battles: [],
           },
         },
