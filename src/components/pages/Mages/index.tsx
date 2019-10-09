@@ -88,7 +88,7 @@ const Mages = React.memo(
         </ShuffleButton>
         <MageModal
           id={modalContentId}
-          playerNumber={modalPlayerNumber}
+          player={`player${modalPlayerNumber}`}
           visible={modalIsVisible}
           closeModal={handleModalClose}
         />

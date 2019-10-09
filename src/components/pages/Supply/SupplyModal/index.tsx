@@ -1,4 +1,5 @@
 import React from 'react'
+import { withTheme } from 'styled-components/macro'
 
 import { connect } from 'react-redux'
 
@@ -8,7 +9,6 @@ import { ICard } from '../../../../types'
 
 import Modal from '../../../Modal'
 
-import Title from './Title'
 import ExpansionInfo from './ExpansionInfo'
 import TypeInfo from './TypeInfo'
 import CostInfo from './CostInfo'
@@ -27,13 +27,14 @@ const mapStateToProps = (state: RootState, props: any) => ({
 
 type Props = ReturnType<typeof mapStateToProps> & {
   id: string
-  visible: boolean | string
+  visible: boolean
   closeModal: any
   selectedExpansions: any
+  theme: any
 }
 
 const SupplyModal = React.memo(
-  ({ visible, closeModal, card, selectedExpansions }: Props) => {
+  ({ visible, closeModal, card, selectedExpansions, theme }: Props) => {
     const { expansions } = selectedExpansions
 
     const renderKeywords = (keywords: string[], type: string) =>
@@ -42,12 +43,6 @@ const SupplyModal = React.memo(
           {keyword}
         </Keyword>
       ))
-
-    const renderSupplyModalTitle = (card: ICard) => (
-      <Title variant="h1" type={card.type.toLowerCase()}>
-        {card.name}
-      </Title>
-    )
 
     const renderSupplyModalBody = (card: ICard) => (
       <React.Fragment>
@@ -73,7 +68,8 @@ const SupplyModal = React.memo(
     return (
       <Modal
         visible={visible}
-        title={card ? renderSupplyModalTitle(card) : 'No title'}
+        titleColor={theme.colors.cards[card.type.toLowerCase()].color}
+        titleLabel={card.name}
         body={card ? renderSupplyModalBody(card) : 'No content'}
         closeModal={closeModal}
       />
@@ -81,7 +77,9 @@ const SupplyModal = React.memo(
   }
 )
 
-export default connect(
-  mapStateToProps,
-  null
-)(SupplyModal)
+export default withTheme(
+  connect(
+    mapStateToProps,
+    null
+  )(SupplyModal)
+)

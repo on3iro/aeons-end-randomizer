@@ -1,4 +1,5 @@
 import React from 'react'
+import { withTheme } from 'styled-components/macro'
 
 import { connect } from 'react-redux'
 
@@ -8,7 +9,6 @@ import { Mage, ICard } from '../../../../types'
 
 import Modal from '../../../Modal'
 
-import Title from './Title'
 import MageTitleInfo from './MageTitleInfo'
 import DescriptionMage from './DescriptionMage'
 import Ability from './Ability'
@@ -32,14 +32,15 @@ const mapStateToProps = (state: RootState, props: any) => ({
 // FIXME types
 type Props = ReturnType<typeof mapStateToProps> & {
   id: string
-  playerNumber: number
-  visible: boolean | string
+  player: 'player1' | 'player2' | 'player3' | 'player4'
+  visible: boolean
   closeModal: any
   selectedExpansions: any
+  theme: any
 }
 
 const MageModal = React.memo(
-  ({ playerNumber, visible, closeModal, mage, selectedExpansions }: Props) => {
+  ({ player, visible, closeModal, mage, selectedExpansions, theme }: Props) => {
     const { expansions } = selectedExpansions
 
     const renderUniqueStarters = (uniqueStarters: ICard[]) => {
@@ -50,11 +51,7 @@ const MageModal = React.memo(
       ))
     }
 
-    const renderMageModalTitle = (mage: Mage) => (
-      <Title variant="h1" playerNumber={playerNumber}>
-        {mage.name}
-      </Title>
-    )
+    // FIXME fix hardcoded playernumbers
 
     const renderMageModalBody = (mage: Mage) => (
       <React.Fragment>
@@ -67,16 +64,14 @@ const MageModal = React.memo(
 
         <Ability>
           <DescriptionMage
-            playerNumber={playerNumber}
+            playerNumber={1}
             dangerouslySetInnerHTML={{
               __html: mage.ability,
             }}
           />
         </Ability>
 
-        <SectionHeadline playerNumber={playerNumber}>
-          Unique Starters
-        </SectionHeadline>
+        <SectionHeadline playerNumber={1}>Unique Starters</SectionHeadline>
 
         {mage.uniqueStarters ? (
           <Grid container spacing={16}>
@@ -89,7 +84,8 @@ const MageModal = React.memo(
     return (
       <Modal
         visible={visible}
-        title={mage ? renderMageModalTitle(mage) : 'No title'}
+        titleColor={theme.colors.playerColors[player].normal}
+        titleLabel={mage.name}
         body={mage ? renderMageModalBody(mage) : 'No content'}
         closeModal={closeModal}
       />
@@ -97,7 +93,9 @@ const MageModal = React.memo(
   }
 )
 
-export default connect(
-  mapStateToProps,
-  null
-)(MageModal)
+export default withTheme(
+  connect(
+    mapStateToProps,
+    null
+  )(MageModal)
+)
