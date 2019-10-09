@@ -8,11 +8,6 @@ const Wrapper = styled('div')`
   left: 0;
   z-index: 10000;
   padding: 24px;
-  display: none;
-
-  &.is-open {
-    display: block;
-  }
 `
 
 export default Wrapper

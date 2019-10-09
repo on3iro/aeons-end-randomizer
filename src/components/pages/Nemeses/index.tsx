@@ -38,7 +38,7 @@ const Nemeses = React.memo(
       return <NoSelectedExpansions />
     }
 
-    const [modalIsVisible, setModalVisible] = useState<boolean | string>(false)
+    const [modalIsVisible, setModalVisible] = useState<boolean>(false)
     const [modalContentId, setModalContentId] = useState<string>('')
 
     const handleNemesisDetails = (nemesisId: string) => {

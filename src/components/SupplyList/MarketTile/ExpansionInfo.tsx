@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CardInfoItem from './CardInfoItem'
+import CardInfoItem from '../../CardInfoItem'
 import Info from './Info'
 import InfoLabel from './InfoLabel'
 
