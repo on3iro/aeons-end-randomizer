@@ -1,5 +1,6 @@
 import React from 'react'
-import Description from '../Description'
+import AbilityText from '../../../../AbilityText'
+
 import Card from './Card'
 import CardContent from './CardContent'
 import CardTypeIcon from './CardTypeIcon'
@@ -19,7 +20,7 @@ const UniqueStarter = React.memo(({ card }: Props) => (
       <CardName>{card.name}</CardName>
       <TypeInfo type={card.type} />
       <CostInfo cost={card.cost} />
-      <Description
+      <AbilityText
         dangerouslySetInnerHTML={{
           __html: card.effect || '',
         }}

@@ -1,18 +1,21 @@
 import React from 'react'
 
+import { withTheme } from 'styled-components/macro'
+
 import { Nemesis } from '../../../../types'
 
 import InfoItem from '../../../InfoItem'
+import SectionHeadline from '../../../SectionHeadline'
 
-import SectionHeadline from './SectionHeadline'
 import AdditionalInfo from './AdditionalInfo'
 
 type Props = {
   nemesis: Nemesis
   expansionName: string
+  theme: any
 }
 
-const Body = ({ nemesis, expansionName }: Props) => (
+const Body = ({ nemesis, expansionName, theme }: Props) => (
   <React.Fragment>
     <InfoItem label="Expansion" info={expansionName} />
     <InfoItem label="Health" info={nemesis.health.toString()} />
@@ -23,7 +26,11 @@ const Body = ({ nemesis, expansionName }: Props) => (
     />
     {nemesis.additionalInfo ? (
       <React.Fragment>
-        <SectionHeadline>Additional Information</SectionHeadline>
+        <SectionHeadline
+          themeColor={theme.colors.turnOrderCards['nemesis'].normal}
+        >
+          Additional Information
+        </SectionHeadline>
         <AdditionalInfo
           dangerouslySetInnerHTML={{
             __html: nemesis.additionalInfo,
@@ -34,4 +41,4 @@ const Body = ({ nemesis, expansionName }: Props) => (
   </React.Fragment>
 )
 
-export default Body
+export default withTheme(Body)

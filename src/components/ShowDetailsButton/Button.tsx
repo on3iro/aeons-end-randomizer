@@ -1,12 +1,17 @@
+import React from 'react'
 import styled from 'styled-components'
 
-const Button = styled('button')`
+type Props = {
+  themeColor: string
+}
+
+const Button = styled(({ themeColor, ...rest }) => <button {...rest} />)<Props>`
   margin: 0 16px 16px;
   background: transparent;
   border: 0;
   padding: 0;
   cursor: pointer;
-  color: #fff;
+  color: ${props => props.themeColor};
   outline: 0;
 
   &:hover,

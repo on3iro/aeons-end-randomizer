@@ -5,17 +5,9 @@ import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../../Redux/Store'
 
-import { ICard } from '../../../../types'
-
 import Modal from '../../../Modal'
 
-import ExpansionInfo from './ExpansionInfo'
-import TypeInfo from './TypeInfo'
-import CostInfo from './CostInfo'
-import SectionHeadline from './SectionHeadline'
-import Description from './Description'
-import Keywords from './Keywords'
-import Keyword from './Keyword'
+import Body from './Body'
 
 // FIXME refine type
 const mapStateToProps = (state: RootState, props: any) => ({
@@ -29,7 +21,6 @@ type Props = ReturnType<typeof mapStateToProps> & {
   id: string
   visible: boolean
   closeModal: any
-  selectedExpansions: any
   theme: any
 }
 
@@ -37,40 +28,25 @@ const SupplyModal = React.memo(
   ({ visible, closeModal, card, selectedExpansions, theme }: Props) => {
     const { expansions } = selectedExpansions
 
-    const renderKeywords = (keywords: string[], type: string) =>
-      keywords.map(keyword => (
-        <Keyword key={keyword} type={type.toLowerCase()}>
-          {keyword}
-        </Keyword>
-      ))
-
-    const renderSupplyModalBody = (card: ICard) => (
-      <React.Fragment>
-        <ExpansionInfo
-          expansion={card.expansion ? expansions[card.expansion].name : ''}
-        />
-        <TypeInfo type={card.type} />
-        <CostInfo cost={card.cost} />
-        <SectionHeadline type={card.type.toLowerCase()}>Effect</SectionHeadline>
-        <Description
-          dangerouslySetInnerHTML={{
-            __html: card.effect || '',
-          }}
-        />
-        {card.keywords ? (
-          <Keywords>
-            {renderKeywords(card.keywords, card.type.toLowerCase())}
-          </Keywords>
-        ) : null}
-      </React.Fragment>
-    )
-
     return (
       <Modal
         visible={visible}
-        titleColor={theme.colors.cards[card.type.toLowerCase()].color}
-        titleLabel={card.name}
-        body={card ? renderSupplyModalBody(card) : 'No content'}
+        titleColor={
+          card
+            ? theme.colors.cards[card.type.toLowerCase()].color
+            : theme.colors.text
+        }
+        titleLabel={card ? card.name : ''}
+        body={
+          card ? (
+            <Body
+              card={card}
+              expansionName={expansions[card.expansion].name || ''}
+            />
+          ) : (
+            'No content'
+          )
+        }
         closeModal={closeModal}
       />
     )

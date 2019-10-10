@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-import Keywords from './Keywords'
-import Keyword from './Keyword'
+import Keywords from '../../../../Keywords'
+import Keyword from '../../../../Keyword'
 
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -34,13 +34,6 @@ const CheckboxWithDetails = React.memo(
     type,
     id,
   }: Props) => {
-    const renderKeywords = (keywords: string[], type: string) =>
-      keywords.map(keyword => (
-        <Keyword key={keyword} type={type.toLowerCase()}>
-          {keyword}
-        </Keyword>
-      ))
-
     return (
       <Wrapper>
         <FormControlLabel
@@ -60,8 +53,12 @@ const CheckboxWithDetails = React.memo(
         >
           <VisibilityOutlinedIcon />
         </IconButton>
-        {keywords && keywords.length >= 1 && type ? (
-          <Keywords>{renderKeywords(keywords, type.toLowerCase())}</Keywords>
+        {keywords && keywords.length >= 1 ? (
+          <Keywords inCheckboxList={true}>
+            {keywords.map(keyword => (
+              <Keyword key={keyword}>{keyword}</Keyword>
+            ))}
+          </Keywords>
         ) : null}
       </Wrapper>
     )

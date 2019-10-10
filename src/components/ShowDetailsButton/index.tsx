@@ -4,11 +4,12 @@ import Button from './Button'
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined'
 
 type Props = {
-  onClick: any // FIXME
+  showDetails: () => void
+  theme: any
 }
 
-const ShowDetailsButton = (props: Props) => (
-  <Button {...props}>
+const ShowDetailsButton = ({ showDetails, theme }: Props) => (
+  <Button onClick={showDetails} themeColor={theme}>
     <VisibilityOutlinedIcon /> Show details
   </Button>
 )
