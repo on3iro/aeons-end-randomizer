@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { withTheme } from 'styled-components/macro'
+
 import Grid from '@material-ui/core/Grid'
 import List from '@material-ui/core/List'
 
@@ -9,15 +11,15 @@ import * as types from '../../../types'
 import { RootState, selectors } from '../../../Redux/Store'
 import { getOperationString } from '../../../Redux/helpers'
 
-import SupplyShowDetailsButton from './SupplyShowDetailsButton'
+import InfoItem from '../../InfoItem'
 
 import Card from './Card'
 import CardContent from './CardContent'
 import CardName from './CardName'
 import CardTypeIcon from './CardTypeIcon'
-import CostInfo from './CostInfo'
 import CostOperation from './CostOperation'
-import ExpansionInfo from './ExpansionInfo'
+
+import ShowDetailsButton from '../../ShowDetailsButton'
 
 // FIXME fix prop type
 const mapStateToProps = (state: RootState, props: any) => ({
@@ -43,10 +45,11 @@ type Props = ReturnType<typeof mapStateToProps> &
       values?: Array<number>
     }
     showSupplyDetails?: Function
+    theme: any
   }
 
 const MarketTile = React.memo(
-  ({ marketTile, expansion, showSupplyDetails, ...rest }: Props) => {
+  ({ marketTile, expansion, showSupplyDetails, theme, ...rest }: Props) => {
     const { type, operation, values, threshold } = marketTile
 
     return (
@@ -62,18 +65,22 @@ const MarketTile = React.memo(
               {marketTile && marketTile.name ? marketTile.name : '-'}
             </CardName>
             <List>
-              <ExpansionInfo expansionName={expansion ? expansion.name : ''} />
-              <CostInfo
-                cost={
-                  marketTile && marketTile.cost ? marketTile.cost : undefined
+              <InfoItem label="Set" info={expansion ? expansion.name : '-'} />
+              <InfoItem
+                label="Cost"
+                info={
+                  marketTile && marketTile.cost
+                    ? marketTile.cost.toString()
+                    : '-'
                 }
               />
             </List>
           </CardContent>
           <CardTypeIcon type={type.toLowerCase()} />
           {showSupplyDetails && marketTile.name ? (
-            <SupplyShowDetailsButton
-              onClick={() => showSupplyDetails(marketTile.id)}
+            <ShowDetailsButton
+              showDetails={() => showSupplyDetails(marketTile.id)}
+              theme={theme.colors.text}
             />
           ) : null}
         </Card>
@@ -84,7 +91,9 @@ const MarketTile = React.memo(
 
 MarketTile.displayName = 'MarketTile'
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MarketTile)
+export default withTheme(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(MarketTile)
+)

@@ -66,6 +66,8 @@ export const mainTheme = {
     primary: muiTheme.palette.primary,
     secondary: muiTheme.palette.secondary,
     text: muiTheme.palette.text,
+    hint: muiTheme.palette.text.hint,
+    white: '#fff',
     playerColors,
     turnOrderCards: {
       ...playerColors,
@@ -146,6 +148,7 @@ export const mainTheme = {
         color: '#E0E0E0',
       },
     },
+    keywordBg: 'rgba(0,0,0,0.1)',
   },
 }
 

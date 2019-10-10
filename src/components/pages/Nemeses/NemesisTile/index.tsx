@@ -1,4 +1,5 @@
 import React from 'react'
+import { withTheme } from 'styled-components/macro'
 
 import config from '../../../../config'
 import { Nemesis } from '../../../../types'
@@ -14,10 +15,11 @@ import Name from './Name'
 type Props = {
   nemesis: Nemesis
   showNemesisDetails: (id: string) => void
+  theme: any
 }
 
 const NemesisTile = React.memo(
-  ({ nemesis, showNemesisDetails, ...rest }: Props) => {
+  ({ nemesis, showNemesisDetails, theme, ...rest }: Props) => {
     return (
       <Card>
         <CardContent>
@@ -30,7 +32,10 @@ const NemesisTile = React.memo(
           </Name>
         </CardContent>
         <CardTypeIcon type="nemesis" />
-        <ShowDetailsButton onClick={() => showNemesisDetails(nemesis.id)} />
+        <ShowDetailsButton
+          showDetails={() => showNemesisDetails(nemesis.id)}
+          theme={theme.colors.white}
+        />
       </Card>
     )
   }
@@ -38,4 +43,4 @@ const NemesisTile = React.memo(
 
 NemesisTile.displayName = 'NemesisTile'
 
-export default NemesisTile
+export default withTheme(NemesisTile)

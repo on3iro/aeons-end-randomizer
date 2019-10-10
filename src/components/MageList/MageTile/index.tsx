@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { withTheme } from 'styled-components/macro'
+
 import config from '../../../config'
 import { Mage } from '../../../types'
 
@@ -16,10 +18,11 @@ type Props = {
   mage: Mage
   playerNumber: number
   showMageDetails: Function // FIXME signature
+  theme: any
 }
 
 const MageTile = React.memo(
-  ({ mage, playerNumber, showMageDetails }: Props) => {
+  ({ mage, playerNumber, showMageDetails, theme }: Props) => {
     return (
       <Wrapper item xs={6} md={3}>
         <Card playerNumber={playerNumber}>
@@ -34,7 +37,8 @@ const MageTile = React.memo(
           </CardContent>
           <CardTypeIcon type="mage" />
           <ShowDetailsButton
-            onClick={() => showMageDetails(mage.id, playerNumber)}
+            showDetails={() => showMageDetails(mage.id, playerNumber)}
+            theme={theme.colors.white}
           />
         </Card>
       </Wrapper>
@@ -44,4 +48,4 @@ const MageTile = React.memo(
 
 MageTile.displayName = 'MageTile'
 
-export default MageTile
+export default withTheme(MageTile)

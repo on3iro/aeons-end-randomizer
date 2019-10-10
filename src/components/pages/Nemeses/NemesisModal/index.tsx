@@ -34,7 +34,7 @@ const NemesisModal = React.memo(
       <Modal
         visible={visible}
         titleColor={theme.colors.turnOrderCards.nemesis.normal}
-        titleLabel={nemesis.name}
+        titleLabel={nemesis ? nemesis.name : ''}
         body={
           nemesis ? (
             <Body

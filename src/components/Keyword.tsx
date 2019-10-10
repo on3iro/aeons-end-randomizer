@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { withTheme } from 'styled-components/macro'
+
 type Props = {
-  type: number
+  theme: any
 }
 
-const Keyword = styled(({ type, ...rest }) => <span {...rest} />)<Props>`
-  background: ${props => props.theme.colors.cards[`${props.type}`].color};
+const Keyword = styled(({ theme, ...rest }) => <span {...rest} />)<Props>`
+  background: ${props => props.theme.colors.keywordBg};
   padding: 4px 8px;
   margin: 4px;
   border-radius: 12px;
@@ -16,9 +18,9 @@ const Keyword = styled(({ type, ...rest }) => <span {...rest} />)<Props>`
   display: inline-block;
   text-align: center;
 
-  color: rgba(0, 0, 0, 0.87);
+  color: ${props => props.theme.colors.text.primary};
   font-size: 0.875rem;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 `
 
-export default Keyword
+export default withTheme(Keyword)
