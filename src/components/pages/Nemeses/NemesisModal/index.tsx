@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../../Redux/Store'
 
-import Modal from '../../../Modal'
 import Body from './Body'
 
 // FIXME refine type
@@ -21,33 +20,26 @@ const mapStateToProps = (state: RootState, props: any) => ({
 
 type Props = ReturnType<typeof mapStateToProps> & {
   id: string
-  visible: boolean
-  closeModal: () => void
   theme: any
+  renderModal: Function
 }
 
 const NemesisModal = React.memo(
-  ({ visible, closeModal, nemesis, selectedExpansions, theme }: Props) => {
+  ({ nemesis, selectedExpansions, theme, renderModal }: Props) => {
     const { expansions } = selectedExpansions
 
-    return (
-      <Modal
-        visible={visible}
-        titleColor={theme.colors.turnOrderCards.nemesis.normal}
-        titleLabel={nemesis ? nemesis.name : ''}
-        body={
-          nemesis ? (
-            <Body
-              nemesis={nemesis}
-              expansionName={expansions[nemesis.expansion].name || ''}
-            />
-          ) : (
-            'No content'
-          )
-        }
-        closeModal={closeModal}
+    const titleColor = theme.colors.turnOrderCards.nemesis.normal
+    const titleLabel = nemesis ? nemesis.name : ''
+    const body = nemesis ? (
+      <Body
+        nemesis={nemesis}
+        expansionName={expansions[nemesis.expansion].name || ''}
       />
+    ) : (
+      'No content'
     )
+
+    return renderModal(titleColor, titleLabel, body)
   }
 )
 
