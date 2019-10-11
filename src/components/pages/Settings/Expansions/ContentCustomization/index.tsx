@@ -10,6 +10,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import { RootState, selectors, actions } from '../../../../../Redux/Store'
 import * as types from '../../../../../types'
 
+import { useModal } from '../../../../Modal'
 import CheckboxList from '../../../../CheckboxList'
 import BackLink from './BackLink'
 
@@ -78,47 +79,28 @@ const ContentCustomization = React.memo(
     handleNemesisChange,
     handleMageChange,
   }: Props) => {
-    const [modalNemesisIsVisible, setModalNemesisVisible] = useState<
-      boolean | string
-    >(false)
-    const [modalMageIsVisible, setModalMageVisible] = useState<
-      boolean | string
-    >(false)
-    const [modalSupplyIsVisible, setModalSupplyVisible] = useState<
-      boolean | string
-    >(false)
+    const {
+      show: showNemesisModal,
+      renderModal: renderNemesisModal,
+    } = useModal()
+    const { show: showMageModal, renderModal: renderMageModal } = useModal()
+    const { show: showCardModal, renderModal: renderCardModal } = useModal()
 
-    const [modalNemesisContentId, setModalNemesisContentId] = useState<string>(
-      ''
-    )
-    const [modalMageContentId, setModalMageContentId] = useState<string>('')
-    const [modalSupplyContentId, setModalSupplyContentId] = useState<string>('')
+    const [modalContentId, setModalContentId] = useState<string>('')
 
     const handleNemesisDetails = (nemesisId: string) => {
-      setModalNemesisVisible(true)
-      setModalNemesisContentId(nemesisId)
+      showNemesisModal()
+      setModalContentId(nemesisId)
     }
 
     const handleMageDetails = (mageId: string) => {
-      setModalMageVisible(true)
-      setModalMageContentId(mageId)
+      showMageModal()
+      setModalContentId(mageId)
     }
 
     const handleSupplyDetails = (cardId: string) => {
-      setModalSupplyVisible(true)
-      setModalSupplyContentId(cardId)
-    }
-
-    const handleModalNemesisClose = () => {
-      setModalNemesisVisible(false)
-    }
-
-    const handleModalMageClose = () => {
-      setModalMageVisible(false)
-    }
-
-    const handleModalSupplyClose = () => {
-      setModalSupplyVisible(false)
+      showCardModal()
+      setModalContentId(cardId)
     }
 
     return (
@@ -223,22 +205,13 @@ const ContentCustomization = React.memo(
             />
           </FormControl>
         </CardContent>
-        <NemesisModal
-          id={modalNemesisContentId}
-          visible={modalNemesisIsVisible}
-          closeModal={handleModalNemesisClose}
-        />
+        <NemesisModal id={modalContentId} renderModal={renderNemesisModal} />
         <MageModal
-          id={modalMageContentId}
+          id={modalContentId}
           playerNumber={1}
-          visible={modalMageIsVisible}
-          closeModal={handleModalMageClose}
+          renderModal={renderMageModal}
         />
-        <SupplyModal
-          id={modalSupplyContentId}
-          visible={modalSupplyIsVisible}
-          closeModal={handleModalSupplyClose}
-        />
+        <SupplyModal id={modalContentId} renderModal={renderCardModal} />
       </Card>
     )
   }

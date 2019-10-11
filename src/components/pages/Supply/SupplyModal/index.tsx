@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../../Redux/Store'
 
-import Modal from '../../../Modal'
-
 import Body from './Body'
 
 // FIXME refine type
@@ -19,37 +17,25 @@ const mapStateToProps = (state: RootState, props: any) => ({
 
 type Props = ReturnType<typeof mapStateToProps> & {
   id: string
-  visible: boolean
-  closeModal: any
   theme: any
+  renderModal: Function
 }
 
 const SupplyModal = React.memo(
-  ({ visible, closeModal, card, selectedExpansions, theme }: Props) => {
+  ({ card, selectedExpansions, theme, renderModal }: Props) => {
     const { expansions } = selectedExpansions
 
-    return (
-      <Modal
-        visible={visible}
-        titleColor={
-          card
-            ? theme.colors.cards[card.type.toLowerCase()].color
-            : theme.colors.text
-        }
-        titleLabel={card ? card.name : ''}
-        body={
-          card ? (
-            <Body
-              card={card}
-              expansionName={expansions[card.expansion].name || ''}
-            />
-          ) : (
-            'No content'
-          )
-        }
-        closeModal={closeModal}
-      />
+    const titleColor = card
+      ? theme.colors.cards[card.type.toLowerCase()].color
+      : theme.colors.text
+    const titleLabel = card ? card.name : ''
+    const body = card ? (
+      <Body card={card} expansionName={expansions[card.expansion].name || ''} />
+    ) : (
+      'No content'
     )
+
+    return renderModal(titleColor, titleLabel, body)
   }
 )
 

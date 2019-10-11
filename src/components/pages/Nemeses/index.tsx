@@ -10,6 +10,7 @@ import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
 
 import NemesisModal from './NemesisModal'
+import { useModal } from '../../Modal'
 
 const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
@@ -18,7 +19,7 @@ const mapStateToProps = (state: RootState) => ({
   availableNemeses: selectors.Settings.Expansions.getSelectedNemesesForSelectedExpansions(
     state
   ),
-  nemesis: selectors.Nemesis.getNemesis(state),
+  randomNemesis: selectors.Nemesis.getNemesis(state),
 })
 
 const mapDispatchToProps = {
@@ -30,7 +31,7 @@ type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 const Nemeses = React.memo(
   ({
     hasStandaloneExpansionSelected,
-    nemesis,
+    randomNemesis,
     availableNemeses,
     setRandomNemesis,
   }: Props) => {
@@ -38,23 +39,19 @@ const Nemeses = React.memo(
       return <NoSelectedExpansions />
     }
 
-    const [modalIsVisible, setModalVisible] = useState<boolean>(false)
+    const { show, renderModal } = useModal()
     const [modalContentId, setModalContentId] = useState<string>('')
 
     const handleNemesisDetails = (nemesisId: string) => {
-      setModalVisible(true)
+      show()
       setModalContentId(nemesisId)
-    }
-
-    const handleModalClose = () => {
-      setModalVisible(false)
     }
 
     return (
       <React.Fragment>
-        {nemesis ? (
+        {randomNemesis ? (
           <NemesisTile
-            nemesis={nemesis}
+            nemesis={randomNemesis}
             showNemesisDetails={handleNemesisDetails}
           />
         ) : (
@@ -67,11 +64,7 @@ const Nemeses = React.memo(
         >
           Open Breach
         </ShuffleButton>
-        <NemesisModal
-          id={modalContentId}
-          visible={modalIsVisible}
-          closeModal={handleModalClose}
-        />
+        <NemesisModal id={modalContentId} renderModal={renderModal} />
       </React.Fragment>
     )
   }
