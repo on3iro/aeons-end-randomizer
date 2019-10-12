@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles'
 
 const Drawer = styled(MuiDrawer)`
   width: 240px;
-  flex-shrink: 0;
 `
 
 // FIXME remove withStyles call

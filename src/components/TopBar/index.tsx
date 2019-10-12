@@ -13,7 +13,7 @@ type Props = {
 }
 
 const TopBar = React.memo(({ drawerIsOpen, toggleDrawer }: Props) => (
-  <AppBar drawerIsOpen={drawerIsOpen}>
+  <AppBar>
     <Toolbar disableGutters={!drawerIsOpen}>
       <MenuButton drawerIsOpen={drawerIsOpen} onClick={toggleDrawer} />
       <Title variant="h6" color="inherit">

@@ -20,7 +20,7 @@ const DrawerMenu = React.memo(({ drawerIsOpen, toggleDrawer }: Props) => (
   <Drawer
     open={drawerIsOpen}
     onClose={toggleDrawer}
-    variant="persistent"
+    variant="temporary"
     anchor="left"
   >
     <Header>
