@@ -123,7 +123,10 @@ const BluePrint = React.memo(({ bluePrint, dispatch }: Props) => {
         <SelectField
           key="type"
           value={bluePrint.type}
-          onChange={(e: React.ChangeEvent<{ name?: string; value: unknown }>) =>
+          onChange={(
+            e: React.ChangeEvent<{ name?: string; value: unknown }>
+          ) => {
+            console.log('called')
             dispatch({
               type: 'UPDATE',
               payload: {
@@ -131,7 +134,7 @@ const BluePrint = React.memo(({ bluePrint, dispatch }: Props) => {
                 type: e.target.value,
               },
             })
-          }
+          }}
           inputProps={{
             name: 'type',
             id: `type-${bluePrint.id}`,

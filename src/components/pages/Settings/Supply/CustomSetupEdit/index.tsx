@@ -74,6 +74,8 @@ const CustomSetupEdit = React.memo(
       setup.tiles,
       initialStateFromTiles
     )
+
+    // We reverse the list, so that the last added tile is shown on top
     const bluePrintList = Object.values(bluePrints).reverse()
 
     return (

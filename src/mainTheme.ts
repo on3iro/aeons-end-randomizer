@@ -21,6 +21,9 @@ export const muiTheme = createMuiTheme({
     // So we have `transition: none;` everywhere
     create: () => 'none',
   },
+  zIndex: {
+    modal: 20000,
+  },
 })
 
 const playerColors = {
@@ -71,48 +74,20 @@ export const mainTheme = {
     turnOrderCards: {
       ...playerColors,
       player12: {
-        normal: `linear-gradient(135deg, ${playerColors.player1.normal} 0%, ${
-          playerColors.player1.normal
-        } 50%, ${playerColors.player2.normal} 50%, ${
-          playerColors.player2.normal
-        } 100%)`,
-        light: `linear-gradient(135deg, ${playerColors.player1.light} 0%, ${
-          playerColors.player1.light
-        } 50%, ${playerColors.player2.light} 50%, ${
-          playerColors.player2.light
-        } 100%)`,
+        normal: `linear-gradient(135deg, ${playerColors.player1.normal} 0%, ${playerColors.player1.normal} 50%, ${playerColors.player2.normal} 50%, ${playerColors.player2.normal} 100%)`,
+        light: `linear-gradient(135deg, ${playerColors.player1.light} 0%, ${playerColors.player1.light} 50%, ${playerColors.player2.light} 50%, ${playerColors.player2.light} 100%)`,
       },
       player34: {
-        normal: `linear-gradient(135deg, ${playerColors.player3.normal} 0%, ${
-          playerColors.player3.normal
-        } 50%, ${playerColors.player4.normal} 50%, ${
-          playerColors.player4.normal
-        } 100%)`,
-        light: `linear-gradient(135deg, ${playerColors.player3.light} 0%, ${
-          playerColors.player3.light
-        } 50%, ${playerColors.player4.light} 50%, ${
-          playerColors.player4.light
-        } 100%)`,
+        normal: `linear-gradient(135deg, ${playerColors.player3.normal} 0%, ${playerColors.player3.normal} 50%, ${playerColors.player4.normal} 50%, ${playerColors.player4.normal} 100%)`,
+        light: `linear-gradient(135deg, ${playerColors.player3.light} 0%, ${playerColors.player3.light} 50%, ${playerColors.player4.light} 50%, ${playerColors.player4.light} 100%)`,
       },
       wild: {
         normal: '#9E9E9E',
         light: '#FAFAFA',
       },
       'wild-token': {
-        normal: `linear-gradient(135deg, ${playerColors.player1.normal} 0%, ${
-          playerColors.player1.normal
-        } 33%, ${playerColors.player2.normal} 33%, ${
-          playerColors.player2.normal
-        } 66%, ${playerColors.player3.normal} 66%, ${
-          playerColors.player3.normal
-        } 100%)`,
-        light: `linear-gradient(135deg, ${playerColors.player1.light} 0%, ${
-          playerColors.player1.light
-        } 33%, ${playerColors.player2.light} 33%, ${
-          playerColors.player2.light
-        } 66%, ${playerColors.player3.light} 66%, ${
-          playerColors.player3.light
-        } 100%)`,
+        normal: `linear-gradient(135deg, ${playerColors.player1.normal} 0%, ${playerColors.player1.normal} 33%, ${playerColors.player2.normal} 33%, ${playerColors.player2.normal} 66%, ${playerColors.player3.normal} 66%, ${playerColors.player3.normal} 100%)`,
+        light: `linear-gradient(135deg, ${playerColors.player1.light} 0%, ${playerColors.player1.light} 33%, ${playerColors.player2.light} 33%, ${playerColors.player2.light} 66%, ${playerColors.player3.light} 66%, ${playerColors.player3.light} 100%)`,
       },
       nemesis: {
         normal: '#f44336',
