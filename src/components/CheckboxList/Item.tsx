@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -17,18 +17,20 @@ type Props = BaseProps & {
 }
 
 const DefaultCheckbox = React.memo(
-  ({ checked, item, label, changeHandler }: BaseProps) => (
-    <FormControlLabel
-      control={
-        <Checkbox
-          checked={checked}
-          onChange={() => changeHandler(item.id)}
-          value={item.id}
-        />
-      }
-      label={label}
-    />
-  )
+  ({ checked, item, label, changeHandler }: BaseProps) => {
+    const handleChange = useCallback(() => changeHandler(item.id), [
+      item.id,
+      changeHandler,
+    ])
+    return (
+      <FormControlLabel
+        control={
+          <Checkbox checked={checked} onChange={handleChange} value={item.id} />
+        }
+        label={label}
+      />
+    )
+  }
 )
 
 const Item = React.memo(({ Component = DefaultCheckbox, ...rest }: Props) => {
