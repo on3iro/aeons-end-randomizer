@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import CheckboxList from '../../../CheckboxList'
@@ -26,13 +26,17 @@ const PredefinedSetups = React.memo(
       setup: setup,
     }))
 
+    const handleToggle = useCallback(item => toggleSetup(item, 'Predefined'), [
+      toggleSetup,
+    ])
+
     return (
       <CheckboxList
         label="Predefined Setups"
-        changeHandler={item => toggleSetup(item, 'Predefined')}
+        changeHandler={handleToggle}
         items={predefinedItems}
         Component={({ checked, item, label, changeHandler, ...rest }) => {
-          const setup = predefinedSetups.find(setup => setup.id === item)
+          const setup = predefinedSetups.find(setup => setup.id === item.id)
           return (
             <CheckboxWithPreview
               changeHandler={changeHandler}

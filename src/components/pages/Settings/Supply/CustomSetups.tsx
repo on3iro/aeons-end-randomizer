@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { connect } from 'react-redux'
 import IconButton from '@material-ui/core/IconButton'
 import EditIcon from '@material-ui/icons/Edit'
@@ -10,6 +10,7 @@ import CheckboxWithPreview from './CheckboxWithPreview'
 import CustomSetupEdit from './CustomSetupEdit'
 
 import { RootState, actions, selectors } from '../../../../Redux/Store'
+import { useModal } from '../../../Modal'
 import CheckboxWithPreviewControls from './CheckboxWithPreviewControls'
 
 const mapStateToProps = (state: RootState) => ({
@@ -21,10 +22,12 @@ const mapDispatchToProps = {
   createSetup: actions.Settings.SupplySetups.createCustomSetup,
   editSetup: actions.Settings.SupplySetups.editCustomSetup,
   deleteSetup: actions.Settings.SupplySetups.deleteCustomSetup,
+  cancelEdit: actions.Settings.SupplySetups.cancelEdit,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
+// TODO refactor this and all subcomponents!
 const CustomSetups = React.memo(
   ({
     customSetups,
@@ -32,6 +35,7 @@ const CustomSetups = React.memo(
     toggleSetup,
     editSetup,
     deleteSetup,
+    cancelEdit,
   }: Props) => {
     const customItems = customSetups.map(setup => ({
       id: setup.id,
@@ -41,53 +45,80 @@ const CustomSetups = React.memo(
       setup: setup,
     }))
 
+    const handleToggle = useCallback(item => toggleSetup(item, 'Custom'), [
+      toggleSetup,
+    ])
+
+    const CheckboxComponent = useCallback(
+      ({ checked, item, label, changeHandler, ...rest }) => {
+        const setup = customSetups.find(setup => setup.id === item.id)
+        const { show, renderModal } = useModal()
+
+        if (!setup) return null
+
+        if (setup.isDirty) {
+          useEffect(show)
+        }
+
+        const modalTitle = setup.isNew ? 'New Setup' : 'Edit Setup'
+
+        const handleEdit = useCallback(() => {
+          show()
+          editSetup(setup.id)
+        }, [setup.id, show])
+        const handleDelete = useCallback(() => deleteSetup(setup.id), [
+          setup.id,
+        ])
+        const handleCancel = useCallback(() => cancelEdit(setup.id), [setup.id])
+
+        return (
+          <CheckboxWithPreview
+            changeHandler={changeHandler}
+            checked={checked}
+            item={item.id}
+            label={label}
+            setup={setup}
+          >
+            <CheckboxWithPreviewControls>
+              <IconButton
+                color="primary"
+                aria-label="Edit"
+                onClick={handleEdit}
+              >
+                <EditIcon />
+              </IconButton>
+              <IconButton
+                color="secondary"
+                aria-label="Delete"
+                onClick={handleDelete}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </CheckboxWithPreviewControls>
+            {renderModal(
+              '#333',
+              modalTitle,
+              <CustomSetupEdit setup={setup} />,
+              handleCancel
+            )}
+          </CheckboxWithPreview>
+        )
+      },
+      [customSetups, editSetup, deleteSetup, cancelEdit]
+    )
+
     return (
       <CheckboxList
         label="Custom Setups"
-        changeHandler={item => toggleSetup(item, 'Custom')}
+        changeHandler={handleToggle}
         items={customItems}
-        Component={({ checked, item, label, changeHandler, ...rest }) => {
-          const setup = customSetups.find(setup => setup.id === item)
-
-          if (!setup) return null
-
-          if (setup.isDirty) {
-            return <CustomSetupEdit setup={setup} />
-          }
-
-          return (
-            <CheckboxWithPreview
-              changeHandler={changeHandler}
-              checked={checked}
-              item={item.id}
-              label={label}
-              setup={setup}
-            >
-              <CheckboxWithPreviewControls>
-                <IconButton
-                  color="primary"
-                  aria-label="Edit"
-                  onClick={() => editSetup(setup.id)}
-                >
-                  <EditIcon />
-                </IconButton>
-                <IconButton
-                  color="secondary"
-                  aria-label="Delete"
-                  onClick={() => deleteSetup(setup.id)}
-                >
-                  <DeleteIcon />
-                </IconButton>
-              </CheckboxWithPreviewControls>
-            </CheckboxWithPreview>
-          )
-        }}
+        Component={CheckboxComponent}
       >
         <Button
           variant="contained"
           color="secondary"
           style={{ marginTop: '16px' }}
-          onClick={() => createSetup()}
+          onClick={createSetup}
         >
           Add
         </Button>

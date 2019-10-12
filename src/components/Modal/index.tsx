@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import ReactDOM from 'react-dom'
 
 import Wrapper from './Wrapper'
@@ -59,19 +59,29 @@ export const useModal = () => {
   const renderModal = (
     titleColor: string,
     titleLabel: string,
-    body: React.ReactElement | string
-  ) => (
-    <React.Fragment>
-      {isVisible && (
-        <Modal
-          titleColor={titleColor}
-          titleLabel={titleLabel}
-          body={body}
-          closeModal={hide}
-        />
-      )}
-    </React.Fragment>
-  )
+    body: React.ReactElement | string,
+    callback?: () => void
+  ) => {
+    const handleClose = () => {
+      hide()
+      if (callback) {
+        callback()
+      }
+    }
+
+    return (
+      <React.Fragment>
+        {isVisible && (
+          <Modal
+            titleColor={titleColor}
+            titleLabel={titleLabel}
+            body={body}
+            closeModal={handleClose}
+          />
+        )}
+      </React.Fragment>
+    )
+  }
 
   return {
     show,
