@@ -35,7 +35,8 @@ export const initialState: State = {
 /////////////
 
 export enum ActionTypes {
-  CREATE_EXPEDITION = 'Expeditions/Expeditions/CREATE_EXPEDITIONS',
+  CREATE_EXPEDITION = 'Expeditions/Expeditions/CREATE_EXPEDITION',
+  DELETE_EXPEDITION = 'Expeditions/Expeditions/DELETE_EXPEDITION',
   SET_TO_DB = 'Expeditions/Expeditions/SET_TO_DB',
   SET_TO_DB_SUCCESS = 'Expeditions/Expeditions/SET_TO_DB_SUCCESS',
   SET_TO_DB_FAILURE = 'Expeditions/Expeditions/SET_TO_DB_FAILURE',
@@ -99,6 +100,8 @@ const createExpeditionAction = ({
 
 export const actions = {
   createExpedition: createExpeditionAction,
+  deleteExpedition: (id: string) =>
+    createAction(ActionTypes.DELETE_EXPEDITION, id),
   setToDB: (state: State) => createAction(ActionTypes.SET_TO_DB, state),
   setToDBSuccessful: () => createAction(ActionTypes.SET_TO_DB_SUCCESS),
   setToDBFailed: (error: Object) =>
@@ -161,6 +164,26 @@ export const Reducer: LoopReducer<State, Action> = (
           args: [EXPEDITIONS_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
+        })
+      )
+    }
+
+    case ActionTypes.DELETE_EXPEDITION: {
+      const id = action.payload
+
+      const { [id]: expedition, ...rest } = state.expeditions
+
+      const newState = {
+        expeditions: { ...rest },
+        expeditionIds: state.expeditionIds.filter(
+          expeditionId => expeditionId !== id
+        ),
+      }
+
+      return loop(
+        newState,
+        Cmd.run(setToDb, {
+          args: [EXPEDITIONS_DB_KEY],
         })
       )
     }

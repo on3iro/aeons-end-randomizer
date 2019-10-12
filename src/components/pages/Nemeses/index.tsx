@@ -10,7 +10,7 @@ import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
 
 import NemesisModal from './NemesisModal'
-import { useModal } from '../../Modal'
+import { useModal } from '../../../hooks/useModal'
 
 const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
@@ -39,7 +39,7 @@ const Nemeses = React.memo(
       return <NoSelectedExpansions />
     }
 
-    const { show, renderModal } = useModal()
+    const { show, RenderModal } = useModal()
     const [modalContentId, setModalContentId] = useState<string>('')
 
     const handleNemesisDetails = (nemesisId: string) => {
@@ -64,7 +64,7 @@ const Nemeses = React.memo(
         >
           Open Breach
         </ShuffleButton>
-        <NemesisModal id={modalContentId} renderModal={renderModal} />
+        <NemesisModal id={modalContentId} RenderModal={RenderModal} />
       </React.Fragment>
     )
   }

@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, selectors, actions } from '../../../../../Redux/Store'
-import { useModal } from '../../../../Modal'
+import { useModal } from '../../../../../hooks/useModal'
 import * as types from '../../../../../types'
 
 import CheckboxWithDetails from './CheckboxWithDetails'
@@ -38,7 +38,7 @@ type Props = ReturnType<typeof mapStateToProps> &
   }
 
 const Mages = React.memo(({ selectedMages, handleMageChange }: Props) => {
-  const { show: showMageModal, renderModal: renderMageModal } = useModal()
+  const { show: showMageModal, RenderModal: RenderMageModal } = useModal()
   const [modalContentId, setModalContentId] = useState<string>('')
 
   const CheckboxComponent = useCallback(
@@ -70,7 +70,7 @@ const Mages = React.memo(({ selectedMages, handleMageChange }: Props) => {
         Component={CheckboxComponent}
         changeHandler={handleMageChange}
       />
-      <MageModal id={modalContentId} renderModal={renderMageModal} />
+      <MageModal id={modalContentId} RenderModal={RenderMageModal} />
     </React.Fragment>
   )
 })

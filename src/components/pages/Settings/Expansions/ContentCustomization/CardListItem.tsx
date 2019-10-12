@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 
-import { useModal } from '../../../../Modal'
+import { useModal } from '../../../../../hooks/useModal'
 import * as types from '../../../../../types'
 
 import CheckboxWithDetails from './CheckboxWithDetails'
@@ -27,7 +27,7 @@ type Props = {
 
 const CardListItem = React.memo(
   ({ entities, handleCheckboxChange, label }: Props) => {
-    const { show, renderModal } = useModal()
+    const { show, RenderModal } = useModal()
     const [modalContentId, setModalContentId] = useState<string>('')
 
     const CheckboxComponent = useCallback(
@@ -60,7 +60,7 @@ const CardListItem = React.memo(
           Component={CheckboxComponent}
           changeHandler={handleCheckboxChange}
         />
-        <SupplyModal id={modalContentId} renderModal={renderModal} />
+        <SupplyModal id={modalContentId} RenderModal={RenderModal} />
       </React.Fragment>
     )
   }

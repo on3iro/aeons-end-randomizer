@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../Redux/Store'
-import { useModal } from '../../Modal'
+import { useModal } from '../../../hooks/useModal'
 
 import NoSelectedExpansions from '../../NoSelectedExpansions'
 import ShuffleButton from '../../ShuffleButton'
@@ -25,16 +25,14 @@ const Expeditions = React.memo(({ hasStandaloneExpansionSelected }: Props) => {
     return <NoSelectedExpansions />
   }
 
-  const { show, hide, renderModal } = useModal()
+  const { show, hide, RenderModal } = useModal()
 
   return (
     <React.Fragment>
       <ExpeditionList />
-      {renderModal(
-        '#333',
-        'New Expedition',
+      <RenderModal titleColor="#333" titleLabel="New Expedition">
         <CreationDialog finisher={hide} />
-      )}
+      </RenderModal>
       <ShuffleButton onClick={show} color="primary" variant="extended">
         Start new expedition
       </ShuffleButton>
