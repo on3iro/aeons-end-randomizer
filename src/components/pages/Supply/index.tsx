@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
-import { useModal } from '../../Modal'
+import { useModal } from '../../../hooks/useModal'
 
 import ShuffleButton from '../../ShuffleButton'
 import NoSelectedExpansions from '../../NoSelectedExpansions'
@@ -53,7 +53,7 @@ const Supply = React.memo(
 
     const tiles = allMarketSetups[selectedMarketId].tiles
 
-    const { show, renderModal } = useModal()
+    const { show, RenderModal } = useModal()
     const [modalContentId, setModalContentId] = useState<string>('')
 
     const handleSupplyDetails = (cardId: string) => {
@@ -82,7 +82,7 @@ const Supply = React.memo(
         >
           Create Market
         </ShuffleButton>
-        <SupplyModal id={modalContentId} renderModal={renderModal} />
+        <SupplyModal id={modalContentId} RenderModal={RenderModal} />
       </React.Fragment>
     )
   }

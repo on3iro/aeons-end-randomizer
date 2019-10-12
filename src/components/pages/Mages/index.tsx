@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
 import { MageCount } from '../../../Redux/Store/Mages/Count'
-import { useModal } from '../../Modal'
+import { useModal } from '../../../hooks/useModal'
 
 import MageCountPicker from './MageCountPicker'
 import MageList from '../../MageList'
@@ -45,7 +45,7 @@ const Mages = React.memo(
       return <NoSelectedExpansions />
     }
 
-    const { show, renderModal } = useModal()
+    const { show, RenderModal } = useModal()
     const [modalContentId, setModalContentId] = useState<string>('')
     const [modalPlayerNumber, setModalPlayerNumber] = useState<number>(1)
 
@@ -86,7 +86,7 @@ const Mages = React.memo(
         <MageModal
           id={modalContentId}
           player={`player${modalPlayerNumber}`}
-          renderModal={renderModal}
+          RenderModal={RenderModal}
         />
       </React.Fragment>
     )

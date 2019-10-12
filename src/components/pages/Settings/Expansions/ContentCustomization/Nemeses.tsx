@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, selectors, actions } from '../../../../../Redux/Store'
-import { useModal } from '../../../../Modal'
+import { useModal } from '../../../../../hooks/useModal'
 import * as types from '../../../../../types'
 
 import CheckboxWithDetails from './CheckboxWithDetails'
@@ -42,7 +42,7 @@ const Nemeses = React.memo(
   ({ selectedNemeses, handleNemesisChange }: Props) => {
     const {
       show: showNemesisModal,
-      renderModal: renderNemesisModal,
+      RenderModal: RenderNemesisModal,
     } = useModal()
     const [modalContentId, setModalContentId] = useState<string>('')
 
@@ -75,7 +75,7 @@ const Nemeses = React.memo(
           Component={CheckboxComponent}
           changeHandler={handleNemesisChange}
         />
-        <NemesisModal id={modalContentId} renderModal={renderNemesisModal} />
+        <NemesisModal id={modalContentId} RenderModal={RenderNemesisModal} />
       </React.Fragment>
     )
   }

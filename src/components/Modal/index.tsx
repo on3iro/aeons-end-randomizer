@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Wrapper from './Wrapper'
@@ -14,7 +14,7 @@ import CloseIcon from '@material-ui/icons/Close'
 type Props = {
   titleLabel: string
   titleColor: string
-  body: React.ReactElement | string
+  body: React.ReactChild
   closeModal: () => void
 }
 
@@ -45,49 +45,5 @@ const Modal = React.memo(
     )
   }
 )
-
-// Renders a modal to the modal root and handles the visibility state
-// of this modal.
-//
-// NOTE: Each modal you want to render should use a separate hook!!!
-// Otherwise your modals will share their visibility state which might lead
-// to overlapping and unclosable elements.
-export const useModal = () => {
-  const [isVisible, setIsVisible] = useState(false)
-  const show = () => setIsVisible(true)
-  const hide = () => setIsVisible(false)
-  const renderModal = (
-    titleColor: string,
-    titleLabel: string,
-    body: React.ReactElement | string,
-    callback?: () => void
-  ) => {
-    const handleClose = () => {
-      hide()
-      if (callback) {
-        callback()
-      }
-    }
-
-    return (
-      <React.Fragment>
-        {isVisible && (
-          <Modal
-            titleColor={titleColor}
-            titleLabel={titleLabel}
-            body={body}
-            closeModal={handleClose}
-          />
-        )}
-      </React.Fragment>
-    )
-  }
-
-  return {
-    show,
-    hide,
-    renderModal,
-  }
-}
 
 export default Modal

@@ -1,8 +1,5 @@
 import React, { useCallback, useEffect } from 'react'
 import { connect } from 'react-redux'
-import IconButton from '@material-ui/core/IconButton'
-import EditIcon from '@material-ui/icons/Edit'
-import DeleteIcon from '@material-ui/icons/Delete'
 import Button from '@material-ui/core/Button'
 
 import CheckboxList from '../../../CheckboxList'
@@ -10,7 +7,9 @@ import CheckboxWithPreview from './CheckboxWithPreview'
 import CustomSetupEdit from './CustomSetupEdit'
 
 import { RootState, actions, selectors } from '../../../../Redux/Store'
-import { useModal } from '../../../Modal'
+import { useModal, usePrompt } from '../../../../hooks/useModal'
+import EditButton from '../../../EditButton'
+import DeleteButton from '../../../DeleteButton'
 import CheckboxWithPreviewControls from './CheckboxWithPreviewControls'
 
 const mapStateToProps = (state: RootState) => ({
@@ -52,24 +51,37 @@ const CustomSetups = React.memo(
     const CheckboxComponent = useCallback(
       ({ checked, item, label, changeHandler, ...rest }) => {
         const setup = customSetups.find(setup => setup.id === item.id)
-        const { show, renderModal } = useModal()
+        const { show: showEditModal, RenderModal: RenderEditModal } = useModal()
+        const {
+          show: showDeletionDialog,
+          hide: hideDeletionDialog,
+          RenderPrompt: RenderDeletionPrompt,
+        } = usePrompt()
 
         if (!setup) return null
 
         if (setup.isDirty) {
-          useEffect(show)
+          useEffect(showEditModal)
         }
 
         const modalTitle = setup.isNew ? 'New Setup' : 'Edit Setup'
 
         const handleEdit = useCallback(() => {
-          show()
+          showEditModal()
           editSetup(setup.id)
-        }, [setup.id, show])
+        }, [setup.id, showEditModal])
+
+        const handleEditCancel = useCallback(() => cancelEdit(setup.id), [
+          setup.id,
+        ])
+
+        const openDeletionDialog = useCallback(() => {
+          showDeletionDialog()
+        }, [showDeletionDialog])
+
         const handleDelete = useCallback(() => deleteSetup(setup.id), [
           setup.id,
         ])
-        const handleCancel = useCallback(() => cancelEdit(setup.id), [setup.id])
 
         return (
           <CheckboxWithPreview
@@ -80,27 +92,22 @@ const CustomSetups = React.memo(
             setup={setup}
           >
             <CheckboxWithPreviewControls>
-              <IconButton
-                color="primary"
-                aria-label="Edit"
-                onClick={handleEdit}
-              >
-                <EditIcon />
-              </IconButton>
-              <IconButton
-                color="secondary"
-                aria-label="Delete"
-                onClick={handleDelete}
-              >
-                <DeleteIcon />
-              </IconButton>
+              <EditButton onClick={handleEdit} />
+              <DeleteButton onClick={openDeletionDialog} />
             </CheckboxWithPreviewControls>
-            {renderModal(
-              '#333',
-              modalTitle,
-              <CustomSetupEdit setup={setup} />,
-              handleCancel
-            )}
+            <RenderEditModal
+              titleColor="#333"
+              titleLabel={modalTitle}
+              closeCallback={handleEditCancel}
+            >
+              <CustomSetupEdit setup={setup} />
+            </RenderEditModal>
+            <RenderDeletionPrompt
+              yesHandler={handleDelete}
+              noHandler={hideDeletionDialog}
+              titleColor="#333"
+              titleLabel={`Would you really like to delete setup: "${setup.name}"`}
+            />
           </CheckboxWithPreview>
         )
       },

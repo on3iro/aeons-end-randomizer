@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../../Redux/Store'
 
+import { RenderModalType } from '../../../../hooks/useModal'
+
 import Body from './Body'
 
 // FIXME refine type
@@ -19,11 +21,11 @@ type Props = ReturnType<typeof mapStateToProps> & {
   id: string
   player: 'player1' | 'player2' | 'player3' | 'player4'
   theme: any
-  renderModal: Function
+  RenderModal: RenderModalType
 }
 
 const MageModal = React.memo(
-  ({ player, mage, selectedExpansions, theme, renderModal }: Props) => {
+  ({ player, mage, selectedExpansions, theme, RenderModal }: Props) => {
     const { expansions } = selectedExpansions
 
     const titleColor = player
@@ -41,7 +43,11 @@ const MageModal = React.memo(
       'No content'
     )
 
-    return renderModal(titleColor, titleLabel, body)
+    return (
+      <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
+        {body}
+      </RenderModal>
+    )
   }
 )
 
