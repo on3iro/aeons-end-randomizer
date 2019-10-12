@@ -6,7 +6,7 @@ import ActiveSets from './ActiveSets'
 
 type Props = {}
 
-const Expansions = React.memo(() => {
+const Expansions = React.memo(({  }: Props) => {
   const { expanded, createExpansionHandler } = useExpansionHandling()
   const expansionKey = 'sets'
   const expansionHandler = createExpansionHandler(expansionKey)
