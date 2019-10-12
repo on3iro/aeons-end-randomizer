@@ -32,7 +32,7 @@ const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
     <React.Fragment>
       <TopBar drawerIsOpen={drawerIsOpen} toggleDrawer={toggleDrawer} />
       <DrawerMenu drawerIsOpen={drawerIsOpen} toggleDrawer={toggleDrawer} />
-      <Content isLoading={isLoading} drawerIsOpen={drawerIsOpen} />
+      <Content isLoading={isLoading} />
       <div id="modal-root" />
     </React.Fragment>
   )

@@ -18,7 +18,6 @@ import Expedition from '../pages/Expeditions/Expedition'
 
 type Props = {
   isLoading: boolean
-  drawerIsOpen: boolean
 }
 
 const Routing = React.memo(() => (
@@ -46,8 +45,8 @@ const Routing = React.memo(() => (
   </Switch>
 ))
 
-const Content = React.memo(({ isLoading, drawerIsOpen }: Props) => (
-  <Wrapper isLoading={isLoading} drawerIsOpen={drawerIsOpen}>
+const Content = React.memo(({ isLoading }: Props) => (
+  <Wrapper isLoading={isLoading}>
     <HeaderPlaceholder />
     {isLoading ? <CircularProgress /> : <Routing />}
   </Wrapper>
