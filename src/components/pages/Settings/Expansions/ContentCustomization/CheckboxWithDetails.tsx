@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import styled from 'styled-components/macro'
 
 import Keywords from '../../../../Keywords'
@@ -31,25 +31,25 @@ const CheckboxWithDetails = React.memo(
     changeHandler,
     showDetails,
     keywords,
-    type,
     id,
   }: Props) => {
+    const handleChange = useCallback(() => changeHandler(item), [
+      item,
+      changeHandler,
+    ])
+    const handleDetails = useCallback(() => showDetails(id), [id, showDetails])
     return (
       <Wrapper>
         <FormControlLabel
           control={
-            <Checkbox
-              checked={checked}
-              onChange={() => changeHandler(item)}
-              value={item}
-            />
+            <Checkbox checked={checked} onChange={handleChange} value={item} />
           }
           label={label}
         />
         <IconButton
           color="primary"
           aria-label="Show details"
-          onClick={() => showDetails(id)}
+          onClick={handleDetails}
         >
           <VisibilityOutlinedIcon />
         </IconButton>
