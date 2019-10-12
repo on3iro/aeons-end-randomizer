@@ -24,7 +24,7 @@ type OptionalTile = {
 
 const renderTiles = (
   tiles: ReadonlyArray<OptionalTile>,
-  showSupplyDetails?: Function
+  showSupplyDetails: Function
 ) => {
   return tiles.map((marketTile, i) => (
     <MarketTile
@@ -37,15 +37,13 @@ const renderTiles = (
 
 type Props = {
   tiles: ReadonlyArray<OptionalTile>
-  showSupplyDetails?: Function // FIXME signature
+  showSupplyDetails: Function // FIXME signature
 }
 
 const SupplyList = React.memo(({ tiles, showSupplyDetails }: Props) => (
   <ListWrapper>
     <Grid container spacing={16}>
-      {showSupplyDetails
-        ? renderTiles(tiles, showSupplyDetails)
-        : renderTiles(tiles)}
+      {renderTiles(tiles, showSupplyDetails)}
     </Grid>
   </ListWrapper>
 ))

@@ -27,7 +27,7 @@ type Props = {
   theme: any
 }
 
-const Body = ({ mage, player, expansionName, theme }: Props) => (
+const Body = React.memo(({ mage, player, expansionName, theme }: Props) => (
   <React.Fragment>
     <InfoItem label="Title" info={mage.mageTitle} />
     <InfoItem label="Expansion" info={expansionName} />
@@ -64,6 +64,6 @@ const Body = ({ mage, player, expansionName, theme }: Props) => (
       </Grid>
     ) : null}
   </React.Fragment>
-)
+))
 
 export default withTheme(Body)

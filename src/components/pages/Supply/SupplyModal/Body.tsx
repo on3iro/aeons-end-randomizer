@@ -16,7 +16,7 @@ type Props = {
   theme: any
 }
 
-const Body = ({ card, expansionName, theme }: Props) => (
+const Body = React.memo(({ card, expansionName, theme }: Props) => (
   <React.Fragment>
     <InfoItem label="Expansion" info={expansionName} />
     <InfoItem label="Type" info={card.type} />
@@ -41,6 +41,6 @@ const Body = ({ card, expansionName, theme }: Props) => (
       </Keywords>
     ) : null}
   </React.Fragment>
-)
+))
 
 export default withTheme(Body)

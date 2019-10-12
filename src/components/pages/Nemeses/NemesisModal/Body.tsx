@@ -15,7 +15,7 @@ type Props = {
   theme: any
 }
 
-const Body = ({ nemesis, expansionName, theme }: Props) => (
+const Body = React.memo(({ nemesis, expansionName, theme }: Props) => (
   <React.Fragment>
     <InfoItem label="Expansion" info={expansionName} />
     <InfoItem label="Health" info={nemesis.health.toString()} />
@@ -39,6 +39,6 @@ const Body = ({ nemesis, expansionName, theme }: Props) => (
       </React.Fragment>
     ) : null}
   </React.Fragment>
-)
+))
 
 export default withTheme(Body)
