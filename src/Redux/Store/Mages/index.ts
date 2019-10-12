@@ -25,7 +25,7 @@ export const initialState = {
   Recruited: Recruited.initialState,
 }
 
-export const Reducer = combineReducers<State, Action>({
+export const Reducer = combineReducers({
   Count: Count.Reducer,
   Recruited: Recruited.Reducer,
 })

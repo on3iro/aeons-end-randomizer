@@ -25,7 +25,7 @@ export const selectors = {
   ActiveGame: ActiveGame.selectors,
 }
 
-export const Reducer = combineReducers<State, Action>({
+export const Reducer = combineReducers({
   Configuration: Configuration.Reducer,
   ActiveGame: ActiveGame.Reducer,
 })

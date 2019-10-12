@@ -15,7 +15,7 @@ export const TURNORDER_GAME_DB_KEY = 'turnOrderGameState'
 const newStateWithDBWrite = (newState: State) => {
   return loop(
     newState,
-    Cmd.run<Action>(setToDb, {
+    Cmd.run(setToDb, {
       args: [TURNORDER_GAME_DB_KEY, newState],
       successActionCreator: actions.setTurnOrderToDbSuccess,
       failActionCreator: actions.setTurnOrderToDbFailure,
@@ -190,7 +190,7 @@ export const Reducer: LoopReducer<State, Action> = (
     case ActionTypes.FETCH_FROM_DB: {
       return loop(
         state,
-        Cmd.run<Action>(getFromDb, {
+        Cmd.run(getFromDb, {
           args: [TURNORDER_GAME_DB_KEY],
           successActionCreator: actions.fetchFromDBSuccessful,
           failActionCreator: actions.fetchFromDBFailed,

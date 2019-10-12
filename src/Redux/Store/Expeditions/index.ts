@@ -25,7 +25,7 @@ export const initialState = {
   Variants: Variants.initialState,
 }
 
-export const Reducer = combineReducers<State, Action>({
+export const Reducer = combineReducers({
   Expeditions: Expeditions.Reducer,
   Variants: Variants.Reducer,
 })
