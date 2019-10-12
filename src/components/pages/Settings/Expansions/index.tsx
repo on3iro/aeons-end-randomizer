@@ -1,20 +1,35 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { connect } from 'react-redux'
 
-import useExpansionHandling from '../../../../hooks/useExpansionHandling'
+import { RootState, actions, selectors } from '../../../../Redux/Store'
+
 import ExpansionPanel from '../../../ExpansionPanel'
 import ActiveSets from './ActiveSets'
 
-type Props = {}
+const KEY = 'expansions'
 
-const Expansions = React.memo(({  }: Props) => {
-  const { expanded, createExpansionHandler } = useExpansionHandling()
-  const expansionKey = 'sets'
-  const expansionHandler = createExpansionHandler(expansionKey)
+const mapStateToProps = (state: RootState) => ({
+  accordionState: selectors.Settings.Accordions.getAccordionStateById(
+    state,
+    KEY
+  ),
+})
+
+const mapDispatchToProps = {
+  toggleAccordion: actions.Settings.Accordions.toggle,
+}
+
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
+
+const Expansions = React.memo(({ accordionState, toggleAccordion }: Props) => {
+  const expansionHandler = useCallback(() => toggleAccordion(KEY), [
+    toggleAccordion,
+  ])
 
   return (
     <ExpansionPanel
-      expanded={expanded}
-      expansionKey={expansionKey}
+      expanded={accordionState}
+      expansionKey="expansions"
       expansionHandler={expansionHandler}
       summary="Expansions"
     >
@@ -25,4 +40,7 @@ const Expansions = React.memo(({  }: Props) => {
 
 Expansions.displayName = 'Expansions'
 
-export default Expansions
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Expansions)

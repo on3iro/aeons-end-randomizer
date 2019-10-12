@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 import Wrapper from './Wrapper'

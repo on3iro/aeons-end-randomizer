@@ -13,16 +13,13 @@ type Props = {
   expansionKey: string
   summary: string
   children: React.ReactNode
-  expansionHandler: (
-    event: React.ChangeEvent<any> | undefined,
-    expanded: boolean | string
-  ) => void
+  expansionHandler: (...args: any) => void
 }
 
 const ExpansionPanel = React.memo(
   ({ children, expanded, expansionHandler, expansionKey, summary }: Props) => (
     <StyledExpansionPanel
-      expanded={expanded === expansionKey}
+      expanded={expanded === true || expanded === expansionKey}
       onChange={expansionHandler}
     >
       <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
