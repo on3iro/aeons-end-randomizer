@@ -20,6 +20,6 @@ export const initialState = {
   RandomSetup: RandomSetup.initialState,
 }
 
-export const Reducer = combineReducers<State, Action>({
+export const Reducer = combineReducers({
   RandomSetup: RandomSetup.Reducer,
 })

@@ -1,5 +1,5 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
-import { LoopReducer, loop, Cmd } from 'redux-loop'
+import { loop, Cmd } from 'redux-loop'
 import { createSelector } from 'reselect'
 import { get as getFromDb, set as setToDb } from 'idb-keyval'
 
@@ -108,16 +108,13 @@ export type Action = ActionsUnion<typeof actions>
 // REDUCER //
 /////////////
 
-export const Reducer: LoopReducer<State, Action | ActiveGameAction> = (
-  state: State = initialState,
-  action: Action
-) => {
+export const Reducer = (state: State = initialState, action: Action) => {
   switch (action.type) {
     case ActionTypes.SET_MODE: {
       const newState = { ...state, Mode: action.payload }
       return loop(
         newState,
-        Cmd.run<Action>(setToDb, {
+        Cmd.run(setToDb, {
           args: [TURNORDER_CONFIG_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
@@ -134,7 +131,7 @@ export const Reducer: LoopReducer<State, Action | ActiveGameAction> = (
       }
       return loop(
         newState,
-        Cmd.run<Action>(setToDb, {
+        Cmd.run(setToDb, {
           args: [TURNORDER_CONFIG_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
@@ -149,7 +146,7 @@ export const Reducer: LoopReducer<State, Action | ActiveGameAction> = (
       }
       return loop(
         newState,
-        Cmd.run<Action>(setToDb, {
+        Cmd.run(setToDb, {
           args: [TURNORDER_CONFIG_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
@@ -160,7 +157,7 @@ export const Reducer: LoopReducer<State, Action | ActiveGameAction> = (
     case ActionTypes.FETCH_FROM_DB: {
       return loop(
         state,
-        Cmd.run<Action>(getFromDb, {
+        Cmd.run(getFromDb, {
           args: [TURNORDER_CONFIG_DB_KEY],
           successActionCreator: actions.fetchFromDBSuccessful,
           failActionCreator: actions.fetchFromDBFailed,

@@ -125,7 +125,7 @@ export const Reducer: LoopReducer<State, Action> = (
 
       return loop(
         newState,
-        Cmd.run<Action>(setToDb, {
+        Cmd.run(setToDb, {
           args: [SUPPLY_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
@@ -148,7 +148,7 @@ export const Reducer: LoopReducer<State, Action> = (
 
       return loop(
         newState,
-        Cmd.run<Action>(setToDb, {
+        Cmd.run(setToDb, {
           args: [SUPPLY_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
@@ -159,7 +159,7 @@ export const Reducer: LoopReducer<State, Action> = (
     case ActionTypes.FETCH_FROM_DB: {
       return loop(
         state,
-        Cmd.run<Action>(getFromDb, {
+        Cmd.run(getFromDb, {
           args: [SUPPLY_DB_KEY],
           successActionCreator: actions.fetchFromDBSuccessful,
           failActionCreator: actions.fetchFromDBFailed,
@@ -216,7 +216,7 @@ export const Reducer: LoopReducer<State, Action> = (
 
       return loop(
         newState,
-        Cmd.run<Action>(setToDb, {
+        Cmd.run(setToDb, {
           args: [SUPPLY_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,
@@ -269,7 +269,7 @@ export const Reducer: LoopReducer<State, Action> = (
 
       return loop(
         newState,
-        Cmd.run<Action>(setToDb, {
+        Cmd.run(setToDb, {
           args: [SUPPLY_DB_KEY, newState],
           successActionCreator: actions.setToDBSuccessful,
           failActionCreator: actions.setToDBFailed,

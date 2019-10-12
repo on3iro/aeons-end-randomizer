@@ -58,7 +58,7 @@ export const actions = {
 // REDUCER //
 /////////////
 
-export const Reducer = combineReducers<State, Action>({
+export const Reducer = combineReducers({
   SelectedExpansions: SelectedExpansions.Reducer,
   SelectedCards: SelectedCards.Reducer,
   SelectedNemeses: SelectedNemeses.Reducer,

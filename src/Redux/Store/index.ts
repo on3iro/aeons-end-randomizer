@@ -102,7 +102,7 @@ export const MainReducer: LoopReducer<RootState, RootAction> = (
 
 export const RootReducer = reduceReducers(
   MainReducer,
-  combineReducers<RootState, RootAction>({
+  combineReducers<RootState>({
     Settings: Settings.Reducer,
     MainContentLoading: MainContentLoading.Reducer,
     Nemesis: Nemesis.Reducer,

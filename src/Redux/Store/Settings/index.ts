@@ -25,7 +25,7 @@ export const initialState = {
   SupplySetups: SupplySetups.initialState,
 }
 
-export const Reducer = combineReducers<State, Action>({
+export const Reducer = combineReducers({
   Expansions: Expansions.Reducer,
   SupplySetups: SupplySetups.Reducer,
 })
