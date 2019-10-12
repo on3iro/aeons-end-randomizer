@@ -8,10 +8,10 @@ type Props = {
   theme: any
 }
 
-const ShowDetailsButton = ({ showDetails, theme }: Props) => (
+const ShowDetailsButton = React.memo(({ showDetails, theme }: Props) => (
   <Button onClick={showDetails} themeColor={theme}>
     <VisibilityOutlinedIcon /> Show details
   </Button>
-)
+))
 
 export default ShowDetailsButton

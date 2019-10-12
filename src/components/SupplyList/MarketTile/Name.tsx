@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro'
 import Typography from '@material-ui/core/Typography'
 
-const Info = styled(Typography)`
-  display: inline-block;
+const Name = styled(Typography)`
+  font-weight: bold;
 `
 
-Info.displayName = 'Info'
+Name.displayName = 'Name'
 
-export default Info
+export default Name

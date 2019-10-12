@@ -66,7 +66,6 @@ export const mainTheme = {
     primary: muiTheme.palette.primary,
     secondary: muiTheme.palette.secondary,
     text: muiTheme.palette.text,
-    hint: muiTheme.palette.text.hint,
     white: '#fff',
     playerColors,
     turnOrderCards: {
@@ -149,6 +148,13 @@ export const mainTheme = {
       },
     },
     keywordBg: 'rgba(0,0,0,0.1)',
+  },
+  icons: {
+    nemesis: 'ra-broken-skull',
+    mage: 'ra-fluffy-swirl',
+    gem: 'ra-crystals',
+    relic: 'ra-crystal-wand',
+    spell: 'ra-scroll-unfurled',
   },
 }
 

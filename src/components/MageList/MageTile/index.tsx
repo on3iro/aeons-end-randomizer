@@ -2,17 +2,12 @@ import React from 'react'
 
 import { withTheme } from 'styled-components/macro'
 
-import config from '../../../config'
 import { Mage } from '../../../types'
 
-import ShowDetailsButton from '../../ShowDetailsButton'
+import Tile from '../../Tile'
 
 import Wrapper from './Wrapper'
-import Card from './Card'
-import CardContent from './CardContent'
-import CardTypeIcon from './CardTypeIcon'
-import ExpansionName from './ExpansionName'
-import Name from './Name'
+import Body from './Body'
 
 type Props = {
   mage: Mage
@@ -25,22 +20,14 @@ const MageTile = React.memo(
   ({ mage, playerNumber, showMageDetails, theme }: Props) => {
     return (
       <Wrapper item xs={6} md={3}>
-        <Card playerNumber={playerNumber}>
-          <CardContent>
-            <ExpansionName color="textSecondary">
-              {/* FIXME remove direct connection to config and use store instead! */}
-              {config.DATA[mage.expansion].name}
-            </ExpansionName>
-            <Name variant="h6" component="h2">
-              {mage.name}
-            </Name>
-          </CardContent>
-          <CardTypeIcon type="mage" />
-          <ShowDetailsButton
-            showDetails={() => showMageDetails(mage.id, playerNumber)}
-            theme={theme.colors.white}
-          />
-        </Card>
+        <Tile
+          body={<Body mage={mage} />}
+          bgColor={theme.colors.playerColors[`player${playerNumber}`].normal}
+          fontColor={theme.colors.white}
+          icon={theme.icons.mage}
+          iconColor={theme.colors.cards.mage.color}
+          showDetails={() => showMageDetails(mage.id, playerNumber)}
+        />
       </Wrapper>
     )
   }

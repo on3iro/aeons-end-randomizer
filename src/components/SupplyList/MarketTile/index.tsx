@@ -3,31 +3,19 @@ import { connect } from 'react-redux'
 
 import { withTheme } from 'styled-components/macro'
 
-import Grid from '@material-ui/core/Grid'
-import List from '@material-ui/core/List'
+import { RootState, selectors } from '../../../Redux/Store'
 
 import * as types from '../../../types'
 
-import { RootState, selectors } from '../../../Redux/Store'
-import { getOperationString } from '../../../Redux/helpers'
+import Tile from '../../Tile'
 
-import InfoItem from '../../InfoItem'
+import Wrapper from './Wrapper'
+import Body from './Body'
 
-import Card from './Card'
-import CardContent from './CardContent'
-import CardName from './CardName'
-import CardTypeIcon from './CardTypeIcon'
-import CostOperation from './CostOperation'
-
-import ShowDetailsButton from '../../ShowDetailsButton'
-
-// FIXME fix prop type
-const mapStateToProps = (state: RootState, props: any) => ({
-  expansion:
-    selectors.Settings.Expansions.SelectedExpansions.getExpansionById(
-      state,
-      props.marketTile.expansion
-    ) || null,
+const mapStateToProps = (state: RootState) => ({
+  selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
+    state
+  ),
 })
 
 const mapDispatchToProps = {}
@@ -44,47 +32,47 @@ type Props = ReturnType<typeof mapStateToProps> &
       threshold?: number
       values?: Array<number>
     }
-    showSupplyDetails?: Function
+    showSupplyDetails: Function
     theme: any
   }
 
 const MarketTile = React.memo(
-  ({ marketTile, expansion, showSupplyDetails, theme, ...rest }: Props) => {
-    const { type, operation, values, threshold } = marketTile
+  ({
+    marketTile,
+    selectedExpansions,
+    showSupplyDetails,
+    theme,
+    ...rest
+  }: Props) => {
+    const { expansions } = selectedExpansions
 
     return (
-      <Grid item xs={6} md={4} {...rest}>
-        <Card type={type.toLowerCase()}>
-          <CardContent>
-            {operation && (
-              <CostOperation color="textSecondary">
-                {type} {getOperationString(operation, values, threshold)}
-              </CostOperation>
-            )}
-            <CardName component="p">
-              {marketTile && marketTile.name ? marketTile.name : '-'}
-            </CardName>
-            <List>
-              <InfoItem label="Set" info={expansion ? expansion.name : '-'} />
-              <InfoItem
-                label="Cost"
-                info={
-                  marketTile && marketTile.cost
-                    ? marketTile.cost.toString()
-                    : '-'
+      <Wrapper item xs={6} md={4} {...rest}>
+        {marketTile && (
+          <Tile
+            body={
+              <Body
+                supplyCard={marketTile}
+                expansionName={
+                  marketTile.expansion
+                    ? expansions[marketTile.expansion].name
+                    : ''
                 }
               />
-            </List>
-          </CardContent>
-          <CardTypeIcon type={type.toLowerCase()} />
-          {showSupplyDetails && marketTile.name ? (
-            <ShowDetailsButton
-              showDetails={() => showSupplyDetails(marketTile.id)}
-              theme={theme.colors.text}
-            />
-          ) : null}
-        </Card>
-      </Grid>
+            }
+            bgColor={
+              theme.colors.cards[marketTile.type.toLowerCase()].background
+            }
+            fontColor={theme.colors.text.primary}
+            icon={theme.icons[marketTile.type.toLowerCase()]}
+            iconColor={theme.colors.cards[marketTile.type.toLowerCase()].color}
+            showDetails={() => showSupplyDetails(marketTile.id)}
+            hideShowDetailsButton={
+              showSupplyDetails && marketTile.name ? false : true
+            }
+          />
+        )}
+      </Wrapper>
     )
   }
 )
