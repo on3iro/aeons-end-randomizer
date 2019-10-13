@@ -1,34 +1,44 @@
-import * as Data from './data'
+import { NemesisTier } from './data'
 
 export type Variant = {
   id: string
   name: string
-  startingTier: number
-  tierIncrement: number
-  numberOfBattles: number
+  tierList: NemesisTier[]
 }
 
-export const variants = {
+export const variants: { [id: string]: Variant } = {
   DEFAULT: {
     id: 'DEFAULT',
     name: 'Default',
-    startingTier: 1,
-    tierIncrement: 1,
-    numberOfBattles: 4,
+    tierList: [
+      { tier: 1, isNewTier: false },
+      { tier: 2, isNewTier: true },
+      { tier: 3, isNewTier: true },
+      { tier: 4, isNewTier: true },
+    ],
   },
   SHORT: {
     id: 'SHORT',
     name: 'Short',
-    startingTier: 2,
-    tierIncrement: 1,
-    numberOfBattles: 3,
+    tierList: [
+      { tier: 2, isNewTier: true },
+      { tier: 3, isNewTier: true },
+      { tier: 4, isNewTier: true },
+    ],
   },
   EXTENDED: {
     id: 'EXTENDED',
     name: 'Extended',
-    startingTier: 1,
-    tierIncrement: 2,
-    numberOfBattles: 8,
+    tierList: [
+      { tier: 1, isNewTier: false },
+      { tier: 1, isNewTier: false },
+      { tier: 2, isNewTier: true },
+      { tier: 2, isNewTier: false },
+      { tier: 3, isNewTier: true },
+      { tier: 3, isNewTier: false },
+      { tier: 4, isNewTier: true },
+      { tier: 4, isNewTier: false },
+    ],
   },
 }
 
@@ -37,11 +47,21 @@ export const variants = {
 export const variantIds = Object.values(variants).map(val => val.id)
 export type VariantId = typeof variantIds[number]
 
+export type BattleStatus =
+  | 'locked'
+  | 'unlocked'
+  | 'before_battle'
+  | 'started'
+  | 'won'
+  | 'lost'
+  | 'finished'
+
 export type Battle = {
-  id: number
-  nemesisId: string
-  nemesisTier: 1 | 2 | 3 | 4
-  status: 'locked' | 'unlocked'
+  id: string
+  expeditionId: string
+  nemesisId?: string
+  nemesisTier: NemesisTier
+  status: BattleStatus
   tries: number
 }
 
@@ -54,7 +74,7 @@ export type Expedition = {
     supplyIds: string[]
     treasureIds: string[]
   }
-  upgradedBasicNemesisCards: Data.UpgradedBasicNemesisCard[]
+  upgradedBasicNemesisCards: string[]
   banished: string[]
   battles: Battle[]
   variantId: string

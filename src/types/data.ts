@@ -1,3 +1,8 @@
+export type NemesisTier = {
+  tier: 1 | 2 | 3 | 4
+  isNewTier: boolean
+}
+
 export interface ICreature {
   expansion: string
   name: string

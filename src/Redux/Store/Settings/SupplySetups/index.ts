@@ -260,7 +260,6 @@ export const Reducer: LoopReducer<State, Action> = (
       }
     }
 
-    // FIXME should prompt the user if he really wants to delete the setup
     case ActionTypes.DELETE_CUSTOM_SETUP: {
       const id = action.payload
 
