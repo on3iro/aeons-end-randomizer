@@ -2,44 +2,20 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
-import { usePrompt } from '../../../hooks/useModal'
 
-import A from '../../A'
-import DeleteButton from '../../DeleteButton'
+import OverviewEntry from './OverviewEntry'
 
 const renderExpeditions = (
   expeditions: Array<{ id: string; name: string }>,
   deleteHandler: (id: string) => void
 ) => {
-  return expeditions.map(expedition => {
-    const { show, hide, RenderPrompt } = usePrompt()
-    const url = `/expeditions/${expedition.id}`
-    const openDeletionDialog = () => {
-      show()
-    }
-    const yesHandler = () => {
-      deleteHandler(expedition.id)
-    }
-
-    const deletionDialogTitle = `Would you really like to delete Expedition: "${expedition.name}"?`
-
-    return (
-      <React.Fragment>
-        <li key={expedition.id}>
-          <A to={url}>
-            {expedition.name} {expedition.id}
-          </A>
-          <DeleteButton onClick={openDeletionDialog} />
-        </li>
-        <RenderPrompt
-          titleColor="#333"
-          titleLabel={deletionDialogTitle}
-          yesHandler={yesHandler}
-          noHandler={hide}
-        />
-      </React.Fragment>
-    )
-  })
+  return expeditions.map(expedition => (
+    <OverviewEntry
+      key={expedition.id}
+      expedition={expedition}
+      deleteHandler={deleteHandler}
+    />
+  ))
 }
 
 const mapStateToProps = (state: RootState) => ({

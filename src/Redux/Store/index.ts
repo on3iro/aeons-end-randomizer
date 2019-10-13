@@ -1,4 +1,5 @@
 import { combineReducers, reduceReducers } from 'redux-loop'
+import { createSelector } from 'reselect'
 import { LoopReducer, loop, Cmd } from 'redux-loop'
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 
@@ -40,6 +41,18 @@ export const actions = {
   Expeditions: Expeditions.actions,
 }
 
+const getUpgradedBasicNemesisCardsByExpeditionId = createSelector(
+  [
+    Expeditions.selectors.Expeditions.getExpeditionById,
+    Settings.selectors.Expansions.UpgradedBasicNemesisCards
+      .getUpgradedBasicNemesisCards,
+  ],
+  (expedition, upgradedBasicNemsisCards) =>
+    expedition.upgradedBasicNemesisCards.map(
+      cardId => upgradedBasicNemsisCards[cardId]
+    )
+)
+
 export const selectors = {
   Settings: Settings.selectors,
   Main: {
@@ -50,6 +63,7 @@ export const selectors = {
   Mages: Mages.selectors,
   Supply: Supply.selectors,
   Expeditions: Expeditions.selectors,
+  getUpgradedBasicNemesisCardsByExpeditionId,
 }
 
 export type RootAction =

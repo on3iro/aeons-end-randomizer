@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import * as types from '../../../../types'
 import { RootState, selectors } from '../../../../Redux/Store'
 
-import useExpansionHandling from '../../../../hooks/useExpansionHandling'
-import ExpansionPanel from '../../../ExpansionPanel'
+import { useModal } from '../../../../hooks/useModal'
 import SupplyList from '../../../SupplyList'
 import MageList from '../../../MageList'
 import TreasureList from '../../../TreasureList'
+import ShuffleButton from '../../../ShuffleButton'
 
 const mapStateToProps = (state: RootState) => ({
   cards: selectors.Settings.Expansions.SelectedCards.getSelectedCardsLookupObject(
@@ -29,9 +29,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 
 const Barracks = React.memo(
   ({ expedition, cards, mages, treasures }: Props) => {
-    const { expanded, createExpansionHandler } = useExpansionHandling()
-    const expansionKey = 'barracks'
-    const expansionHandler = createExpansionHandler(expansionKey)
+    const { show, RenderModal } = useModal()
 
     const supply = expedition.barracks.supplyIds.map(id => cards[id])
     const magelist = expedition.barracks.mageIds.map(id => mages[id])
@@ -40,22 +38,25 @@ const Barracks = React.memo(
     )
 
     return (
-      <ExpansionPanel
-        expanded={expanded}
-        expansionHandler={expansionHandler}
-        expansionKey={expansionKey}
-        summary="Barracks"
-      >
-        <MageList
-          mages={magelist}
-          showMageDetails={() => console.log('TODO')}
-        />
-        <SupplyList
-          tiles={supply}
-          showSupplyDetails={() => console.log('TODO')}
-        />
-        <TreasureList treasures={treasureList} />
-      </ExpansionPanel>
+      <React.Fragment>
+        <RenderModal titleColor="#333" titleLabel="Barracks">
+          <React.Fragment>
+            <MageList
+              mages={magelist}
+              showMageDetails={() => console.log('TODO')}
+            />
+            <SupplyList
+              tiles={supply}
+              showSupplyDetails={() => console.log('TODO')}
+            />
+            <TreasureList treasures={treasureList} />
+            <p>TODO: show upgraded basic nemesis cards</p>
+          </React.Fragment>
+        </RenderModal>
+        <ShuffleButton onClick={show} color="primary" variant="extended">
+          Show Barracks
+        </ShuffleButton>
+      </React.Fragment>
     )
   }
 )
