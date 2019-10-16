@@ -1,7 +1,8 @@
 import React from 'react'
 
-import ExpansionPanel from '../../../ExpansionPanel'
 import useExpansionHandling from '../../../../hooks/useExpansionHandling'
+
+import ExpansionPanel from '../../../molecules/ExpansionPanel'
 
 import SetupSelection from './SetupSelection'
 

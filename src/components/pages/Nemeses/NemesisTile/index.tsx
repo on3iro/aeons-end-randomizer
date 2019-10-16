@@ -3,7 +3,7 @@ import { withTheme } from 'styled-components/macro'
 
 import { Nemesis } from '../../../../types'
 
-import Tile from '../../../Tile'
+import Tile from '../../../molecules/Tile'
 
 import Body from './Body'
 

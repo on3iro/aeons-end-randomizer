@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../../../Redux/Store'
 
-import CheckboxList from '../../../../CheckboxList'
+import CheckboxList from '../../../../molecules/CheckboxList'
 import CheckboxWithControls from '../CheckboxWithControls'
 
 import { expansionsToItems } from './helpers'

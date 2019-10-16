@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import { RootState, actions, selectors } from '../../../Redux/Store'
 import { useModal } from '../../../hooks/useModal'
 
-import ShuffleButton from '../../ShuffleButton'
-import NoSelectedExpansions from '../../NoSelectedExpansions'
+import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
+import SupplyList from '../../molecules/SupplyList'
+import MarketSelect from '../../molecules/MarketSelect'
 
-import SupplyList from '../../SupplyList'
-import MarketSelect from '../../MarketSelect'
+import ShuffleButton from '../../atoms/ShuffleButton'
 
 import SupplyModal from './SupplyModal'
 

@@ -2,8 +2,9 @@ import React from 'react'
 
 import { usePrompt } from '../../../hooks/useModal'
 
-import DeleteButton from '../../DeleteButton'
-import A from '../../A'
+import DeleteButton from '../../molecules/DeleteButton'
+
+import A from '../../atoms/A'
 
 type Props = {
   expedition: { id: string; name: string }

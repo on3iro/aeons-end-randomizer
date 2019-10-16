@@ -5,7 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import { RootState, selectors } from '../../../../Redux/Store'
 import * as types from '../../../../types'
 
-import A from '../../../A'
+import A from '../../../atoms/A'
 import Barracks from './Barracks'
 import Battle from './Battle'
 

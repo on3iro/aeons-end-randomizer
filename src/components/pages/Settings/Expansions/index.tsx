@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../../Redux/Store'
 
-import ExpansionPanel from '../../../ExpansionPanel'
+import ExpansionPanel from '../../../molecules/ExpansionPanel'
+
 import ActiveSets from './ActiveSets'
 
 const KEY = 'expansions'

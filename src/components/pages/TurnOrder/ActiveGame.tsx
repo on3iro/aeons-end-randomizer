@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button'
 
 import { RootState, selectors, actions } from '../../../Redux/Store'
 
-import ShuffleButton from '../../ShuffleButton'
+import ShuffleButton from '../../atoms/ShuffleButton'
 
 import DiscardTable from './DiscardTable'
 

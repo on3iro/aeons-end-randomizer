@@ -7,7 +7,7 @@ import { RootState, selectors } from '../../../../Redux/Store'
 
 import { RenderModalType } from '../../../../hooks/useModal'
 
-import Body from './Body'
+import Body from '../../../molecules/SupplyCardInformation'
 
 // FIXME refine type
 const mapStateToProps = (state: RootState, props: any) => ({

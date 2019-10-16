@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
-import CheckboxList from '../../../CheckboxList'
-import CheckboxWithPreview from './CheckboxWithPreview'
-
 import { RootState, actions, selectors } from '../../../../Redux/Store'
+
+import CheckboxList from '../../../molecules/CheckboxList'
+
+import CheckboxWithPreview from './CheckboxWithPreview'
 
 const mapStateToProps = (state: RootState) => ({
   predefinedSetups: selectors.Settings.SupplySetups.getPredefinedAsArray(state),

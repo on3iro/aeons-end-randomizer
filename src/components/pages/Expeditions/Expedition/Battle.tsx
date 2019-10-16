@@ -159,7 +159,7 @@ const Battle = React.memo(
           <BeforeBattle
             hide={hideBeforeBattle}
             battle={battle}
-            nemesisName={nemesis ? nemesis.name : ''}
+            nemesis={nemesis ? nemesis : undefined}
             showNext={showBattleStarted}
           />
         </RenderBeforeBattleModal>

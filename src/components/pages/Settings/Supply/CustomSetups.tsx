@@ -2,14 +2,15 @@ import React, { useCallback, useEffect } from 'react'
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button'
 
-import CheckboxList from '../../../CheckboxList'
-import CheckboxWithPreview from './CheckboxWithPreview'
-import CustomSetupEdit from './CustomSetupEdit'
-
 import { RootState, actions, selectors } from '../../../../Redux/Store'
 import { useModal, usePrompt } from '../../../../hooks/useModal'
-import EditButton from '../../../EditButton'
-import DeleteButton from '../../../DeleteButton'
+
+import CheckboxList from '../../../molecules/CheckboxList'
+import EditButton from '../../../molecules/EditButton'
+import DeleteButton from '../../../molecules/DeleteButton'
+
+import CheckboxWithPreview from './CheckboxWithPreview'
+import CustomSetupEdit from './CustomSetupEdit'
 import CheckboxWithPreviewControls from './CheckboxWithPreviewControls'
 
 const mapStateToProps = (state: RootState) => ({

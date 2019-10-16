@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import A from '../../../../A'
+import A from '../../../../atoms/A'
 
 const BackLink = styled(A)`
   display: flex;

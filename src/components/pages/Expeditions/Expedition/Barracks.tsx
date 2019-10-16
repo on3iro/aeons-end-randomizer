@@ -3,12 +3,13 @@ import { connect } from 'react-redux'
 
 import * as types from '../../../../types'
 import { RootState, selectors } from '../../../../Redux/Store'
-
 import { useModal } from '../../../../hooks/useModal'
-import SupplyList from '../../../SupplyList'
-import MageList from '../../../MageList'
-import TreasureList from '../../../TreasureList'
-import ShuffleButton from '../../../ShuffleButton'
+
+import SupplyList from '../../../molecules/SupplyList'
+import MageList from '../../../molecules/MageList'
+import TreasureList from '../../../molecules/TreasureList'
+
+import ShuffleButton from '../../../atoms/ShuffleButton'
 
 const mapStateToProps = (state: RootState) => ({
   cards: selectors.Settings.Expansions.SelectedCards.getSelectedCardsLookupObject(

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import SupplyPreview from '../../../SupplyPreview'
+import SupplyPreview from '../../../molecules/SupplyPreview'
 
 const SettingsSupplyPreview = styled(SupplyPreview)`
   width: 100%;

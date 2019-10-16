@@ -1,11 +1,11 @@
 import React from 'react'
 import CardContent from '@material-ui/core/CardContent'
 
-import Card from '../../Card'
-import H1 from '../../H1'
-import H2 from '../../H2'
-import P from '../../P'
-import A from '../../A'
+import Card from '../../atoms/Card'
+import H1 from '../../atoms/H1'
+import H2 from '../../atoms/H2'
+import P from '../../atoms/P'
+import A from '../../atoms/A'
 
 const About = React.memo(() => (
   <Card>
