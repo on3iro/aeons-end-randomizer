@@ -79,6 +79,7 @@ const Supply = React.memo(
           onClick={handleShuffle}
           color="primary"
           variant="extended"
+          withBottomNav={true}
         >
           Create Market
         </ShuffleButton>

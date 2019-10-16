@@ -1,9 +1,16 @@
+import React from 'react'
 import styled from 'styled-components/macro'
 import Fab from '@material-ui/core/Fab'
 
-const ShuffleButton = styled(Fab)`
+type Props = {
+  withBottomNav?: boolean
+}
+
+const ShuffleButton = styled(({ withBottomNav, ...rest }) => <Fab {...rest} />)<
+  Props
+>`
   position: fixed;
-  bottom: 24px;
+  bottom: ${props => (props.withBottomNav ? '80px' : '24px')};
   right: 24px;
   z-index: 10;
 `

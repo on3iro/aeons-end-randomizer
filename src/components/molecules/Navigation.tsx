@@ -12,14 +12,8 @@ type Props = {
 
 const Navigation = React.memo(({ clickHandler }: Props) => (
   <List>
-    <Link text="Nemesis" to="/nemesis" onClick={clickHandler}>
-      <i className="ra ra-lg ra-broken-skull" />
-    </Link>
-    <Link text="Mages" to="/mages" onClick={clickHandler}>
-      <i className="ra ra-lg ra-crystal-wand" />
-    </Link>
-    <Link text="Supply" to="/supply" onClick={clickHandler}>
-      <i className="ra ra-lg ra-campfire" />
+    <Link text="Randomizer" to="/randomizer/nemesis" onClick={clickHandler}>
+      <i className="ra ra-lg ra-perspective-dice-random" />
     </Link>
     <Link text="Turn Order" to="/turnorder" onClick={clickHandler}>
       <i className="ra ra-lg ra-player-lift" />

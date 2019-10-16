@@ -61,6 +61,7 @@ const Nemeses = React.memo(
           onClick={() => setRandomNemesis(availableNemeses)}
           color="primary"
           variant="extended"
+          withBottomNav={true}
         >
           Open Breach
         </ShuffleButton>
