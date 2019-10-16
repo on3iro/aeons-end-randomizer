@@ -7,47 +7,37 @@ import { RootState, selectors } from '../../../../Redux/Store'
 
 import { RenderModalType } from '../../../../hooks/useModal'
 
-import Body from './Body'
+import NemesisInformation from '../../../molecules/NemesisInformation'
 
-// FIXME refine type
-const mapStateToProps = (state: RootState, props: any) => ({
-  nemesis: selectors.Settings.Expansions.SelectedNemeses.getNemesisById(
-    state,
-    props
-  ),
-  selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
-    state
-  ),
-})
-
-type Props = ReturnType<typeof mapStateToProps> & {
+type OwnProps = {
   id: string
   theme: any
   RenderModal: RenderModalType
 }
 
-const NemesisModal = React.memo(
-  ({ nemesis, selectedExpansions, theme, RenderModal }: Props) => {
-    const { expansions } = selectedExpansions
+// FIXME
+// unfortunately ownProps has to have any type currently.
+// This is probably due to a typscript shortcoming, which is unable to
+// unwrap withTheme() and connect() at once.
+const mapStateToProps = (state: RootState, ownProps: any) => ({
+  nemesis: selectors.Settings.Expansions.SelectedNemeses.getNemesisById(
+    state,
+    ownProps
+  ),
+})
 
-    const titleColor = theme.colors.turnOrderCards.nemesis.normal
-    const titleLabel = nemesis ? nemesis.name : ''
-    const body = nemesis ? (
-      <Body
-        nemesis={nemesis}
-        expansionName={expansions[nemesis.expansion].name || ''}
-      />
-    ) : (
-      'No content'
-    )
+type Props = ReturnType<typeof mapStateToProps> & OwnProps
 
-    return (
-      <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
-        {body}
-      </RenderModal>
-    )
-  }
-)
+const NemesisModal = React.memo(({ theme, RenderModal, nemesis }: Props) => {
+  const titleColor = theme.colors.turnOrderCards.nemesis.normal
+  const titleLabel = nemesis ? nemesis.name : ''
+
+  return (
+    <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
+      <NemesisInformation nemesis={nemesis} />
+    </RenderModal>
+  )
+})
 
 export default withTheme(
   connect(

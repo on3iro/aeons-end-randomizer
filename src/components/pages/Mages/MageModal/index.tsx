@@ -7,7 +7,7 @@ import { RootState, selectors } from '../../../../Redux/Store'
 
 import { RenderModalType } from '../../../../hooks/useModal'
 
-import Body from './Body'
+import MageInformation from '../../../molecules/MageInformation'
 
 // FIXME refine type
 const mapStateToProps = (state: RootState, props: any) => ({
@@ -34,7 +34,7 @@ const MageModal = React.memo(
 
     const titleLabel = mage ? mage.name : ''
     const body = mage ? (
-      <Body
+      <MageInformation
         mage={mage}
         player={player}
         expansionName={expansions[mage.expansion].name || ''}

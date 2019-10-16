@@ -6,8 +6,8 @@ import { RootState, actions, selectors } from '../../../Redux/Store'
 import NemesisTile from './NemesisTile'
 import EmptyNemesisHint from './EmptyNemesisHint'
 
-import ShuffleButton from '../../ShuffleButton'
-import NoSelectedExpansions from '../../NoSelectedExpansions'
+import ShuffleButton from '../../atoms/ShuffleButton'
+import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
 
 import NemesisModal from './NemesisModal'
 import { useModal } from '../../../hooks/useModal'

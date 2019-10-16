@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
 
-import ShuffleButton from '../../ShuffleButton'
+import ShuffleButton from '../../atoms/ShuffleButton'
+
 import CardNameDisplay from './CardNameDisplay'
 import ModeSelection from './ModeSelection'
 import PlayerCountSelection from './PlayerCountSelection'

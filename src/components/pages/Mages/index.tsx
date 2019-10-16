@@ -5,14 +5,14 @@ import { RootState, actions, selectors } from '../../../Redux/Store'
 import { MageCount } from '../../../Redux/Store/Mages/Count'
 import { useModal } from '../../../hooks/useModal'
 
+import MageList from '../../molecules/MageList'
+import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
+
+import ShuffleButton from '../../atoms/ShuffleButton'
+
 import MageCountPicker from './MageCountPicker'
-import MageList from '../../MageList'
-import EmptyMageListHint from './EmptyMageListHint'
-
-import ShuffleButton from '../../ShuffleButton'
-import NoSelectedExpansions from '../../NoSelectedExpansions'
-
 import MageModal from './MageModal'
+import EmptyMageListHint from './EmptyMageListHint'
 
 const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(

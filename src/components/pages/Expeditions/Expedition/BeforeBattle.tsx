@@ -4,13 +4,14 @@ import { connect } from 'react-redux'
 import { RootState, actions, selectors } from '../../../../Redux/Store'
 import * as types from '../../../../types'
 
-import UpgradedBasicNemesisCardList from '../../../UpgradedBasicNemesisCardList'
+import UpgradedBasicNemesisCardList from '../../../molecules/UpgradedBasicNemesisCardList'
+import NemesisInformation from '../../../molecules/NemesisInformation'
 
 type OwnProps = {
   hide: () => void
   showNext?: () => void
   battle: types.Battle
-  nemesisName: string
+  nemesis?: types.Nemesis
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({
@@ -32,7 +33,7 @@ const BeforeBattle = React.memo(
   ({
     hide,
     battle,
-    nemesisName,
+    nemesis,
     startBattle,
     showNext,
     upgradedBasicNemsisCards,
@@ -48,13 +49,13 @@ const BeforeBattle = React.memo(
 
     return (
       <div>
+        <p>
+          <b>Tries:</b> {battle.tries}
+        </p>
+        <NemesisInformation nemesis={nemesis} />
         <UpgradedBasicNemesisCardList
           upgradedBasicNemsisCards={upgradedBasicNemsisCards}
         />
-        <p>
-          Fight: <b>{nemesisName}</b>
-        </p>
-        <p>TODO: show nemesis information</p>
         <button onClick={handleClick}>Start battle</button>
       </div>
     )

@@ -4,7 +4,7 @@ import { useModal } from '../../../../../hooks/useModal'
 import * as types from '../../../../../types'
 
 import CheckboxWithDetails from './CheckboxWithDetails'
-import CheckboxList from '../../../../CheckboxList'
+import CheckboxList from '../../../../molecules/CheckboxList'
 import SupplyModal from '../../../Supply/SupplyModal'
 
 const entitiesToItems = (

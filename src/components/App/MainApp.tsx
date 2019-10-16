@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../Redux/Store'
 
-import Content from '../Content'
-import TopBar from '../TopBar'
-import DrawerMenu from '../DrawerMenu'
+import Content from '../organisms/Content'
+import TopBar from '../organisms/TopBar'
+import DrawerMenu from '../organisms/DrawerMenu'
 
 const mapStateToProps = (state: RootState) => ({
   isLoading: selectors.Main.ContentLoading.getIsLoading(state),

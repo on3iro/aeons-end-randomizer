@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
 
-import MarketSelect from '../../MarketSelect'
+import MarketSelect from '../../molecules/MarketSelect'
 
 const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
 

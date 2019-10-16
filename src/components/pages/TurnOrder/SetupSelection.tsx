@@ -12,7 +12,7 @@ import config from '../../../config'
 import { ITurnOrderPlayerCount } from '../../../types'
 import { RootState, actions, selectors } from '../../../Redux/Store'
 
-import Card from '../../Card'
+import Card from '../../atoms/Card'
 
 const renderSetupOptions = (selectedPlayerCount: ITurnOrderPlayerCount) =>
   Object.values(config.TURNORDERSETUPS[selectedPlayerCount.id].variations).map(

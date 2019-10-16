@@ -4,8 +4,9 @@ import { connect } from 'react-redux'
 import { RootState, selectors } from '../../../Redux/Store'
 import { useModal } from '../../../hooks/useModal'
 
-import NoSelectedExpansions from '../../NoSelectedExpansions'
-import ShuffleButton from '../../ShuffleButton'
+import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
+
+import ShuffleButton from '../../atoms/ShuffleButton'
 
 import ExpeditionList from './ExpeditionList'
 import CreationDialog from './CreationDialog'
