@@ -80,6 +80,7 @@ const Mages = React.memo(
           onClick={handleShuffle}
           color="primary"
           variant="extended"
+          withBottomNav={true}
         >
           Recruit Mages
         </ShuffleButton>
