@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import Modal from '../components/Modal'
-import Prompt from '../components/Prompt'
+import Modal from '../components/molecules/Modal'
+import Prompt from '../components/molecules/Prompt'
 
 type ModalProps = {
   titleColor: string
