@@ -71,14 +71,6 @@ const BattleWon = React.memo(
     // TODO implement showSupplyDetails handler (useCallback and a single handler for both lists)
     const lists = [
       {
-        id: 'expedition',
-        tiles: expeditionSupply.map(tile => ({
-          ...tile,
-          visualSelection: false,
-        })),
-        showSupplyDetails: () => console.log('TODO'),
-      },
-      {
         id: 'newSupply',
         tiles: newSupplyCards.map(tile => ({
           ...tile,
@@ -89,6 +81,14 @@ const BattleWon = React.memo(
           event.stopPropagation()
           console.log('details | TODO')
         },
+      },
+      {
+        id: 'expedition',
+        tiles: expeditionSupply.map(tile => ({
+          ...tile,
+          visualSelection: false,
+        })),
+        showSupplyDetails: () => console.log('TODO'),
       },
     ]
     const [listsWithSelection, updateLists] = useState(lists)
@@ -147,14 +147,21 @@ const BattleWon = React.memo(
 
     const handleFinish = useCallback(() => {
       // FIXME fix typing (inference not working correctly)
-      const newSupplyList = listsWithSelection
-        .reduce((acc: any, list) => {
-          return [...acc, ...list.tiles]
-        }, [])
+      const flattenedList = listsWithSelection.reduce((acc: any, list) => {
+        return [...acc, ...list.tiles]
+      }, [])
+
+      const newSupplyList = flattenedList.filter(
+        (tile: { id: string; visualSelection: boolean }) =>
+          !tile.visualSelection
+      )
+
+      const banished = flattenedList
         .filter(
           (tile: { id: string; visualSelection: boolean }) =>
-            !tile.visualSelection
+            tile.visualSelection
         )
+        .map((tile: { id: string }) => tile.id)
 
       const gems = newSupplyList
         .filter((el: { type: types.CardType }) => el.type === 'Gem')
@@ -171,7 +178,7 @@ const BattleWon = React.memo(
 
       const newSupplyIds = [...gems, ...relics, ...spells]
 
-      finishBattle(battle, newSupplyIds)
+      finishBattle(battle, newSupplyIds, banished)
       hide()
 
       if (showNext) {

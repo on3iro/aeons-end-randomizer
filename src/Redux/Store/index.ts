@@ -94,6 +94,15 @@ const getStillAvailableSpellIds = createSelector(
     allAvailableIds.filter(id => !expeditionSupplyIds.includes(id))
 )
 
+const getStillAvailableMageIds = createSelector(
+  [
+    Settings.selectors.Expansions.getSelectedMagesForSelectedExpansions,
+    Expeditions.selectors.Expeditions.getMagesByExpeditionId,
+  ],
+  (mages, expeditionMageIds) =>
+    mages.map(mage => mage.id).filter(id => !expeditionMageIds.includes(id))
+)
+
 const getExpeditionSupply = createSelector(
   [
     Expeditions.selectors.Expeditions.getExpeditionById,
@@ -121,6 +130,7 @@ export const selectors = {
   getStillAvailableGemIds,
   getStillAvailableRelicIds,
   getStillAvailableSpellIds,
+  getStillAvailableMageIds,
   getExpeditionSupply,
 }
 

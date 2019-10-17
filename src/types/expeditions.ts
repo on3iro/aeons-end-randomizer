@@ -113,7 +113,7 @@ export type Battle = {
   nemesisTier: NemesisTier
   treasure: BattleTreasure
   status: BattleStatus
-  rewards?: { treasure: string[]; mage: string; supplyIds: string[] }
+  rewards?: { treasure: string[]; mage?: string; supplyIds: string[] }
   tries: number
 }
 
