@@ -12,8 +12,10 @@ type Props = {
   fontColor: string
   icon?: string
   iconColor?: string
-  showDetails: () => void
+  showDetails: (e: Event) => void
   hideShowDetailsButton?: boolean
+  selected?: boolean
+  clickHandler?: Function
 }
 
 const Tile = React.memo(
@@ -25,8 +27,10 @@ const Tile = React.memo(
     iconColor,
     showDetails,
     hideShowDetailsButton,
+    selected,
+    clickHandler,
   }: Props) => (
-    <Wrapper themeColor={bgColor}>
+    <Wrapper themeColor={bgColor} selected={selected} onClick={clickHandler}>
       <Content>{body}</Content>
 
       {icon && iconColor ? (
@@ -35,7 +39,7 @@ const Tile = React.memo(
 
       {hideShowDetailsButton ? null : (
         <ShowDetailsButton
-          showDetails={() => showDetails()}
+          showDetails={(e: Event) => showDetails(e)}
           theme={fontColor}
         />
       )}

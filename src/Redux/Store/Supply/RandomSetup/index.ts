@@ -1,9 +1,10 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import { byCost, createSupply } from '../../../helpers'
-import { RootState } from '../../'
 import * as types from '../../../../types'
+import { byCost } from '../../../../helpers'
+import { RootState } from '../../'
+import { createSupply } from '../../../helpers'
 
 ///////////
 // STATE //

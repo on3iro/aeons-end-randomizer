@@ -70,8 +70,8 @@ export const actions = {
     createAction(ActionTypes.LOSE_BATTLE, { battle }),
   acceptLoss: (battle: types.Battle) =>
     createAction(ActionTypes.ACCEPT_LOSS, { battle }),
-  finishBattle: (battle: types.Battle) =>
-    createAction(ActionTypes.FINISH_BATTLE, { battle }),
+  finishBattle: (battle: types.Battle, newSupplyIds: string[]) =>
+    createAction(ActionTypes.FINISH_BATTLE, { battle, newSupplyIds }),
   deleteExpedition: (id: string) =>
     createAction(ActionTypes.DELETE_EXPEDITION, id),
   setToDB: (state: State) => createAction(ActionTypes.SET_TO_DB, state),
@@ -348,7 +348,7 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.FINISH_BATTLE: {
-      const { battle } = action.payload
+      const { battle, newSupplyIds } = action.payload
       const oldExpedition = state.expeditions[battle.expeditionId]
       const oldBattleList = oldExpedition.battles
 
@@ -389,6 +389,7 @@ export const Reducer: LoopReducer<State, Action> = (
                 ...oldExpedition.barracks.treasureIds,
                 ...newTreasureIds,
               ],
+              supplyIds: newSupplyIds,
             },
           },
         },
@@ -468,10 +469,16 @@ const getNextBattle = createSelector(
   }
 )
 
+const getSupplyByExpeditionId = createSelector(
+  [getExpeditionById],
+  expedition => expedition.barracks.supplyIds
+)
+
 export const selectors = {
   getExpeditions,
   getExpeditionIds,
   getExpeditionList,
   getExpeditionById,
   getNextBattle,
+  getSupplyByExpeditionId,
 }

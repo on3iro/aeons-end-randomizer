@@ -4,7 +4,7 @@ import Button from './Button'
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined'
 
 type Props = {
-  showDetails: () => void
+  showDetails: (e: Event) => void
   theme: any
 }
 

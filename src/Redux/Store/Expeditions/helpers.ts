@@ -1,13 +1,13 @@
 import shortid from 'shortid'
 
 import * as types from '../../../types'
+import { byCost } from '../../../helpers'
 
 import {
   createArrayWithDefaultValues,
   createIdList,
   getRandomEntity,
   createSupply,
-  byCost,
 } from '../../helpers'
 
 export const calcBattleScore = (tries: number) => {
@@ -245,6 +245,9 @@ export const createBattle = (config: RollBattleConfig) => {
 export type WinConfig = {
   battle: types.Battle
   treasureIds: string[]
+  gemIds: string[]
+  relicIds: string[]
+  spellIds: string[]
 }
 
 export const rollWinRewards = (config: WinConfig) => {
@@ -254,9 +257,28 @@ export const rollWinRewards = (config: WinConfig) => {
     getRandomEntity
   ).result
 
+  const newGems = createIdList(
+    config.gemIds,
+    createArrayWithDefaultValues(1, 'EMPTY'),
+    getRandomEntity
+  ).result
+  const newRelics = createIdList(
+    config.relicIds,
+    createArrayWithDefaultValues(1, 'EMPTY'),
+    getRandomEntity
+  ).result
+  const newSpells = createIdList(
+    config.spellIds,
+    createArrayWithDefaultValues(1, 'EMPTY'),
+    getRandomEntity
+  ).result
+
   const updatedBattle = {
     ...config.battle,
-    rewards: { treasure: newTreasures },
+    rewards: {
+      treasure: newTreasures,
+      supplyIds: [...newGems, ...newRelics, ...newSpells],
+    },
   }
   return { battle: updatedBattle }
 }
