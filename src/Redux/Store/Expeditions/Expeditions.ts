@@ -298,7 +298,6 @@ export const Reducer: LoopReducer<State, Action> = (
         },
       })
 
-      const battleScore = calcBattleScore(battle.tries)
       const newTreasureIds = battle.rewards ? battle.rewards.treasure : []
       const newMageIds =
         battle.rewards && battle.rewards.mage ? [battle.rewards.mage] : []
@@ -309,7 +308,6 @@ export const Reducer: LoopReducer<State, Action> = (
           ...state.expeditions,
           [battle.expeditionId]: {
             ...oldExpedition,
-            score: oldExpedition.score + battleScore,
             battles: updatedBattles,
             barracks: {
               ...oldExpedition.barracks,

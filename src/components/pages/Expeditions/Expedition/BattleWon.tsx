@@ -3,11 +3,18 @@ import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../../Redux/Store'
 import * as types from '../../../../types'
-import { byCost } from '../../../../helpers'
 
 import TreasureList from '../../../molecules/TreasureList'
 import SupplySelection from '../../../molecules/SupplySelection'
 import SupplyList from '../../../molecules/SupplyList'
+
+import {
+  createUpdatedLists,
+  getAffectedList,
+  ListWithSelection,
+  calculateNumberOfSelectedCards,
+  createBanishedAndSupplyFromList,
+} from './helpers'
 
 type OwnProps = {
   battle: types.Battle
@@ -39,11 +46,36 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
     { expeditionId: ownProps.battle.expeditionId }
   )
 
+  // TODO implement showSupplyDetails handler (useCallback and a single handler for both lists)
+  const listsWithVisualSelection = [
+    {
+      id: 'newSupply',
+      tiles: newSupplyCards.map(tile => ({
+        ...tile,
+        visualSelection: false,
+      })),
+      title: 'New cards',
+      showSupplyDetails: (event: Event) => {
+        event.stopPropagation()
+        console.log('details | TODO')
+      },
+    },
+    {
+      id: 'expedition',
+      tiles: expeditionSupply.map(tile => ({
+        ...tile,
+        visualSelection: false,
+      })),
+      showSupplyDetails: () => console.log('TODO'),
+    },
+  ]
+
   return {
     treasures,
     newSupplyCards,
     expeditionSupply,
     expedition,
+    listsWithVisualSelection,
   }
 }
 
@@ -58,87 +90,50 @@ type Props = ReturnType<typeof mapStateToProps> &
 const BattleWon = React.memo(
   ({
     battle,
-    expeditionSupply,
     expedition,
     finishBattle,
     hide,
     newSupplyCards,
     showNext,
     treasures,
+    listsWithVisualSelection,
   }: Props) => {
-    const amountOfCardsToSelect = newSupplyCards.length
-
-    // TODO implement showSupplyDetails handler (useCallback and a single handler for both lists)
-    const lists = [
-      {
-        id: 'newSupply',
-        tiles: newSupplyCards.map(tile => ({
-          ...tile,
-          visualSelection: false,
-        })),
-        title: 'New cards',
-        showSupplyDetails: (event: Event) => {
-          event.stopPropagation()
-          console.log('details | TODO')
-        },
-      },
-      {
-        id: 'expedition',
-        tiles: expeditionSupply.map(tile => ({
-          ...tile,
-          visualSelection: false,
-        })),
-        showSupplyDetails: () => console.log('TODO'),
-      },
-    ]
-    const [listsWithSelection, updateLists] = useState(lists)
+    const [listsWithSelectionState, updateLists] = useState<
+      Array<ListWithSelection>
+    >(listsWithVisualSelection)
     const [selectedCardsCount, updateSelectedCardsCount] = useState(0)
+
+    const amountOfCardsToSelect = newSupplyCards.length
     const enoughCardsSelected = selectedCardsCount === amountOfCardsToSelect
     const finishingIsPossible =
       expedition.bigPocketVariant || enoughCardsSelected
 
     const handleSelection = useCallback(
-      (val: { supplyCardId: string; listId: string }) => {
-        const affectedListIndex = listsWithSelection.findIndex(
-          list => list.id === val.listId
+      (selectedValue: { supplyCardId: string; listId: string }) => {
+        const { affectedList, affectedListIndex } = getAffectedList(
+          listsWithSelectionState,
+          selectedValue
         )
-        const affectedList = listsWithSelection[affectedListIndex]
 
         if (affectedList) {
-          const elementIndex = affectedList.tiles.findIndex(
-            card => card.id === val.supplyCardId
+          const updatedLists = createUpdatedLists(
+            affectedList,
+            affectedListIndex,
+            selectedValue,
+            finishingIsPossible,
+            listsWithSelectionState
           )
-          const affectedElement = affectedList.tiles[elementIndex]
 
-          const updatedListTiles = Object.assign([...affectedList.tiles], {
-            [elementIndex]: {
-              ...affectedElement,
-              visualSelection:
-                finishingIsPossible || affectedElement.visualSelection
-                  ? false
-                  : !affectedElement.visualSelection,
-            },
-          })
-
-          const updatedLists = Object.assign([...listsWithSelection], {
-            [affectedListIndex]: {
-              ...affectedList,
-              tiles: updatedListTiles,
-            },
-          })
-
-          const numberOfSelectedCards = updatedLists.reduce((acc, list) => {
-            const selectedList = list.tiles.filter(tile => tile.visualSelection)
-            return selectedList.length + acc
-          }, 0)
+          const numberOfSelectedCards = calculateNumberOfSelectedCards(
+            updatedLists
+          )
 
           updateSelectedCardsCount(numberOfSelectedCards)
-
           updateLists(updatedLists)
         }
       },
       [
-        listsWithSelection,
+        listsWithSelectionState,
         updateLists,
         updateSelectedCardsCount,
         finishingIsPossible,
@@ -146,37 +141,16 @@ const BattleWon = React.memo(
     )
 
     const handleFinish = useCallback(() => {
-      // FIXME fix typing (inference not working correctly)
-      const flattenedList = listsWithSelection.reduce((acc: any, list) => {
-        return [...acc, ...list.tiles]
-      }, [])
-
-      const newSupplyList = flattenedList.filter(
-        (tile: { id: string; visualSelection: boolean }) =>
-          !tile.visualSelection
+      const listFlattendedToTiles = listsWithSelectionState.reduce(
+        (acc: any, list) => {
+          return [...acc, ...list.tiles]
+        },
+        []
       )
 
-      const banished = flattenedList
-        .filter(
-          (tile: { id: string; visualSelection: boolean }) =>
-            tile.visualSelection
-        )
-        .map((tile: { id: string }) => tile.id)
-
-      const gems = newSupplyList
-        .filter((el: { type: types.CardType }) => el.type === 'Gem')
-        .sort(byCost)
-        .map((tile: { id: string }) => tile.id)
-      const relics = newSupplyList
-        .filter((el: { type: types.CardType }) => el.type === 'Relic')
-        .sort(byCost)
-        .map((tile: { id: string }) => tile.id)
-      const spells = newSupplyList
-        .filter((el: { type: types.CardType }) => el.type === 'Spell')
-        .sort(byCost)
-        .map((tile: { id: string }) => tile.id)
-
-      const newSupplyIds = [...gems, ...relics, ...spells]
+      const { banished, newSupplyIds } = createBanishedAndSupplyFromList(
+        listFlattendedToTiles
+      )
 
       finishBattle(battle, newSupplyIds, banished)
       hide()
@@ -184,7 +158,7 @@ const BattleWon = React.memo(
       if (showNext) {
         showNext()
       }
-    }, [battle, hide, finishBattle, showNext, listsWithSelection])
+    }, [battle, hide, finishBattle, showNext, listsWithSelectionState])
 
     return (
       <div>
@@ -195,7 +169,7 @@ const BattleWon = React.memo(
           />
         ) : (
           <SupplySelection
-            lists={listsWithSelection}
+            lists={listsWithSelectionState}
             handleSelection={handleSelection}
             amountOfCardsToSelect={amountOfCardsToSelect}
             selectedCardsCount={selectedCardsCount}
