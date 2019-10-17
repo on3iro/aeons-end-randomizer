@@ -19,10 +19,21 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
           expeditionId: ownProps.battle.expeditionId,
         })
       : []
+  const gemIds = selectors.getStillAvailableGemIds(state, {
+    expeditionId: ownProps.battle.expeditionId,
+  })
+  const relicIds = selectors.getStillAvailableRelicIds(state, {
+    expeditionId: ownProps.battle.expeditionId,
+  })
+  const spellIds = selectors.getStillAvailableSpellIds(state, {
+    expeditionId: ownProps.battle.expeditionId,
+  })
 
-  // current supply (by expedition id)
   return {
     treasureIdsByTier,
+    gemIds,
+    relicIds,
+    spellIds,
   }
 }
 
@@ -43,6 +54,9 @@ const BattleStarted = React.memo(
     hide,
     showNextOnWin,
     showNextOnLoss,
+    gemIds,
+    relicIds,
+    spellIds,
     treasureIdsByTier,
   }: Props) => {
     const handleWin = useCallback(() => {
@@ -50,12 +64,24 @@ const BattleStarted = React.memo(
       winBattle({
         battle,
         treasureIds: treasureIdsByTier,
+        gemIds,
+        relicIds,
+        spellIds,
       })
 
       if (showNextOnWin) {
         showNextOnWin()
       }
-    }, [winBattle, hide, battle, showNextOnWin, treasureIdsByTier])
+    }, [
+      winBattle,
+      hide,
+      battle,
+      showNextOnWin,
+      treasureIdsByTier,
+      gemIds,
+      relicIds,
+      spellIds,
+    ])
 
     const handleLoss = useCallback(() => {
       hide()

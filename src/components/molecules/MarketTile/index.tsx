@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useContext, useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import { withTheme } from 'styled-components/macro'
 
-import { RootState, selectors } from '../../../../Redux/Store'
-import * as types from '../../../../types'
+import { RootState, selectors } from '../../../Redux/Store'
+import * as types from '../../../types'
 
-import Tile from '../../Tile'
+import Tile from '../Tile'
+import { SelectionHandlerContext } from '../SupplySelection'
 
 import Wrapper from './Wrapper'
 import Body from './Body'
@@ -30,8 +31,9 @@ type Props = ReturnType<typeof mapStateToProps> &
       operation?: types.Operation
       threshold?: number
       values?: Array<number>
+      visualSelection?: boolean
     }
-    showSupplyDetails: Function
+    showSupplyDetails: (e: Event, id: string) => void
     theme: any
   }
 
@@ -44,11 +46,24 @@ const MarketTile = React.memo(
     ...rest
   }: Props) => {
     const { expansions } = selectedExpansions
+    const { selectionHandler, listId } = useContext(SelectionHandlerContext)
+    const handleSelection = useCallback(() => {
+      selectionHandler({ supplyCardId: marketTile.id, listId })
+    }, [selectionHandler, marketTile, listId])
+
+    const handleDetails = useCallback(
+      (e: Event) => {
+        showSupplyDetails(e, marketTile.id || '')
+      },
+      [marketTile.id, showSupplyDetails]
+    )
 
     return (
       <Wrapper item xs={6} md={4} {...rest}>
         {marketTile && (
           <Tile
+            clickHandler={handleSelection}
+            selected={marketTile.visualSelection}
             body={
               <Body
                 supplyCard={marketTile}
@@ -65,7 +80,7 @@ const MarketTile = React.memo(
             fontColor={theme.colors.text.primary}
             icon={theme.icons[marketTile.type.toLowerCase()]}
             iconColor={theme.colors.cards[marketTile.type.toLowerCase()].color}
-            showDetails={() => showSupplyDetails(marketTile.id)}
+            showDetails={handleDetails}
             hideShowDetailsButton={
               showSupplyDetails && marketTile.name ? false : true
             }

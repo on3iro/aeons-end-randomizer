@@ -56,7 +56,7 @@ const Supply = React.memo(
     const { show, RenderModal } = useModal()
     const [modalContentId, setModalContentId] = useState<string>('')
 
-    const handleSupplyDetails = (cardId: string) => {
+    const handleSupplyDetails = (_: Event, cardId: string) => {
       show()
       setModalContentId(cardId)
     }

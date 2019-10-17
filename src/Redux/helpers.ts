@@ -244,23 +244,3 @@ export const getOperationString = (
 
   return `${operation} ${thresholdValue}`
 }
-
-export const byCost = (a: { cost?: number }, b: { cost?: number }) => {
-  if (!a.cost) {
-    return -1
-  }
-
-  if (!b.cost) {
-    return 1
-  }
-
-  if (a.cost < b.cost) {
-    return -1
-  }
-
-  if (a.cost > b.cost) {
-    return 1
-  }
-
-  return 0
-}

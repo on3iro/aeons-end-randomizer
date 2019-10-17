@@ -1,9 +1,9 @@
 import React from 'react'
 
-import * as types from '../../../../types'
-import { getOperationString } from '../../../../Redux/helpers'
+import * as types from '../../../types'
+import { getOperationString } from '../../../Redux/helpers'
 
-import InfoItem from '../../InfoItem'
+import InfoItem from '../InfoItem'
 
 import Name from './Name'
 import CostOperation from './CostOperation'

@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid'
 import * as types from '../../../types'
 
 import ListWrapper from './ListWrapper'
-import MarketTile from './MarketTile'
+import MarketTile from '../MarketTile'
 
 // We don't want to rely on any data here (expcept the type).
 // Therefore we define a markettile where pretty much every property is optional.
@@ -24,7 +24,7 @@ type OptionalTile = {
 
 const renderTiles = (
   tiles: ReadonlyArray<OptionalTile>,
-  showSupplyDetails: Function
+  showSupplyDetails: (e: Event, id: string) => void
 ) => {
   return tiles.map((marketTile, i) => (
     <MarketTile
@@ -35,9 +35,9 @@ const renderTiles = (
   ))
 }
 
-type Props = {
+export type Props = {
   tiles: ReadonlyArray<OptionalTile>
-  showSupplyDetails: Function // FIXME signature
+  showSupplyDetails: (e: Event, id: string) => void
 }
 
 const SupplyList = React.memo(({ tiles, showSupplyDetails }: Props) => (

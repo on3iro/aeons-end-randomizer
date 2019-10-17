@@ -157,6 +157,7 @@ const getSelectedCardsLookupObject = (state: RootState) =>
   state.Settings.Expansions.SelectedCards.cards
 
 const getExpansionId = (_: any, id: string) => id
+const getIdList = (_: any, props: { cardIds: string[] }) => props.cardIds
 
 const getCardById = (state: RootState, props: { id: string }) =>
   state.Settings.Expansions.SelectedCards.cards[props.id]
@@ -204,6 +205,11 @@ const getSelectedCards = createSelector(
   (state, cardIds) => cardIds.map(cardId => state.cards[cardId])
 )
 
+const getCardsByIdList = createSelector(
+  [getSelectedCardsLookupObject, getIdList],
+  (cards, idList) => idList.map(id => cards[id])
+)
+
 export const selectors = {
   getSelectedCardsLookupObject,
   getSelectedCards,
@@ -211,4 +217,5 @@ export const selectors = {
   getRelicsByExpansionId,
   getSpellsByExpansionId,
   getCardById,
+  getCardsByIdList,
 }

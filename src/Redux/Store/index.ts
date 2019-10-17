@@ -69,6 +69,40 @@ const getNewTreasureIdsByLevel = createSelector(
   treasures => treasures.map(treasure => treasure.id)
 )
 
+const getStillAvailableGemIds = createSelector(
+  [
+    Settings.selectors.Expansions.getGemIdsForSelectedExpansions,
+    Expeditions.selectors.Expeditions.getSupplyByExpeditionId,
+  ],
+  (allAvailableIds, expeditionSupplyIds) =>
+    allAvailableIds.filter(id => !expeditionSupplyIds.includes(id))
+)
+const getStillAvailableRelicIds = createSelector(
+  [
+    Settings.selectors.Expansions.getRelicIdsForSelectedExpansions,
+    Expeditions.selectors.Expeditions.getSupplyByExpeditionId,
+  ],
+  (allAvailableIds, expeditionSupplyIds) =>
+    allAvailableIds.filter(id => !expeditionSupplyIds.includes(id))
+)
+const getStillAvailableSpellIds = createSelector(
+  [
+    Settings.selectors.Expansions.getSpellIdsForSelectedExpansions,
+    Expeditions.selectors.Expeditions.getSupplyByExpeditionId,
+  ],
+  (allAvailableIds, expeditionSupplyIds) =>
+    allAvailableIds.filter(id => !expeditionSupplyIds.includes(id))
+)
+
+const getExpeditionSupply = createSelector(
+  [
+    Expeditions.selectors.Expeditions.getExpeditionById,
+    Settings.selectors.Expansions.SelectedCards.getSelectedCardsLookupObject,
+  ],
+  (expedition, supplyCards) =>
+    expedition.barracks.supplyIds.map(id => supplyCards[id])
+)
+
 export const selectors = {
   Settings: Settings.selectors,
   Main: {
@@ -84,6 +118,10 @@ export const selectors = {
   getUpgradedBasicNemesisCardsByExpeditionId,
   getNewTreasureByLevel,
   getNewTreasureIdsByLevel,
+  getStillAvailableGemIds,
+  getStillAvailableRelicIds,
+  getStillAvailableSpellIds,
+  getExpeditionSupply,
 }
 
 export type RootAction =
