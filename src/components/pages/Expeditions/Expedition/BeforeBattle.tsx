@@ -17,7 +17,7 @@ type OwnProps = {
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({
   upgradedBasicNemsisCards: selectors.getUpgradedBasicNemesisCardsByExpeditionId(
     state,
-    ownProps.battle.expeditionId
+    { expeditionId: ownProps.battle.expeditionId }
   ),
 })
 

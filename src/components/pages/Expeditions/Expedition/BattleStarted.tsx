@@ -1,10 +1,30 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions } from '../../../../Redux/Store'
+import { RootState, actions, selectors } from '../../../../Redux/Store'
 import * as types from '../../../../types'
 
-const mapStateToProps = (state: RootState) => ({})
+type OwnProps = {
+  battle: types.Battle
+  hide: () => void
+  showNextOnWin?: () => void
+  showNextOnLoss?: () => void
+}
+
+const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
+  const treasureIdsByTier =
+    ownProps.battle.treasure.hasTreasure && ownProps.battle.treasure.level
+      ? selectors.getNewTreasureIdsByLevel(state, {
+          treasureLevel: ownProps.battle.treasure.level,
+          expeditionId: ownProps.battle.expeditionId,
+        })
+      : []
+
+  // current supply (by expedition id)
+  return {
+    treasureIdsByTier,
+  }
+}
 
 const mapDispatchToProps = {
   winBattle: actions.Expeditions.Expeditions.winBattle,
@@ -12,12 +32,8 @@ const mapDispatchToProps = {
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
-  typeof mapDispatchToProps & {
-    battle: types.Battle
-    hide: () => void
-    showNextOnWin?: () => void
-    showNextOnLoss?: () => void
-  }
+  typeof mapDispatchToProps &
+  OwnProps
 
 const BattleStarted = React.memo(
   ({
@@ -27,15 +43,19 @@ const BattleStarted = React.memo(
     hide,
     showNextOnWin,
     showNextOnLoss,
+    treasureIdsByTier,
   }: Props) => {
     const handleWin = useCallback(() => {
       hide()
-      winBattle(battle)
+      winBattle({
+        battle,
+        treasureIds: treasureIdsByTier,
+      })
 
       if (showNextOnWin) {
         showNextOnWin()
       }
-    }, [winBattle, hide, battle, showNextOnWin])
+    }, [winBattle, hide, battle, showNextOnWin, treasureIdsByTier])
 
     const handleLoss = useCallback(() => {
       hide()

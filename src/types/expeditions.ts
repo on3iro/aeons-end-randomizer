@@ -1,43 +1,93 @@
-import { NemesisTier } from './data'
+import { NemesisTier, TreasureLevel } from './data'
 
 export type Variant = {
   id: string
   name: string
-  tierList: NemesisTier[]
+  configList: Array<{
+    tier: NemesisTier
+    treasure: BattleTreasure
+  }>
 }
+
+export type BattleTreasure = { level?: TreasureLevel; hasTreasure: boolean }
 
 export const variants: { [id: string]: Variant } = {
   DEFAULT: {
     id: 'DEFAULT',
     name: 'Default',
-    tierList: [
-      { tier: 1, isNewTier: false },
-      { tier: 2, isNewTier: true },
-      { tier: 3, isNewTier: true },
-      { tier: 4, isNewTier: true },
+    configList: [
+      {
+        tier: { tier: 1, isNewTier: false },
+        treasure: { level: 1, hasTreasure: true },
+      },
+      {
+        tier: { tier: 2, isNewTier: true },
+        treasure: { level: 2, hasTreasure: true },
+      },
+      {
+        tier: { tier: 3, isNewTier: true },
+        treasure: { level: 3, hasTreasure: true },
+      },
+      {
+        tier: { tier: 4, isNewTier: true },
+        treasure: { hasTreasure: false },
+      },
     ],
   },
   SHORT: {
     id: 'SHORT',
     name: 'Short',
-    tierList: [
-      { tier: 2, isNewTier: true },
-      { tier: 3, isNewTier: true },
-      { tier: 4, isNewTier: true },
+    configList: [
+      {
+        tier: { tier: 2, isNewTier: true },
+        treasure: { level: 2, hasTreasure: true },
+      },
+      {
+        tier: { tier: 3, isNewTier: true },
+        treasure: { level: 3, hasTreasure: true },
+      },
+      {
+        tier: { tier: 4, isNewTier: true },
+        treasure: { hasTreasure: false },
+      },
     ],
   },
   EXTENDED: {
     id: 'EXTENDED',
     name: 'Extended',
-    tierList: [
-      { tier: 1, isNewTier: false },
-      { tier: 1, isNewTier: false },
-      { tier: 2, isNewTier: true },
-      { tier: 2, isNewTier: false },
-      { tier: 3, isNewTier: true },
-      { tier: 3, isNewTier: false },
-      { tier: 4, isNewTier: true },
-      { tier: 4, isNewTier: false },
+    configList: [
+      {
+        tier: { tier: 1, isNewTier: false },
+        treasure: { hasTreasure: false },
+      },
+      {
+        tier: { tier: 1, isNewTier: false },
+        treasure: { level: 1, hasTreasure: true },
+      },
+      {
+        tier: { tier: 2, isNewTier: true },
+        treasure: { hasTreasure: false },
+      },
+      {
+        tier: { tier: 2, isNewTier: false },
+        treasure: { level: 2, hasTreasure: true },
+      },
+      {
+        tier: { tier: 3, isNewTier: true },
+        treasure: { hasTreasure: false },
+      },
+      {
+        tier: { tier: 3, isNewTier: false },
+        treasure: { level: 3, hasTreasure: true },
+      },
+      {
+        tier: { tier: 4, isNewTier: true },
+        treasure: { hasTreasure: false },
+      },
+      {
+        tier: { tier: 4, isNewTier: false },
+        treasure: { hasTreasure: false },
+      },
     ],
   },
 }
@@ -61,7 +111,9 @@ export type Battle = {
   expeditionId: string
   nemesisId?: string
   nemesisTier: NemesisTier
+  treasure: BattleTreasure
   status: BattleStatus
+  rewards?: { treasure: string[]; mage: string; cards: string[] }
   tries: number
 }
 

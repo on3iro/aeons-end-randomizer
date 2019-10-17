@@ -36,13 +36,14 @@ export const generateBattles = (
   variant: types.Variant,
   expeditionId: string
 ) => {
-  const battles = variant.tierList.map(
-    (tier, index): types.Battle => {
+  const battles = variant.configList.map(
+    (config, index): types.Battle => {
       const isFirst = index === 0
 
       return {
         id: shortid.generate(),
-        nemesisTier: tier,
+        nemesisTier: config.tier,
+        treasure: config.treasure,
         expeditionId,
         status: isFirst ? 'unlocked' : 'locked',
         tries: 0,
@@ -85,7 +86,7 @@ export const createExpeditionConfig = ({
     card => card.id
   )
 
-  const startsWithTreasure = variant.tierList[0].tier > 1 // TODO should probably use our rollTreasure property
+  const startsWithTreasure = variant.configList[0].tier.tier > 1 // TODO should probably use our rollTreasure property
   const treasureIds = startsWithTreasure
     ? createIdList(
         availableLevel1TreasureIds,
@@ -239,4 +240,23 @@ export const createBattle = (config: RollBattleConfig) => {
     battle: { ...config.battle, nemesisId, status: 'before_battle' },
     upgradedBasicNemesisCardIds,
   }
+}
+
+export type WinConfig = {
+  battle: types.Battle
+  treasureIds: string[]
+}
+
+export const rollWinRewards = (config: WinConfig) => {
+  const newTreasures = createIdList(
+    config.treasureIds,
+    createArrayWithDefaultValues(5, 'EMPTY'),
+    getRandomEntity
+  ).result
+
+  const updatedBattle = {
+    ...config.battle,
+    rewards: { treasure: newTreasures },
+  }
+  return { battle: updatedBattle }
 }

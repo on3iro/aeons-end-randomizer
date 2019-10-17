@@ -18,7 +18,7 @@ const mapStateToProps = (state: RootState) => ({
   ),
   availableLevel1TreasureIds: selectors.Settings.Expansions.Treasures.getTreasureIdsByTreasureLevel(
     state,
-    1
+    { treasureLevel: 1 }
   ),
   allMarketSetups: getCustomAndPredefined(state),
 })
