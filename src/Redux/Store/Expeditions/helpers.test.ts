@@ -1,39 +1,56 @@
 import { NemesisTier } from '../../../types'
-import { generateBattles, createBattle } from './helpers'
+import { generateBattles } from './helpers'
 
 describe('generateBattles', () => {
   it('should generate inital battles correctly for normal expedition', () => {
-    const tier1 = { tier: 1, isNewTier: false }
-    const tier2 = { tier: 2, isNewTier: true }
-    const tier3 = { tier: 3, isNewTier: true }
-    const tier4 = { tier: 4, isNewTier: true }
+    const config1 = {
+      tier: { tier: 1, isNewTier: false },
+      treasure: { level: 1, hasTreasure: true },
+    }
+    const config2 = {
+      tier: { tier: 2, isNewTier: true },
+      treasure: { level: 2, hasTreasure: true },
+    }
+    const config3 = {
+      tier: { tier: 3, isNewTier: true },
+      treasure: { level: 3, hasTreasure: true },
+    }
+    const config4 = {
+      tier: { tier: 4, isNewTier: true },
+      treasure: { hasTreasure: false },
+    }
+
     const variant = {
       id: 'DEFAULT',
       name: 'Default',
-      tierList: [tier1, tier2, tier3, tier4] as NemesisTier[],
+      configList: [config1, config2, config3, config4],
     }
 
     expect(generateBattles(variant, '1')).toMatchObject([
       {
-        nemesisTier: tier1,
+        nemesisTier: config1.tier,
+        treasure: config1.treasure,
         expeditionId: '1',
         status: 'unlocked',
         tries: 0,
       },
       {
-        nemesisTier: tier2,
+        nemesisTier: config2.tier,
+        treasure: config2.treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
       },
       {
-        nemesisTier: tier3,
+        nemesisTier: config3.tier,
+        treasure: config3.treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
       },
       {
-        nemesisTier: tier4,
+        nemesisTier: config4.tier,
+        treasure: config4.treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
@@ -42,30 +59,43 @@ describe('generateBattles', () => {
   })
 
   it('should generate inital battles correctly for short expedition', () => {
-    const tier2 = { tier: 2, isNewTier: true }
-    const tier3 = { tier: 3, isNewTier: true }
-    const tier4 = { tier: 4, isNewTier: true }
+    const config2 = {
+      tier: { tier: 2, isNewTier: true },
+      treasure: { level: 2, hasTreasure: true },
+    }
+    const config3 = {
+      tier: { tier: 3, isNewTier: true },
+      treasure: { level: 3, hasTreasure: true },
+    }
+    const config4 = {
+      tier: { tier: 4, isNewTier: true },
+      treasure: { hasTreasure: false },
+    }
+
     const variant = {
       id: 'SHORT',
       name: 'Short',
-      tierList: [tier2, tier3, tier4] as NemesisTier[],
+      configList: [config2, config3, config4],
     }
 
     expect(generateBattles(variant, '1')).toMatchObject([
       {
-        nemesisTier: tier2,
+        nemesisTier: config2.tier,
+        treasure: config2.treasure,
         expeditionId: '1',
         status: 'unlocked',
         tries: 0,
       },
       {
-        nemesisTier: tier3,
+        nemesisTier: config3.tier,
+        treasure: config3.treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
       },
       {
-        nemesisTier: tier4,
+        nemesisTier: config4.tier,
+        treasure: config4.treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
@@ -74,74 +104,100 @@ describe('generateBattles', () => {
   })
 
   it('should generate inital battles correctly for extended expedition', () => {
-    const tier11 = { tier: 1, isNewTier: false }
-    const tier12 = { tier: 1, isNewTier: false }
-    const tier21 = { tier: 2, isNewTier: true }
-    const tier22 = { tier: 2, isNewTier: false }
-    const tier31 = { tier: 3, isNewTier: true }
-    const tier32 = { tier: 3, isNewTier: false }
-    const tier41 = { tier: 4, isNewTier: true }
-    const tier42 = { tier: 4, isNewTier: false }
+    const configList = [
+      {
+        tier: { tier: 1, isNewTier: false },
+        treasure: { hasTreasure: false },
+      },
+      {
+        tier: { tier: 1, isNewTier: false },
+        treasure: { level: 1, hasTreasure: true },
+      },
+      {
+        tier: { tier: 2, isNewTier: true },
+        treasure: { hasTreasure: false },
+      },
+      {
+        tier: { tier: 2, isNewTier: false },
+        treasure: { level: 2, hasTreasure: true },
+      },
+      {
+        tier: { tier: 3, isNewTier: true },
+        treasure: { hasTreasure: false },
+      },
+      {
+        tier: { tier: 3, isNewTier: false },
+        treasure: { level: 3, hasTreasure: true },
+      },
+      {
+        tier: { tier: 4, isNewTier: true },
+        treasure: { hasTreasure: false },
+      },
+      {
+        tier: { tier: 4, isNewTier: false },
+        treasure: { hasTreasure: false },
+      },
+    ]
+
     const variant = {
       id: 'EXTENDED',
       name: 'Extended',
-      tierList: [
-        tier11,
-        tier12,
-        tier21,
-        tier22,
-        tier31,
-        tier32,
-        tier41,
-        tier42,
-      ] as NemesisTier[],
+      configList: configList,
     }
 
     expect(generateBattles(variant, '1')).toMatchObject([
       {
-        nemesisTier: tier11,
+        nemesisTier: configList[0].tier,
+        treasure: configList[0].treasure,
         expeditionId: '1',
         status: 'unlocked',
         tries: 0,
       },
       {
-        nemesisTier: tier12,
+        nemesisTier: configList[1].tier,
+        treasure: configList[1].treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
       },
       {
-        nemesisTier: tier21,
+        nemesisTier: configList[2].tier,
+        treasure: configList[2].treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
       },
       {
-        nemesisTier: tier22,
+        nemesisTier: configList[3].tier,
+        treasure: configList[3].treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
       },
       {
-        nemesisTier: tier31,
+        nemesisTier: configList[4].tier,
+        treasure: configList[4].treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
       },
       {
-        nemesisTier: tier32,
+        nemesisTier: configList[5].tier,
+        treasure: configList[5].treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
       },
       {
-        nemesisTier: tier41,
+        nemesisTier: configList[6].tier,
+        treasure: configList[6].treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
       },
       {
-        nemesisTier: tier42,
+        nemesisTier: configList[7].tier,
+        treasure: configList[7].treasure,
         expeditionId: '1',
         status: 'locked',
         tries: 0,
