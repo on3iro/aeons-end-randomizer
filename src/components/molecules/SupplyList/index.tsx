@@ -11,7 +11,7 @@ import MarketTile from '../MarketTile'
 // Therefore we define a markettile where pretty much every property is optional.
 // To eliminate resulting errors we check for issues inside the respective sub-components
 // TODO this needs some cleanup
-type OptionalTile = {
+export type OptionalTile = {
   id?: string
   type: types.CardType
   expansion?: string
