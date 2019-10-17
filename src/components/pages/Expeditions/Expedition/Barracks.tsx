@@ -52,6 +52,7 @@ const Barracks = React.memo(
             />
             <TreasureList treasures={treasureList} />
             <p>TODO: show upgraded basic nemesis cards</p>
+            <p>TODO: show banished</p>
           </React.Fragment>
         </RenderModal>
         <ShuffleButton onClick={show} color="primary" variant="extended">

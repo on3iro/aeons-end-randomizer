@@ -6,13 +6,15 @@ import { get as getFromDb, set as setToDb } from 'idb-keyval'
 import { RootState } from '../'
 import * as types from '../../../types'
 import {
-  createExpeditionConfig,
   BaseConfig,
+  LossConfig,
   RollBattleConfig,
-  createBattle,
-  calcBattleScore,
-  rollWinRewards,
   WinConfig,
+  calcBattleScore,
+  createBattle,
+  createExpeditionConfig,
+  rollLossRewards,
+  rollWinRewards,
 } from './helpers'
 
 const EXPEDITIONS_DB_KEY = 'expeditions-1.11.0'
@@ -42,6 +44,7 @@ export enum ActionTypes {
   START_BATTLE = 'Expeditions/Expeditions/START_BATTLE',
   WIN_BATTLE = 'Expeditions/Expeditions/WIN_BATTLE',
   LOSE_BATTLE = 'Expeditions/Expeditions/LOSE_BATTLE',
+  ROLL_LOSS = 'Expeditions/Expeditions/ROLL_LOSS',
   ACCEPT_LOSS = 'Expeditions/Expeditions/ACCEPT_LOSS',
   FINISH_BATTLE = 'Expeditions/Expeditions/FINISH_BATTLE',
   SET_TO_DB = 'Expeditions/Expeditions/SET_TO_DB',
@@ -68,10 +71,20 @@ export const actions = {
     createAction(ActionTypes.WIN_BATTLE, rollWinRewards(config)),
   loseBattle: (battle: types.Battle) =>
     createAction(ActionTypes.LOSE_BATTLE, { battle }),
-  acceptLoss: (battle: types.Battle) =>
-    createAction(ActionTypes.ACCEPT_LOSS, { battle }),
-  finishBattle: (battle: types.Battle, newSupplyIds: string[]) =>
-    createAction(ActionTypes.FINISH_BATTLE, { battle, newSupplyIds }),
+  acceptLoss: (
+    battle: types.Battle,
+    banished: string[],
+    newSupplyIds: string[]
+  ) =>
+    createAction(ActionTypes.ACCEPT_LOSS, { battle, banished, newSupplyIds }),
+  rollLoss: (config: LossConfig) =>
+    createAction(ActionTypes.ROLL_LOSS, rollLossRewards(config)),
+  finishBattle: (
+    battle: types.Battle,
+    newSupplyIds: string[],
+    banished: string[]
+  ) =>
+    createAction(ActionTypes.FINISH_BATTLE, { battle, newSupplyIds, banished }),
   deleteExpedition: (id: string) =>
     createAction(ActionTypes.DELETE_EXPEDITION, id),
   setToDB: (state: State) => createAction(ActionTypes.SET_TO_DB, state),
@@ -90,6 +103,50 @@ export type Action = ActionsUnion<typeof actions>
 /////////////
 // REDUCER //
 /////////////
+
+const updateBattle = (
+  state: State,
+  battle: types.Battle,
+  additionalBattleProps?: {
+    status?: types.BattleStatus
+    tries?: number
+    rewards?: null
+  }
+) => {
+  const oldExpedition = state.expeditions[battle.expeditionId]
+  const oldBattleList = oldExpedition.battles
+
+  const battleIndex = oldBattleList.findIndex(
+    oldBattle => oldBattle.id === battle.id
+  )
+
+  const updatedBattles = Object.assign([...oldBattleList], {
+    [battleIndex]: {
+      ...battle,
+      ...additionalBattleProps,
+    },
+  })
+
+  const newState = {
+    ...state,
+    expeditions: {
+      ...state.expeditions,
+      [battle.expeditionId]: {
+        ...oldExpedition,
+        battles: updatedBattles,
+      },
+    },
+  }
+
+  return loop(
+    newState,
+    Cmd.run(setToDb, {
+      args: [EXPEDITIONS_DB_KEY, newState],
+      successActionCreator: actions.setToDBSuccessful,
+      failActionCreator: actions.setToDBFailed,
+    })
+  )
+}
 
 export const Reducer: LoopReducer<State, Action> = (
   state: State = initialState,
@@ -200,118 +257,32 @@ export const Reducer: LoopReducer<State, Action> = (
 
     case ActionTypes.START_BATTLE: {
       const { battle } = action.payload
-      const oldExpedition = state.expeditions[battle.expeditionId]
-      const oldBattleList = oldExpedition.battles
-
-      const battleIndex = oldBattleList.findIndex(
-        oldBattle => oldBattle.id === battle.id
-      )
-
-      const updatedBattles = Object.assign([...oldBattleList], {
-        [battleIndex]: {
-          ...battle,
-          tries: battle.tries + 1,
-          status: 'started',
-        },
+      return updateBattle(state, battle, {
+        tries: battle.tries + 1,
+        status: 'started',
       })
-
-      const newState = {
-        ...state,
-        expeditions: {
-          ...state.expeditions,
-          [battle.expeditionId]: {
-            ...oldExpedition,
-            battles: updatedBattles,
-          },
-        },
-      }
-
-      return loop(
-        newState,
-        Cmd.run(setToDb, {
-          args: [EXPEDITIONS_DB_KEY, newState],
-          successActionCreator: actions.setToDBSuccessful,
-          failActionCreator: actions.setToDBFailed,
-        })
-      )
     }
 
     case ActionTypes.WIN_BATTLE: {
       const { battle } = action.payload
-      const oldExpedition = state.expeditions[battle.expeditionId]
-      const oldBattleList = oldExpedition.battles
 
-      const battleIndex = oldBattleList.findIndex(
-        oldBattle => oldBattle.id === battle.id
-      )
-
-      const updatedBattles = Object.assign([...oldBattleList], {
-        [battleIndex]: {
-          ...battle,
-          status: 'won',
-        },
-      })
-
-      const newState = {
-        ...state,
-        expeditions: {
-          ...state.expeditions,
-          [battle.expeditionId]: {
-            ...oldExpedition,
-            battles: updatedBattles,
-          },
-        },
-      }
-
-      return loop(
-        newState,
-        Cmd.run(setToDb, {
-          args: [EXPEDITIONS_DB_KEY, newState],
-          successActionCreator: actions.setToDBSuccessful,
-          failActionCreator: actions.setToDBFailed,
-        })
-      )
+      return updateBattle(state, battle, { status: 'won' })
     }
 
     case ActionTypes.LOSE_BATTLE: {
       const { battle } = action.payload
-      const oldExpedition = state.expeditions[battle.expeditionId]
-      const oldBattleList = oldExpedition.battles
+      return updateBattle(state, battle, { status: 'lost' })
+    }
 
-      const battleIndex = oldBattleList.findIndex(
-        oldBattle => oldBattle.id === battle.id
-      )
+    case ActionTypes.ROLL_LOSS: {
+      const battle = action.payload
 
-      const updatedBattles = Object.assign([...oldBattleList], {
-        [battleIndex]: {
-          ...battle,
-          status: 'lost',
-        },
-      })
-
-      const newState = {
-        ...state,
-        expeditions: {
-          ...state.expeditions,
-          [battle.expeditionId]: {
-            ...oldExpedition,
-            battles: updatedBattles,
-          },
-        },
-      }
-
-      return loop(
-        newState,
-        Cmd.run(setToDb, {
-          args: [EXPEDITIONS_DB_KEY, newState],
-          successActionCreator: actions.setToDBSuccessful,
-          failActionCreator: actions.setToDBFailed,
-        })
-      )
+      return updateBattle(state, battle)
     }
 
     case ActionTypes.ACCEPT_LOSS: {
-      const { battle } = action.payload
+      const { battle, banished, newSupplyIds } = action.payload
+
       const oldExpedition = state.expeditions[battle.expeditionId]
       const oldBattleList = oldExpedition.battles
 
@@ -323,8 +294,14 @@ export const Reducer: LoopReducer<State, Action> = (
         [battleIndex]: {
           ...battle,
           status: 'before_battle',
+          rewards: undefined,
         },
       })
+
+      const battleScore = calcBattleScore(battle.tries)
+      const newTreasureIds = battle.rewards ? battle.rewards.treasure : []
+      const newMageIds =
+        battle.rewards && battle.rewards.mage ? [battle.rewards.mage] : []
 
       const newState = {
         ...state,
@@ -332,7 +309,18 @@ export const Reducer: LoopReducer<State, Action> = (
           ...state.expeditions,
           [battle.expeditionId]: {
             ...oldExpedition,
+            score: oldExpedition.score + battleScore,
             battles: updatedBattles,
+            barracks: {
+              ...oldExpedition.barracks,
+              treasureIds: [
+                ...oldExpedition.barracks.treasureIds,
+                ...newTreasureIds,
+              ],
+              supplyIds: newSupplyIds,
+              mageIds: [...oldExpedition.barracks.mageIds, ...newMageIds],
+            },
+            banished: [...oldExpedition.banished, ...banished],
           },
         },
       }
@@ -348,7 +336,7 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.FINISH_BATTLE: {
-      const { battle, newSupplyIds } = action.payload
+      const { battle, newSupplyIds, banished } = action.payload
       const oldExpedition = state.expeditions[battle.expeditionId]
       const oldBattleList = oldExpedition.battles
 
@@ -391,6 +379,7 @@ export const Reducer: LoopReducer<State, Action> = (
               ],
               supplyIds: newSupplyIds,
             },
+            banished: [...oldExpedition.banished, ...banished],
           },
         },
       }
@@ -474,6 +463,11 @@ const getSupplyByExpeditionId = createSelector(
   expedition => expedition.barracks.supplyIds
 )
 
+const getMagesByExpeditionId = createSelector(
+  [getExpeditionById],
+  expedition => expedition.barracks.mageIds
+)
+
 export const selectors = {
   getExpeditions,
   getExpeditionIds,
@@ -481,4 +475,5 @@ export const selectors = {
   getExpeditionById,
   getNextBattle,
   getSupplyByExpeditionId,
+  getMagesByExpeditionId,
 }
