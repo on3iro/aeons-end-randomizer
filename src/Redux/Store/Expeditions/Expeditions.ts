@@ -11,6 +11,8 @@ import {
   RollBattleConfig,
   createBattle,
   calcBattleScore,
+  rollWinRewards,
+  WinConfig,
 } from './helpers'
 
 const EXPEDITIONS_DB_KEY = 'expeditions-1.11.0'
@@ -62,14 +64,12 @@ export const actions = {
     createAction(ActionTypes.ROLL_BATTLE, createBattle(config)),
   startBattle: (battle: types.Battle) =>
     createAction(ActionTypes.START_BATTLE, { battle }),
-  winBattle: (
-    battle: types.Battle // TODO generate rewards
-  ) => createAction(ActionTypes.WIN_BATTLE, { battle }),
+  winBattle: (config: WinConfig) =>
+    createAction(ActionTypes.WIN_BATTLE, rollWinRewards(config)),
   loseBattle: (battle: types.Battle) =>
     createAction(ActionTypes.LOSE_BATTLE, { battle }),
-  acceptLoss: (
-    battle: types.Battle // TODO add card/treasure/mage type to randomize
-  ) => createAction(ActionTypes.ACCEPT_LOSS, { battle }),
+  acceptLoss: (battle: types.Battle) =>
+    createAction(ActionTypes.ACCEPT_LOSS, { battle }),
   finishBattle: (battle: types.Battle) =>
     createAction(ActionTypes.FINISH_BATTLE, { battle }),
   deleteExpedition: (id: string) =>
@@ -373,6 +373,7 @@ export const Reducer: LoopReducer<State, Action> = (
       })
 
       const battleScore = calcBattleScore(battle.tries)
+      const newTreasureIds = battle.rewards ? battle.rewards.treasure : []
 
       const newState = {
         ...state,
@@ -382,6 +383,13 @@ export const Reducer: LoopReducer<State, Action> = (
             ...oldExpedition,
             score: oldExpedition.score + battleScore,
             battles: updatedBattles,
+            barracks: {
+              ...oldExpedition.barracks,
+              treasureIds: [
+                ...oldExpedition.barracks.treasureIds,
+                ...newTreasureIds,
+              ],
+            },
           },
         },
       }
@@ -429,7 +437,10 @@ const getExpeditions = (state: RootState) =>
   state.Expeditions.Expeditions.expeditions
 const getExpeditionIds = (state: RootState) =>
   state.Expeditions.Expeditions.expeditionIds
-const getExpeditionId = (_: RootState, id: string) => id
+const getExpeditionId = (_: RootState, props: { expeditionId: string }) =>
+  props.expeditionId
+const getBattleId = (_: RootState, props: { battleId: string }) =>
+  props.battleId
 
 const getExpeditionList = createSelector(
   [getExpeditionIds, getExpeditions],
@@ -441,9 +452,26 @@ const getExpeditionById = createSelector(
   (expeditions, id) => expeditions[id]
 )
 
+const getNextBattle = createSelector(
+  [getExpeditionById, getBattleId],
+  (expedition, battleId) => {
+    const currentBattleIndex = expedition.battles.findIndex(
+      battle => battle.id === battleId
+    )
+    const hasNext = currentBattleIndex < expedition.battles.length
+
+    if (hasNext) {
+      return expedition.battles[currentBattleIndex + 1]
+    }
+
+    return null
+  }
+)
+
 export const selectors = {
   getExpeditions,
   getExpeditionIds,
   getExpeditionList,
   getExpeditionById,
+  getNextBattle,
 }

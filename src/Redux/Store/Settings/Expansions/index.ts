@@ -111,6 +111,16 @@ const getSelectedMagesForSelectedExpansions = getSelectedEntitiesForSelectedExpa
 const getTreasuresForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
   Treasures.selectors.getTreasureList
 )
+
+const getTreasuresByLevelForSelectedExpansions = createSelector(
+  [
+    SelectedExpansions.selectors.getSelectedExpansionsArray,
+    Treasures.selectors.getTreasureListByLevel,
+  ],
+  (expansionIds, entities) =>
+    entities.filter(entity => expansionIds.includes(entity.expansion))
+)
+
 const getUpgradedBasicNemesisCardsForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
   UpgradedBasicNemesisCards.selectors.getUpgradedBasicNemesisCardList
 )
@@ -126,6 +136,7 @@ export const selectors = {
   getSelectedNemesesForSelectedExpansions,
   getSelectedMagesForSelectedExpansions,
   getTreasuresForSelectedExpansions,
+  getTreasuresByLevelForSelectedExpansions,
   getUpgradedBasicNemesisCardsForSelectedExpansions,
   getGemIdsForSelectedExpansions,
   getRelicIdsForSelectedExpansions,

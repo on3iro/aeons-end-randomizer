@@ -53,6 +53,22 @@ const getUpgradedBasicNemesisCardsByExpeditionId = createSelector(
     )
 )
 
+const getNewTreasureByLevel = createSelector(
+  [
+    Settings.selectors.Expansions.getTreasuresByLevelForSelectedExpansions,
+    Expeditions.selectors.Expeditions.getExpeditionById,
+  ],
+  (treasures, expedition) =>
+    treasures.filter(
+      treasure => !expedition.barracks.treasureIds.includes(treasure.id)
+    )
+)
+
+const getNewTreasureIdsByLevel = createSelector(
+  [getNewTreasureByLevel],
+  treasures => treasures.map(treasure => treasure.id)
+)
+
 export const selectors = {
   Settings: Settings.selectors,
   Main: {
@@ -63,7 +79,11 @@ export const selectors = {
   Mages: Mages.selectors,
   Supply: Supply.selectors,
   Expeditions: Expeditions.selectors,
+
+  // Top level selectors
   getUpgradedBasicNemesisCardsByExpeditionId,
+  getNewTreasureByLevel,
+  getNewTreasureIdsByLevel,
 }
 
 export type RootAction =

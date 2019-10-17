@@ -54,10 +54,14 @@ export const Reducer: LoopReducer<State, Action> = (
 const getTreasures = (state: RootState) =>
   state.Settings.Expansions.Treasures.treasures
 
-const getTreasureLevel = (_: RootState, treasureLevel: types.TreasureLevel) =>
-  treasureLevel
+const getTreasureLevel = (
+  _: RootState,
+  props: { treasureLevel: types.TreasureLevel }
+) => props.treasureLevel
 
 const getExpansionId = (_: any, id: string) => id
+const getIdList = (_: any, props: { treasureIds: string[] }) =>
+  props.treasureIds
 
 const getTreasureIds = (state: RootState) =>
   state.Settings.Expansions.Treasures.treasureIds
@@ -90,6 +94,16 @@ const getTreasureList = createSelector(
   (treasures, treasureIds) => treasureIds.map(id => treasures[id])
 )
 
+const getTreasureListByLevel = createSelector(
+  [getTreasures, getTreasureIdsByTreasureLevel],
+  (treasures, treasureIds) => treasureIds.map(id => treasures[id])
+)
+
+const getTreasureListFromIdList = createSelector(
+  [getTreasures, getIdList],
+  (treasures, ids) => ids.map(id => treasures[id])
+)
+
 export const selectors = {
   getTreasures,
   getTreasureIds,
@@ -97,4 +111,6 @@ export const selectors = {
   getTreasuresByExpansionId,
   getTreasureIdsByTreasureLevel,
   getTreasureList,
+  getTreasureListByLevel,
+  getTreasureListFromIdList,
 }

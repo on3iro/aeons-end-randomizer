@@ -15,10 +15,7 @@ const mapDispatchToProps = {
   getUserConfiguration: actions.Main.getUserConfiguration,
 }
 
-type Props = ReturnType<typeof mapStateToProps> &
-  typeof mapDispatchToProps & {
-    isLoading: boolean
-  }
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
 const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false)

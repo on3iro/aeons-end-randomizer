@@ -25,10 +25,9 @@ const renderBattles = (
 
 // FIXME fix prop typing
 const mapStateToProps = (state: RootState, props: any) => ({
-  expedition: selectors.Expeditions.Expeditions.getExpeditionById(
-    state,
-    props.id
-  ),
+  expedition: selectors.Expeditions.Expeditions.getExpeditionById(state, {
+    expeditionId: props.id,
+  }),
 })
 
 const mapDispatchToProps = {}

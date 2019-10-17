@@ -1,24 +1,41 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions } from '../../../../Redux/Store'
+import { RootState, actions, selectors } from '../../../../Redux/Store'
 import * as types from '../../../../types'
 
-const mapStateToProps = (state: RootState) => ({})
+import TreasureList from '../../../molecules/TreasureList'
+
+type OwnProps = {
+  battle: types.Battle
+  hide: () => void
+  showNext?: () => void
+}
+
+const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
+  const treasures =
+    ownProps.battle.rewards !== undefined
+      ? selectors.Settings.Expansions.Treasures.getTreasureListFromIdList(
+          state,
+          { treasureIds: ownProps.battle.rewards.treasure }
+        )
+      : []
+
+  return {
+    treasures,
+  }
+}
 
 const mapDispatchToProps = {
   finishBattle: actions.Expeditions.Expeditions.finishBattle,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
-  typeof mapDispatchToProps & {
-    battle: types.Battle
-    hide: () => void
-    showNext?: () => void
-  }
+  typeof mapDispatchToProps &
+  OwnProps
 
 const BattleWon = React.memo(
-  ({ battle, hide, finishBattle, showNext }: Props) => {
+  ({ battle, hide, finishBattle, showNext, treasures }: Props) => {
     const handleFinish = useCallback(() => {
       finishBattle(battle)
       hide()
@@ -30,7 +47,8 @@ const BattleWon = React.memo(
 
     return (
       <div>
-        <p>TODO show treasure and stuff</p>
+        <p>TODO show new market cards and banish selection</p>
+        <TreasureList treasures={treasures} />
         <button onClick={handleFinish}>Unlock next battle</button>
       </div>
     )
