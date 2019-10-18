@@ -4,21 +4,21 @@ import { withTheme } from 'styled-components/macro'
 import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../Redux/Store'
+import * as types from '../../../types'
 
 import { RenderModalType } from '../../../hooks/useModal'
 
 import MageInformation from '../MageInformation'
 
-// FIXME refine type
+// FIXME refine type (withStyle is the issue here)
 const mapStateToProps = (state: RootState, props: any) => ({
-  mage: selectors.Settings.Expansions.SelectedMages.getMageById(state, props),
   selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
     state
   ),
 })
 
 type Props = ReturnType<typeof mapStateToProps> & {
-  id: string
+  mage: types.Mage
   player: 'player1' | 'player2' | 'player3' | 'player4'
   theme: any
   RenderModal: RenderModalType

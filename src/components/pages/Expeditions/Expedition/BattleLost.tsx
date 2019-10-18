@@ -280,13 +280,7 @@ const BattleLost = React.memo(
               />
             )}
             {treasures.length > 0 && <TreasureList treasures={treasures} />}
-            {newMage && (
-              <MageTile
-                mage={newMage}
-                playerNumber={1}
-                showMageDetails={() => console.log('TODO')}
-              />
-            )}
+            {newMage && <MageTile mage={newMage} playerNumber={1} />}
             <button onClick={handleContinue} disabled={!finishingIsPossible}>
               Continue
             </button>

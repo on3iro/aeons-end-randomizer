@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
 import { MageCount } from '../../../Redux/Store/Mages/Count'
-import { useModal } from '../../../hooks/useModal'
 
 import MageList from '../../molecules/MageList'
 import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
@@ -11,7 +10,6 @@ import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
 import ShuffleButton from '../../atoms/ShuffleButton'
 
 import MageCountPicker from './MageCountPicker'
-import MageModal from '../../molecules/MageModal'
 import EmptyMageListHint from './EmptyMageListHint'
 
 const mapStateToProps = (state: RootState) => ({
@@ -45,16 +43,6 @@ const Mages = React.memo(
       return <NoSelectedExpansions />
     }
 
-    const { show, RenderModal } = useModal()
-    const [modalContentId, setModalContentId] = useState<string>('')
-    const [modalPlayerNumber, setModalPlayerNumber] = useState<number>(1)
-
-    const handleMageDetails = (mageId: string, playerNumber: number) => {
-      show()
-      setModalContentId(mageId)
-      setModalPlayerNumber(playerNumber)
-    }
-
     const handleShuffle = () => {
       setMages(availableMages, mageCount)
     }
@@ -74,7 +62,7 @@ const Mages = React.memo(
         {noMagesGeneratedYet ? (
           <EmptyMageListHint>Tap button to recruit mages</EmptyMageListHint>
         ) : (
-          <MageList mages={mages} showMageDetails={handleMageDetails} />
+          <MageList mages={mages} />
         )}
         <ShuffleButton
           onClick={handleShuffle}
@@ -84,11 +72,6 @@ const Mages = React.memo(
         >
           Recruit Mages
         </ShuffleButton>
-        <MageModal
-          id={modalContentId}
-          player={`player${modalPlayerNumber}`}
-          RenderModal={RenderModal}
-        />
       </React.Fragment>
     )
   }

@@ -15,7 +15,6 @@ const Wrapper = styled('div')``
 type Props = {
   id: string
   checked: boolean
-  item: string
   label: string
   changeHandler: (selection: string) => void
   showDetails: (id: string) => void
@@ -24,17 +23,9 @@ type Props = {
 }
 
 const CheckboxWithDetails = React.memo(
-  ({
-    checked,
-    item,
-    label,
-    changeHandler,
-    showDetails,
-    keywords,
-    id,
-  }: Props) => {
-    const handleChange = useCallback(() => changeHandler(item), [
-      item,
+  ({ checked, label, changeHandler, showDetails, keywords, id }: Props) => {
+    const handleChange = useCallback(() => changeHandler(id), [
+      id,
       changeHandler,
     ])
     const handleDetails = useCallback(() => showDetails(id), [id, showDetails])
@@ -42,7 +33,7 @@ const CheckboxWithDetails = React.memo(
       <Wrapper>
         <FormControlLabel
           control={
-            <Checkbox checked={checked} onChange={handleChange} value={item} />
+            <Checkbox checked={checked} onChange={handleChange} value={id} />
           }
           label={label}
         />
