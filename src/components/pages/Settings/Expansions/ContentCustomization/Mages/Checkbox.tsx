@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 
 import { useModal } from '../../../../../../hooks/useModal'
 
-import CheckboxWithDetails from '../CheckboxWithDetails'
+import CheckboxWithDetails from '../../../../../molecules/CheckboxWithDetails'
 import MageModal from '../../../../../molecules/MageModal'
 
 import { SelectedMage, ChangeHandler } from './index'
