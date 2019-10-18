@@ -5,6 +5,8 @@ import { RootState, actions, selectors } from '../../../../Redux/Store'
 import * as types from '../../../../types'
 import { useModal } from '../../../../hooks/useModal'
 
+import BattleWrapper from './BattleWrapper'
+import BattleTile from './BattleTile'
 import BeforeBattle from './BeforeBattle'
 import BattleStarted from './BattleStarted'
 import BattleWon from './BattleWon'
@@ -137,24 +139,13 @@ const Battle = React.memo(
 
     return (
       <div>
-        <p>
-          <b>Nemesis:</b> {nemesis ? nemesis.name : '?'}
-        </p>
-        <p>
-          <b>tries:</b> {battle.tries}
-        </p>
-        <p>
-          <b>status:</b> {battle.status}
-        </p>
-        <p>
-          <b>tier:</b> {battle.nemesisTier.tier}
-        </p>
-        <button
+        <BattleWrapper
           disabled={battle.status === 'locked' || battle.status === 'finished'}
           onClick={handleClick}
         >
-          interact
-        </button>
+          <BattleTile battle={battle} nemesis={nemesis ? nemesis.name : '?'} />
+        </BattleWrapper>
+
         <RenderBeforeBattleModal titleColor="#333" titleLabel="Before Fight">
           <BeforeBattle
             hide={hideBeforeBattle}

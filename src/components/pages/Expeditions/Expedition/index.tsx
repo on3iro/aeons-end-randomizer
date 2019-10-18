@@ -5,9 +5,11 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import { RootState, selectors } from '../../../../Redux/Store'
 import * as types from '../../../../types'
 
-import A from '../../../atoms/A'
+import BackLink from '../../../molecules/BackLink'
+
 import Barracks from './Barracks'
 import Battle from './Battle'
+import Header from './Header'
 
 const renderBattles = (
   battles: types.Battle[],
@@ -58,17 +60,18 @@ const Expedition = React.memo(({ expedition }: Props) => {
 
   return (
     <React.Fragment>
-      <A to="/expeditions">Zurück</A>
-      <p>Expedition {expedition.name}</p>
-      <p>
-        <b>Current Score:</b> {expedition.score}
-      </p>
-      <Barracks expedition={expedition} />
+      <BackLink to="/expeditions" label="Back to overview" />
+      <Header
+        title={expedition.name || expedition.id}
+        score={expedition.score}
+      />
+
       {renderBattles(
         expedition.battles,
         previousNemeses,
         previousUpgradedBasicNemesis
       )}
+      <Barracks expedition={expedition} />
     </React.Fragment>
   )
 })
