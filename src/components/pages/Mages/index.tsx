@@ -11,7 +11,7 @@ import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
 import ShuffleButton from '../../atoms/ShuffleButton'
 
 import MageCountPicker from './MageCountPicker'
-import MageModal from './MageModal'
+import MageModal from '../../molecules/MageModal'
 import EmptyMageListHint from './EmptyMageListHint'
 
 const mapStateToProps = (state: RootState) => ({

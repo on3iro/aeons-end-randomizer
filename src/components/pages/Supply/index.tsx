@@ -10,7 +10,7 @@ import MarketSelect from '../../molecules/MarketSelect'
 
 import ShuffleButton from '../../atoms/ShuffleButton'
 
-import SupplyModal from './SupplyModal'
+import SupplyModal from '../../molecules/SupplyModal'
 
 const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
 const mapStateToProps = (state: RootState) => ({

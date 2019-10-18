@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
@@ -9,7 +9,7 @@ import EmptyNemesisHint from './EmptyNemesisHint'
 import ShuffleButton from '../../atoms/ShuffleButton'
 import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
 
-import NemesisModal from './NemesisModal'
+import NemesisModal from '../../molecules/NemesisModal'
 import { useModal } from '../../../hooks/useModal'
 
 const mapStateToProps = (state: RootState) => ({
@@ -47,6 +47,10 @@ const Nemeses = React.memo(
       setModalContentId(nemesisId)
     }
 
+    const handleRandomization = useCallback(() => {
+      setRandomNemesis(availableNemeses)
+    }, [availableNemeses, setRandomNemesis])
+
     return (
       <React.Fragment>
         {randomNemesis ? (
@@ -58,7 +62,7 @@ const Nemeses = React.memo(
           <EmptyNemesisHint>Tab button to spawn new nemesis!</EmptyNemesisHint>
         )}
         <ShuffleButton
-          onClick={() => setRandomNemesis(availableNemeses)}
+          onClick={handleRandomization}
           color="primary"
           variant="extended"
           withBottomNav={true}

@@ -3,11 +3,11 @@ import { withTheme } from 'styled-components/macro'
 
 import { connect } from 'react-redux'
 
-import { RootState, selectors } from '../../../../Redux/Store'
+import { RootState, selectors } from '../../../Redux/Store'
 
-import { RenderModalType } from '../../../../hooks/useModal'
+import { RenderModalType } from '../../../hooks/useModal'
 
-import MageInformation from '../../../molecules/MageInformation'
+import MageInformation from '../MageInformation'
 
 // FIXME refine type
 const mapStateToProps = (state: RootState, props: any) => ({
