@@ -7,7 +7,7 @@ import * as types from '../../../../../types'
 
 import CheckboxWithDetails from './CheckboxWithDetails'
 import CheckboxList from '../../../../molecules/CheckboxList'
-import NemesisModal from '../../../Nemeses/NemesisModal'
+import NemesisModal from '../../../../molecules/NemesisModal'
 
 const entitiesToItems = (
   entities: ReadonlyArray<types.Nemesis & { selected: boolean }>,

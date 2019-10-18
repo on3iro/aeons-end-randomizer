@@ -5,7 +5,7 @@ import * as types from '../../../../../types'
 
 import CheckboxWithDetails from './CheckboxWithDetails'
 import CheckboxList from '../../../../molecules/CheckboxList'
-import SupplyModal from '../../../Supply/SupplyModal'
+import SupplyModal from '../../../../molecules/SupplyModal'
 
 const entitiesToItems = (
   entities: ReadonlyArray<types.ICard & { selected: boolean }>,
