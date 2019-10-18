@@ -1,12 +1,10 @@
 import React from 'react'
 
-import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import FormControl from '@material-ui/core/FormControl'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
-import BackLink from './BackLink'
+import BackLink from '../../../../molecules/BackLink'
 
 import Nemeses from './Nemeses'
 import Mages from './Mages'
@@ -19,11 +17,7 @@ type Props = { expansionId: string }
 const ContentCustomization = React.memo(({ expansionId }: Props) => (
   <Card>
     <CardContent>
-      <Typography>
-        <BackLink to="/settings">
-          <ChevronLeftIcon /> Back to settings
-        </BackLink>
-      </Typography>
+      <BackLink to="/settings" label="Back to settings" />
       <FormControl component={'fieldset' as 'div'}>
         <Nemeses expansionId={expansionId} />
         <Mages expansionId={expansionId} />
