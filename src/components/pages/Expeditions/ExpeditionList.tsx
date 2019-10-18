@@ -3,10 +3,13 @@ import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
 
+import { Expedition } from '../../../types'
+
+import List from './List'
 import OverviewEntry from './OverviewEntry'
 
 const renderExpeditions = (
-  expeditions: Array<{ id: string; name: string }>,
+  expeditions: Array<Expedition>,
   deleteHandler: (id: string) => void
 ) => {
   return expeditions.map(expedition => (
@@ -31,9 +34,8 @@ type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 const ExpeditionList = React.memo(({ expeditions, deleteHandler }: Props) => {
   return (
     <React.Fragment>
-      <p>Expeditions</p>
       {expeditions.length > 0 ? (
-        <ul>{renderExpeditions(expeditions, deleteHandler)}</ul>
+        <List>{renderExpeditions(expeditions, deleteHandler)}</List>
       ) : (
         <p>No expeditions</p>
       )}

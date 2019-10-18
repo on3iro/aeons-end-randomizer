@@ -2,12 +2,16 @@ import React from 'react'
 
 import { usePrompt } from '../../../hooks/useModal'
 
-import DeleteButton from '../../molecules/DeleteButton'
+import { Expedition } from '../../../types'
 
-import A from '../../atoms/A'
+import H2 from '../../atoms/H2'
+
+import Delete from './Delete'
+import ListItem from './ListItem'
+import ExpeditionTile from './ExpeditionTile'
 
 type Props = {
-  expedition: { id: string; name: string }
+  expedition: Expedition
   deleteHandler: (id: string) => void
 }
 
@@ -25,18 +29,18 @@ const OverviewEntry = React.memo(({ expedition, deleteHandler }: Props) => {
 
   return (
     <React.Fragment>
-      <li key={expedition.id}>
-        <A to={url}>
-          {expedition.name} {expedition.id}
-        </A>
-        <DeleteButton onClick={openDeletionDialog} />
-      </li>
+      <ListItem key={expedition.id}>
+        <ExpeditionTile url={url} expedition={expedition} />
+        <Delete onClick={openDeletionDialog} />
+      </ListItem>
       <RenderPrompt
         titleColor="#333"
-        titleLabel={deletionDialogTitle}
+        titleLabel="Delete Expedition"
         yesHandler={yesHandler}
         noHandler={hide}
-      />
+      >
+        <H2>{deletionDialogTitle}</H2>
+      </RenderPrompt>
     </React.Fragment>
   )
 })
