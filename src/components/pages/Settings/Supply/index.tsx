@@ -6,8 +6,6 @@ import ExpansionPanel from '../../../molecules/ExpansionPanel'
 
 import SetupSelection from './SetupSelection'
 
-type Props = {}
-
 const Supply = React.memo(() => {
   const { expanded, createExpansionHandler } = useExpansionHandling()
   const expansionKey = 'supplySets'

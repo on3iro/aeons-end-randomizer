@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react'
+import React, { useState, useReducer, useCallback } from 'react'
 import shortid from 'shortid'
 import { connect } from 'react-redux'
 
@@ -64,10 +64,11 @@ const mapDispatchToProps = {
 type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps & {
     setup: types.IMarketSetup
+    saveCallback: () => void
   }
 
 const CustomSetupEdit = React.memo(
-  ({ setup, cancelEdit, saveCustomSetup }: Props) => {
+  ({ setup, cancelEdit, saveCustomSetup, saveCallback }: Props) => {
     const [setupName, setSetupName] = useState(setup.name || '')
     const [bluePrints, dispatch] = useReducer(
       bluePrintReducer,
@@ -78,6 +79,14 @@ const CustomSetupEdit = React.memo(
     // We reverse the list, so that the last added tile is shown on top
     const bluePrintList = Object.values(bluePrints).reverse()
 
+    const handleSave = useCallback(
+      setup => {
+        saveCustomSetup(setup)
+        saveCallback()
+      },
+      [saveCallback, saveCustomSetup]
+    )
+
     return (
       <Wrapper>
         <MainControls
@@ -86,7 +95,7 @@ const CustomSetupEdit = React.memo(
           setup={setup}
           setupName={setupName}
           setSetupName={setSetupName}
-          saveCustomSetup={saveCustomSetup}
+          saveCustomSetup={handleSave}
         />
         <BluePrintList bluePrintList={bluePrintList} dispatch={dispatch} />
       </Wrapper>

@@ -2,7 +2,6 @@ import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer, loop, Cmd } from 'redux-loop'
 import { createSelector } from 'reselect'
 import { get as getFromDb, set as setToDb } from 'idb-keyval'
-import shortid from 'shortid'
 
 import config from '../../../../config'
 import * as types from '../../../../types'
@@ -31,7 +30,6 @@ export const initialState: State = {
 export enum ActionTypes {
   TOGGLE_ALL = 'Settings/SupplySetups/TOGGLE_ALL',
   TOGGLE_SETUP = 'Settings/SupplySetups/TOGGLE_SETUP',
-  CREATE_CUSTOM_SETUP = 'Settings/SupplySetups/CREATE_CUSTOM_SETUP',
   SAVE_CUSTOM_SETUP = 'Settings/SupplySetups/SAVE_CUSTOM_SETUP',
   CANCEL_EDIT_SETUP = 'Settings/SupplySetups/CANCEL_EDIT_SETUP',
   EDIT_CUSTOM_SETUP = 'Settings/SupplySetups/EDIT_CUSTOM_SETUP',
@@ -51,8 +49,6 @@ export const actions = {
   toggleAll: () => createAction(ActionTypes.TOGGLE_ALL),
   toggleSetup: (setup: string, setupType: SetupType) =>
     createAction(ActionTypes.TOGGLE_SETUP, { setup, setupType }),
-  createCustomSetup: () =>
-    createAction(ActionTypes.CREATE_CUSTOM_SETUP, shortid.generate()),
   saveCustomSetup: (setup: types.IMarketSetup) =>
     createAction(ActionTypes.SAVE_CUSTOM_SETUP, setup),
   cancelEdit: (id: string) => createAction(ActionTypes.CANCEL_EDIT_SETUP, id),
@@ -158,25 +154,6 @@ export const Reducer: LoopReducer<State, Action> = (
 
     case ActionTypes.FETCH_FROM_DB_FAILURE: {
       return state
-    }
-
-    case ActionTypes.CREATE_CUSTOM_SETUP: {
-      const id = action.payload
-      return {
-        ...state,
-        Custom: {
-          [id]: {
-            id,
-            name: '',
-            type: 'custom',
-            active: false,
-            tiles: [],
-            isDirty: true,
-            isNew: true,
-          },
-          ...state.Custom,
-        },
-      }
     }
 
     case ActionTypes.SAVE_CUSTOM_SETUP: {
