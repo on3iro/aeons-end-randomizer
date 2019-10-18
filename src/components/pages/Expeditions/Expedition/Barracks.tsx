@@ -42,10 +42,7 @@ const Barracks = React.memo(
       <React.Fragment>
         <RenderModal titleColor="#333" titleLabel="Barracks">
           <React.Fragment>
-            <MageList
-              mages={magelist}
-              showMageDetails={() => console.log('TODO')}
-            />
+            <MageList mages={magelist} />
             <SupplyList
               tiles={supply}
               showSupplyDetails={() => console.log('TODO')}

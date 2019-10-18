@@ -41,7 +41,6 @@ const CardListItem = React.memo(
           <CheckboxWithDetails
             id={item.id}
             checked={checked}
-            item={item.id}
             label={label}
             changeHandler={changeHandler}
             showDetails={handleDetails}

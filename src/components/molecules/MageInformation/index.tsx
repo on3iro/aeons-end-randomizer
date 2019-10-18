@@ -13,7 +13,9 @@ import UniqueStarter from '../UniqueStarter'
 import Grid from '@material-ui/core/Grid'
 
 const renderUniqueStarters = (uniqueStarters: ICard[]) => {
-  return uniqueStarters.map((card: ICard) => <UniqueStarter card={card} />)
+  return uniqueStarters.map((card: ICard) => (
+    <UniqueStarter key={card.id} card={card} />
+  ))
 }
 
 type Props = {

@@ -6,7 +6,7 @@ import Card from '../../atoms/Card'
 
 const renderTreasures = (treasures: types.Treasure[]) =>
   treasures.map(treasure => (
-    <Card>
+    <Card key={treasure.id}>
       <p>
         <b>Expansion:</b> {treasure.expansion}
       </p>

@@ -43,6 +43,10 @@ const playerColors = {
     normal: '#9C27B0',
     light: '#F3E5F5',
   },
+  default: {
+    normal: '#333',
+    ligth: '#999',
+  },
 }
 
 export const mainTheme = {
