@@ -13,6 +13,8 @@ const Button = styled(({ themeColor, ...rest }) => <button {...rest} />)<Props>`
   cursor: pointer;
   color: ${props => props.themeColor};
   outline: 0;
+  position: relative;
+  z-index: 1;
 
   &:hover,
   &:active {

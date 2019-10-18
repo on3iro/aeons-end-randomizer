@@ -67,8 +67,17 @@ export const Reducer: LoopReducer<State, Action> = (
 ///////////////
 
 const getVariants = (state: RootState) => state.Expeditions.Variants.variants
+const getVariantId = (_: RootState, props: { variantId: string }) =>
+  props.variantId
+
+const getVariantById = createSelector(
+  [getVariants, getVariantId],
+  (variants, id) => variants[id]
+)
+
 const getSelectedVariantId = (state: RootState) =>
   state.Expeditions.Variants.selected
+
 const getVariantIds = (state: RootState) =>
   state.Expeditions.Variants.variantIds
 
@@ -88,4 +97,5 @@ export const selectors = {
   getSelectedVariant,
   getVariantIds,
   getVariantList,
+  getVariantById,
 }
