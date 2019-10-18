@@ -1,12 +1,9 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../../../Redux/Store'
 
-import CheckboxList from '../../../../molecules/CheckboxList'
-import CheckboxWithControls from '../../../../molecules/CheckboxWithControls'
-
-import { expansionsToItems } from './helpers'
+import ExpansionList, { ChangeHandler } from './ExpansionList'
 
 const mapStateToProps = (state: RootState) => ({
   standalones: selectors.Settings.Expansions.SelectedExpansions.getStandaloneExpansions(
@@ -18,37 +15,16 @@ const mapDispatchToProps = {}
 
 type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps & {
-    handleChange: (selection: string) => void
+    handleChange: ChangeHandler
   }
 
-const Standalones = React.memo(({ handleChange, standalones }: Props) => {
-  // FIXME use acutal CBlist prop types
-  const CheckboxComponent = useCallback(
-    ({ checked, item, label, changeHandler }: any) => {
-      return (
-        <CheckboxWithControls
-          id={item.id}
-          checked={checked}
-          item={item.id}
-          label={label}
-          changeHandler={changeHandler}
-        />
-      )
-    },
-    []
-  )
-
-  return (
-    <CheckboxList
-      label="Standalone Sets"
-      items={expansionsToItems(standalones)}
-      Component={CheckboxComponent}
-      changeHandler={handleChange}
-    />
-  )
-})
-
-Standalones.displayName = 'Standalones'
+const Standalones = React.memo(({ standalones, handleChange }: Props) => (
+  <ExpansionList
+    label="Standalone Expansions"
+    expansions={standalones}
+    handleChange={handleChange}
+  />
+))
 
 export default connect(
   mapStateToProps,

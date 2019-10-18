@@ -13,13 +13,12 @@ const Wrapper = styled('div')``
 type Props = {
   id: string
   checked: boolean
-  item: string
   label: string
   changeHandler: (selection: string) => void
 }
 
 const CheckboxWithControls = React.memo(
-  ({ checked, item, label, changeHandler, id }: Props) => {
+  ({ checked, label, changeHandler, id }: Props) => {
     const history = useHistory()
 
     return (
@@ -28,8 +27,8 @@ const CheckboxWithControls = React.memo(
           control={
             <Checkbox
               checked={checked}
-              onChange={() => changeHandler(item)}
-              value={item}
+              onChange={() => changeHandler(id)}
+              value={id}
             />
           }
           label={label}

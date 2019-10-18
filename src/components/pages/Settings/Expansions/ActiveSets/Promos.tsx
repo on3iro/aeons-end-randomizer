@@ -1,12 +1,9 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../../../Redux/Store'
 
-import CheckboxList from '../../../../molecules/CheckboxList'
-import CheckboxWithControls from '../../../../molecules/CheckboxWithControls'
-
-import { expansionsToItems } from './helpers'
+import ExpansionList, { ChangeHandler } from './ExpansionList'
 
 const mapStateToProps = (state: RootState) => ({
   promos: selectors.Settings.Expansions.SelectedExpansions.getPromos(state),
@@ -16,38 +13,18 @@ const mapDispatchToProps = {}
 
 type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps & {
-    handleChange: (selection: string) => void
+    handleChange: ChangeHandler
   }
 
-const Promos = React.memo(({ handleChange, promos }: Props) => {
-  const CheckboxComponent = useCallback(
-    ({ checked, item, label, changeHandler }) => {
-      return (
-        <CheckboxWithControls
-          id={item.id}
-          checked={checked}
-          item={item.id}
-          label={label}
-          changeHandler={changeHandler}
-        />
-      )
-    },
-    []
-  )
-
-  return (
-    <CheckboxList
-      label="Promos"
-      items={expansionsToItems(promos)}
-      Component={CheckboxComponent}
-      changeHandler={handleChange}
-    />
-  )
-})
-
-Promos.displayName = 'Promos'
+const Standalones = React.memo(({ promos, handleChange }: Props) => (
+  <ExpansionList
+    label="Promos"
+    expansions={promos}
+    handleChange={handleChange}
+  />
+))
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Promos)
+)(Standalones)

@@ -1,12 +1,9 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../../../Redux/Store'
 
-import CheckboxList from '../../../../molecules/CheckboxList'
-import CheckboxWithControls from '../../../../molecules/CheckboxWithControls'
-
-import { expansionsToItems } from './helpers'
+import ExpansionList, { ChangeHandler } from './ExpansionList'
 
 const mapStateToProps = (state: RootState) => ({
   miniExpansions: selectors.Settings.Expansions.SelectedExpansions.getMiniExpansions(
@@ -18,39 +15,18 @@ const mapDispatchToProps = {}
 
 type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps & {
-    handleChange: (selection: string) => void
+    handleChange: ChangeHandler
   }
 
-const Mini = React.memo(({ handleChange, miniExpansions }: Props) => {
-  // FIXME use acutal CBlist prop types
-  const CheckboxComponent = useCallback(
-    ({ checked, item, label, changeHandler }: any) => {
-      return (
-        <CheckboxWithControls
-          id={item.id}
-          checked={checked}
-          item={item.id}
-          label={label}
-          changeHandler={changeHandler}
-        />
-      )
-    },
-    []
-  )
-
-  return (
-    <CheckboxList
-      label="Mini Expansions"
-      items={expansionsToItems(miniExpansions)}
-      Component={CheckboxComponent}
-      changeHandler={handleChange}
-    />
-  )
-})
-
-Mini.displayName = 'Mini'
+const Standalones = React.memo(({ miniExpansions, handleChange }: Props) => (
+  <ExpansionList
+    label="Mini Expansions"
+    expansions={miniExpansions}
+    handleChange={handleChange}
+  />
+))
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Mini)
+)(Standalones)
