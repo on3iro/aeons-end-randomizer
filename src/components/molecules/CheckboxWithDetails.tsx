@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react'
 import styled from 'styled-components/macro'
 
-import Keywords from '../../../../atoms/Keywords'
-import Keyword from '../../../../atoms/Keyword'
+import Keywords from '../atoms/Keywords'
+import Keyword from '../atoms/Keyword'
 
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'

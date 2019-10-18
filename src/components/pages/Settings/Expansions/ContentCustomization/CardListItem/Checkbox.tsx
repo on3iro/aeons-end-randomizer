@@ -3,16 +3,16 @@ import React, { useCallback } from 'react'
 import { useModal } from '../../../../../../hooks/useModal'
 
 import CheckboxWithDetails from '../../../../../molecules/CheckboxWithDetails'
-import NemesisModal from '../../../../../molecules/NemesisModal'
+import SupplyModal from '../../../../../molecules/SupplyModal'
 
-import { SelectedNemesis, ChangeHandler } from './index'
+import { SelectedCard, ChangeHandler } from './index'
 
 const Checkbox = React.memo(
   ({
-    nemesis,
+    card,
     changeHandler,
   }: {
-    nemesis: SelectedNemesis
+    card: SelectedCard
     changeHandler: ChangeHandler
   }) => {
     const { show, RenderModal } = useModal()
@@ -31,13 +31,13 @@ const Checkbox = React.memo(
     return (
       <React.Fragment>
         <CheckboxWithDetails
-          id={nemesis.id}
-          checked={nemesis.selected}
-          label={nemesis.name}
+          id={card.id}
+          checked={card.selected}
+          label={card.name}
           changeHandler={handleChange}
           showDetails={handleDetails}
         />
-        <NemesisModal id={nemesis.id} RenderModal={RenderModal} />
+        <SupplyModal id={card.id} RenderModal={RenderModal} />
       </React.Fragment>
     )
   }
