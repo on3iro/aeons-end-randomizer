@@ -32,6 +32,7 @@ const Body = React.memo(({ expedition, variant }: Props) => (
       {expedition.name || expedition.id}
     </Name>
     <List>
+      <InfoItem label="Finished" info={expedition.finished ? 'Yes' : 'No'} />
       <InfoItem label="Score" info={expedition.score.toString()} />
       <InfoItem label="Variant" info={variant.name} />
       <InfoItem

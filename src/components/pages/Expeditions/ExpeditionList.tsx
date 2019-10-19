@@ -12,13 +12,15 @@ const renderExpeditions = (
   expeditions: Array<Expedition>,
   deleteHandler: (id: string) => void
 ) => {
-  return expeditions.map(expedition => (
-    <OverviewEntry
-      key={expedition.id}
-      expedition={expedition}
-      deleteHandler={deleteHandler}
-    />
-  ))
+  return expeditions
+    .reverse()
+    .map(expedition => (
+      <OverviewEntry
+        key={expedition.id}
+        expedition={expedition}
+        deleteHandler={deleteHandler}
+      />
+    ))
 }
 
 const mapStateToProps = (state: RootState) => ({
