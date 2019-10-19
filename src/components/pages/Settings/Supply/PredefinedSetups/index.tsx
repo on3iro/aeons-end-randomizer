@@ -23,7 +23,7 @@ const renderCheckboxes = (
   ))
 
 const mapStateToProps = (state: RootState) => ({
-  predefinedSetups: selectors.Settings.SupplySetups.getPredefinedAsArray(state),
+  predefinedSetups: selectors.Settings.SupplySetups.getPredefinedList(state),
 })
 
 const mapDispatchToProps = {

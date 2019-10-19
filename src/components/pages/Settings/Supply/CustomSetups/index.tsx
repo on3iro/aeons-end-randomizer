@@ -24,21 +24,19 @@ const renderCheckboxes = ({
   deleteSetup: ChangeHandler
   cancelEdit: ChangeHandler
 }) =>
-  customSetups
-    .reverse()
-    .map(setup => (
-      <CustomSetupCheckbox
-        key={setup.id}
-        setup={setup}
-        changeHandler={handleSelection}
-        editSetup={editSetup}
-        deleteSetup={deleteSetup}
-        cancelEdit={cancelEdit}
-      />
-    ))
+  customSetups.map(setup => (
+    <CustomSetupCheckbox
+      key={setup.id}
+      setup={setup}
+      changeHandler={handleSelection}
+      editSetup={editSetup}
+      deleteSetup={deleteSetup}
+      cancelEdit={cancelEdit}
+    />
+  ))
 
 const mapStateToProps = (state: RootState) => ({
-  customSetups: selectors.Settings.SupplySetups.getCustomAsArray(state),
+  customSetups: selectors.Settings.SupplySetups.getCustomList(state),
 })
 
 const mapDispatchToProps = {
