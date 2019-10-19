@@ -11,6 +11,7 @@ import BeforeBattle from './BeforeBattle'
 import BattleStarted from './BattleStarted'
 import BattleWon from './BattleWon'
 import BattleLost from './BattleLost'
+import ExpeditionFinished from './ExpeditionFinished'
 
 type OwnProps = {
   battle: types.Battle
@@ -34,6 +35,10 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
     availableUpgradedBasicNemesisCards: selectors.Settings.Expansions.getUpgradedBasicNemesisCardsForSelectedExpansions(
       state
     ),
+    expeditionIsFinished: selectors.Expeditions.Expeditions.getExpeditionIsFinished(
+      state,
+      { expeditionId: ownProps.battle.expeditionId }
+    ),
   }
 }
 
@@ -49,6 +54,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 const Battle = React.memo(
   ({
     battle,
+    expeditionIsFinished,
     nemesis,
     availableNemeses,
     availableUpgradedBasicNemesisCards,
@@ -76,55 +82,65 @@ const Battle = React.memo(
       hide: hideBattleWon,
       RenderModal: RenderBattleWonModal,
     } = useModal()
+    const {
+      show: showExpeditionComplete,
+      hide: hideExpeditionComplete,
+      RenderModal: RenderExpeditionCompleteModal,
+    } = useModal()
 
     const handleClick = useCallback(() => {
-      switch (battle.status) {
-        case 'unlocked': {
-          if (!battle.nemesisId) {
-            rollBattle({
-              battle,
-              availableNemeses,
-              availableUpgradedBasicNemesisCards,
-              previousUpgradedBasicNemesisCards: previousUpgradedBasicNemesis,
-              previousNemeses,
-            })
+      if (expeditionIsFinished) {
+        showExpeditionComplete()
+      } else {
+        switch (battle.status) {
+          case 'unlocked': {
+            if (!battle.nemesisId) {
+              rollBattle({
+                battle,
+                availableNemeses,
+                availableUpgradedBasicNemesisCards,
+                previousUpgradedBasicNemesisCards: previousUpgradedBasicNemesis,
+                previousNemeses,
+              })
+            }
+            showBeforeBattle()
+            break
           }
-          showBeforeBattle()
-          break
-        }
 
-        case 'before_battle': {
-          showBeforeBattle()
-          break
-        }
+          case 'before_battle': {
+            showBeforeBattle()
+            break
+          }
 
-        case 'started': {
-          showBattleStarted()
-          break
-        }
+          case 'started': {
+            showBattleStarted()
+            break
+          }
 
-        case 'lost': {
-          showBattleLost()
-          break
-        }
+          case 'lost': {
+            showBattleLost()
+            break
+          }
 
-        case 'won': {
-          showBattleWon()
-          break
-        }
+          case 'won': {
+            showBattleWon()
+            break
+          }
 
-        case 'finished': {
-          // TODO Show screen with battle details? or just show it on the tile and disable tile again?
-          console.log('TODO')
-          break
-        }
+          case 'finished': {
+            // don't do anything
+            break
+          }
 
-        default: {
-          // don't do anything
-          break
+          default: {
+            // don't do anything
+            break
+          }
         }
       }
     }, [
+      expeditionIsFinished,
+      showExpeditionComplete,
       battle,
       showBeforeBattle,
       showBattleStarted,
@@ -136,6 +152,17 @@ const Battle = React.memo(
       previousNemeses,
       previousUpgradedBasicNemesis,
     ])
+
+    const battleWonCallback = useCallback(
+      expeditionIsFinished => {
+        if (expeditionIsFinished) {
+          showExpeditionComplete()
+        } else {
+          showBattleWon()
+        }
+      },
+      [showBattleWon, showExpeditionComplete]
+    )
 
     return (
       <div>
@@ -158,7 +185,7 @@ const Battle = React.memo(
           <BattleStarted
             hide={hideBattleStarted}
             battle={battle}
-            showNextOnWin={showBattleWon}
+            showNextOnWin={battleWonCallback}
             showNextOnLoss={showBattleLost}
           />
         </RenderBattleStartedModal>
@@ -172,6 +199,12 @@ const Battle = React.memo(
         <RenderBattleWonModal titleColor="#333" titleLabel="Rewards">
           <BattleWon hide={hideBattleWon} battle={battle} />
         </RenderBattleWonModal>
+        <RenderExpeditionCompleteModal
+          titleColor="#333"
+          titleLabel="Congratulations"
+        >
+          <ExpeditionFinished battle={battle} hide={hideExpeditionComplete} />
+        </RenderExpeditionCompleteModal>
       </div>
     )
   }

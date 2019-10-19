@@ -131,6 +131,7 @@ export type Expedition = {
   battles: Battle[]
   variantId: string
   bigPocketVariant: boolean
+  finished: boolean
 }
 
 export type Expeditions = {

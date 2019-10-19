@@ -28,12 +28,12 @@ const renderLists = (lists: List[], selectionHandler: (val: any) => void) =>
     }
 
     return (
-      <React.Fragment>
+      <div key={list.id}>
         <SelectionHandlerContext.Provider value={selectionContextValue}>
           {list.title && <h2>{list.title}</h2>}
           <SupplyList {...list} />
         </SelectionHandlerContext.Provider>
-      </React.Fragment>
+      </div>
     )
   })
 
