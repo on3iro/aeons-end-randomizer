@@ -57,6 +57,9 @@ const getUpgradedBasicNemesisCards = (state: RootState) =>
 
 const getExpansionId = (_: any, id: string) => id
 
+const getIdList = (_: any, props: { upgradedBasicNemesisIds: string[] }) =>
+  props.upgradedBasicNemesisIds
+
 const getUpgradedBasicNemesisCardIds = (state: RootState) =>
   state.Settings.Expansions.UpgradedBasicNemesisCards
     .upgradedBasicNemesisCardIds

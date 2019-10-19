@@ -112,6 +112,41 @@ const getExpeditionSupply = createSelector(
     expedition.barracks.supplyIds.map(id => supplyCards[id])
 )
 
+const getExpeditionMages = createSelector(
+  [
+    Expeditions.selectors.Expeditions.getExpeditionById,
+    Settings.selectors.Expansions.SelectedMages.getSelectedMagesLookupObject,
+  ],
+  (expedition, mages) => expedition.barracks.mageIds.map(id => mages[id])
+)
+
+const getExpeditionTreasure = createSelector(
+  [
+    Expeditions.selectors.Expeditions.getExpeditionById,
+    Settings.selectors.Expansions.Treasures.getTreasures,
+  ],
+  (expedition, treasures) =>
+    expedition.barracks.treasureIds.map(id => treasures[id])
+)
+
+const getExpeditionUpgradedBasicNemesis = createSelector(
+  [
+    Expeditions.selectors.Expeditions.getExpeditionById,
+    Settings.selectors.Expansions.UpgradedBasicNemesisCards
+      .getUpgradedBasicNemesisCards,
+  ],
+  (expedition, upgradedBasicNemsisCards) =>
+    expedition.upgradedBasicNemesisCards.map(id => upgradedBasicNemsisCards[id])
+)
+
+const getExpeditionBanishedCards = createSelector(
+  [
+    Expeditions.selectors.Expeditions.getExpeditionById,
+    Settings.selectors.Expansions.SelectedCards.getSelectedCardsLookupObject,
+  ],
+  (expedition, cards) => expedition.banished.map(id => cards[id])
+)
+
 export const selectors = {
   Settings: Settings.selectors,
   Main: {
@@ -132,6 +167,10 @@ export const selectors = {
   getStillAvailableSpellIds,
   getStillAvailableMageIds,
   getExpeditionSupply,
+  getExpeditionMages,
+  getExpeditionTreasure,
+  getExpeditionUpgradedBasicNemesis,
+  getExpeditionBanishedCards,
 }
 
 export type RootAction =
