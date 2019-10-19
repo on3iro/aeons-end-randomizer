@@ -13,6 +13,7 @@ import UpgradedBasicNemesisCards from '../../../molecules/UpgradedBasicNemesisCa
 import ExpansionPanel from '../../../molecules/ExpansionPanel'
 
 import ShuffleButton from '../../../atoms/ShuffleButton'
+import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
 
 type OwnProps = {
   expedition: types.Expedition
@@ -85,7 +86,7 @@ const Barracks = React.memo(
     return (
       <React.Fragment>
         <RenderModal titleColor="#333" titleLabel="Barracks">
-          <React.Fragment>
+          <ModalBodyWrapper>
             <ExpansionPanel
               summary="Mages"
               expansionKey={mageKey}
@@ -104,35 +105,41 @@ const Barracks = React.memo(
               <SupplyList tiles={cards} />
             </ExpansionPanel>
 
-            <ExpansionPanel
-              summary="Treasures"
-              expansionKey={treasureKey}
-              expansionHandler={treasureHandler}
-              expanded={expanded}
-            >
-              <TreasureList treasures={treasures} />
-            </ExpansionPanel>
+            {treasures.length > 0 && (
+              <ExpansionPanel
+                summary="Treasures"
+                expansionKey={treasureKey}
+                expansionHandler={treasureHandler}
+                expanded={expanded}
+              >
+                <TreasureList treasures={treasures} />
+              </ExpansionPanel>
+            )}
 
-            <ExpansionPanel
-              summary="Upgraded basic nemesis cards"
-              expansionKey={upgradedBasicNemsisCardsKey}
-              expansionHandler={upgradedBasicNemsisCardsHandler}
-              expanded={expanded}
-            >
-              <UpgradedBasicNemesisCards
-                upgradedBasicNemsisCards={upgradedBasicNemsisCards}
-              />
-            </ExpansionPanel>
+            {upgradedBasicNemsisCards.length > 0 && (
+              <ExpansionPanel
+                summary="Upgraded basic nemesis cards"
+                expansionKey={upgradedBasicNemsisCardsKey}
+                expansionHandler={upgradedBasicNemsisCardsHandler}
+                expanded={expanded}
+              >
+                <UpgradedBasicNemesisCards
+                  upgradedBasicNemsisCards={upgradedBasicNemsisCards}
+                />
+              </ExpansionPanel>
+            )}
 
-            <ExpansionPanel
-              summary="Banished cards"
-              expansionKey={banishedKey}
-              expansionHandler={banishedHandler}
-              expanded={expanded}
-            >
-              <SupplyList tiles={banishedCards} />
-            </ExpansionPanel>
-          </React.Fragment>
+            {banishedCards.length > 0 && (
+              <ExpansionPanel
+                summary="Banished cards"
+                expansionKey={banishedKey}
+                expansionHandler={banishedHandler}
+                expanded={expanded}
+              >
+                <SupplyList tiles={banishedCards} />
+              </ExpansionPanel>
+            )}
+          </ModalBodyWrapper>
         </RenderModal>
         <ShuffleButton onClick={show} color="primary" variant="extended">
           Show Barracks

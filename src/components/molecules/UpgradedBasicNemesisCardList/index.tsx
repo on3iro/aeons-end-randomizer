@@ -1,29 +1,16 @@
 import React from 'react'
+import Grid from '@material-ui/core/Grid'
 
 import * as types from '../../../types'
 
-import Card from '../../atoms/Card'
+import UpgradedBasicNemesisCardTile from './UpgradedBasicNemesisCardTile'
+import UpgradedBasicNemesisCardGridWrapper from './UpgradedBasicNemesisCardGridWrapper'
 
 const renderUpgradedBasicNemesisCards = (
   upgradedBasicNemsisCards: types.UpgradedBasicNemesisCard[]
 ) =>
   upgradedBasicNemsisCards.map(upgradedBasicNemsisCard => (
-    <Card>
-      <p>
-        <b>Expansion:</b> {upgradedBasicNemsisCard.expansion}
-      </p>
-      <p>
-        <b>Name:</b> {upgradedBasicNemsisCard.name}
-      </p>
-      <p>
-        <b>UpgradedBasicNemesisCardLevel:</b> {upgradedBasicNemsisCard.tier}
-      </p>
-      {upgradedBasicNemsisCard.type && (
-        <p>
-          <b>Type:</b> {upgradedBasicNemsisCard.type}
-        </p>
-      )}
-    </Card>
+    <UpgradedBasicNemesisCardTile nemesisCard={upgradedBasicNemsisCard} />
   ))
 
 type Props = {
@@ -32,7 +19,11 @@ type Props = {
 
 const UpgradedBasicNemesisCardList = React.memo(
   ({ upgradedBasicNemsisCards }: Props) => (
-    <div>{renderUpgradedBasicNemesisCards(upgradedBasicNemsisCards)}</div>
+    <UpgradedBasicNemesisCardGridWrapper>
+      <Grid container spacing={16}>
+        {renderUpgradedBasicNemesisCards(upgradedBasicNemsisCards)}
+      </Grid>
+    </UpgradedBasicNemesisCardGridWrapper>
   )
 )
 

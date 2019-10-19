@@ -1,12 +1,18 @@
 import React, { useCallback, useState } from 'react'
 import { connect } from 'react-redux'
 
+import Button from '@material-ui/core/Button'
+
 import { RootState, actions, selectors } from '../../../../Redux/Store'
 import * as types from '../../../../types'
 
 import TreasureList from '../../../molecules/TreasureList'
 import SupplySelection from '../../../molecules/SupplySelection'
 import SupplyList from '../../../molecules/SupplyList'
+
+import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
+import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
+import SectionHeadline from '../../../atoms/SectionHeadline'
 
 import {
   createUpdatedLists,
@@ -62,6 +68,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
         ...tile,
         visualSelection: false,
       })),
+      title: 'Supply',
     },
   ]
 
@@ -156,22 +163,33 @@ const BattleWon = React.memo(
     }, [battle, hide, finishBattle, showNext, listsWithSelectionState])
 
     return (
-      <div>
-        {expedition.bigPocketVariant ? (
-          <SupplyList tiles={newSupplyCards} />
-        ) : (
-          <SupplySelection
-            lists={listsWithSelectionState}
-            handleSelection={handleSelection}
-            amountOfCardsToSelect={amountOfCardsToSelect}
-            selectedCardsCount={selectedCardsCount}
-          />
-        )}
-        <TreasureList treasures={treasures} />
-        <button onClick={handleFinish} disabled={!finishingIsPossible}>
-          Unlock next battle
-        </button>
-      </div>
+      <React.Fragment>
+        <ModalBodyWrapper hasFooter={true}>
+          {expedition.bigPocketVariant ? (
+            <SupplyList tiles={newSupplyCards} />
+          ) : (
+            <SupplySelection
+              lists={listsWithSelectionState}
+              handleSelection={handleSelection}
+              amountOfCardsToSelect={amountOfCardsToSelect}
+              selectedCardsCount={selectedCardsCount}
+            />
+          )}
+          {treasures && <SectionHeadline>Treasures</SectionHeadline>}
+          <TreasureList treasures={treasures} />
+        </ModalBodyWrapper>
+        <ModalFooterWrapper>
+          <Button
+            size="small"
+            variant="contained"
+            color="primary"
+            onClick={handleFinish}
+            disabled={!finishingIsPossible}
+          >
+            Unlock next battle
+          </Button>
+        </ModalFooterWrapper>
+      </React.Fragment>
     )
   }
 )

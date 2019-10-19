@@ -34,7 +34,7 @@ const MageTile = React.memo(({ mage, playerNumber, theme }: Props) => {
   }, [show])
 
   return (
-    <Wrapper item xs={6} md={3}>
+    <Wrapper item xs={12} sm={6} md={3}>
       <Tile
         body={<Body mage={mage} />}
         bgColor={bgColor}

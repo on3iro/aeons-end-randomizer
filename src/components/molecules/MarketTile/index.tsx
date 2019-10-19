@@ -103,7 +103,7 @@ const MarketTile = React.memo(
     const card = getCard(marketTile)
 
     return (
-      <Wrapper item xs={6} md={4} {...rest}>
+      <Wrapper item xs={12} sm={6} md={4} {...rest}>
         {marketTile && (
           <Tile
             clickHandler={handleSelection}

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/macro'
 import MuiCard from '@material-ui/core/Card'
 
 const selectedMixin = css`
-  border: 2px solid ${props => props.theme.colors.secondary.main};
+  border: 2px solid ${props => props.theme.colors.secondary.main} !important;
 `
 
 type Props = {

@@ -5,6 +5,8 @@ import { RootState, actions, selectors } from '../../../Redux/Store'
 
 import { Expedition } from '../../../types'
 
+import P from '../../atoms/P'
+
 import List from './List'
 import OverviewEntry from './OverviewEntry'
 
@@ -37,7 +39,7 @@ const ExpeditionList = React.memo(({ expeditions, deleteHandler }: Props) => {
       {expeditions.length > 0 ? (
         <List>{renderExpeditions(expeditions, deleteHandler)}</List>
       ) : (
-        <p>No expeditions</p>
+        <P>No expeditions</P>
       )}
     </React.Fragment>
   )

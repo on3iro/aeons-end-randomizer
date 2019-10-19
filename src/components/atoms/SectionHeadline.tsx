@@ -12,6 +12,10 @@ const SectionHeadline = styled(({ themeColor, ...rest }) => <H2 {...rest} />)<
   color: ${props => props.themeColor};
   font-weight: 300;
   margin: 16px 0 8px;
+
+  + div {
+    margin-top: 0;
+  }
 `
 
 export default SectionHeadline

@@ -7,6 +7,8 @@ import { RootState, selectors } from '../../../Redux/Store'
 
 import { RenderModalType } from '../../../hooks/useModal'
 
+import ModalBodyWrapper from '../../atoms/ModalBodyWrapper'
+
 import NemesisInformation from '../NemesisInformation'
 
 type OwnProps = {
@@ -34,7 +36,9 @@ const NemesisModal = React.memo(({ theme, RenderModal, nemesis }: Props) => {
 
   return (
     <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
-      <NemesisInformation nemesis={nemesis} />
+      <ModalBodyWrapper>
+        <NemesisInformation nemesis={nemesis} />
+      </ModalBodyWrapper>
     </RenderModal>
   )
 })

@@ -6,6 +6,8 @@ import { useModal, usePrompt } from '../../../../../hooks/useModal'
 import EditButton from '../../../../molecules/EditButton'
 import DeleteButton from '../../../../molecules/DeleteButton'
 
+import ModalBodyWrapper from '../../../../atoms/ModalBodyWrapper'
+
 import CheckboxWithPreview from '../CheckboxWithPreview'
 import CustomSetupEdit from '../CustomSetupEdit'
 import CheckboxWithPreviewControls from './CheckboxWithPreviewControls'
@@ -62,14 +64,18 @@ const CustomSetupCheckbox = React.memo(
           titleLabel={modalTitle}
           closeCallback={handleEditCancel}
         >
-          <CustomSetupEdit setup={setup} saveCallback={hideEditModal} />
+          <ModalBodyWrapper>
+            <CustomSetupEdit setup={setup} saveCallback={hideEditModal} />
+          </ModalBodyWrapper>
         </RenderEditModal>
         <RenderDeletionPrompt
           yesHandler={handleDelete}
           noHandler={hideDeletionDialog}
           titleColor="#333"
-          titleLabel={`Would you really like to delete setup: "${setup.name}"`}
-        />
+          titleLabel="Delete Setup"
+        >
+          <p>Would you really like to delete setup: "{setup.name}"?</p>
+        </RenderDeletionPrompt>
       </CheckboxWithPreview>
     )
   }
