@@ -124,7 +124,7 @@ const MarketTile = React.memo(
             fontColor={theme.colors.text.primary}
             icon={theme.icons[marketTile.type.toLowerCase()]}
             iconColor={theme.colors.cards[marketTile.type.toLowerCase()].color}
-            showDetails={handleDetails}
+            showDetails={card ? handleDetails : undefined}
           />
         )}
         {card && <SupplyModal card={card} RenderModal={RenderModal} />}
