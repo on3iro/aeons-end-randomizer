@@ -3,10 +3,10 @@ import React, { useCallback } from 'react'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 
-import { IMarketSetup } from '../../../../types'
+import { IMarketSetup } from '../../../../../types'
 
-import SettingsSupplyPreview from './SettingsSupplyPreview'
-import CheckboxWithPreviewWrapper from './CheckboxWithPreviewWrapper'
+import PreviewWrapper from './PreviewWrapper'
+import Wrapper from './Wrapper'
 
 type Props = {
   changeHandler: (selection: string) => void
@@ -21,7 +21,7 @@ const CheckboxWithPreview = React.memo(
     }, [changeHandler, setup.id])
 
     return (
-      <CheckboxWithPreviewWrapper>
+      <Wrapper>
         <FormControlLabel
           control={
             <Checkbox
@@ -34,13 +34,13 @@ const CheckboxWithPreview = React.memo(
         />
         {children}
         {setup ? (
-          <SettingsSupplyPreview
+          <PreviewWrapper
             clickHandler={handleSelection}
             setup={setup}
             showName={false}
           />
         ) : null}
-      </CheckboxWithPreviewWrapper>
+      </Wrapper>
     )
   }
 )

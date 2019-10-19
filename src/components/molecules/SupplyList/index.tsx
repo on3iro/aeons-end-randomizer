@@ -22,28 +22,20 @@ export type OptionalTile = {
   values?: Array<number>
 }
 
-const renderTiles = (
-  tiles: ReadonlyArray<OptionalTile>,
-  showSupplyDetails: (e: Event, id: string) => void
-) => {
+const renderTiles = (tiles: ReadonlyArray<OptionalTile>) => {
   return tiles.map((marketTile, i) => (
-    <MarketTile
-      key={i}
-      marketTile={marketTile}
-      showSupplyDetails={showSupplyDetails}
-    />
+    <MarketTile key={i} marketTile={marketTile} />
   ))
 }
 
 export type Props = {
   tiles: ReadonlyArray<OptionalTile>
-  showSupplyDetails: (e: Event, id: string) => void
 }
 
-const SupplyList = React.memo(({ tiles, showSupplyDetails }: Props) => (
+const SupplyList = React.memo(({ tiles }: Props) => (
   <ListWrapper>
     <Grid container spacing={16}>
-      {renderTiles(tiles, showSupplyDetails)}
+      {renderTiles(tiles)}
     </Grid>
   </ListWrapper>
 ))

@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react'
 
-import * as types from '../../../../types'
-import { useModal, usePrompt } from '../../../../hooks/useModal'
+import * as types from '../../../../../types'
+import { useModal, usePrompt } from '../../../../../hooks/useModal'
 
-import EditButton from '../../../molecules/EditButton'
-import DeleteButton from '../../../molecules/DeleteButton'
+import EditButton from '../../../../molecules/EditButton'
+import DeleteButton from '../../../../molecules/DeleteButton'
 
-import CheckboxWithPreview from './CheckboxWithPreview'
-import CustomSetupEdit from './CustomSetupEdit'
+import CheckboxWithPreview from '../CheckboxWithPreview'
+import CustomSetupEdit from '../CustomSetupEdit'
 import CheckboxWithPreviewControls from './CheckboxWithPreviewControls'
 
 type Props = {

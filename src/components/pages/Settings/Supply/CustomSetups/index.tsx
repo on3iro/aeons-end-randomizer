@@ -1,12 +1,12 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions, selectors } from '../../../../Redux/Store'
-import * as types from '../../../../types'
+import { RootState, actions, selectors } from '../../../../../Redux/Store'
+import * as types from '../../../../../types'
 
-import ListWrapper from '../../../molecules/ListWrapper'
+import ListWrapper from '../../../../molecules/ListWrapper'
 
-import CustomSetupCheckbox from './CustomSetupCheckbox'
+import CustomSetupCheckbox from './Checkbox'
 import SetupCreation from './SetupCreation'
 
 export type ChangeHandler = (id: string) => void
@@ -28,6 +28,7 @@ const renderCheckboxes = ({
     .reverse()
     .map(setup => (
       <CustomSetupCheckbox
+        key={setup.id}
         setup={setup}
         changeHandler={handleSelection}
         editSetup={editSetup}

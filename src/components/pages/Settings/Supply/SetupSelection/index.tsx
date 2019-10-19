@@ -6,11 +6,11 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormLabel from '@material-ui/core/FormLabel'
 
-import { RootState, actions, selectors } from '../../../../Redux/Store'
+import { RootState, actions, selectors } from '../../../../../Redux/Store'
 
-import CustomSetups from './CustomSetups'
-import PredefinedSetups from './PredefinedSetups'
-import SetupSelectionWrapper from './SetupSelectionWrapper'
+import CustomSetups from '../CustomSetups'
+import PredefinedSetups from '../PredefinedSetups'
+import SetupSelectionWrapper from './Wrapper'
 
 const mapStateToProps = (state: RootState) => ({
   allSetsSelected: selectors.Settings.SupplySetups.getAllSetsSelected(state),

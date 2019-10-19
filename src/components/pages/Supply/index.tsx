@@ -2,15 +2,12 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
-import { useModal } from '../../../hooks/useModal'
 
 import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
 import SupplyList from '../../molecules/SupplyList'
 import MarketSelect from '../../molecules/MarketSelect'
 
 import ShuffleButton from '../../atoms/ShuffleButton'
-
-import SupplyModal from '../../molecules/SupplyModal'
 
 const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
 const mapStateToProps = (state: RootState) => ({
@@ -53,14 +50,6 @@ const Supply = React.memo(
 
     const tiles = allMarketSetups[selectedMarketId].tiles
 
-    const { show, RenderModal } = useModal()
-    const [modalContentId, setModalContentId] = useState<string>('')
-
-    const handleSupplyDetails = (_: Event, cardId: string) => {
-      show()
-      setModalContentId(cardId)
-    }
-
     const handleShuffle = () => {
       createMarket(availableCards, tiles)
     }
@@ -71,10 +60,7 @@ const Supply = React.memo(
           selectedMarketId={selectedMarketId}
           clickHandler={clickHandler}
         />
-        <SupplyList
-          tiles={randomCards || tiles}
-          showSupplyDetails={handleSupplyDetails}
-        />
+        <SupplyList tiles={randomCards || tiles} />
         <ShuffleButton
           onClick={handleShuffle}
           color="primary"
@@ -83,7 +69,6 @@ const Supply = React.memo(
         >
           Create Market
         </ShuffleButton>
-        <SupplyModal id={modalContentId} RenderModal={RenderModal} />
       </React.Fragment>
     )
   }

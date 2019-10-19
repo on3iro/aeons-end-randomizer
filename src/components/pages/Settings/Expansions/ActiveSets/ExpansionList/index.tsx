@@ -13,7 +13,9 @@ const renderCheckboxes = (
   items: SelectedExpansion[],
   changeHandler: ChangeHandler
 ) =>
-  items.map(item => <Checkbox expansion={item} changeHandler={changeHandler} />)
+  items.map(item => (
+    <Checkbox key={item.id} expansion={item} changeHandler={changeHandler} />
+  ))
 
 type Props = {
   expansions: SelectedExpansion[]

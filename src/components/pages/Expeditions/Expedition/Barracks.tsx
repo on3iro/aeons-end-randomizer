@@ -43,10 +43,7 @@ const Barracks = React.memo(
         <RenderModal titleColor="#333" titleLabel="Barracks">
           <React.Fragment>
             <MageList mages={magelist} />
-            <SupplyList
-              tiles={supply}
-              showSupplyDetails={() => console.log('TODO')}
-            />
+            <SupplyList tiles={supply} />
             <TreasureList treasures={treasureList} />
             <p>TODO: show upgraded basic nemesis cards</p>
             <p>TODO: show banished</p>

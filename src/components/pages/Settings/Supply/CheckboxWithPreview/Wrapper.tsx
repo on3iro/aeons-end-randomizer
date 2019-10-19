@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const CheckboxWithPreviewWrapper = styled('div')`
+const Wrapper = styled('div')`
   margin-top: 8px;
 
   &:first-child {
@@ -8,4 +8,4 @@ const CheckboxWithPreviewWrapper = styled('div')`
   }
 `
 
-export default CheckboxWithPreviewWrapper
+export default Wrapper
