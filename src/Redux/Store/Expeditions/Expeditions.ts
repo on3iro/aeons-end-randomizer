@@ -189,7 +189,7 @@ export const Reducer: LoopReducer<State, Action> = (
             finished: false,
           },
         },
-        expeditionIds: [...state.expeditionIds, expeditionId],
+        expeditionIds: [expeditionId, ...state.expeditionIds],
       }
 
       return loop(
