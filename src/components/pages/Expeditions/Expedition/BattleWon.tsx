@@ -55,10 +55,6 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
         visualSelection: false,
       })),
       title: 'New cards',
-      showSupplyDetails: (event: Event) => {
-        event.stopPropagation()
-        console.log('details | TODO')
-      },
     },
     {
       id: 'expedition',
@@ -66,7 +62,6 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
         ...tile,
         visualSelection: false,
       })),
-      showSupplyDetails: () => console.log('TODO'),
     },
   ]
 

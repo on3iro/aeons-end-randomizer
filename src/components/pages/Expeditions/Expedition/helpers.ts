@@ -11,7 +11,6 @@ type Tile = {
 export type ListWithSelection = {
   id: string
   tiles: Array<Tile>
-  showSupplyDetails: (e: Event) => void
 }
 
 type SelectedValue = { supplyCardId: string; listId: string }
