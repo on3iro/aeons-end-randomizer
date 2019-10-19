@@ -9,6 +9,7 @@ import { RollLossType } from '../../../../Redux/Store/Expeditions/helpers'
 import LossRewardTypeSelection from './LossRewardTypeSelection'
 import TreasureList from '../../../molecules/TreasureList'
 import MageTile from '../../../molecules/MageList/MageTile' // FIXME MageTile should probably be a molecule itself
+import MarketTile from '../../../molecules/MarketTile'
 import SupplySelection from '../../../molecules/SupplySelection'
 
 import * as helpers from './helpers'
@@ -232,13 +233,17 @@ const BattleLost = React.memo(
           />
         ) : (
           <React.Fragment>
-            {newSupplyCards.length > 0 && (
+            {newSupplyCards.length > 0 && !expedition.bigPocketVariant ? (
               <SupplySelection
                 lists={listsWithSelectionState}
                 handleSelection={handleSelection}
                 amountOfCardsToSelect={amountOfCardsToSelect}
                 selectedCardsCount={selectedCardsCount}
               />
+            ) : (
+              newSupplyCards.length > 0 && (
+                <MarketTile marketTile={newSupplyCards[0]} />
+              )
             )}
             {treasures.length > 0 && <TreasureList treasures={treasures} />}
             {newMage && <MageTile mage={newMage} playerNumber={1} />}
