@@ -10,17 +10,48 @@ import { sortByCardType } from '../../../../helpers'
 
 const SUPPLY_DB_KEY = 'supplySetups-1.6' // FIXME this is a quickfix, see https://github.com/on3iro/aeons-end-randomizer/issues/138
 
+const migrate = (
+  oldSetups:
+    | {
+        Predefined: { [id: string]: types.IMarketSetup }
+        Custom: { [id: string]: types.IMarketSetup }
+      }
+    | State
+) => {
+  if (!oldSetups) {
+    return initialState
+  }
+
+  if (!oldSetups.Predefined.setups || !oldSetups.Custom.setups) {
+    return {
+      Predefined: {
+        setups: oldSetups.Predefined,
+        ids: Object.keys(oldSetups.Predefined),
+      },
+      Custom: {
+        setups: oldSetups.Custom,
+        ids: Object.keys(oldSetups.Custom),
+      },
+    } as State
+  }
+
+  return oldSetups as State
+}
+
 ///////////
 // STATE //
 ///////////
 
 export type State = {
-  Predefined: types.IMarketSetups
-  Custom: types.IMarketSetups
+  Predefined: types.MarketSetups
+  Custom: types.MarketSetups
 }
 export const initialState: State = {
   Predefined: config.MARKETSETUPS,
-  Custom: {},
+  Custom: {
+    setups: {},
+    ids: [],
+  },
 }
 
 /////////////
@@ -74,7 +105,7 @@ export type Action = ActionsUnion<typeof actions>
 /////////////
 
 const allSetsAreSelected = (state: State) =>
-  Object.values({ ...state.Predefined, ...state.Custom }).every(
+  Object.values({ ...state.Predefined.setups, ...state.Custom.setups }).every(
     val => val.active
   )
 
@@ -85,7 +116,7 @@ export const Reducer: LoopReducer<State, Action> = (
   switch (action.type) {
     case ActionTypes.TOGGLE_ALL: {
       const allSetsSelected = allSetsAreSelected(state)
-      const newPredefined = Object.values(state.Predefined).reduce(
+      const updatedPredefined = Object.values(state.Predefined.setups).reduce(
         (acc, setup) => ({
           ...acc,
           [setup.id]: {
@@ -95,14 +126,23 @@ export const Reducer: LoopReducer<State, Action> = (
         }),
         {}
       )
-      const newCustom = Object.values(state.Custom).reduce(
+      const updatedCustom = Object.values(state.Custom.setups).reduce(
         (acc, setup) => ({
           ...acc,
           [setup.id]: { ...setup, active: !allSetsSelected },
         }),
         {}
       )
-      const newState = { Predefined: newPredefined, Custom: newCustom }
+      const newState = {
+        Predefined: {
+          ...state.Predefined,
+          setups: updatedPredefined,
+        },
+        Custom: {
+          ...state.Custom,
+          setups: updatedCustom,
+        },
+      }
 
       return loop(
         newState,
@@ -120,9 +160,12 @@ export const Reducer: LoopReducer<State, Action> = (
         ...state,
         [setupType]: {
           ...state[setupType],
-          [setup]: {
-            ...state[setupType][setup],
-            active: !state[setupType][setup].active,
+          setups: {
+            ...state[setupType].setups,
+            [setup]: {
+              ...state[setupType].setups[setup],
+              active: !state[setupType].setups[setup].active,
+            },
           },
         },
       }
@@ -149,7 +192,10 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.FETCH_FROM_DB_SUCCESS: {
-      return action.payload || initialState
+      // Migration from 1.6 to 2.0.0
+      const newState = migrate(action.payload)
+
+      return newState
     }
 
     case ActionTypes.FETCH_FROM_DB_FAILURE: {
@@ -161,18 +207,27 @@ export const Reducer: LoopReducer<State, Action> = (
       // Because we currently do not have a specific mapping from Blueprints
       // to actual cards in the supply it is important,
       // that we keep the order of Gem -> Relic -> Spell for supply sets.
+      // TODO is this still the case? \ Theo
       const tiles = [...setup.tiles].sort(sortByCardType)
+
+      const ids = setup.isNew
+        ? [setup.id, ...state.Custom.ids]
+        : state.Custom.ids
 
       const newState = {
         ...state,
         Custom: {
           ...state.Custom,
-          [setup.id]: {
-            ...setup,
-            tiles,
-            isNew: false,
-            isDirty: false,
+          setups: {
+            ...state.Custom.setups,
+            [setup.id]: {
+              ...setup,
+              tiles,
+              isNew: false,
+              isDirty: false,
+            },
           },
+          ids,
         },
       }
 
@@ -193,9 +248,12 @@ export const Reducer: LoopReducer<State, Action> = (
         ...state,
         Custom: {
           ...state.Custom,
-          [id]: {
-            ...state.Custom[id],
-            isDirty: true,
+          setups: {
+            ...state.Custom.setups,
+            [id]: {
+              ...state.Custom.setups[id],
+              isDirty: true,
+            },
           },
         },
       }
@@ -204,19 +262,22 @@ export const Reducer: LoopReducer<State, Action> = (
     case ActionTypes.CANCEL_EDIT_SETUP: {
       const id = action.payload
 
-      const { [id]: setup, ...rest } = state.Custom
+      const { [id]: setup, ...rest } = state.Custom.setups
 
       if (setup.isNew) {
-        return { ...state, Custom: { ...rest } }
+        return { ...state, Custom: { ...state.Custom, setups: { ...rest } } }
       }
 
       return {
         ...state,
         Custom: {
-          ...rest,
-          [id]: {
-            ...setup,
-            isDirty: false,
+          ...state.Custom,
+          setups: {
+            ...rest,
+            [id]: {
+              ...setup,
+              isDirty: false,
+            },
           },
         },
       }
@@ -225,8 +286,14 @@ export const Reducer: LoopReducer<State, Action> = (
     case ActionTypes.DELETE_CUSTOM_SETUP: {
       const id = action.payload
 
-      const { [id]: setup, ...rest } = state.Custom
-      const newState = { ...state, Custom: { ...rest } }
+      const { [id]: setup, ...rest } = state.Custom.setups
+      const newState = {
+        ...state,
+        Custom: {
+          ids: state.Custom.ids.filter(customId => customId !== id),
+          setups: { ...rest },
+        },
+      }
 
       return loop(
         newState,
@@ -249,22 +316,29 @@ export const Reducer: LoopReducer<State, Action> = (
 ///////////////
 
 const getState = (state: RootState) => state.Settings.SupplySetups
-const getPredefined = (state: RootState) =>
-  state.Settings.SupplySetups.Predefined
-const getCustom = (state: RootState) => state.Settings.SupplySetups.Custom
 
-const getPredefinedAsArray = createSelector(
-  [getPredefined],
-  predefined => Object.values(predefined).filter(setup => !setup.default)
+const getPredefinedSetups = (state: RootState) =>
+  state.Settings.SupplySetups.Predefined.setups
+const getPredefinedIds = (state: RootState) =>
+  state.Settings.SupplySetups.Predefined.ids
+
+const getCustomSetups = (state: RootState) =>
+  state.Settings.SupplySetups.Custom.setups
+const getCustomIds = (state: RootState) =>
+  state.Settings.SupplySetups.Custom.ids
+
+const getPredefinedList = createSelector(
+  [getPredefinedIds, getPredefinedSetups],
+  (ids, setups) => ids.map(id => setups[id]).filter(setup => !setup.default)
 )
 
-const getCustomAsArray = createSelector(
-  [getCustom],
-  custom => Object.values(custom).filter(setup => !setup.default)
+const getCustomList = createSelector(
+  [getCustomIds, getCustomSetups],
+  (ids, setups) => ids.map(id => setups[id]).filter(setup => !setup.default)
 )
 
 const getCustomAndPredefined = createSelector(
-  [getPredefined, getCustom],
+  [getPredefinedSetups, getCustomSetups],
   (predefined, custom) => ({ ...predefined, ...custom })
 )
 
@@ -295,10 +369,8 @@ export const selectors = {
   getAllAsArray,
   getAllExceptDefaultSets,
   getAllSetsSelected,
-  getCustom,
   getCustomAndPredefined,
-  getCustomAsArray,
-  getPredefined,
-  getPredefinedAsArray,
+  getCustomList,
+  getPredefinedList,
   makeGetCustomAndPredefined,
 }

@@ -46,7 +46,10 @@ export type IMarketSetup = Readonly<{
   isNew?: boolean // Flag to mark if an item has already been actively saved
 }>
 
-export type IMarketSetups = Readonly<{ [key: string]: IMarketSetup }>
+export type MarketSetups = {
+  setups: { [id: string]: IMarketSetup }
+  ids: string[]
+}
 
 export const isCard = (card: Data.ICard | Slot): card is Data.ICard => {
   if (!card) return false
