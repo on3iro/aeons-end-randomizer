@@ -1,8 +1,15 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
+import Button from '@material-ui/core/Button'
 
 import { RootState, selectors } from '../../../../Redux/Store'
 import * as types from '../../../../types'
+
+import InfoItem from '../../../molecules/InfoItem'
+
+import P from '../../../atoms/P'
+import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
+import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
 
 type OwnProps = {
   battle: types.Battle
@@ -23,19 +30,28 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const ExpeditionFinished = React.memo(({ battle, hide, expedition }: Props) => {
+const ExpeditionFinished = React.memo(({ hide, expedition }: Props) => {
   const handleFinish = useCallback(() => {
     hide()
-  }, [battle, hide])
+  }, [hide])
 
   return (
-    <div>
-      <p>You defeted all nemeses. New Gravehold is safe... for now.</p>
-      <p>
-        <b>Score:</b> {expedition.score}
-      </p>
-      <button onClick={handleFinish}>Finish Expedition</button>
-    </div>
+    <React.Fragment>
+      <ModalBodyWrapper>
+        <P>You defeated all nemeses. New Gravehold is safe... for now.</P>
+        <InfoItem label="Score" info={expedition.score.toString()} />
+      </ModalBodyWrapper>
+      <ModalFooterWrapper>
+        <Button
+          onClick={handleFinish}
+          size="small"
+          variant="contained"
+          color="primary"
+        >
+          Finish Expedition
+        </Button>
+      </ModalFooterWrapper>
+    </React.Fragment>
   )
 })
 

@@ -1,28 +1,14 @@
 import React from 'react'
+import Grid from '@material-ui/core/Grid'
 
 import * as types from '../../../types'
 
-import Card from '../../atoms/Card'
+import TreasureTile from './TreasureTile'
+import TreasureGridWrapper from './TreasureGridWrapper'
 
 const renderTreasures = (treasures: types.Treasure[]) =>
   treasures.map(treasure => (
-    <Card key={treasure.id}>
-      <p>
-        <b>Expansion:</b> {treasure.expansion}
-      </p>
-      <p>
-        <b>Name:</b> {treasure.name}
-      </p>
-      <p>
-        <b>TreasureLevel:</b> {treasure.level}
-      </p>
-      {treasure.subtype && (
-        <p>
-          <b>Subtype:</b> {treasure.subtype}
-        </p>
-      )}
-      <div dangerouslySetInnerHTML={{ __html: treasure.effect }} />
-    </Card>
+    <TreasureTile key={treasure.id} treasure={treasure} />
   ))
 
 type Props = {
@@ -30,7 +16,11 @@ type Props = {
 }
 
 const TreasureList = React.memo(({ treasures }: Props) => (
-  <div>{renderTreasures(treasures)}</div>
+  <TreasureGridWrapper>
+    <Grid container spacing={16}>
+      {renderTreasures(treasures)}
+    </Grid>
+  </TreasureGridWrapper>
 ))
 
 export default TreasureList

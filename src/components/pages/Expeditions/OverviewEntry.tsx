@@ -25,7 +25,8 @@ const OverviewEntry = React.memo(({ expedition, deleteHandler }: Props) => {
     deleteHandler(expedition.id)
   }
 
-  const deletionDialogTitle = `Would you really like to delete Expedition: "${expedition.name}"?`
+  const deletionDialogTitle = `Would you really like to delete Expedition: "${expedition.name ||
+    expedition.id}"?`
 
   return (
     <React.Fragment>

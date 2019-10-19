@@ -126,7 +126,6 @@ const BluePrint = React.memo(({ bluePrint, dispatch }: Props) => {
           onChange={(
             e: React.ChangeEvent<{ name?: string; value: unknown }>
           ) => {
-            console.log('called')
             dispatch({
               type: 'UPDATE',
               payload: {

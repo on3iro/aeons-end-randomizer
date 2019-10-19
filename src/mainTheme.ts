@@ -49,6 +49,21 @@ const playerColors = {
   },
 }
 
+const treasureColors = {
+  treasure1: {
+    normal: '#a97142',
+    light: '#ffddb2',
+  },
+  treasure2: {
+    normal: '#aaa9ad',
+    light: '#ece8f5',
+  },
+  treasure3: {
+    normal: '#d4af37',
+    light: '#fbecbb',
+  },
+}
+
 export const mainTheme = {
   heading: {
     fontSize: muiTheme.typography.pxToRem(15),
@@ -107,6 +122,7 @@ export const mainTheme = {
       },
     },
     cards: {
+      ...treasureColors,
       gem: {
         color: '#B39DDB',
         background: '#EDE7F6',
@@ -134,6 +150,7 @@ export const mainTheme = {
     gem: 'ra-crystals',
     relic: 'ra-crystal-wand',
     spell: 'ra-scroll-unfurled',
+    treasure: 'ra-diamond',
   },
 }
 

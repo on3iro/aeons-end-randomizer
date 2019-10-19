@@ -8,6 +8,8 @@ import * as types from '../../../types'
 
 import { RenderModalType } from '../../../hooks/useModal'
 
+import ModalBodyWrapper from '../../atoms/ModalBodyWrapper'
+
 import Body from '../SupplyCardInformation'
 
 export type CardProperties = {
@@ -49,7 +51,7 @@ const SupplyModal = React.memo(
 
     return (
       <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
-        {body}
+        <ModalBodyWrapper>{body}</ModalBodyWrapper>
       </RenderModal>
     )
   }

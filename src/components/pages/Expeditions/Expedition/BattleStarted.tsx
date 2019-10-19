@@ -1,8 +1,13 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
+import Button from '@material-ui/core/Button'
+
 import { RootState, actions, selectors } from '../../../../Redux/Store'
 import * as types from '../../../../types'
+
+import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
+import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
 
 type OwnProps = {
   battle: types.Battle
@@ -109,10 +114,27 @@ const BattleStarted = React.memo(
     }, [loseBattle, hide, battle, showNextOnLoss])
 
     return (
-      <div>
-        <button onClick={handleWin}>Battle won</button>
-        <button onClick={handleLoss}>Battle lost</button>
-      </div>
+      <React.Fragment>
+        <ModalBodyWrapper hasFooter={true} />
+        <ModalFooterWrapper>
+          <Button
+            size="small"
+            variant="contained"
+            color="secondary"
+            onClick={handleLoss}
+          >
+            Battle lost
+          </Button>
+          <Button
+            size="small"
+            variant="contained"
+            color="primary"
+            onClick={handleWin}
+          >
+            Battle won
+          </Button>
+        </ModalFooterWrapper>
+      </React.Fragment>
     )
   }
 )

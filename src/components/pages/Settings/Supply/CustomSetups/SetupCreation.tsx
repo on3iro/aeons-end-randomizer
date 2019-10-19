@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button'
 import * as types from '../../../../../types'
 import { useModal } from '../../../../../hooks/useModal'
 
+import ModalBodyWrapper from '../../../../atoms/ModalBodyWrapper'
+
 import CustomSetupEdit from '../CustomSetupEdit'
 
 const createSetup = (): types.IMarketSetup => {
@@ -51,11 +53,13 @@ const SetupCreation = React.memo(() => {
         titleLabel="New Setup"
         closeCallback={handleEditCancel}
       >
-        {newSetup ? (
-          <CustomSetupEdit setup={newSetup} saveCallback={hideEditModal} />
-        ) : (
-          'Error'
-        )}
+        <ModalBodyWrapper>
+          {newSetup ? (
+            <CustomSetupEdit setup={newSetup} saveCallback={hideEditModal} />
+          ) : (
+            'Error'
+          )}
+        </ModalBodyWrapper>
       </RenderEditModal>
     </React.Fragment>
   )

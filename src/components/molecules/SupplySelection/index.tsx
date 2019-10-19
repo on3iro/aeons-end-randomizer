@@ -2,6 +2,10 @@ import React from 'react'
 
 import SupplyList, { Props as ListProps } from '../SupplyList'
 
+import SectionHeadline from '../../atoms/SectionHeadline'
+
+import InfoItem from '../InfoItem'
+
 import Wrapper from './Wrapper'
 
 type ContextProps = {
@@ -30,7 +34,7 @@ const renderLists = (lists: List[], selectionHandler: (val: any) => void) =>
     return (
       <div key={list.id}>
         <SelectionHandlerContext.Provider value={selectionContextValue}>
-          {list.title && <h2>{list.title}</h2>}
+          {list.title && <SectionHeadline>{list.title}</SectionHeadline>}
           <SupplyList {...list} />
         </SelectionHandlerContext.Provider>
       </div>
@@ -53,10 +57,13 @@ const SupplySelection = React.memo(
   }: Props) => {
     return (
       <Wrapper>
-        <h2>Please select {amountOfCardsToSelect} cards to banish!</h2>
-        <p>
-          <b>Cards selected:</b> {selectedCardsCount}/{amountOfCardsToSelect}
-        </p>
+        <SectionHeadline>
+          Please select {amountOfCardsToSelect} cards to banish!
+        </SectionHeadline>
+        <InfoItem
+          label="Cards selected"
+          info={`${selectedCardsCount}/${amountOfCardsToSelect}`}
+        ></InfoItem>
         {renderLists(lists, handleSelection)}
       </Wrapper>
     )

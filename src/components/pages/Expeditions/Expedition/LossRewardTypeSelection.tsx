@@ -1,6 +1,15 @@
 import React from 'react'
+import Button from '@material-ui/core/Button'
+import MenuItem from '@material-ui/core/MenuItem'
+
+import FormControl from '../FormControl'
+import Select from '../Select'
 
 import { RollLossType } from '../../../../Redux/Store/Expeditions/helpers'
+
+import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
+import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
+import SectionHeadline from '../../../atoms/SectionHeadline'
 
 const getTreasureOptionsByTier = (tier: 1 | 2 | 3 | 4) => [
   ...([2, 3, 4].includes(tier) ? [{ level: 1 }] : []),
@@ -10,7 +19,10 @@ const getTreasureOptionsByTier = (tier: 1 | 2 | 3 | 4) => [
 
 type Props = {
   rewardSelectValue: RollLossType
-  handleRewardSelectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  handleRewardSelectChange: (
+    e: React.ChangeEvent<HTMLSelectElement>,
+    ...args: any
+  ) => void
   handleRewardConfirmation: () => void
   tier: 1 | 2 | 3 | 4
 }
@@ -26,19 +38,41 @@ const LossRewardTypeSelection = React.memo(
 
     return (
       <React.Fragment>
-        <h2>Select an item to roll</h2>
-        <select value={rewardSelectValue} onChange={handleRewardSelectChange}>
-          <option value="mage">Mage</option>
-          <option value="gem">Gem</option>
-          <option value="relic">Relic</option>
-          <option value="spell">Spell</option>
-          {treasureOptions.map(option => (
-            <option key={option.level} value={`treasure${option.level}`}>
-              Treasure, Level {option.level}
-            </option>
-          ))}
-        </select>
-        <button onClick={handleRewardConfirmation}>Confirm choice</button>
+        <ModalBodyWrapper hasFooter={true}>
+          <SectionHeadline>Select an item to roll</SectionHeadline>
+          <FormControl>
+            <Select
+              value={rewardSelectValue}
+              onChange={handleRewardSelectChange}
+              inputProps={{
+                name: 'reward',
+                id: `reward`,
+              }}
+            >
+              <MenuItem value="mage">Mage</MenuItem>
+              <MenuItem value="gem">Gem</MenuItem>
+              <MenuItem value="relic">Relic</MenuItem>
+              <MenuItem value="spell">Spell</MenuItem>
+
+              {treasureOptions.map(option => (
+                <MenuItem key={option.level} value={`treasure${option.level}`}>
+                  Treasure, Level {option.level}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </ModalBodyWrapper>
+        <ModalFooterWrapper>
+          <Button
+            size="small"
+            variant="contained"
+            color="primary"
+            onClick={handleRewardConfirmation}
+          >
+            Confirm choice
+          </Button>
+        </ModalFooterWrapper>
+        >
       </React.Fragment>
     )
   }

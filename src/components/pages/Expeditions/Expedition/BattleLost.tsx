@@ -1,16 +1,22 @@
 import React, { useCallback, useState } from 'react'
 import { connect } from 'react-redux'
 
+import Button from '@material-ui/core/Button'
+
 import { RootState, actions, selectors } from '../../../../Redux/Store'
 import * as types from '../../../../types'
 
 import { RollLossType } from '../../../../Redux/Store/Expeditions/helpers'
 
-import LossRewardTypeSelection from './LossRewardTypeSelection'
 import TreasureList from '../../../molecules/TreasureList'
 import MageTile from '../../../molecules/MageList/MageTile' // FIXME MageTile should probably be a molecule itself
 import MarketTile from '../../../molecules/MarketTile'
 import SupplySelection from '../../../molecules/SupplySelection'
+
+import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
+import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
+
+import LossRewardTypeSelection from './LossRewardTypeSelection'
 
 import * as helpers from './helpers'
 
@@ -141,8 +147,8 @@ const BattleLost = React.memo(
     )
 
     const handleRewardSelectChange = useCallback(
-      (e: React.ChangeEvent<HTMLSelectElement>) => {
-        updateRewardSelectValue(e.currentTarget.value as RollLossType)
+      (e: React.ChangeEvent<HTMLSelectElement>, child: any) => {
+        updateRewardSelectValue(e.target.value as RollLossType)
       },
       [updateRewardSelectValue]
     )
@@ -223,7 +229,7 @@ const BattleLost = React.memo(
     }, [hide, battle, acceptLoss, showNext, listsWithSelectionState])
 
     return (
-      <div>
+      <React.Fragment>
         {!battle.rewards ? (
           <LossRewardTypeSelection
             tier={battle.nemesisTier.tier}
@@ -233,26 +239,36 @@ const BattleLost = React.memo(
           />
         ) : (
           <React.Fragment>
-            {newSupplyCards.length > 0 && !expedition.bigPocketVariant ? (
-              <SupplySelection
-                lists={listsWithSelectionState}
-                handleSelection={handleSelection}
-                amountOfCardsToSelect={amountOfCardsToSelect}
-                selectedCardsCount={selectedCardsCount}
-              />
-            ) : (
-              newSupplyCards.length > 0 && (
-                <MarketTile marketTile={newSupplyCards[0]} />
-              )
-            )}
-            {treasures.length > 0 && <TreasureList treasures={treasures} />}
-            {newMage && <MageTile mage={newMage} playerNumber={1} />}
-            <button onClick={handleContinue} disabled={!finishingIsPossible}>
-              Continue
-            </button>
+            <ModalBodyWrapper hasFooter={true}>
+              {newSupplyCards.length > 0 && !expedition.bigPocketVariant ? (
+                <SupplySelection
+                  lists={listsWithSelectionState}
+                  handleSelection={handleSelection}
+                  amountOfCardsToSelect={amountOfCardsToSelect}
+                  selectedCardsCount={selectedCardsCount}
+                />
+              ) : (
+                newSupplyCards.length > 0 && (
+                  <MarketTile marketTile={newSupplyCards[0]} />
+                )
+              )}
+              {treasures.length > 0 && <TreasureList treasures={treasures} />}
+              {newMage && <MageTile mage={newMage} playerNumber={1} />}
+            </ModalBodyWrapper>
+            <ModalFooterWrapper>
+              <Button
+                size="small"
+                variant="contained"
+                color="primary"
+                onClick={handleContinue}
+                disabled={!finishingIsPossible}
+              >
+                Continue
+              </Button>
+            </ModalFooterWrapper>
           </React.Fragment>
         )}
-      </div>
+      </React.Fragment>
     )
   }
 )

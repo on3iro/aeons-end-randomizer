@@ -14,12 +14,12 @@ import CloseIcon from '@material-ui/icons/Close'
 type Props = {
   titleLabel: string
   titleColor: string
-  body: React.ReactChild
+  children: React.ReactChild
   closeModal: () => void
 }
 
 const Modal = React.memo(
-  ({ titleColor, titleLabel, body, closeModal }: Props) => {
+  ({ titleColor, titleLabel, children, closeModal }: Props) => {
     const domEl = document.getElementById('modal-root')
 
     if (!domEl) return null
@@ -37,7 +37,7 @@ const Modal = React.memo(
                 <CloseIcon />
               </CloseButton>
             </Header>
-            <Body>{body}</Body>
+            <Body>{children}</Body>
           </Content>
         </Wrapper>
       </React.Fragment>,

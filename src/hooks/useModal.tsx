@@ -41,9 +41,10 @@ export const useModal = () => {
           <Modal
             titleColor={titleColor}
             titleLabel={titleLabel}
-            body={children}
             closeModal={handleClose}
-          />
+          >
+            {children}
+          </Modal>
         )}
       </React.Fragment>
     )
