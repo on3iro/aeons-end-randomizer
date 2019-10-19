@@ -163,10 +163,7 @@ const BattleWon = React.memo(
     return (
       <div>
         {expedition.bigPocketVariant ? (
-          <SupplyList
-            tiles={newSupplyCards}
-            showSupplyDetails={() => console.log('TODO use handler above')}
-          />
+          <SupplyList tiles={newSupplyCards} />
         ) : (
           <SupplySelection
             lists={listsWithSelectionState}

@@ -5,12 +5,56 @@ import { withTheme } from 'styled-components/macro'
 
 import { RootState, selectors } from '../../../Redux/Store'
 import * as types from '../../../types'
+import { useModal } from '../../../hooks/useModal'
 
 import Tile from '../Tile'
 import { SelectionHandlerContext } from '../SupplySelection'
+import SupplyModal from '../SupplyModal'
 
 import Wrapper from './Wrapper'
 import Body from './Body'
+
+// FIXME
+// This is currently a typing hack
+// We ensure that our modal will only be shown
+const getCard = (marketTile: {
+  type?: types.CardType
+  name?: string
+  expansion?: string
+  cost?: number
+  keywords?: string[]
+  effect?: string
+  selected?: boolean
+}):
+  | {
+      type: types.CardType
+      name: string
+      expansion: string
+      cost: number
+      keywords: string[]
+      effect: string
+      selected: boolean
+    }
+  | undefined => {
+  const { type, name, expansion, cost, keywords, effect, selected } = marketTile
+  return type &&
+    name &&
+    expansion &&
+    cost &&
+    keywords &&
+    effect !== undefined &&
+    selected !== undefined
+    ? {
+        type,
+        name,
+        expansion,
+        cost,
+        keywords,
+        effect,
+        selected,
+      }
+    : undefined
+}
 
 const mapStateToProps = (state: RootState) => ({
   selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
@@ -27,25 +71,22 @@ type Props = ReturnType<typeof mapStateToProps> &
       type: types.CardType
       expansion?: string
       name?: string
+      effect?: string
+      keywords?: string[]
       cost?: number
       operation?: types.Operation
       threshold?: number
       values?: Array<number>
       visualSelection?: boolean
     }
-    showSupplyDetails: (e: Event, id: string) => void
     theme: any
   }
 
 const MarketTile = React.memo(
-  ({
-    marketTile,
-    selectedExpansions,
-    showSupplyDetails,
-    theme,
-    ...rest
-  }: Props) => {
+  ({ marketTile, selectedExpansions, theme, ...rest }: Props) => {
     const { expansions } = selectedExpansions
+    const { show, RenderModal } = useModal()
+
     const { selectionHandler, listId } = useContext(SelectionHandlerContext)
     const handleSelection = useCallback(() => {
       selectionHandler({ supplyCardId: marketTile.id, listId })
@@ -53,10 +94,13 @@ const MarketTile = React.memo(
 
     const handleDetails = useCallback(
       (e: Event) => {
-        showSupplyDetails(e, marketTile.id || '')
+        e.stopPropagation()
+        show()
       },
-      [marketTile.id, showSupplyDetails]
+      [show]
     )
+
+    const card = getCard(marketTile)
 
     return (
       <Wrapper item xs={6} md={4} {...rest}>
@@ -81,11 +125,9 @@ const MarketTile = React.memo(
             icon={theme.icons[marketTile.type.toLowerCase()]}
             iconColor={theme.colors.cards[marketTile.type.toLowerCase()].color}
             showDetails={handleDetails}
-            hideShowDetailsButton={
-              showSupplyDetails && marketTile.name ? false : true
-            }
           />
         )}
+        {card && <SupplyModal card={card} RenderModal={RenderModal} />}
       </Wrapper>
     )
   }

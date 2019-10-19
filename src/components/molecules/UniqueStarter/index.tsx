@@ -22,8 +22,6 @@ const UniqueStarter = React.memo(({ card, theme }: Props) => (
       fontColor={theme.colors.text.primary}
       icon={theme.icons[card.type.toLowerCase()]}
       iconColor={theme.colors.cards[card.type.toLowerCase()].color}
-      showDetails={() => null}
-      hideShowDetailsButton={true}
     />
   </UniqueStartersWrapper>
 ))

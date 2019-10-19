@@ -12,7 +12,10 @@ export type ChangeHandler = (id: string) => void
 const renderCheckboxes = (
   items: SelectedCard[],
   changeHandler: ChangeHandler
-) => items.map(item => <Checkbox card={item} changeHandler={changeHandler} />)
+) =>
+  items.map(item => (
+    <Checkbox key={item.id} card={item} changeHandler={changeHandler} />
+  ))
 
 type Props = {
   entities: SelectedCard[]

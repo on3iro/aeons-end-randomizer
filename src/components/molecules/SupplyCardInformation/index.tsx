@@ -2,7 +2,7 @@ import React from 'react'
 
 import { withTheme } from 'styled-components/macro'
 
-import { ICard } from '../../../types'
+import * as types from '../../../types'
 
 import InfoItem from '../InfoItem'
 
@@ -12,7 +12,15 @@ import Keyword from '../../atoms/Keyword'
 import AbilityText from '../../atoms/AbilityText'
 
 type Props = {
-  card: ICard
+  card: {
+    selected: boolean
+    type: types.CardType
+    name: string
+    expansion: string
+    cost: number
+    keywords: string[]
+    effect: string
+  }
   expansionName: string
   theme: any
 }

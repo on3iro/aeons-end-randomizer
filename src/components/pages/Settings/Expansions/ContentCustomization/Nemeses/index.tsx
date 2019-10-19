@@ -15,7 +15,9 @@ const renderCheckboxes = (
   items: SelectedNemesis[],
   changeHandler: ChangeHandler
 ) =>
-  items.map(item => <Checkbox nemesis={item} changeHandler={changeHandler} />)
+  items.map(item => (
+    <Checkbox key={item.id} nemesis={item} changeHandler={changeHandler} />
+  ))
 
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
   selectedNemeses: selectors.Settings.Expansions.SelectedNemeses.getNemesesByExpansionId(

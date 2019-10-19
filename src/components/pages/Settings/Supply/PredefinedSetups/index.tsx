@@ -15,7 +15,11 @@ const renderCheckboxes = (
   changeHandler: ChangeHandler
 ) =>
   items.map(item => (
-    <CheckboxWithPreview setup={item} changeHandler={changeHandler} />
+    <CheckboxWithPreview
+      key={item.id}
+      setup={item}
+      changeHandler={changeHandler}
+    />
   ))
 
 const mapStateToProps = (state: RootState) => ({

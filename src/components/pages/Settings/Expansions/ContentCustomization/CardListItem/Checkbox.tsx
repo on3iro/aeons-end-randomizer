@@ -37,7 +37,7 @@ const Checkbox = React.memo(
           changeHandler={handleChange}
           showDetails={handleDetails}
         />
-        <SupplyModal id={card.id} RenderModal={RenderModal} />
+        <SupplyModal card={card} RenderModal={RenderModal} />
       </React.Fragment>
     )
   }

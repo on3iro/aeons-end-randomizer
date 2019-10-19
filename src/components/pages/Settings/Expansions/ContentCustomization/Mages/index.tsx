@@ -14,7 +14,10 @@ export type ChangeHandler = (id: string) => void
 const renderCheckboxes = (
   items: SelectedMage[],
   changeHandler: ChangeHandler
-) => items.map(item => <Checkbox mage={item} changeHandler={changeHandler} />)
+) =>
+  items.map(item => (
+    <Checkbox key={item.id} mage={item} changeHandler={changeHandler} />
+  ))
 
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
   selectedMages: selectors.Settings.Expansions.SelectedMages.getMagesByExpansionId(

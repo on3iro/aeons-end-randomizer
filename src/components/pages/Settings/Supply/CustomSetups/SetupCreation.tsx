@@ -2,10 +2,10 @@ import React, { useState, useCallback } from 'react'
 import shortid from 'shortid'
 import Button from '@material-ui/core/Button'
 
-import * as types from '../../../../types'
-import { useModal } from '../../../../hooks/useModal'
+import * as types from '../../../../../types'
+import { useModal } from '../../../../../hooks/useModal'
 
-import CustomSetupEdit from './CustomSetupEdit'
+import CustomSetupEdit from '../CustomSetupEdit'
 
 const createSetup = (): types.IMarketSetup => {
   return {

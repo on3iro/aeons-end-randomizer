@@ -11,7 +11,7 @@ type ContextProps = {
 
 export const SelectionHandlerContext = React.createContext<ContextProps>({
   listId: undefined,
-  selectionHandler: (val: any) => console.log(val),
+  selectionHandler: (_: string) => undefined,
 })
 
 type List = ListProps & {

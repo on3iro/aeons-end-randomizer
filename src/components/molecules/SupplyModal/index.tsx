@@ -4,21 +4,31 @@ import { withTheme } from 'styled-components/macro'
 import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../Redux/Store'
+import * as types from '../../../types'
 
 import { RenderModalType } from '../../../hooks/useModal'
 
 import Body from '../SupplyCardInformation'
 
-// FIXME refine type
+export type CardProperties = {
+  type: types.CardType
+  name: string
+  expansion: string
+  cost: number
+  keywords: string[]
+  effect: string
+  selected: boolean
+}
+
+// FIXME refine type (Bug due to withTheme)
 const mapStateToProps = (state: RootState, props: any) => ({
-  card: selectors.Settings.Expansions.SelectedCards.getCardById(state, props),
   selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
     state
   ),
 })
 
 type Props = ReturnType<typeof mapStateToProps> & {
-  id: string
+  card: CardProperties
   theme: any
   RenderModal: RenderModalType
 }
