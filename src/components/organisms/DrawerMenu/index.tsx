@@ -5,11 +5,13 @@ import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
 import Navigation from '../../molecules/Navigation'
+
 import Header from './Header'
 import AppInfo from './AppInfo'
 import GitHubLink from './GitHubLink'
 import GitHubLogo from './GitHubLogo'
 import Drawer from './Drawer'
+import GitHubSvg from './github-logo.svg'
 
 type Props = {
   drawerIsOpen: boolean
@@ -38,7 +40,7 @@ const DrawerMenu = React.memo(({ drawerIsOpen, toggleDrawer }: Props) => (
         color="inherit"
         target="_blank"
       >
-        <GitHubLogo src="images/github-logo.svg" alt="SVG: Github logo" />
+        <GitHubLogo src={GitHubSvg} alt="SVG: Github logo" />
         Github
       </GitHubLink>
     </AppInfo>
