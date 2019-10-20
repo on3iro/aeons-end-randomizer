@@ -1,6 +1,4 @@
-import { IExpansion } from '../../types'
-
-export const aeonsEndData: IExpansion = {
+const aeonsEndData = {
   id: 'AE',
   name: 'Aeons End',
   type: 'standalone',
