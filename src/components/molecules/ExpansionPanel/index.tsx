@@ -1,8 +1,8 @@
 import React from 'react'
 
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
+import ExpansionPanelDetails from './ExpansionPanelDetails'
 import StyledExpansionPanel from './StyledExpansionPanel'
 import StyledExpansionPanelSummary from './StyledExpansionPanelSummary'
 
@@ -17,17 +17,18 @@ type Props = {
 }
 
 const ExpansionPanel = React.memo(
-  ({ children, expanded, expansionHandler, expansionKey, summary }: Props) => (
-    <StyledExpansionPanel
-      expanded={expanded === true || expanded === expansionKey}
-      onChange={expansionHandler}
-    >
-      <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-        <Heading>{summary}</Heading>
-      </StyledExpansionPanelSummary>
-      <ExpansionPanelDetails>{children}</ExpansionPanelDetails>
-    </StyledExpansionPanel>
-  )
+  ({ children, expanded, expansionHandler, expansionKey, summary }: Props) => {
+    const isExpanded = expanded === true || expanded === expansionKey
+
+    return (
+      <StyledExpansionPanel expanded={isExpanded} onChange={expansionHandler}>
+        <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Heading>{summary}</Heading>
+        </StyledExpansionPanelSummary>
+        <ExpansionPanelDetails>{isExpanded && children}</ExpansionPanelDetails>
+      </StyledExpansionPanel>
+    )
+  }
 )
 
 ExpansionPanel.displayName = 'ExpansionPanel'
