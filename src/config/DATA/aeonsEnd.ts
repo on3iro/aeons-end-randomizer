@@ -678,4 +678,3 @@ export const aeonsEndData: IExpansion = {
     },
   ],
 }
-module.exports = aeonsEndData
