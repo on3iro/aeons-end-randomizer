@@ -23,6 +23,9 @@ type Props = {
 const Routing = React.memo(() => (
   <Switch>
     <Redirect exact={true} from="/" to="/randomizer/nemesis" />
+    <Redirect exact={true} from="/nemesis" to="/randomizer/nemesis" />
+    <Redirect exact={true} from="/mages" to="/randomizer/mages" />
+    <Redirect exact={true} from="/supply" to="/randomizer/supply" />
     <Route exact={true} path="/randomizer/nemesis" component={Nemeses} />
     <Route exact={true} path="/randomizer/mages" component={Mages} />
     <Route exact={true} path="/randomizer/supply" component={Supply} />
