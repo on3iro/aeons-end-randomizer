@@ -1,7 +1,8 @@
+import React from 'react'
 import styled from 'styled-components/macro'
-import ExpansionPanel from '@material-ui/core/ExpansionPanel'
+import MuiExpansionPanel from '@material-ui/core/ExpansionPanel'
 
-const StyledExpansionPanel = styled(ExpansionPanel)`
+const ExpansionPanel = styled(MuiExpansionPanel)`
   border-radius: 4px;
   margin-bottom: 15px;
 
@@ -11,6 +12,19 @@ const StyledExpansionPanel = styled(ExpansionPanel)`
     display: none;
   }
 `
+
+ExpansionPanel.displayName = 'ExpansionPanel'
+
+const StyledExpansionPanel = React.memo(
+  ({
+    children,
+    ...rest
+  }: {
+    expanded: boolean | undefined
+    onChange: (...args: any) => void
+    children: React.ReactNode
+  }) => <ExpansionPanel {...rest}>{children}</ExpansionPanel>
+)
 
 StyledExpansionPanel.displayName = 'StyledExpansionPanel'
 

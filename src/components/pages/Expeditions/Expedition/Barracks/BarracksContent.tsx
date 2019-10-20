@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import * as types from '../../../../../types'
 import { RootState, selectors } from '../../../../../Redux/Store'
-import { useModal } from '../../../../../hooks/useModal'
 import useExpandedHandling from '../../../../../hooks/useExpansionHandling'
 
 import ModalBodyWrapper from '../../../../atoms/ModalBodyWrapper'
