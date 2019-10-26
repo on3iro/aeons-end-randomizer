@@ -108,7 +108,7 @@ const renderInputFieldsByOperation = (
 
 const BluePrint = React.memo(({ bluePrint, dispatch }: Props) => {
   return (
-    <BluePrintWrapper>
+    <BluePrintWrapper type={bluePrint.type}>
       <CancelButton
         onClick={() =>
           dispatch({
