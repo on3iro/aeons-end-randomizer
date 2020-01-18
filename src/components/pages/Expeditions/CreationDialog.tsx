@@ -23,7 +23,7 @@ const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndP
 const mapStateToProps = (state: RootState) => ({
   selectedVariant: selectors.Expeditions.Variants.getSelectedVariant(state),
   variants: selectors.Expeditions.Variants.getVariantList(state),
-  availableMageIds: selectors.Settings.Expansions.SelectedMages.getSelectedMagesIds(
+  availableMageIds: selectors.Settings.Expansions.getSelectedMageIdsForSelectedExpansions(
     state
   ),
   availableCards: selectors.Settings.Expansions.getSelectedCardsForSelectedExpansions(

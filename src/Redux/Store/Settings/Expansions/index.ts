@@ -108,6 +108,11 @@ const getSelectedMagesForSelectedExpansions = getSelectedEntitiesForSelectedExpa
   SelectedMages.selectors.getSelectedMages
 )
 
+const getSelectedMageIdsForSelectedExpansions = createSelector(
+  [getSelectedMagesForSelectedExpansions],
+  selectedMages => selectedMages.map(mage => mage.id)
+)
+
 const getTreasuresForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
   Treasures.selectors.getTreasureList
 )
@@ -135,6 +140,7 @@ export const selectors = {
   getSelectedCardsForSelectedExpansions,
   getSelectedNemesesForSelectedExpansions,
   getSelectedMagesForSelectedExpansions,
+  getSelectedMageIdsForSelectedExpansions,
   getTreasuresForSelectedExpansions,
   getTreasuresByLevelForSelectedExpansions,
   getUpgradedBasicNemesisCardsForSelectedExpansions,
