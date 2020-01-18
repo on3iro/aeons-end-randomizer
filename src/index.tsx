@@ -6,7 +6,10 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
 import JssProvider from 'react-jss/lib/JssProvider'
+
+// @ts-ignore
 import { create } from 'jss'
+
 import { createGenerateClassName, jssPreset } from '@material-ui/core/styles'
 
 import App from './components/App'
