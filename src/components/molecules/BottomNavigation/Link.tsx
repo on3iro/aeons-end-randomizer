@@ -9,7 +9,7 @@ type Props = {
 }
 
 const Link = React.memo(({ to, label, icon }: Props) => (
-  <StyledLink to={to} isActive={match => (match ? true : false)}>
+  <StyledLink to={to} isActive={(match: any) => (match ? true : false)}>
     <i className={`ra ra-lg ${icon}`} />
     <span>{label}</span>
   </StyledLink>
