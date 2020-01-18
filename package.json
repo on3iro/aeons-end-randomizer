@@ -13,6 +13,7 @@
     "@material-ui/icons": "^3.0.2",
     "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.9",
+    "@types/jss": "^10.0.0",
     "@types/node": "^11.9.5",
     "@types/react": "^16.8.5",
     "@types/react-dom": "^16.8.2",
@@ -20,10 +21,9 @@
     "@types/react-redux": "^7.0.3",
     "@types/react-router-dom": "^5.1.0",
     "@types/shortid": "^0.0.29",
-    "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "core-js": "^3.2.1",
-    "cross-env": "^5.2.0",
+    "cross-env": "^6.0.3",
     "gh-pages": "^2.0.1",
     "idb-keyval": "^3.1.0",
     "react": "^16.8.2",
@@ -38,7 +38,7 @@
     "reselect": "^4.0.0",
     "rpg-awesome": "^0.2.0",
     "shortid": "^2.2.14",
-    "styled-components": "^4.1.3",
+    "styled-components": "^5.0.0",
     "typescript": "^3.3.4000"
   },
   "homepage": "https://on3iro.github.io/aeons-end-randomizer/",
@@ -72,9 +72,9 @@
     "@types/classnames": "^2.2.7",
     "@types/styled-components": "^4.1.11",
     "babel-plugin-macros": "^2.5.0",
-    "husky": "^1.3.1",
+    "husky": "^4.0.10",
     "prettier": "^1.18.2",
-    "pretty-quick": "^1.10.0",
-    "source-map-explorer": "^1.7.0"
+    "pretty-quick": "^2.0.1",
+    "source-map-explorer": "^2.2.2"
   }
 }
