@@ -1,6 +1,9 @@
 import * as types from './types'
 
-export const sortByCardType = (a: types.Slot, b: types.Slot) => {
+export const sortByCardType = (
+  a: { type: types.CardType },
+  b: { type: types.CardType }
+) => {
   if (a.type === 'Gem') {
     return -1
   }

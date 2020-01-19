@@ -1,4 +1,4 @@
-import { createMageList, createSlotList } from './helpers'
+import { createMageList, createSlotList } from '../../helpers'
 
 describe('createMageList()', () => {
   it('should return same array with getFirst() entity getter', () => {
