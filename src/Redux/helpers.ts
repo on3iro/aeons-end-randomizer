@@ -10,7 +10,14 @@ type CardListReduceResult = {
  * true or false, depending on the cost of the card and the expectation set by
  * the blueprints operation and cost.
  */
-const filterByCost = (card: types.ICard, setupBlueprint: types.IBluePrint) => {
+export const filterByCost = (
+  card: { cost: number },
+  setupBlueprint: {
+    operation: types.Operation
+    threshold?: number
+    values?: Array<number>
+  }
+) => {
   switch (setupBlueprint.operation) {
     case '<': {
       if (!setupBlueprint.threshold) return true
@@ -42,7 +49,7 @@ const filterByCost = (card: types.ICard, setupBlueprint: types.IBluePrint) => {
   }
 }
 
-const createCardList = (
+export const createCardList = (
   availableCards: types.ICard[],
   blueprints: Array<types.IBluePrint>,
   getEntity: <T>(list: Array<T>) => T
