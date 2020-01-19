@@ -4,20 +4,22 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import 'rpg-awesome/css/rpg-awesome.min.css'
 
-import CssBaseline from '@material-ui/core/CssBaseline'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 
-import { mainTheme, muiTheme } from '../../mainTheme'
+import { muiTheme } from '../../mainTheme'
+
+import { GlobalStyles } from 'globalStyles'
+import { theme } from 'theme'
 
 import MainApp from './MainApp'
 import Wrapper from './Wrapper'
 
 const App = React.memo(() => (
-  <ThemeProvider theme={mainTheme}>
+  <ThemeProvider theme={theme}>
     <MuiThemeProvider theme={muiTheme}>
       <Router>
         <Wrapper>
-          <CssBaseline />
+          <GlobalStyles />
           <MainApp />
         </Wrapper>
       </Router>
