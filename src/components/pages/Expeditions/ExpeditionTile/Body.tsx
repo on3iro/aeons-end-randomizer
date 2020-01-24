@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, selectors } from '../../../../Redux/Store'
-import { Expedition } from '../../../../types'
+import { RootState, selectors } from 'Redux/Store'
+import { Expedition } from 'types'
 
-import InfoItem from '../../../molecules/InfoItem'
+import InfoItem from 'components/molecules/InfoItem'
+import List from 'components/atoms/_styled_/List'
+import TileBodyWrapper from 'components/atoms/_styled_/TileBodyWrapper'
 
-import Name from './Name'
-
-import List from '@material-ui/core/List'
+import Name from './_styled_/Name'
 
 type OwnProps = {
   expedition: Expedition
@@ -26,8 +26,8 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const Body = React.memo(({ expedition, variant }: Props) => (
-  <React.Fragment>
+const Body = ({ expedition, variant }: Props) => (
+  <TileBodyWrapper>
     <Name>{expedition.name || expedition.id}</Name>
     <List>
       <InfoItem label="Finished" info={expedition.finished ? 'Yes' : 'No'} />
@@ -38,7 +38,7 @@ const Body = React.memo(({ expedition, variant }: Props) => (
         info={expedition.bigPocketVariant ? 'Yes' : 'No'}
       />
     </List>
-  </React.Fragment>
-))
+  </TileBodyWrapper>
+)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Body)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Body))

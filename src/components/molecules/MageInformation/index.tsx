@@ -7,6 +7,7 @@ import InfoItem from '../InfoItem'
 
 import AbilityText from '../../atoms/AbilityText'
 import SectionHeadline from '../../atoms/SectionHeadline'
+import List from 'components/atoms/_styled_/List'
 
 import UniqueStarter from '../UniqueStarter'
 
@@ -28,13 +29,17 @@ type Props = {
 const MageInformation = React.memo(
   ({ mage, player, expansionName, theme }: Props) => (
     <React.Fragment>
-      <InfoItem label="Title" info={mage.mageTitle} />
-      <InfoItem label="Expansion" info={expansionName} />
-      <InfoItem label="Charges" info={mage.numberOfCharges.toString()} />
-      {mage.complexityRating ? (
-        <InfoItem label="Complexity" info={mage.complexityRating.toString()} />
-      ) : null}
-
+      <List>
+        <InfoItem label="Title" info={mage.mageTitle} />
+        <InfoItem label="Expansion" info={expansionName} />
+        <InfoItem label="Charges" info={mage.numberOfCharges.toString()} />
+        {mage.complexityRating ? (
+          <InfoItem
+            label="Complexity"
+            info={mage.complexityRating.toString()}
+          />
+        ) : null}
+      </List>
       <AbilityText
         isMage={true}
         themeColor={

@@ -50,6 +50,9 @@ export const Colors = {
   },
   white: '#ffffff',
   black: '#000000',
+  gray: {
+    8: 'rgba(0, 0, 0, 0.08)',
+  },
   text: {
     primary: 'rgba(0, 0, 0, 0.87)',
     secondary: 'rgba(0, 0, 0, 0.54)',

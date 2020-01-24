@@ -4,10 +4,9 @@ import { Battle } from '../../../../../types'
 
 import InfoItem from '../../../../molecules/InfoItem'
 import TileName from 'components/atoms/_styled_/TileName'
+import List from 'components/atoms/_styled_/List'
 
 import BodyWrapper from './BodyWrapper'
-
-import List from '@material-ui/core/List'
 
 type Props = {
   battle: Battle

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import List from 'components/atoms/_styled_/List'
+
 type Props = {
   status: string
 }
@@ -21,6 +23,10 @@ const BodyWrapper = styled(({ status, ...rest }) => <div {...rest} />)<Props>`
       props.status !== 'finished'
         ? 'rgba(255, 255, 255, 0.8)'
         : props.theme.colors.text.hint};
+  }
+
+  ${List} {
+    padding-top: 8px;
   }
 `
 

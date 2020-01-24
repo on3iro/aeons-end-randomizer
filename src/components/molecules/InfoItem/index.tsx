@@ -1,6 +1,7 @@
 import React from 'react'
 
-import Wrapper from './Wrapper'
+import ListItem from 'components/atoms/_styled_/ListItem'
+
 import Info from './Info'
 import InfoLabel from './InfoLabel'
 
@@ -9,13 +10,11 @@ type Props = {
   info: string
 }
 
-const InfoItem = React.memo(({ label, info }: Props) => (
-  <Wrapper>
-    <InfoLabel color="textSecondary">{label}:</InfoLabel>
+const InfoItem = ({ label, info }: Props) => (
+  <ListItem>
+    <InfoLabel>{label}:</InfoLabel>
     <Info>{info}</Info>
-  </Wrapper>
-))
+  </ListItem>
+)
 
-InfoItem.displayName = 'InfoItem'
-
-export default InfoItem
+export default React.memo(InfoItem)

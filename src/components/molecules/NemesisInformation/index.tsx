@@ -8,6 +8,7 @@ import { RootState, selectors } from '../../../Redux/Store'
 
 import InfoItem from '../InfoItem'
 import SectionHeadline from '../../atoms/SectionHeadline'
+import List from 'components/atoms/_styled_/List'
 
 import AdditionalInfo from './AdditionalInfo'
 
@@ -43,13 +44,16 @@ const NemesisInformation = React.memo(
 
     return (
       <React.Fragment>
-        <InfoItem label="Expansion" info={expansion.name} />
-        <InfoItem label="Health" info={nemesis.health.toString()} />
-        <InfoItem label="Difficulty" info={nemesis.difficulty.toString()} />
-        <InfoItem
-          label="Expedition tier"
-          info={nemesis.expeditionRating.toString()}
-        />
+        <List>
+          <InfoItem label="Expansion" info={expansion.name} />
+          <InfoItem label="Health" info={nemesis.health.toString()} />
+          <InfoItem label="Difficulty" info={nemesis.difficulty.toString()} />
+          <InfoItem
+            label="Expedition tier"
+            info={nemesis.expeditionRating.toString()}
+          />
+        </List>
+
         {nemesis.additionalInfo ? (
           <React.Fragment>
             <SectionHeadline
@@ -70,8 +74,5 @@ const NemesisInformation = React.memo(
 )
 
 export default withTheme(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(NemesisInformation)
+  connect(mapStateToProps, mapDispatchToProps)(NemesisInformation)
 )

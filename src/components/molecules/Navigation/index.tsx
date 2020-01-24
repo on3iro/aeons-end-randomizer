@@ -2,8 +2,8 @@ import React from 'react'
 
 import BuildIcon from '@material-ui/icons/Build'
 import InfoIcon from '@material-ui/icons/Info'
-import List from '@material-ui/core/List'
 
+import NavList from './_styled_/NavList'
 import NavLink from './NavLink'
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 }
 
 const Navigation = ({ clickHandler }: Props) => (
-  <List>
+  <NavList>
     <NavLink text="Randomizer" to="/randomizer/nemesis" onClick={clickHandler}>
       <i className="ra ra-lg ra-perspective-dice-random" />
     </NavLink>
@@ -35,7 +35,7 @@ const Navigation = ({ clickHandler }: Props) => (
         }}
       />
     </NavLink>
-  </List>
+  </NavList>
 )
 
 export default React.memo(Navigation)

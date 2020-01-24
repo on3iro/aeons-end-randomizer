@@ -10,6 +10,7 @@ import SectionHeadline from '../../atoms/SectionHeadline'
 import Keywords from '../../atoms/Keywords'
 import Keyword from '../../atoms/Keyword'
 import AbilityText from '../../atoms/AbilityText'
+import List from 'components/atoms/_styled_/List'
 
 type Props = {
   card: {
@@ -27,9 +28,11 @@ type Props = {
 
 const Body = React.memo(({ card, expansionName, theme }: Props) => (
   <React.Fragment>
-    <InfoItem label="Expansion" info={expansionName} />
-    <InfoItem label="Type" info={card.type} />
-    <InfoItem label="Cost" info={card.cost.toString()} />
+    <List>
+      <InfoItem label="Expansion" info={expansionName} />
+      <InfoItem label="Type" info={card.type} />
+      <InfoItem label="Cost" info={card.cost.toString()} />
+    </List>
 
     <SectionHeadline
       themeColor={theme.colors.cards[card.type.toLowerCase()].color}

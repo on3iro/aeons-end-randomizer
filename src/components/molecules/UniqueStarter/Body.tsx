@@ -4,16 +4,16 @@ import { ICard } from '../../../types'
 
 import InfoItem from '../../molecules/InfoItem'
 import AbilityText from '../../atoms/AbilityText'
+import List from 'components/atoms/_styled_/List'
+import TileBodyWrapper from 'components/atoms/_styled_/TileBodyWrapper'
 import TileNameBold from 'components/atoms/_styled_/TileNameBold'
-
-import List from '@material-ui/core/List'
 
 type Props = {
   card: ICard
 }
 
 const Body = React.memo(({ card }: Props) => (
-  <React.Fragment>
+  <TileBodyWrapper>
     <TileNameBold>{card.name}</TileNameBold>
     <List>
       <InfoItem label="Type" info={card.type} />
@@ -26,7 +26,7 @@ const Body = React.memo(({ card }: Props) => (
       }}
     />
     {card.keywords ? card.keywords.map((keyword: string) => keyword) : null}
-  </React.Fragment>
+  </TileBodyWrapper>
 ))
 
 export default Body

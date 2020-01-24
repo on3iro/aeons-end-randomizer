@@ -5,10 +5,10 @@ import { getOperationString } from '../../../Redux/helpers'
 
 import InfoItem from '../InfoItem'
 import TileNameBold from 'components/atoms/_styled_/TileNameBold'
+import List from 'components/atoms/_styled_/List'
 
+import BodyWrapper from './_styled_/BodyWrapper'
 import CostOperation from './CostOperation'
-
-import List from '@material-ui/core/List'
 
 type Props = {
   supplyCard: {
@@ -28,7 +28,7 @@ const Body = React.memo(({ supplyCard, expansionName }: Props) => {
   const { type, operation, values, threshold } = supplyCard
 
   return (
-    <React.Fragment>
+    <BodyWrapper>
       {operation && (
         <CostOperation>
           {type} {getOperationString(operation, values, threshold)}
@@ -49,7 +49,7 @@ const Body = React.memo(({ supplyCard, expansionName }: Props) => {
           }
         />
       </List>
-    </React.Fragment>
+    </BodyWrapper>
   )
 })
 
