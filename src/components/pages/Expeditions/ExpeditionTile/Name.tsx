@@ -1,10 +1,9 @@
 import styled from 'styled-components/macro'
-import Typography from '@material-ui/core/Typography'
 
-const Name = styled(Typography)`
+import TileName from 'components/atoms/_styled_/TileName'
+
+const Name = styled(TileName)`
   padding-right: 48px;
 `
-
-Name.displayName = 'Name'
 
 export default Name

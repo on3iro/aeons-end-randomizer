@@ -18,7 +18,7 @@ const TreasureTile = ({ treasure, theme }: Props) => (
     <Tile
       body={<Body treasure={treasure} />}
       bgColor={theme.colors.cards[`treasure${treasure.level}`].light}
-      fontColor={theme.colors.white}
+      fontColor={theme.colors.text.primary}
       icon={theme.icons['treasure']}
       iconColor={theme.colors.cards[`treasure${treasure.level}`].normal}
     />

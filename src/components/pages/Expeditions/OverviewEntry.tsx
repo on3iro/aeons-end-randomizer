@@ -4,7 +4,7 @@ import { usePrompt } from '../../../hooks/useModal'
 
 import { Expedition } from '../../../types'
 
-import H2 from '../../atoms/H2'
+import H2 from 'components/atoms/_styled_/H2'
 
 import Delete from './Delete'
 import ListItem from './ListItem'

@@ -16,7 +16,7 @@ const TopBar = React.memo(({ drawerIsOpen, toggleDrawer }: Props) => (
   <AppBar>
     <Toolbar disableGutters={!drawerIsOpen}>
       <MenuButton drawerIsOpen={drawerIsOpen} onClick={toggleDrawer} />
-      <Title variant="h6" color="inherit">
+      <Title>
         <Switch>
           <Route path="/randomizer/nemesis" render={() => 'Nemesis'} />
           <Route path="/randomizer/mages" render={() => 'Mages'} />

@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro'
-import Typography from '@material-ui/core/Typography'
 
-const Info = styled(Typography)`
+const Info = styled('span')`
   display: inline-block;
 `
 

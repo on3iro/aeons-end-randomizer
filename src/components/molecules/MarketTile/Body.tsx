@@ -4,8 +4,8 @@ import * as types from '../../../types'
 import { getOperationString } from '../../../Redux/helpers'
 
 import InfoItem from '../InfoItem'
+import TileNameBold from 'components/atoms/_styled_/TileNameBold'
 
-import Name from './Name'
 import CostOperation from './CostOperation'
 
 import List from '@material-ui/core/List'
@@ -30,13 +30,13 @@ const Body = React.memo(({ supplyCard, expansionName }: Props) => {
   return (
     <React.Fragment>
       {operation && (
-        <CostOperation color="textSecondary">
+        <CostOperation>
           {type} {getOperationString(operation, values, threshold)}
         </CostOperation>
       )}
-      <Name component="p">
+      <TileNameBold>
         {supplyCard && supplyCard.name ? supplyCard.name : '-'}
-      </Name>
+      </TileNameBold>
       <List>
         <InfoItem
           label="Set"

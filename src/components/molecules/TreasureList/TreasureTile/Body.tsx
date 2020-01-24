@@ -7,7 +7,7 @@ import AbilityText from '../../../atoms/AbilityText'
 
 import InfoItem from '../../InfoItem'
 
-import Name from './Name'
+import TileNameBold from 'components/atoms/_styled_/TileNameBold'
 
 type Props = {
   treasure: Treasure
@@ -15,7 +15,7 @@ type Props = {
 
 const Body = React.memo(({ treasure }: Props) => (
   <React.Fragment>
-    <Name component="p">{treasure.name}</Name>
+    <TileNameBold>{treasure.name}</TileNameBold>
     <List>
       <InfoItem label="Set" info={treasure.expansion} />
       <InfoItem label="Treasure Level" info={treasure.level.toString()} />

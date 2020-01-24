@@ -5,7 +5,7 @@ import { RootState, actions, selectors } from '../../../Redux/Store'
 
 import { Expedition } from '../../../types'
 
-import P from '../../atoms/P'
+import P from 'components/atoms/_styled_/P'
 
 import List from './List'
 import OverviewEntry from './OverviewEntry'
@@ -45,7 +45,4 @@ const ExpeditionList = React.memo(({ expeditions, deleteHandler }: Props) => {
   )
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ExpeditionList)
+export default connect(mapStateToProps, mapDispatchToProps)(ExpeditionList)

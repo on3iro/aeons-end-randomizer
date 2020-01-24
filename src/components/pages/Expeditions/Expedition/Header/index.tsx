@@ -1,7 +1,7 @@
 import React from 'react'
 
-import H2 from '../../../../atoms/H2'
-import P from '../../../../atoms/P'
+import H2 from 'components/atoms/_styled_/H2'
+import P from 'components/atoms/_styled_/P'
 
 import Wrapper from './Wrapper'
 

@@ -1,11 +1,13 @@
 import styled from 'styled-components/macro'
-import Typography from '@material-ui/core/Typography'
 
-const InfoLabel = styled(Typography)`
-  margin-right: 8px;
+type Props = {
+  theme: any
+}
+
+const InfoLabel = styled('p')<Props>`
+  color: ${props => props.theme.colors.text.secondary};
+  margin: 0 8px 0 0;
   display: inline-block;
 `
-
-InfoLabel.displayName = 'InfoLabel'
 
 export default InfoLabel

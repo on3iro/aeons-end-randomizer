@@ -18,7 +18,7 @@ const UpgradedBasicNemesisCardTile = ({ nemesisCard, theme }: Props) => (
     <Tile
       body={<Body nemesisCard={nemesisCard} />}
       bgColor={theme.colors.turnOrderCards.nemesis.light}
-      fontColor={theme.colors.white}
+      fontColor={theme.colors.text.primary}
       icon={theme.icons['nemesis']}
       iconColor={theme.colors.turnOrderCards.nemesis.normal}
     />

@@ -3,8 +3,8 @@ import { withTheme } from 'styled-components/macro'
 
 import { Expedition } from '../../../../types'
 
-import A from '../../../atoms/A'
 import Tile from '../../../molecules/Tile'
+import Link from 'components/atoms/Link'
 
 import Body from './Body'
 
@@ -15,13 +15,13 @@ type Props = {
 }
 
 const ExpeditionTile = ({ url, expedition, theme }: Props) => (
-  <A to={url}>
+  <Link to={url}>
     <Tile
       body={<Body expedition={expedition} />}
       bgColor={theme.colors.white}
       fontColor={theme.colors.text.primary}
     />
-  </A>
+  </Link>
 )
 
 export default withTheme(ExpeditionTile)

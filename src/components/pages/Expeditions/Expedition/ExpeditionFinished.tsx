@@ -7,7 +7,7 @@ import * as types from '../../../../types'
 
 import InfoItem from '../../../molecules/InfoItem'
 
-import P from '../../../atoms/P'
+import P from 'components/atoms/_styled_/P'
 import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
 import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
 
@@ -55,7 +55,4 @@ const ExpeditionFinished = React.memo(({ hide, expedition }: Props) => {
   )
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ExpeditionFinished)
+export default connect(mapStateToProps, mapDispatchToProps)(ExpeditionFinished)

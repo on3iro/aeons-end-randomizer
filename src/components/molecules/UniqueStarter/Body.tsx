@@ -2,10 +2,9 @@ import React from 'react'
 
 import { ICard } from '../../../types'
 
-import AbilityText from '../../atoms/AbilityText'
 import InfoItem from '../../molecules/InfoItem'
-
-import Name from './Name'
+import AbilityText from '../../atoms/AbilityText'
+import TileNameBold from 'components/atoms/_styled_/TileNameBold'
 
 import List from '@material-ui/core/List'
 
@@ -15,7 +14,7 @@ type Props = {
 
 const Body = React.memo(({ card }: Props) => (
   <React.Fragment>
-    <Name>{card.name}</Name>
+    <TileNameBold>{card.name}</TileNameBold>
     <List>
       <InfoItem label="Type" info={card.type} />
       <InfoItem label="Cost" info={card.cost.toString()} />

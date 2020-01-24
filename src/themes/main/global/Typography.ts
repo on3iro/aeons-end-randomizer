@@ -24,7 +24,7 @@ export const Typography = {
   },
   h3: {
     fontWeight: generalTypo.fontWeightRegular,
-    fontSize: '3rem',
+    fontSize: '1.4rem',
     lineHeight: 1.167,
     letterSpacing: '0em',
   },
@@ -46,13 +46,13 @@ export const Typography = {
     lineHeight: 1.6,
     letterSpacing: '0.0075em',
   },
-  p: {
+  largeText: {
     fontWeight: generalTypo.fontWeightRegular,
     fontSize: '1rem',
     lineHeight: 1.5,
     letterSpacing: '0.00938em',
   },
-  smallParagraph: {
+  text: {
     fontWeight: generalTypo.fontWeightRegular,
     fontSize: '0.875rem',
     lineHeight: 1.43,

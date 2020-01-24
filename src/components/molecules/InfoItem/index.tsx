@@ -12,7 +12,7 @@ type Props = {
 const InfoItem = React.memo(({ label, info }: Props) => (
   <Wrapper>
     <InfoLabel color="textSecondary">{label}:</InfoLabel>
-    <Info component="span">{info}</Info>
+    <Info>{info}</Info>
   </Wrapper>
 ))
 

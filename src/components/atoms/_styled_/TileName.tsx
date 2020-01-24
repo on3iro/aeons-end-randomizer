@@ -1,6 +1,10 @@
 import styled from 'styled-components/macro'
 
-const Title = styled('h4')`
+type Props = {
+  theme: any
+}
+
+const TileName = styled('h2')<Props>`
   font-weight: ${props => props.theme.typography['h6'].fontWeight};
   font-size: ${props => props.theme.typography['h6'].fontSize};
   line-height: ${props => props.theme.typography['h6'].lineHeight};
@@ -9,4 +13,4 @@ const Title = styled('h4')`
   color: inherit;
 `
 
-export default Title
+export default TileName

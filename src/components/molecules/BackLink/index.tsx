@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Link from './Link'
+import Link from './_styled_/Link'
 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 

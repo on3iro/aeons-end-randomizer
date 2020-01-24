@@ -1,25 +1,23 @@
 import React from 'react'
 
-import config from '../../../../config'
-import { Nemesis } from '../../../../types'
+import config from 'config'
+import { Nemesis } from 'types'
 
-import ExpansionName from './ExpansionName'
-import Name from './Name'
+import TileName from 'components/atoms/_styled_/TileName'
+import TileExpansionName from 'components/atoms/_styled_/TileExpansionName'
 
 type Props = {
   nemesis: Nemesis
 }
 
-const Body = React.memo(({ nemesis }: Props) => (
+const Body = ({ nemesis }: Props) => (
   <React.Fragment>
-    <ExpansionName color="textSecondary">
+    <TileExpansionName>
       {/* FIXME remove direct connection to config and use store instead! */}
       {config.DATA[nemesis.expansion].name}
-    </ExpansionName>
-    <Name variant="h6" component="h2">
-      {nemesis['name']}
-    </Name>
+    </TileExpansionName>
+    <TileName>{nemesis['name']}</TileName>
   </React.Fragment>
-))
+)
 
-export default Body
+export default React.memo(Body)

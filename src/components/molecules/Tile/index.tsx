@@ -29,7 +29,7 @@ const Tile = React.memo(
     clickHandler,
   }: Props) => (
     <Wrapper themeColor={bgColor} selected={selected} onClick={clickHandler}>
-      <Content>{body}</Content>
+      <Content color={fontColor}>{body}</Content>
 
       {icon && iconColor ? (
         <TypeIcon icon={icon} iconColor={iconColor} />

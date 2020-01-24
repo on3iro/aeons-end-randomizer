@@ -3,7 +3,7 @@ import { withTheme } from 'styled-components/macro'
 
 import { Battle } from '../../../../../types'
 
-import P from '../../../../atoms/P'
+import P from 'components/atoms/_styled_/P'
 import Tile from '../../../../molecules/Tile'
 
 import Body from './Body'

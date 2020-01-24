@@ -5,7 +5,7 @@ import { UpgradedBasicNemesisCard } from '../../../../types'
 
 import InfoItem from '../../InfoItem'
 
-import Name from './Name'
+import TileNameBold from 'components/atoms/_styled_/TileNameBold'
 
 type Props = {
   nemesisCard: UpgradedBasicNemesisCard
@@ -13,7 +13,7 @@ type Props = {
 
 const Body = React.memo(({ nemesisCard }: Props) => (
   <React.Fragment>
-    <Name component="p">{nemesisCard.name}</Name>
+    <TileNameBold>{nemesisCard.name}</TileNameBold>
     <List>
       <InfoItem label="Set" info={nemesisCard.expansion} />
       <InfoItem label="Tier" info={nemesisCard.tier.toString()} />

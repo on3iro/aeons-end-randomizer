@@ -1,8 +1,8 @@
-import Typography from '@material-ui/core/Typography'
 import styled from 'styled-components/macro'
 
-const Heading = styled(Typography)`
+const Heading = styled('p')`
   font-size: ${props => props.theme.heading.fontSize};
+  margin: 0;
 `
 
 export default Heading

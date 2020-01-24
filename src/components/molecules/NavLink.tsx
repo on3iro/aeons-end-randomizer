@@ -4,7 +4,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 
-import A from '../atoms/A'
+import Link from 'components/atoms/Link'
 
 type Props = {
   text: string
@@ -13,15 +13,15 @@ type Props = {
   onClick?: () => void
 }
 
-const Link = React.memo(({ text, to, children, onClick }: Props) => (
-  <A to={to}>
+const NavLink = React.memo(({ text, to, children, onClick }: Props) => (
+  <Link to={to}>
     <ListItem button key={text} onClick={onClick}>
       <ListItemIcon>{children}</ListItemIcon>
       <ListItemText primary={text} />
     </ListItem>
-  </A>
+  </Link>
 ))
 
-Link.displayName = 'Link'
+NavLink.displayName = 'Link'
 
-export default Link
+export default NavLink

@@ -2,10 +2,11 @@ import React from 'react'
 import CardContent from '@material-ui/core/CardContent'
 
 import Card from '../../atoms/Card'
-import H1 from '../../atoms/H1'
-import H2 from '../../atoms/H2'
-import P from '../../atoms/P'
-import A from '../../atoms/A'
+
+import H1 from 'components/atoms/_styled_/H1'
+import H2 from 'components/atoms/_styled_/H2'
+import P from 'components/atoms/_styled_/P'
+import Link from 'components/atoms/Link'
 
 const About = React.memo(() => (
   <Card>
@@ -22,7 +23,7 @@ const About = React.memo(() => (
         To get started simply select which expansions you own and would like to
         use for randomization inside the settings. You can also disable specific
         cards/mages/nemeses inside the settings.
-        <A to="/settings"> Click here to go to the settings</A>.
+        <Link to="/settings"> Click here to go to the settings</Link>.
       </P>
       <H2>Supported Expansions</H2>
       <P>

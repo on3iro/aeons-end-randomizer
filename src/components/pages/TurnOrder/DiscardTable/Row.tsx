@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import IconButton from '@material-ui/core/IconButton'
-import Typography from '@material-ui/core/Typography'
 import { Loop, Publish, GetApp } from '@material-ui/icons'
 
 import { ITurnOrderCard } from '../../../../types'
@@ -27,9 +26,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 const Row = React.memo(
   ({ card, addToTop, addToBottom, shuffleIntoDeck }: Props) => (
     <RowWrapper type={card.type}>
-      <Cell>
-        <Typography component="p">{card.name}</Typography>
-      </Cell>
+      <Cell>{card.name}</Cell>
       <Cell align="right">
         <IconButton
           aria-label="Add to top"
@@ -63,7 +60,4 @@ const Row = React.memo(
 
 Row.displayName = 'Row'
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Row)
+export default connect(mapStateToProps, mapDispatchToProps)(Row)

@@ -30,9 +30,7 @@ const Modal = React.memo(
           <Backdrop onClick={closeModal} />
           <Content>
             <Header>
-              <Title variant="h1" themeColor={titleColor}>
-                {titleLabel}
-              </Title>
+              <Title themeColor={titleColor}>{titleLabel}</Title>
               <CloseButton onClick={closeModal}>
                 <CloseIcon />
               </CloseButton>

@@ -15,10 +15,10 @@ const GlobalStyles = createGlobalStyle<Props>`
     margin: 0;
     font-family: ${props => props.theme.typography.fontFamily};
     color: ${props => props.theme.colors.text.primary};
-    font-weight: ${props => props.theme.typography['p'].fontWeight};
-    font-size: ${props => props.theme.typography['p'].fontSize};
-    line-height: ${props => props.theme.typography['p'].lineHeight};
-    letter-spacing: ${props => props.theme.typography['p'].letterSpacing};
+    font-weight: ${props => props.theme.typography['text'].fontWeight};
+    font-size: ${props => props.theme.typography['text'].fontSize};
+    line-height: ${props => props.theme.typography['text'].lineHeight};
+    letter-spacing: ${props => props.theme.typography['text'].letterSpacing};
     background-color: ${props => props.theme.colors.mainBackground};
   }
 

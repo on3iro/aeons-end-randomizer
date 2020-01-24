@@ -4,40 +4,38 @@ import BuildIcon from '@material-ui/icons/Build'
 import InfoIcon from '@material-ui/icons/Info'
 import List from '@material-ui/core/List'
 
-import Link from './Link'
+import NavLink from './NavLink'
 
 type Props = {
   clickHandler: () => void
 }
 
-const Navigation = React.memo(({ clickHandler }: Props) => (
+const Navigation = ({ clickHandler }: Props) => (
   <List>
-    <Link text="Randomizer" to="/randomizer/nemesis" onClick={clickHandler}>
+    <NavLink text="Randomizer" to="/randomizer/nemesis" onClick={clickHandler}>
       <i className="ra ra-lg ra-perspective-dice-random" />
-    </Link>
-    <Link text="Turn Order" to="/turnorder" onClick={clickHandler}>
+    </NavLink>
+    <NavLink text="Turn Order" to="/turnorder" onClick={clickHandler}>
       <i className="ra ra-lg ra-player-lift" />
-    </Link>
-    <Link text="Expeditions" to="/expeditions" onClick={clickHandler}>
+    </NavLink>
+    <NavLink text="Expeditions" to="/expeditions" onClick={clickHandler}>
       <i className="ra ra-lg ra-quill-ink" />
-    </Link>
-    <Link text="Settings" to="/settings" onClick={clickHandler}>
+    </NavLink>
+    <NavLink text="Settings" to="/settings" onClick={clickHandler}>
       <BuildIcon
         style={{
           width: '0.9em',
         }}
       />
-    </Link>
-    <Link text="About" to="/about" onClick={clickHandler}>
+    </NavLink>
+    <NavLink text="About" to="/about" onClick={clickHandler}>
       <InfoIcon
         style={{
           width: '0.9em',
         }}
       />
-    </Link>
+    </NavLink>
   </List>
-))
+)
 
-Navigation.displayName = 'Navigation'
-
-export default Navigation
+export default React.memo(Navigation)

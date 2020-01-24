@@ -3,9 +3,9 @@ import React from 'react'
 import { Battle } from '../../../../../types'
 
 import InfoItem from '../../../../molecules/InfoItem'
+import TileName from 'components/atoms/_styled_/TileName'
 
 import BodyWrapper from './BodyWrapper'
-import Name from './Name'
 
 import List from '@material-ui/core/List'
 
@@ -16,9 +16,7 @@ type Props = {
 
 const Body = React.memo(({ battle, nemesis }: Props) => (
   <BodyWrapper status={battle.status}>
-    <Name variant="h6" component="h2">
-      Battle: {nemesis}
-    </Name>
+    <TileName>Battle: {nemesis}</TileName>
     <List>
       <InfoItem label="Tier" info={battle.nemesisTier.tier.toString()} />
       <InfoItem label="Status" info={battle.status} />

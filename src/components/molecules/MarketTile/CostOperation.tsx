@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro'
-import Typography from '@material-ui/core/Typography'
 
-const CostOperation = styled(Typography)``
-
-CostOperation.displayName = 'CostOperation'
+const CostOperation = styled('p')`
+  color: ${props => props.theme.colors.text.secondary};
+  margin: 0;
+`
 
 export default CostOperation
