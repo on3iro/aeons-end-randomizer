@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import MuiTableRow from '@material-ui/core/TableRow'
 
 import { TurnOrderCardType } from '../../../../types'
-import { TurnOrderColors } from '../../../../mainTheme'
+import { TurnOrderColors } from 'themes/main'
 
 type Props = {
   type: TurnOrderCardType
