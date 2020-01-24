@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components/macro'
-import MuiCard from '@material-ui/core/Card'
+
+import Card from 'components/atoms/_styled_/Card'
 
 const selectedMixin = css`
   border: 2px solid ${props => props.theme.colors.secondary.main} !important;
@@ -11,7 +12,7 @@ type Props = {
   onClick?: any // FIXME refine type
 }
 
-const Wrapper = styled(MuiCard)<Props>`
+const Wrapper = styled(Card)<Props>`
   position: relative;
 
   background: ${props => props.themeColor};

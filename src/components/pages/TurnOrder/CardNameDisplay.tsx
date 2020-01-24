@@ -1,10 +1,9 @@
 import React from 'react'
 
-import CardContent from '@material-ui/core/CardContent'
+import { ITurnOrderSetup } from 'types'
 
-import { ITurnOrderSetup } from '../../../types'
-
-import Card from '../../atoms/Card'
+import Card from 'components/atoms/_styled_/Card'
+import CardContent from 'components/atoms/_styled_/CardContent'
 
 import CardNameDisplayHeadline from './CardNameDisplayHeadline'
 import ConfigurationCardDisplay from './ConfigurationCardDisplay'

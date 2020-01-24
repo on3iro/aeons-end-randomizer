@@ -1,8 +1,7 @@
 import React from 'react'
-import CardContent from '@material-ui/core/CardContent'
 
-import Card from '../../atoms/Card'
-
+import Card from 'components/atoms/_styled_/Card'
+import CardContent from 'components/atoms/_styled_/CardContent'
 import H1 from 'components/atoms/_styled_/H1'
 import H2 from 'components/atoms/_styled_/H2'
 import P from 'components/atoms/_styled_/P'

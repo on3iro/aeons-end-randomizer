@@ -9,6 +9,7 @@ import CardNameDisplay from './CardNameDisplay'
 import ModeSelection from './ModeSelection'
 import PlayerCountSelection from './PlayerCountSelection'
 import SetupSelection from './SetupSelection'
+import CardWrapper from './CardWrapper'
 
 const mapStateToProps = (state: RootState) => ({
   currentConfiguration: selectors.TurnOrder.Configuration.getConfiguration(
@@ -27,18 +28,20 @@ type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
 const TurnOrderConfiguration = React.memo(
   ({ currentConfiguration, startGame, selectedPlayerCount }: Props) => {
-    const availableVariations = Object.keys(selectedPlayerCount.variations).map(
-      key => [selectedPlayerCount.variations[key]]
-    )
+    const availableVariations = Object.keys(
+      selectedPlayerCount.variations
+    ).map(key => [selectedPlayerCount.variations[key]])
 
     const hasMoreThanOneVariant: boolean = availableVariations.length > 1
 
     return (
       <React.Fragment>
-        <PlayerCountSelection />
-        {hasMoreThanOneVariant ? <SetupSelection /> : null}
-        <ModeSelection />
-        <CardNameDisplay turnOrderSetup={currentConfiguration} />
+        <CardWrapper>
+          <PlayerCountSelection />
+          {hasMoreThanOneVariant ? <SetupSelection /> : null}
+          <ModeSelection />
+          <CardNameDisplay turnOrderSetup={currentConfiguration} />
+        </CardWrapper>
         <ShuffleButton
           color="primary"
           variant="extended"

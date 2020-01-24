@@ -1,12 +1,13 @@
 import React from 'react'
 
+import Card from 'components/atoms/_styled_/Card'
+import CardContent from 'components/atoms/_styled_/CardContent'
+
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
 
 type Props = {
   selectedValue: string
