@@ -92,7 +92,7 @@ const getRandomCardsByType = (
   availableCards: ReadonlyArray<types.ICard>,
   tileSetups: ReadonlyArray<types.IBluePrint>,
   cardType: types.CardType
-) => {
+): CardListReduceResult => {
   const cardSlots = tileSetups.filter(({ type }) => type === cardType)
   const availableCardsOfType = availableCards.filter(
     ({ type }) => type === cardType
@@ -119,8 +119,6 @@ export const createSupply = (
   return { gems, relics, spells }
 }
 
-// FIXME we should start refactoring this file
-
 export const createArrayWithDefaultValues = (
   size: number,
   defaultValue: any
@@ -131,100 +129,65 @@ export const createArrayWithDefaultValues = (
 export const createSlotList = (amount: number): Array<types.IEmptyBluePrint> =>
   createArrayWithDefaultValues(amount, { type: 'EMPTY', operation: 'NoOp' })
 
-// TODO Refactor turnorder cards and mages (code duplication)
-type TurnOrderListReductionResult = {
-  availableCards: types.ITurnOrderCard[]
-  result: types.ITurnOrderCard[]
+type Entity = { id: string } | string
+
+export const generateListFrom = <T extends Entity>(
+  availableEntities: Array<T> | ReadonlyArray<T>,
+  slots: Array<any>,
+  getEntity: <E extends Entity>(list: Array<E>) => E
+): { availableEntities: Array<T>; result: Array<T> } => {
+  const result = slots.reduce(
+    (acc, _) => {
+      // If no entity is left, simply return the actual empty slot
+      const entity = getEntity(acc.availableEntities)
+
+      if (!entity) {
+        return acc
+      }
+
+      // Make sure each entity will only be added to the result list once
+      const remainingEntities = acc.availableEntities.filter(
+        (available: Entity) => {
+          if (typeof available === 'string' && typeof entity === 'string') {
+            return available !== entity
+          }
+
+          if (typeof available === 'object' && typeof entity === 'object') {
+            return available.id !== entity.id
+          }
+
+          return true
+        }
+      )
+
+      return {
+        availableEntities: remainingEntities,
+        result: [...acc.result, entity],
+      }
+    },
+    { availableEntities, result: [] }
+  )
+
+  return result
 }
 
 export const createTurnOrderCardList = (
   availableCards: types.ITurnOrderCard[],
   slots: types.ITurnOrderCard[],
   getEntity: <T>(list: Array<T>) => T
-): TurnOrderListReductionResult => {
-  const result = slots.reduce(
-    (acc: TurnOrderListReductionResult, slot: types.ITurnOrderCard) => {
-      // If no entity is left, simply return the actual empty slot
-      const card = getEntity(acc.availableCards) || slot
-
-      // Make sure each entity will only be added to the result list once
-      const remainingCards = acc.availableCards.filter(
-        entity => entity.id !== card.id
-      )
-
-      return {
-        availableCards: remainingCards,
-        result: [...acc.result, card],
-      }
-    },
-    { availableCards, result: [] }
-  )
-
-  return result
-}
-
-type MageListReductionResult = {
-  availableMages: types.Mage[]
-  result: types.Mage[]
-}
+) => generateListFrom(availableCards, slots, getEntity)
 
 export const createMageList = (
   availableMages: ReadonlyArray<types.Mage>,
   slots: Array<types.Slot>,
   getEntity: <T>(list: Array<T>) => T
-): MageListReductionResult => {
-  const result = slots.reduce(
-    (acc: MageListReductionResult, slot: types.Slot) => {
-      // If no entity is left, simply return the actual empty slot
-      const mage = getEntity(acc.availableMages) || slot
-
-      // Make sure each entity will only be added to the result list once
-      const remainingMages = acc.availableMages.filter(
-        entity => entity.id !== mage.id
-      )
-
-      return {
-        availableMages: remainingMages,
-        result: [...acc.result, mage],
-      }
-    },
-    { availableMages: [...availableMages], result: [] }
-  )
-
-  return result
-}
-
-type IdReductionResult = {
-  availableIds: string[]
-  result: string[]
-}
+) => generateListFrom(availableMages, slots, getEntity)
 
 export const createIdList = (
   availableIds: ReadonlyArray<string>,
   slots: string[],
   getEntity: <T>(list: Array<T>) => T
-): IdReductionResult => {
-  const result = slots.reduce(
-    (acc: IdReductionResult, _: string) => {
-      if (acc.availableIds.length <= 0) {
-        return acc
-      }
-
-      const id = getEntity(acc.availableIds)
-
-      // Make sure each entity will only be added to the result list once
-      const remainingIds = acc.availableIds.filter(entity => entity !== id)
-
-      return {
-        availableIds: remainingIds,
-        result: [...acc.result, id],
-      }
-    },
-    { availableIds: [...availableIds], result: [] }
-  )
-
-  return result
-}
+) => generateListFrom(availableIds, slots, getEntity)
 
 export const shuffleDeck = (
   deck: types.ITurnOrderCard[]
@@ -243,6 +206,14 @@ export const getOperationString = (
   values?: number[],
   threshold?: number
 ) => {
+  if (operation === 'NoOp') {
+    return ''
+  }
+
+  if (operation === 'ANY') {
+    return operation
+  }
+
   if (operation === 'OR' && values) {
     return values.join('/')
   }

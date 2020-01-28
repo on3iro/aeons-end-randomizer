@@ -2,7 +2,7 @@ import { createMageList, createSlotList } from '../../helpers'
 
 describe('createMageList()', () => {
   it('should return same array with getFirst() entity getter', () => {
-    const availableMages = [
+    const availableEntities = [
       {
         id: 'mage1',
         expansion: '',
@@ -37,16 +37,16 @@ describe('createMageList()', () => {
     const blueprints = createSlotList(3)
     const getFirst = (available: any[]) => available[0]
 
-    const result = createMageList(availableMages, blueprints, getFirst)
+    const result = createMageList(availableEntities, blueprints, getFirst)
 
     expect(result).toEqual({
-      availableMages: [],
-      result: availableMages,
+      availableEntities: [],
+      result: availableEntities,
     })
   })
 
   it('should return modified array with getSecond() entity getter', () => {
-    const availableMages = [
+    const availableEntities = [
       {
         id: 'mage1',
         expansion: '',
@@ -91,10 +91,10 @@ describe('createMageList()', () => {
     const blueprints = createSlotList(2)
     const getSecond = (available: any[]) => available[1]
 
-    const result = createMageList(availableMages, blueprints, getSecond)
+    const result = createMageList(availableEntities, blueprints, getSecond)
 
     expect(result).toEqual({
-      availableMages: [
+      availableEntities: [
         {
           id: 'mage1',
           expansion: '',
@@ -141,8 +141,8 @@ describe('createMageList()', () => {
     })
   })
 
-  it('should return blueprint if there are more blueprints than entities', () => {
-    const availableMages = [
+  it('should return smaller list if there are more blueprints than entities', () => {
+    const availableEntities = [
       {
         id: 'mage1',
         expansion: '',
@@ -157,10 +157,10 @@ describe('createMageList()', () => {
     const blueprints = createSlotList(2)
     const getFirst = (available: any[]) => available[0]
 
-    const result = createMageList(availableMages, blueprints, getFirst)
+    const result = createMageList(availableEntities, blueprints, getFirst)
 
     expect(result).toEqual({
-      availableMages: [],
+      availableEntities: [],
       result: [
         {
           id: 'mage1',
@@ -172,7 +172,6 @@ describe('createMageList()', () => {
           complexityRating: 1,
           numberOfCharges: 1,
         },
-        { type: 'EMPTY', operation: 'NoOp' },
       ],
     })
   })
