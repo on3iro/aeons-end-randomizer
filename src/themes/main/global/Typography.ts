@@ -1,5 +1,8 @@
+import { pxToRem } from 'themes/main/helpers/pxToRem'
+
+export const HTML_FONT_SIZE = 16
+
 const generalTypo = {
-  htmlFontSize: 16,
   fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   fontSize: 14,
   fontWeightLight: 300,
@@ -8,7 +11,7 @@ const generalTypo = {
   fontWeightBold: 700,
 }
 
-export const Typography = {
+const Typography = {
   ...generalTypo,
   h1: {
     fontWeight: generalTypo.fontWeightLight,
@@ -71,4 +74,9 @@ export const Typography = {
     lineHeight: 1.66,
     letterSpacing: '0.03333em',
   },
+  heading: {
+    fontSize: pxToRem(15),
+  },
 }
+
+export default Typography

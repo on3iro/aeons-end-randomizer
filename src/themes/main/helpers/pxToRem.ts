@@ -1,6 +1,4 @@
-import { Typography } from '../global/Typography'
-
-const BASE_FONT_SIZE = Typography.htmlFontSize
+import { HTML_FONT_SIZE } from 'themes/main/global/Typography'
 
 export const pxToRem = (pixelValue: number) =>
-  `${pixelValue / BASE_FONT_SIZE}rem`
+  `${pixelValue / HTML_FONT_SIZE}rem`

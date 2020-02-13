@@ -1,16 +1,12 @@
-import { pxToRem } from './helpers/pxToRem'
+import Colors from 'themes/main/global/Colors'
+import Typography from 'themes/main/global/Typography'
 
-import { Colors } from './global/Colors'
-import { Typography } from './global/Typography'
-
-import { Toolbar } from './components/Toolbar'
+import Toolbar from 'themes/main/components/Toolbar'
+import ExpansionPanel from 'themes/main/components/ExpansionPanel'
 
 const mainTheme = {
   colors: Colors,
   typography: Typography,
-  heading: {
-    fontSize: pxToRem(15),
-  },
   spacing: {
     unit: 8,
   },
@@ -24,6 +20,7 @@ const mainTheme = {
   },
   components: {
     toolbar: Toolbar,
+    expansionPanel: ExpansionPanel,
   },
 }
 

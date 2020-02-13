@@ -1,6 +1,6 @@
-import { Colors } from '../global/Colors'
+import Colors from 'themes/main/global/Colors'
 
-export const Toolbar = {
+const Toolbar = {
   backgroundColor: Colors.primary.main,
   heights: {
     mobile: '56px',
@@ -8,3 +8,5 @@ export const Toolbar = {
     desktop: '64px',
   },
 }
+
+export default Toolbar

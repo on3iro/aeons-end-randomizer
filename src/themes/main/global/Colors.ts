@@ -36,7 +36,7 @@ const treasureColors = {
   },
 }
 
-export const Colors = {
+const Colors = {
   primary: {
     light: '#64b5f6', // 300
     main: '#2196f3', // 500
@@ -115,3 +115,5 @@ export const Colors = {
   keywordBg: 'rgba(0,0,0,0.1)',
   mainBackground: '#fafafa',
 }
+
+export default Colors
