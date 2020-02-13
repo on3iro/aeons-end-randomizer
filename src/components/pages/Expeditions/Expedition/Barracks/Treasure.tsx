@@ -1,9 +1,9 @@
 import React from 'react'
 
-import * as types from '../../../../../types'
+import * as types from 'types'
 
-import ExpansionPanel from '../../../../molecules/ExpansionPanel'
-import TreasureList from '../../../../molecules/TreasureList'
+import ExpansionPanel from 'components/molecules/ExpansionPanel'
+import TreasureList from 'components/molecules/TreasureList'
 
 type Props = {
   treasures: types.Treasure[]
@@ -15,23 +15,19 @@ type Props = {
   expanded: boolean | string
 }
 
-const Treasure = React.memo(
-  ({ treasures, expansionKey, expansionHandler, expanded }: Props) => (
-    <React.Fragment>
-      {treasures.length > 0 && (
-        <ExpansionPanel
-          summary="Treasure"
-          expansionKey={expansionKey}
-          expansionHandler={expansionHandler}
-          expanded={expanded}
-        >
-          <TreasureList treasures={treasures} />
-        </ExpansionPanel>
-      )}
-    </React.Fragment>
-  )
+const Treasure = ({
+  treasures,
+  expansionKey,
+  expansionHandler,
+  expanded,
+}: Props) => (
+  <React.Fragment>
+    {treasures.length > 0 && (
+      <ExpansionPanel summary="Treasure">
+        <TreasureList treasures={treasures} />
+      </ExpansionPanel>
+    )}
+  </React.Fragment>
 )
 
-Treasure.displayName = 'Treasure'
-
-export default Treasure
+export default React.memo(Treasure)

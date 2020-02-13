@@ -8,7 +8,7 @@ import Heading from './_styled_/Heading'
 type Props = {
   isExpanded: boolean
   children: React.ReactNode
-  onClick: () => void
+  onClick: any
 }
 const Summary = ({ isExpanded, children, onClick }: Props) => {
   return (

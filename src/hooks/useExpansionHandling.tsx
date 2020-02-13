@@ -8,7 +8,10 @@ const useExpandedHandling = (defaultValue: boolean | string = false) => {
     event: React.ChangeEvent<any> | undefined,
     expanded: boolean | string
   ) => {
+    console.log(panel)
+    console.log(expanded)
     const panelExpanded = expanded ? panel : false
+    console.log(panelExpanded)
     setExpanded(panelExpanded)
   }
 

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import * as types from '../../../../../types'
+import * as types from 'types'
 
-import ExpansionPanel from '../../../../molecules/ExpansionPanel'
-import UpgradedBasicNemesisCards from '../../../../molecules/UpgradedBasicNemesisCardList'
+import ExpansionPanel from 'components/molecules/ExpansionPanel'
+import UpgradedBasicNemesisCards from 'components/molecules/UpgradedBasicNemesisCardList'
 
 type Props = {
   upgradedBasicNemsisCards: types.UpgradedBasicNemesisCard[]
@@ -15,30 +15,21 @@ type Props = {
   expanded: boolean | string
 }
 
-const UpgradedBasicNemeses = React.memo(
-  ({
-    upgradedBasicNemsisCards,
-    expansionKey,
-    expansionHandler,
-    expanded,
-  }: Props) => (
-    <React.Fragment>
-      {upgradedBasicNemsisCards.length > 0 && (
-        <ExpansionPanel
-          summary="Upgraded basic nemesis cards"
-          expansionKey={expansionKey}
-          expansionHandler={expansionHandler}
-          expanded={expanded}
-        >
-          <UpgradedBasicNemesisCards
-            upgradedBasicNemsisCards={upgradedBasicNemsisCards}
-          />
-        </ExpansionPanel>
-      )}
-    </React.Fragment>
-  )
+const UpgradedBasicNemeses = ({
+  upgradedBasicNemsisCards,
+  expansionKey,
+  expansionHandler,
+  expanded,
+}: Props) => (
+  <React.Fragment>
+    {upgradedBasicNemsisCards.length > 0 && (
+      <ExpansionPanel summary="Upgraded basic nemesis cards">
+        <UpgradedBasicNemesisCards
+          upgradedBasicNemsisCards={upgradedBasicNemsisCards}
+        />
+      </ExpansionPanel>
+    )}
+  </React.Fragment>
 )
 
-UpgradedBasicNemeses.displayName = 'UpgradedBasicNemeses'
-
-export default UpgradedBasicNemeses
+export default React.memo(UpgradedBasicNemeses)

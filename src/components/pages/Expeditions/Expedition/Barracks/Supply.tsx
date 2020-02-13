@@ -1,7 +1,7 @@
 import React from 'react'
 
-import ExpansionPanel from '../../../../molecules/ExpansionPanel'
-import SupplyList, { OptionalTile } from '../../../../molecules/SupplyList'
+import ExpansionPanel from 'components/molecules/ExpansionPanel'
+import SupplyList, { OptionalTile } from 'components/molecules/SupplyList'
 
 type Props = {
   tiles: OptionalTile[]
@@ -13,19 +13,10 @@ type Props = {
   expanded: boolean | string
 }
 
-const Supply = React.memo(
-  ({ tiles, expansionKey, expansionHandler, expanded }: Props) => (
-    <ExpansionPanel
-      summary="Supply"
-      expansionKey={expansionKey}
-      expansionHandler={expansionHandler}
-      expanded={expanded}
-    >
-      <SupplyList tiles={tiles} />
-    </ExpansionPanel>
-  )
+const Supply = ({ tiles, expansionKey, expansionHandler, expanded }: Props) => (
+  <ExpansionPanel summary="Supply">
+    <SupplyList tiles={tiles} />
+  </ExpansionPanel>
 )
 
-Supply.displayName = 'Supply'
-
-export default Supply
+export default React.memo(Supply)
