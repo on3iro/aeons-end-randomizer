@@ -1,10 +1,10 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import * as types from '../../../../types'
-import { byCost } from '../../../../helpers'
-import { RootState } from '../../'
-import { createSupply } from '../../../helpers'
+import * as types from 'types'
+import { byCost } from 'helpers'
+import { RootState } from 'Redux/Store/index'
+import { createSupply } from 'Redux/helpers'
 
 ///////////
 // STATE //
@@ -77,7 +77,7 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getTiles = (state: RootState) => state.Supply.RandomSetup.Tiles
+const getTiles = (state: RootState) => state.Randomizer.Supply.RandomSetup.Tiles
 
 export const selectors = {
   getTiles,

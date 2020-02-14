@@ -19,11 +19,11 @@ const mapStateToProps = (state: RootState) => ({
   availableNemeses: selectors.Settings.Expansions.getSelectedNemesesForSelectedExpansions(
     state
   ),
-  randomNemesis: selectors.Nemesis.getNemesis(state),
+  randomNemesis: selectors.Randomizer.Nemesis.getNemesis(state),
 })
 
 const mapDispatchToProps = {
-  setRandomNemesis: actions.Nemesis.setRandomNemesis,
+  setRandomNemesis: actions.Randomizer.Nemesis.setRandomNemesis,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
@@ -77,7 +77,4 @@ const Nemeses = React.memo(
 
 Nemeses.displayName = 'Nemeses'
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Nemeses)
+export default connect(mapStateToProps, mapDispatchToProps)(Nemeses)

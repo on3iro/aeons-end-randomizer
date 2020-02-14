@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../../Redux/Store'
-import { MageCount } from '../../../Redux/Store/Mages/Count'
+import { MageCount } from 'Redux/Store/Randomizer/Mages/Count'
 
 import MageList from '../../molecules/MageList'
 import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
@@ -19,13 +19,13 @@ const mapStateToProps = (state: RootState) => ({
   availableMages: selectors.Settings.Expansions.getSelectedMagesForSelectedExpansions(
     state
   ),
-  mageCount: selectors.Mages.Count.getCount(state),
-  mages: selectors.Mages.Recruited.getMages(state),
+  mageCount: selectors.Randomizer.Mages.Count.getCount(state),
+  mages: selectors.Randomizer.Mages.Recruited.getMages(state),
 })
 
 const mapDispatchToProps = {
-  setMageCount: actions.Mages.Count.setCount,
-  setMages: actions.Mages.Recruited.setRandomMages,
+  setMageCount: actions.Randomizer.Mages.Count.setCount,
+  setMages: actions.Randomizer.Mages.Recruited.setRandomMages,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
@@ -79,7 +79,4 @@ const Mages = React.memo(
 
 Mages.displayName = 'Mages'
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Mages)
+export default connect(mapStateToProps, mapDispatchToProps)(Mages)
