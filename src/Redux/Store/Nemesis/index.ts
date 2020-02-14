@@ -22,7 +22,9 @@ export enum ActionTypes {
 
 export const actions = {
   setRandomNemesis: (availableNemeses: ReadonlyArray<Nemesis>) =>
-    createAction(ActionTypes.SET_RANDOM, availableNemeses),
+    createAction(ActionTypes.SET_RANDOM, {
+      nemesis: getRandomEntity(availableNemeses),
+    }),
   noOp: () => createAction('NOOP'),
 }
 
@@ -38,8 +40,7 @@ export const Reducer: LoopReducer<State, Action> = (
 ) => {
   switch (action.type) {
     case ActionTypes.SET_RANDOM: {
-      const availableNemeses = action.payload
-      return getRandomEntity(availableNemeses)
+      return action.payload.nemesis
     }
 
     default: {

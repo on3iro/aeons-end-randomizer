@@ -20,6 +20,7 @@
     "@types/react-jss": "^8.6.3",
     "@types/react-redux": "^7.0.3",
     "@types/react-router-dom": "^5.1.0",
+    "@types/seedrandom": "^2.4.28",
     "@types/shortid": "^0.0.29",
     "classnames": "^2.2.6",
     "core-js": "^3.2.1",
@@ -37,6 +38,7 @@
     "regenerator-runtime": "^0.13.3",
     "reselect": "^4.0.0",
     "rpg-awesome": "^0.2.0",
+    "seedrandom": "^3.0.5",
     "shortid": "^2.2.14",
     "styled-components": "^5.0.0",
     "typescript": "^3.3.4000"
