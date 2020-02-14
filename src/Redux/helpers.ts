@@ -177,6 +177,12 @@ export const createTurnOrderCardList = (
   getEntity: <T>(list: Array<T>) => T
 ) => generateListFrom(availableCards, slots, getEntity)
 
+export const shuffleDeck = (
+  deck: types.ITurnOrderCard[]
+): types.ITurnOrderCard[] => {
+  return createTurnOrderCardList(deck, deck, getRandomEntity).result
+}
+
 export const createMageList = (
   availableMages: ReadonlyArray<types.Mage>,
   slots: Array<types.Slot>,
@@ -188,12 +194,6 @@ export const createIdList = (
   slots: string[],
   getEntity: <T>(list: Array<T>) => T
 ) => generateListFrom(availableIds, slots, getEntity)
-
-export const shuffleDeck = (
-  deck: types.ITurnOrderCard[]
-): types.ITurnOrderCard[] => {
-  return createTurnOrderCardList(deck, deck, getRandomEntity).result
-}
 
 /**
  * Gets a random value from a list. (The wording of entities is just used for semantic context)

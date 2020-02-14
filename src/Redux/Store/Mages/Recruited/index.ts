@@ -27,8 +27,14 @@ export enum ActionTypes {
 }
 
 export const actions = {
-  setRandomMages: (availableMages: ReadonlyArray<Mage>, count: MageCount) =>
-    createAction(ActionTypes.SET_RANDOM, { availableMages, count }),
+  setRandomMages: (availableMages: ReadonlyArray<Mage>, count: MageCount) => {
+    const length = Math.min(availableMages.length, count)
+    const slotList = createSlotList(length)
+    const mageList = createMageList(availableMages, slotList, getRandomEntity)
+      .result
+
+    return createAction(ActionTypes.SET_RANDOM, { mageList })
+  },
   noOp: () => createAction('NOOP'),
 }
 
@@ -44,15 +50,7 @@ export const Reducer: LoopReducer<State, Action> = (
 ) => {
   switch (action.type) {
     case ActionTypes.SET_RANDOM: {
-      const { availableMages, count } = action.payload
-      const length = Math.min(availableMages.length, count)
-      const slotList = createSlotList(length)
-      const { result } = createMageList(
-        availableMages,
-        slotList,
-        getRandomEntity
-      )
-      return result
+      return action.payload.mageList
     }
 
     default: {
