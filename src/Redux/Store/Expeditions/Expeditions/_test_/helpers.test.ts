@@ -1,5 +1,4 @@
-import { NemesisTier } from '../../../types'
-import { generateBattles } from './helpers'
+import { generateBattles } from '../helpers'
 
 describe('generateBattles', () => {
   it('should generate inital battles correctly for normal expedition', () => {

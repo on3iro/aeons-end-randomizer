@@ -1,5 +1,6 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
+import shortid from 'shortid'
 
 import * as types from 'types'
 import { byCost } from 'helpers'
@@ -12,6 +13,7 @@ import { createSupply } from 'Redux/helpers'
 
 export type State = Readonly<{
   Tiles: ReadonlyArray<types.ICard> | null
+  recoverySeed?: string
 }>
 
 export const initialState: State = {
@@ -34,13 +36,16 @@ export const actions = {
     availableCards: ReadonlyArray<types.ICard>,
     tiles: ReadonlyArray<types.Slot>
   ) => {
-    const { gems, relics, spells } = createSupply(availableCards, tiles)
+    const seed = shortid.generate()
+
+    const { gems, relics, spells } = createSupply(availableCards, tiles, seed)
     const gemsByCost = gems.result.sort(byCost)
     const relicsByCost = relics.result.sort(byCost)
     const spellsByCost = spells.result.sort(byCost)
 
     return createAction(ActionTypes.CREATE, {
       supply: [...gemsByCost, ...relicsByCost, ...spellsByCost],
+      recoverySeed: seed,
     })
   },
 }
@@ -61,9 +66,12 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.CREATE: {
+      const { supply, recoverySeed } = action.payload
+
       return {
         ...state,
-        Tiles: action.payload.supply,
+        Tiles: supply,
+        recoverySeed,
       }
     }
 
