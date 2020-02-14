@@ -28,12 +28,42 @@ export type EntityType = 'nemeses' | 'mages' | 'cards'
 export type Entity = ICard | ICreature
 
 export type NemesisCardType = 'Power' | 'Minion' | 'Attack'
+export type NemesisCardTier = 1 | 2 | 3
 
+export type MinionCard = {
+  type: 'Minion'
+  hp: number
+  shields?: number
+}
+
+export type PowerCard = {
+  type: 'Power'
+  power: number
+}
+
+export type AttackCard = {
+  type: 'Attack'
+}
+
+export type BasicNemesisCard = {
+  id: string
+  name: string
+  expansion: string
+  tier: NemesisCardTier
+  effect: string
+  unleashCount?: number
+  playerDamage?: number
+  graveholdDamage?: number
+  // TODO do we already want to add the other optional values from Wills spreadsheet?
+} & (MinionCard | PowerCard | AttackCard)
+
+// FIXME should also just be a BasicNemesisCard -> we need to adjust all occurences
+// inside the app, as soon as we added the necessary information to our existing data set
 export type UpgradedBasicNemesisCard = {
   id: string
   name: string
   expansion: string
-  tier: 1 | 2 | 3
+  tier: NemesisCardTier
   type: NemesisCardType
 }
 
