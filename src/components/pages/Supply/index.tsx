@@ -18,12 +18,12 @@ const mapStateToProps = (state: RootState) => ({
     state
   ),
   allMarketSetups: getCustomAndPredefined(state),
-  randomCards: selectors.Supply.RandomSetup.getTiles(state),
+  randomCards: selectors.Randomizer.Supply.RandomSetup.getTiles(state),
 })
 
 const mapDispatchToProps = {
-  createMarket: actions.Supply.RandomSetup.createMarket,
-  resetMarket: actions.Supply.RandomSetup.resetMarket,
+  createMarket: actions.Randomizer.Supply.RandomSetup.createMarket,
+  resetMarket: actions.Randomizer.Supply.RandomSetup.resetMarket,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
@@ -76,7 +76,4 @@ const Supply = React.memo(
 
 Supply.displayName = 'Supply'
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Supply)
+export default connect(mapStateToProps, mapDispatchToProps)(Supply)
