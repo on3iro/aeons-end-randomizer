@@ -1,30 +1,26 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import { Nemesis } from '../../../types'
-import { RootState } from '../'
-import { getRandomEntity } from '../../helpers'
+import { RootState } from 'Redux/Store/'
 
 ///////////
 // STATE //
 ///////////
 
-export type State = Readonly<Nemesis> | undefined
-export const initialState: State = undefined
+export type MageCount = 1 | 2 | 3 | 4
+export type State = MageCount
+export const initialState: State = 1
 
 /////////////
 // ACTIONS //
 /////////////
 
 export enum ActionTypes {
-  SET_RANDOM = 'Nemesis/SET_RANDOM',
+  SET = 'Mages/Count/SET',
 }
 
 export const actions = {
-  setRandomNemesis: (availableNemeses: ReadonlyArray<Nemesis>) =>
-    createAction(ActionTypes.SET_RANDOM, {
-      nemesis: getRandomEntity(availableNemeses),
-    }),
+  setCount: (count: MageCount) => createAction(ActionTypes.SET, count),
   noOp: () => createAction('NOOP'),
 }
 
@@ -39,8 +35,8 @@ export const Reducer: LoopReducer<State, Action> = (
   action: Action
 ) => {
   switch (action.type) {
-    case ActionTypes.SET_RANDOM: {
-      return action.payload.nemesis
+    case ActionTypes.SET: {
+      return action.payload
     }
 
     default: {
@@ -53,8 +49,8 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getNemesis = (state: RootState) => state.Nemesis
+const getCount = (state: RootState) => state.Randomizer.Mages.Count
 
 export const selectors = {
-  getNemesis,
+  getCount,
 }

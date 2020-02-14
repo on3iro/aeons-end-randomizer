@@ -1,13 +1,9 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import { Mage } from '../../../../types'
-import { RootState } from '../../'
-import {
-  createSlotList,
-  createMageList,
-  getRandomEntity,
-} from '../../../helpers'
+import { Mage } from 'types'
+import { RootState } from 'Redux/Store/'
+import { createSlotList, createMageList, getRandomEntity } from 'Redux/helpers'
 
 import { MageCount } from '../Count'
 
@@ -63,7 +59,7 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getMages = (state: RootState) => state.Mages.Recruited
+const getMages = (state: RootState) => state.Randomizer.Mages.Recruited
 
 export const selectors = {
   getMages,
