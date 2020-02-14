@@ -63,7 +63,9 @@ export const actions = {
   init: (state: State) => createAction(ActionTypes.INIT, state),
   draw: () => createAction(ActionTypes.DRAW),
   newRound: (turnOrderCards: ITurnOrderCard[]) =>
-    createAction(ActionTypes.NEW_ROUND, turnOrderCards),
+    createAction(ActionTypes.NEW_ROUND, {
+      deck: shuffleDeck(turnOrderCards),
+    }),
   addToTop: (cardId: string) => createAction(ActionTypes.ADD_TO_TOP, cardId),
   addToBottom: (cardId: string) =>
     createAction(ActionTypes.ADD_TO_BOTTOM, cardId),
@@ -116,7 +118,7 @@ export const Reducer: LoopReducer<State, Action> = (
     case ActionTypes.NEW_ROUND: {
       const newState = {
         ...state,
-        deck: shuffleDeck(action.payload),
+        deck: action.payload.deck,
         discard: [],
       }
 
@@ -160,6 +162,7 @@ export const Reducer: LoopReducer<State, Action> = (
       if (!cardToShuffle) return state
 
       const newDeck = [...state.deck, cardToShuffle]
+      // FIXME shuffling should happen inside the action not the reducer!!!
       const shuffledDeck = shuffleDeck(newDeck)
 
       const newState = {
@@ -172,6 +175,7 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.START_GAME: {
+      // FIXME shuffling should happen inside the action not the reducer!!!
       return newStateWithDBWrite({
         started: true,
         deck: shuffleDeck(action.payload),

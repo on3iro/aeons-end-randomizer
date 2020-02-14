@@ -33,7 +33,16 @@ export const actions = {
   createMarket: (
     availableCards: ReadonlyArray<types.ICard>,
     tiles: ReadonlyArray<types.Slot>
-  ) => createAction(ActionTypes.CREATE, { availableCards, tiles }),
+  ) => {
+    const { gems, relics, spells } = createSupply(availableCards, tiles)
+    const gemsByCost = gems.result.sort(byCost)
+    const relicsByCost = relics.result.sort(byCost)
+    const spellsByCost = spells.result.sort(byCost)
+
+    return createAction(ActionTypes.CREATE, {
+      supply: [...gemsByCost, ...relicsByCost, ...spellsByCost],
+    })
+  },
 }
 
 export type Action = ActionsUnion<typeof actions>
@@ -52,15 +61,9 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.CREATE: {
-      const { availableCards, tiles } = action.payload
-      const { gems, relics, spells } = createSupply(availableCards, tiles)
-      const gemsByCost = gems.result.sort(byCost)
-      const relicsByCost = relics.result.sort(byCost)
-      const spellsByCost = spells.result.sort(byCost)
-
       return {
         ...state,
-        Tiles: [...gemsByCost, ...relicsByCost, ...spellsByCost],
+        Tiles: action.payload.supply,
       }
     }
 
