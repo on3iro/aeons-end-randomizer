@@ -1,4 +1,6 @@
 import * as types from '../types'
+import seedrandom from 'seedrandom'
+import shortid from 'shortid'
 
 type CardListReduceResult = {
   availableCards: types.ICard[]
@@ -91,13 +93,17 @@ export const createCardList = (
 const getRandomCardsByType = (
   availableCards: ReadonlyArray<types.ICard>,
   tileSetups: ReadonlyArray<types.IBluePrint>,
-  cardType: types.CardType
+  cardType: types.CardType,
+  seed?: string
 ): CardListReduceResult => {
   const cardSlots = tileSetups.filter(({ type }) => type === cardType)
   const availableCardsOfType = availableCards.filter(
     ({ type }) => type === cardType
   )
-  return createCardList(availableCardsOfType, cardSlots, getRandomEntity)
+
+  return createCardList(availableCardsOfType, cardSlots, availableCards =>
+    getRandomEntity(availableCards, seed)
+  )
 }
 
 /**
@@ -110,11 +116,12 @@ const getRandomCardsByType = (
  */
 export const createSupply = (
   availableCards: ReadonlyArray<types.ICard>,
-  tileSetups: ReadonlyArray<types.IBluePrint>
+  tileSetups: ReadonlyArray<types.IBluePrint>,
+  seed?: string
 ) => {
-  const gems = getRandomCardsByType(availableCards, tileSetups, 'Gem')
-  const relics = getRandomCardsByType(availableCards, tileSetups, 'Relic')
-  const spells = getRandomCardsByType(availableCards, tileSetups, 'Spell')
+  const gems = getRandomCardsByType(availableCards, tileSetups, 'Gem', seed)
+  const relics = getRandomCardsByType(availableCards, tileSetups, 'Relic', seed)
+  const spells = getRandomCardsByType(availableCards, tileSetups, 'Spell', seed)
 
   return { gems, relics, spells }
 }
@@ -197,9 +204,17 @@ export const createIdList = (
 
 /**
  * Gets a random value from a list. (The wording of entities is just used for semantic context)
+ * @param availableEntities: List of entities to pick from
+ * @param seed: seed for pseudo randomization, if no seed is provided a new unique
+ *  seed will be created everytime the function is run
  */
-export const getRandomEntity = <E>(availableEntities: ReadonlyArray<E>) =>
-  availableEntities[Math.floor(Math.random() * availableEntities.length)]
+export const getRandomEntity = <E>(
+  availableEntities: ReadonlyArray<E>,
+  seed: string = shortid.generate()
+) => {
+  const rng = seedrandom(seed)
+  return availableEntities[Math.floor(rng() * availableEntities.length)]
+}
 
 export const getOperationString = (
   operation: types.Operation,
