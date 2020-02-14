@@ -3,18 +3,18 @@ import { connect } from 'react-redux'
 
 import Button from '@material-ui/core/Button'
 
-import { RootState, actions, selectors } from '../../../../Redux/Store'
-import * as types from '../../../../types'
+import { RootState, actions, selectors } from 'Redux/Store'
+import * as types from 'types'
 
-import { RollLossType } from '../../../../Redux/Store/Expeditions/helpers'
+import { RollLossType } from 'Redux/Store/Expeditions/Expeditions'
 
-import TreasureList from '../../../molecules/TreasureList'
-import MageTile from '../../../molecules/MageList/MageTile' // FIXME MageTile should probably be a molecule itself
-import MarketTile from '../../../molecules/MarketTile'
-import SupplySelection from '../../../molecules/SupplySelection'
+import TreasureList from 'components/molecules/TreasureList'
+import MageTile from 'components/molecules/MageList/MageTile' // FIXME MageTile should probably be a molecule itself
+import MarketTile from 'components/molecules/MarketTile'
+import SupplySelection from 'components/molecules/SupplySelection'
 
-import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
-import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
+import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
+import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
 
 import LossRewardTypeSelection from './LossRewardTypeSelection'
 
@@ -275,7 +275,4 @@ const BattleLost = React.memo(
 
 BattleLost.displayName = 'BattleLost'
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BattleLost)
+export default connect(mapStateToProps, mapDispatchToProps)(BattleLost)

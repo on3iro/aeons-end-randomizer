@@ -1,14 +1,16 @@
 import shortid from 'shortid'
 
-import * as types from '../../../types'
-import { byCost } from '../../../helpers'
+import * as types from 'types'
+import { byCost } from 'helpers'
 
 import {
   createArrayWithDefaultValues,
   createIdList,
   getRandomEntity,
   createSupply,
-} from '../../helpers'
+} from 'Redux/helpers'
+
+import { BaseConfig, RollBattleConfig, WinConfig, LossConfig } from './types'
 
 export const calcBattleScore = (tries: number) => {
   switch (tries) {
@@ -54,15 +56,6 @@ export const generateBattles = (
   return battles
 }
 
-export type BaseConfig = {
-  variant: types.Variant
-  name: string
-  bigPocketVariant: boolean
-  availableMageIds: string[]
-  availableCards: types.ICard[]
-  availableLevel1TreasureIds: string[]
-  tiles: types.Slot[]
-}
 export const createExpeditionConfig = ({
   variant,
   name,
@@ -108,14 +101,6 @@ export const createExpeditionConfig = ({
     treasureIds,
     variantId: variant.id,
   }
-}
-
-export type RollBattleConfig = {
-  battle: types.Battle
-  previousNemeses: string[]
-  previousUpgradedBasicNemesisCards: string[]
-  availableNemeses: types.Nemesis[]
-  availableUpgradedBasicNemesisCards: types.UpgradedBasicNemesisCard[]
 }
 
 // Because we always add these cards to an existing array inside our expedition in our store,
@@ -246,14 +231,6 @@ const rollNewEntity = (list: string[]): string =>
   createIdList(list, createArrayWithDefaultValues(1, 'EMPTY'), getRandomEntity)
     .result[0]
 
-export type WinConfig = {
-  battle: types.Battle
-  treasureIds: string[]
-  gemIds: string[]
-  relicIds: string[]
-  spellIds: string[]
-}
-
 export const rollWinRewards = (config: WinConfig) => {
   const newTreasures = createIdList(
     config.treasureIds,
@@ -274,27 +251,6 @@ export const rollWinRewards = (config: WinConfig) => {
     },
   }
   return { battle: updatedBattle }
-}
-
-export type RollLossType =
-  | 'mage'
-  | 'gem'
-  | 'relic'
-  | 'spell'
-  | 'treasure1'
-  | 'treasure2'
-  | 'treasure3'
-
-export type LossConfig = {
-  battle: types.Battle
-  type: RollLossType
-  mageIds: string[]
-  gemIds: string[]
-  relicIds: string[]
-  spellIds: string[]
-  treasure1Ids: string[]
-  treasure2Ids: string[]
-  treasure3Ids: string[]
 }
 
 export const rollLossRewards = (config: LossConfig) => {

@@ -5,11 +5,11 @@ import MenuItem from '@material-ui/core/MenuItem'
 import FormControl from '../FormControl'
 import Select from '../Select'
 
-import { RollLossType } from '../../../../Redux/Store/Expeditions/helpers'
+import { RollLossType } from 'Redux/Store/Expeditions/Expeditions/'
 
-import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
-import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
-import SectionHeadline from '../../../atoms/SectionHeadline'
+import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
+import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
+import SectionHeadline from 'components/atoms/SectionHeadline'
 
 const getTreasureOptionsByTier = (tier: 1 | 2 | 3 | 4) => [
   ...([2, 3, 4].includes(tier) ? [{ level: 1 }] : []),
