@@ -5,18 +5,14 @@ import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 
 import * as MainContentLoading from './MainContentLoading'
 import * as Settings from './Settings'
-import * as Nemesis from './Nemesis'
-import * as Mages from './Mages'
-import * as Supply from './Supply'
+import * as Randomizer from './Randomizer'
 import * as TurnOrder from './TurnOrder'
 import * as Expeditions from './Expeditions'
 
 export type RootState = {
   Settings: Settings.State
   MainContentLoading: MainContentLoading.State
-  Nemesis: Nemesis.State
-  Mages: Mages.State
-  Supply: Supply.State
+  Randomizer: Randomizer.State
   TurnOrder: TurnOrder.State
   Expeditions: Expeditions.State
 }
@@ -35,9 +31,7 @@ export const actions = {
   Settings: Settings.actions,
   Main: mainActions,
   TurnOrder: TurnOrder.actions,
-  Nemesis: Nemesis.actions,
-  Mages: Mages.actions,
-  Supply: Supply.actions,
+  Randomizer: Randomizer.actions,
   Expeditions: Expeditions.actions,
 }
 
@@ -153,9 +147,7 @@ export const selectors = {
     ContentLoading: MainContentLoading.selectors,
   },
   TurnOrder: TurnOrder.selectors,
-  Nemesis: Nemesis.selectors,
-  Mages: Mages.selectors,
-  Supply: Supply.selectors,
+  Randomizer: Randomizer.selectors,
   Expeditions: Expeditions.selectors,
 
   // Top level selectors
@@ -177,18 +169,14 @@ export type RootAction =
   | MainAction
   | Settings.Action
   | MainContentLoading.Action
-  | Nemesis.Action
-  | Mages.Action
-  | Supply.Action
+  | Randomizer.Action
   | TurnOrder.Action
   | Expeditions.Action
 
 export const initialState = {
   Settings: Settings.initialState,
   MainContentLoading: MainContentLoading.initialState,
-  Nemesis: Nemesis.initialState,
-  Mages: Mages.initialState,
-  Supply: Supply.initialState,
+  Randomizer: Randomizer.initialState,
   TurnOrder: TurnOrder.initialState,
   Expeditions: Expeditions.initialState,
 }
@@ -226,9 +214,7 @@ export const RootReducer = reduceReducers(
   combineReducers<RootState>({
     Settings: Settings.Reducer,
     MainContentLoading: MainContentLoading.Reducer,
-    Nemesis: Nemesis.Reducer,
-    Mages: Mages.Reducer,
-    Supply: Supply.Reducer,
+    Randomizer: Randomizer.Reducer,
     TurnOrder: TurnOrder.Reducer,
     Expeditions: Expeditions.Reducer,
   })
