@@ -6,6 +6,7 @@ import { actions } from './actions'
 
 export enum ActionTypes {
   CREATE_EXPEDITION = 'Expeditions/Expeditions/CREATE_EXPEDITION',
+  CREATE_EXPEDITION_SUCCESS = 'Expeditions/Expeditions/CREATE_EXPEDITION_SUCCESS',
   DELETE_EXPEDITION = 'Expeditions/Expeditions/DELETE_EXPEDITION',
   ROLL_BATTLE = 'Expeditions/Expeditions/ROLL_BATTLE',
   START_BATTLE = 'Expeditions/Expeditions/START_BATTLE',
@@ -31,13 +32,10 @@ export type State = {
 }
 
 export type BaseConfig = {
-  variant: types.Variant
+  variantId: string
   name: string
   bigPocketVariant: boolean
-  availableMageIds: string[]
-  availableCards: types.ICard[]
-  availableLevel1TreasureIds: string[]
-  tiles: types.Slot[]
+  marketId: string
 }
 
 export type RollBattleConfig = {
