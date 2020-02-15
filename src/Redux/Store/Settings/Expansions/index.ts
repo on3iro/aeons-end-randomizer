@@ -6,6 +6,7 @@ import * as SelectedCards from './SelectedCards'
 import * as SelectedNemeses from './SelectedNemeses'
 import * as SelectedMages from './SelectedMages'
 import * as Treasures from './Treasures'
+import * as BasicNemesisCards from './BasicNemesisCards'
 import * as UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
 
 import * as types from '../../../../types'
@@ -21,6 +22,7 @@ export type State = {
   SelectedNemeses: SelectedNemeses.State
   SelectedMages: SelectedMages.State
   Treasures: Treasures.State
+  BasicNemesisCards: BasicNemesisCards.State
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.State
 }
 
@@ -30,6 +32,7 @@ export const initialState: State = {
   SelectedNemeses: SelectedNemeses.initialState,
   SelectedMages: SelectedMages.initialState,
   Treasures: Treasures.initialState,
+  BasicNemesisCards: BasicNemesisCards.initialState,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.initialState,
 }
 
@@ -43,6 +46,7 @@ export type Action =
   | SelectedNemeses.Action
   | SelectedMages.Action
   | Treasures.Action
+  | BasicNemesisCards.Action
   | UpgradedBasicNemesisCards.Action
 
 export const actions = {
@@ -51,6 +55,7 @@ export const actions = {
   SelectedNemeses: SelectedNemeses.actions,
   SelectedMages: SelectedMages.actions,
   Treasures: Treasures.actions,
+  BasicNemesisCards: BasicNemesisCards.actions,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.actions,
 }
 
@@ -64,6 +69,7 @@ export const Reducer = combineReducers({
   SelectedNemeses: SelectedNemeses.Reducer,
   SelectedMages: SelectedMages.Reducer,
   Treasures: Treasures.Reducer,
+  BasicNemesisCards: BasicNemesisCards.Reducer,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.Reducer,
 })
 
@@ -150,12 +156,22 @@ const getUpgradedBasicNemesisCardIdsForSelectedExpansions = createSelector(
   upgradedBasicNemesisCards => upgradedBasicNemesisCards.map(card => card.id)
 )
 
+const getBasicNemesisCardsForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
+  BasicNemesisCards.selectors.getBasicNemesisCardList
+)
+
+const getBasicNemesisCardIdsForSelectedExpansions = createSelector(
+  [getBasicNemesisCardsForSelectedExpansions],
+  basicNemesisCards => basicNemesisCards.map(card => card.id)
+)
+
 export const selectors = {
   SelectedExpansions: SelectedExpansions.selectors,
   SelectedCards: SelectedCards.selectors,
   SelectedNemeses: SelectedNemeses.selectors,
   SelectedMages: SelectedMages.selectors,
   Treasures: Treasures.selectors,
+  BasicNemesisCards: BasicNemesisCards.selectors,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.selectors,
   getSelectedCardsForSelectedExpansions,
   getSelectedCardIdsForSelectedExpansions,
@@ -166,6 +182,8 @@ export const selectors = {
   getTreasuresForSelectedExpansions,
   getTreasureIdsForSelectedExpansions,
   getTreasuresByLevelForSelectedExpansions,
+  getBasicNemesisCardsForSelectedExpansions,
+  getBasicNemesisCardIdsForSelectedExpansions,
   getUpgradedBasicNemesisCardsForSelectedExpansions,
   getUpgradedBasicNemesisCardIdsForSelectedExpansions,
   getGemIdsForSelectedExpansions,
