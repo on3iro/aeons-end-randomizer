@@ -1,4 +1,5 @@
-import { generateBattles } from '../helpers'
+import { generateBattles } from '../createExpeditionConfig'
+import { initialState } from 'Redux/Store/'
 
 describe('generateBattles', () => {
   it('should generate inital battles correctly for normal expedition', () => {
@@ -19,13 +20,7 @@ describe('generateBattles', () => {
       treasure: { hasTreasure: false },
     }
 
-    const variant = {
-      id: 'DEFAULT',
-      name: 'Default',
-      configList: [config1, config2, config3, config4],
-    }
-
-    expect(generateBattles(variant, '1')).toMatchObject([
+    expect(generateBattles(initialState, 'DEFAULT', '1')).toMatchObject([
       {
         nemesisTier: config1.tier,
         treasure: config1.treasure,
@@ -71,13 +66,7 @@ describe('generateBattles', () => {
       treasure: { hasTreasure: false },
     }
 
-    const variant = {
-      id: 'SHORT',
-      name: 'Short',
-      configList: [config2, config3, config4],
-    }
-
-    expect(generateBattles(variant, '1')).toMatchObject([
+    expect(generateBattles(initialState, 'SHORT', '1')).toMatchObject([
       {
         nemesisTier: config2.tier,
         treasure: config2.treasure,
@@ -138,13 +127,7 @@ describe('generateBattles', () => {
       },
     ]
 
-    const variant = {
-      id: 'EXTENDED',
-      name: 'Extended',
-      configList: configList,
-    }
-
-    expect(generateBattles(variant, '1')).toMatchObject([
+    expect(generateBattles(initialState, 'EXTENDED', '1')).toMatchObject([
       {
         nemesisTier: configList[0].tier,
         treasure: configList[0].treasure,

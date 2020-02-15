@@ -1,9 +1,10 @@
 import { loop, Cmd } from 'redux-loop'
 import { get as getFromDb, set as setToDb } from 'idb-keyval'
 
-import { calcBattleScore } from './helpers'
-
 import * as types from 'types'
+
+import * as helpers from './helpers'
+import * as sideEffects from './sideEffects'
 import { State, Action } from './types'
 import { actions } from './actions'
 
@@ -57,39 +58,28 @@ export const createExpedition = (
   state: State,
   action: ReturnType<typeof actions.createExpedition>
 ) => {
-  const {
-    battles,
-    bigPocketVariant,
-    expeditionId,
-    mageIds,
-    name,
-    supplyIds,
-    treasureIds,
-    variantId,
-  } = action.payload
+  return loop(
+    state,
+    Cmd.run(sideEffects.createExpeditionConfig, {
+      args: [Cmd.getState, action.payload.baseConfig],
+      successActionCreator: actions.createExpeditionSuccess,
+    })
+  )
+}
+
+export const createExpeditionSuccess = (
+  state: State,
+  action: ReturnType<typeof actions.createExpeditionSuccess>
+) => {
+  const newExpedition = action.payload
 
   const newState = {
     ...state,
     expeditions: {
       ...state.expeditions,
-      [expeditionId]: {
-        id: expeditionId,
-        name: name,
-        score: 0,
-        barracks: {
-          mageIds,
-          supplyIds,
-          treasureIds,
-        },
-        upgradedBasicNemesisCards: [],
-        banished: [],
-        variantId,
-        bigPocketVariant: bigPocketVariant,
-        battles,
-        finished: false,
-      },
+      [newExpedition.id]: newExpedition,
     },
-    expeditionIds: [expeditionId, ...state.expeditionIds],
+    expeditionIds: [newExpedition.id, ...state.expeditionIds],
   }
 
   return loop(
@@ -195,7 +185,7 @@ export const winBattle = (
     },
   })
 
-  const battleScore = calcBattleScore(battle.tries)
+  const battleScore = helpers.calcBattleScore(battle.tries)
 
   const newState = {
     ...state,
@@ -371,7 +361,7 @@ export const finishExpedition = (
     },
   })
 
-  const battleScore = calcBattleScore(battle.tries)
+  const battleScore = helpers.calcBattleScore(battle.tries)
 
   const newState = {
     ...state,

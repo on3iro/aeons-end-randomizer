@@ -89,6 +89,11 @@ const getSelectedCardsForSelectedExpansions = getSelectedEntitiesForSelectedExpa
   SelectedCards.selectors.getSelectedCards
 )
 
+const getSelectedCardIdsForSelectedExpansions = createSelector(
+  [getSelectedCardsForSelectedExpansions],
+  cards => cards.map(card => card.id)
+)
+
 const createIdsByCardTypeSelector = (type: types.CardType) =>
   createSelector(
     [getSelectedCardsForSelectedExpansions],
@@ -104,6 +109,11 @@ const getSelectedNemesesForSelectedExpansions = getSelectedEntitiesForSelectedEx
   SelectedNemeses.selectors.getSelectedNemeses
 )
 
+const getSelectedNemesisIdsForSelectedExpansions = createSelector(
+  [getSelectedNemesesForSelectedExpansions],
+  nemeses => nemeses.map(nemesis => nemesis.id)
+)
+
 const getSelectedMagesForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
   SelectedMages.selectors.getSelectedMages
 )
@@ -115,6 +125,11 @@ const getSelectedMageIdsForSelectedExpansions = createSelector(
 
 const getTreasuresForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
   Treasures.selectors.getTreasureList
+)
+
+const getTreasureIdsForSelectedExpansions = createSelector(
+  [getTreasuresForSelectedExpansions],
+  treasures => treasures.map(treasure => treasure.id)
 )
 
 const getTreasuresByLevelForSelectedExpansions = createSelector(
@@ -130,6 +145,11 @@ const getUpgradedBasicNemesisCardsForSelectedExpansions = getSelectedEntitiesFor
   UpgradedBasicNemesisCards.selectors.getUpgradedBasicNemesisCardList
 )
 
+const getUpgradedBasicNemesisCardIdsForSelectedExpansions = createSelector(
+  [getUpgradedBasicNemesisCardsForSelectedExpansions],
+  upgradedBasicNemesisCards => upgradedBasicNemesisCards.map(card => card.id)
+)
+
 export const selectors = {
   SelectedExpansions: SelectedExpansions.selectors,
   SelectedCards: SelectedCards.selectors,
@@ -138,12 +158,16 @@ export const selectors = {
   Treasures: Treasures.selectors,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.selectors,
   getSelectedCardsForSelectedExpansions,
+  getSelectedCardIdsForSelectedExpansions,
   getSelectedNemesesForSelectedExpansions,
+  getSelectedNemesisIdsForSelectedExpansions,
   getSelectedMagesForSelectedExpansions,
   getSelectedMageIdsForSelectedExpansions,
   getTreasuresForSelectedExpansions,
+  getTreasureIdsForSelectedExpansions,
   getTreasuresByLevelForSelectedExpansions,
   getUpgradedBasicNemesisCardsForSelectedExpansions,
+  getUpgradedBasicNemesisCardIdsForSelectedExpansions,
   getGemIdsForSelectedExpansions,
   getRelicIdsForSelectedExpansions,
   getSpellIdsForSelectedExpansions,

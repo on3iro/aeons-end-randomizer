@@ -5,25 +5,19 @@ import * as types from 'types'
 import {
   ActionTypes,
   State,
-  BaseConfig,
   LossConfig,
   RollBattleConfig,
   WinConfig,
+  BaseConfig,
 } from './types'
 
-import {
-  createBattle,
-  createExpeditionConfig,
-  rollLossRewards,
-  rollWinRewards,
-} from './helpers'
+import { createBattle, rollLossRewards, rollWinRewards } from './helpers'
 
 export const actions = {
   createExpedition: (baseConfig: BaseConfig) =>
-    createAction(
-      ActionTypes.CREATE_EXPEDITION,
-      createExpeditionConfig(baseConfig)
-    ),
+    createAction(ActionTypes.CREATE_EXPEDITION, { baseConfig }),
+  createExpeditionSuccess: (newExpedition: types.Expedition) =>
+    createAction(ActionTypes.CREATE_EXPEDITION_SUCCESS, newExpedition),
   rollBattle: (config: RollBattleConfig) =>
     createAction(ActionTypes.ROLL_BATTLE, createBattle(config)),
   startBattle: (battle: types.Battle) =>
