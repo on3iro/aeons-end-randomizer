@@ -51,20 +51,13 @@ export type BasicNemesisCard = {
   expansion: string
   tier: NemesisCardTier
   effect: string
-  unleashCount?: number
-  playerDamage?: number
-  graveholdDamage?: number
   // TODO do we already want to add the other optional values from Wills spreadsheet?
 } & (MinionCard | PowerCard | AttackCard)
 
 // FIXME should also just be a BasicNemesisCard -> we need to adjust all occurences
 // inside the app, as soon as we added the necessary information to our existing data set
-export type UpgradedBasicNemesisCard = {
-  id: string
-  name: string
-  expansion: string
-  tier: NemesisCardTier
-  type: NemesisCardType
+export type UpgradedBasicNemesisCard = BasicNemesisCard & {
+  upgraded: boolean
 }
 
 export interface IExpansion {
