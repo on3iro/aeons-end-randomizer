@@ -3,7 +3,7 @@ import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
 import { RootState } from '../'
-import { Variant, VariantId, variants, variantIds } from '../../../types'
+import { Variant, VariantId, variants, variantIds } from 'types'
 
 ///////////
 // STATE //

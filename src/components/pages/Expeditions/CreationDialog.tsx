@@ -18,22 +18,9 @@ import ModalFooterWrapper from '../../atoms/ModalFooterWrapper'
 import Input from './Input'
 import FormControl from './FormControl'
 
-const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
-
 const mapStateToProps = (state: RootState) => ({
   selectedVariant: selectors.Expeditions.Variants.getSelectedVariant(state),
   variants: selectors.Expeditions.Variants.getVariantList(state),
-  availableMageIds: selectors.Settings.Expansions.getSelectedMageIdsForSelectedExpansions(
-    state
-  ),
-  availableCards: selectors.Settings.Expansions.getSelectedCardsForSelectedExpansions(
-    state
-  ),
-  availableLevel1TreasureIds: selectors.Settings.Expansions.Treasures.getTreasureIdsByTreasureLevel(
-    state,
-    { treasureLevel: 1 }
-  ),
-  allMarketSetups: getCustomAndPredefined(state),
 })
 
 const mapDispatchToProps = {
@@ -48,10 +35,6 @@ type Props = ReturnType<typeof mapStateToProps> &
 
 const CreationDialog = React.memo(
   ({
-    allMarketSetups,
-    availableCards,
-    availableMageIds,
-    availableLevel1TreasureIds,
     finisher,
     createExpedition,
     variants,
@@ -71,17 +54,12 @@ const CreationDialog = React.memo(
 
     const handleVariantChange = (e: any) => selectVariant(e.currentTarget.value)
 
-    const tiles = allMarketSetups[selectedMarketId].tiles
-
     const handleExpeditionCreation = () => {
       createExpedition({
-        variant: selectedVariant,
+        variantId: selectedVariant.id,
         name: expeditionName,
         bigPocketVariant,
-        availableMageIds,
-        availableCards,
-        availableLevel1TreasureIds,
-        tiles,
+        marketId: selectedMarketId,
       })
       finisher()
     }
@@ -148,7 +126,4 @@ const CreationDialog = React.memo(
   }
 )
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CreationDialog)
+export default connect(mapStateToProps, mapDispatchToProps)(CreationDialog)
