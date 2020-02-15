@@ -75,6 +75,7 @@ export interface IExpansion {
   mages: Array<Mage>
   cards: Array<ICard>
   treasures?: Array<Treasure>
+  basicNemesisCards?: Array<BasicNemesisCard>
   upgradedBasicNemesisCards?: Array<UpgradedBasicNemesisCard>
 }
 
