@@ -31,6 +31,7 @@ const NORMALIZEDDATA = EXPANSIONS.reduce(
     const mages = normalize(expansion.mages)
     const cards = normalize(expansion.cards)
     const treasures = normalize(expansion.treasures || [])
+    const basicNemesisCards = normalize(expansion.basicNemesisCards || [])
     const upgradedBasicNemesisCards = normalize(
       expansion.upgradedBasicNemesisCards || []
     )
@@ -60,6 +61,10 @@ const NORMALIZEDDATA = EXPANSIONS.reduce(
         ...acc.treasures,
         ...treasures.entities,
       },
+      basicNemesisCards: {
+        ...acc.basicNemesisCards,
+        ...basicNemesisCards.entities,
+      },
       upgradedBasicNemesisCards: {
         ...acc.upgradedBasicNemesisCards,
         ...upgradedBasicNemesisCards.entities,
@@ -69,6 +74,10 @@ const NORMALIZEDDATA = EXPANSIONS.reduce(
       mageIds: [...acc.mageIds, ...mages.ids],
       cardIds: [...acc.cardIds, ...cards.ids],
       treasureIds: [...acc.treasureIds, ...treasures.ids],
+      basicNemesisCardIds: [
+        ...acc.basicNemesisCardIds,
+        ...basicNemesisCards.ids,
+      ],
       upgradedBasicNemesisCardIds: [
         ...acc.upgradedBasicNemesisCardIds,
         ...upgradedBasicNemesisCards.ids,
@@ -81,12 +90,14 @@ const NORMALIZEDDATA = EXPANSIONS.reduce(
     mages: {},
     cards: {},
     treasures: {},
+    basicNemesisCards: {},
     upgradedBasicNemesisCards: {},
     expansionIds: [],
     nemesisIds: [],
     mageIds: [],
     cardIds: [],
     treasureIds: [],
+    basicNemesisCardIds: [],
     upgradedBasicNemesisCardIds: [],
   } as types.NormalizedData
 )
