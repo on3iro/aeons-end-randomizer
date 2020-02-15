@@ -11,6 +11,9 @@ import Mages from './Mages'
 import Gems from './Gems'
 import Relics from './Relics'
 import Spells from './Spells'
+import BasicNemesisCards from './BasicNemesisCards'
+import UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
+import Treasures from './Treasures'
 
 type Props = { expansionId: string }
 
@@ -24,6 +27,9 @@ const ContentCustomization = React.memo(({ expansionId }: Props) => (
         <Gems expansionId={expansionId} />
         <Relics expansionId={expansionId} />
         <Spells expansionId={expansionId} />
+        <BasicNemesisCards expansionId={expansionId} />
+        <UpgradedBasicNemesisCards expansionId={expansionId} />
+        <Treasures expansionId={expansionId} />
       </FormControl>
     </CardContent>
   </Card>
