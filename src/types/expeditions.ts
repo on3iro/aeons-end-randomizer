@@ -1,4 +1,5 @@
 import { NemesisTier, TreasureLevel } from './data'
+import { IMarketSetup } from 'types'
 
 export type Variant = {
   id: string
@@ -117,10 +118,22 @@ export type Battle = {
   tries: number
 }
 
+export type SettingsSnapshot = {
+  supplySetup: IMarketSetup
+  availableCardIds: string[]
+  availableMageIds: string[]
+  availableNemesisIds: string[]
+  availableTreasureIds: string[]
+  availableUpgradedBasicNemesisCardIds: string[]
+  // TODO add basicNemesisIds
+}
+
 export type Expedition = {
   id: string
   name: string
   score: number
+  seed?: string
+  settingsSnapshot?: SettingsSnapshot
   barracks: {
     mageIds: string[]
     supplyIds: string[]
