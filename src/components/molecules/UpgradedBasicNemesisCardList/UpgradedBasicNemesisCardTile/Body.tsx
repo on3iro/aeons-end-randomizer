@@ -1,9 +1,11 @@
 import React from 'react'
 import List from '@material-ui/core/List'
 
-import { UpgradedBasicNemesisCard } from '../../../../types'
+import { UpgradedBasicNemesisCard } from 'types'
 
-import InfoItem from '../../InfoItem'
+import InfoItem from 'components/molecules/InfoItem'
+import SectionHeadline from 'components/atoms/SectionHeadline'
+import AbilityText from 'components/atoms/AbilityText'
 
 import Name from './Name'
 
@@ -11,15 +13,18 @@ type Props = {
   nemesisCard: UpgradedBasicNemesisCard
 }
 
-const Body = React.memo(({ nemesisCard }: Props) => (
+const Body = ({ nemesisCard }: Props) => (
   <React.Fragment>
     <Name component="p">{nemesisCard.name}</Name>
     <List>
       <InfoItem label="Set" info={nemesisCard.expansion} />
       <InfoItem label="Tier" info={nemesisCard.tier.toString()} />
       {nemesisCard.type && <InfoItem label="Type" info={nemesisCard.type} />}
+      {nemesisCard.type === 'Minion' && (
+        <InfoItem label="Hp" info={nemesisCard.hp.toString()} />
+      )}
     </List>
   </React.Fragment>
-))
+)
 
-export default Body
+export default React.memo(Body)
