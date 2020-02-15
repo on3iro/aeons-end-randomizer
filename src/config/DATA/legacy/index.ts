@@ -3,6 +3,7 @@ import { IExpansion } from 'types'
 import { nemeses } from './nemeses'
 import { mages } from './mages'
 import { cards } from './cards'
+import { basicNemesisCards } from './basicNemesisCards'
 
 export const legacyData: IExpansion = {
   id: 'Legacy',
@@ -11,4 +12,5 @@ export const legacyData: IExpansion = {
   nemeses,
   mages,
   cards,
+  basicNemesisCards,
 }

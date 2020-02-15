@@ -3,6 +3,7 @@ import { IExpansion } from 'types'
 import { nemeses } from './nemeses'
 import { mages } from './mages'
 import { cards } from './cards'
+import { basicNemesisCards } from './basicNemesisCards'
 
 export const buriedSecretsData: IExpansion = {
   id: 'BS',
@@ -11,4 +12,5 @@ export const buriedSecretsData: IExpansion = {
   nemeses,
   mages,
   cards,
+  basicNemesisCards,
 }
