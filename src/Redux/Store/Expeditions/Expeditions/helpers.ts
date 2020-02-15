@@ -1,16 +1,12 @@
-import shortid from 'shortid'
-
 import * as types from 'types'
-import { byCost } from 'helpers'
 
 import {
   createArrayWithDefaultValues,
   createIdList,
   getRandomEntity,
-  createSupply,
 } from 'Redux/helpers'
 
-import { BaseConfig, RollBattleConfig, WinConfig, LossConfig } from './types'
+import { RollBattleConfig, WinConfig, LossConfig } from './types'
 
 export const calcBattleScore = (tries: number) => {
   switch (tries) {
@@ -33,75 +29,6 @@ export const calcBattleScore = (tries: number) => {
 }
 
 export const determineBaseTier = () => {}
-
-export const generateBattles = (
-  variant: types.Variant,
-  expeditionId: string
-) => {
-  const battles = variant.configList.map(
-    (config, index): types.Battle => {
-      const isFirst = index === 0
-
-      return {
-        id: shortid.generate(),
-        nemesisTier: config.tier,
-        treasure: config.treasure,
-        expeditionId,
-        status: isFirst ? 'unlocked' : 'locked',
-        tries: 0,
-      }
-    }
-  )
-
-  return battles
-}
-
-export const createExpeditionConfig = ({
-  variant,
-  name,
-  bigPocketVariant,
-  availableMageIds,
-  availableCards,
-  availableLevel1TreasureIds,
-  tiles,
-}: BaseConfig) => {
-  const mageIds = createIdList(
-    availableMageIds,
-    createArrayWithDefaultValues(4, 'EMPTY'),
-    getRandomEntity
-  ).result
-  const { gems, relics, spells } = createSupply(availableCards, tiles)
-  const gemsByCost = gems.result.sort(byCost)
-  const relicsByCost = relics.result.sort(byCost)
-  const spellsByCost = spells.result.sort(byCost)
-
-  const supplyIds = [...gemsByCost, ...relicsByCost, ...spellsByCost].map(
-    card => card.id
-  )
-
-  const startsWithTreasure = variant.configList[0].tier.tier > 1 // TODO should probably use our rollTreasure property
-  const treasureIds = startsWithTreasure
-    ? createIdList(
-        availableLevel1TreasureIds,
-        createArrayWithDefaultValues(5, 'EMPTY'),
-        getRandomEntity
-      ).result
-    : []
-
-  const expeditionId = shortid.generate()
-  const battles = generateBattles(variant, expeditionId)
-
-  return {
-    battles,
-    bigPocketVariant,
-    expeditionId,
-    mageIds,
-    name,
-    supplyIds,
-    treasureIds,
-    variantId: variant.id,
-  }
-}
 
 // Because we always add these cards to an existing array inside our expedition in our store,
 // the count of newly added cards decreases by tier.
