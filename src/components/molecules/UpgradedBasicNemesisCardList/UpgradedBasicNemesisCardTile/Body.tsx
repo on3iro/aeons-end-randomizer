@@ -4,8 +4,6 @@ import List from '@material-ui/core/List'
 import { UpgradedBasicNemesisCard } from 'types'
 
 import InfoItem from 'components/molecules/InfoItem'
-import SectionHeadline from 'components/atoms/SectionHeadline'
-import AbilityText from 'components/atoms/AbilityText'
 
 import Name from './Name'
 
