@@ -128,6 +128,10 @@ export type Treasures = {
   [id: string]: Treasure
 }
 
+export type BasicNemesisCards = {
+  [id: string]: BasicNemesisCard
+}
+
 export type UpgradedBasicNemesisCards = {
   [id: string]: UpgradedBasicNemesisCard
 }
@@ -138,11 +142,13 @@ export type NormalizedData = {
   mages: Mages
   cards: Cards
   treasures: Treasures
+  basicNemesisCards: BasicNemesisCards
   upgradedBasicNemesisCards: UpgradedBasicNemesisCards
   expansionIds: string[]
   nemesisIds: string[]
   mageIds: string[]
   cardIds: string[]
   treasureIds: string[]
+  basicNemesisCardIds: string[]
   upgradedBasicNemesisCardIds: string[]
 }
