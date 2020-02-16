@@ -21,29 +21,31 @@ const mapDispatchToProps = {}
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const Expeditions = React.memo(({ hasStandaloneExpansionSelected }: Props) => {
+const Expeditions = ({ hasStandaloneExpansionSelected }: Props) => {
+  const { show, hide, RenderModal } = useModal()
+
   if (!hasStandaloneExpansionSelected) {
     return <NoSelectedExpansions />
   }
 
-  const { show, hide, RenderModal } = useModal()
-
   return (
     <React.Fragment>
       <ExpeditionList />
+
       <RenderModal titleColor="#333" titleLabel="New Expedition">
         <CreationDialog finisher={hide} />
       </RenderModal>
+
       <ShuffleButton onClick={show} color="primary" variant="extended">
         Start new expedition
       </ShuffleButton>
     </React.Fragment>
   )
-})
+}
 
 Expeditions.displayName = 'Expeditions'
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Expeditions)
+)(React.memo(Expeditions))
