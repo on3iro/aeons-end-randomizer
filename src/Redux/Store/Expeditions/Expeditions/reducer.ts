@@ -62,7 +62,14 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.FETCH_FROM_DB_SUCCESS: {
-      return action.payload || state
+      if (!action.payload) {
+        return state
+      }
+      return reducerHelpers.migrateAfterFetch(action)
+    }
+
+    case ActionTypes.SETTINGS_SNAPSHOT_MIGRATION_SUCCESS: {
+      return reducerHelpers.migrateAfterFetchSuccess(state, action)
     }
 
     case ActionTypes.FETCH_FROM_DB_FAILURE: {
