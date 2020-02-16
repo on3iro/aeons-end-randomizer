@@ -9,6 +9,7 @@ export enum ActionTypes {
   CREATE_EXPEDITION_SUCCESS = 'Expeditions/Expeditions/CREATE_EXPEDITION_SUCCESS',
   DELETE_EXPEDITION = 'Expeditions/Expeditions/DELETE_EXPEDITION',
   ROLL_BATTLE = 'Expeditions/Expeditions/ROLL_BATTLE',
+  ROLL_BATTLE_SUCCESS = 'Expeditions/Expeditions/ROLL_BATTLE_SUCCESS',
   START_BATTLE = 'Expeditions/Expeditions/START_BATTLE',
   WIN_BATTLE = 'Expeditions/Expeditions/WIN_BATTLE',
   LOSE_BATTLE = 'Expeditions/Expeditions/LOSE_BATTLE',
@@ -37,14 +38,6 @@ export type BaseConfig = {
   name: string
   bigPocketVariant: boolean
   marketId: string
-}
-
-export type RollBattleConfig = {
-  battle: types.Battle
-  previousNemeses: string[]
-  previousUpgradedBasicNemesisCards: string[]
-  availableNemeses: types.Nemesis[]
-  availableUpgradedBasicNemesisCards: types.UpgradedBasicNemesisCard[]
 }
 
 export type WinConfig = {

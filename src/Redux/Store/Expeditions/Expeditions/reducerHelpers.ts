@@ -121,6 +121,21 @@ export const rollBattle = (
   state: State,
   action: ReturnType<typeof actions.rollBattle>
 ) => {
+  const { battle } = action.payload
+
+  return loop(
+    state,
+    Cmd.run(sideEffects.createBattle, {
+      args: [Cmd.getState, battle],
+      successActionCreator: actions.rollBattleSuccess,
+    })
+  )
+}
+
+export const rollBattleSuccess = (
+  state: State,
+  action: ReturnType<typeof actions.rollBattleSuccess>
+) => {
   const { battle, upgradedBasicNemesisCardIds } = action.payload
 
   const oldExpedition = state.expeditions[battle.expeditionId]

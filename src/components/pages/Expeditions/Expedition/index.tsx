@@ -11,22 +11,14 @@ import Barracks from './Barracks'
 import Battle from './Battle'
 import Header from './Header'
 
-const renderBattles = (
-  battles: types.Battle[],
-  previousNemeses: string[],
-  previousUpgradedBasicNemesis: string[]
-) =>
-  battles.map(battle => (
-    <Battle
-      key={battle.id}
-      battle={battle}
-      previousNemeses={previousNemeses}
-      previousUpgradedBasicNemesis={previousUpgradedBasicNemesis}
-    />
-  ))
+const renderBattles = (battles: types.Battle[]) =>
+  battles.map(battle => <Battle key={battle.id} battle={battle} />)
 
-// FIXME fix prop typing
-const mapStateToProps = (state: RootState, props: any) => ({
+type OwnProps = {
+  id: string
+}
+
+const mapStateToProps = (state: RootState, props: OwnProps) => ({
   expedition: selectors.Expeditions.Expeditions.getExpeditionById(state, {
     expeditionId: props.id,
   }),
@@ -35,9 +27,8 @@ const mapStateToProps = (state: RootState, props: any) => ({
 const mapDispatchToProps = {}
 
 type Props = ReturnType<typeof mapStateToProps> &
-  typeof mapDispatchToProps & {
-    id: string
-  }
+  typeof mapDispatchToProps &
+  OwnProps
 
 const Expedition = ({ expedition }: Props) => {
   const isLoading = !expedition
@@ -45,18 +36,6 @@ const Expedition = ({ expedition }: Props) => {
   if (isLoading) {
     return <CircularProgress />
   }
-
-  // We need to hand previously rolled nemesis and upgradedBasicNemesisCards to
-  // our battle, so there will be no duplicates
-  // TODO this should probably be refactored in some way (still unsure what would be the best way)
-  const previousNemeses = expedition.battles.reduce((acc: string[], battle) => {
-    if (battle.nemesisId) {
-      return [...acc, battle.nemesisId]
-    }
-
-    return acc
-  }, [])
-  const previousUpgradedBasicNemesis = expedition.upgradedBasicNemesisCards
 
   return (
     <React.Fragment>
@@ -66,11 +45,7 @@ const Expedition = ({ expedition }: Props) => {
         score={expedition.score}
       />
 
-      {renderBattles(
-        expedition.battles,
-        previousNemeses,
-        previousUpgradedBasicNemesis
-      )}
+      {renderBattles(expedition.battles)}
       <Barracks expedition={expedition} />
     </React.Fragment>
   )

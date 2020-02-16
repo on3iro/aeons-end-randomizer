@@ -1,12 +1,10 @@
-import * as types from 'types'
-
 import {
   createArrayWithDefaultValues,
   createIdList,
   getRandomEntity,
 } from 'Redux/helpers'
 
-import { RollBattleConfig, WinConfig, LossConfig } from './types'
+import { WinConfig, LossConfig } from './types'
 
 export const calcBattleScore = (tries: number) => {
   switch (tries) {
@@ -29,130 +27,6 @@ export const calcBattleScore = (tries: number) => {
 }
 
 export const determineBaseTier = () => {}
-
-// Because we always add these cards to an existing array inside our expedition in our store,
-// the count of newly added cards decreases by tier.
-// If we ever have a variant, that starts higher than tier 2 we have to
-// incorporate changes to roll the whole amount of cards per tier!
-const getUpgradedBasicNemesisIdsByBattleTier = ({
-  availableTier1Ids,
-  availableTier2Ids,
-  availableTier3Ids,
-  battleTier,
-}: {
-  availableTier1Ids: string[]
-  availableTier2Ids: string[]
-  availableTier3Ids: string[]
-  battleTier: 1 | 2 | 3 | 4
-}) => {
-  switch (battleTier) {
-    case 1: {
-      return [] // No upgraded cards are added on tier 1
-    }
-
-    case 2: {
-      const tier1Ids = createIdList(
-        availableTier1Ids,
-        createArrayWithDefaultValues(1, 'EMPTY'),
-        getRandomEntity
-      ).result
-      const tier2Ids = createIdList(
-        availableTier2Ids,
-        createArrayWithDefaultValues(3, 'EMPTY'),
-        getRandomEntity
-      ).result
-      const tier3Ids = createIdList(
-        availableTier3Ids,
-        createArrayWithDefaultValues(3, 'EMPTY'),
-        getRandomEntity
-      ).result
-
-      return [...tier1Ids, ...tier2Ids, ...tier3Ids]
-    }
-
-    case 3:
-    case 4: {
-      const tier1Ids = createIdList(
-        availableTier1Ids,
-        createArrayWithDefaultValues(1, 'EMPTY'),
-        getRandomEntity
-      ).result
-      const tier2Ids = createIdList(
-        availableTier2Ids,
-        createArrayWithDefaultValues(1, 'EMPTY'),
-        getRandomEntity
-      ).result
-      const tier3Ids = createIdList(
-        availableTier3Ids,
-        createArrayWithDefaultValues(2, 'EMPTY'),
-        getRandomEntity
-      ).result
-
-      return [...tier1Ids, ...tier2Ids, ...tier3Ids]
-    }
-
-    default: {
-      return [] // Should never occur!
-    }
-  }
-}
-
-const rollNewUpgradedNemesisCards = (
-  availableUpgradedBasicNemesisCards: types.UpgradedBasicNemesisCard[],
-  previousUpgradedBasicNemesisCards: string[],
-  nemesisTier: 1 | 2 | 3 | 4
-) => {
-  const upgradedCardsWithoutPreviousCards = availableUpgradedBasicNemesisCards.filter(
-    upgradedCard => !previousUpgradedBasicNemesisCards.includes(upgradedCard.id)
-  )
-
-  const tier1AvailableUpgradedNemesisIds = upgradedCardsWithoutPreviousCards
-    .filter(card => card.tier === 1)
-    .map(card => card.id)
-  const tier2AvailableUpgradedNemesisIds = upgradedCardsWithoutPreviousCards
-    .filter(card => card.tier === 2)
-    .map(card => card.id)
-  const tier3AvailableUpgradedNemesisIds = upgradedCardsWithoutPreviousCards
-    .filter(card => card.tier === 3)
-    .map(card => card.id)
-
-  const upgradedBasicNemesisCardIds = getUpgradedBasicNemesisIdsByBattleTier({
-    battleTier: nemesisTier,
-    availableTier1Ids: tier1AvailableUpgradedNemesisIds,
-    availableTier2Ids: tier2AvailableUpgradedNemesisIds,
-    availableTier3Ids: tier3AvailableUpgradedNemesisIds,
-  })
-
-  return [...previousUpgradedBasicNemesisCards, ...upgradedBasicNemesisCardIds]
-}
-
-export const createBattle = (config: RollBattleConfig) => {
-  const nemesisIds = config.availableNemeses
-    .filter(
-      nemesis => nemesis.expeditionRating === config.battle.nemesisTier.tier
-    )
-    .map(nemesis => nemesis.id)
-    .filter(nemesisId => !config.previousNemeses.includes(nemesisId))
-
-  const nemesisId = createIdList(
-    nemesisIds,
-    createArrayWithDefaultValues(1, 'EMPTY'),
-    getRandomEntity
-  ).result[0]
-
-  const upgradedBasicNemesisCardIds = config.battle.nemesisTier.isNewTier
-    ? rollNewUpgradedNemesisCards(
-        config.availableUpgradedBasicNemesisCards,
-        config.previousUpgradedBasicNemesisCards,
-        config.battle.nemesisTier.tier
-      )
-    : config.previousUpgradedBasicNemesisCards
-
-  return {
-    battle: { ...config.battle, nemesisId, status: 'before_battle' },
-    upgradedBasicNemesisCardIds,
-  }
-}
 
 const rollNewEntity = (list: string[]): string =>
   createIdList(list, createArrayWithDefaultValues(1, 'EMPTY'), getRandomEntity)

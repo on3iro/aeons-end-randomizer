@@ -29,6 +29,10 @@ export const Reducer: LoopReducer<State, Action> = (
       return reducerHelpers.rollBattle(state, action)
     }
 
+    case ActionTypes.ROLL_BATTLE_SUCCESS: {
+      return reducerHelpers.rollBattleSuccess(state, action)
+    }
+
     case ActionTypes.START_BATTLE: {
       return reducerHelpers.startBattle(state, action)
     }
