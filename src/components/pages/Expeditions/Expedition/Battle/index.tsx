@@ -5,6 +5,7 @@ import { RootState, actions, selectors } from 'Redux/Store'
 import * as types from 'types'
 
 import { useStateModals } from './useStateModals'
+import { handleBattleClick } from './handleBattleClick'
 import BattleWrapper from './BattleWrapper'
 import BattleTile from './BattleTile'
 import BeforeBattle from './BeforeBattle'
@@ -50,7 +51,6 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-// TODO make all of this beautiful ;)
 const Battle = ({
   battle,
   expeditionIsFinished,
@@ -69,57 +69,7 @@ const Battle = ({
     expeditionComplete,
   } = useStateModals()
 
-  const handleClick = useCallback(() => {
-    if (expeditionIsFinished) {
-      expeditionComplete.show()
-    } else {
-      switch (battle.status) {
-        case 'unlocked': {
-          if (!battle.nemesisId) {
-            rollBattle({
-              battle,
-              availableNemeses,
-              availableUpgradedBasicNemesisCards,
-              previousUpgradedBasicNemesisCards: previousUpgradedBasicNemesis,
-              previousNemeses,
-            })
-          }
-          beforeBattle.show()
-          break
-        }
-
-        case 'before_battle': {
-          beforeBattle.show()
-          break
-        }
-
-        case 'started': {
-          battleStarted.show()
-          break
-        }
-
-        case 'lost': {
-          battleLost.show()
-          break
-        }
-
-        case 'won': {
-          battleWon.show()
-          break
-        }
-
-        case 'finished': {
-          // don't do anything
-          break
-        }
-
-        default: {
-          // don't do anything
-          break
-        }
-      }
-    }
-  }, [
+  const clickHandlerConfig = {
     expeditionIsFinished,
     expeditionComplete,
     battle,
@@ -132,6 +82,10 @@ const Battle = ({
     rollBattle,
     previousNemeses,
     previousUpgradedBasicNemesis,
+  }
+
+  const handleClick = useCallback(() => handleBattleClick(clickHandlerConfig), [
+    clickHandlerConfig,
   ])
 
   const battleWonCallback = useCallback(
