@@ -1,13 +1,12 @@
 import React from 'react'
+import List from '@material-ui/core/List'
 
-import { Battle } from '../../../../../types'
+import { Battle } from 'types'
 
-import InfoItem from '../../../../molecules/InfoItem'
+import InfoItem from 'components/molecules/InfoItem'
 
 import BodyWrapper from './BodyWrapper'
 import Name from './Name'
-
-import List from '@material-ui/core/List'
 
 type Props = {
   battle: Battle

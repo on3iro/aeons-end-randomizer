@@ -1,10 +1,10 @@
 import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { Battle } from '../../../../../types'
+import { Battle } from 'types'
 
-import P from '../../../../atoms/P'
-import Tile from '../../../../molecules/Tile'
+import P from 'components/atoms/P'
+import Tile from 'components/molecules/Tile'
 
 import Body from './Body'
 import Locked from './Locked'
