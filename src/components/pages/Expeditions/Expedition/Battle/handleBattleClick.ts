@@ -12,11 +12,7 @@ type Config = {
   battleStarted: ModalType
   battleLost: ModalType
   battleWon: ModalType
-  availableNemeses: any //FIXME
-  availableUpgradedBasicNemesisCards: any //FIXME
   rollBattle: typeof actions.Expeditions.Expeditions.rollBattle
-  previousNemeses: any //FIXME
-  previousUpgradedBasicNemesis: any //FIXME
 }
 
 export const handleBattleClick = ({
@@ -27,11 +23,7 @@ export const handleBattleClick = ({
   battleStarted,
   battleLost,
   battleWon,
-  availableNemeses,
-  availableUpgradedBasicNemesisCards,
   rollBattle,
-  previousNemeses,
-  previousUpgradedBasicNemesis,
 }: Config) => {
   if (expeditionIsFinished) {
     expeditionComplete.show()
@@ -39,13 +31,7 @@ export const handleBattleClick = ({
     switch (battle.status) {
       case 'unlocked': {
         if (!battle.nemesisId) {
-          rollBattle({
-            battle,
-            availableNemeses,
-            availableUpgradedBasicNemesisCards,
-            previousUpgradedBasicNemesisCards: previousUpgradedBasicNemesis,
-            previousNemeses,
-          })
+          rollBattle(battle)
         }
         beforeBattle.show()
         break
