@@ -53,4 +53,6 @@ export const actions = {
     createAction(ActionTypes.FETCH_FROM_DB_SUCCESS, state),
   fetchFromDBFailed: (error: Object) =>
     createAction(ActionTypes.FETCH_FROM_DB_FAILURE, error),
+  migrateToSettingsSnapshotSuccessful: (state: State) =>
+    createAction(ActionTypes.SETTINGS_SNAPSHOT_MIGRATION_SUCCESS, state),
 }
