@@ -26,7 +26,7 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const Body = React.memo(({ expedition, variant }: Props) => (
+const Body = ({ expedition, variant }: Props) => (
   <React.Fragment>
     <Name variant="h6" component="h2">
       {expedition.name || expedition.id}
@@ -41,9 +41,6 @@ const Body = React.memo(({ expedition, variant }: Props) => (
       />
     </List>
   </React.Fragment>
-))
+)
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Body)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Body))

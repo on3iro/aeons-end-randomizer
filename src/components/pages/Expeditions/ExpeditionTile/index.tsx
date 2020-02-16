@@ -24,4 +24,4 @@ const ExpeditionTile = ({ url, expedition, theme }: Props) => (
   </A>
 )
 
-export default withTheme(ExpeditionTile)
+export default withTheme(React.memo(ExpeditionTile))

@@ -59,87 +59,85 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const BattleStarted = React.memo(
-  ({
+const BattleStarted = ({
+  battle,
+  expeditionHasNextBattle,
+  gemIds,
+  hide,
+  loseBattle,
+  relicIds,
+  showNextOnLoss,
+  showNextOnWin,
+  spellIds,
+  treasureIdsByTier,
+  winBattle,
+  finishExpedition,
+}: Props) => {
+  const handleWin = useCallback(() => {
+    hide()
+    if (expeditionHasNextBattle) {
+      winBattle({
+        battle,
+        treasureIds: treasureIdsByTier,
+        gemIds,
+        relicIds,
+        spellIds,
+      })
+    } else {
+      finishExpedition(battle)
+    }
+
+    if (showNextOnWin) {
+      showNextOnWin(!expeditionHasNextBattle)
+    }
+  }, [
     battle,
     expeditionHasNextBattle,
+    finishExpedition,
     gemIds,
     hide,
-    loseBattle,
     relicIds,
-    showNextOnLoss,
     showNextOnWin,
     spellIds,
     treasureIdsByTier,
     winBattle,
-    finishExpedition,
-  }: Props) => {
-    const handleWin = useCallback(() => {
-      hide()
-      if (expeditionHasNextBattle) {
-        winBattle({
-          battle,
-          treasureIds: treasureIdsByTier,
-          gemIds,
-          relicIds,
-          spellIds,
-        })
-      } else {
-        finishExpedition(battle)
-      }
+  ])
 
-      if (showNextOnWin) {
-        showNextOnWin(!expeditionHasNextBattle)
-      }
-    }, [
-      battle,
-      expeditionHasNextBattle,
-      finishExpedition,
-      gemIds,
-      hide,
-      relicIds,
-      showNextOnWin,
-      spellIds,
-      treasureIdsByTier,
-      winBattle,
-    ])
+  const handleLoss = useCallback(() => {
+    hide()
+    loseBattle(battle)
 
-    const handleLoss = useCallback(() => {
-      hide()
-      loseBattle(battle)
+    if (showNextOnLoss) {
+      showNextOnLoss()
+    }
+  }, [loseBattle, hide, battle, showNextOnLoss])
 
-      if (showNextOnLoss) {
-        showNextOnLoss()
-      }
-    }, [loseBattle, hide, battle, showNextOnLoss])
-
-    return (
-      <React.Fragment>
-        <ModalBodyWrapper hasFooter={true} />
-        <ModalFooterWrapper>
-          <Button
-            size="small"
-            variant="contained"
-            color="secondary"
-            onClick={handleLoss}
-          >
-            Battle lost
-          </Button>
-          <Button
-            size="small"
-            variant="contained"
-            color="primary"
-            onClick={handleWin}
-          >
-            Battle won
-          </Button>
-        </ModalFooterWrapper>
-      </React.Fragment>
-    )
-  }
-)
+  return (
+    <React.Fragment>
+      <ModalBodyWrapper hasFooter={true} />
+      <ModalFooterWrapper>
+        <Button
+          size="small"
+          variant="contained"
+          color="secondary"
+          onClick={handleLoss}
+        >
+          Battle lost
+        </Button>
+        <Button
+          size="small"
+          variant="contained"
+          color="primary"
+          onClick={handleWin}
+        >
+          Battle won
+        </Button>
+      </ModalFooterWrapper>
+    </React.Fragment>
+  )
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BattleStarted)
+)(React.memo(BattleStarted))
