@@ -10,13 +10,13 @@ type Props = {
   score: number
 }
 
-const Header = React.memo(({ title, score }: Props) => (
+const Header = ({ title, score }: Props) => (
   <Wrapper>
     <H2>Expedition {title}</H2>
     <P>
       <b>Current Score:</b> {score}
     </P>
   </Wrapper>
-))
+)
 
-export default Header
+export default React.memo(Header)

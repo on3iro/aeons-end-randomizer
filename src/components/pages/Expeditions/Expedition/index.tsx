@@ -39,7 +39,7 @@ type Props = ReturnType<typeof mapStateToProps> &
     id: string
   }
 
-const Expedition = React.memo(({ expedition }: Props) => {
+const Expedition = ({ expedition }: Props) => {
   const isLoading = !expedition
 
   if (isLoading) {
@@ -74,11 +74,9 @@ const Expedition = React.memo(({ expedition }: Props) => {
       <Barracks expedition={expedition} />
     </React.Fragment>
   )
-})
-
-Expedition.displayName = 'Expedition'
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Expedition)
+)(React.memo(Expedition))

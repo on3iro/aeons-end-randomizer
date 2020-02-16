@@ -15,19 +15,15 @@ type Props = {
   expanded: boolean | string
 }
 
-const Mages = React.memo(
-  ({ mages, expansionKey, expansionHandler, expanded }: Props) => (
-    <ExpansionPanel
-      summary="Mages"
-      expansionKey={expansionKey}
-      expansionHandler={expansionHandler}
-      expanded={expanded}
-    >
-      <MageList mages={mages} />
-    </ExpansionPanel>
-  )
+const Mages = ({ mages, expansionKey, expansionHandler, expanded }: Props) => (
+  <ExpansionPanel
+    summary="Mages"
+    expansionKey={expansionKey}
+    expansionHandler={expansionHandler}
+    expanded={expanded}
+  >
+    <MageList mages={mages} />
+  </ExpansionPanel>
 )
 
-Mages.displayName = 'Mages'
-
-export default Mages
+export default React.memo(Mages)

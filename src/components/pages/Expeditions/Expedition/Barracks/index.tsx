@@ -11,7 +11,7 @@ type Props = {
   expedition: types.Expedition
 }
 
-const Barracks = React.memo(({ expedition }: Props) => {
+const Barracks = ({ expedition }: Props) => {
   const { show, RenderModal } = useModal()
 
   return (
@@ -24,6 +24,6 @@ const Barracks = React.memo(({ expedition }: Props) => {
       </ShuffleButton>
     </React.Fragment>
   )
-})
+}
 
-export default Barracks
+export default React.memo(Barracks)
