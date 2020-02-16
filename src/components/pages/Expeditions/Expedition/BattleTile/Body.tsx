@@ -14,7 +14,7 @@ type Props = {
   nemesis: string
 }
 
-const Body = React.memo(({ battle, nemesis }: Props) => (
+const Body = ({ battle, nemesis }: Props) => (
   <BodyWrapper status={battle.status}>
     <Name variant="h6" component="h2">
       Battle: {nemesis}
@@ -25,6 +25,6 @@ const Body = React.memo(({ battle, nemesis }: Props) => (
       <InfoItem label="Tries" info={battle.tries.toString()} />
     </List>
   </BodyWrapper>
-))
+)
 
-export default Body
+export default React.memo(Body)

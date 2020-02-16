@@ -30,7 +30,7 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const ExpeditionFinished = React.memo(({ hide, expedition }: Props) => {
+const ExpeditionFinished = ({ hide, expedition }: Props) => {
   const handleFinish = useCallback(() => {
     hide()
   }, [hide])
@@ -53,9 +53,9 @@ const ExpeditionFinished = React.memo(({ hide, expedition }: Props) => {
       </ModalFooterWrapper>
     </React.Fragment>
   )
-})
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ExpeditionFinished)
+)(React.memo(ExpeditionFinished))

@@ -89,112 +89,109 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const BattleWon = React.memo(
-  ({
-    battle,
-    expedition,
-    finishBattle,
-    hide,
-    newSupplyCards,
-    showNext,
-    treasures,
-    listsWithVisualSelection,
-  }: Props) => {
-    const [listsWithSelectionState, updateLists] = useState<
-      Array<ListWithSelection>
-    >(listsWithVisualSelection)
-    const [selectedCardsCount, updateSelectedCardsCount] = useState(0)
+const BattleWon = ({
+  battle,
+  expedition,
+  finishBattle,
+  hide,
+  newSupplyCards,
+  showNext,
+  treasures,
+  listsWithVisualSelection,
+}: Props) => {
+  const [listsWithSelectionState, updateLists] = useState<
+    Array<ListWithSelection>
+  >(listsWithVisualSelection)
+  const [selectedCardsCount, updateSelectedCardsCount] = useState(0)
 
-    const amountOfCardsToSelect = newSupplyCards.length
-    const enoughCardsSelected = selectedCardsCount === amountOfCardsToSelect
-    const finishingIsPossible =
-      expedition.bigPocketVariant || enoughCardsSelected
+  const amountOfCardsToSelect = newSupplyCards.length
+  const enoughCardsSelected = selectedCardsCount === amountOfCardsToSelect
+  const finishingIsPossible = expedition.bigPocketVariant || enoughCardsSelected
 
-    const handleSelection = useCallback(
-      (selectedValue: { supplyCardId: string; listId: string }) => {
-        const { affectedList, affectedListIndex } = getAffectedList(
-          listsWithSelectionState,
-          selectedValue
+  const handleSelection = useCallback(
+    (selectedValue: { supplyCardId: string; listId: string }) => {
+      const { affectedList, affectedListIndex } = getAffectedList(
+        listsWithSelectionState,
+        selectedValue
+      )
+
+      if (affectedList) {
+        const updatedLists = createUpdatedLists(
+          affectedList,
+          affectedListIndex,
+          selectedValue,
+          finishingIsPossible,
+          listsWithSelectionState
         )
 
-        if (affectedList) {
-          const updatedLists = createUpdatedLists(
-            affectedList,
-            affectedListIndex,
-            selectedValue,
-            finishingIsPossible,
-            listsWithSelectionState
-          )
+        const numberOfSelectedCards = calculateNumberOfSelectedCards(
+          updatedLists
+        )
 
-          const numberOfSelectedCards = calculateNumberOfSelectedCards(
-            updatedLists
-          )
-
-          updateSelectedCardsCount(numberOfSelectedCards)
-          updateLists(updatedLists)
-        }
-      },
-      [
-        listsWithSelectionState,
-        updateLists,
-        updateSelectedCardsCount,
-        finishingIsPossible,
-      ]
-    )
-
-    const handleFinish = useCallback(() => {
-      const listFlattendedToTiles = listsWithSelectionState.reduce(
-        (acc: any, list) => {
-          return [...acc, ...list.tiles]
-        },
-        []
-      )
-
-      const { banished, newSupplyIds } = createBanishedAndSupplyFromList(
-        listFlattendedToTiles
-      )
-
-      finishBattle(battle, newSupplyIds, banished)
-      hide()
-
-      if (showNext) {
-        showNext()
+        updateSelectedCardsCount(numberOfSelectedCards)
+        updateLists(updatedLists)
       }
-    }, [battle, hide, finishBattle, showNext, listsWithSelectionState])
+    },
+    [
+      listsWithSelectionState,
+      updateLists,
+      updateSelectedCardsCount,
+      finishingIsPossible,
+    ]
+  )
 
-    return (
-      <React.Fragment>
-        <ModalBodyWrapper hasFooter={true}>
-          {expedition.bigPocketVariant ? (
-            <SupplyList tiles={newSupplyCards} />
-          ) : (
-            <SupplySelection
-              lists={listsWithSelectionState}
-              handleSelection={handleSelection}
-              amountOfCardsToSelect={amountOfCardsToSelect}
-              selectedCardsCount={selectedCardsCount}
-            />
-          )}
-          {treasures && <SectionHeadline>Treasures</SectionHeadline>}
-          <TreasureList treasures={treasures} />
-        </ModalBodyWrapper>
-        <ModalFooterWrapper>
-          <Button
-            size="small"
-            variant="contained"
-            color="primary"
-            onClick={handleFinish}
-            disabled={!finishingIsPossible}
-          >
-            Unlock next battle
-          </Button>
-        </ModalFooterWrapper>
-      </React.Fragment>
+  const handleFinish = useCallback(() => {
+    const listFlattendedToTiles = listsWithSelectionState.reduce(
+      (acc: any, list) => {
+        return [...acc, ...list.tiles]
+      },
+      []
     )
-  }
-)
+
+    const { banished, newSupplyIds } = createBanishedAndSupplyFromList(
+      listFlattendedToTiles
+    )
+
+    finishBattle(battle, newSupplyIds, banished)
+    hide()
+
+    if (showNext) {
+      showNext()
+    }
+  }, [battle, hide, finishBattle, showNext, listsWithSelectionState])
+
+  return (
+    <React.Fragment>
+      <ModalBodyWrapper hasFooter={true}>
+        {expedition.bigPocketVariant ? (
+          <SupplyList tiles={newSupplyCards} />
+        ) : (
+          <SupplySelection
+            lists={listsWithSelectionState}
+            handleSelection={handleSelection}
+            amountOfCardsToSelect={amountOfCardsToSelect}
+            selectedCardsCount={selectedCardsCount}
+          />
+        )}
+        {treasures && <SectionHeadline>Treasures</SectionHeadline>}
+        <TreasureList treasures={treasures} />
+      </ModalBodyWrapper>
+      <ModalFooterWrapper>
+        <Button
+          size="small"
+          variant="contained"
+          color="primary"
+          onClick={handleFinish}
+          disabled={!finishingIsPossible}
+        >
+          Unlock next battle
+        </Button>
+      </ModalFooterWrapper>
+    </React.Fragment>
+  )
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BattleWon)
+)(React.memo(BattleWon))

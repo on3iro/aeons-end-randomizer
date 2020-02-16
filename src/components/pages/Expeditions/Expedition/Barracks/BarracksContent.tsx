@@ -46,75 +46,73 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const BarracksContent = React.memo(
-  ({
-    cards,
-    mages,
-    treasures,
-    upgradedBasicNemsisCards,
-    banishedCards,
-  }: Props) => {
-    const { expanded, createExpansionHandler } = useExpandedHandling(mageKey)
+const BarracksContent = ({
+  cards,
+  mages,
+  treasures,
+  upgradedBasicNemsisCards,
+  banishedCards,
+}: Props) => {
+  const { expanded, createExpansionHandler } = useExpandedHandling(mageKey)
 
-    const mageHandler = useMemo(() => createExpansionHandler(mageKey), [
-      createExpansionHandler,
-    ])
+  const mageHandler = useMemo(() => createExpansionHandler(mageKey), [
+    createExpansionHandler,
+  ])
 
-    const supplyHandler = useMemo(() => createExpansionHandler(supplyKey), [
-      createExpansionHandler,
-    ])
+  const supplyHandler = useMemo(() => createExpansionHandler(supplyKey), [
+    createExpansionHandler,
+  ])
 
-    const treasureHandler = useMemo(() => createExpansionHandler(treasureKey), [
-      createExpansionHandler,
-    ])
+  const treasureHandler = useMemo(() => createExpansionHandler(treasureKey), [
+    createExpansionHandler,
+  ])
 
-    const upgradedBasicNemsisCardsHandler = useMemo(
-      () => createExpansionHandler(upgradedBasicNemsisCardsKey),
-      [createExpansionHandler]
-    )
+  const upgradedBasicNemsisCardsHandler = useMemo(
+    () => createExpansionHandler(upgradedBasicNemsisCardsKey),
+    [createExpansionHandler]
+  )
 
-    const banishedHandler = useMemo(() => createExpansionHandler(banishedKey), [
-      createExpansionHandler,
-    ])
+  const banishedHandler = useMemo(() => createExpansionHandler(banishedKey), [
+    createExpansionHandler,
+  ])
 
-    return (
-      <ModalBodyWrapper>
-        <Mages
-          mages={mages}
-          expansionKey={mageKey}
-          expansionHandler={mageHandler}
-          expanded={expanded}
-        />
-        <Supply
-          tiles={cards}
-          expansionKey={supplyKey}
-          expansionHandler={supplyHandler}
-          expanded={expanded}
-        />
-        <Treasure
-          treasures={treasures}
-          expansionKey={treasureKey}
-          expansionHandler={treasureHandler}
-          expanded={expanded}
-        />
-        <UpgradedBasicNemeses
-          upgradedBasicNemsisCards={upgradedBasicNemsisCards}
-          expansionKey={upgradedBasicNemsisCardsKey}
-          expansionHandler={upgradedBasicNemsisCardsHandler}
-          expanded={expanded}
-        />
-        <Banished
-          banishedCards={banishedCards}
-          expansionKey={banishedKey}
-          expansionHandler={banishedHandler}
-          expanded={expanded}
-        />
-      </ModalBodyWrapper>
-    )
-  }
-)
+  return (
+    <ModalBodyWrapper>
+      <Mages
+        mages={mages}
+        expansionKey={mageKey}
+        expansionHandler={mageHandler}
+        expanded={expanded}
+      />
+      <Supply
+        tiles={cards}
+        expansionKey={supplyKey}
+        expansionHandler={supplyHandler}
+        expanded={expanded}
+      />
+      <Treasure
+        treasures={treasures}
+        expansionKey={treasureKey}
+        expansionHandler={treasureHandler}
+        expanded={expanded}
+      />
+      <UpgradedBasicNemeses
+        upgradedBasicNemsisCards={upgradedBasicNemsisCards}
+        expansionKey={upgradedBasicNemsisCardsKey}
+        expansionHandler={upgradedBasicNemsisCardsHandler}
+        expanded={expanded}
+      />
+      <Banished
+        banishedCards={banishedCards}
+        expansionKey={banishedKey}
+        expansionHandler={banishedHandler}
+        expanded={expanded}
+      />
+    </ModalBodyWrapper>
+  )
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BarracksContent)
+)(React.memo(BarracksContent))
