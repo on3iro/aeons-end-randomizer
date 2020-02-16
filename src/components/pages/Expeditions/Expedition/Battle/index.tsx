@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions, selectors } from '../../../../Redux/Store'
-import * as types from '../../../../types'
-import { useModal } from '../../../../hooks/useModal'
+import { RootState, actions, selectors } from 'Redux/Store'
+import * as types from 'types'
+import { useModal } from 'hooks/useModal'
 
 import BattleWrapper from './BattleWrapper'
 import BattleTile from './BattleTile'

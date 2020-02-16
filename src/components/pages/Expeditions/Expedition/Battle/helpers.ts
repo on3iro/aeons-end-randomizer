@@ -1,5 +1,5 @@
-import * as types from '../../../../types'
-import { byCost } from '../../../../helpers'
+import * as types from 'types'
+import { byCost } from 'helpers'
 
 type Tile = {
   id: string

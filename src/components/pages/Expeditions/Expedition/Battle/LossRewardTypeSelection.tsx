@@ -2,8 +2,8 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 import MenuItem from '@material-ui/core/MenuItem'
 
-import FormControl from '../FormControl'
-import Select from '../Select'
+import FormControl from '../../FormControl'
+import Select from '../../Select'
 
 import { RollLossType } from 'Redux/Store/Expeditions/Expeditions/'
 
