@@ -1,0 +1,391 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getRandomBasicNemesisCardsByTier() should handle four players tier 1 1`] = `
+Array [
+  Object {
+    "id": "minion3",
+    "tier": 1,
+    "type": "Minion",
+  },
+  Object {
+    "id": "minion1",
+    "tier": 1,
+    "type": "Minion",
+  },
+  Object {
+    "id": "attack3",
+    "tier": 1,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power3",
+    "tier": 1,
+    "type": "Power",
+  },
+  Object {
+    "id": "attack2",
+    "tier": 1,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power1",
+    "tier": 1,
+    "type": "Power",
+  },
+  Object {
+    "id": "power2",
+    "tier": 1,
+    "type": "Power",
+  },
+  Object {
+    "id": "attack1",
+    "tier": 1,
+    "type": "Attack",
+  },
+]
+`;
+
+exports[`getRandomBasicNemesisCardsByTier() should handle four players tier 2 1`] = `
+Array [
+  Object {
+    "id": "minion6",
+    "tier": 2,
+    "type": "Minion",
+  },
+  Object {
+    "id": "minion4",
+    "tier": 2,
+    "type": "Minion",
+  },
+  Object {
+    "id": "attack6",
+    "tier": 2,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power6",
+    "tier": 2,
+    "type": "Power",
+  },
+  Object {
+    "id": "attack5",
+    "tier": 2,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power4",
+    "tier": 2,
+    "type": "Power",
+  },
+  Object {
+    "id": "power5",
+    "tier": 2,
+    "type": "Power",
+  },
+]
+`;
+
+exports[`getRandomBasicNemesisCardsByTier() should handle four players tier 3 1`] = `
+Array [
+  Object {
+    "id": "minion9",
+    "tier": 3,
+    "type": "Minion",
+  },
+  Object {
+    "id": "minion7",
+    "tier": 3,
+    "type": "Minion",
+  },
+  Object {
+    "id": "attack9",
+    "tier": 3,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power9",
+    "tier": 3,
+    "type": "Power",
+  },
+  Object {
+    "id": "attack8",
+    "tier": 3,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power7",
+    "tier": 3,
+    "type": "Power",
+  },
+  Object {
+    "id": "power8",
+    "tier": 3,
+    "type": "Power",
+  },
+]
+`;
+
+exports[`getRandomBasicNemesisCardsByTier() should handle one player tier 1 1`] = `
+Array [
+  Object {
+    "id": "minion3",
+    "tier": 1,
+    "type": "Minion",
+  },
+]
+`;
+
+exports[`getRandomBasicNemesisCardsByTier() should handle one player tier 2 1`] = `
+Array [
+  Object {
+    "id": "minion6",
+    "tier": 2,
+    "type": "Minion",
+  },
+  Object {
+    "id": "attack6",
+    "tier": 2,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power6",
+    "tier": 2,
+    "type": "Power",
+  },
+]
+`;
+
+exports[`getRandomBasicNemesisCardsByTier() should handle one player tier 3 1`] = `
+Array [
+  Object {
+    "id": "minion9",
+    "tier": 3,
+    "type": "Minion",
+  },
+  Object {
+    "id": "attack9",
+    "tier": 3,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power9",
+    "tier": 3,
+    "type": "Power",
+  },
+  Object {
+    "id": "attack8",
+    "tier": 3,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power7",
+    "tier": 3,
+    "type": "Power",
+  },
+  Object {
+    "id": "power8",
+    "tier": 3,
+    "type": "Power",
+  },
+  Object {
+    "id": "attack7",
+    "tier": 3,
+    "type": "Attack",
+  },
+]
+`;
+
+exports[`getRandomBasicNemesisCardsByTier() should handle three players tier 1 1`] = `
+Array [
+  Object {
+    "id": "minion3",
+    "tier": 1,
+    "type": "Minion",
+  },
+  Object {
+    "id": "minion1",
+    "tier": 1,
+    "type": "Minion",
+  },
+  Object {
+    "id": "attack3",
+    "tier": 1,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power3",
+    "tier": 1,
+    "type": "Power",
+  },
+  Object {
+    "id": "attack2",
+    "tier": 1,
+    "type": "Attack",
+  },
+]
+`;
+
+exports[`getRandomBasicNemesisCardsByTier() should handle three players tier 2 1`] = `
+Array [
+  Object {
+    "id": "minion6",
+    "tier": 2,
+    "type": "Minion",
+  },
+  Object {
+    "id": "minion4",
+    "tier": 2,
+    "type": "Minion",
+  },
+  Object {
+    "id": "attack6",
+    "tier": 2,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power6",
+    "tier": 2,
+    "type": "Power",
+  },
+  Object {
+    "id": "attack5",
+    "tier": 2,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power4",
+    "tier": 2,
+    "type": "Power",
+  },
+]
+`;
+
+exports[`getRandomBasicNemesisCardsByTier() should handle three players tier 3 1`] = `
+Array [
+  Object {
+    "id": "minion9",
+    "tier": 3,
+    "type": "Minion",
+  },
+  Object {
+    "id": "minion7",
+    "tier": 3,
+    "type": "Minion",
+  },
+  Object {
+    "id": "attack9",
+    "tier": 3,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power9",
+    "tier": 3,
+    "type": "Power",
+  },
+  Object {
+    "id": "attack8",
+    "tier": 3,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power7",
+    "tier": 3,
+    "type": "Power",
+  },
+  Object {
+    "id": "power8",
+    "tier": 3,
+    "type": "Power",
+  },
+]
+`;
+
+exports[`getRandomBasicNemesisCardsByTier() should handle two players tier 1 1`] = `
+Array [
+  Object {
+    "id": "minion3",
+    "tier": 1,
+    "type": "Minion",
+  },
+  Object {
+    "id": "minion1",
+    "tier": 1,
+    "type": "Minion",
+  },
+  Object {
+    "id": "attack3",
+    "tier": 1,
+    "type": "Attack",
+  },
+]
+`;
+
+exports[`getRandomBasicNemesisCardsByTier() should handle two players tier 2 1`] = `
+Array [
+  Object {
+    "id": "minion6",
+    "tier": 2,
+    "type": "Minion",
+  },
+  Object {
+    "id": "minion4",
+    "tier": 2,
+    "type": "Minion",
+  },
+  Object {
+    "id": "attack6",
+    "tier": 2,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power6",
+    "tier": 2,
+    "type": "Power",
+  },
+  Object {
+    "id": "attack5",
+    "tier": 2,
+    "type": "Attack",
+  },
+]
+`;
+
+exports[`getRandomBasicNemesisCardsByTier() should handle two players tier 3 1`] = `
+Array [
+  Object {
+    "id": "minion9",
+    "tier": 3,
+    "type": "Minion",
+  },
+  Object {
+    "id": "minion7",
+    "tier": 3,
+    "type": "Minion",
+  },
+  Object {
+    "id": "attack9",
+    "tier": 3,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power9",
+    "tier": 3,
+    "type": "Power",
+  },
+  Object {
+    "id": "attack8",
+    "tier": 3,
+    "type": "Attack",
+  },
+  Object {
+    "id": "power7",
+    "tier": 3,
+    "type": "Power",
+  },
+  Object {
+    "id": "power8",
+    "tier": 3,
+    "type": "Power",
+  },
+]
+`;
