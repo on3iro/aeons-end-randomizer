@@ -1,15 +1,14 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
-import Button from '@material-ui/core/Button'
 
 import { RootState, selectors } from 'Redux/Store'
 import * as types from 'types'
 
-import InfoItem from 'components/molecules/InfoItem'
-
-import P from 'components/atoms/P'
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
+
+import WinOverview from './WinOverview'
+import FinishExpeditionButton from './FinishExpeditionButton'
 
 type OwnProps = {
   battle: types.Battle
@@ -38,18 +37,10 @@ const ExpeditionFinished = ({ hide, expedition }: Props) => {
   return (
     <React.Fragment>
       <ModalBodyWrapper>
-        <P>You defeated all nemeses. New Gravehold is safe... for now.</P>
-        <InfoItem label="Score" info={expedition.score.toString()} />
+        <WinOverview info={expedition.score.toString()} />
       </ModalBodyWrapper>
       <ModalFooterWrapper>
-        <Button
-          onClick={handleFinish}
-          size="small"
-          variant="contained"
-          color="primary"
-        >
-          Finish Expedition
-        </Button>
+        <FinishExpeditionButton handleFinish={handleFinish} />
       </ModalFooterWrapper>
     </React.Fragment>
   )
