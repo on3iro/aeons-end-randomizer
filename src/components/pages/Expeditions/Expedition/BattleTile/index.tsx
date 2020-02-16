@@ -49,4 +49,4 @@ const ExpeditionTile = ({ battle, nemesis, theme }: Props) => (
   />
 )
 
-export default withTheme(ExpeditionTile)
+export default withTheme(React.memo(ExpeditionTile))
