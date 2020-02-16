@@ -1,6 +1,9 @@
 import React, { useCallback } from 'react'
 
+import { useModal } from 'hooks/useModal'
+
 import CheckboxWithDetails from 'components/molecules/CheckboxWithDetails'
+import TreasureModal from 'components/molecules/TreasureModal'
 
 import { SelectedCard, ChangeHandler } from './index'
 
@@ -11,12 +14,18 @@ const Checkbox = ({
   card: SelectedCard
   changeHandler: ChangeHandler
 }) => {
+  const { show, RenderModal } = useModal()
+
   const handleChange = useCallback(
     (id: string) => {
       changeHandler(id)
     },
     [changeHandler]
   )
+
+  const handleDetails = useCallback(() => {
+    show()
+  }, [show])
 
   return (
     <React.Fragment>
@@ -25,10 +34,9 @@ const Checkbox = ({
         checked={card.selected}
         label={card.name}
         changeHandler={handleChange}
-        showDetails={() => {
-          return
-        }}
+        showDetails={handleDetails}
       />
+      <TreasureModal card={card} RenderModal={RenderModal} />
     </React.Fragment>
   )
 }
