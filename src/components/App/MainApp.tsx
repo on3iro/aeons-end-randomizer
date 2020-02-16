@@ -34,6 +34,10 @@ const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
       <Content isLoading={isLoading} />
       <Switch>
         <Route path="/randomizer/nemesis" render={() => <BottomNavigation />} />
+        <Route
+          path="/randomizer/basic-nemesis-cards"
+          render={() => <BottomNavigation />}
+        />
         <Route path="/randomizer/mages" render={() => <BottomNavigation />} />
         <Route path="/randomizer/supply" render={() => <BottomNavigation />} />
       </Switch>
