@@ -1,18 +1,11 @@
 import React, { useCallback, useState } from 'react'
 import { connect } from 'react-redux'
 
-import Button from '@material-ui/core/Button'
-
 import { RootState, actions, selectors } from 'Redux/Store'
 import * as types from 'types'
 
-import TreasureList from 'components/molecules/TreasureList'
-import SupplySelection from 'components/molecules/SupplySelection'
-import SupplyList from 'components/molecules/SupplyList'
-
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
-import SectionHeadline from 'components/atoms/SectionHeadline'
 
 import {
   createUpdatedLists,
@@ -20,7 +13,11 @@ import {
   ListWithSelection,
   calculateNumberOfSelectedCards,
   createBanishedAndSupplyFromList,
-} from './helpers'
+} from '../helpers'
+
+import SupplyReward from './SupplyReward'
+import TreasureReward from './TreasureReward'
+import UnlockNextButton from './UnlockNextButton'
 
 type OwnProps = {
   battle: types.Battle
@@ -163,29 +160,21 @@ const BattleWon = ({
   return (
     <React.Fragment>
       <ModalBodyWrapper hasFooter={true}>
-        {expedition.bigPocketVariant ? (
-          <SupplyList tiles={newSupplyCards} />
-        ) : (
-          <SupplySelection
-            lists={listsWithSelectionState}
-            handleSelection={handleSelection}
-            amountOfCardsToSelect={amountOfCardsToSelect}
-            selectedCardsCount={selectedCardsCount}
-          />
-        )}
-        {treasures && <SectionHeadline>Treasures</SectionHeadline>}
-        <TreasureList treasures={treasures} />
+        <SupplyReward
+          bigPocketVariant={expedition.bigPocketVariant}
+          newSupplyCards={newSupplyCards}
+          listsWithSelectionState={listsWithSelectionState}
+          handleSelection={handleSelection}
+          amountOfCardsToSelect={amountOfCardsToSelect}
+          selectedCardsCount={selectedCardsCount}
+        />
+        <TreasureReward treasures={treasures} />
       </ModalBodyWrapper>
       <ModalFooterWrapper>
-        <Button
-          size="small"
-          variant="contained"
-          color="primary"
-          onClick={handleFinish}
-          disabled={!finishingIsPossible}
-        >
-          Unlock next battle
-        </Button>
+        <UnlockNextButton
+          handleFinish={handleFinish}
+          finishingIsPossible={finishingIsPossible}
+        />
       </ModalFooterWrapper>
     </React.Fragment>
   )

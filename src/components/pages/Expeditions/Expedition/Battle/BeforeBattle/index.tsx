@@ -1,17 +1,13 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
-import Button from '@material-ui/core/Button'
 
 import { RootState, actions, selectors } from 'Redux/Store'
 import * as types from 'types'
 
-import UpgradedBasicNemesisCardList from 'components/molecules/UpgradedBasicNemesisCardList'
-import NemesisInformation from 'components/molecules/NemesisInformation'
-
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
-import InfoItem from 'components/molecules/InfoItem'
-import SectionHeadline from 'components/atoms/SectionHeadline'
+import BattleOverview from 'components/pages/Expeditions/Expedition/Battle/BeforeBattle/BattleOverview'
+import StartBattleButton from 'components/pages/Expeditions/Expedition/Battle/BeforeBattle/StartBattleButton'
 
 type OwnProps = {
   hide: () => void
@@ -55,22 +51,14 @@ const BeforeBattle = ({
   return (
     <React.Fragment>
       <ModalBodyWrapper hasFooter={true}>
-        <InfoItem label="Tries" info={battle.tries.toString()} />
-        <SectionHeadline>{nemesis ? nemesis.name : 'Nemesis'}</SectionHeadline>
-        <NemesisInformation nemesis={nemesis} />
-        <UpgradedBasicNemesisCardList
+        <BattleOverview
+          info={battle.tries.toString()}
+          nemesis={nemesis}
           upgradedBasicNemsisCards={upgradedBasicNemsisCards}
         />
       </ModalBodyWrapper>
       <ModalFooterWrapper>
-        <Button
-          size="small"
-          variant="contained"
-          color="primary"
-          onClick={handleClick}
-        >
-          Start battle
-        </Button>
+        <StartBattleButton handleClick={handleClick} />
       </ModalFooterWrapper>
     </React.Fragment>
   )

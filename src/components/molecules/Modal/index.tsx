@@ -18,32 +18,30 @@ type Props = {
   closeModal: () => void
 }
 
-const Modal = React.memo(
-  ({ titleColor, titleLabel, children, closeModal }: Props) => {
-    const domEl = document.getElementById('modal-root')
+const Modal = ({ titleColor, titleLabel, children, closeModal }: Props) => {
+  const domEl = document.getElementById('modal-root')
 
-    if (!domEl) return null
+  if (!domEl) return null
 
-    return ReactDOM.createPortal(
-      <React.Fragment>
-        <Wrapper>
-          <Backdrop onClick={closeModal} />
-          <Content>
-            <Header>
-              <Title variant="h1" themeColor={titleColor}>
-                {titleLabel}
-              </Title>
-              <CloseButton onClick={closeModal}>
-                <CloseIcon />
-              </CloseButton>
-            </Header>
-            <Body>{children}</Body>
-          </Content>
-        </Wrapper>
-      </React.Fragment>,
-      domEl
-    )
-  }
-)
+  return ReactDOM.createPortal(
+    <React.Fragment>
+      <Wrapper>
+        <Backdrop onClick={closeModal} />
+        <Content>
+          <Header>
+            <Title variant="h1" themeColor={titleColor}>
+              {titleLabel}
+            </Title>
+            <CloseButton onClick={closeModal}>
+              <CloseIcon />
+            </CloseButton>
+          </Header>
+          <Body>{children}</Body>
+        </Content>
+      </Wrapper>
+    </React.Fragment>,
+    domEl
+  )
+}
 
-export default Modal
+export default React.memo(Modal)
