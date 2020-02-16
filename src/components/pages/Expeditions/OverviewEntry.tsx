@@ -15,7 +15,7 @@ type Props = {
   deleteHandler: (id: string) => void
 }
 
-const OverviewEntry = React.memo(({ expedition, deleteHandler }: Props) => {
+const OverviewEntry = ({ expedition, deleteHandler }: Props) => {
   const { show, hide, RenderPrompt } = usePrompt()
   const url = `/expeditions/${expedition.id}`
   const openDeletionDialog = () => {
@@ -44,6 +44,6 @@ const OverviewEntry = React.memo(({ expedition, deleteHandler }: Props) => {
       </RenderPrompt>
     </React.Fragment>
   )
-})
+}
 
-export default OverviewEntry
+export default React.memo(OverviewEntry)

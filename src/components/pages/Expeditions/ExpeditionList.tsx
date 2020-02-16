@@ -33,7 +33,7 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const ExpeditionList = React.memo(({ expeditions, deleteHandler }: Props) => {
+const ExpeditionList = ({ expeditions, deleteHandler }: Props) => {
   return (
     <React.Fragment>
       {expeditions.length > 0 ? (
@@ -43,9 +43,9 @@ const ExpeditionList = React.memo(({ expeditions, deleteHandler }: Props) => {
       )}
     </React.Fragment>
   )
-})
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ExpeditionList)
+)(React.memo(ExpeditionList))

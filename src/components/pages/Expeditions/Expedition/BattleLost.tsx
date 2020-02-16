@@ -128,151 +128,149 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const BattleLost = React.memo(
-  ({
-    battle,
-    hide,
-    acceptLoss,
-    showNext,
-    rollLoss,
-    dataConfig,
-    expedition,
-    treasures,
-    lists,
-    newSupplyCards,
-    newMage,
-  }: Props) => {
-    const [rewardSelectValue, updateRewardSelectValue] = useState<RollLossType>(
-      'mage'
-    )
+const BattleLost = ({
+  battle,
+  hide,
+  acceptLoss,
+  showNext,
+  rollLoss,
+  dataConfig,
+  expedition,
+  treasures,
+  lists,
+  newSupplyCards,
+  newMage,
+}: Props) => {
+  const [rewardSelectValue, updateRewardSelectValue] = useState<RollLossType>(
+    'mage'
+  )
 
-    const handleRewardSelectChange = useCallback(
-      (e: React.ChangeEvent<HTMLSelectElement>, child: any) => {
-        updateRewardSelectValue(e.target.value as RollLossType)
-      },
-      [updateRewardSelectValue]
-    )
+  const handleRewardSelectChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>, child: any) => {
+      updateRewardSelectValue(e.target.value as RollLossType)
+    },
+    [updateRewardSelectValue]
+  )
 
-    const handleRewardConfirmation = useCallback(() => {
-      const config = {
-        type: rewardSelectValue as RollLossType, // FIXME we should try to get it typesafe instead of casting
-        battle,
-        ...dataConfig,
-      }
+  const handleRewardConfirmation = useCallback(() => {
+    const config = {
+      type: rewardSelectValue as RollLossType, // FIXME we should try to get it typesafe instead of casting
+      battle,
+      ...dataConfig,
+    }
 
-      rollLoss(config)
-    }, [rewardSelectValue, battle, rollLoss, dataConfig])
+    rollLoss(config)
+  }, [rewardSelectValue, battle, rollLoss, dataConfig])
 
-    const [listsWithSelectionState, updateLists] = useState<
-      Array<helpers.ListWithSelection>
-    >(lists)
-    const [selectedCardsCount, updateSelectedCardsCount] = useState(0)
-    const amountOfCardsToSelect = newSupplyCards.length
-    const enoughCardsSelected = selectedCardsCount === amountOfCardsToSelect
-    const finishingIsPossible =
-      expedition.bigPocketVariant ||
-      enoughCardsSelected ||
-      !!newMage ||
-      treasures.length > 0
+  const [listsWithSelectionState, updateLists] = useState<
+    Array<helpers.ListWithSelection>
+  >(lists)
+  const [selectedCardsCount, updateSelectedCardsCount] = useState(0)
+  const amountOfCardsToSelect = newSupplyCards.length
+  const enoughCardsSelected = selectedCardsCount === amountOfCardsToSelect
+  const finishingIsPossible =
+    expedition.bigPocketVariant ||
+    enoughCardsSelected ||
+    !!newMage ||
+    treasures.length > 0
 
-    const handleSelection = useCallback(
-      (selectedValue: { supplyCardId: string; listId: string }) => {
-        const { affectedList, affectedListIndex } = helpers.getAffectedList(
-          listsWithSelectionState,
-          selectedValue
-        )
-
-        if (affectedList) {
-          const updatedLists = helpers.createUpdatedLists(
-            affectedList,
-            affectedListIndex,
-            selectedValue,
-            finishingIsPossible,
-            listsWithSelectionState
-          )
-
-          const numberOfSelectedCards = helpers.calculateNumberOfSelectedCards(
-            updatedLists
-          )
-
-          updateSelectedCardsCount(numberOfSelectedCards)
-          updateLists(updatedLists)
-        }
-      },
-      [
+  const handleSelection = useCallback(
+    (selectedValue: { supplyCardId: string; listId: string }) => {
+      const { affectedList, affectedListIndex } = helpers.getAffectedList(
         listsWithSelectionState,
-        updateLists,
-        updateSelectedCardsCount,
-        finishingIsPossible,
-      ]
-    )
-
-    const handleContinue = useCallback(() => {
-      const listFlattendedToTiles = listsWithSelectionState.reduce(
-        (acc: any, list) => {
-          return [...acc, ...list.tiles]
-        },
-        []
+        selectedValue
       )
 
-      const {
-        banished,
-        newSupplyIds,
-      } = helpers.createBanishedAndSupplyFromList(listFlattendedToTiles)
+      if (affectedList) {
+        const updatedLists = helpers.createUpdatedLists(
+          affectedList,
+          affectedListIndex,
+          selectedValue,
+          finishingIsPossible,
+          listsWithSelectionState
+        )
 
-      acceptLoss(battle, banished, newSupplyIds)
-      hide()
+        const numberOfSelectedCards = helpers.calculateNumberOfSelectedCards(
+          updatedLists
+        )
 
-      if (showNext) {
-        showNext()
+        updateSelectedCardsCount(numberOfSelectedCards)
+        updateLists(updatedLists)
       }
-    }, [hide, battle, acceptLoss, showNext, listsWithSelectionState])
+    },
+    [
+      listsWithSelectionState,
+      updateLists,
+      updateSelectedCardsCount,
+      finishingIsPossible,
+    ]
+  )
 
-    return (
-      <React.Fragment>
-        {!battle.rewards ? (
-          <LossRewardTypeSelection
-            tier={battle.nemesisTier.tier}
-            rewardSelectValue={rewardSelectValue}
-            handleRewardSelectChange={handleRewardSelectChange}
-            handleRewardConfirmation={handleRewardConfirmation}
-          />
-        ) : (
-          <React.Fragment>
-            <ModalBodyWrapper hasFooter={true}>
-              {newSupplyCards.length > 0 && !expedition.bigPocketVariant ? (
-                <SupplySelection
-                  lists={listsWithSelectionState}
-                  handleSelection={handleSelection}
-                  amountOfCardsToSelect={amountOfCardsToSelect}
-                  selectedCardsCount={selectedCardsCount}
-                />
-              ) : (
-                newSupplyCards.length > 0 && (
-                  <MarketTile marketTile={newSupplyCards[0]} />
-                )
-              )}
-              {treasures.length > 0 && <TreasureList treasures={treasures} />}
-              {newMage && <MageTile mage={newMage} playerNumber={1} />}
-            </ModalBodyWrapper>
-            <ModalFooterWrapper>
-              <Button
-                size="small"
-                variant="contained"
-                color="primary"
-                onClick={handleContinue}
-                disabled={!finishingIsPossible}
-              >
-                Continue
-              </Button>
-            </ModalFooterWrapper>
-          </React.Fragment>
-        )}
-      </React.Fragment>
+  const handleContinue = useCallback(() => {
+    const listFlattendedToTiles = listsWithSelectionState.reduce(
+      (acc: any, list) => {
+        return [...acc, ...list.tiles]
+      },
+      []
     )
-  }
-)
 
-BattleLost.displayName = 'BattleLost'
+    const { banished, newSupplyIds } = helpers.createBanishedAndSupplyFromList(
+      listFlattendedToTiles
+    )
 
-export default connect(mapStateToProps, mapDispatchToProps)(BattleLost)
+    acceptLoss(battle, banished, newSupplyIds)
+    hide()
+
+    if (showNext) {
+      showNext()
+    }
+  }, [hide, battle, acceptLoss, showNext, listsWithSelectionState])
+
+  return (
+    <React.Fragment>
+      {!battle.rewards ? (
+        <LossRewardTypeSelection
+          tier={battle.nemesisTier.tier}
+          rewardSelectValue={rewardSelectValue}
+          handleRewardSelectChange={handleRewardSelectChange}
+          handleRewardConfirmation={handleRewardConfirmation}
+        />
+      ) : (
+        <React.Fragment>
+          <ModalBodyWrapper hasFooter={true}>
+            {newSupplyCards.length > 0 && !expedition.bigPocketVariant ? (
+              <SupplySelection
+                lists={listsWithSelectionState}
+                handleSelection={handleSelection}
+                amountOfCardsToSelect={amountOfCardsToSelect}
+                selectedCardsCount={selectedCardsCount}
+              />
+            ) : (
+              newSupplyCards.length > 0 && (
+                <MarketTile marketTile={newSupplyCards[0]} />
+              )
+            )}
+            {treasures.length > 0 && <TreasureList treasures={treasures} />}
+            {newMage && <MageTile mage={newMage} playerNumber={1} />}
+          </ModalBodyWrapper>
+          <ModalFooterWrapper>
+            <Button
+              size="small"
+              variant="contained"
+              color="primary"
+              onClick={handleContinue}
+              disabled={!finishingIsPossible}
+            >
+              Continue
+            </Button>
+          </ModalFooterWrapper>
+        </React.Fragment>
+      )}
+    </React.Fragment>
+  )
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(React.memo(BattleLost))

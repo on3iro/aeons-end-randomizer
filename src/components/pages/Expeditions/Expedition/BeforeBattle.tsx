@@ -35,52 +35,48 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const BeforeBattle = React.memo(
-  ({
-    hide,
-    battle,
-    nemesis,
-    startBattle,
-    showNext,
-    upgradedBasicNemsisCards,
-  }: Props) => {
-    const handleClick = useCallback(() => {
-      hide()
-      startBattle(battle)
+const BeforeBattle = ({
+  hide,
+  battle,
+  nemesis,
+  startBattle,
+  showNext,
+  upgradedBasicNemsisCards,
+}: Props) => {
+  const handleClick = useCallback(() => {
+    hide()
+    startBattle(battle)
 
-      if (showNext) {
-        showNext()
-      }
-    }, [hide, battle, startBattle, showNext])
+    if (showNext) {
+      showNext()
+    }
+  }, [hide, battle, startBattle, showNext])
 
-    return (
-      <React.Fragment>
-        <ModalBodyWrapper hasFooter={true}>
-          <InfoItem label="Tries" info={battle.tries.toString()} />
-          <SectionHeadline>
-            {nemesis ? nemesis.name : 'Nemesis'}
-          </SectionHeadline>
-          <NemesisInformation nemesis={nemesis} />
-          <UpgradedBasicNemesisCardList
-            upgradedBasicNemsisCards={upgradedBasicNemsisCards}
-          />
-        </ModalBodyWrapper>
-        <ModalFooterWrapper>
-          <Button
-            size="small"
-            variant="contained"
-            color="primary"
-            onClick={handleClick}
-          >
-            Start battle
-          </Button>
-        </ModalFooterWrapper>
-      </React.Fragment>
-    )
-  }
-)
+  return (
+    <React.Fragment>
+      <ModalBodyWrapper hasFooter={true}>
+        <InfoItem label="Tries" info={battle.tries.toString()} />
+        <SectionHeadline>{nemesis ? nemesis.name : 'Nemesis'}</SectionHeadline>
+        <NemesisInformation nemesis={nemesis} />
+        <UpgradedBasicNemesisCardList
+          upgradedBasicNemsisCards={upgradedBasicNemsisCards}
+        />
+      </ModalBodyWrapper>
+      <ModalFooterWrapper>
+        <Button
+          size="small"
+          variant="contained"
+          color="primary"
+          onClick={handleClick}
+        >
+          Start battle
+        </Button>
+      </ModalFooterWrapper>
+    </React.Fragment>
+  )
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BeforeBattle)
+)(React.memo(BeforeBattle))
