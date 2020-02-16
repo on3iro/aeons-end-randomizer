@@ -178,9 +178,8 @@ const getNemesesByExpansionId = createSelector(
 
 // Selected
 
-const getSelectedNemesesIds = createSelector(
-  [getSelectedNemesesState],
-  state => state.nemesisIds.filter(id => state.nemeses[id].selected)
+const getSelectedNemesesIds = createSelector([getSelectedNemesesState], state =>
+  state.nemesisIds.filter(id => state.nemeses[id].selected)
 )
 
 const getSelectedNemeses = createSelector(
@@ -189,6 +188,7 @@ const getSelectedNemeses = createSelector(
 )
 
 export const selectors = {
+  getSelectedNemesesState,
   getSelectedNemeses,
   getNemesesByExpansionId,
   getNemesisById,

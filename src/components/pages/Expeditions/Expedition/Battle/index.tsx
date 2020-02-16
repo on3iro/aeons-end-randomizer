@@ -16,8 +16,6 @@ import ExpeditionFinished from './ExpeditionFinished'
 
 type OwnProps = {
   battle: types.Battle
-  previousNemeses: string[]
-  previousUpgradedBasicNemesis: string[]
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
@@ -30,12 +28,6 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
 
   return {
     nemesis,
-    availableNemeses: selectors.Settings.Expansions.getSelectedNemesesForSelectedExpansions(
-      state
-    ),
-    availableUpgradedBasicNemesisCards: selectors.Settings.Expansions.getUpgradedBasicNemesisCardsForSelectedExpansions(
-      state
-    ),
     expeditionIsFinished: selectors.Expeditions.Expeditions.getExpeditionIsFinished(
       state,
       { expeditionId: ownProps.battle.expeditionId }
@@ -55,11 +47,7 @@ const Battle = ({
   battle,
   expeditionIsFinished,
   nemesis,
-  availableNemeses,
-  availableUpgradedBasicNemesisCards,
   rollBattle,
-  previousNemeses,
-  previousUpgradedBasicNemesis,
 }: Props) => {
   const {
     beforeBattle,
@@ -77,11 +65,7 @@ const Battle = ({
     battleStarted,
     battleLost,
     battleWon,
-    availableNemeses,
-    availableUpgradedBasicNemesisCards,
     rollBattle,
-    previousNemeses,
-    previousUpgradedBasicNemesis,
   }
 
   const handleClick = useCallback(() => handleBattleClick(clickHandlerConfig), [
