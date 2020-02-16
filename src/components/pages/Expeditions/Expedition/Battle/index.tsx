@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from 'Redux/Store'
 import * as types from 'types'
-import { useModal } from 'hooks/useModal'
 
+import { useStateModals } from './useStateModals'
 import BattleWrapper from './BattleWrapper'
 import BattleTile from './BattleTile'
 import BeforeBattle from './BeforeBattle'
@@ -62,34 +62,16 @@ const Battle = ({
   previousUpgradedBasicNemesis,
 }: Props) => {
   const {
-    show: showBeforeBattle,
-    hide: hideBeforeBattle,
-    RenderModal: RenderBeforeBattleModal,
-  } = useModal()
-  const {
-    show: showBattleStarted,
-    hide: hideBattleStarted,
-    RenderModal: RenderBattleStartedModal,
-  } = useModal()
-  const {
-    show: showBattleLost,
-    hide: hideBattleLost,
-    RenderModal: RenderBattleLostModal,
-  } = useModal()
-  const {
-    show: showBattleWon,
-    hide: hideBattleWon,
-    RenderModal: RenderBattleWonModal,
-  } = useModal()
-  const {
-    show: showExpeditionComplete,
-    hide: hideExpeditionComplete,
-    RenderModal: RenderExpeditionCompleteModal,
-  } = useModal()
+    beforeBattle,
+    battleStarted,
+    battleLost,
+    battleWon,
+    expeditionComplete,
+  } = useStateModals()
 
   const handleClick = useCallback(() => {
     if (expeditionIsFinished) {
-      showExpeditionComplete()
+      expeditionComplete.show()
     } else {
       switch (battle.status) {
         case 'unlocked': {
@@ -102,27 +84,27 @@ const Battle = ({
               previousNemeses,
             })
           }
-          showBeforeBattle()
+          beforeBattle.show()
           break
         }
 
         case 'before_battle': {
-          showBeforeBattle()
+          beforeBattle.show()
           break
         }
 
         case 'started': {
-          showBattleStarted()
+          battleStarted.show()
           break
         }
 
         case 'lost': {
-          showBattleLost()
+          battleLost.show()
           break
         }
 
         case 'won': {
-          showBattleWon()
+          battleWon.show()
           break
         }
 
@@ -139,12 +121,12 @@ const Battle = ({
     }
   }, [
     expeditionIsFinished,
-    showExpeditionComplete,
+    expeditionComplete,
     battle,
-    showBeforeBattle,
-    showBattleStarted,
-    showBattleLost,
-    showBattleWon,
+    beforeBattle,
+    battleStarted,
+    battleLost,
+    battleWon,
     availableNemeses,
     availableUpgradedBasicNemesisCards,
     rollBattle,
@@ -155,12 +137,12 @@ const Battle = ({
   const battleWonCallback = useCallback(
     expeditionIsFinished => {
       if (expeditionIsFinished) {
-        showExpeditionComplete()
+        expeditionComplete.show()
       } else {
-        showBattleWon()
+        battleWon.show()
       }
     },
-    [showBattleWon, showExpeditionComplete]
+    [battleWon, expeditionComplete]
   )
 
   return (
@@ -172,38 +154,42 @@ const Battle = ({
         <BattleTile battle={battle} nemesis={nemesis ? nemesis.name : '?'} />
       </BattleWrapper>
 
-      <RenderBeforeBattleModal titleColor="#333" titleLabel="Before Fight">
+      <beforeBattle.RenderModal titleColor="#333" titleLabel="Before Fight">
         <BeforeBattle
-          hide={hideBeforeBattle}
+          hide={beforeBattle.hide}
           battle={battle}
           nemesis={nemesis ? nemesis : undefined}
-          showNext={showBattleStarted}
+          showNext={battleStarted.show}
         />
-      </RenderBeforeBattleModal>
-      <RenderBattleStartedModal titleColor="#333" titleLabel="Resolve battle">
+      </beforeBattle.RenderModal>
+
+      <battleStarted.RenderModal titleColor="#333" titleLabel="Resolve battle">
         <BattleStarted
-          hide={hideBattleStarted}
+          hide={battleStarted.hide}
           battle={battle}
           showNextOnWin={battleWonCallback}
-          showNextOnLoss={showBattleLost}
+          showNextOnLoss={battleLost.show}
         />
-      </RenderBattleStartedModal>
-      <RenderBattleLostModal titleColor="#333" titleLabel="Battle lost">
+      </battleStarted.RenderModal>
+
+      <battleLost.RenderModal titleColor="#333" titleLabel="Battle lost">
         <BattleLost
-          hide={hideBattleLost}
+          hide={battleLost.hide}
           battle={battle}
-          showNext={showBeforeBattle}
+          showNext={beforeBattle.show}
         />
-      </RenderBattleLostModal>
-      <RenderBattleWonModal titleColor="#333" titleLabel="Rewards">
-        <BattleWon hide={hideBattleWon} battle={battle} />
-      </RenderBattleWonModal>
-      <RenderExpeditionCompleteModal
+      </battleLost.RenderModal>
+
+      <battleWon.RenderModal titleColor="#333" titleLabel="Rewards">
+        <BattleWon hide={battleWon.hide} battle={battle} />
+      </battleWon.RenderModal>
+
+      <expeditionComplete.RenderModal
         titleColor="#333"
         titleLabel="Congratulations"
       >
-        <ExpeditionFinished battle={battle} hide={hideExpeditionComplete} />
-      </RenderExpeditionCompleteModal>
+        <ExpeditionFinished battle={battle} hide={expeditionComplete.hide} />
+      </expeditionComplete.RenderModal>
     </div>
   )
 }
