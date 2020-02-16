@@ -3,16 +3,16 @@ import { connect } from 'react-redux'
 
 import Button from '@material-ui/core/Button'
 
-import { RootState, actions, selectors } from '../../../../Redux/Store'
-import * as types from '../../../../types'
+import { RootState, actions, selectors } from 'Redux/Store'
+import * as types from 'types'
 
-import TreasureList from '../../../molecules/TreasureList'
-import SupplySelection from '../../../molecules/SupplySelection'
-import SupplyList from '../../../molecules/SupplyList'
+import TreasureList from 'components/molecules/TreasureList'
+import SupplySelection from 'components/molecules/SupplySelection'
+import SupplyList from 'components/molecules/SupplyList'
 
-import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
-import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
-import SectionHeadline from '../../../atoms/SectionHeadline'
+import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
+import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
+import SectionHeadline from 'components/atoms/SectionHeadline'
 
 import {
   createUpdatedLists,

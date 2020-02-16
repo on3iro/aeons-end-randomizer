@@ -2,10 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
-import { RootState, selectors } from '../../../../Redux/Store'
-import * as types from '../../../../types'
+import { RootState, selectors } from 'Redux/Store'
+import * as types from 'types'
 
-import BackLink from '../../../molecules/BackLink'
+import BackLink from 'components/molecules/BackLink'
 
 import Barracks from './Barracks'
 import Battle from './Battle'

@@ -2,16 +2,16 @@ import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button'
 
-import { RootState, actions, selectors } from '../../../../Redux/Store'
-import * as types from '../../../../types'
+import { RootState, actions, selectors } from 'Redux/Store'
+import * as types from 'types'
 
-import UpgradedBasicNemesisCardList from '../../../molecules/UpgradedBasicNemesisCardList'
-import NemesisInformation from '../../../molecules/NemesisInformation'
+import UpgradedBasicNemesisCardList from 'components/molecules/UpgradedBasicNemesisCardList'
+import NemesisInformation from 'components/molecules/NemesisInformation'
 
-import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
-import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
-import InfoItem from '../../../molecules/InfoItem'
-import SectionHeadline from '../../../atoms/SectionHeadline'
+import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
+import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
+import InfoItem from 'components/molecules/InfoItem'
+import SectionHeadline from 'components/atoms/SectionHeadline'
 
 type OwnProps = {
   hide: () => void
