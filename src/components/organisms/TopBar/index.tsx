@@ -19,6 +19,10 @@ const TopBar = ({ drawerIsOpen, toggleDrawer }: Props) => (
       <Title variant="h6" color="inherit">
         <Switch>
           <Route path="/randomizer/nemesis" render={() => 'Nemesis'} />
+          <Route
+            path="/randomizer/basic-nemesis-cards"
+            render={() => 'Basic Nemesis Cards'}
+          />
           <Route path="/randomizer/mages" render={() => 'Mages'} />
           <Route path="/randomizer/supply" render={() => 'Supply'} />
           <Route path="/turnorder" render={() => 'Turn Order'} />

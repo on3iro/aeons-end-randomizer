@@ -268,3 +268,10 @@ export const getOperationString = (
 
   return `${operation} ${thresholdValue}`
 }
+
+export const createBasicNemesisCardList = (
+  availableBasicNemesisCards: ReadonlyArray<types.BasicNemesisCard>,
+  slots: Array<types.Slot>,
+  getEntity: types.SeededEntityGetter,
+  seed?: types.Seed
+) => generateListFrom(availableBasicNemesisCards, slots, getEntity, seed)
