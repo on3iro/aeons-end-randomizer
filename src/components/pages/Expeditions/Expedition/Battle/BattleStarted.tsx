@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 
 import Button from '@material-ui/core/Button'
 
-import { RootState, actions, selectors } from '../../../../Redux/Store'
-import * as types from '../../../../types'
+import { RootState, actions, selectors } from 'Redux/Store'
+import * as types from 'types'
 
-import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
-import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
+import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
+import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
 
 type OwnProps = {
   battle: types.Battle

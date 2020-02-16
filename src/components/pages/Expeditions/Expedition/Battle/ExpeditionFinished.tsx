@@ -2,14 +2,14 @@ import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button'
 
-import { RootState, selectors } from '../../../../Redux/Store'
-import * as types from '../../../../types'
+import { RootState, selectors } from 'Redux/Store'
+import * as types from 'types'
 
-import InfoItem from '../../../molecules/InfoItem'
+import InfoItem from 'components/molecules/InfoItem'
 
-import P from '../../../atoms/P'
-import ModalBodyWrapper from '../../../atoms/ModalBodyWrapper'
-import ModalFooterWrapper from '../../../atoms/ModalFooterWrapper'
+import P from 'components/atoms/P'
+import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
+import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
 
 type OwnProps = {
   battle: types.Battle
