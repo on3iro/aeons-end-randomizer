@@ -133,7 +133,7 @@ export type Expedition = {
   name: string
   score: number
   seed?: string
-  settingsSnapshot?: SettingsSnapshot
+  settingsSnapshot: SettingsSnapshot
   barracks: {
     mageIds: string[]
     supplyIds: string[]
