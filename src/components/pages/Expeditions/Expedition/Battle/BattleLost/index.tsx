@@ -1,24 +1,15 @@
 import React, { useCallback, useState } from 'react'
 import { connect } from 'react-redux'
 
-import Button from '@material-ui/core/Button'
-
 import { RootState, actions, selectors } from 'Redux/Store'
 import * as types from 'types'
 
 import { RollLossType } from 'Redux/Store/Expeditions/Expeditions'
 
-import TreasureList from 'components/molecules/TreasureList'
-import MageTile from 'components/molecules/MageList/MageTile' // FIXME MageTile should probably be a molecule itself
-import MarketTile from 'components/molecules/MarketTile'
-import SupplySelection from 'components/molecules/SupplySelection'
-
-import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
-import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
-
 import LossRewardTypeSelection from './LossRewardTypeSelection'
+import RewardScreen from './RewardScreen'
 
-import * as helpers from './helpers'
+import * as helpers from '../helpers'
 
 type OwnProps = {
   battle: types.Battle
@@ -80,7 +71,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
       ? selectors.Settings.Expansions.SelectedMages.getMageById(state, {
           id: ownProps.battle.rewards.mage,
         })
-      : null
+      : undefined
 
   const lists = [
     {
@@ -236,35 +227,18 @@ const BattleLost = ({
           handleRewardConfirmation={handleRewardConfirmation}
         />
       ) : (
-        <React.Fragment>
-          <ModalBodyWrapper hasFooter={true}>
-            {newSupplyCards.length > 0 && !expedition.bigPocketVariant ? (
-              <SupplySelection
-                lists={listsWithSelectionState}
-                handleSelection={handleSelection}
-                amountOfCardsToSelect={amountOfCardsToSelect}
-                selectedCardsCount={selectedCardsCount}
-              />
-            ) : (
-              newSupplyCards.length > 0 && (
-                <MarketTile marketTile={newSupplyCards[0]} />
-              )
-            )}
-            {treasures.length > 0 && <TreasureList treasures={treasures} />}
-            {newMage && <MageTile mage={newMage} playerNumber={1} />}
-          </ModalBodyWrapper>
-          <ModalFooterWrapper>
-            <Button
-              size="small"
-              variant="contained"
-              color="primary"
-              onClick={handleContinue}
-              disabled={!finishingIsPossible}
-            >
-              Continue
-            </Button>
-          </ModalFooterWrapper>
-        </React.Fragment>
+        <RewardScreen
+          expedition={expedition}
+          newSupplyCards={newSupplyCards}
+          listsWithSelectionState={listsWithSelectionState}
+          handleSelection={handleSelection}
+          amountOfCardsToSelect={amountOfCardsToSelect}
+          selectedCardsCount={selectedCardsCount}
+          treasures={treasures}
+          mage={newMage}
+          handleContinue={handleContinue}
+          finishingIsPossible={finishingIsPossible}
+        />
       )}
     </React.Fragment>
   )
