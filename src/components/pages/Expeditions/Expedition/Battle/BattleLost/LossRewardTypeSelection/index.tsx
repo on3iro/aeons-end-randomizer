@@ -1,15 +1,13 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
-import MenuItem from '@material-ui/core/MenuItem'
-
-import FormControl from '../../FormControl'
-import Select from '../../Select'
 
 import { RollLossType } from 'Redux/Store/Expeditions/Expeditions/'
 
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
 import SectionHeadline from 'components/atoms/SectionHeadline'
+
+import RewardSelect from './RewardSelect'
+import ConfirmButton from './ConfirmButton'
 
 const getTreasureOptionsByTier = (tier: 1 | 2 | 3 | 4) => [
   ...([2, 3, 4].includes(tier) ? [{ level: 1 }] : []),
@@ -40,37 +38,14 @@ const LossRewardTypeSelection = React.memo(
       <React.Fragment>
         <ModalBodyWrapper hasFooter={true}>
           <SectionHeadline>Select an item to roll</SectionHeadline>
-          <FormControl>
-            <Select
-              value={rewardSelectValue}
-              onChange={handleRewardSelectChange}
-              inputProps={{
-                name: 'reward',
-                id: `reward`,
-              }}
-            >
-              <MenuItem value="mage">Mage</MenuItem>
-              <MenuItem value="gem">Gem</MenuItem>
-              <MenuItem value="relic">Relic</MenuItem>
-              <MenuItem value="spell">Spell</MenuItem>
-
-              {treasureOptions.map(option => (
-                <MenuItem key={option.level} value={`treasure${option.level}`}>
-                  Treasure, Level {option.level}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <RewardSelect
+            rewardSelectValue={rewardSelectValue}
+            handleRewardSelectChange={handleRewardSelectChange}
+            treasureOptions={treasureOptions}
+          />
         </ModalBodyWrapper>
         <ModalFooterWrapper>
-          <Button
-            size="small"
-            variant="contained"
-            color="primary"
-            onClick={handleRewardConfirmation}
-          >
-            Confirm choice
-          </Button>
+          <ConfirmButton handleRewardConfirmation={handleRewardConfirmation} />
         </ModalFooterWrapper>
         >
       </React.Fragment>
