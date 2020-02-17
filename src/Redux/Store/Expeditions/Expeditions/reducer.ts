@@ -53,6 +53,10 @@ export const Reducer: LoopReducer<State, Action> = (
       return reducerHelpers.rollLoss(state, action)
     }
 
+    case ActionTypes.ROLL_LOSS_SUCCESS: {
+      return reducerHelpers.rollLossSuccess(state, action)
+    }
+
     case ActionTypes.ACCEPT_LOSS: {
       return reducerHelpers.acceptLoss(state, action)
     }
