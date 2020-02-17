@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import { RootState, actions, selectors } from 'Redux/Store'
 import * as types from 'types'
 
-import { RollLossType } from 'Redux/Store/Expeditions/Expeditions'
-
 import LossRewardTypeSelection from './LossRewardTypeSelection'
 import RewardScreen from './RewardScreen'
 
@@ -111,7 +109,6 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
 }
 
 const mapDispatchToProps = {
-  rollLoss: actions.Expeditions.Expeditions.rollLoss,
   acceptLoss: actions.Expeditions.Expeditions.acceptLoss,
 }
 
@@ -124,35 +121,13 @@ const BattleLost = ({
   hide,
   acceptLoss,
   showNext,
-  rollLoss,
-  dataConfig,
   expedition,
   treasures,
   lists,
   newSupplyCards,
   newMage,
+  dataConfig,
 }: Props) => {
-  const [rewardSelectValue, updateRewardSelectValue] = useState<RollLossType>(
-    'mage'
-  )
-
-  const handleRewardSelectChange = useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>, child: any) => {
-      updateRewardSelectValue(e.target.value as RollLossType)
-    },
-    [updateRewardSelectValue]
-  )
-
-  const handleRewardConfirmation = useCallback(() => {
-    const config = {
-      type: rewardSelectValue as RollLossType, // FIXME we should try to get it typesafe instead of casting
-      battle,
-      ...dataConfig,
-    }
-
-    rollLoss(config)
-  }, [rewardSelectValue, battle, rollLoss, dataConfig])
-
   const [listsWithSelectionState, updateLists] = useState<
     Array<helpers.ListWithSelection>
   >(lists)
@@ -220,12 +195,7 @@ const BattleLost = ({
   return (
     <React.Fragment>
       {!battle.rewards ? (
-        <LossRewardTypeSelection
-          tier={battle.nemesisTier.tier}
-          rewardSelectValue={rewardSelectValue}
-          handleRewardSelectChange={handleRewardSelectChange}
-          handleRewardConfirmation={handleRewardConfirmation}
-        />
+        <LossRewardTypeSelection battle={battle} dataConfig={dataConfig} />
       ) : (
         <RewardScreen
           expedition={expedition}
