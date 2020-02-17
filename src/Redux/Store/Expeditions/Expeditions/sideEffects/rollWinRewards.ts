@@ -7,7 +7,7 @@ import {
 
 import * as types from 'types'
 
-import { rollNewEntity } from '../helpers'
+import { rollNewEntity } from './helpers'
 
 const getTreasureIdsByLevel = (
   state: RootState,
