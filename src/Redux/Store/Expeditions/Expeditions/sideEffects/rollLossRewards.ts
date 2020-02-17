@@ -30,15 +30,15 @@ export const rollLossRewards = (
     expeditionId,
   })
 
-  const treasure1Ids = selectors.getNewTreasureIdsByLevel(state, {
+  const treasure1Ids = selectors.getStillAvailableTreasureIdsByLevel(state, {
     treasureLevel: 1,
     expeditionId,
   })
-  const treasure2Ids = selectors.getNewTreasureIdsByLevel(state, {
+  const treasure2Ids = selectors.getStillAvailableTreasureIdsByLevel(state, {
     treasureLevel: 2,
     expeditionId,
   })
-  const treasure3Ids = selectors.getNewTreasureIdsByLevel(state, {
+  const treasure3Ids = selectors.getStillAvailableTreasureIdsByLevel(state, {
     treasureLevel: 3,
     expeditionId,
   })
@@ -55,7 +55,7 @@ export const rollLossRewards = (
         ...battle,
         rewards: {
           treasure: [],
-          mage: newMage,
+          mage: newMage ?? undefined,
           supplyIds: [],
         },
       }
@@ -71,7 +71,7 @@ export const rollLossRewards = (
         rewards: {
           treasure: [],
           mage: undefined,
-          supplyIds: [newGem],
+          supplyIds: newGem ? [newGem] : [],
         },
       }
     }
@@ -86,7 +86,7 @@ export const rollLossRewards = (
         rewards: {
           treasure: [],
           mage: undefined,
-          supplyIds: [newRelic],
+          supplyIds: newRelic ? [newRelic] : [],
         },
       }
     }
@@ -101,7 +101,7 @@ export const rollLossRewards = (
         rewards: {
           treasure: [],
           mage: undefined,
-          supplyIds: [newSpell],
+          supplyIds: newSpell ? [newSpell] : [],
         },
       }
     }
@@ -114,7 +114,7 @@ export const rollLossRewards = (
       return {
         ...battle,
         rewards: {
-          treasure: [newTreasure],
+          treasure: newTreasure ? [newTreasure] : [],
           mage: undefined,
           supplyIds: [],
         },
@@ -129,7 +129,7 @@ export const rollLossRewards = (
       return {
         ...battle,
         rewards: {
-          treasure: [newTreasure],
+          treasure: newTreasure ? [newTreasure] : [],
           mage: undefined,
           supplyIds: [],
         },
@@ -144,7 +144,7 @@ export const rollLossRewards = (
       return {
         ...battle,
         rewards: {
-          treasure: [newTreasure],
+          treasure: newTreasure ? [newTreasure] : [],
           mage: undefined,
           supplyIds: [],
         },
