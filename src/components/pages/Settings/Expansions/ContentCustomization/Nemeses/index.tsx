@@ -36,21 +36,16 @@ type Props = ReturnType<typeof mapStateToProps> &
     expansionId: string
   }
 
-const Nemeses = React.memo(
-  ({ selectedNemeses, handleNemesisChange }: Props) => {
-    return (
-      <React.Fragment>
-        <ListWrapper label="Nemeses">
-          <React.Fragment>
-            {renderCheckboxes(selectedNemeses, handleNemesisChange)}
-          </React.Fragment>
-        </ListWrapper>
-      </React.Fragment>
-    )
-  }
-)
+const Nemeses = ({ selectedNemeses, handleNemesisChange }: Props) => {
+  return (
+    <React.Fragment>
+      <ListWrapper label="Nemeses">
+        <React.Fragment>
+          {renderCheckboxes(selectedNemeses, handleNemesisChange)}
+        </React.Fragment>
+      </ListWrapper>
+    </React.Fragment>
+  )
+}
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Nemeses)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Nemeses))

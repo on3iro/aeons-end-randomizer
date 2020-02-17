@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 import CancelIcon from '@material-ui/icons/Cancel'
 
-const CancelButton = React.memo((props: any) => (
+const CancelButton = (props: any) => (
   <IconButton
     className={props.className}
     color="secondary"
@@ -12,9 +12,9 @@ const CancelButton = React.memo((props: any) => (
   >
     <CancelIcon />
   </IconButton>
-))
+)
 
-const StyledCancelButton = styled(CancelButton)`
+const StyledCancelButton = styled(React.memo(CancelButton))`
   position: absolute;
   top: -5px;
   right: -5px;

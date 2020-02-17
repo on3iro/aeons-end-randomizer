@@ -12,6 +12,4 @@ const AdditionalInfo = styled('div')`
   }
 `
 
-AdditionalInfo.displayName = 'AdditionalInfo'
-
 export default AdditionalInfo

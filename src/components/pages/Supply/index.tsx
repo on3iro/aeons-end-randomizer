@@ -28,52 +28,48 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const Supply = React.memo(
-  ({
-    allMarketSetups,
-    availableCards,
-    createMarket,
-    hasStandaloneExpansionSelected,
-    resetMarket,
-    randomCards,
-  }: Props) => {
-    if (!hasStandaloneExpansionSelected) {
-      return <NoSelectedExpansions />
-    }
+const Supply = ({
+  allMarketSetups,
+  availableCards,
+  createMarket,
+  hasStandaloneExpansionSelected,
+  resetMarket,
+  randomCards,
+}: Props) => {
+  const [selectedMarketId, selectMarketId] = useState('random')
 
-    const [selectedMarketId, selectMarketId] = useState('random')
-
-    const clickHandler = (id: string) => {
-      selectMarketId(id)
-      resetMarket()
-    }
-
-    const tiles = allMarketSetups[selectedMarketId].tiles
-
-    const handleShuffle = () => {
-      createMarket(availableCards, tiles)
-    }
-
-    return (
-      <React.Fragment>
-        <MarketSelect
-          selectedMarketId={selectedMarketId}
-          clickHandler={clickHandler}
-        />
-        <SupplyList tiles={randomCards || tiles} />
-        <ShuffleButton
-          onClick={handleShuffle}
-          color="primary"
-          variant="extended"
-          withBottomNav={true}
-        >
-          Create Market
-        </ShuffleButton>
-      </React.Fragment>
-    )
+  const clickHandler = (id: string) => {
+    selectMarketId(id)
+    resetMarket()
   }
-)
 
-Supply.displayName = 'Supply'
+  const tiles = allMarketSetups[selectedMarketId].tiles
 
-export default connect(mapStateToProps, mapDispatchToProps)(Supply)
+  const handleShuffle = () => {
+    createMarket(availableCards, tiles)
+  }
+
+  if (!hasStandaloneExpansionSelected) {
+    return <NoSelectedExpansions />
+  }
+
+  return (
+    <React.Fragment>
+      <MarketSelect
+        selectedMarketId={selectedMarketId}
+        clickHandler={clickHandler}
+      />
+      <SupplyList tiles={randomCards || tiles} />
+      <ShuffleButton
+        onClick={handleShuffle}
+        color="primary"
+        variant="extended"
+        withBottomNav={true}
+      >
+        Create Market
+      </ShuffleButton>
+    </React.Fragment>
+  )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Supply))

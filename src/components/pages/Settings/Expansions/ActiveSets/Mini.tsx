@@ -18,15 +18,15 @@ type Props = ReturnType<typeof mapStateToProps> &
     handleChange: ChangeHandler
   }
 
-const Standalones = React.memo(({ miniExpansions, handleChange }: Props) => (
+const Standalones = ({ miniExpansions, handleChange }: Props) => (
   <ExpansionList
     label="Mini Expansions"
     expansions={miniExpansions}
     handleChange={handleChange}
   />
-))
+)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Standalones)
+)(React.memo(Standalones))

@@ -15,16 +15,16 @@ import { RootState, actions, selectors } from '../../../Redux/Store'
 import Card from '../../atoms/Card'
 
 const renderSetupOptions = (selectedPlayerCount: ITurnOrderPlayerCount) =>
-  Object.values(config.TURNORDERSETUPS[selectedPlayerCount.id].variations).map(
-    setup => (
-      <FormControlLabel
-        key={setup.id}
-        value={setup.id}
-        control={<Radio />}
-        label={setup.name}
-      />
-    )
-  )
+  Object.values(
+    config.TURNORDERSETUPS[selectedPlayerCount.id].variations
+  ).map(setup => (
+    <FormControlLabel
+      key={setup.id}
+      value={setup.id}
+      control={<Radio />}
+      label={setup.name}
+    />
+  ))
 
 const mapStateToProps = (state: RootState) => ({
   selectedPlayerCount: selectors.TurnOrder.Configuration.getSelectedPlayerCount(
@@ -39,31 +39,31 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const SetupSelection = React.memo(
-  ({ selectSetup, selectedSetup, selectedPlayerCount }: Props) => (
-    <Card>
-      <CardContent>
-        <FormControl component={'fieldset' as 'div'}>
-          <FormLabel>Player Cards Variants</FormLabel>
-          <RadioGroup
-            aria-label="Players Variant"
-            name="turnOrderOptions"
-            value={selectedSetup.id}
-            onChange={(event: React.ChangeEvent<any>) => {
-              selectSetup(event.currentTarget.value)
-            }}
-          >
-            {renderSetupOptions(selectedPlayerCount)}
-          </RadioGroup>
-        </FormControl>
-      </CardContent>
-    </Card>
-  )
+const SetupSelection = ({
+  selectSetup,
+  selectedSetup,
+  selectedPlayerCount,
+}: Props) => (
+  <Card>
+    <CardContent>
+      <FormControl component={'fieldset' as 'div'}>
+        <FormLabel>Player Cards Variants</FormLabel>
+        <RadioGroup
+          aria-label="Players Variant"
+          name="turnOrderOptions"
+          value={selectedSetup.id}
+          onChange={(event: React.ChangeEvent<any>) => {
+            selectSetup(event.currentTarget.value)
+          }}
+        >
+          {renderSetupOptions(selectedPlayerCount)}
+        </RadioGroup>
+      </FormControl>
+    </CardContent>
+  </Card>
 )
-
-SetupSelection.displayName = 'SetupSelection'
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SetupSelection)
+)(React.memo(SetupSelection))

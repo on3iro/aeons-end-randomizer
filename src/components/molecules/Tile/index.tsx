@@ -17,29 +17,25 @@ type Props = {
   clickHandler?: Function
 }
 
-const Tile = React.memo(
-  ({
-    body,
-    bgColor,
-    fontColor,
-    icon,
-    iconColor,
-    showDetails,
-    selected,
-    clickHandler,
-  }: Props) => (
-    <Wrapper themeColor={bgColor} selected={selected} onClick={clickHandler}>
-      <Content>{body}</Content>
+const Tile = ({
+  body,
+  bgColor,
+  fontColor,
+  icon,
+  iconColor,
+  showDetails,
+  selected,
+  clickHandler,
+}: Props) => (
+  <Wrapper themeColor={bgColor} selected={selected} onClick={clickHandler}>
+    <Content>{body}</Content>
 
-      {icon && iconColor ? (
-        <TypeIcon icon={icon} iconColor={iconColor} />
-      ) : null}
+    {icon && iconColor ? <TypeIcon icon={icon} iconColor={iconColor} /> : null}
 
-      {showDetails ? (
-        <ShowDetailsButton showDetails={showDetails} theme={fontColor} />
-      ) : null}
-    </Wrapper>
-  )
+    {showDetails ? (
+      <ShowDetailsButton showDetails={showDetails} theme={fontColor} />
+    ) : null}
+  </Wrapper>
 )
 
-export default Tile
+export default React.memo(Tile)

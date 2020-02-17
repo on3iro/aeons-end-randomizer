@@ -11,10 +11,10 @@ const Select = styled(MuiSelect)`
   margin: 0 8px 16px;
 `
 
-const SelectField = React.memo((props: any) => (
+const SelectField = (props: any) => (
   <Wrapper>
     <Select {...props} />
   </Wrapper>
-))
+)
 
-export default SelectField
+export default React.memo(SelectField)

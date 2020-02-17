@@ -20,15 +20,13 @@ const mapDispatchToProps = {}
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const DiscardTable = React.memo(({ discard }: Props) => (
+const DiscardTable = ({ discard }: Props) => (
   <Table>
     <TableBody>{renderRows(discard)}</TableBody>
   </Table>
-))
-
-DiscardTable.displayName = 'DiscardTable'
+)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DiscardTable)
+)(React.memo(DiscardTable))

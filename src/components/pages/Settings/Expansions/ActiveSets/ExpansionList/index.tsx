@@ -23,20 +23,16 @@ type Props = {
   label: string
 }
 
-const ExpansionList = React.memo(
-  ({ handleChange, expansions, label }: Props) => {
-    return (
-      <React.Fragment>
-        <ListWrapper label={label}>
-          <React.Fragment>
-            {renderCheckboxes(expansions, handleChange)}
-          </React.Fragment>
-        </ListWrapper>
-      </React.Fragment>
-    )
-  }
-)
+const ExpansionList = ({ handleChange, expansions, label }: Props) => {
+  return (
+    <React.Fragment>
+      <ListWrapper label={label}>
+        <React.Fragment>
+          {renderCheckboxes(expansions, handleChange)}
+        </React.Fragment>
+      </ListWrapper>
+    </React.Fragment>
+  )
+}
 
-ExpansionList.displayName = 'ExpansionList'
-
-export default ExpansionList
+export default React.memo(ExpansionList)

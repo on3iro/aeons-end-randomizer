@@ -82,62 +82,58 @@ type Props = ReturnType<typeof mapStateToProps> &
     theme: any
   }
 
-const MarketTile = React.memo(
-  ({ marketTile, selectedExpansions, theme, ...rest }: Props) => {
-    const { expansions } = selectedExpansions
-    const { show, RenderModal } = useModal()
+const MarketTile = ({
+  marketTile,
+  selectedExpansions,
+  theme,
+  ...rest
+}: Props) => {
+  const { expansions } = selectedExpansions
+  const { show, RenderModal } = useModal()
 
-    const { selectionHandler, listId } = useContext(SelectionHandlerContext)
-    const handleSelection = useCallback(() => {
-      selectionHandler({ supplyCardId: marketTile.id, listId })
-    }, [selectionHandler, marketTile, listId])
+  const { selectionHandler, listId } = useContext(SelectionHandlerContext)
+  const handleSelection = useCallback(() => {
+    selectionHandler({ supplyCardId: marketTile.id, listId })
+  }, [selectionHandler, marketTile, listId])
 
-    const handleDetails = useCallback(
-      (e: Event) => {
-        e.stopPropagation()
-        show()
-      },
-      [show]
-    )
+  const handleDetails = useCallback(
+    (e: Event) => {
+      e.stopPropagation()
+      show()
+    },
+    [show]
+  )
 
-    const card = getCard(marketTile)
+  const card = getCard(marketTile)
 
-    return (
-      <Wrapper item xs={12} sm={6} md={4} {...rest}>
-        {marketTile && (
-          <Tile
-            clickHandler={handleSelection}
-            selected={marketTile.visualSelection}
-            body={
-              <Body
-                supplyCard={marketTile}
-                expansionName={
-                  marketTile.expansion
-                    ? expansions[marketTile.expansion].name
-                    : ''
-                }
-              />
-            }
-            bgColor={
-              theme.colors.cards[marketTile.type.toLowerCase()].background
-            }
-            fontColor={theme.colors.text.primary}
-            icon={theme.icons[marketTile.type.toLowerCase()]}
-            iconColor={theme.colors.cards[marketTile.type.toLowerCase()].color}
-            showDetails={card ? handleDetails : undefined}
-          />
-        )}
-        {card && <SupplyModal card={card} RenderModal={RenderModal} />}
-      </Wrapper>
-    )
-  }
-)
-
-MarketTile.displayName = 'MarketTile'
+  return (
+    <Wrapper item xs={12} sm={6} md={4} {...rest}>
+      {marketTile && (
+        <Tile
+          clickHandler={handleSelection}
+          selected={marketTile.visualSelection}
+          body={
+            <Body
+              supplyCard={marketTile}
+              expansionName={
+                marketTile.expansion
+                  ? expansions[marketTile.expansion].name
+                  : ''
+              }
+            />
+          }
+          bgColor={theme.colors.cards[marketTile.type.toLowerCase()].background}
+          fontColor={theme.colors.text.primary}
+          icon={theme.icons[marketTile.type.toLowerCase()]}
+          iconColor={theme.colors.cards[marketTile.type.toLowerCase()].color}
+          showDetails={card ? handleDetails : undefined}
+        />
+      )}
+      {card && <SupplyModal card={card} RenderModal={RenderModal} />}
+    </Wrapper>
+  )
+}
 
 export default withTheme(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(MarketTile)
+  connect(mapStateToProps, mapDispatchToProps)(React.memo(MarketTile))
 )

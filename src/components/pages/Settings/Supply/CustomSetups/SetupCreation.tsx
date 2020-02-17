@@ -21,7 +21,7 @@ const createSetup = (): types.IMarketSetup => {
   }
 }
 
-const SetupCreation = React.memo(() => {
+const SetupCreation = () => {
   const [newSetup, setNewSetup] = useState<types.IMarketSetup | null>(null)
   const {
     show: showEditModal,
@@ -63,6 +63,6 @@ const SetupCreation = React.memo(() => {
       </RenderEditModal>
     </React.Fragment>
   )
-})
+}
 
-export default SetupCreation
+export default React.memo(SetupCreation)

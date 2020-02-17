@@ -20,7 +20,7 @@ type Props = {
   turnOrderSetup: ITurnOrderSetup
 }
 
-const CardNameDisplay = React.memo(({ turnOrderSetup }: Props) => (
+const CardNameDisplay = ({ turnOrderSetup }: Props) => (
   <Card>
     <CardContent>
       <Typography color="textSecondary" gutterBottom>
@@ -29,8 +29,6 @@ const CardNameDisplay = React.memo(({ turnOrderSetup }: Props) => (
       {renderCardNames(turnOrderSetup)}
     </CardContent>
   </Card>
-))
+)
 
-CardNameDisplay.displayName = 'CardNameDisplay'
-
-export default CardNameDisplay
+export default React.memo(CardNameDisplay)

@@ -8,13 +8,13 @@ type Props = {
   children: React.ReactChild
 }
 
-const ListWrapper = React.memo(({ label, children, ...rest }: Props) => (
+const ListWrapper = ({ label, children, ...rest }: Props) => (
   <React.Fragment>
     <FormLabel {...rest} style={{ marginTop: '24px' }}>
       {label}
     </FormLabel>
     <FormGroup {...rest}>{children}</FormGroup>
   </React.Fragment>
-))
+)
 
-export default ListWrapper
+export default React.memo(ListWrapper)

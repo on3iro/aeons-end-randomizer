@@ -12,7 +12,7 @@ type Props = {
   toggleDrawer: () => void
 }
 
-const TopBar = React.memo(({ drawerIsOpen, toggleDrawer }: Props) => (
+const TopBar = ({ drawerIsOpen, toggleDrawer }: Props) => (
   <AppBar>
     <Toolbar disableGutters={!drawerIsOpen}>
       <MenuButton drawerIsOpen={drawerIsOpen} onClick={toggleDrawer} />
@@ -34,8 +34,6 @@ const TopBar = React.memo(({ drawerIsOpen, toggleDrawer }: Props) => (
       </Title>
     </Toolbar>
   </AppBar>
-))
+)
 
-TopBar.displayName = 'TopBar'
-
-export default TopBar
+export default React.memo(TopBar)
