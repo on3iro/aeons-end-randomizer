@@ -32,7 +32,7 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const ModeSelection = React.memo(({ mode, setMode }: Props) => (
+const ModeSelection = ({ mode, setMode }: Props) => (
   <Card>
     <CardContent>
       <FormLabel>Mode</FormLabel>
@@ -48,11 +48,9 @@ const ModeSelection = React.memo(({ mode, setMode }: Props) => (
       </RadioGroup>
     </CardContent>
   </Card>
-))
-
-ModeSelection.displayName = 'ModeSelection'
+)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ModeSelection)
+)(React.memo(ModeSelection))

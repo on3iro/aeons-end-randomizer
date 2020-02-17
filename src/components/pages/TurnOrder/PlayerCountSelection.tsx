@@ -34,30 +34,31 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const PlayerCountSelection = React.memo(
-  ({ selectPlayerCount, selectedPlayerCount }: Props) => (
-    <Card>
-      <CardContent>
-        <FormControl component={'fieldset' as 'div'}>
-          <FormLabel>Amount of Players</FormLabel>
-          <RadioGroup
-            aria-label="Players"
-            name="turnOrderPlayerCountOptions"
-            value={selectedPlayerCount.id}
-            onChange={(event: React.ChangeEvent<any>) => {
-              selectPlayerCount(event.currentTarget.value)
-            }}
-            row={true}
-          >
-            {renderPlayerCountOptions()}
-          </RadioGroup>
-        </FormControl>
-      </CardContent>
-    </Card>
-  )
+const PlayerCountSelection = ({
+  selectPlayerCount,
+  selectedPlayerCount,
+}: Props) => (
+  <Card>
+    <CardContent>
+      <FormControl component={'fieldset' as 'div'}>
+        <FormLabel>Amount of Players</FormLabel>
+        <RadioGroup
+          aria-label="Players"
+          name="turnOrderPlayerCountOptions"
+          value={selectedPlayerCount.id}
+          onChange={(event: React.ChangeEvent<any>) => {
+            selectPlayerCount(event.currentTarget.value)
+          }}
+          row={true}
+        >
+          {renderPlayerCountOptions()}
+        </RadioGroup>
+      </FormControl>
+    </CardContent>
+  </Card>
 )
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PlayerCountSelection)
+)(React.memo(PlayerCountSelection))

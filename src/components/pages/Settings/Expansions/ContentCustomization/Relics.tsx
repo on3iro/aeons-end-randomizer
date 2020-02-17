@@ -21,15 +21,12 @@ type Props = ReturnType<typeof mapStateToProps> &
     expansionId: string
   }
 
-const Relics = React.memo(({ selectedRelics, handleRelicChange }: Props) => (
+const Relics = ({ selectedRelics, handleRelicChange }: Props) => (
   <CardListItem
     entities={selectedRelics}
     handleCheckboxChange={handleRelicChange}
     label="Relics"
   />
-))
+)
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Relics)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Relics))

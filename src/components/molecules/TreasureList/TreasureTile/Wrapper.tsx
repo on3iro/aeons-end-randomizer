@@ -11,6 +11,4 @@ const Wrapper = styled(Grid)`
   }
 `
 
-Wrapper.displayName = 'Wrapper'
-
 export default Wrapper

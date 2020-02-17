@@ -7,7 +7,7 @@ type Props = {
   className?: string
 }
 
-const DeleteButton = React.memo(({ onClick, className }: Props) => (
+const DeleteButton = ({ onClick, className }: Props) => (
   <IconButton
     color="secondary"
     aria-label="Delete"
@@ -16,6 +16,6 @@ const DeleteButton = React.memo(({ onClick, className }: Props) => (
   >
     <DeleteIcon />
   </IconButton>
-))
+)
 
-export default DeleteButton
+export default React.memo(DeleteButton)

@@ -15,12 +15,12 @@ type Props = {
   treasures: types.Treasure[]
 }
 
-const TreasureList = React.memo(({ treasures }: Props) => (
+const TreasureList = ({ treasures }: Props) => (
   <TreasureGridWrapper>
     <Grid container spacing={16}>
       {renderTreasures(treasures)}
     </Grid>
   </TreasureGridWrapper>
-))
+)
 
-export default TreasureList
+export default React.memo(TreasureList)

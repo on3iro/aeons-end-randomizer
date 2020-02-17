@@ -32,14 +32,12 @@ export type Props = {
   tiles: ReadonlyArray<OptionalTile>
 }
 
-const SupplyList = React.memo(({ tiles }: Props) => (
+const SupplyList = ({ tiles }: Props) => (
   <ListWrapper>
     <Grid container spacing={16}>
       {renderTiles(tiles)}
     </Grid>
   </ListWrapper>
-))
+)
 
-SupplyList.displayName = 'SupplyList'
-
-export default SupplyList
+export default React.memo(SupplyList)

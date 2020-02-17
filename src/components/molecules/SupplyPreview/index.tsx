@@ -24,37 +24,33 @@ type Props = {
   className?: string
 }
 
-const SupplyPreview = React.memo(
-  ({
-    clickHandler,
-    setup,
-    selected = false,
-    showName = true,
-    className,
-  }: Props) => {
-    if (!setup.tiles || setup.tiles.length < 1) {
-      return null
-    }
-
-    return (
-      <Wrapper
-        className={className}
-        key={setup.id}
-        onClick={clickHandler}
-        data-value={setup.id}
-        selected={selected}
-      >
-        <TileList>{renderMarketSetupItems(setup.tiles)}</TileList>
-        {showName ? (
-          <SupplyName variant="caption" selected={selected}>
-            {setup.name}
-          </SupplyName>
-        ) : null}
-      </Wrapper>
-    )
+const SupplyPreview = ({
+  clickHandler,
+  setup,
+  selected = false,
+  showName = true,
+  className,
+}: Props) => {
+  if (!setup.tiles || setup.tiles.length < 1) {
+    return null
   }
-)
 
-SupplyPreview.displayName = 'SupplyPreview'
+  return (
+    <Wrapper
+      className={className}
+      key={setup.id}
+      onClick={clickHandler}
+      data-value={setup.id}
+      selected={selected}
+    >
+      <TileList>{renderMarketSetupItems(setup.tiles)}</TileList>
+      {showName ? (
+        <SupplyName variant="caption" selected={selected}>
+          {setup.name}
+        </SupplyName>
+      ) : null}
+    </Wrapper>
+  )
+}
 
-export default SupplyPreview
+export default React.memo(SupplyPreview)

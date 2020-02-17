@@ -6,10 +6,10 @@ type Props = {
   onClick: (...args: any) => void
 }
 
-const EditButton = React.memo(({ onClick }: Props) => (
+const EditButton = ({ onClick }: Props) => (
   <IconButton color="primary" aria-label="Edit" onClick={onClick}>
     <EditIcon />
   </IconButton>
-))
+)
 
-export default EditButton
+export default React.memo(EditButton)

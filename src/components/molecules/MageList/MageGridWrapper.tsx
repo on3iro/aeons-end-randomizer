@@ -5,6 +5,4 @@ const MageGridWrapper = styled('div')`
   width: 100%;
 `
 
-MageGridWrapper.displayName = 'MageGridWrapper'
-
 export default MageGridWrapper

@@ -10,7 +10,7 @@ type Props = {
   dispatch: Function
 }
 
-const BluePrintList = React.memo(({ bluePrintList, dispatch }: Props) => {
+const BluePrintList = ({ bluePrintList, dispatch }: Props) => {
   return (
     <ListWrapper>
       <Button
@@ -29,6 +29,6 @@ const BluePrintList = React.memo(({ bluePrintList, dispatch }: Props) => {
       ))}
     </ListWrapper>
   )
-})
+}
 
-export default BluePrintList
+export default React.memo(BluePrintList)

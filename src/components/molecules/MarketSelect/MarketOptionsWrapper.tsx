@@ -6,6 +6,4 @@ const MarketOptionsWrapper = styled('div')`
   flex-wrap: wrap;
 `
 
-MarketOptionsWrapper.displayName = 'MarketOptionsWrapper'
-
 export default MarketOptionsWrapper

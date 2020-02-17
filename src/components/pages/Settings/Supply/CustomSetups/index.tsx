@@ -48,40 +48,36 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const CustomSetups = React.memo(
-  ({
-    customSetups,
+const CustomSetups = ({
+  customSetups,
+  toggleSetup,
+  editSetup,
+  deleteSetup,
+  cancelEdit,
+}: Props) => {
+  const handleSelection = useCallback(item => toggleSetup(item, 'Custom'), [
     toggleSetup,
-    editSetup,
-    deleteSetup,
-    cancelEdit,
-  }: Props) => {
-    const handleSelection = useCallback(item => toggleSetup(item, 'Custom'), [
-      toggleSetup,
-    ])
+  ])
 
-    return (
-      <ListWrapper label="Custom Setups">
+  return (
+    <ListWrapper label="Custom Setups">
+      <React.Fragment>
         <React.Fragment>
-          <React.Fragment>
-            <SetupCreation />
-            {renderCheckboxes({
-              customSetups,
-              handleSelection,
-              editSetup,
-              deleteSetup,
-              cancelEdit,
-            })}
-          </React.Fragment>
+          <SetupCreation />
+          {renderCheckboxes({
+            customSetups,
+            handleSelection,
+            editSetup,
+            deleteSetup,
+            cancelEdit,
+          })}
         </React.Fragment>
-      </ListWrapper>
-    )
-  }
-)
-
-CustomSetups.displayName = 'CustomSetups'
+      </React.Fragment>
+    </ListWrapper>
+  )
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CustomSetups)
+)(React.memo(CustomSetups))

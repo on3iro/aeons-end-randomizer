@@ -13,6 +13,4 @@ const SupplyName = styled(Typography)<Props>`
       : props.theme.colors.text.secondary};
 `
 
-SupplyName.displayName = 'SupplyName'
-
 export default SupplyName

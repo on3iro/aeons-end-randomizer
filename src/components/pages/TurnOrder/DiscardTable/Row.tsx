@@ -24,46 +24,39 @@ type Props = ReturnType<typeof mapStateToProps> &
     card: ITurnOrderCard
   }
 
-const Row = React.memo(
-  ({ card, addToTop, addToBottom, shuffleIntoDeck }: Props) => (
-    <RowWrapper type={card.type}>
-      <Cell>
-        <Typography component="p">{card.name}</Typography>
-      </Cell>
-      <Cell align="right">
-        <IconButton
-          aria-label="Add to top"
-          title="Add to top"
-          onClick={() => addToTop(card.id)}
-        >
-          <Publish fontSize="small" />
-        </IconButton>
-      </Cell>
-      <Cell align="right">
-        <IconButton
-          aria-label="Add to bottom"
-          title="Add to bottom"
-          onClick={() => addToBottom(card.id)}
-        >
-          <GetApp fontSize="small" />
-        </IconButton>
-      </Cell>
-      <Cell align="right">
-        <IconButton
-          aria-label="Shuffle into Turn Order Deck"
-          title="Shuffle into Turn Order Deck"
-          onClick={() => shuffleIntoDeck(card.id)}
-        >
-          <Loop fontSize="small" />
-        </IconButton>
-      </Cell>
-    </RowWrapper>
-  )
+const Row = ({ card, addToTop, addToBottom, shuffleIntoDeck }: Props) => (
+  <RowWrapper type={card.type}>
+    <Cell>
+      <Typography component="p">{card.name}</Typography>
+    </Cell>
+    <Cell align="right">
+      <IconButton
+        aria-label="Add to top"
+        title="Add to top"
+        onClick={() => addToTop(card.id)}
+      >
+        <Publish fontSize="small" />
+      </IconButton>
+    </Cell>
+    <Cell align="right">
+      <IconButton
+        aria-label="Add to bottom"
+        title="Add to bottom"
+        onClick={() => addToBottom(card.id)}
+      >
+        <GetApp fontSize="small" />
+      </IconButton>
+    </Cell>
+    <Cell align="right">
+      <IconButton
+        aria-label="Shuffle into Turn Order Deck"
+        title="Shuffle into Turn Order Deck"
+        onClick={() => shuffleIntoDeck(card.id)}
+      >
+        <Loop fontSize="small" />
+      </IconButton>
+    </Cell>
+  </RowWrapper>
 )
 
-Row.displayName = 'Row'
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Row)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Row))

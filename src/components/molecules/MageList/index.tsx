@@ -11,7 +11,7 @@ type Props = {
   mages: ReadonlyArray<Mage>
 }
 
-const MageList = React.memo(({ mages }: Props) => (
+const MageList = ({ mages }: Props) => (
   <MageGridWrapper>
     <Grid container spacing={16}>
       {mages.map((mage, index) => (
@@ -19,8 +19,6 @@ const MageList = React.memo(({ mages }: Props) => (
       ))}
     </Grid>
   </MageGridWrapper>
-))
+)
 
-MageList.displayName = 'MageList'
-
-export default MageList
+export default React.memo(MageList)

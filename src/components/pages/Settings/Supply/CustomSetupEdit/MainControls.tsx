@@ -17,46 +17,42 @@ type Props = {
   saveCustomSetup: Function
 }
 
-const MainControls = React.memo(
-  ({
-    bluePrintList,
-    cancelEdit,
-    setup,
-    setupName,
-    setSetupName,
-    saveCustomSetup,
-  }: Props) => {
-    return (
-      <MainControlsWrapper>
-        <InputField
-          id="setup-name"
-          label="Setup Name"
-          placeholder="Setup Name"
-          value={setupName}
-          onChange={e => setSetupName(e.currentTarget.value)}
-          margin="normal"
-        />
-        <IconButton
-          color="primary"
-          aria-label="Save"
-          onClick={() =>
-            saveCustomSetup({ ...setup, name: setupName, tiles: bluePrintList })
-          }
-        >
-          <SaveIcon />
-        </IconButton>
-        <IconButton
-          color="secondary"
-          aria-label="Cancel"
-          onClick={() => cancelEdit(setup.id)}
-        >
-          <CancelIcon />
-        </IconButton>
-      </MainControlsWrapper>
-    )
-  }
-)
+const MainControls = ({
+  bluePrintList,
+  cancelEdit,
+  setup,
+  setupName,
+  setSetupName,
+  saveCustomSetup,
+}: Props) => {
+  return (
+    <MainControlsWrapper>
+      <InputField
+        id="setup-name"
+        label="Setup Name"
+        placeholder="Setup Name"
+        value={setupName}
+        onChange={e => setSetupName(e.currentTarget.value)}
+        margin="normal"
+      />
+      <IconButton
+        color="primary"
+        aria-label="Save"
+        onClick={() =>
+          saveCustomSetup({ ...setup, name: setupName, tiles: bluePrintList })
+        }
+      >
+        <SaveIcon />
+      </IconButton>
+      <IconButton
+        color="secondary"
+        aria-label="Cancel"
+        onClick={() => cancelEdit(setup.id)}
+      >
+        <CancelIcon />
+      </IconButton>
+    </MainControlsWrapper>
+  )
+}
 
-MainControls.displayName = 'MainControls'
-
-export default MainControls
+export default React.memo(MainControls)

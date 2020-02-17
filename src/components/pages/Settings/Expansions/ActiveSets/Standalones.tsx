@@ -18,15 +18,15 @@ type Props = ReturnType<typeof mapStateToProps> &
     handleChange: ChangeHandler
   }
 
-const Standalones = React.memo(({ standalones, handleChange }: Props) => (
+const Standalones = ({ standalones, handleChange }: Props) => (
   <ExpansionList
     label="Standalone Expansions"
     expansions={standalones}
     handleChange={handleChange}
   />
-))
+)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Standalones)
+)(React.memo(Standalones))
