@@ -106,7 +106,7 @@ const renderInputFieldsByOperation = (
   return null
 }
 
-const BluePrint = React.memo(({ bluePrint, dispatch }: Props) => {
+const BluePrint = ({ bluePrint, dispatch }: Props) => {
   return (
     <BluePrintWrapper type={bluePrint.type}>
       <CancelButton
@@ -174,6 +174,6 @@ const BluePrint = React.memo(({ bluePrint, dispatch }: Props) => {
       {renderInputFieldsByOperation(bluePrint, dispatch)}
     </BluePrintWrapper>
   )
-})
+}
 
-export default BluePrint
+export default React.memo(BluePrint)

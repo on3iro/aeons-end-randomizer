@@ -30,7 +30,7 @@ const mapStateToProps = (state: RootState, ownProps: any) => ({
 
 type Props = ReturnType<typeof mapStateToProps> & OwnProps
 
-const NemesisModal = React.memo(({ theme, RenderModal, nemesis }: Props) => {
+const NemesisModal = ({ theme, RenderModal, nemesis }: Props) => {
   const titleColor = theme.colors.turnOrderCards.nemesis.normal
   const titleLabel = nemesis ? nemesis.name : ''
 
@@ -41,11 +41,8 @@ const NemesisModal = React.memo(({ theme, RenderModal, nemesis }: Props) => {
       </ModalBodyWrapper>
     </RenderModal>
   )
-})
+}
 
 export default withTheme(
-  connect(
-    mapStateToProps,
-    null
-  )(NemesisModal)
+  connect(mapStateToProps, null)(React.memo(NemesisModal))
 )

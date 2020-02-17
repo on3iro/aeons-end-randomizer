@@ -6,6 +6,4 @@ const InfoLabel = styled(Typography)`
   display: inline-block;
 `
 
-InfoLabel.displayName = 'InfoLabel'
-
 export default InfoLabel

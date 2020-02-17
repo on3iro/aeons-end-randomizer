@@ -48,26 +48,24 @@ type Props = {
   selectedCardsCount: number
 }
 
-const SupplySelection = React.memo(
-  ({
-    amountOfCardsToSelect,
-    selectedCardsCount,
-    lists,
-    handleSelection,
-  }: Props) => {
-    return (
-      <Wrapper>
-        <SectionHeadline>
-          Please select {amountOfCardsToSelect} cards to banish!
-        </SectionHeadline>
-        <InfoItem
-          label="Cards selected"
-          info={`${selectedCardsCount}/${amountOfCardsToSelect}`}
-        ></InfoItem>
-        {renderLists(lists, handleSelection)}
-      </Wrapper>
-    )
-  }
-)
+const SupplySelection = ({
+  amountOfCardsToSelect,
+  selectedCardsCount,
+  lists,
+  handleSelection,
+}: Props) => {
+  return (
+    <Wrapper>
+      <SectionHeadline>
+        Please select {amountOfCardsToSelect} cards to banish!
+      </SectionHeadline>
+      <InfoItem
+        label="Cards selected"
+        info={`${selectedCardsCount}/${amountOfCardsToSelect}`}
+      ></InfoItem>
+      {renderLists(lists, handleSelection)}
+    </Wrapper>
+  )
+}
 
-export default SupplySelection
+export default React.memo(SupplySelection)

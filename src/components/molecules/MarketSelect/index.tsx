@@ -23,49 +23,45 @@ type Props = ReturnType<typeof mapStateToProps> &
     selectedMarketId: string
   }
 
-const MarketSelect = React.memo(
-  ({
-    activeMarketSetups,
-    allMarketSetups,
-    selectedMarketId,
-    clickHandler,
-  }: Props) => {
-    const { expanded, createExpansionHandler } = useExpandedHandling()
-    const expansionKey = 'setup'
-    const expansionHandler = createExpansionHandler(expansionKey)
+const MarketSelect = ({
+  activeMarketSetups,
+  allMarketSetups,
+  selectedMarketId,
+  clickHandler,
+}: Props) => {
+  const { expanded, createExpansionHandler } = useExpandedHandling()
+  const expansionKey = 'setup'
+  const expansionHandler = createExpansionHandler(expansionKey)
 
-    const selectedMarketSetup = allMarketSetups[selectedMarketId]
+  const selectedMarketSetup = allMarketSetups[selectedMarketId]
 
-    const handleClick = (id: string) => {
-      expansionHandler(undefined, false)
-      clickHandler(id)
-    }
-
-    return (
-      <ExpansionPanel
-        expanded={expanded}
-        expansionKey={expansionKey}
-        summary={selectedMarketSetup.name}
-        expansionHandler={expansionHandler}
-      >
-        <MarketOptionsWrapper>
-          {activeMarketSetups.map(setup => (
-            <SupplyPreview
-              key={setup.id}
-              setup={setup}
-              clickHandler={() => handleClick(setup.id)}
-              selected={setup.id === selectedMarketSetup.id}
-            />
-          ))}
-        </MarketOptionsWrapper>
-      </ExpansionPanel>
-    )
+  const handleClick = (id: string) => {
+    expansionHandler(undefined, false)
+    clickHandler(id)
   }
-)
 
-MarketSelect.displayName = 'MarketOptions'
+  return (
+    <ExpansionPanel
+      expanded={expanded}
+      expansionKey={expansionKey}
+      summary={selectedMarketSetup.name}
+      expansionHandler={expansionHandler}
+    >
+      <MarketOptionsWrapper>
+        {activeMarketSetups.map(setup => (
+          <SupplyPreview
+            key={setup.id}
+            setup={setup}
+            clickHandler={() => handleClick(setup.id)}
+            selected={setup.id === selectedMarketSetup.id}
+          />
+        ))}
+      </MarketOptionsWrapper>
+    </ExpansionPanel>
+  )
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MarketSelect)
+)(React.memo(MarketSelect))

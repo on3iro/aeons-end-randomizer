@@ -10,7 +10,7 @@ type Props = {
   clickHandler: () => void
 }
 
-const Navigation = React.memo(({ clickHandler }: Props) => (
+const Navigation = ({ clickHandler }: Props) => (
   <List>
     <Link text="Randomizer" to="/randomizer/nemesis" onClick={clickHandler}>
       <i className="ra ra-lg ra-perspective-dice-random" />
@@ -36,8 +36,6 @@ const Navigation = React.memo(({ clickHandler }: Props) => (
       />
     </Link>
   </List>
-))
+)
 
-Navigation.displayName = 'Navigation'
-
-export default Navigation
+export default React.memo(Navigation)

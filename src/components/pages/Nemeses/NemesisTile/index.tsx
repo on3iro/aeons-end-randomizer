@@ -13,21 +13,17 @@ type Props = {
   theme: any
 }
 
-const NemesisTile = React.memo(
-  ({ nemesis, showNemesisDetails, theme }: Props) => {
-    return (
-      <Tile
-        body={<Body nemesis={nemesis} />}
-        bgColor={theme.colors.turnOrderCards.nemesis.normal}
-        fontColor={theme.colors.white}
-        icon={theme.icons.nemesis}
-        iconColor={theme.colors.cards.nemesis.color}
-        showDetails={() => showNemesisDetails(nemesis.id)}
-      />
-    )
-  }
-)
+const NemesisTile = ({ nemesis, showNemesisDetails, theme }: Props) => {
+  return (
+    <Tile
+      body={<Body nemesis={nemesis} />}
+      bgColor={theme.colors.turnOrderCards.nemesis.normal}
+      fontColor={theme.colors.white}
+      icon={theme.icons.nemesis}
+      iconColor={theme.colors.cards.nemesis.color}
+      showDetails={() => showNemesisDetails(nemesis.id)}
+    />
+  )
+}
 
-NemesisTile.displayName = 'NemesisTile'
-
-export default withTheme(NemesisTile)
+export default withTheme(React.memo(NemesisTile))

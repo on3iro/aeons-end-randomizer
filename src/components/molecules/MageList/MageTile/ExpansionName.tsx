@@ -5,6 +5,4 @@ const ExpansionName = styled(Typography)`
   color: #fff;
 `
 
-ExpansionName.displayName = 'ExpansionName'
-
 export default ExpansionName

@@ -13,30 +13,26 @@ type Props = {
   handleAmountChange: (e: React.ChangeEvent<any>) => void
 }
 
-const MageCountPicker = React.memo(
-  ({ selectedValue, handleAmountChange }: Props) => (
-    <Card>
-      <CardContent>
-        <FormControl component={'fieldset' as 'div'}>
-          <FormLabel>Amount of Mages</FormLabel>
-          <RadioGroup
-            aria-label="Amount of Mages"
-            name="mageAmount"
-            value={selectedValue}
-            onChange={handleAmountChange}
-            row={true}
-          >
-            <FormControlLabel value="1" control={<Radio />} label="1" />
-            <FormControlLabel value="2" control={<Radio />} label="2" />
-            <FormControlLabel value="3" control={<Radio />} label="3" />
-            <FormControlLabel value="4" control={<Radio />} label="4" />
-          </RadioGroup>
-        </FormControl>
-      </CardContent>
-    </Card>
-  )
+const MageCountPicker = ({ selectedValue, handleAmountChange }: Props) => (
+  <Card>
+    <CardContent>
+      <FormControl component={'fieldset' as 'div'}>
+        <FormLabel>Amount of Mages</FormLabel>
+        <RadioGroup
+          aria-label="Amount of Mages"
+          name="mageAmount"
+          value={selectedValue}
+          onChange={handleAmountChange}
+          row={true}
+        >
+          <FormControlLabel value="1" control={<Radio />} label="1" />
+          <FormControlLabel value="2" control={<Radio />} label="2" />
+          <FormControlLabel value="3" control={<Radio />} label="3" />
+          <FormControlLabel value="4" control={<Radio />} label="4" />
+        </RadioGroup>
+      </FormControl>
+    </CardContent>
+  </Card>
 )
 
-MageCountPicker.displayName = 'MageCountPicker'
-
-export default MageCountPicker
+export default React.memo(MageCountPicker)

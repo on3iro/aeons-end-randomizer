@@ -5,6 +5,4 @@ const Name = styled(Typography)`
   font-weight: bold;
 `
 
-Name.displayName = 'Name'
-
 export default Name

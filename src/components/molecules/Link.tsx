@@ -13,15 +13,13 @@ type Props = {
   onClick?: () => void
 }
 
-const Link = React.memo(({ text, to, children, onClick }: Props) => (
+const Link = ({ text, to, children, onClick }: Props) => (
   <A to={to}>
     <ListItem button key={text} onClick={onClick}>
       <ListItemIcon>{children}</ListItemIcon>
       <ListItemText primary={text} />
     </ListItem>
   </A>
-))
+)
 
-Link.displayName = 'Link'
-
-export default Link
+export default React.memo(Link)

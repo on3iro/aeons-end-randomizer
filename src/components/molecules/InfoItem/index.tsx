@@ -9,13 +9,11 @@ type Props = {
   info: string
 }
 
-const InfoItem = React.memo(({ label, info }: Props) => (
+const InfoItem = ({ label, info }: Props) => (
   <Wrapper>
     <InfoLabel color="textSecondary">{label}:</InfoLabel>
     <Info component="span">{info}</Info>
   </Wrapper>
-))
+)
 
-InfoItem.displayName = 'InfoItem'
-
-export default InfoItem
+export default React.memo(InfoItem)

@@ -5,7 +5,4 @@ const UpgradedBasicNemesisCardGridWrapper = styled('div')`
   width: 100%;
 `
 
-UpgradedBasicNemesisCardGridWrapper.displayName =
-  'UpgradedBasicNemesisCardGridWrapper'
-
 export default UpgradedBasicNemesisCardGridWrapper

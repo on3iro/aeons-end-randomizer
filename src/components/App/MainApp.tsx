@@ -44,7 +44,4 @@ const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
 
 MainApp.displayName = 'MainApp'
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MainApp)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(MainApp))

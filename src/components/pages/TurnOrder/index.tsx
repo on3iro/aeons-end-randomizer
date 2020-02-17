@@ -17,15 +17,13 @@ type Props = ReturnType<typeof mapStateToProps> &
     gameHasStarted: boolean
   }
 
-const TurnOrder = React.memo(({ gameHasStarted }: Props) => (
+const TurnOrder = ({ gameHasStarted }: Props) => (
   <React.Fragment>
     {gameHasStarted ? <ActiveGame /> : <TurnOrderConfiguration />}
   </React.Fragment>
-))
-
-TurnOrder.displayName = 'TurnOrder'
+)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TurnOrder)
+)(React.memo(TurnOrder))

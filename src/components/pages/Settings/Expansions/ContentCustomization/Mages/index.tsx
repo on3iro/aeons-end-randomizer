@@ -35,7 +35,7 @@ type Props = ReturnType<typeof mapStateToProps> &
     expansionId: string
   }
 
-const Mages = React.memo(({ selectedMages, handleMageChange }: Props) => {
+const Mages = ({ selectedMages, handleMageChange }: Props) => {
   return (
     <React.Fragment>
       <ListWrapper label="Mages">
@@ -45,9 +45,6 @@ const Mages = React.memo(({ selectedMages, handleMageChange }: Props) => {
       </ListWrapper>
     </React.Fragment>
   )
-})
+}
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Mages)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Mages))

@@ -32,30 +32,26 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const PredefinedSetups = React.memo(
-  ({ predefinedSetups, toggleSetup }: Props) => {
-    const handleSelection = useCallback(
-      (id: string) => {
-        toggleSetup(id, 'Predefined')
-      },
-      [toggleSetup]
-    )
+const PredefinedSetups = ({ predefinedSetups, toggleSetup }: Props) => {
+  const handleSelection = useCallback(
+    (id: string) => {
+      toggleSetup(id, 'Predefined')
+    },
+    [toggleSetup]
+  )
 
-    return (
-      <React.Fragment>
-        <ListWrapper label="Predefined Setups">
-          <React.Fragment>
-            {renderCheckboxes(predefinedSetups, handleSelection)}
-          </React.Fragment>
-        </ListWrapper>
-      </React.Fragment>
-    )
-  }
-)
-
-PredefinedSetups.displayName = 'PredefinedSetups'
+  return (
+    <React.Fragment>
+      <ListWrapper label="Predefined Setups">
+        <React.Fragment>
+          {renderCheckboxes(predefinedSetups, handleSelection)}
+        </React.Fragment>
+      </ListWrapper>
+    </React.Fragment>
+  )
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PredefinedSetups)
+)(React.memo(PredefinedSetups))

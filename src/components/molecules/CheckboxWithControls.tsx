@@ -17,32 +17,30 @@ type Props = {
   changeHandler: (selection: string) => void
 }
 
-const CheckboxWithControls = React.memo(
-  ({ checked, label, changeHandler, id }: Props) => {
-    const history = useHistory()
+const CheckboxWithControls = ({ checked, label, changeHandler, id }: Props) => {
+  const history = useHistory()
 
-    return (
-      <Wrapper>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={checked}
-              onChange={() => changeHandler(id)}
-              value={id}
-            />
-          }
-          label={label}
-        />
-        <IconButton
-          color="primary"
-          aria-label="Edit"
-          onClick={() => history.push(`/settings/expansions/${id}`)}
-        >
-          <EditIcon />
-        </IconButton>
-      </Wrapper>
-    )
-  }
-)
+  return (
+    <Wrapper>
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={checked}
+            onChange={() => changeHandler(id)}
+            value={id}
+          />
+        }
+        label={label}
+      />
+      <IconButton
+        color="primary"
+        aria-label="Edit"
+        onClick={() => history.push(`/settings/expansions/${id}`)}
+      >
+        <EditIcon />
+      </IconButton>
+    </Wrapper>
+  )
+}
 
-export default CheckboxWithControls
+export default React.memo(CheckboxWithControls)

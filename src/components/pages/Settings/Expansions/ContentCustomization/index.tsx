@@ -17,7 +17,7 @@ import Treasures from './Treasures'
 
 type Props = { expansionId: string }
 
-const ContentCustomization = React.memo(({ expansionId }: Props) => (
+const ContentCustomization = ({ expansionId }: Props) => (
   <Card>
     <CardContent>
       <BackLink to="/settings" label="Back to settings" />
@@ -33,6 +33,6 @@ const ContentCustomization = React.memo(({ expansionId }: Props) => (
       </FormControl>
     </CardContent>
   </Card>
-))
+)
 
-export default ContentCustomization
+export default React.memo(ContentCustomization)

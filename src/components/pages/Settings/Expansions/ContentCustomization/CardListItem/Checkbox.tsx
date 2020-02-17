@@ -7,40 +7,38 @@ import SupplyModal from '../../../../../molecules/SupplyModal'
 
 import { SelectedCard, ChangeHandler } from './index'
 
-const Checkbox = React.memo(
-  ({
-    card,
-    changeHandler,
-  }: {
-    card: SelectedCard
-    changeHandler: ChangeHandler
-  }) => {
-    const { show, RenderModal } = useModal()
+const Checkbox = ({
+  card,
+  changeHandler,
+}: {
+  card: SelectedCard
+  changeHandler: ChangeHandler
+}) => {
+  const { show, RenderModal } = useModal()
 
-    const handleChange = useCallback(
-      (id: string) => {
-        changeHandler(id)
-      },
-      [changeHandler]
-    )
+  const handleChange = useCallback(
+    (id: string) => {
+      changeHandler(id)
+    },
+    [changeHandler]
+  )
 
-    const handleDetails = useCallback(() => {
-      show()
-    }, [show])
+  const handleDetails = useCallback(() => {
+    show()
+  }, [show])
 
-    return (
-      <React.Fragment>
-        <CheckboxWithDetails
-          id={card.id}
-          checked={card.selected}
-          label={card.name}
-          changeHandler={handleChange}
-          showDetails={handleDetails}
-        />
-        <SupplyModal card={card} RenderModal={RenderModal} />
-      </React.Fragment>
-    )
-  }
-)
+  return (
+    <React.Fragment>
+      <CheckboxWithDetails
+        id={card.id}
+        checked={card.selected}
+        label={card.name}
+        changeHandler={handleChange}
+        showDetails={handleDetails}
+      />
+      <SupplyModal card={card} RenderModal={RenderModal} />
+    </React.Fragment>
+  )
+}
 
-export default Checkbox
+export default React.memo(Checkbox)

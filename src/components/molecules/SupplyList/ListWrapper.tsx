@@ -5,6 +5,4 @@ const ListWrapper = styled('div')`
   width: 100%;
 `
 
-ListWrapper.displayName = 'ListWrapper'
-
 export default ListWrapper
