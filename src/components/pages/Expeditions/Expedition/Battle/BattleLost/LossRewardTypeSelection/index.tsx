@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import * as types from 'types'
 
 import { actions } from 'Redux/Store'
-import { RollLossType } from 'Redux/Store/Expeditions/Expeditions/'
+import { RewardType } from 'Redux/Store/Expeditions/Expeditions/'
 
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
@@ -21,7 +21,6 @@ const getTreasureOptionsByTier = (tier: 1 | 2 | 3 | 4) => [
 
 type OwnProps = {
   battle: types.Battle
-  dataConfig: any
 }
 
 const mapStateToProps = () => {
@@ -36,29 +35,23 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const LossRewardTypeSelection = ({ battle, dataConfig, rollLoss }: Props) => {
+const LossRewardTypeSelection = ({ battle, rollLoss }: Props) => {
   const treasureOptions = getTreasureOptionsByTier(battle.nemesisTier.tier)
 
-  const [rewardSelectValue, updateRewardSelectValue] = useState<RollLossType>(
+  const [rewardSelectValue, updateRewardSelectValue] = useState<RewardType>(
     'mage'
   )
 
   const handleRewardSelectChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
-      updateRewardSelectValue(e.target.value as RollLossType)
+      updateRewardSelectValue(e.target.value as RewardType)
     },
     [updateRewardSelectValue]
   )
 
   const handleRewardConfirmation = useCallback(() => {
-    const config = {
-      type: rewardSelectValue as RollLossType, // FIXME we should try to get it typesafe instead of casting
-      battle,
-      ...dataConfig,
-    }
-
-    rollLoss(config)
-  }, [rewardSelectValue, battle, rollLoss, dataConfig])
+    rollLoss(battle, rewardSelectValue)
+  }, [rewardSelectValue, battle, rollLoss])
 
   return (
     <React.Fragment>
