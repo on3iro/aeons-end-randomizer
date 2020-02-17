@@ -2,9 +2,9 @@ import { createAction } from '@martin_hotell/rex-tils'
 
 import * as types from 'types'
 
-import { ActionTypes, State, LossConfig, WinConfig, BaseConfig } from './types'
+import { ActionTypes, State, LossConfig, BaseConfig } from './types'
 
-import { rollLossRewards, rollWinRewards } from './helpers'
+import { rollLossRewards } from './helpers'
 
 export const actions = {
   createExpedition: (baseConfig: BaseConfig) =>
@@ -19,8 +19,10 @@ export const actions = {
   }) => createAction(ActionTypes.ROLL_BATTLE_SUCCESS, result),
   startBattle: (battle: types.Battle) =>
     createAction(ActionTypes.START_BATTLE, { battle }),
-  winBattle: (config: WinConfig) =>
-    createAction(ActionTypes.WIN_BATTLE, rollWinRewards(config)),
+  winBattle: (battle: types.Battle) =>
+    createAction(ActionTypes.WIN_BATTLE, battle),
+  winBattleSuccess: (result: { battle: types.Battle }) =>
+    createAction(ActionTypes.WIN_BATTLE_SUCCESS, result),
   loseBattle: (battle: types.Battle) =>
     createAction(ActionTypes.LOSE_BATTLE, { battle }),
   acceptLoss: (
