@@ -170,20 +170,24 @@ export const rollBattleSuccess = (
   )
 }
 
-export const startBattle = (
-  state: State,
-  action: ReturnType<typeof actions.startBattle>
-) => {
-  const { battle } = action.payload
-  return updateBattle(state, battle, {
-    tries: battle.tries + 1,
-    status: 'started',
-  })
-}
-
 export const winBattle = (
   state: State,
   action: ReturnType<typeof actions.winBattle>
+) => {
+  const battle = action.payload
+
+  return loop(
+    state,
+    Cmd.run(sideEffects.rollWinRewards, {
+      args: [Cmd.getState, battle],
+      successActionCreator: actions.winBattleSuccess,
+    })
+  )
+}
+
+export const winBattleSuccess = (
+  state: State,
+  action: ReturnType<typeof actions.winBattleSuccess>
 ) => {
   const { battle } = action.payload
   const oldExpedition = state.expeditions[battle.expeditionId]
@@ -222,6 +226,17 @@ export const winBattle = (
       failActionCreator: actions.setToDBFailed,
     })
   )
+}
+
+export const startBattle = (
+  state: State,
+  action: ReturnType<typeof actions.startBattle>
+) => {
+  const { battle } = action.payload
+  return updateBattle(state, battle, {
+    tries: battle.tries + 1,
+    status: 'started',
+  })
 }
 
 export const loseBattle = (

@@ -12,6 +12,7 @@ export enum ActionTypes {
   ROLL_BATTLE_SUCCESS = 'Expeditions/Expeditions/ROLL_BATTLE_SUCCESS',
   START_BATTLE = 'Expeditions/Expeditions/START_BATTLE',
   WIN_BATTLE = 'Expeditions/Expeditions/WIN_BATTLE',
+  WIN_BATTLE_SUCCESS = 'Expeditions/Expeditions/WIN_BATTLE_SUCCESS',
   LOSE_BATTLE = 'Expeditions/Expeditions/LOSE_BATTLE',
   ROLL_LOSS = 'Expeditions/Expeditions/ROLL_LOSS',
   ACCEPT_LOSS = 'Expeditions/Expeditions/ACCEPT_LOSS',
