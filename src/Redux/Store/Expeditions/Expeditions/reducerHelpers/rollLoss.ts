@@ -1,14 +1,25 @@
 import { loop, Cmd } from 'redux-loop'
-import { set as setToDb } from 'idb-keyval'
 
-import * as helpers from '../helpers'
 import * as sideEffects from '../sideEffects'
 import { State } from '../types'
 import { actions } from '../actions'
 
-import { EXPEDITIONS_DB_KEY, updateBattle } from './helpers'
+import { updateBattle } from './helpers'
 
-// TODO RollLoss
+export const rollLoss = (
+  state: State,
+  action: ReturnType<typeof actions.rollLoss>
+) => {
+  const { battle, rewardType } = action.payload
+
+  return loop(
+    state,
+    Cmd.run(sideEffects.rollLossRewards, {
+      args: [Cmd.getState, battle, rewardType],
+      successActionCreator: actions.rollLossSuccess,
+    })
+  )
+}
 
 export const rollLossSuccess = (
   state: State,

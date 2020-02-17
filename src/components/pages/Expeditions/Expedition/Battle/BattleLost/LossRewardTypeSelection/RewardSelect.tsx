@@ -4,10 +4,10 @@ import MenuItem from '@material-ui/core/MenuItem'
 import FormControl from '../../../../FormControl'
 import Select from '../../../../Select'
 
-import { RollLossType } from 'Redux/Store/Expeditions/Expeditions/'
+import { RewardType } from 'Redux/Store/Expeditions/Expeditions/'
 
 type Props = {
-  rewardSelectValue: RollLossType
+  rewardSelectValue: RewardType
   handleRewardSelectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
   treasureOptions: Array<{ level: number }>
 }

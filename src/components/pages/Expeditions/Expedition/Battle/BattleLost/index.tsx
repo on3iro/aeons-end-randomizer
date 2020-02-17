@@ -16,33 +16,6 @@ type OwnProps = {
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
-  const { expeditionId } = ownProps.battle
-
-  const gemIds = selectors.getStillAvailableGemIds(state, {
-    expeditionId,
-  })
-  const relicIds = selectors.getStillAvailableRelicIds(state, {
-    expeditionId,
-  })
-  const spellIds = selectors.getStillAvailableSpellIds(state, {
-    expeditionId,
-  })
-
-  const treasure1Ids = selectors.getNewTreasureIdsByLevel(state, {
-    treasureLevel: 1,
-    expeditionId,
-  })
-  const treasure2Ids = selectors.getNewTreasureIdsByLevel(state, {
-    treasureLevel: 2,
-    expeditionId,
-  })
-  const treasure3Ids = selectors.getNewTreasureIdsByLevel(state, {
-    treasureLevel: 3,
-    expeditionId,
-  })
-
-  const mageIds = selectors.getStillAvailableMageIds(state, { expeditionId })
-
   const expedition = selectors.Expeditions.Expeditions.getExpeditionById(
     state,
     { expeditionId: ownProps.battle.expeditionId }
@@ -96,15 +69,6 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
     expeditionSupply,
     newMage,
     lists,
-    dataConfig: {
-      gemIds,
-      relicIds,
-      spellIds,
-      mageIds,
-      treasure1Ids,
-      treasure2Ids,
-      treasure3Ids,
-    },
   }
 }
 
@@ -126,7 +90,6 @@ const BattleLost = ({
   lists,
   newSupplyCards,
   newMage,
-  dataConfig,
 }: Props) => {
   const [listsWithSelectionState, updateLists] = useState<
     Array<helpers.ListWithSelection>
@@ -195,7 +158,7 @@ const BattleLost = ({
   return (
     <React.Fragment>
       {!battle.rewards ? (
-        <LossRewardTypeSelection battle={battle} dataConfig={dataConfig} />
+        <LossRewardTypeSelection battle={battle} />
       ) : (
         <RewardScreen
           expedition={expedition}
