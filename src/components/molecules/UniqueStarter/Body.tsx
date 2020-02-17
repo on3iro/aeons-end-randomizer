@@ -13,7 +13,7 @@ type Props = {
   card: ICard
 }
 
-const Body = React.memo(({ card }: Props) => (
+const Body = ({ card }: Props) => (
   <React.Fragment>
     <Name>{card.name}</Name>
     <List>
@@ -28,6 +28,6 @@ const Body = React.memo(({ card }: Props) => (
     />
     {card.keywords ? card.keywords.map((keyword: string) => keyword) : null}
   </React.Fragment>
-))
+)
 
-export default Body
+export default React.memo(Body)

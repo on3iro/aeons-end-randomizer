@@ -35,31 +35,31 @@ type Props = ReturnType<typeof mapStateToProps> & {
   RenderModal: RenderModalType
 }
 
-const SupplyModal = React.memo(
-  ({ card, selectedExpansions, theme, RenderModal }: Props) => {
-    const { expansions } = selectedExpansions
+const SupplyModal = ({
+  card,
+  selectedExpansions,
+  theme,
+  RenderModal,
+}: Props) => {
+  const { expansions } = selectedExpansions
 
-    const titleColor = card
-      ? theme.colors.cards[card.type.toLowerCase()].color
-      : theme.colors.text
-    const titleLabel = card ? card.name : ''
-    const body = card ? (
-      <Body card={card} expansionName={expansions[card.expansion].name || ''} />
-    ) : (
-      'No content'
-    )
+  const titleColor = card
+    ? theme.colors.cards[card.type.toLowerCase()].color
+    : theme.colors.text
+  const titleLabel = card ? card.name : ''
+  const body = card ? (
+    <Body card={card} expansionName={expansions[card.expansion].name || ''} />
+  ) : (
+    'No content'
+  )
 
-    return (
-      <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
-        <ModalBodyWrapper>{body}</ModalBodyWrapper>
-      </RenderModal>
-    )
-  }
-)
+  return (
+    <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
+      <ModalBodyWrapper>{body}</ModalBodyWrapper>
+    </RenderModal>
+  )
+}
 
 export default withTheme(
-  connect(
-    mapStateToProps,
-    null
-  )(SupplyModal)
+  connect(mapStateToProps, null)(React.memo(SupplyModal))
 )

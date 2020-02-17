@@ -27,30 +27,35 @@ type Props = ReturnType<typeof mapStateToProps> & {
   RenderModal: RenderModalType
 }
 
-const BasicNemesisCardModal = React.memo(
-  ({ card, selectedExpansions, theme, RenderModal }: Props) => {
-    const { expansions } = selectedExpansions
+const BasicNemesisCardModal = ({
+  card,
+  selectedExpansions,
+  theme,
+  RenderModal,
+}: Props) => {
+  const { expansions } = selectedExpansions
 
-    const titleColor = card
-      ? theme.colors.turnOrderCards['nemesis'].normal
-      : theme.colors.text.primary
-    const titleLabel = card ? card.name : ''
+  const titleColor = card
+    ? theme.colors.turnOrderCards['nemesis'].normal
+    : theme.colors.text.primary
+  const titleLabel = card ? card.name : ''
 
-    return (
-      <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
-        <ModalBodyWrapper>
-          {card ? (
-            <Body
-              card={card}
-              expansionName={expansions[card.expansion].name || ''}
-            />
-          ) : (
-            <P>No content</P>
-          )}
-        </ModalBodyWrapper>
-      </RenderModal>
-    )
-  }
+  return (
+    <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
+      <ModalBodyWrapper>
+        {card ? (
+          <Body
+            card={card}
+            expansionName={expansions[card.expansion].name || ''}
+          />
+        ) : (
+          <P>No content</P>
+        )}
+      </ModalBodyWrapper>
+    </RenderModal>
+  )
+}
+
+export default withTheme(
+  connect(mapStateToProps, null)(React.memo(BasicNemesisCardModal))
 )
-
-export default withTheme(connect(mapStateToProps, null)(BasicNemesisCardModal))

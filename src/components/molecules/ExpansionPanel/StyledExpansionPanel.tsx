@@ -15,17 +15,13 @@ const ExpansionPanel = styled(MuiExpansionPanel)`
 
 ExpansionPanel.displayName = 'ExpansionPanel'
 
-const StyledExpansionPanel = React.memo(
-  ({
-    children,
-    ...rest
-  }: {
-    expanded: boolean | undefined
-    onChange: (...args: any) => void
-    children: React.ReactNode
-  }) => <ExpansionPanel {...rest}>{children}</ExpansionPanel>
-)
+const StyledExpansionPanel = ({
+  children,
+  ...rest
+}: {
+  expanded: boolean | undefined
+  onChange: (...args: any) => void
+  children: React.ReactNode
+}) => <ExpansionPanel {...rest}>{children}</ExpansionPanel>
 
-StyledExpansionPanel.displayName = 'StyledExpansionPanel'
-
-export default StyledExpansionPanel
+export default React.memo(StyledExpansionPanel)

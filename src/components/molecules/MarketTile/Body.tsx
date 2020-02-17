@@ -24,7 +24,7 @@ type Props = {
   expansionName: string
 }
 
-const Body = React.memo(({ supplyCard, expansionName }: Props) => {
+const Body = ({ supplyCard, expansionName }: Props) => {
   const { type, operation, values, threshold } = supplyCard
 
   return (
@@ -51,6 +51,6 @@ const Body = React.memo(({ supplyCard, expansionName }: Props) => {
       </List>
     </React.Fragment>
   )
-})
+}
 
-export default Body
+export default React.memo(Body)

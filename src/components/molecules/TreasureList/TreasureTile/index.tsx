@@ -25,4 +25,4 @@ const TreasureTile = ({ treasure, theme }: Props) => (
   </Wrapper>
 )
 
-export default withTheme(TreasureTile)
+export default withTheme(React.memo(TreasureTile))

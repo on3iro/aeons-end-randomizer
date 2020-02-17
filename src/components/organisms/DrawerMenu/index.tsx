@@ -18,7 +18,7 @@ type Props = {
   toggleDrawer: () => void
 }
 
-const DrawerMenu = React.memo(({ drawerIsOpen, toggleDrawer }: Props) => (
+const DrawerMenu = ({ drawerIsOpen, toggleDrawer }: Props) => (
   <Drawer
     open={drawerIsOpen}
     onClose={toggleDrawer}
@@ -45,8 +45,6 @@ const DrawerMenu = React.memo(({ drawerIsOpen, toggleDrawer }: Props) => (
       </GitHubLink>
     </AppInfo>
   </Drawer>
-))
+)
 
-DrawerMenu.displayName = 'DrawerMenu'
-
-export default DrawerMenu
+export default React.memo(DrawerMenu)

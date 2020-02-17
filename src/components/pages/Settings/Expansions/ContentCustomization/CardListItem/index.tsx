@@ -23,18 +23,16 @@ type Props = {
   label: string
 }
 
-const CardListItem = React.memo(
-  ({ entities, handleCheckboxChange, label }: Props) => {
-    return (
-      <React.Fragment>
-        <ListWrapper label={label}>
-          <React.Fragment>
-            {renderCheckboxes(entities, handleCheckboxChange)}
-          </React.Fragment>
-        </ListWrapper>
-      </React.Fragment>
-    )
-  }
-)
+const CardListItem = ({ entities, handleCheckboxChange, label }: Props) => {
+  return (
+    <React.Fragment>
+      <ListWrapper label={label}>
+        <React.Fragment>
+          {renderCheckboxes(entities, handleCheckboxChange)}
+        </React.Fragment>
+      </ListWrapper>
+    </React.Fragment>
+  )
+}
 
-export default CardListItem
+export default React.memo(CardListItem)

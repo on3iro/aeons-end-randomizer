@@ -13,7 +13,7 @@ type Props = {
   treasure: Treasure
 }
 
-const Body = React.memo(({ treasure }: Props) => (
+const Body = ({ treasure }: Props) => (
   <React.Fragment>
     <Name component="p">{treasure.name}</Name>
     <List>
@@ -23,6 +23,6 @@ const Body = React.memo(({ treasure }: Props) => (
     </List>
     <AbilityText dangerouslySetInnerHTML={{ __html: treasure.effect }} />
   </React.Fragment>
-))
+)
 
-export default Body
+export default React.memo(Body)

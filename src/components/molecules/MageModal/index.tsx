@@ -26,36 +26,35 @@ type Props = ReturnType<typeof mapStateToProps> & {
   RenderModal: RenderModalType
 }
 
-const MageModal = React.memo(
-  ({ player, mage, selectedExpansions, theme, RenderModal }: Props) => {
-    const { expansions } = selectedExpansions
+const MageModal = ({
+  player,
+  mage,
+  selectedExpansions,
+  theme,
+  RenderModal,
+}: Props) => {
+  const { expansions } = selectedExpansions
 
-    const titleColor = player
-      ? theme.colors.playerColors[player].normal
-      : theme.colors.playerColors['player1'].normal
+  const titleColor = player
+    ? theme.colors.playerColors[player].normal
+    : theme.colors.playerColors['player1'].normal
 
-    const titleLabel = mage ? mage.name : ''
-    const body = mage ? (
-      <MageInformation
-        mage={mage}
-        player={player}
-        expansionName={expansions[mage.expansion].name || ''}
-      />
-    ) : (
-      'No content'
-    )
+  const titleLabel = mage ? mage.name : ''
+  const body = mage ? (
+    <MageInformation
+      mage={mage}
+      player={player}
+      expansionName={expansions[mage.expansion].name || ''}
+    />
+  ) : (
+    'No content'
+  )
 
-    return (
-      <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
-        <ModalBodyWrapper>{body}</ModalBodyWrapper>
-      </RenderModal>
-    )
-  }
-)
+  return (
+    <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
+      <ModalBodyWrapper>{body}</ModalBodyWrapper>
+    </RenderModal>
+  )
+}
 
-export default withTheme(
-  connect(
-    mapStateToProps,
-    null
-  )(MageModal)
-)
+export default withTheme(connect(mapStateToProps, null)(React.memo(MageModal)))

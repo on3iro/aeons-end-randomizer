@@ -17,14 +17,12 @@ type Props = {
   upgradedBasicNemsisCards: types.UpgradedBasicNemesisCard[]
 }
 
-const UpgradedBasicNemesisCardList = React.memo(
-  ({ upgradedBasicNemsisCards }: Props) => (
-    <UpgradedBasicNemesisCardGridWrapper>
-      <Grid container spacing={16}>
-        {renderUpgradedBasicNemesisCards(upgradedBasicNemsisCards)}
-      </Grid>
-    </UpgradedBasicNemesisCardGridWrapper>
-  )
+const UpgradedBasicNemesisCardList = ({ upgradedBasicNemsisCards }: Props) => (
+  <UpgradedBasicNemesisCardGridWrapper>
+    <Grid container spacing={16}>
+      {renderUpgradedBasicNemesisCards(upgradedBasicNemsisCards)}
+    </Grid>
+  </UpgradedBasicNemesisCardGridWrapper>
 )
 
-export default UpgradedBasicNemesisCardList
+export default React.memo(UpgradedBasicNemesisCardList)

@@ -19,6 +19,4 @@ const Wrapper = styled(MuiCard)<Props>`
   ${props => (props.selected ? selectedMixin : '')}
 `
 
-Wrapper.displayName = 'Wrapper'
-
 export default Wrapper

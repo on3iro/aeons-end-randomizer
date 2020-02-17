@@ -7,7 +7,7 @@ import H2 from '../../atoms/H2'
 import P from '../../atoms/P'
 import A from '../../atoms/A'
 
-const About = React.memo(() => (
+const About = () => (
   <Card>
     <CardContent>
       <H1>Aeons End Randomizer</H1>
@@ -47,6 +47,6 @@ const About = React.memo(() => (
       </P>
     </CardContent>
   </Card>
-))
+)
 
-export default About
+export default React.memo(About)

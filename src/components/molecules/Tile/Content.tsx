@@ -6,6 +6,4 @@ const Content = styled(MuiCardContent)`
   z-index: 1;
 `
 
-Content.displayName = 'Content'
-
 export default Content

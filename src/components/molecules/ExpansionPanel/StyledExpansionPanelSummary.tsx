@@ -5,6 +5,4 @@ const StyledExpansionPanelSummary = styled(ExpansionPanelSummary)`
   min-height: 48px;
 `
 
-StyledExpansionPanelSummary.displayName = 'StyledExpansionPanelSummary'
-
 export default StyledExpansionPanelSummary
