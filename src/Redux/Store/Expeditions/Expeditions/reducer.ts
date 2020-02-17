@@ -41,6 +41,10 @@ export const Reducer: LoopReducer<State, Action> = (
       return reducerHelpers.winBattle(state, action)
     }
 
+    case ActionTypes.WIN_BATTLE_SUCCESS: {
+      return reducerHelpers.winBattleSuccess(state, action)
+    }
+
     case ActionTypes.LOSE_BATTLE: {
       return reducerHelpers.loseBattle(state, action)
     }

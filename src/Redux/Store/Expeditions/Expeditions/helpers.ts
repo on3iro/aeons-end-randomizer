@@ -4,7 +4,7 @@ import {
   getRandomEntity,
 } from 'Redux/helpers'
 
-import { WinConfig, LossConfig } from './types'
+import { LossConfig } from './types'
 
 export const calcBattleScore = (tries: number) => {
   switch (tries) {
@@ -26,33 +26,12 @@ export const calcBattleScore = (tries: number) => {
   }
 }
 
-export const determineBaseTier = () => {}
-
-const rollNewEntity = (list: string[]): string =>
-  createIdList(list, createArrayWithDefaultValues(1, 'EMPTY'), getRandomEntity)
+export const rollNewEntity = (
+  list: string[],
+  getEntity: <E>(list: Array<E>) => E = getRandomEntity
+): string =>
+  createIdList(list, createArrayWithDefaultValues(1, 'EMPTY'), getEntity)
     .result[0]
-
-export const rollWinRewards = (config: WinConfig) => {
-  const newTreasures = createIdList(
-    config.treasureIds,
-    createArrayWithDefaultValues(5, 'EMPTY'),
-    getRandomEntity
-  ).result
-
-  const newGem = rollNewEntity(config.gemIds)
-  const newRelic = rollNewEntity(config.relicIds)
-  const newSpell = rollNewEntity(config.spellIds)
-
-  const updatedBattle = {
-    ...config.battle,
-    rewards: {
-      treasure: newTreasures,
-      supplyIds: [newGem, newRelic, newSpell],
-      mage: undefined, // we explicitely overwrite the mage reward from earlier losses
-    },
-  }
-  return { battle: updatedBattle }
-}
 
 export const rollLossRewards = (config: LossConfig) => {
   switch (config.type) {

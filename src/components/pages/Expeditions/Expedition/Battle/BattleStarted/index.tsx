@@ -18,22 +18,6 @@ type OwnProps = {
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
   const { expeditionId } = ownProps.battle
-  const treasureIdsByTier =
-    ownProps.battle.treasure.hasTreasure && ownProps.battle.treasure.level
-      ? selectors.getNewTreasureIdsByLevel(state, {
-          treasureLevel: ownProps.battle.treasure.level,
-          expeditionId,
-        })
-      : []
-  const gemIds = selectors.getStillAvailableGemIds(state, {
-    expeditionId,
-  })
-  const relicIds = selectors.getStillAvailableRelicIds(state, {
-    expeditionId,
-  })
-  const spellIds = selectors.getStillAvailableSpellIds(state, {
-    expeditionId,
-  })
 
   const expeditionHasNextBattle = selectors.Expeditions.Expeditions.getHasNextBattle(
     state,
@@ -42,10 +26,6 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
 
   return {
     expeditionHasNextBattle,
-    gemIds,
-    relicIds,
-    spellIds,
-    treasureIdsByTier,
   }
 }
 
@@ -62,27 +42,17 @@ type Props = ReturnType<typeof mapStateToProps> &
 const BattleStarted = ({
   battle,
   expeditionHasNextBattle,
-  gemIds,
   hide,
   loseBattle,
-  relicIds,
   showNextOnLoss,
   showNextOnWin,
-  spellIds,
-  treasureIdsByTier,
   winBattle,
   finishExpedition,
 }: Props) => {
   const handleWin = useCallback(() => {
     hide()
     if (expeditionHasNextBattle) {
-      winBattle({
-        battle,
-        treasureIds: treasureIdsByTier,
-        gemIds,
-        relicIds,
-        spellIds,
-      })
+      winBattle(battle)
     } else {
       finishExpedition(battle)
     }
@@ -94,12 +64,8 @@ const BattleStarted = ({
     battle,
     expeditionHasNextBattle,
     finishExpedition,
-    gemIds,
     hide,
-    relicIds,
     showNextOnWin,
-    spellIds,
-    treasureIdsByTier,
     winBattle,
   ])
 
