@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
+import { connect } from 'react-redux'
 
+import * as types from 'types'
+
+import { actions } from 'Redux/Store'
 import { RollLossType } from 'Redux/Store/Expeditions/Expeditions/'
 
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
@@ -15,42 +19,66 @@ const getTreasureOptionsByTier = (tier: 1 | 2 | 3 | 4) => [
   ...([4].includes(tier) ? [{ level: 3 }] : []),
 ]
 
-type Props = {
-  rewardSelectValue: RollLossType
-  handleRewardSelectChange: (
-    e: React.ChangeEvent<HTMLSelectElement>,
-    ...args: any
-  ) => void
-  handleRewardConfirmation: () => void
-  tier: 1 | 2 | 3 | 4
+type OwnProps = {
+  battle: types.Battle
+  dataConfig: any
 }
 
-const LossRewardTypeSelection = React.memo(
-  ({
-    rewardSelectValue,
-    handleRewardSelectChange,
-    handleRewardConfirmation,
-    tier,
-  }: Props) => {
-    const treasureOptions = getTreasureOptionsByTier(tier)
+const mapStateToProps = () => {
+  return {}
+}
 
-    return (
-      <React.Fragment>
-        <ModalBodyWrapper hasFooter={true}>
-          <SectionHeadline>Select an item to roll</SectionHeadline>
-          <RewardSelect
-            rewardSelectValue={rewardSelectValue}
-            handleRewardSelectChange={handleRewardSelectChange}
-            treasureOptions={treasureOptions}
-          />
-        </ModalBodyWrapper>
-        <ModalFooterWrapper>
-          <ConfirmButton handleRewardConfirmation={handleRewardConfirmation} />
-        </ModalFooterWrapper>
-        >
-      </React.Fragment>
-    )
-  }
-)
+const mapDispatchToProps = {
+  rollLoss: actions.Expeditions.Expeditions.rollLoss,
+}
 
-export default LossRewardTypeSelection
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps &
+  OwnProps
+
+const LossRewardTypeSelection = ({ battle, dataConfig, rollLoss }: Props) => {
+  const treasureOptions = getTreasureOptionsByTier(battle.nemesisTier.tier)
+
+  const [rewardSelectValue, updateRewardSelectValue] = useState<RollLossType>(
+    'mage'
+  )
+
+  const handleRewardSelectChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      updateRewardSelectValue(e.target.value as RollLossType)
+    },
+    [updateRewardSelectValue]
+  )
+
+  const handleRewardConfirmation = useCallback(() => {
+    const config = {
+      type: rewardSelectValue as RollLossType, // FIXME we should try to get it typesafe instead of casting
+      battle,
+      ...dataConfig,
+    }
+
+    rollLoss(config)
+  }, [rewardSelectValue, battle, rollLoss, dataConfig])
+
+  return (
+    <React.Fragment>
+      <ModalBodyWrapper hasFooter={true}>
+        <SectionHeadline>Select an item to roll</SectionHeadline>
+        <RewardSelect
+          rewardSelectValue={rewardSelectValue}
+          handleRewardSelectChange={handleRewardSelectChange}
+          treasureOptions={treasureOptions}
+        />
+      </ModalBodyWrapper>
+      <ModalFooterWrapper>
+        <ConfirmButton handleRewardConfirmation={handleRewardConfirmation} />
+      </ModalFooterWrapper>
+      >
+    </React.Fragment>
+  )
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(React.memo(LossRewardTypeSelection))
