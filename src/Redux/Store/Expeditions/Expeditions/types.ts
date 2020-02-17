@@ -50,7 +50,7 @@ export type WinConfig = {
   spellIds: string[]
 }
 
-export type RollLossType =
+export type RewardType =
   | 'mage'
   | 'gem'
   | 'relic'
@@ -61,7 +61,7 @@ export type RollLossType =
 
 export type LossConfig = {
   battle: types.Battle
-  type: RollLossType
+  type: RewardType
   mageIds: string[]
   gemIds: string[]
   relicIds: string[]
