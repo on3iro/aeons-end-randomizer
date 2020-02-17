@@ -9,24 +9,27 @@ import * as types from 'types'
 
 import { rollNewEntity } from './helpers'
 
-const getTreasureIdsByLevel = (
+const rollTreasureIdsByLevel = (
   state: RootState,
   battle: types.Battle,
   getEntity: <E>(list: Array<E>) => E
 ) => {
   const treasureIdsByTier =
     battle.treasure.hasTreasure && battle.treasure.level
-      ? selectors.getNewTreasureIdsByLevel(state, {
+      ? selectors.getStillAvailableTreasureIdsByLevel(state, {
           treasureLevel: battle.treasure.level,
           expeditionId: battle.expeditionId,
         })
       : []
 
-  const newTreasures = createIdList(
-    treasureIdsByTier,
-    createArrayWithDefaultValues(5, 'EMPTY'),
-    getEntity
-  ).result
+  const newTreasures =
+    treasureIdsByTier.length > 0
+      ? createIdList(
+          treasureIdsByTier,
+          createArrayWithDefaultValues(5, 'EMPTY'),
+          getEntity
+        ).result
+      : []
 
   return newTreasures
 }
@@ -41,11 +44,14 @@ const rollSupplyRewards = (state: RootState, expeditionId: string) => {
   const spellIds = selectors.getStillAvailableSpellIds(state, {
     expeditionId,
   })
-  const newGem = rollNewEntity(gemIds)
-  const newRelic = rollNewEntity(relicIds)
-  const newSpell = rollNewEntity(spellIds)
 
-  return [newGem, newRelic, newSpell]
+  // We pack the values into arrays to make it possible to get empty values
+  // which are not null below
+  const newGem = gemIds.length > 0 ? [rollNewEntity(gemIds)] : []
+  const newRelic = relicIds.length > 0 ? [rollNewEntity(relicIds)] : []
+  const newSpell = spellIds.length > 0 ? [rollNewEntity(spellIds)] : []
+
+  return [...newGem, ...newRelic, ...newSpell]
 }
 
 export const rollWinRewards = (
@@ -59,8 +65,10 @@ export const rollWinRewards = (
     { expeditionId: battle.expeditionId }
   )
 
-  const newTreasures = getTreasureIdsByLevel(state, battle, availableEntities =>
-    getRandomEntity(availableEntities, expedition.seed)
+  const newTreasures = rollTreasureIdsByLevel(
+    state,
+    battle,
+    availableEntities => getRandomEntity(availableEntities, expedition.seed)
   )
 
   const supplyRewards = rollSupplyRewards(state, battle.expeditionId)

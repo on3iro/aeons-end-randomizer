@@ -125,7 +125,7 @@ export type SettingsSnapshot = {
   availableNemesisIds: string[]
   availableTreasureIds: string[]
   availableUpgradedBasicNemesisCardIds: string[]
-  // TODO add basicNemesisIds
+  availableNemesisCardIds: string[]
 }
 
 export type Expedition = {

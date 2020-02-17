@@ -16,11 +16,13 @@ import { createSettingsSnapshot } from './createSettingsSnapshot'
 
 const createSupplyIds = (
   state: RootState,
+  cardIds: string[],
   supplySetup: types.IMarketSetup,
   seed: string
 ) => {
-  const availableCards = selectors.Settings.Expansions.getSelectedCardsForSelectedExpansions(
-    state
+  const availableCards = selectors.Settings.Expansions.SelectedCards.getCardsByIdList(
+    state,
+    { cardIds }
   )
 
   const { gems, relics, spells } = createSupply(
@@ -37,6 +39,7 @@ const createSupplyIds = (
 
 const createTreasureIds = (
   state: RootState,
+  treasureIds: string[],
   variantId: string,
   seed: string
 ) => {
@@ -48,20 +51,19 @@ const createTreasureIds = (
   const firstBattleConfig = variant.configList[0]
   const startsWithTreasure =
     firstBattleConfig.tier.tier > 1 && firstBattleConfig.treasure.hasTreasure
-  const availableLevel1TreasureIds = selectors.Settings.Expansions.getTreasuresByLevelForSelectedExpansions(
-    state,
-    { treasureLevel: 1 }
-  ).map(treasure => treasure.id)
 
-  const treasureIds = startsWithTreasure
+  const availableLevel1TreasureIds = selectors.Settings.Expansions.getTreasureIdsByLevelMappedFromIds(
+    state,
+    { treasureLevel: 1, treasureIds }
+  )
+
+  return startsWithTreasure
     ? createIdList(
         availableLevel1TreasureIds,
         createArrayWithDefaultValues(5, 'EMPTY'),
         availableEntities => getRandomEntity(availableEntities, seed)
       ).result
     : []
-
-  return treasureIds
 }
 
 export const generateBattles = (
@@ -117,10 +119,20 @@ export const createExpeditionConfig = (
   ).result
 
   // Supply
-  const supplyIds = createSupplyIds(state, settingsSnapshot.supplySetup, seed)
+  const supplyIds = createSupplyIds(
+    state,
+    settingsSnapshot.availableCardIds,
+    settingsSnapshot.supplySetup,
+    seed
+  )
 
   // Treasures
-  const treasureIds = createTreasureIds(state, variantId, seed)
+  const treasureIds = createTreasureIds(
+    state,
+    settingsSnapshot.availableTreasureIds,
+    variantId,
+    seed
+  )
 
   // Battles
   const battles = generateBattles(state, variantId, expeditionId)

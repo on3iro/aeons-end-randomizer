@@ -26,6 +26,11 @@ const getExpeditionIsFinished = createSelector(
   expedition => expedition.finished
 )
 
+const getSettingsSnapshotByExpeditionId = createSelector(
+  [getExpeditionById],
+  expedition => expedition.settingsSnapshot
+)
+
 const getHasNextBattle = createSelector(
   [getExpeditionById, getBattleId],
   (expedition, battleId) => {
@@ -58,9 +63,31 @@ const getSupplyByExpeditionId = createSelector(
   expedition => expedition.barracks.supplyIds
 )
 
+const getBanishedByExpeditionId = createSelector(
+  [getExpeditionById],
+  expedition => expedition.banished
+)
+
 const getMagesByExpeditionId = createSelector(
   [getExpeditionById],
   expedition => expedition.barracks.mageIds
+)
+
+const getPreviousNemesesByExpeditiionId = createSelector(
+  [getExpeditionById],
+  expedition =>
+    expedition.battles.reduce((acc: string[], battle) => {
+      if (battle.nemesisId) {
+        return [...acc, battle.nemesisId]
+      }
+
+      return acc
+    }, [])
+)
+
+const getBarracksTreasureIdsByExpeditionId = createSelector(
+  [getExpeditionById],
+  expedition => expedition.barracks.treasureIds
 )
 
 export const selectors = {
@@ -70,7 +97,11 @@ export const selectors = {
   getExpeditionById,
   getNextBattle,
   getSupplyByExpeditionId,
+  getBanishedByExpeditionId,
   getMagesByExpeditionId,
   getExpeditionIsFinished,
   getHasNextBattle,
+  getSettingsSnapshotByExpeditionId,
+  getPreviousNemesesByExpeditiionId,
+  getBarracksTreasureIdsByExpeditionId,
 }
