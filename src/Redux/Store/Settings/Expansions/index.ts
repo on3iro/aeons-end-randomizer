@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux-loop'
-import { createSelector, OutputSelector } from 'reselect'
 
 import * as SelectedExpansions from './SelectedExpansions'
 import * as SelectedCards from './SelectedCards'
@@ -9,8 +8,7 @@ import * as Treasures from './Treasures'
 import * as BasicNemesisCards from './BasicNemesisCards'
 import * as UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
 
-import * as types from '../../../../types'
-import { RootState } from '../../'
+import * as topLevelSelectors from './selectors'
 
 ///////////
 // STATE //
@@ -77,94 +75,6 @@ export const Reducer = combineReducers({
 // SELECTORS //
 ///////////////
 
-// FIXME any typing sucks ;)
-const getSelectedEntitiesForSelectedExpansions = <T>(
-  entitySelector: OutputSelector<
-    RootState,
-    Array<{ expansion: string } & T>,
-    any
-  >
-) =>
-  createSelector(
-    [SelectedExpansions.selectors.getSelectedExpansionsArray, entitySelector],
-    (expansionIds, entities) =>
-      entities.filter(entity => expansionIds.includes(entity.expansion))
-  )
-
-const getSelectedCardsForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
-  SelectedCards.selectors.getSelectedCards
-)
-
-const getSelectedCardIdsForSelectedExpansions = createSelector(
-  [getSelectedCardsForSelectedExpansions],
-  cards => cards.map(card => card.id)
-)
-
-const createIdsByCardTypeSelector = (type: types.CardType) =>
-  createSelector(
-    [getSelectedCardsForSelectedExpansions],
-    (selectedCards: types.ICard[]) =>
-      selectedCards.filter(card => card.type === type).map(card => card.id)
-  )
-
-const getGemIdsForSelectedExpansions = createIdsByCardTypeSelector('Gem')
-const getRelicIdsForSelectedExpansions = createIdsByCardTypeSelector('Relic')
-const getSpellIdsForSelectedExpansions = createIdsByCardTypeSelector('Spell')
-
-const getSelectedNemesesForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
-  SelectedNemeses.selectors.getSelectedNemeses
-)
-
-const getSelectedNemesisIdsForSelectedExpansions = createSelector(
-  [getSelectedNemesesForSelectedExpansions],
-  nemeses => nemeses.map(nemesis => nemesis.id)
-)
-
-const getSelectedMagesForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
-  SelectedMages.selectors.getSelectedMages
-)
-
-const getSelectedMageIdsForSelectedExpansions = createSelector(
-  [getSelectedMagesForSelectedExpansions],
-  selectedMages => selectedMages.map(mage => mage.id)
-)
-
-const getTreasuresForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
-  Treasures.selectors.getTreasureList
-)
-
-const getTreasureIdsForSelectedExpansions = createSelector(
-  [getTreasuresForSelectedExpansions],
-  treasures => treasures.map(treasure => treasure.id)
-)
-
-const getTreasuresByLevelForSelectedExpansions = createSelector(
-  [
-    SelectedExpansions.selectors.getSelectedExpansionsArray,
-    Treasures.selectors.getTreasureListByLevel,
-  ],
-  (expansionIds, entities) =>
-    entities.filter(entity => expansionIds.includes(entity.expansion))
-)
-
-const getUpgradedBasicNemesisCardsForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
-  UpgradedBasicNemesisCards.selectors.getUpgradedBasicNemesisCardList
-)
-
-const getUpgradedBasicNemesisCardIdsForSelectedExpansions = createSelector(
-  [getUpgradedBasicNemesisCardsForSelectedExpansions],
-  upgradedBasicNemesisCards => upgradedBasicNemesisCards.map(card => card.id)
-)
-
-const getBasicNemesisCardsForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
-  BasicNemesisCards.selectors.getBasicNemesisCardList
-)
-
-const getBasicNemesisCardIdsForSelectedExpansions = createSelector(
-  [getBasicNemesisCardsForSelectedExpansions],
-  basicNemesisCards => basicNemesisCards.map(card => card.id)
-)
-
 export const selectors = {
   SelectedExpansions: SelectedExpansions.selectors,
   SelectedCards: SelectedCards.selectors,
@@ -173,20 +83,5 @@ export const selectors = {
   Treasures: Treasures.selectors,
   BasicNemesisCards: BasicNemesisCards.selectors,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.selectors,
-  getSelectedCardsForSelectedExpansions,
-  getSelectedCardIdsForSelectedExpansions,
-  getSelectedNemesesForSelectedExpansions,
-  getSelectedNemesisIdsForSelectedExpansions,
-  getSelectedMagesForSelectedExpansions,
-  getSelectedMageIdsForSelectedExpansions,
-  getTreasuresForSelectedExpansions,
-  getTreasureIdsForSelectedExpansions,
-  getTreasuresByLevelForSelectedExpansions,
-  getBasicNemesisCardsForSelectedExpansions,
-  getBasicNemesisCardIdsForSelectedExpansions,
-  getUpgradedBasicNemesisCardsForSelectedExpansions,
-  getUpgradedBasicNemesisCardIdsForSelectedExpansions,
-  getGemIdsForSelectedExpansions,
-  getRelicIdsForSelectedExpansions,
-  getSpellIdsForSelectedExpansions,
+  ...topLevelSelectors,
 }

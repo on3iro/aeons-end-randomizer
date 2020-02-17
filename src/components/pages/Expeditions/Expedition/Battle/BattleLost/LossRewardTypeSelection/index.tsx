@@ -58,6 +58,7 @@ const LossRewardTypeSelection = ({ battle, rollLoss }: Props) => {
       <ModalBodyWrapper hasFooter={true}>
         <SectionHeadline>Select an item to roll</SectionHeadline>
         <RewardSelect
+          expeditionId={battle.expeditionId}
           rewardSelectValue={rewardSelectValue}
           handleRewardSelectChange={handleRewardSelectChange}
           treasureOptions={treasureOptions}
