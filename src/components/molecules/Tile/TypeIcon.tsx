@@ -7,10 +7,8 @@ type Props = {
   iconColor: string
 }
 
-const TypeIcon = React.memo(({ icon, iconColor }: Props) => (
+const TypeIcon = ({ icon, iconColor }: Props) => (
   <Icon iconColor={iconColor} className={`ra ra-lg ${icon}`} />
-))
+)
 
-TypeIcon.displayName = 'TypeIcon'
-
-export default TypeIcon
+export default React.memo(TypeIcon)

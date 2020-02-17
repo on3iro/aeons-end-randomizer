@@ -15,4 +15,4 @@ const BackLink = ({ to, label }: Props) => (
   </Link>
 )
 
-export default BackLink
+export default React.memo(BackLink)

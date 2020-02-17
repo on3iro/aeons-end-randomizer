@@ -19,7 +19,7 @@ type Props = {
 
 type Player = 'player1' | 'player2' | 'player3' | 'player4'
 
-const MageTile = React.memo(({ mage, playerNumber, theme }: Props) => {
+const MageTile = ({ mage, playerNumber, theme }: Props) => {
   const { show, RenderModal } = useModal()
 
   const player =
@@ -46,8 +46,6 @@ const MageTile = React.memo(({ mage, playerNumber, theme }: Props) => {
       <MageModal mage={mage} RenderModal={RenderModal} player={player} />
     </Wrapper>
   )
-})
+}
 
-MageTile.displayName = 'MageTile'
-
-export default withTheme(MageTile)
+export default withTheme(React.memo(MageTile))

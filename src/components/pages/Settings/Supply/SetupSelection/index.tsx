@@ -22,7 +22,7 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const SetupSelection = React.memo(({ allSetsSelected, toggleAll }: Props) => {
+const SetupSelection = ({ allSetsSelected, toggleAll }: Props) => {
   return (
     <SetupSelectionWrapper component={'fieldset' as 'div'}>
       <FormLabel />
@@ -42,11 +42,9 @@ const SetupSelection = React.memo(({ allSetsSelected, toggleAll }: Props) => {
       <PredefinedSetups />
     </SetupSelectionWrapper>
   )
-})
-
-SetupSelection.displayName = 'SetupSelection'
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SetupSelection)
+)(React.memo(SetupSelection))

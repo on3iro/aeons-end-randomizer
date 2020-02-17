@@ -5,6 +5,4 @@ const Info = styled(Typography)`
   display: inline-block;
 `
 
-Info.displayName = 'Info'
-
 export default Info

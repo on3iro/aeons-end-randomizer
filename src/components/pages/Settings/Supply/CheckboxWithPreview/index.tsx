@@ -14,37 +14,33 @@ type Props = {
   children?: React.ReactNode
 }
 
-const CheckboxWithPreview = React.memo(
-  ({ changeHandler, setup, children }: Props) => {
-    const handleSelection = useCallback(() => {
-      changeHandler(setup.id)
-    }, [changeHandler, setup.id])
+const CheckboxWithPreview = ({ changeHandler, setup, children }: Props) => {
+  const handleSelection = useCallback(() => {
+    changeHandler(setup.id)
+  }, [changeHandler, setup.id])
 
-    return (
-      <Wrapper>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={setup.active}
-              onChange={handleSelection}
-              value={setup.id}
-            />
-          }
-          label={setup.name}
-        />
-        {children}
-        {setup ? (
-          <PreviewWrapper
-            clickHandler={handleSelection}
-            setup={setup}
-            showName={false}
+  return (
+    <Wrapper>
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={setup.active}
+            onChange={handleSelection}
+            value={setup.id}
           />
-        ) : null}
-      </Wrapper>
-    )
-  }
-)
+        }
+        label={setup.name}
+      />
+      {children}
+      {setup ? (
+        <PreviewWrapper
+          clickHandler={handleSelection}
+          setup={setup}
+          showName={false}
+        />
+      ) : null}
+    </Wrapper>
+  )
+}
 
-CheckboxWithPreview.displayName = 'CheckboxWithPreview'
-
-export default CheckboxWithPreview
+export default React.memo(CheckboxWithPreview)

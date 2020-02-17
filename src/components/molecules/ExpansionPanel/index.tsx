@@ -16,21 +16,23 @@ type Props = {
   expansionHandler: (...args: any) => void
 }
 
-const ExpansionPanel = React.memo(
-  ({ children, expanded, expansionHandler, expansionKey, summary }: Props) => {
-    const isExpanded = expanded === true || expanded === expansionKey
+const ExpansionPanel = ({
+  children,
+  expanded,
+  expansionHandler,
+  expansionKey,
+  summary,
+}: Props) => {
+  const isExpanded = expanded === true || expanded === expansionKey
 
-    return (
-      <StyledExpansionPanel expanded={isExpanded} onChange={expansionHandler}>
-        <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Heading>{summary}</Heading>
-        </StyledExpansionPanelSummary>
-        <ExpansionPanelDetails>{isExpanded && children}</ExpansionPanelDetails>
-      </StyledExpansionPanel>
-    )
-  }
-)
+  return (
+    <StyledExpansionPanel expanded={isExpanded} onChange={expansionHandler}>
+      <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Heading>{summary}</Heading>
+      </StyledExpansionPanelSummary>
+      <ExpansionPanelDetails>{isExpanded && children}</ExpansionPanelDetails>
+    </StyledExpansionPanel>
+  )
+}
 
-ExpansionPanel.displayName = 'ExpansionPanel'
-
-export default ExpansionPanel
+export default React.memo(ExpansionPanel)

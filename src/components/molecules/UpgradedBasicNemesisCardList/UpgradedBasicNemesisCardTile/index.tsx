@@ -42,4 +42,4 @@ const UpgradedBasicNemesisCardTile = ({ nemesisCard, theme }: Props) => {
   )
 }
 
-export default withTheme(UpgradedBasicNemesisCardTile)
+export default withTheme(React.memo(UpgradedBasicNemesisCardTile))

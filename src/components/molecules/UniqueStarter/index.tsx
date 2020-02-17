@@ -14,7 +14,7 @@ type Props = {
   theme: any
 }
 
-const UniqueStarter = React.memo(({ card, theme }: Props) => (
+const UniqueStarter = ({ card, theme }: Props) => (
   <UniqueStartersWrapper item xs={12} sm={6} key={card.id}>
     <Tile
       body={<Body card={card} />}
@@ -24,6 +24,6 @@ const UniqueStarter = React.memo(({ card, theme }: Props) => (
       iconColor={theme.colors.cards[card.type.toLowerCase()].color}
     />
   </UniqueStartersWrapper>
-))
+)
 
-export default withTheme(UniqueStarter)
+export default withTheme(React.memo(UniqueStarter))

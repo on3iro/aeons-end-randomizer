@@ -22,41 +22,43 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const ActiveTurnOrder = React.memo(
-  ({ availableCards, deck, resetGame, newRound, drawCard }: Props) => (
-    <React.Fragment>
-      {deck.length === 0 ? (
-        <Button
-          size="large"
-          variant="contained"
-          color="secondary"
-          onClick={() => newRound(availableCards)}
-        >
-          New Round
-        </Button>
-      ) : (
-        <Button
-          size="large"
-          variant="contained"
-          color="secondary"
-          onClick={drawCard}
-        >
-          Draw a card
-        </Button>
-      )}
+const ActiveTurnOrder = ({
+  availableCards,
+  deck,
+  resetGame,
+  newRound,
+  drawCard,
+}: Props) => (
+  <React.Fragment>
+    {deck.length === 0 ? (
+      <Button
+        size="large"
+        variant="contained"
+        color="secondary"
+        onClick={() => newRound(availableCards)}
+      >
+        New Round
+      </Button>
+    ) : (
+      <Button
+        size="large"
+        variant="contained"
+        color="secondary"
+        onClick={drawCard}
+      >
+        Draw a card
+      </Button>
+    )}
 
-      <DiscardTable />
+    <DiscardTable />
 
-      <ShuffleButton color="primary" variant="extended" onClick={resetGame}>
-        Reset Game
-      </ShuffleButton>
-    </React.Fragment>
-  )
+    <ShuffleButton color="primary" variant="extended" onClick={resetGame}>
+      Reset Game
+    </ShuffleButton>
+  </React.Fragment>
 )
-
-ActiveTurnOrder.displayName = 'ActiveTurnOrder'
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ActiveTurnOrder)
+)(React.memo(ActiveTurnOrder))

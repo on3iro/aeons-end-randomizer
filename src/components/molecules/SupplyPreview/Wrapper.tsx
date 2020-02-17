@@ -21,6 +21,4 @@ const Wrapper = styled('div')<Props>`
   }
 `
 
-Wrapper.displayName = 'Wrapper'
-
 export default Wrapper

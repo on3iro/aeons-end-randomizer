@@ -6,7 +6,7 @@ import ExpansionPanel from '../../../molecules/ExpansionPanel'
 
 import SetupSelection from './SetupSelection'
 
-const Supply = React.memo(() => {
+const Supply = () => {
   const { expanded, createExpansionHandler } = useExpansionHandling()
   const expansionKey = 'supplySets'
   const expansionHandler = createExpansionHandler(expansionKey)
@@ -21,8 +21,6 @@ const Supply = React.memo(() => {
       <SetupSelection />
     </ExpansionPanel>
   )
-})
+}
 
-Supply.displayName = 'Supply'
-
-export default Supply
+export default React.memo(Supply)

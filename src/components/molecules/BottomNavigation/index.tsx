@@ -11,4 +11,4 @@ const BottomNavigation = () => (
   </Wrapper>
 )
 
-export default BottomNavigation
+export default React.memo(BottomNavigation)

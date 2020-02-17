@@ -10,7 +10,7 @@ type Props = {
   mage: Mage
 }
 
-const Body = React.memo(({ mage }: Props) => (
+const Body = ({ mage }: Props) => (
   <React.Fragment>
     <ExpansionName color="textSecondary">
       {/* FIXME remove direct connection to config and use store instead! */}
@@ -20,6 +20,6 @@ const Body = React.memo(({ mage }: Props) => (
       {mage.name}
     </Name>
   </React.Fragment>
-))
+)
 
-export default Body
+export default React.memo(Body)

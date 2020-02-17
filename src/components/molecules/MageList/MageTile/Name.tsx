@@ -5,6 +5,4 @@ const Name = styled(Typography)`
   color: #fff;
 `
 
-Name.displayName = 'Name'
-
 export default Name

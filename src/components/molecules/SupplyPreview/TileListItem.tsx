@@ -23,6 +23,4 @@ const TileListItem = styled('li')<Props>`
   }
 `
 
-TileListItem.displayName = 'TileListItem'
-
 export default TileListItem

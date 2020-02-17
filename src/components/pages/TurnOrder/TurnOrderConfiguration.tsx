@@ -25,35 +25,35 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const TurnOrderConfiguration = React.memo(
-  ({ currentConfiguration, startGame, selectedPlayerCount }: Props) => {
-    const availableVariations = Object.keys(selectedPlayerCount.variations).map(
-      key => [selectedPlayerCount.variations[key]]
-    )
+const TurnOrderConfiguration = ({
+  currentConfiguration,
+  startGame,
+  selectedPlayerCount,
+}: Props) => {
+  const availableVariations = Object.keys(
+    selectedPlayerCount.variations
+  ).map(key => [selectedPlayerCount.variations[key]])
 
-    const hasMoreThanOneVariant: boolean = availableVariations.length > 1
+  const hasMoreThanOneVariant: boolean = availableVariations.length > 1
 
-    return (
-      <React.Fragment>
-        <PlayerCountSelection />
-        {hasMoreThanOneVariant ? <SetupSelection /> : null}
-        <ModeSelection />
-        <CardNameDisplay turnOrderSetup={currentConfiguration} />
-        <ShuffleButton
-          color="primary"
-          variant="extended"
-          onClick={() => startGame(currentConfiguration.turnOrderCards)}
-        >
-          Start Game
-        </ShuffleButton>
-      </React.Fragment>
-    )
-  }
-)
-
-TurnOrderConfiguration.displayName = 'TurnOrderConfiguration'
+  return (
+    <React.Fragment>
+      <PlayerCountSelection />
+      {hasMoreThanOneVariant ? <SetupSelection /> : null}
+      <ModeSelection />
+      <CardNameDisplay turnOrderSetup={currentConfiguration} />
+      <ShuffleButton
+        color="primary"
+        variant="extended"
+        onClick={() => startGame(currentConfiguration.turnOrderCards)}
+      >
+        Start Game
+      </ShuffleButton>
+    </React.Fragment>
+  )
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TurnOrderConfiguration)
+)(React.memo(TurnOrderConfiguration))

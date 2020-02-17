@@ -22,7 +22,7 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const Expansions = React.memo(({ accordionState, toggleAccordion }: Props) => {
+const Expansions = ({ accordionState, toggleAccordion }: Props) => {
   const expansionHandler = useCallback(() => toggleAccordion(KEY), [
     toggleAccordion,
   ])
@@ -37,11 +37,9 @@ const Expansions = React.memo(({ accordionState, toggleAccordion }: Props) => {
       <ActiveSets />
     </ExpansionPanel>
   )
-})
-
-Expansions.displayName = 'Expansions'
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Expansions)
+)(React.memo(Expansions))

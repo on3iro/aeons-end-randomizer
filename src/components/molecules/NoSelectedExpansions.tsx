@@ -3,14 +3,12 @@ import Typography from '@material-ui/core/Typography'
 
 import A from '../atoms/A'
 
-const NoSelectedExpansions = React.memo(() => (
+const NoSelectedExpansions = () => (
   <Typography paragraph>
     There is currently no standalone set selected. Please activate at least one
     standalone set in the settings.{' '}
     <A to="/settings">Click here to go to the settings</A>.
   </Typography>
-))
+)
 
-NoSelectedExpansions.displayName = 'NoSelectedExpansions'
-
-export default NoSelectedExpansions
+export default React.memo(NoSelectedExpansions)

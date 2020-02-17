@@ -26,32 +26,32 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const ActiveSets = React.memo(
-  ({ allSetsSelected, handleSelectAll, handleChange }: Props) => (
-    <FormControl component={'fieldset' as 'div'}>
-      <FormLabel />
-      <FormGroup style={{ marginBottom: '20px' }}>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={allSetsSelected}
-              onChange={handleSelectAll}
-              value={allSetsSelected ? 'Deselect All' : 'Select All'}
-            />
-          }
-          label={allSetsSelected ? 'Deselect All' : 'Select All'}
-        />
-      </FormGroup>
-      <Standalones handleChange={handleChange} />
-      <Mini handleChange={handleChange} />
-      <Promos handleChange={handleChange} />
-    </FormControl>
-  )
+const ActiveSets = ({
+  allSetsSelected,
+  handleSelectAll,
+  handleChange,
+}: Props) => (
+  <FormControl component={'fieldset' as 'div'}>
+    <FormLabel />
+    <FormGroup style={{ marginBottom: '20px' }}>
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={allSetsSelected}
+            onChange={handleSelectAll}
+            value={allSetsSelected ? 'Deselect All' : 'Select All'}
+          />
+        }
+        label={allSetsSelected ? 'Deselect All' : 'Select All'}
+      />
+    </FormGroup>
+    <Standalones handleChange={handleChange} />
+    <Mini handleChange={handleChange} />
+    <Promos handleChange={handleChange} />
+  </FormControl>
 )
-
-ActiveSets.displayName = 'ActiveSets'
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ActiveSets)
+)(React.memo(ActiveSets))

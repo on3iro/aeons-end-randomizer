@@ -35,43 +35,38 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const NemesisInformation = React.memo(
-  ({ nemesis, expansion, theme }: Props) => {
-    if (!expansion || !nemesis) {
-      return null
-    }
-
-    return (
-      <React.Fragment>
-        <InfoItem label="Expansion" info={expansion.name} />
-        <InfoItem label="Health" info={nemesis.health.toString()} />
-        <InfoItem label="Difficulty" info={nemesis.difficulty.toString()} />
-        <InfoItem
-          label="Expedition tier"
-          info={nemesis.expeditionRating.toString()}
-        />
-        {nemesis.additionalInfo ? (
-          <React.Fragment>
-            <SectionHeadline
-              themeColor={theme.colors.turnOrderCards['nemesis'].normal}
-            >
-              Additional Information
-            </SectionHeadline>
-            <AdditionalInfo
-              dangerouslySetInnerHTML={{
-                __html: nemesis.additionalInfo,
-              }}
-            />
-          </React.Fragment>
-        ) : null}
-      </React.Fragment>
-    )
+const NemesisInformation = ({ nemesis, expansion, theme }: Props) => {
+  if (!expansion || !nemesis) {
+    return null
   }
-)
+
+  return (
+    <React.Fragment>
+      <InfoItem label="Expansion" info={expansion.name} />
+      <InfoItem label="Health" info={nemesis.health.toString()} />
+      <InfoItem label="Difficulty" info={nemesis.difficulty.toString()} />
+      <InfoItem
+        label="Expedition tier"
+        info={nemesis.expeditionRating.toString()}
+      />
+      {nemesis.additionalInfo ? (
+        <React.Fragment>
+          <SectionHeadline
+            themeColor={theme.colors.turnOrderCards['nemesis'].normal}
+          >
+            Additional Information
+          </SectionHeadline>
+          <AdditionalInfo
+            dangerouslySetInnerHTML={{
+              __html: nemesis.additionalInfo,
+            }}
+          />
+        </React.Fragment>
+      ) : null}
+    </React.Fragment>
+  )
+}
 
 export default withTheme(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(NemesisInformation)
+  connect(mapStateToProps, mapDispatchToProps)(React.memo(NemesisInformation))
 )

@@ -67,45 +67,46 @@ type Props = ReturnType<typeof mapStateToProps> &
     saveCallback: () => void
   }
 
-const CustomSetupEdit = React.memo(
-  ({ setup, cancelEdit, saveCustomSetup, saveCallback }: Props) => {
-    const [setupName, setSetupName] = useState(setup.name || '')
-    const [bluePrints, dispatch] = useReducer(
-      bluePrintReducer,
-      setup.tiles,
-      initialStateFromTiles
-    )
+const CustomSetupEdit = ({
+  setup,
+  cancelEdit,
+  saveCustomSetup,
+  saveCallback,
+}: Props) => {
+  const [setupName, setSetupName] = useState(setup.name || '')
+  const [bluePrints, dispatch] = useReducer(
+    bluePrintReducer,
+    setup.tiles,
+    initialStateFromTiles
+  )
 
-    // We reverse the list, so that the last added tile is shown on top
-    const bluePrintList = Object.values(bluePrints).reverse()
+  // We reverse the list, so that the last added tile is shown on top
+  const bluePrintList = Object.values(bluePrints).reverse()
 
-    const handleSave = useCallback(
-      setup => {
-        saveCustomSetup(setup)
-        saveCallback()
-      },
-      [saveCallback, saveCustomSetup]
-    )
+  const handleSave = useCallback(
+    setup => {
+      saveCustomSetup(setup)
+      saveCallback()
+    },
+    [saveCallback, saveCustomSetup]
+  )
 
-    return (
-      <Wrapper>
-        <MainControls
-          bluePrintList={bluePrintList}
-          cancelEdit={cancelEdit}
-          setup={setup}
-          setupName={setupName}
-          setSetupName={setSetupName}
-          saveCustomSetup={handleSave}
-        />
-        <BluePrintList bluePrintList={bluePrintList} dispatch={dispatch} />
-      </Wrapper>
-    )
-  }
-)
-
-CustomSetupEdit.displayName = 'CustomSetupEdit'
+  return (
+    <Wrapper>
+      <MainControls
+        bluePrintList={bluePrintList}
+        cancelEdit={cancelEdit}
+        setup={setup}
+        setupName={setupName}
+        setSetupName={setSetupName}
+        saveCustomSetup={handleSave}
+      />
+      <BluePrintList bluePrintList={bluePrintList} dispatch={dispatch} />
+    </Wrapper>
+  )
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CustomSetupEdit)
+)(React.memo(CustomSetupEdit))
