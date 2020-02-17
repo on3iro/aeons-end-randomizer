@@ -18,10 +18,13 @@ export const createSettingsSnapshot = (
   const availableNemesisIds = selectors.Settings.Expansions.getSelectedNemesisIdsForSelectedExpansions(
     state
   )
-  const availableTreasureIds = selectors.Settings.Expansions.getTreasureIdsForSelectedExpansions(
+  const availableTreasureIds = selectors.Settings.Expansions.getSelectedTreasureIdsForSelectedExpansions(
     state
   )
-  const availableUpgradedBasicNemesisCardIds = selectors.Settings.Expansions.getUpgradedBasicNemesisCardIdsForSelectedExpansions(
+  const availableUpgradedBasicNemesisCardIds = selectors.Settings.Expansions.getSelectedUpgradedBasicNemesisCardIdsForSelectedExpansions(
+    state
+  )
+  const availableNemesisCardIds = selectors.Settings.Expansions.getSelectedBasicNemesisCardIdsForSelectedExpansions(
     state
   )
 
@@ -32,5 +35,6 @@ export const createSettingsSnapshot = (
     availableNemesisIds,
     availableTreasureIds,
     availableUpgradedBasicNemesisCardIds,
+    availableNemesisCardIds,
   }
 }
