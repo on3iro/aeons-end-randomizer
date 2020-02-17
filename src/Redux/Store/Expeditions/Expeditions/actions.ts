@@ -2,9 +2,7 @@ import { createAction } from '@martin_hotell/rex-tils'
 
 import * as types from 'types'
 
-import { ActionTypes, State, LossConfig, BaseConfig } from './types'
-
-import { rollLossRewards } from './helpers'
+import { ActionTypes, State, BaseConfig, RewardType } from './types'
 
 export const actions = {
   createExpedition: (baseConfig: BaseConfig) =>
@@ -31,8 +29,8 @@ export const actions = {
     newSupplyIds: string[]
   ) =>
     createAction(ActionTypes.ACCEPT_LOSS, { battle, banished, newSupplyIds }),
-  rollLoss: (config: LossConfig) =>
-    createAction(ActionTypes.ROLL_LOSS, rollLossRewards(config)),
+  rollLoss: (battle: types.Battle, rewardType: RewardType) =>
+    createAction(ActionTypes.ROLL_LOSS, { battle, rewardType }),
   rollLossSuccess: (result: types.Battle) =>
     createAction(ActionTypes.ROLL_LOSS_SUCCESS, result),
   finishBattle: (
