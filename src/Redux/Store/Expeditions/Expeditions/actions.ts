@@ -33,6 +33,8 @@ export const actions = {
     createAction(ActionTypes.ACCEPT_LOSS, { battle, banished, newSupplyIds }),
   rollLoss: (config: LossConfig) =>
     createAction(ActionTypes.ROLL_LOSS, rollLossRewards(config)),
+  rollLossSuccess: (result: types.Battle) =>
+    createAction(ActionTypes.ROLL_LOSS_SUCCESS, result),
   finishBattle: (
     battle: types.Battle,
     newSupplyIds: string[],
