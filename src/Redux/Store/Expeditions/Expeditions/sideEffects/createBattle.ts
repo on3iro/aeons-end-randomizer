@@ -10,18 +10,18 @@ import {
 // the count of newly added cards decreases by tier.
 // If we ever have a variant, that starts higher than tier 2 we have to
 // incorporate changes to roll the whole amount of cards per tier!
-const getUpgradedBasicNemesisIdsByBattleTier = ({
+export const getUpgradedBasicNemesisIdsByBattleTier = ({
   availableTier1Ids,
   availableTier2Ids,
   availableTier3Ids,
   battleTier,
-  getEntity,
+  getEntity = getRandomEntity,
 }: {
   availableTier1Ids: string[]
   availableTier2Ids: string[]
   availableTier3Ids: string[]
   battleTier: 1 | 2 | 3 | 4
-  getEntity: <E>(list: Array<E>) => E
+  getEntity?: <E>(list: Array<E>, ...args: any) => E
 }) => {
   switch (battleTier) {
     case 1: {
@@ -75,7 +75,7 @@ const getUpgradedBasicNemesisIdsByBattleTier = ({
   }
 }
 
-const rollNewUpgradedNemesisCards = (
+export const rollNewUpgradedNemesisCards = (
   availableUpgradedBasicNemesisCards: types.UpgradedBasicNemesisCard[],
   previousUpgradedBasicNemesisCards: string[],
   nemesisTier: 1 | 2 | 3 | 4,
@@ -106,24 +106,19 @@ const rollNewUpgradedNemesisCards = (
   return [...previousUpgradedBasicNemesisCards, ...upgradedBasicNemesisCardIds]
 }
 
-const rollNemesisId = (
+export const rollNemesisId = (
   state: RootState,
   expedition: types.Expedition,
-  battle: types.Battle
+  battle: types.Battle,
+  getEntity: <E>(list: Array<E>, ...args: any) => E = getRandomEntity
 ): string => {
-  const availableNemesisIds = expedition.settingsSnapshot.availableNemesisIds
-  const availableNemeses = availableNemesisIds.map(id => {
-    return selectors.Settings.Expansions.SelectedNemeses.getSelectedNemesesState(
-      state
-    ).nemeses[id]
+  const availableNemeses = selectors.getAvailableNemesisForExpeditionId(state, {
+    expeditionId: expedition.id,
   })
-  const previousNemeses = expedition.battles.reduce((acc: string[], battle) => {
-    if (battle.nemesisId) {
-      return [...acc, battle.nemesisId]
-    }
-
-    return acc
-  }, [])
+  const previousNemeses = selectors.Expeditions.Expeditions.getPreviousNemesesByExpeditiionId(
+    state,
+    { expeditionId: expedition.id }
+  )
 
   const nemesisIds = availableNemeses
     .filter(nemesis => nemesis.expeditionRating === battle.nemesisTier.tier)
@@ -133,7 +128,7 @@ const rollNemesisId = (
   const nemesisId = createIdList(
     nemesisIds,
     createArrayWithDefaultValues(1, 'EMPTY'),
-    availableEntities => getRandomEntity(availableEntities, expedition.seed)
+    availableEntities => getEntity(availableEntities, expedition.seed)
   ).result[0]
 
   return nemesisId
@@ -141,7 +136,8 @@ const rollNemesisId = (
 
 export const createBattle = (
   getState: () => RootState,
-  battle: types.Battle
+  battle: types.Battle,
+  getEntity: <E>(list: Array<E>, ...args: any) => E = getRandomEntity
 ) => {
   const state = getState()
 
@@ -150,11 +146,15 @@ export const createBattle = (
     { expeditionId: battle.expeditionId }
   )
 
-  const nemesisId = rollNemesisId(state, expedition, battle)
+  const nemesisId = rollNemesisId(state, expedition, battle, getEntity)
 
+  // FIXME Should probably be composed into another "getStillAvailable" selector
   const previousUpgradedBasicNemesisCards = expedition.upgradedBasicNemesisCards
-  const availableUpgradedBasicNemesisCards = selectors.Settings.Expansions.getUpgradedBasicNemesisCardsForSelectedExpansions(
-    state
+  const availableUpgradedBasicNemesisCards = selectors.getAvailableUpgradedBasicNemesisCardsForExpeditionId(
+    state,
+    {
+      expeditionId: battle.expeditionId,
+    }
   )
 
   const upgradedBasicNemesisCardIds = battle.nemesisTier.isNewTier
@@ -162,7 +162,7 @@ export const createBattle = (
         availableUpgradedBasicNemesisCards,
         previousUpgradedBasicNemesisCards,
         battle.nemesisTier.tier,
-        availableEntities => getRandomEntity(availableEntities, expedition.seed)
+        availableEntities => getEntity(availableEntities, expedition.seed)
       )
     : previousUpgradedBasicNemesisCards
 

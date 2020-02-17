@@ -70,7 +70,7 @@ const tilesToCardId = (
 ) =>
   list
     .filter((el: { type: types.CardType }) => el.type === type)
-    .sort(byCost)
+    .sort(byCost) // !! mutation !! but irrelevant, because of the filter() beforehand!
     .reduce((acc: string[], tile: { id?: string }) => {
       if (!tile.id) {
         return acc
