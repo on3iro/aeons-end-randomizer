@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { css } from 'styled-components/macro'
 import MuiCard from '@material-ui/core/Card'
 
@@ -11,7 +12,9 @@ type Props = {
   onClick?: any // FIXME refine type
 }
 
-const Wrapper = styled(MuiCard)<Props>`
+const Wrapper = styled(({ themeColor, ...rest }) => <MuiCard {...rest} />)<
+  Props
+>`
   position: relative;
 
   background: ${props => props.themeColor};
