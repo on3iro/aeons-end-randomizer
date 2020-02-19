@@ -1,3 +1,5 @@
+import * as types from 'types'
+
 import {
   createArrayWithDefaultValues,
   createIdList,
@@ -6,7 +8,7 @@ import {
 
 export const rollNewEntity = (
   list: string[],
-  getEntity: <E>(list: Array<E>) => E = getRandomEntity
+  getEntity: types.SeededEntityGetter = getRandomEntity
 ): string =>
   createIdList(list, createArrayWithDefaultValues(1, 'EMPTY'), getEntity)
     .result[0]
