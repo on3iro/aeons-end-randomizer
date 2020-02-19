@@ -47,9 +47,8 @@ export const rollLossRewards = (
 
   switch (rewardType) {
     case 'mage': {
-      const newMage = rollNewEntity(mageIds, availableEntities =>
-        getRandomEntity(availableEntities, seed)
-      )
+      const newMageResult = rollNewEntity(mageIds, getRandomEntity, seed)
+      const newMage = newMageResult.result
 
       return {
         ...battle,
@@ -58,13 +57,13 @@ export const rollLossRewards = (
           mage: newMage ?? undefined,
           supplyIds: [],
         },
+        seed: newMageResult.seed,
       }
     }
 
     case 'gem': {
-      const newGem = rollNewEntity(gemIds, availableEntities =>
-        getRandomEntity(availableEntities, seed)
-      )
+      const newGemResult = rollNewEntity(gemIds, getRandomEntity, seed)
+      const newGem = newGemResult.result
 
       return {
         ...battle,
@@ -73,13 +72,13 @@ export const rollLossRewards = (
           mage: undefined,
           supplyIds: newGem ? [newGem] : [],
         },
+        seed: newGemResult.seed,
       }
     }
 
     case 'relic': {
-      const newRelic = rollNewEntity(relicIds, availableEntities =>
-        getRandomEntity(availableEntities, seed)
-      )
+      const newRelicResult = rollNewEntity(relicIds, getRandomEntity, seed)
+      const newRelic = newRelicResult.result
 
       return {
         ...battle,
@@ -88,13 +87,13 @@ export const rollLossRewards = (
           mage: undefined,
           supplyIds: newRelic ? [newRelic] : [],
         },
+        seed: newRelicResult.seed,
       }
     }
 
     case 'spell': {
-      const newSpell = rollNewEntity(spellIds, availableEntities =>
-        getRandomEntity(availableEntities, seed)
-      )
+      const newSpellResult = rollNewEntity(spellIds, getRandomEntity, seed)
+      const newSpell = newSpellResult.result
 
       return {
         ...battle,
@@ -103,13 +102,17 @@ export const rollLossRewards = (
           mage: undefined,
           supplyIds: newSpell ? [newSpell] : [],
         },
+        seed: newSpellResult.seed,
       }
     }
 
     case 'treasure1': {
-      const newTreasure = rollNewEntity(treasure1Ids, availableEntities =>
-        getRandomEntity(availableEntities, seed)
+      const newTreasureResult = rollNewEntity(
+        treasure1Ids,
+        getRandomEntity,
+        seed
       )
+      const newTreasure = newTreasureResult.result
 
       return {
         ...battle,
@@ -118,13 +121,17 @@ export const rollLossRewards = (
           mage: undefined,
           supplyIds: [],
         },
+        seed: newTreasureResult.seed,
       }
     }
 
     case 'treasure2': {
-      const newTreasure = rollNewEntity(treasure2Ids, availableEntities =>
-        getRandomEntity(availableEntities, seed)
+      const newTreasureResult = rollNewEntity(
+        treasure2Ids,
+        getRandomEntity,
+        seed
       )
+      const newTreasure = newTreasureResult.result
 
       return {
         ...battle,
@@ -133,13 +140,17 @@ export const rollLossRewards = (
           mage: undefined,
           supplyIds: [],
         },
+        seed: newTreasureResult.seed,
       }
     }
 
     case 'treasure3': {
-      const newTreasure = rollNewEntity(treasure3Ids, availableEntities =>
-        getRandomEntity(availableEntities, seed)
+      const newTreasureResult = rollNewEntity(
+        treasure3Ids,
+        getRandomEntity,
+        seed
       )
+      const newTreasure = newTreasureResult.result
 
       return {
         ...battle,
@@ -148,6 +159,7 @@ export const rollLossRewards = (
           mage: undefined,
           supplyIds: [],
         },
+        seed: newTreasureResult.seed,
       }
     }
 

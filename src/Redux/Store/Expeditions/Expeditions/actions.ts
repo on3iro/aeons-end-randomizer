@@ -31,7 +31,7 @@ export const actions = {
     createAction(ActionTypes.ACCEPT_LOSS, { battle, banished, newSupplyIds }),
   rollLoss: (battle: types.Battle, rewardType: RewardType) =>
     createAction(ActionTypes.ROLL_LOSS, { battle, rewardType }),
-  rollLossSuccess: (result: types.Battle) =>
+  rollLossSuccess: (result: types.Battle & { seed: types.Seed }) =>
     createAction(ActionTypes.ROLL_LOSS_SUCCESS, result),
   finishBattle: (
     battle: types.Battle,
