@@ -1,45 +1,27 @@
 import { createTurnOrderCardList } from '../../helpers'
 import { TURNORDERSETUPS } from 'config/turnOrderSetups'
+import { getRandomEntity } from 'Redux/helpers'
 
 describe('createTurnOrderCardList()', () => {
-  it('should return the correct elements with getFirst() entity getter', () => {
-    const getFirst = (available: any[]) => available[0]
-
+  it('test 1', () => {
     const result = createTurnOrderCardList(
       TURNORDERSETUPS.onePlayer.variations.default.turnOrderCards,
       TURNORDERSETUPS.onePlayer.variations.default.turnOrderCards,
-      getFirst
+      getRandomEntity,
+      { seed: 'test' }
     )
 
-    expect(result).toEqual({
-      availableEntities: [],
-      result: TURNORDERSETUPS.onePlayer.variations.default.turnOrderCards,
-    })
+    expect(result).toMatchSnapshot()
   })
 
-  it('should return the correct elements with getSecond() entity getter', () => {
-    const getSecond = (available: any[]) => available[1]
-
+  it('test 2', () => {
     const result = createTurnOrderCardList(
       TURNORDERSETUPS.onePlayer.variations.default.turnOrderCards,
       TURNORDERSETUPS.onePlayer.variations.default.turnOrderCards,
-      getSecond
+      getRandomEntity,
+      { seed: 'test' }
     )
 
-    expect(result).toEqual({
-      availableEntities: [
-        {
-          id: 'player1-1',
-          name: 'Player 1',
-          type: 'player1',
-        },
-      ],
-      result: [
-        { id: 'player1-2', name: 'Player 1', type: 'player1' },
-        { id: 'player1-3', name: 'Player 1', type: 'player1' },
-        { id: 'nemesis-1', name: 'Nemesis', type: 'nemesis' },
-        { id: 'nemesis-2', name: 'Nemesis', type: 'nemesis' },
-      ],
-    })
+    expect(result).toMatchSnapshot()
   })
 })
