@@ -38,6 +38,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 const LossRewardTypeSelection = ({ battle, rollLoss }: Props) => {
   const treasureOptions = getTreasureOptionsByTier(battle.nemesisTier.tier)
 
+  // FIXME does not work, if mage is not shown as option, due to no available mages
   const [rewardSelectValue, updateRewardSelectValue] = useState<RewardType>(
     'mage'
   )

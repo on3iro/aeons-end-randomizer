@@ -1,10 +1,11 @@
-import * as types from '../types'
+import * as types from 'types'
 import seedrandom from 'seedrandom'
 import shortid from 'shortid'
 
 type CardListReduceResult = {
   availableCards: types.ICard[]
   result: types.ICard[]
+  seed?: types.Seed
 }
 
 /**
@@ -54,7 +55,8 @@ export const filterByCost = (
 export const createCardList = (
   availableCards: types.ICard[],
   blueprints: Array<types.IBluePrint>,
-  getEntity: <T>(list: Array<T>) => T
+  getEntity: types.SeededEntityGetter = getRandomEntity,
+  seed?: types.Seed
 ): CardListReduceResult =>
   blueprints.reduce(
     (acc: CardListReduceResult, blueprint: types.IBluePrint) => {
@@ -67,7 +69,8 @@ export const createCardList = (
         return acc
       }
 
-      const card = getEntity(filteredByCost)
+      const cardResult = getEntity(filteredByCost, acc.seed)
+      const card = cardResult.entity
 
       // Make sure each entity will only be added to the result list once
       const remainingCards = acc.availableCards.filter(
@@ -77,9 +80,10 @@ export const createCardList = (
       return {
         availableCards: remainingCards,
         result: [...acc.result, card],
+        seed: cardResult.seed,
       }
     },
-    { availableCards, result: [] }
+    { availableCards, result: [], seed }
   )
 
 /**
@@ -94,16 +98,14 @@ const getRandomCardsByType = (
   availableCards: ReadonlyArray<types.ICard>,
   tileSetups: ReadonlyArray<types.IBluePrint>,
   cardType: types.CardType,
-  seed?: string
+  seed?: types.Seed
 ): CardListReduceResult => {
   const cardSlots = tileSetups.filter(({ type }) => type === cardType)
   const availableCardsOfType = availableCards.filter(
     ({ type }) => type === cardType
   )
 
-  return createCardList(availableCardsOfType, cardSlots, availableCards =>
-    getRandomEntity(availableCards, seed)
-  )
+  return createCardList(availableCardsOfType, cardSlots, getRandomEntity, seed)
 }
 
 /**
@@ -117,13 +119,28 @@ const getRandomCardsByType = (
 export const createSupply = (
   availableCards: ReadonlyArray<types.ICard>,
   tileSetups: ReadonlyArray<types.IBluePrint>,
-  seed?: string
+  seed?: types.Seed
 ) => {
   const gems = getRandomCardsByType(availableCards, tileSetups, 'Gem', seed)
-  const relics = getRandomCardsByType(availableCards, tileSetups, 'Relic', seed)
-  const spells = getRandomCardsByType(availableCards, tileSetups, 'Spell', seed)
+  const relics = getRandomCardsByType(
+    availableCards,
+    tileSetups,
+    'Relic',
+    gems.seed
+  )
+  const spells = getRandomCardsByType(
+    availableCards,
+    tileSetups,
+    'Spell',
+    relics.seed
+  )
 
-  return { gems, relics, spells }
+  return {
+    gems: gems.result,
+    relics: relics.result,
+    spells: spells.result,
+    seed: spells.seed,
+  }
 }
 
 export const createArrayWithDefaultValues = (
@@ -136,25 +153,25 @@ export const createArrayWithDefaultValues = (
 export const createSlotList = (amount: number): Array<types.IEmptyBluePrint> =>
   createArrayWithDefaultValues(amount, { type: 'EMPTY', operation: 'NoOp' })
 
-type Entity = { id: string } | string
-
-export const generateListFrom = <T extends Entity>(
+export const generateListFrom = <T extends types.Entity>(
   availableEntities: Array<T> | ReadonlyArray<T>,
   slots: Array<any>,
-  getEntity: <E extends Entity>(list: Array<E>) => E
-): { availableEntities: Array<T>; result: Array<T> } => {
-  const result = slots.reduce(
+  getEntity: types.SeededEntityGetter,
+  seed?: types.Seed
+): { availableEntities: Array<T>; result: Array<T>; seed: types.Seed } => {
+  return slots.reduce(
     (acc, _) => {
       // If no entity is left, simply return the actual empty slot
-      const entity = getEntity(acc.availableEntities)
+      const rngResult = getEntity(acc.availableEntities, acc.seed)
+      const entity = rngResult.entity
 
       if (!entity) {
-        return acc
+        return { ...acc, seed: rngResult.seed }
       }
 
       // Make sure each entity will only be added to the result list once
       const remainingEntities = acc.availableEntities.filter(
-        (available: Entity) => {
+        (available: types.Entity) => {
           if (typeof available === 'string' && typeof entity === 'string') {
             return available !== entity
           }
@@ -170,19 +187,19 @@ export const generateListFrom = <T extends Entity>(
       return {
         availableEntities: remainingEntities,
         result: [...acc.result, entity],
+        seed: rngResult.seed,
       }
     },
-    { availableEntities, result: [] }
+    { availableEntities, result: [], seed }
   )
-
-  return result
 }
 
 export const createTurnOrderCardList = (
   availableCards: types.ITurnOrderCard[],
   slots: types.ITurnOrderCard[],
-  getEntity: <T>(list: Array<T>) => T
-) => generateListFrom(availableCards, slots, getEntity)
+  getEntity: types.SeededEntityGetter,
+  seed?: types.Seed
+) => generateListFrom(availableCards, slots, getEntity, seed)
 
 export const shuffleDeck = (
   deck: types.ITurnOrderCard[]
@@ -193,14 +210,16 @@ export const shuffleDeck = (
 export const createMageList = (
   availableMages: ReadonlyArray<types.Mage>,
   slots: Array<types.Slot>,
-  getEntity: <T>(list: Array<T>) => T
-) => generateListFrom(availableMages, slots, getEntity)
+  getEntity: types.SeededEntityGetter,
+  seed?: types.Seed
+) => generateListFrom(availableMages, slots, getEntity, seed)
 
 export const createIdList = (
   availableIds: ReadonlyArray<string>,
   slots: string[],
-  getEntity: <T>(list: Array<T>) => T
-) => generateListFrom(availableIds, slots, getEntity)
+  getEntity: types.SeededEntityGetter,
+  seed?: types.Seed
+) => generateListFrom(availableIds, slots, getEntity, seed)
 
 /**
  * Gets a random value from a list. (The wording of entities is just used for semantic context)
@@ -210,10 +229,22 @@ export const createIdList = (
  */
 export const getRandomEntity = <E>(
   availableEntities: ReadonlyArray<E>,
-  seed: string = shortid.generate()
-) => {
-  const rng = seedrandom(seed)
-  return availableEntities[Math.floor(rng() * availableEntities.length)]
+  seed: types.Seed = {
+    seed: shortid.generate(),
+  }
+): {
+  entity: E
+  seed: types.Seed
+} => {
+  const rng = seedrandom(seed.seed, { state: seed.state || true })
+
+  return {
+    entity: availableEntities[Math.floor(rng() * availableEntities.length)],
+    seed: {
+      seed: seed.seed,
+      state: rng.state(),
+    },
+  }
 }
 
 export const getOperationString = (
