@@ -1,4 +1,5 @@
 import { createCardList } from '../../helpers'
+import { getRandomEntity } from 'Redux/helpers'
 import * as types from 'types'
 
 const marketSetup: types.IMarketSetup = {
@@ -423,8 +424,9 @@ describe('createCardList', () => {
     //
     // CardType filtering has to happen inside the caller of createCardList()
 
-    const getFirst = (available: any[]) => available[0]
-    const result = createCardList(cards, marketSetup.tiles, getFirst)
+    const result = createCardList(cards, marketSetup.tiles, getRandomEntity, {
+      seed: 'test',
+    })
 
     expect(result).toMatchSnapshot()
   })
