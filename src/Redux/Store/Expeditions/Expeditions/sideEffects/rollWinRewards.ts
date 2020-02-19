@@ -12,7 +12,8 @@ import { rollNewEntity } from './helpers'
 const rollTreasureIdsByLevel = (
   state: RootState,
   battle: types.Battle,
-  getEntity: types.SeededEntityGetter
+  getEntity: types.SeededEntityGetter = getRandomEntity,
+  seed?: types.Seed
 ) => {
   const treasureIdsByTier =
     battle.treasure.hasTreasure && battle.treasure.level
@@ -27,14 +28,19 @@ const rollTreasureIdsByLevel = (
       ? createIdList(
           treasureIdsByTier,
           createArrayWithDefaultValues(5, 'EMPTY'),
-          getEntity
-        ).result
-      : []
+          getEntity,
+          seed
+        )
+      : { result: [], seed }
 
   return newTreasures
 }
 
-const rollSupplyRewards = (state: RootState, expeditionId: string) => {
+const rollSupplyRewards = (
+  state: RootState,
+  expeditionId: string,
+  seed: types.Seed
+) => {
   const gemIds = selectors.getStillAvailableGemIds(state, {
     expeditionId,
   })
@@ -47,11 +53,28 @@ const rollSupplyRewards = (state: RootState, expeditionId: string) => {
 
   // We pack the values into arrays to make it possible to get empty values
   // which are not null below
-  const newGem = gemIds.length > 0 ? [rollNewEntity(gemIds)] : []
-  const newRelic = relicIds.length > 0 ? [rollNewEntity(relicIds)] : []
-  const newSpell = spellIds.length > 0 ? [rollNewEntity(spellIds)] : []
+  const newGemResult =
+    gemIds.length > 0
+      ? rollNewEntity(gemIds, getRandomEntity, seed)
+      : { result: undefined, seed }
+  const newGem = [newGemResult.result]
 
-  return [...newGem, ...newRelic, ...newSpell]
+  const newRelicResult =
+    relicIds.length > 0
+      ? rollNewEntity(relicIds, getRandomEntity, newGemResult.seed)
+      : { result: undefined, seed: newGemResult.seed }
+  const newRelic = [newRelicResult.result]
+
+  const newSpellResult =
+    spellIds.length > 0
+      ? rollNewEntity(spellIds, getRandomEntity, newRelicResult.seed)
+      : { result: undefined, seed: newRelicResult.seed }
+  const newSpell = [newSpellResult.result]
+
+  return {
+    result: [...newGem, ...newRelic, ...newSpell],
+    seed: newSpellResult.seed,
+  }
 }
 
 export const rollWinRewards = (
@@ -65,13 +88,21 @@ export const rollWinRewards = (
     { expeditionId: battle.expeditionId }
   )
 
-  const newTreasures = rollTreasureIdsByLevel(
+  const newTreasuresResult = rollTreasureIdsByLevel(
     state,
     battle,
-    availableEntities => getRandomEntity(availableEntities, expedition.seed)
+    getRandomEntity,
+    expedition.seed
   )
 
-  const supplyRewards = rollSupplyRewards(state, battle.expeditionId)
+  const newTreasures = newTreasuresResult.result
+
+  const supplyRewardsResult = rollSupplyRewards(
+    state,
+    battle.expeditionId,
+    newTreasuresResult.seed || expedition.seed
+  )
+  const supplyRewards = supplyRewardsResult.result
 
   const updatedBattle = {
     ...battle,
@@ -81,5 +112,8 @@ export const rollWinRewards = (
       mage: undefined, // we explicitely overwrite the mage reward from earlier losses
     },
   }
-  return { battle: updatedBattle }
+  return {
+    battle: updatedBattle,
+    seed: supplyRewardsResult.seed || expedition.seed,
+  }
 }

@@ -27,7 +27,7 @@ export const winBattleSuccess = (
   state: State,
   action: ReturnType<typeof actions.winBattleSuccess>
 ) => {
-  const { battle } = action.payload
+  const { battle, seed } = action.payload
   const oldExpedition = state.expeditions[battle.expeditionId]
   const oldBattleList = oldExpedition.battles
 
@@ -50,6 +50,7 @@ export const winBattleSuccess = (
       ...state.expeditions,
       [battle.expeditionId]: {
         ...oldExpedition,
+        seed,
         score: oldExpedition.score + battleScore,
         battles: updatedBattles,
       },
