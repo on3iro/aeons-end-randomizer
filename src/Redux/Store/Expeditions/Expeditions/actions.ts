@@ -19,7 +19,7 @@ export const actions = {
     createAction(ActionTypes.START_BATTLE, { battle }),
   winBattle: (battle: types.Battle) =>
     createAction(ActionTypes.WIN_BATTLE, battle),
-  winBattleSuccess: (result: { battle: types.Battle }) =>
+  winBattleSuccess: (result: { battle: types.Battle; seed: types.Seed }) =>
     createAction(ActionTypes.WIN_BATTLE_SUCCESS, result),
   loseBattle: (battle: types.Battle) =>
     createAction(ActionTypes.LOSE_BATTLE, { battle }),
