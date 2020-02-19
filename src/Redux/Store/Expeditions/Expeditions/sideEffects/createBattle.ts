@@ -21,7 +21,7 @@ export const getUpgradedBasicNemesisIdsByBattleTier = ({
   availableTier2Ids: string[]
   availableTier3Ids: string[]
   battleTier: 1 | 2 | 3 | 4
-  getEntity?: <E>(list: Array<E>, ...args: any) => E
+  getEntity?: types.SeededEntityGetter
 }) => {
   switch (battleTier) {
     case 1: {
@@ -79,7 +79,7 @@ export const rollNewUpgradedNemesisCards = (
   availableUpgradedBasicNemesisCards: types.UpgradedBasicNemesisCard[],
   previousUpgradedBasicNemesisCards: string[],
   nemesisTier: 1 | 2 | 3 | 4,
-  getEntity: <E>(list: Array<E>) => E
+  getEntity: types.SeededEntityGetter
 ) => {
   const upgradedCardsWithoutPreviousCards = availableUpgradedBasicNemesisCards.filter(
     upgradedCard => !previousUpgradedBasicNemesisCards.includes(upgradedCard.id)
@@ -110,7 +110,7 @@ export const rollNemesisId = (
   state: RootState,
   expedition: types.Expedition,
   battle: types.Battle,
-  getEntity: <E>(list: Array<E>, ...args: any) => E = getRandomEntity
+  getEntity: types.SeededEntityGetter = getRandomEntity
 ): string => {
   const availableNemeses = selectors.getAvailableNemesisForExpeditionId(state, {
     expeditionId: expedition.id,
@@ -137,7 +137,7 @@ export const rollNemesisId = (
 export const createBattle = (
   getState: () => RootState,
   battle: types.Battle,
-  getEntity: <E>(list: Array<E>, ...args: any) => E = getRandomEntity
+  getEntity: types.SeededEntityGetter = getRandomEntity
 ) => {
   const state = getState()
 

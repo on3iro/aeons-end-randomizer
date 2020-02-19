@@ -18,30 +18,35 @@ const createSupplyIds = (
   state: RootState,
   cardIds: string[],
   supplySetup: types.IMarketSetup,
-  seed: string
+  seed: types.Seed
 ) => {
   const availableCards = selectors.Settings.Expansions.SelectedCards.getCardsByIdList(
     state,
     { cardIds }
   )
 
-  const { gems, relics, spells } = createSupply(
+  const { gems, relics, spells, seed: resultSeed } = createSupply(
     availableCards,
     supplySetup.tiles,
     seed
   )
-  const gemsByCost = gems.result.sort(byCost)
-  const relicsByCost = relics.result.sort(byCost)
-  const spellsByCost = spells.result.sort(byCost)
+  const gemsByCost = gems.sort(byCost)
+  const relicsByCost = relics.sort(byCost)
+  const spellsByCost = spells.sort(byCost)
 
-  return [...gemsByCost, ...relicsByCost, ...spellsByCost].map(card => card.id)
+  return {
+    result: [...gemsByCost, ...relicsByCost, ...spellsByCost].map(
+      card => card.id
+    ),
+    seed: resultSeed,
+  }
 }
 
 const createTreasureIds = (
   state: RootState,
   treasureIds: string[],
   variantId: string,
-  seed: string
+  seed?: types.Seed
 ) => {
   const variant = selectors.Expeditions.Variants.getVariantById(state, {
     variantId,
@@ -61,9 +66,10 @@ const createTreasureIds = (
     ? createIdList(
         availableLevel1TreasureIds,
         createArrayWithDefaultValues(5, 'EMPTY'),
-        availableEntities => getRandomEntity(availableEntities, seed)
-      ).result
-    : []
+        getRandomEntity,
+        seed
+      )
+    : { result: [], seed }
 }
 
 export const generateBattles = (
@@ -104,7 +110,9 @@ export const createExpeditionConfig = (
   /////////////////////////
 
   const expeditionId = shortid.generate()
-  const seed = expeditionId
+  const seed = {
+    seed: expeditionId,
+  }
   const settingsSnapshot = createSettingsSnapshot(state, marketId)
 
   ///////////////////////////
@@ -112,27 +120,32 @@ export const createExpeditionConfig = (
   ///////////////////////////
 
   // Mages
-  const mageIds = createIdList(
+  const mageIdsResult = createIdList(
     settingsSnapshot.availableMageIds,
     createArrayWithDefaultValues(4, 'EMPTY'),
     availableEntities => getRandomEntity(availableEntities, seed)
-  ).result
+  )
+
+  const mageIds = mageIdsResult.result
 
   // Supply
-  const supplyIds = createSupplyIds(
+  const supplyIdsResult = createSupplyIds(
     state,
     settingsSnapshot.availableCardIds,
     settingsSnapshot.supplySetup,
-    seed
+    mageIdsResult.seed
   )
 
+  const supplyIds = supplyIdsResult.result
+
   // Treasures
-  const treasureIds = createTreasureIds(
+  const treasureIdsResult = createTreasureIds(
     state,
     settingsSnapshot.availableTreasureIds,
     variantId,
-    seed
+    supplyIdsResult.seed
   )
+  const treasureIds = treasureIdsResult.result
 
   // Battles
   const battles = generateBattles(state, variantId, expeditionId)
@@ -141,11 +154,13 @@ export const createExpeditionConfig = (
   // Expedition //
   ////////////////
 
+  const newSeed = treasureIdsResult.seed
+
   return {
     id: expeditionId,
     name: name,
     score: 0,
-    seed,
+    seed: newSeed || seed,
     settingsSnapshot,
     barracks: {
       mageIds,

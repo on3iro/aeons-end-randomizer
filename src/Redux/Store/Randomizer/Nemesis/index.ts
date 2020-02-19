@@ -40,7 +40,7 @@ export const Reducer: LoopReducer<State, Action> = (
 ) => {
   switch (action.type) {
     case ActionTypes.SET_RANDOM: {
-      return action.payload.nemesis
+      return action.payload.nemesis.entity
     }
 
     default: {
