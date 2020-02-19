@@ -12,7 +12,7 @@ import { rollNewEntity } from './helpers'
 const rollTreasureIdsByLevel = (
   state: RootState,
   battle: types.Battle,
-  getEntity: <E>(list: Array<E>) => E
+  getEntity: types.SeededEntityGetter
 ) => {
   const treasureIdsByTier =
     battle.treasure.hasTreasure && battle.treasure.level
