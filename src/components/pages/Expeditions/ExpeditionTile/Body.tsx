@@ -39,6 +39,7 @@ const Body = ({ expedition, variant }: Props) => (
         label="Big Pocket"
         info={expedition.bigPocketVariant ? 'Yes' : 'No'}
       />
+      <InfoItem label="Seed" info={expedition.seed.seed} />
     </List>
   </React.Fragment>
 )
