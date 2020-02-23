@@ -1,5 +1,18 @@
 import * as types from './types'
 
+/**
+ * Could be used inside .filter() to create a list of unique elements.
+ */
+export const distinct = <T>(value: T, index: number, self: Array<T>) =>
+  self.indexOf(value) === index
+
+type ObjWithId = { id: string }
+export const distinctById = <T extends ObjWithId>(
+  value: T,
+  index: number,
+  self: Array<T>
+) => self.findIndex(el => value.id === el.id) === index
+
 export const sortByCardType = (
   a: { type: types.CardType },
   b: { type: types.CardType }

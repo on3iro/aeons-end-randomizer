@@ -40,6 +40,8 @@ export type BaseConfig = {
   name: string
   bigPocketVariant: boolean
   marketId: string
+  seedValue?: string
+  existingSettingsSnapshot?: types.SettingsSnapshot
 }
 
 export type WinConfig = {

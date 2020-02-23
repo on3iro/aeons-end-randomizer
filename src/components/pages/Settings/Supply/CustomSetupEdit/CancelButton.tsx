@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import IconButton from '@material-ui/core/IconButton'
+import IconButton from 'components/atoms/IconButton'
 import CancelIcon from '@material-ui/icons/Cancel'
 
 const CancelButton = (props: any) => (
