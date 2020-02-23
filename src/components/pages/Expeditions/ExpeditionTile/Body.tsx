@@ -15,6 +15,10 @@ type OwnProps = {
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({
+  usedExpansions: selectors.Settings.Expansions.SelectedExpansions.getExpansionNamesByIdList(
+    state,
+    { expansionIds: ownProps.expedition.settingsSnapshot.usedExpansions }
+  ),
   variant: selectors.Expeditions.Variants.getVariantById(state, {
     variantId: ownProps.expedition.variantId,
   }),
@@ -26,7 +30,7 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const Body = ({ expedition, variant }: Props) => (
+const Body = ({ expedition, variant, usedExpansions }: Props) => (
   <React.Fragment>
     <Name variant="h6" component="h2">
       {expedition.name || expedition.id}
@@ -40,6 +44,7 @@ const Body = ({ expedition, variant }: Props) => (
         info={expedition.bigPocketVariant ? 'Yes' : 'No'}
       />
       <InfoItem label="Seed" info={expedition.seed.seed} />
+      <InfoItem label="Used expansions" info={usedExpansions.join(', ')} />
     </List>
   </React.Fragment>
 )

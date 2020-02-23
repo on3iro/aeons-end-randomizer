@@ -1,10 +1,10 @@
 import React from 'react'
 
 import Divider from '@material-ui/core/Divider'
-import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
-import Navigation from '../../molecules/Navigation'
+import IconButton from 'components/atoms/IconButton'
+import Navigation from 'components/molecules/Navigation'
 
 import Header from './Header'
 import AppInfo from './AppInfo'
