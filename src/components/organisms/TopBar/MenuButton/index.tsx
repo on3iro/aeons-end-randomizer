@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import MuiIconButton from '@material-ui/core/IconButton'
+import MuiIconButton from 'components/atoms/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 
 type WrapperProps = {

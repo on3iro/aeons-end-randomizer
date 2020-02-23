@@ -1,21 +1,22 @@
 import React from 'react'
+import CopyIcon from '@material-ui/icons/FileCopy'
+
 import IconButton from 'components/atoms/IconButton'
-import DeleteIcon from '@material-ui/icons/Delete'
 
 type Props = {
   onClick: (...args: any) => void
   className?: string
 }
 
-const DeleteButton = ({ onClick, className }: Props) => (
+const CopyButton = ({ onClick, className }: Props) => (
   <IconButton
     color="secondary"
-    aria-label="Delete"
+    aria-label="Copy"
     onClick={onClick}
     className={className}
   >
-    <DeleteIcon />
+    <CopyIcon />
   </IconButton>
 )
 
-export default React.memo(DeleteButton)
+export default React.memo(CopyButton)

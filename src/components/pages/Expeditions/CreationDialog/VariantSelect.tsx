@@ -39,6 +39,7 @@ const VariantSelect = ({
         {variants.map(variant => (
           <FormControlLabel
             id={variant.id}
+            key={variant.id}
             value={variant.id}
             control={<Radio />}
             label={variant.name}

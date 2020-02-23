@@ -7,7 +7,7 @@ import Keyword from '../atoms/Keyword'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 
-import IconButton from '@material-ui/core/IconButton'
+import IconButton from 'components/atoms/IconButton'
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined'
 
 const Wrapper = styled('div')``

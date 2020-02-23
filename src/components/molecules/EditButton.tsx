@@ -1,5 +1,5 @@
 import React from 'react'
-import IconButton from '@material-ui/core/IconButton'
+import IconButton from 'components/atoms/IconButton'
 import EditIcon from '@material-ui/icons/Edit'
 
 type Props = {
