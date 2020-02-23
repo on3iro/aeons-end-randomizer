@@ -121,12 +121,12 @@ export type Battle = {
 
 export type SettingsSnapshot = {
   supplySetup: IMarketSetup
+  usedExpansions: string[]
   availableCardIds: string[]
   availableMageIds: string[]
   availableNemesisIds: string[]
   availableTreasureIds: string[]
   availableUpgradedBasicNemesisCardIds: string[]
-  availableNemesisCardIds: string[]
 }
 
 export type Expedition = {

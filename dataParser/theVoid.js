@@ -1,6 +1,6 @@
 const theVoidData = {
   id: 'TV',
-  name: 'Void',
+  name: 'The Void',
   type: 'mini',
   nemeses: [
     {

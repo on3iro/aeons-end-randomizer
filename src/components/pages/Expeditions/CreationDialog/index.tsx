@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions, selectors } from 'Redux/Store'
+import { RootState, actions } from 'Redux/Store'
+import * as types from 'types'
 
 import MarketSelect from 'components/molecules/MarketSelect'
 
@@ -9,49 +10,66 @@ import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
 
 import NameInput from 'components/pages/Expeditions/CreationDialog/NameInput'
+import SeedInput from 'components/pages/Expeditions/CreationDialog/SeedInput'
 import BigPocketSelect from 'components/pages/Expeditions/CreationDialog/BigPocketSelect'
 import VariantSelect from 'components/pages/Expeditions/CreationDialog/VariantSelect'
 import CreateButton from 'components/pages/Expeditions/CreationDialog/CreateButton'
 
-const mapStateToProps = (state: RootState) => ({
-  selectedVariant: selectors.Expeditions.Variants.getSelectedVariant(state),
-})
+type OwnProps = {
+  finisher: Function
+  existingExpedition?: types.Expedition
+}
+
+const mapStateToProps = (state: RootState) => ({})
 
 const mapDispatchToProps = {
   createExpedition: actions.Expeditions.Expeditions.createExpedition,
-  selectVariant: actions.Expeditions.Variants.updateSelected,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
-  typeof mapDispatchToProps & {
-    finisher: Function
-  }
+  typeof mapDispatchToProps &
+  OwnProps
 
 const CreationDialog = ({
   finisher,
+  existingExpedition,
   createExpedition,
-  selectVariant,
-  selectedVariant,
 }: Props) => {
-  const [expeditionName, changeExpeditionName] = useState('')
-  const [bigPocketVariant, changeBigPocketVariant] = useState(false)
-  const [selectedMarketId, selectMarketId] = useState('random')
+  const [expeditionName, changeExpeditionName] = useState(
+    existingExpedition ? `${existingExpedition.name} Copy` : ''
+  )
+  const [bigPocketVariant, changeBigPocketVariant] = useState(
+    existingExpedition?.bigPocketVariant ?? false
+  )
+  const [selectedMarketId, selectMarketId] = useState(
+    existingExpedition?.settingsSnapshot.supplySetup.id ?? 'random'
+  )
+  const [selectedVariant, selectVariant] = useState(
+    existingExpedition?.variantId ?? 'DEFAULT'
+  )
+  const [seedValue, changeSeedValue] = useState(
+    existingExpedition?.seed.seed ?? ''
+  )
 
   const supplySelectHandler = (id: string) => {
     selectMarketId(id)
   }
 
-  const handleInputChange = (e: any) =>
+  const handleNameChange = (e: any) =>
     changeExpeditionName(e.currentTarget.value)
+
+  const handleSeedChange = (e: any) => changeSeedValue(e.currentTarget.value)
 
   const handleVariantChange = (e: any) => selectVariant(e.currentTarget.value)
 
   const handleExpeditionCreation = () => {
     createExpedition({
-      variantId: selectedVariant.id,
+      variantId: selectedVariant,
       name: expeditionName,
       bigPocketVariant,
       marketId: selectedMarketId,
+      seedValue,
+      existingSettingsSnapshot: existingExpedition?.settingsSnapshot,
     })
     finisher()
   }
@@ -61,7 +79,7 @@ const CreationDialog = ({
       <ModalBodyWrapper hasFooter={true}>
         <NameInput
           expeditionName={expeditionName}
-          handleInputChange={handleInputChange}
+          handleInputChange={handleNameChange}
         />
 
         <BigPocketSelect
@@ -71,13 +89,20 @@ const CreationDialog = ({
 
         <VariantSelect
           handleVariantChange={handleVariantChange}
-          selectedVariantId={selectedVariant.id}
+          selectedVariantId={selectedVariant}
         />
 
         <MarketSelect
           selectedMarketId={selectedMarketId}
           clickHandler={supplySelectHandler}
+          additionalSetups={
+            existingExpedition && [
+              existingExpedition.settingsSnapshot.supplySetup,
+            ]
+          }
         />
+
+        <SeedInput seed={seedValue} handleInputChange={handleSeedChange} />
       </ModalBodyWrapper>
 
       <ModalFooterWrapper>

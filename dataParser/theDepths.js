@@ -1,6 +1,6 @@
 const theDepthsData = {
   id: 'Depths',
-  name: 'Depths',
+  name: 'The Depths',
   type: 'mini',
   nemeses: [
     {

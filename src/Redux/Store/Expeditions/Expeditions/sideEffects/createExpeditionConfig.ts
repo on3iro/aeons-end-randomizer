@@ -101,7 +101,14 @@ export const generateBattles = (
 
 export const createExpeditionConfig = (
   getState: () => RootState,
-  { variantId, name, bigPocketVariant, marketId }: BaseConfig
+  {
+    variantId,
+    name,
+    bigPocketVariant,
+    marketId,
+    existingSettingsSnapshot,
+    seedValue,
+  }: BaseConfig
 ): types.Expedition => {
   const state = getState()
 
@@ -111,9 +118,13 @@ export const createExpeditionConfig = (
 
   const expeditionId = shortid.generate()
   const seed = {
-    seed: expeditionId,
+    seed: seedValue ?? expeditionId,
   }
-  const settingsSnapshot = createSettingsSnapshot(state, marketId)
+  const settingsSnapshot = createSettingsSnapshot(
+    state,
+    existingSettingsSnapshot,
+    marketId
+  )
 
   ///////////////////////////
   // Content randomziation //
