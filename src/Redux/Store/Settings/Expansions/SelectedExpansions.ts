@@ -191,6 +191,21 @@ const getSelectedExpansionsState = (state: RootState) =>
 
 const getExpansionId = (_: RootState, id: string) => id
 
+const getExpansionIds = (
+  _: RootState,
+  { expansionIds }: { expansionIds: string[] }
+) => expansionIds
+
+const getExpansionsByIdList = createSelector(
+  [getSelectedExpansionsState, getExpansionIds],
+  ({ expansions }, ids) => ids.map(id => expansions[id])
+)
+
+const getExpansionNamesByIdList = createSelector(
+  [getExpansionsByIdList],
+  expansions => expansions.map(e => e.name)
+)
+
 const getSelectedExpansionsArray = createSelector(
   [getSelectedExpansionsState],
   state => state.expansionIds.filter(id => state.expansions[id].selected)
@@ -223,25 +238,23 @@ const getMiniExpansionIds = createSelector(
   [getSelectedExpansionsState],
   state => state.expansionIds.filter(id => state.expansions[id].type === 'mini')
 )
-const getPromoIds = createSelector(
-  [getSelectedExpansionsState],
-  state =>
-    state.expansionIds
-      .filter(id => state.expansions[id].type === 'promo')
-      .sort((a, b) => {
-        const promoA = state.expansions[a].name
-        const promoB = state.expansions[b].name
+const getPromoIds = createSelector([getSelectedExpansionsState], state =>
+  state.expansionIds
+    .filter(id => state.expansions[id].type === 'promo')
+    .sort((a, b) => {
+      const promoA = state.expansions[a].name
+      const promoB = state.expansions[b].name
 
-        if (promoA < promoB) {
-          return -1
-        }
+      if (promoA < promoB) {
+        return -1
+      }
 
-        if (promoA > promoB) {
-          return 1
-        }
+      if (promoA > promoB) {
+        return 1
+      }
 
-        return 0
-      })
+      return 0
+    })
 )
 
 const getStandaloneExpansions = createSelector(
@@ -269,4 +282,6 @@ export const selectors = {
   getMiniExpansions,
   getPromos,
   getExpansionById,
+  getExpansionsByIdList,
+  getExpansionNamesByIdList,
 }

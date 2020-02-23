@@ -1,6 +1,6 @@
 const theNamelessData = {
   id: 'Nameless',
-  name: 'Nameless',
+  name: 'The Nameless',
   type: 'mini',
   nemeses: [
     {

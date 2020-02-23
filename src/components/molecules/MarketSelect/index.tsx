@@ -1,27 +1,54 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import * as types from 'types'
+import * as helpers from 'helpers'
 
-import { RootState, selectors } from '../../../Redux/Store'
-import useExpandedHandling from '../../../hooks/useExpansionHandling'
+import { RootState, selectors } from 'Redux/Store'
+import useExpandedHandling from 'hooks/useExpansionHandling'
 
 import ExpansionPanel from '../ExpansionPanel'
 
 import MarketOptionsWrapper from './MarketOptionsWrapper'
 import SupplyPreview from '../SupplyPreview'
 
+type OwnProps = {
+  clickHandler: (id: string) => void
+  selectedMarketId: string
+  additionalSetups?: types.IMarketSetup[]
+}
+
 const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
-const mapStateToProps = (state: RootState) => ({
-  activeMarketSetups: selectors.Settings.SupplySetups.getActiveSetups(state),
-  allMarketSetups: getCustomAndPredefined(state),
-})
+const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
+  const activeMarketSetups = [
+    ...selectors.Settings.SupplySetups.getActiveSetups(state),
+    ...(ownProps.additionalSetups ?? []),
+  ].filter(helpers.distinctById)
+
+  const additionalSetupsLookup: {
+    [id: string]: types.IMarketSetup
+  } = ownProps.additionalSetups
+    ? ownProps.additionalSetups.reduce((acc, s) => {
+        return {
+          ...acc,
+          [s.id]: s,
+        }
+      }, {})
+    : {}
+
+  return {
+    activeMarketSetups,
+    allMarketSetups: {
+      ...getCustomAndPredefined(state),
+      ...additionalSetupsLookup,
+    },
+  }
+}
 
 const mapDispatchToProps = {}
 
 type Props = ReturnType<typeof mapStateToProps> &
-  typeof mapDispatchToProps & {
-    clickHandler: (id: string) => void
-    selectedMarketId: string
-  }
+  typeof mapDispatchToProps &
+  OwnProps
 
 const MarketSelect = ({
   activeMarketSetups,

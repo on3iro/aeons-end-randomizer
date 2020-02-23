@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 
-import IconButton from '@material-ui/core/IconButton'
+import IconButton from 'components/atoms/IconButton'
 import EditIcon from '@material-ui/icons/Edit'
 
 const Wrapper = styled('div')``
