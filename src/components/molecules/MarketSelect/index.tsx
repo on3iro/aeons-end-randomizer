@@ -6,10 +6,10 @@ import * as helpers from 'helpers'
 import { RootState, selectors } from 'Redux/Store'
 import useExpandedHandling from 'hooks/useExpansionHandling'
 
-import ExpansionPanel from '../ExpansionPanel'
+import ExpansionPanel from 'components/molecules/ExpansionPanel'
+import SupplyPreview from 'components/molecules/SupplyPreview'
 
 import MarketOptionsWrapper from './MarketOptionsWrapper'
-import SupplyPreview from '../SupplyPreview'
 
 type OwnProps = {
   clickHandler: (id: string) => void
