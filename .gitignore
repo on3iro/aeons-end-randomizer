@@ -202,3 +202,6 @@ package-lock.json
 
 # Local Netlify folder
 .netlify
+
+# vim coc reports
+report.*.json
