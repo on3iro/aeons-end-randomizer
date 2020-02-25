@@ -88,6 +88,18 @@ export const Reducer: LoopReducer<State, Action> = (
       return state
     }
 
+    case ActionTypes.EXPEDITION_SHARE: {
+      return reducerHelpers.shareExpedition(state, action)
+    }
+
+    case ActionTypes.EXPEDITION_SHARE_SUCCESS: {
+      return reducerHelpers.shareExpeditionSuccess(state, action)
+    }
+
+    case ActionTypes.EXPEDITION_SHARE_FAILURE: {
+      return reducerHelpers.shareExpeditionFailure(state, action)
+    }
+
     default: {
       return state
     }
