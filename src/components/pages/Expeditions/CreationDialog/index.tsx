@@ -1,23 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions } from 'Redux/Store'
 import * as types from 'types'
 
-import MarketSelect from 'components/molecules/MarketSelect'
-
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
 
+import BigPocketSelect from 'components/pages/Expeditions/CreationDialog/BigPocketSelect'
+import ConfigImport from './ConfigImport'
+import CreateButton from 'components/pages/Expeditions/CreationDialog/CreateButton'
+import MarketSelect from './MarketSelect'
 import NameInput from 'components/pages/Expeditions/CreationDialog/NameInput'
 import SeedInput from 'components/pages/Expeditions/CreationDialog/SeedInput'
-import BigPocketSelect from 'components/pages/Expeditions/CreationDialog/BigPocketSelect'
 import VariantSelect from 'components/pages/Expeditions/CreationDialog/VariantSelect'
-import CreateButton from 'components/pages/Expeditions/CreationDialog/CreateButton'
 
 type OwnProps = {
   finisher: Function
-  existingExpedition?: types.Expedition
+  expedition?: types.Expedition
 }
 
 const mapStateToProps = (state: RootState) => ({})
@@ -30,11 +30,11 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const CreationDialog = ({
-  finisher,
-  existingExpedition,
-  createExpedition,
-}: Props) => {
+const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
+  const [existingExpedition, changeExistingExpedition] = useState<
+    types.Expedition | undefined
+  >(expedition)
+
   const [expeditionName, changeExpeditionName] = useState(
     existingExpedition ? `${existingExpedition.name} Copy` : ''
   )
@@ -74,9 +74,30 @@ const CreationDialog = ({
     finisher()
   }
 
+  const configImportHandler = useCallback(
+    // FIXME this type is actually not a full expedition
+    (config: types.Expedition) => {
+      changeExistingExpedition(config)
+      changeExpeditionName(config.name)
+      changeBigPocketVariant(config.bigPocketVariant)
+      selectMarketId(config.settingsSnapshot.supplySetup.id)
+      selectVariant(config.variantId)
+      changeSeedValue(config.seed.seed)
+    },
+    [
+      selectMarketId,
+      changeExistingExpedition,
+      changeExpeditionName,
+      selectVariant,
+      changeSeedValue,
+    ]
+  )
+
   return (
     <React.Fragment>
       <ModalBodyWrapper hasFooter={true}>
+        <ConfigImport configImportHandler={configImportHandler} />
+
         <NameInput
           expeditionName={expeditionName}
           handleInputChange={handleNameChange}

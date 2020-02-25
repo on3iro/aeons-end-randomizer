@@ -2,6 +2,7 @@ import React from 'react'
 
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControl from '../FormControl'
+import FormLabel from './FormLabel'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 type Props = {
@@ -15,6 +16,7 @@ const BigPocketSelect = ({
 }: Props) => {
   return (
     <FormControl component={'fieldset' as 'div'}>
+      <FormLabel>Loot distribution</FormLabel>
       <FormControlLabel
         control={
           <Checkbox
