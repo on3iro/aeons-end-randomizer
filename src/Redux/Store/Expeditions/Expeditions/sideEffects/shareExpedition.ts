@@ -5,6 +5,11 @@ import * as types from 'types'
 const saveToFile = (json: string, name: string) => {
   const blob = new Blob([json], { type: 'text/json;charset=utf-8' })
 
+  // We additionally copy the text to the clipboard, so that
+  // users with browsers where saveAs does not work still have an
+  // option to get the text
+  window.navigator.clipboard.writeText(json)
+
   return saveAs(blob, `${name}.json`)
 }
 
@@ -18,9 +23,21 @@ const shareApi = (json: string, name: string) => {
 }
 
 export const shareExpedition = (expedition: types.Expedition) => {
-  // TODO process data and remove unnecessary parts
-  const json = JSON.stringify(expedition)
-  const name = (expedition.name ?? expedition.id).replace(/\s/g, '_')
+  // Process data and remove unnecessary parts
+  const {
+    seed,
+    score,
+    barracks,
+    battles,
+    upgradedBasicNemesisCards,
+    banished,
+    finished,
+    ...bareExpedition
+  } = expedition
+  const config = { ...bareExpedition, seed: { seed: seed.seed } }
+
+  const json = JSON.stringify(config, undefined, 4)
+  const name = (expedition.name || expedition.id).replace(/\s/g, '_')
 
   if (window.navigator.share) {
     return shareApi(json, name)

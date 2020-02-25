@@ -118,7 +118,7 @@ export const createExpeditionConfig = (
 
   const expeditionId = shortid.generate()
   const seed = {
-    seed: seedValue ?? expeditionId,
+    seed: seedValue || expeditionId,
   }
   const settingsSnapshot = createSettingsSnapshot(
     state,
