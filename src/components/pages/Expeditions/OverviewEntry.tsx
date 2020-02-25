@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { connect } from 'react-redux'
 
+import { actions } from '../../../Redux/Store'
 import { usePrompt, useModal } from 'hooks/useModal'
 
 import { Expedition } from 'types'
@@ -8,16 +10,30 @@ import H2 from 'components/atoms/H2'
 
 import Delete from './Delete'
 import Copy from './Copy'
+import Share from './Share'
 import ListItem from './ListItem'
+import Controls from './Controls'
 import ExpeditionTile from './ExpeditionTile'
 import CreationDialog from 'components/pages/Expeditions/CreationDialog'
 
-type Props = {
+type OwnProps = {
   expedition: Expedition
-  deleteHandler: (id: string) => void
 }
 
-const OverviewEntry = ({ expedition, deleteHandler }: Props) => {
+const mapStateToProps = () => {
+  return {}
+}
+
+const mapDispatchToProps = {
+  deleteHandler: actions.Expeditions.Expeditions.deleteExpedition,
+  shareHandler: actions.Expeditions.Expeditions.shareExpedition,
+}
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps &
+  OwnProps
+
+const OverviewEntry = ({ expedition, deleteHandler, shareHandler }: Props) => {
   const deletionPrompt = usePrompt()
   const openDeletionDialog = () => {
     deletionPrompt.show()
@@ -25,6 +41,10 @@ const OverviewEntry = ({ expedition, deleteHandler }: Props) => {
   const yesHandler = () => {
     deleteHandler(expedition.id)
   }
+
+  const handleShare = useCallback(() => {
+    shareHandler(expedition)
+  }, [shareHandler, expedition])
 
   const creationModal = useModal()
 
@@ -36,8 +56,11 @@ const OverviewEntry = ({ expedition, deleteHandler }: Props) => {
     <React.Fragment>
       <ListItem key={expedition.id}>
         <ExpeditionTile url={url} expedition={expedition} />
-        <Delete onClick={openDeletionDialog} />
-        <Copy onClick={creationModal.show} />
+        <Controls>
+          <Share onClick={handleShare} />
+          <Copy onClick={creationModal.show} />
+          <Delete onClick={openDeletionDialog} />
+        </Controls>
       </ListItem>
 
       <creationModal.RenderModal titleColor="#333" titleLabel="New Expedition">
@@ -59,4 +82,7 @@ const OverviewEntry = ({ expedition, deleteHandler }: Props) => {
   )
 }
 
-export default React.memo(OverviewEntry)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(React.memo(OverviewEntry))
