@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions, selectors } from '../../../Redux/Store'
+import { RootState, selectors } from '../../../Redux/Store'
 
 import { Expedition } from '../../../types'
 
@@ -10,16 +10,9 @@ import P from '../../atoms/P'
 import List from './List'
 import OverviewEntry from './OverviewEntry'
 
-const renderExpeditions = (
-  expeditions: Array<Expedition>,
-  deleteHandler: (id: string) => void
-) => {
+const renderExpeditions = (expeditions: Array<Expedition>) => {
   return expeditions.map(expedition => (
-    <OverviewEntry
-      key={expedition.id}
-      expedition={expedition}
-      deleteHandler={deleteHandler}
-    />
+    <OverviewEntry key={expedition.id} expedition={expedition} />
   ))
 }
 
@@ -27,17 +20,15 @@ const mapStateToProps = (state: RootState) => ({
   expeditions: selectors.Expeditions.Expeditions.getExpeditionList(state),
 })
 
-const mapDispatchToProps = {
-  deleteHandler: actions.Expeditions.Expeditions.deleteExpedition,
-}
+const mapDispatchToProps = {}
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const ExpeditionList = ({ expeditions, deleteHandler }: Props) => {
+const ExpeditionList = ({ expeditions }: Props) => {
   return (
     <React.Fragment>
       {expeditions.length > 0 ? (
-        <List>{renderExpeditions(expeditions, deleteHandler)}</List>
+        <List>{renderExpeditions(expeditions)}</List>
       ) : (
         <P>No expeditions</P>
       )}
