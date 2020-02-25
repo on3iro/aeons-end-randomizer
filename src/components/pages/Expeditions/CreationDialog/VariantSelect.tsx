@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 
 import { RootState, selectors } from 'Redux/Store/'
 
+import FormControl from '../FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormLabel from './FormLabel'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
-import FormLabel from '@material-ui/core/FormLabel'
-import FormControl from '../FormControl'
 
 const mapStateToProps = (state: RootState) => {
   return {

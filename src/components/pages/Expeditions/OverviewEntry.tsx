@@ -64,10 +64,7 @@ const OverviewEntry = ({ expedition, deleteHandler, shareHandler }: Props) => {
       </ListItem>
 
       <creationModal.RenderModal titleColor="#333" titleLabel="New Expedition">
-        <CreationDialog
-          finisher={creationModal.hide}
-          existingExpedition={expedition}
-        />
+        <CreationDialog finisher={creationModal.hide} expedition={expedition} />
       </creationModal.RenderModal>
 
       <deletionPrompt.RenderPrompt

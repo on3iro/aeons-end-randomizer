@@ -1,10 +1,10 @@
 import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { Expedition } from '../../../../types'
+import { Expedition } from 'types'
 
-import A from '../../../atoms/A'
-import Tile from '../../../molecules/Tile'
+import A from 'components/atoms/A'
+import Tile from 'components/molecules/Tile'
 
 import Body from './Body'
 
