@@ -1,6 +1,8 @@
 import React from 'react'
 
 import Input from '../Input'
+import FormLabel from './FormLabel'
+import FormControl from '../FormControl'
 
 type Props = {
   expeditionName: string
@@ -9,15 +11,19 @@ type Props = {
 
 const NameInput = ({ expeditionName, handleInputChange }: Props) => {
   return (
-    <Input
-      id="expeditionName"
-      label="Expedition Name"
-      placeholder="Expedition Name"
-      value={expeditionName}
-      onChange={handleInputChange}
-      margin="normal"
-      variant="outlined"
-    />
+    <FormControl component={'fieldset' as 'div'}>
+      <FormLabel>General</FormLabel>
+
+      <Input
+        id="expeditionName"
+        label="Expedition Name"
+        placeholder="Expedition Name"
+        value={expeditionName}
+        onChange={handleInputChange}
+        margin="normal"
+        variant="outlined"
+      />
+    </FormControl>
   )
 }
 

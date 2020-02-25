@@ -7,8 +7,7 @@ import { Expedition } from '../../../../types'
 import InfoItem from '../../../molecules/InfoItem'
 
 import Name from './Name'
-
-import List from '@material-ui/core/List'
+import List from './List'
 
 type OwnProps = {
   expedition: Expedition

@@ -10,7 +10,6 @@ const Controls = styled('div')`
 
   margin: 10px;
   width: 50px;
-  height: 100%;
 `
 
 export default Controls
