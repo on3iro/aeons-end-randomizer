@@ -10,7 +10,7 @@ type Props = {
 
 const CopyButton = ({ onClick, className }: Props) => (
   <IconButton
-    color="secondary"
+    color="primary"
     aria-label="Copy"
     onClick={onClick}
     className={className}
