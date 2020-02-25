@@ -54,4 +54,10 @@ export const actions = {
     createAction(ActionTypes.FETCH_FROM_DB_FAILURE, error),
   migrateToSettingsSnapshotSuccessful: (state: State) =>
     createAction(ActionTypes.SETTINGS_SNAPSHOT_MIGRATION_SUCCESS, state),
+  shareExpedition: (expedition: types.Expedition) =>
+    createAction(ActionTypes.EXPEDITION_SHARE, { expedition }),
+  shareExpeditionSuccess: () =>
+    createAction(ActionTypes.EXPEDITION_SHARE_SUCCESS),
+  shareExpeditionFailure: () =>
+    createAction(ActionTypes.EXPEDITION_SHARE_FAILURE),
 }

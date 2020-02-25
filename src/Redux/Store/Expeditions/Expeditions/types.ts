@@ -26,6 +26,9 @@ export enum ActionTypes {
   FETCH_FROM_DB_SUCCESS = 'Expeditions/Expeditions/FETCH_FROM_DB_SUCCESS',
   FETCH_FROM_DB_FAILURE = 'Expeditions/Expeditions/FETCH_FROM_DB_FAILURE',
   SETTINGS_SNAPSHOT_MIGRATION_SUCCESS = 'Expeditions/Expeditions/SETTINGS_SNAPSHOT_MIGRATION_SUCCESS',
+  EXPEDITION_SHARE = 'Expeditions/Expeditions/SHARE_EXPEDITION',
+  EXPEDITION_SHARE_SUCCESS = 'Expeditions/Expeditions/SHARE_EXPEDITION_SUCCESS',
+  EXPEDITION_SHARE_FAILURE = 'Expeditions/Expeditions/SHARE_EXPEDITION_FAILURE',
 }
 
 export type Action = ActionsUnion<typeof actions>
