@@ -171,15 +171,18 @@ export const schema = {
             },
           },
           type: 'object',
-        },
-        usedExpansions: {
-          items: {
-            type: 'string',
-          },
-          type: 'array',
+          required: ['id', 'name', 'tiles'],
         },
       },
       type: 'object',
+      required: [
+        'availableCardIds',
+        'availableMageIds',
+        'availableNemesisIds',
+        'availableTreasureIds',
+        'availableUpgradedBasicNemesisCardIds',
+        'supplySetup',
+      ],
     },
     variantId: {
       type: 'string',
@@ -197,4 +200,5 @@ export const schema = {
     },
   },
   type: 'object',
+  required: ['settingsSnapshot', 'id'],
 }
