@@ -25,16 +25,24 @@ const shareApi = (json: string, name: string) => {
 export const shareExpedition = (expedition: types.Expedition) => {
   // Process data and remove unnecessary parts
   const {
-    seed,
+    seed, // we only want the seed not its state
     score,
     barracks,
     battles,
     upgradedBasicNemesisCards,
     banished,
     finished,
+    settingsSnapshot, // we do not want to have the usedExpansions property, as it might be misleading
     ...bareExpedition
   } = expedition
-  const config = { ...bareExpedition, seed: { seed: seed.seed } }
+
+  const { usedExpansions, ...snapshot } = settingsSnapshot
+
+  const config = {
+    ...bareExpedition,
+    seed: { seed: seed.seed },
+    settingsSnapshot: snapshot,
+  }
 
   const json = JSON.stringify(config, undefined, 4)
   const name = (expedition.name || expedition.id).replace(/\s/g, '_')

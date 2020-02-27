@@ -78,7 +78,7 @@ const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
     // FIXME this type is actually not a full expedition
     (config: types.Expedition) => {
       changeExistingExpedition(config)
-      changeExpeditionName(config?.name || config.id)
+      changeExpeditionName(config?.name || `${config.id} Copy`)
       changeBigPocketVariant(config?.bigPocketVariant || false)
       selectMarketId(config?.settingsSnapshot?.supplySetup?.id || 'random')
       selectVariant(config?.variantId || 'DEFAULT')
