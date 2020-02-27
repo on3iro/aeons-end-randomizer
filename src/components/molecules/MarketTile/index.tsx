@@ -17,15 +17,19 @@ import Body from './Body'
 // FIXME
 // This is currently a typing hack
 // We ensure that our modal will only be shown
-const getCard = (marketTile: {
-  type?: types.CardType
-  name?: string
-  expansion?: string
-  cost?: number
-  keywords?: string[]
-  effect?: string
-  selected?: boolean
-}):
+type MaybeMarketTile =
+  | {
+      type?: types.CardType
+      name?: string
+      expansion?: string
+      cost?: number
+      keywords?: string[]
+      effect?: string
+      selected?: boolean
+    }
+  | undefined
+
+type MaybeOutputMarketTile =
   | {
       type: types.CardType
       name: string
@@ -35,8 +39,15 @@ const getCard = (marketTile: {
       effect: string
       selected: boolean
     }
-  | undefined => {
+  | undefined
+
+const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
+  if (!marketTile) {
+    return undefined
+  }
+
   const { type, name, expansion, cost, keywords, effect, selected } = marketTile
+
   return type &&
     name &&
     expansion &&
@@ -107,30 +118,34 @@ const MarketTile = ({
   const card = getCard(marketTile)
 
   return (
-    <Wrapper item xs={12} sm={6} md={4} {...rest}>
-      {marketTile && (
-        <Tile
-          clickHandler={handleSelection}
-          selected={marketTile.visualSelection}
-          body={
-            <Body
-              supplyCard={marketTile}
-              expansionName={
-                marketTile.expansion
-                  ? expansions[marketTile.expansion].name
-                  : ''
-              }
-            />
-          }
-          bgColor={theme.colors.cards[marketTile.type.toLowerCase()].background}
-          fontColor={theme.colors.text.primary}
-          icon={theme.icons[marketTile.type.toLowerCase()]}
-          iconColor={theme.colors.cards[marketTile.type.toLowerCase()].color}
-          showDetails={card ? handleDetails : undefined}
-        />
+    <>
+      {card && (
+        <Wrapper item xs={12} sm={6} md={4} {...rest}>
+          <Tile
+            clickHandler={handleSelection}
+            selected={marketTile.visualSelection}
+            body={
+              <Body
+                supplyCard={marketTile}
+                expansionName={
+                  marketTile.expansion
+                    ? expansions[marketTile.expansion].name
+                    : ''
+                }
+              />
+            }
+            bgColor={
+              theme.colors.cards[marketTile.type.toLowerCase()].background
+            }
+            fontColor={theme.colors.text.primary}
+            icon={theme.icons[marketTile.type.toLowerCase()]}
+            iconColor={theme.colors.cards[marketTile.type.toLowerCase()].color}
+            showDetails={card ? handleDetails : undefined}
+          />
+          <SupplyModal card={card} RenderModal={RenderModal} />
+        </Wrapper>
       )}
-      {card && <SupplyModal card={card} RenderModal={RenderModal} />}
-    </Wrapper>
+    </>
   )
 }
 

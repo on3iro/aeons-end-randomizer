@@ -57,19 +57,19 @@ const rollSupplyRewards = (
     gemIds.length > 0
       ? rollNewEntity(gemIds, getRandomEntity, seed)
       : { result: undefined, seed }
-  const newGem = [newGemResult.result]
+  const newGem = newGemResult.result ? [newGemResult.result] : []
 
   const newRelicResult =
     relicIds.length > 0
       ? rollNewEntity(relicIds, getRandomEntity, newGemResult.seed)
       : { result: undefined, seed: newGemResult.seed }
-  const newRelic = [newRelicResult.result]
+  const newRelic = newRelicResult.result ? [newRelicResult.result] : []
 
   const newSpellResult =
     spellIds.length > 0
       ? rollNewEntity(spellIds, getRandomEntity, newRelicResult.seed)
       : { result: undefined, seed: newRelicResult.seed }
-  const newSpell = [newSpellResult.result]
+  const newSpell = newSpellResult.result ? [newSpellResult.result] : []
 
   return {
     result: [...newGem, ...newRelic, ...newSpell],
