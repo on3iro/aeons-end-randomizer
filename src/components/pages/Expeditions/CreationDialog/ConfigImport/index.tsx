@@ -50,6 +50,7 @@ const ConfigImport = ({ configImportHandler }: Props) => {
 
           if (schemaValidator.validate(expeditionJsonSchema, config)) {
             configImportHandler(config)
+            changeValidiationError('')
             expansionHandler(e, false)
           } else {
             const firstError = (schemaValidator?.errors &&
