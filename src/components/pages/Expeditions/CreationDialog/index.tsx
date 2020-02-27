@@ -78,11 +78,11 @@ const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
     // FIXME this type is actually not a full expedition
     (config: types.Expedition) => {
       changeExistingExpedition(config)
-      changeExpeditionName(config.name)
-      changeBigPocketVariant(config.bigPocketVariant)
-      selectMarketId(config.settingsSnapshot.supplySetup.id)
-      selectVariant(config.variantId)
-      changeSeedValue(config.seed.seed)
+      changeExpeditionName(config?.name || config.id)
+      changeBigPocketVariant(config?.bigPocketVariant || false)
+      selectMarketId(config?.settingsSnapshot?.supplySetup?.id || 'random')
+      selectVariant(config?.variantId || 'DEFAULT')
+      changeSeedValue(config?.seed?.seed || '')
     },
     [
       selectMarketId,
