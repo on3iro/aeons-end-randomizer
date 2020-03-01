@@ -181,7 +181,6 @@ export const schema = {
         'availableNemesisIds',
         'availableTreasureIds',
         'availableUpgradedBasicNemesisCardIds',
-        'supplySetup',
       ],
     },
     variantId: {
