@@ -5,9 +5,9 @@ import * as types from 'types'
 import { actions } from './actions'
 
 export type State = Readonly<{
-  Tier1: ReadonlyArray<types.BasicNemesisCard> | null
-  Tier2: ReadonlyArray<types.BasicNemesisCard> | null
-  Tier3: ReadonlyArray<types.BasicNemesisCard> | null
+  Tier1: ReadonlyArray<types.BasicNemesisCard>
+  Tier2: ReadonlyArray<types.BasicNemesisCard>
+  Tier3: ReadonlyArray<types.BasicNemesisCard>
   recoverySeed?: string
 }>
 

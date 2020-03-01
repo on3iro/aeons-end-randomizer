@@ -6,11 +6,10 @@ import { PlayerCount } from 'Redux/Store/Randomizer/BasicNemesisCards/PlayerCoun
 
 import NoSelectedExpansions from 'components/molecules/NoSelectedExpansions'
 import ShuffleButton from 'components/atoms/ShuffleButton'
-import SectionHeadline from 'components/atoms/SectionHeadline'
 
 import EmptyHint from './EmptyHint'
-import BasicNemesisCardList from './BasicNemesisCardList'
 import PlayerAmountPicker from './PlayerAmountPicker'
+import Tier from './Tier'
 
 const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
@@ -55,40 +54,34 @@ const BasicNemesisCards = ({
     setPlayerCount(parseInt(event.currentTarget.value) as PlayerCount)
   }
 
+  const noCardsRolled =
+    randomBasicNemesisCards.Tier1.length < 1 ||
+    randomBasicNemesisCards.Tier2.length < 1 ||
+    randomBasicNemesisCards.Tier3.length < 1
+
   return (
     <React.Fragment>
       <PlayerAmountPicker
         selectedValue={playerCount.toString()}
         handleAmountChange={handleAmountChange}
       />
-      {randomBasicNemesisCards.Tier1 && (
-        <React.Fragment>
-          <SectionHeadline>Tier 1</SectionHeadline>
-          <BasicNemesisCardList
-            basicNemesisCards={randomBasicNemesisCards.Tier1 || []}
-          />
-        </React.Fragment>
-      )}
-      {randomBasicNemesisCards.Tier2 && (
-        <React.Fragment>
-          <SectionHeadline>Tier 2</SectionHeadline>
-          <BasicNemesisCardList
-            basicNemesisCards={randomBasicNemesisCards.Tier2 || []}
-          />
-        </React.Fragment>
-      )}
-      {randomBasicNemesisCards.Tier3 && (
-        <React.Fragment>
-          <SectionHeadline>Tier 3</SectionHeadline>
-          <BasicNemesisCardList
-            basicNemesisCards={randomBasicNemesisCards.Tier3 || []}
-          />
-        </React.Fragment>
-      )}
-      {(randomBasicNemesisCards.Tier1 === null ||
-        randomBasicNemesisCards.Tier2 === null ||
-        randomBasicNemesisCards.Tier3 === null) && (
+      {noCardsRolled ? (
         <EmptyHint>Tab button to draw new basic nemesis cards!</EmptyHint>
+      ) : (
+        <>
+          <Tier
+            title="Tier 1"
+            basicNemesisCards={randomBasicNemesisCards.Tier1}
+          />
+          <Tier
+            title="Tier 2"
+            basicNemesisCards={randomBasicNemesisCards.Tier2}
+          />
+          <Tier
+            title="Tier 3"
+            basicNemesisCards={randomBasicNemesisCards.Tier3}
+          />
+        </>
       )}
 
       <ShuffleButton
