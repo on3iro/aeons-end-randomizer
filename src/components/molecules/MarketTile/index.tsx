@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 import { withTheme } from 'styled-components/macro'
 
-import { RootState, selectors } from '../../../Redux/Store'
-import * as types from '../../../types'
-import { useModal } from '../../../hooks/useModal'
+import { RootState, selectors } from 'Redux/Store'
+import * as types from 'types'
+import { useModal } from 'hooks/useModal'
 
 import Tile from '../Tile'
 import { SelectionHandlerContext } from '../SupplySelection'
