@@ -530,7 +530,7 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'Legacy',
-    name: 'Sphere OfInversion',
+    name: 'Sphere Of Inversion',
     id: 'SphereOfInversion',
     cost: 9,
     effect: `
