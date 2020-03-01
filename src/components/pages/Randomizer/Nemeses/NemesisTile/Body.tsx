@@ -1,7 +1,7 @@
 import React from 'react'
 
-import config from '../../../../config'
-import { Nemesis } from '../../../../types'
+import config from 'config'
+import { Nemesis } from 'types'
 
 import ExpansionName from './ExpansionName'
 import Name from './Name'
