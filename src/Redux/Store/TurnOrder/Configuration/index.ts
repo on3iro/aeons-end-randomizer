@@ -43,7 +43,7 @@ const adjustSetup = (mode: Mode, setup: ITurnOrderSetup): ITurnOrderSetup => {
       }
     }
 
-    case 'Blitz+Maelstrom': {
+    case 'Blitz + Maelstrom': {
       return {
         id: setup.id,
         name: setup.name,

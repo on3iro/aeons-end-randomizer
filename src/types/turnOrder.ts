@@ -54,6 +54,6 @@ export const MODES = [
   'Default',
   'Maelstrom',
   'Blitz',
-  'Blitz+Maelstrom',
+  'Blitz + Maelstrom',
 ] as const
 export type Mode = typeof MODES[number] // automatically creates union from tuple
