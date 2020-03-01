@@ -1,23 +1,40 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import List from '@material-ui/core/List'
 
-import { Treasure } from '../../../../types'
+import { Treasure } from 'types'
+import { RootState, selectors } from 'Redux/Store'
 
-import AbilityText from '../../../atoms/AbilityText'
+import AbilityText from 'components/atoms/AbilityText'
 
 import InfoItem from '../../InfoItem'
 
 import Name from './Name'
 
-type Props = {
+type OwnProps = {
   treasure: Treasure
 }
 
-const Body = ({ treasure }: Props) => (
+const mapStateToProps = (state: RootState) => ({
+  expansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
+    state
+  ),
+})
+
+const mapDispatchToProps = {}
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps &
+  OwnProps
+
+const Body = ({ treasure, expansions }: Props) => (
   <React.Fragment>
     <Name component="p">{treasure.name}</Name>
     <List>
-      <InfoItem label="Set" info={treasure.expansion} />
+      <InfoItem
+        label="Set"
+        info={expansions.expansions[treasure.expansion]?.name || ''}
+      />
       <InfoItem label="Treasure Level" info={treasure.level.toString()} />
       {treasure.subtype && <InfoItem label="Subtype" info={treasure.subtype} />}
     </List>
@@ -25,4 +42,4 @@ const Body = ({ treasure }: Props) => (
   </React.Fragment>
 )
 
-export default React.memo(Body)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Body))
