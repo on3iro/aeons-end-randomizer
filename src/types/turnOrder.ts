@@ -50,5 +50,10 @@ export interface ITurnOrderSetup {
   turnOrderCards: Array<ITurnOrderCard>
 }
 
-export const MODES = ['Default', 'Maelstrom', 'Blitz'] as const
+export const MODES = [
+  'Default',
+  'Maelstrom',
+  'Blitz',
+  'Blitz+Maelstrom',
+] as const
 export type Mode = typeof MODES[number] // automatically creates union from tuple
