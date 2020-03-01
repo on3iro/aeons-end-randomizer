@@ -3,8 +3,6 @@ import shortid from 'shortid'
 
 import * as types from 'types'
 
-import { PlayerCount } from '../../PlayerCount/types'
-
 import {
   getRandomEntity,
   createSlotList,
@@ -44,13 +42,17 @@ export const getBasicNemesisCardsByTier = (
 ) => cards.filter(card => card.tier === tier)
 
 export const getRandomMinionAmount = (
+  minCount: number = 1,
   count: number = 3,
   seed: types.Seed = {
     seed: shortid.generate(),
   }
 ) => {
   const rng = seedrandom(seed.seed)
-  return Math.floor(rng() * Math.floor(count))
+  return (
+    Math.floor(rng() * (Math.floor(count) - Math.ceil(minCount))) +
+    Math.ceil(minCount)
+  )
 }
 
 export const drawMinions = (
@@ -86,7 +88,7 @@ export const drawPowersAndAttacks = (
 export const getRandomBasicNemesisCardsByTier = (
   cards: ReadonlyArray<types.BasicNemesisCard>,
   tier: types.NemesisCardTier,
-  playerCount: PlayerCount,
+  playerCount: types.PlayerCount,
   seed?: types.Seed
 ) => {
   // Get cards by tier
@@ -94,9 +96,9 @@ export const getRandomBasicNemesisCardsByTier = (
 
   // Get amount of minions per player
   const minionAmount =
-    playerCount === 1
-      ? getRandomMinionAmount(2, seed)
-      : getRandomMinionAmount(3, seed)
+    playerCount === 1 && tier === 1
+      ? getRandomMinionAmount(0, 2, seed)
+      : getRandomMinionAmount(1, 3, seed)
 
   // Draw up to max amount of minions from minions
   const randomMinions = drawMinions(cardsByTier, minionAmount, seed)
@@ -113,7 +115,7 @@ export const getRandomBasicNemesisCardsByTier = (
 
 export const getRandomBasicNemesisCardList = (
   cards: ReadonlyArray<types.BasicNemesisCard>,
-  playerCount: PlayerCount,
+  playerCount: types.PlayerCount,
   seed?: types.Seed
 ) => {
   return {

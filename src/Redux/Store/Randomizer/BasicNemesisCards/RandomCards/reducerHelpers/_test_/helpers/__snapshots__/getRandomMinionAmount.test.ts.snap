@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`getRandomMinionAmount() should get a random number between 0 and 1 1`] = `1`;
-
-exports[`getRandomMinionAmount() should get a random number between 0 and 2 1`] = `2`;

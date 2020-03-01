@@ -143,14 +143,14 @@ Array [
     "type": "Minion",
   },
   Object {
+    "id": "minion4",
+    "tier": 2,
+    "type": "Minion",
+  },
+  Object {
     "id": "attack6",
     "tier": 2,
     "type": "Attack",
-  },
-  Object {
-    "id": "power6",
-    "tier": 2,
-    "type": "Power",
   },
 ]
 `;
@@ -159,6 +159,11 @@ exports[`getRandomBasicNemesisCardsByTier() should handle one player tier 3 1`] 
 Array [
   Object {
     "id": "minion9",
+    "tier": 3,
+    "type": "Minion",
+  },
+  Object {
+    "id": "minion7",
     "tier": 3,
     "type": "Minion",
   },
@@ -186,11 +191,6 @@ Array [
     "id": "power8",
     "tier": 3,
     "type": "Power",
-  },
-  Object {
-    "id": "attack7",
-    "tier": 3,
-    "type": "Attack",
   },
 ]
 `;
