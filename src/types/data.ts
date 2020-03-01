@@ -3,6 +3,8 @@ export type NemesisTier = {
   isNewTier: boolean
 }
 
+export type PlayerCount = 1 | 2 | 3 | 4
+
 export interface ICreature {
   expansion: string
   name: string
