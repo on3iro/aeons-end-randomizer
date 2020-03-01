@@ -1,13 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions, selectors } from '../../../Redux/Store'
+import { RootState, actions, selectors } from 'Redux/Store'
 import { MageCount } from 'Redux/Store/Randomizer/Mages/Count'
 
-import MageList from '../../molecules/MageList'
-import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
-
-import ShuffleButton from '../../atoms/ShuffleButton'
+import MageList from 'components/molecules/MageList'
+import NoSelectedExpansions from 'components/molecules/NoSelectedExpansions'
+import ShuffleButton from 'components/atoms/ShuffleButton'
 
 import MageCountPicker from './MageCountPicker'
 import EmptyMageListHint from './EmptyMageListHint'
