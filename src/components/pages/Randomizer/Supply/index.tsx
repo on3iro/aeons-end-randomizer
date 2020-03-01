@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions, selectors } from '../../../Redux/Store'
+import { RootState, actions, selectors } from 'Redux/Store'
 
-import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
-import SupplyList from '../../molecules/SupplyList'
-import MarketSelect from '../../molecules/MarketSelect'
+import NoSelectedExpansions from 'components/molecules/NoSelectedExpansions'
+import SupplyList from 'components/molecules/SupplyList'
+import MarketSelect from 'components/molecules/MarketSelect'
 
-import ShuffleButton from '../../atoms/ShuffleButton'
+import ShuffleButton from 'components/atoms/ShuffleButton'
 
 const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
 const mapStateToProps = (state: RootState) => ({
