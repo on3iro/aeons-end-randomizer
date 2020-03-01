@@ -1,2 +1,2 @@
 src/Redux/configureStore.ts
-./tsconfig.json
+tsconfig.json
