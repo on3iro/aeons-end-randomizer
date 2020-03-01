@@ -2,12 +2,13 @@ import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
 import { RootState } from 'Redux/Store/'
+import * as types from 'types'
 
 ///////////
 // STATE //
 ///////////
 
-export type MageCount = 1 | 2 | 3 | 4
+export type MageCount = types.PlayerCount
 export type State = MageCount
 export const initialState: State = 1
 

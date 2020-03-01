@@ -1,5 +1,7 @@
 import { ActionsUnion } from '@martin_hotell/rex-tils'
 
+import * as types from 'types'
+
 import { actions } from './actions'
 
 export type State = PlayerCount
@@ -10,4 +12,4 @@ export enum ActionTypes {
 
 export type Action = ActionsUnion<typeof actions>
 
-export type PlayerCount = 1 | 2 | 3 | 4
+export type PlayerCount = types.PlayerCount
