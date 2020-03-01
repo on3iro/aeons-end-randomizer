@@ -39,16 +39,16 @@ const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
     existingExpedition ? `${existingExpedition.name} Copy` : ''
   )
   const [bigPocketVariant, changeBigPocketVariant] = useState(
-    existingExpedition?.bigPocketVariant ?? false
+    existingExpedition?.bigPocketVariant || false
   )
   const [selectedMarketId, selectMarketId] = useState(
-    existingExpedition?.settingsSnapshot.supplySetup.id ?? 'random'
+    existingExpedition?.settingsSnapshot?.supplySetup?.id || 'random'
   )
   const [selectedVariant, selectVariant] = useState(
-    existingExpedition?.variantId ?? 'DEFAULT'
+    existingExpedition?.variantId || 'DEFAULT'
   )
   const [seedValue, changeSeedValue] = useState(
-    existingExpedition?.seed.seed ?? ''
+    existingExpedition?.seed.seed || ''
   )
 
   const supplySelectHandler = (id: string) => {
@@ -117,7 +117,7 @@ const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
           selectedMarketId={selectedMarketId}
           clickHandler={supplySelectHandler}
           additionalSetups={
-            existingExpedition && [
+            existingExpedition?.settingsSnapshot?.supplySetup && [
               existingExpedition.settingsSnapshot.supplySetup,
             ]
           }

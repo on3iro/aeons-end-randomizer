@@ -52,12 +52,13 @@ export const createSettingsSnapshot = (
 
   const existingSupply: {
     [id: string]: types.IMarketSetup
-  } = existingSettingsSnapshot
-    ? {
-        [existingSettingsSnapshot.supplySetup.id]:
-          existingSettingsSnapshot.supplySetup,
-      }
-    : {}
+  } =
+    existingSettingsSnapshot && existingSettingsSnapshot.supplySetup
+      ? {
+          [existingSettingsSnapshot.supplySetup.id]:
+            existingSettingsSnapshot.supplySetup,
+        }
+      : {}
 
   const allSupplySetups = {
     ...getCustomAndPredefined(state),
