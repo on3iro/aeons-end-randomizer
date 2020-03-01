@@ -1,21 +1,38 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import List from '@material-ui/core/List'
 
 import { BasicNemesisCard } from 'types'
+import { RootState, selectors } from 'Redux/Store'
 
 import InfoItem from 'components/molecules/InfoItem'
 
 import Name from './Name'
 
-type Props = {
+type OwnProps = {
   nemesisCard: BasicNemesisCard
 }
 
-const Body = ({ nemesisCard }: Props) => (
+const mapStateToProps = (state: RootState) => ({
+  expansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
+    state
+  ),
+})
+
+const mapDispatchToProps = {}
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps &
+  OwnProps
+
+const Body = ({ nemesisCard, expansions }: Props) => (
   <React.Fragment>
     <Name component="p">{nemesisCard.name}</Name>
     <List>
-      <InfoItem label="Set" info={nemesisCard.expansion} />
+      <InfoItem
+        label="Set"
+        info={expansions.expansions[nemesisCard.expansion]?.name || ''}
+      />
       <InfoItem label="Tier" info={nemesisCard.tier.toString()} />
       {nemesisCard.type && <InfoItem label="Type" info={nemesisCard.type} />}
       {nemesisCard.type === 'Minion' && (
@@ -25,4 +42,4 @@ const Body = ({ nemesisCard }: Props) => (
   </React.Fragment>
 )
 
-export default React.memo(Body)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Body))
