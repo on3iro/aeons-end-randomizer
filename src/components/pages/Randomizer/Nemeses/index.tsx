@@ -1,16 +1,16 @@
 import React, { useState, useCallback } from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions, selectors } from '../../../Redux/Store'
+import { RootState, actions, selectors } from 'Redux/Store'
 
 import NemesisTile from './NemesisTile'
 import EmptyNemesisHint from './EmptyNemesisHint'
 
-import ShuffleButton from '../../atoms/ShuffleButton'
-import NoSelectedExpansions from '../../molecules/NoSelectedExpansions'
+import ShuffleButton from 'components/atoms/ShuffleButton'
+import NoSelectedExpansions from 'components/molecules/NoSelectedExpansions'
 
-import NemesisModal from '../../molecules/NemesisModal'
-import { useModal } from '../../../hooks/useModal'
+import NemesisModal from 'components/molecules/NemesisModal'
+import { useModal } from 'hooks/useModal'
 
 const mapStateToProps = (state: RootState) => ({
   hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(

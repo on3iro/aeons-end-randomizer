@@ -1,9 +1,9 @@
 import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { Nemesis } from '../../../../types'
+import { Nemesis } from 'types'
 
-import Tile from '../../../molecules/Tile'
+import Tile from 'components/molecules/Tile'
 
 import Body from './Body'
 
