@@ -4,9 +4,9 @@ import { State, Action, ActionTypes } from './types'
 import * as reducerHelpers from './reducerHelpers'
 
 export const initialState: State = {
-  Tier1: null,
-  Tier2: null,
-  Tier3: null,
+  Tier1: [],
+  Tier2: [],
+  Tier3: [],
 }
 
 export const Reducer: LoopReducer<State, Action> = (
