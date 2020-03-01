@@ -43,6 +43,24 @@ const adjustSetup = (mode: Mode, setup: ITurnOrderSetup): ITurnOrderSetup => {
       }
     }
 
+    case 'Blitz+Maelstrom': {
+      return {
+        id: setup.id,
+        name: setup.name,
+        turnOrderCards: setup.turnOrderCards.map(card => {
+          if (card.id === 'nemesis-1') {
+            return config.TURNORDERCARDS['blitz']
+          }
+
+          if (card.id === 'nemesis-2') {
+            return config.TURNORDERCARDS['maelstrom']
+          }
+
+          return card
+        }),
+      }
+    }
+
     case 'Default':
     default: {
       return setup
