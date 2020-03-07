@@ -23,11 +23,13 @@ const rollTreasureIdsByLevel = (
         })
       : []
 
+  const amountOfTreasures = battle.treasure.level === 2 ? 3 : 5
+
   const newTreasures =
     treasureIdsByTier.length > 0
       ? createIdList(
           treasureIdsByTier,
-          createArrayWithDefaultValues(5, 'EMPTY'),
+          createArrayWithDefaultValues(amountOfTreasures, 'EMPTY'),
           getEntity,
           seed
         )
