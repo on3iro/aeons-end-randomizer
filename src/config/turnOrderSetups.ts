@@ -5,6 +5,12 @@ export const TURNORDERCARDS: { [key: string]: ITurnOrderCard } = {
   'player1-2': { id: 'player1-2', name: 'Player 1', type: 'player1' },
   'player1-3': { id: 'player1-3', name: 'Player 1', type: 'player1' },
   'player1-4': { id: 'player1-4', name: 'Player 1', type: 'player1' },
+  'player1-alternating': {
+    id: 'player-1-alternating',
+    name: 'Player 1 (alternate)',
+    type: 'player1',
+    alternate: true,
+  },
 
   'player2-1': { id: 'player2-1', name: 'Player 2', type: 'player2' },
   'player2-2': { id: 'player2-2', name: 'Player 2', type: 'player2' },
@@ -60,6 +66,18 @@ export const TURNORDERSETUPS: ITurnOrderSetups = {
           TURNORDERCARDS['player1-2'],
           TURNORDERCARDS['player1-3'],
           TURNORDERCARDS['player1-4'],
+          TURNORDERCARDS['nemesis-1'],
+          TURNORDERCARDS['nemesis-2'],
+        ],
+      },
+      '34alternating': {
+        id: '34alternating',
+        name: '3/4 Cards alternating',
+        turnOrderCards: [
+          TURNORDERCARDS['player1-1'],
+          TURNORDERCARDS['player1-2'],
+          TURNORDERCARDS['player1-3'],
+          TURNORDERCARDS['player1-alternating'],
           TURNORDERCARDS['nemesis-1'],
           TURNORDERCARDS['nemesis-2'],
         ],
