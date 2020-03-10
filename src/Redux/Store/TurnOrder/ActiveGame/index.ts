@@ -6,7 +6,7 @@ import { RootState } from '../../'
 import { ITurnOrderCard } from '../../../../types'
 import { shuffleDeck } from '../../../helpers'
 
-export const TURNORDER_GAME_DB_KEY = 'turnOrderGameState'
+export const TURNORDER_GAME_DB_KEY = '2-4-turnOrderGameState'
 
 /////////////
 // HELPERS //
