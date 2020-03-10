@@ -76,7 +76,7 @@ export const actions = {
   setTurnOrderToDbFailure: () =>
     createAction(ActionTypes.SET_TURNORDER_TO_DB_FAILURE),
   startGame: (turnOrderCards: ITurnOrderCard[]) =>
-    createAction(ActionTypes.START_GAME, turnOrderCards),
+    createAction(ActionTypes.START_GAME, shuffleDeck(turnOrderCards)),
   resetGame: () => createAction(ActionTypes.RESET_GAME),
   fetchFromDB: () => createAction(ActionTypes.FETCH_FROM_DB),
   fetchFromDBSuccessful: (state: State) =>
@@ -106,19 +106,38 @@ export const Reducer: LoopReducer<State, Action> = (
 
       const cardDrawn = deck[deck.length - 1]
 
+      // If the card we have drawn is an alternating card we do not show this
+      // turn, we draw another card
+      const additionalCard =
+        cardDrawn.display === false ? deck[deck.length - 2] : undefined
+
       const newState = {
         ...state,
-        deck: deck.filter(card => card.id !== cardDrawn.id),
-        discard: [cardDrawn, ...state.discard],
+        deck: deck.filter(
+          card => card.id !== cardDrawn.id && card.id !== additionalCard?.id
+        ),
+        discard: additionalCard
+          ? [additionalCard, cardDrawn, ...state.discard]
+          : [cardDrawn, ...state.discard],
       }
 
       return newStateWithDBWrite(newState)
     }
 
     case ActionTypes.NEW_ROUND: {
+      const adjustedDeck = action.payload.deck.map(card => {
+        // We make sure we change the display of alternating cards
+        // each round
+        if (card.alternate) {
+          return { ...card, display: !card.display }
+        }
+
+        return card
+      })
+
       const newState = {
         ...state,
-        deck: action.payload.deck,
+        deck: adjustedDeck,
         discard: [],
       }
 
@@ -175,10 +194,19 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.START_GAME: {
-      // FIXME shuffling should happen inside the action not the reducer!!!
+      const adjustedDeck = action.payload.map(card => {
+        // For each card which is supposed to be alternating
+        // (only displayn every other round), we add a 'display' flag
+        if (card.alternate) {
+          return { ...card, display: true }
+        }
+
+        return card
+      })
+
       return newStateWithDBWrite({
         started: true,
-        deck: shuffleDeck(action.payload),
+        deck: adjustedDeck,
         discard: [],
       })
     }

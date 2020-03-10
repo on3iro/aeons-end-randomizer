@@ -11,7 +11,7 @@ import DiscardTable from './DiscardTable'
 
 const mapStateToProps = (state: RootState) => ({
   deck: selectors.TurnOrder.ActiveGame.getDeck(state),
-  availableCards: selectors.TurnOrder.Configuration.getAvailableCards(state),
+  discard: selectors.TurnOrder.ActiveGame.getDiscard(state),
 })
 
 const mapDispatchToProps = {
@@ -23,8 +23,8 @@ const mapDispatchToProps = {
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
 const ActiveTurnOrder = ({
-  availableCards,
   deck,
+  discard,
   resetGame,
   newRound,
   drawCard,
@@ -35,7 +35,7 @@ const ActiveTurnOrder = ({
         size="large"
         variant="contained"
         color="secondary"
-        onClick={() => newRound(availableCards)}
+        onClick={() => newRound(discard)}
       >
         New Round
       </Button>

@@ -3,6 +3,7 @@ export type Player =
   | 'Player 2'
   | 'Player 3'
   | 'Player 4'
+  | 'Player 1 (alternate)'
   | 'Player 1/2'
   | 'Player 3/4'
   | 'Nemesis'
@@ -28,6 +29,8 @@ export interface ITurnOrderCard {
   id: string
   name: Player
   type: TurnOrderCardType
+  alternate?: boolean
+  display?: boolean
 }
 
 export interface ITurnOrderSetups {

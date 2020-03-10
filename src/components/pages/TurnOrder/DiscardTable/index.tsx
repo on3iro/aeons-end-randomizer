@@ -10,7 +10,13 @@ import Row from './Row'
 import Table from './Table'
 
 const renderRows = (discard: ITurnOrderCard[]) =>
-  discard.map((card, i) => <Row key={i} card={card} />)
+  discard.map((card, i) => {
+    if (card.display === false) {
+      return null
+    }
+
+    return <Row key={i} card={card} />
+  })
 
 const mapStateToProps = (state: RootState) => ({
   discard: selectors.TurnOrder.ActiveGame.getDiscard(state),
