@@ -11,7 +11,7 @@ import {
   Action as ActiveGameAction,
 } from '../ActiveGame'
 
-const TURNORDER_CONFIG_DB_KEY = 'turnOrderConfiguration'
+const TURNORDER_CONFIG_DB_KEY = '2-4-turnOrderConfiguration'
 
 /////////////
 // HELPERS //
