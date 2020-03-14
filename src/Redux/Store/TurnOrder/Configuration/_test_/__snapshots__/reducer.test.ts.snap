@@ -1,0 +1,1524 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Turnorder configuration reducer should handle FETCH_FROM_DB 1`] = `
+Array [
+  Object {
+    "Mode": "Default",
+    "SelectedPlayerCount": Object {
+      "id": "onePlayer",
+      "name": "1",
+      "variations": Object {
+        "34alternating": Object {
+          "id": "34alternating",
+          "name": "3/4 Cards alternating",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "alternate": true,
+              "id": "player-1-alternating",
+              "name": "Player 1 (alternate)",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+        "4toc": Object {
+          "id": "4toc",
+          "name": "4 ToC",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-4",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+        "default": Object {
+          "id": "default",
+          "name": "Default (3 ToC)",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+      },
+    },
+    "SelectedSetup": Object {
+      "id": "default",
+      "name": "Default (3 ToC)",
+      "turnOrderCards": Array [
+        Object {
+          "id": "player1-1",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "player1-2",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "player1-3",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "nemesis-1",
+          "name": "Nemesis",
+          "type": "nemesis",
+        },
+        Object {
+          "id": "nemesis-2",
+          "name": "Nemesis",
+          "type": "nemesis",
+        },
+      ],
+    },
+  },
+  Object {
+    "args": Array [
+      "2-4-turnOrderConfiguration",
+    ],
+    "failActionCreator": [Function],
+    "func": [Function],
+    "simulate": [Function],
+    "successActionCreator": [Function],
+    "type": "RUN",
+    Symbol(isCmd): true,
+  },
+]
+`;
+
+exports[`Turnorder configuration reducer should handle FETCH_FROM_DB_FAILURE 1`] = `
+Object {
+  "Mode": "Default",
+  "SelectedPlayerCount": Object {
+    "id": "onePlayer",
+    "name": "1",
+    "variations": Object {
+      "34alternating": Object {
+        "id": "34alternating",
+        "name": "3/4 Cards alternating",
+        "turnOrderCards": Array [
+          Object {
+            "id": "player1-1",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-2",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-3",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "alternate": true,
+            "id": "player-1-alternating",
+            "name": "Player 1 (alternate)",
+            "type": "player1",
+          },
+          Object {
+            "id": "nemesis-1",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+          Object {
+            "id": "nemesis-2",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+        ],
+      },
+      "4toc": Object {
+        "id": "4toc",
+        "name": "4 ToC",
+        "turnOrderCards": Array [
+          Object {
+            "id": "player1-1",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-2",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-3",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-4",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "nemesis-1",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+          Object {
+            "id": "nemesis-2",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+        ],
+      },
+      "default": Object {
+        "id": "default",
+        "name": "Default (3 ToC)",
+        "turnOrderCards": Array [
+          Object {
+            "id": "player1-1",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-2",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-3",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "nemesis-1",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+          Object {
+            "id": "nemesis-2",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+        ],
+      },
+    },
+  },
+  "SelectedSetup": Object {
+    "id": "default",
+    "name": "Default (3 ToC)",
+    "turnOrderCards": Array [
+      Object {
+        "id": "player1-1",
+        "name": "Player 1",
+        "type": "player1",
+      },
+      Object {
+        "id": "player1-2",
+        "name": "Player 1",
+        "type": "player1",
+      },
+      Object {
+        "id": "player1-3",
+        "name": "Player 1",
+        "type": "player1",
+      },
+      Object {
+        "id": "nemesis-1",
+        "name": "Nemesis",
+        "type": "nemesis",
+      },
+      Object {
+        "id": "nemesis-2",
+        "name": "Nemesis",
+        "type": "nemesis",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Turnorder configuration reducer should handle FETCH_FROM_DB_SUCCESS 1`] = `
+Array [
+  Object {
+    "Mode": "Maelstrom",
+    "SelectedPlayerCount": Object {
+      "id": "onePlayer",
+      "name": "1",
+      "variations": Object {
+        "34alternating": Object {
+          "id": "34alternating",
+          "name": "3/4 Cards alternating",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "alternate": true,
+              "id": "player-1-alternating",
+              "name": "Player 1 (alternate)",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+        "4toc": Object {
+          "id": "4toc",
+          "name": "4 ToC",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-4",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+        "default": Object {
+          "id": "default",
+          "name": "Default (3 ToC)",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+      },
+    },
+    "SelectedSetup": Object {
+      "id": "default",
+      "name": "Default (3 ToC)",
+      "turnOrderCards": Array [
+        Object {
+          "id": "player1-1",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "player1-2",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "player1-3",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "nemesis-1",
+          "name": "Nemesis",
+          "type": "nemesis",
+        },
+        Object {
+          "id": "nemesis-2",
+          "name": "Nemesis",
+          "type": "nemesis",
+        },
+      ],
+    },
+  },
+  Object {
+    "actionToDispatch": Object {
+      "type": "TurnOrder/ActiveGame/FETCH_FROM_DB",
+    },
+    "simulate": [Function],
+    "type": "ACTION",
+    Symbol(isCmd): true,
+  },
+]
+`;
+
+exports[`Turnorder configuration reducer should handle SELECT_PLAYER_COUNT 1`] = `
+Array [
+  Object {
+    "Mode": "Default",
+    "SelectedPlayerCount": Object {
+      "id": "onePlayer",
+      "name": "1",
+      "variations": Object {
+        "34alternating": Object {
+          "id": "34alternating",
+          "name": "3/4 Cards alternating",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "alternate": true,
+              "id": "player-1-alternating",
+              "name": "Player 1 (alternate)",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+        "4toc": Object {
+          "id": "4toc",
+          "name": "4 ToC",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-4",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+        "default": Object {
+          "id": "default",
+          "name": "Default (3 ToC)",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+      },
+    },
+    "SelectedSetup": Object {
+      "id": "default",
+      "name": "Default (3 ToC)",
+      "turnOrderCards": Array [
+        Object {
+          "id": "player1-1",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "player1-2",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "player1-3",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "nemesis-1",
+          "name": "Nemesis",
+          "type": "nemesis",
+        },
+        Object {
+          "id": "nemesis-2",
+          "name": "Nemesis",
+          "type": "nemesis",
+        },
+      ],
+    },
+  },
+  Object {
+    "args": Array [
+      "2-4-turnOrderConfiguration",
+      Object {
+        "Mode": "Default",
+        "SelectedPlayerCount": Object {
+          "id": "onePlayer",
+          "name": "1",
+          "variations": Object {
+            "34alternating": Object {
+              "id": "34alternating",
+              "name": "3/4 Cards alternating",
+              "turnOrderCards": Array [
+                Object {
+                  "id": "player1-1",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-2",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-3",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "alternate": true,
+                  "id": "player-1-alternating",
+                  "name": "Player 1 (alternate)",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "nemesis-1",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+                Object {
+                  "id": "nemesis-2",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+              ],
+            },
+            "4toc": Object {
+              "id": "4toc",
+              "name": "4 ToC",
+              "turnOrderCards": Array [
+                Object {
+                  "id": "player1-1",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-2",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-3",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-4",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "nemesis-1",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+                Object {
+                  "id": "nemesis-2",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+              ],
+            },
+            "default": Object {
+              "id": "default",
+              "name": "Default (3 ToC)",
+              "turnOrderCards": Array [
+                Object {
+                  "id": "player1-1",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-2",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-3",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "nemesis-1",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+                Object {
+                  "id": "nemesis-2",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+              ],
+            },
+          },
+        },
+        "SelectedSetup": Object {
+          "id": "default",
+          "name": "Default (3 ToC)",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+      },
+    ],
+    "failActionCreator": [Function],
+    "func": [Function],
+    "simulate": [Function],
+    "successActionCreator": [Function],
+    "type": "RUN",
+    Symbol(isCmd): true,
+  },
+]
+`;
+
+exports[`Turnorder configuration reducer should handle SELECT_SETUP 1`] = `
+Array [
+  Object {
+    "Mode": "Default",
+    "SelectedPlayerCount": Object {
+      "id": "onePlayer",
+      "name": "1",
+      "variations": Object {
+        "34alternating": Object {
+          "id": "34alternating",
+          "name": "3/4 Cards alternating",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "alternate": true,
+              "id": "player-1-alternating",
+              "name": "Player 1 (alternate)",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+        "4toc": Object {
+          "id": "4toc",
+          "name": "4 ToC",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-4",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+        "default": Object {
+          "id": "default",
+          "name": "Default (3 ToC)",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+      },
+    },
+    "SelectedSetup": Object {
+      "id": "default",
+      "name": "Default (3 ToC)",
+      "turnOrderCards": Array [
+        Object {
+          "id": "player1-1",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "player1-2",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "player1-3",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "nemesis-1",
+          "name": "Nemesis",
+          "type": "nemesis",
+        },
+        Object {
+          "id": "nemesis-2",
+          "name": "Nemesis",
+          "type": "nemesis",
+        },
+      ],
+    },
+  },
+  Object {
+    "args": Array [
+      "2-4-turnOrderConfiguration",
+      Object {
+        "Mode": "Default",
+        "SelectedPlayerCount": Object {
+          "id": "onePlayer",
+          "name": "1",
+          "variations": Object {
+            "34alternating": Object {
+              "id": "34alternating",
+              "name": "3/4 Cards alternating",
+              "turnOrderCards": Array [
+                Object {
+                  "id": "player1-1",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-2",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-3",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "alternate": true,
+                  "id": "player-1-alternating",
+                  "name": "Player 1 (alternate)",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "nemesis-1",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+                Object {
+                  "id": "nemesis-2",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+              ],
+            },
+            "4toc": Object {
+              "id": "4toc",
+              "name": "4 ToC",
+              "turnOrderCards": Array [
+                Object {
+                  "id": "player1-1",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-2",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-3",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-4",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "nemesis-1",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+                Object {
+                  "id": "nemesis-2",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+              ],
+            },
+            "default": Object {
+              "id": "default",
+              "name": "Default (3 ToC)",
+              "turnOrderCards": Array [
+                Object {
+                  "id": "player1-1",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-2",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-3",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "nemesis-1",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+                Object {
+                  "id": "nemesis-2",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+              ],
+            },
+          },
+        },
+        "SelectedSetup": Object {
+          "id": "default",
+          "name": "Default (3 ToC)",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+      },
+    ],
+    "failActionCreator": [Function],
+    "func": [Function],
+    "simulate": [Function],
+    "successActionCreator": [Function],
+    "type": "RUN",
+    Symbol(isCmd): true,
+  },
+]
+`;
+
+exports[`Turnorder configuration reducer should handle SET_MODE 1`] = `
+Array [
+  Object {
+    "Mode": "Blitz",
+    "SelectedPlayerCount": Object {
+      "id": "onePlayer",
+      "name": "1",
+      "variations": Object {
+        "34alternating": Object {
+          "id": "34alternating",
+          "name": "3/4 Cards alternating",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "alternate": true,
+              "id": "player-1-alternating",
+              "name": "Player 1 (alternate)",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+        "4toc": Object {
+          "id": "4toc",
+          "name": "4 ToC",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-4",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+        "default": Object {
+          "id": "default",
+          "name": "Default (3 ToC)",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+      },
+    },
+    "SelectedSetup": Object {
+      "id": "default",
+      "name": "Default (3 ToC)",
+      "turnOrderCards": Array [
+        Object {
+          "id": "player1-1",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "player1-2",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "player1-3",
+          "name": "Player 1",
+          "type": "player1",
+        },
+        Object {
+          "id": "nemesis-1",
+          "name": "Nemesis",
+          "type": "nemesis",
+        },
+        Object {
+          "id": "nemesis-2",
+          "name": "Nemesis",
+          "type": "nemesis",
+        },
+      ],
+    },
+  },
+  Object {
+    "args": Array [
+      "2-4-turnOrderConfiguration",
+      Object {
+        "Mode": "Blitz",
+        "SelectedPlayerCount": Object {
+          "id": "onePlayer",
+          "name": "1",
+          "variations": Object {
+            "34alternating": Object {
+              "id": "34alternating",
+              "name": "3/4 Cards alternating",
+              "turnOrderCards": Array [
+                Object {
+                  "id": "player1-1",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-2",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-3",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "alternate": true,
+                  "id": "player-1-alternating",
+                  "name": "Player 1 (alternate)",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "nemesis-1",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+                Object {
+                  "id": "nemesis-2",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+              ],
+            },
+            "4toc": Object {
+              "id": "4toc",
+              "name": "4 ToC",
+              "turnOrderCards": Array [
+                Object {
+                  "id": "player1-1",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-2",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-3",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-4",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "nemesis-1",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+                Object {
+                  "id": "nemesis-2",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+              ],
+            },
+            "default": Object {
+              "id": "default",
+              "name": "Default (3 ToC)",
+              "turnOrderCards": Array [
+                Object {
+                  "id": "player1-1",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-2",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "player1-3",
+                  "name": "Player 1",
+                  "type": "player1",
+                },
+                Object {
+                  "id": "nemesis-1",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+                Object {
+                  "id": "nemesis-2",
+                  "name": "Nemesis",
+                  "type": "nemesis",
+                },
+              ],
+            },
+          },
+        },
+        "SelectedSetup": Object {
+          "id": "default",
+          "name": "Default (3 ToC)",
+          "turnOrderCards": Array [
+            Object {
+              "id": "player1-1",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-2",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "player1-3",
+              "name": "Player 1",
+              "type": "player1",
+            },
+            Object {
+              "id": "nemesis-1",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+            Object {
+              "id": "nemesis-2",
+              "name": "Nemesis",
+              "type": "nemesis",
+            },
+          ],
+        },
+      },
+    ],
+    "failActionCreator": [Function],
+    "func": [Function],
+    "simulate": [Function],
+    "successActionCreator": [Function],
+    "type": "RUN",
+    Symbol(isCmd): true,
+  },
+]
+`;
+
+exports[`Turnorder configuration reducer should return the initial state 1`] = `
+Object {
+  "Mode": "Default",
+  "SelectedPlayerCount": Object {
+    "id": "onePlayer",
+    "name": "1",
+    "variations": Object {
+      "34alternating": Object {
+        "id": "34alternating",
+        "name": "3/4 Cards alternating",
+        "turnOrderCards": Array [
+          Object {
+            "id": "player1-1",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-2",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-3",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "alternate": true,
+            "id": "player-1-alternating",
+            "name": "Player 1 (alternate)",
+            "type": "player1",
+          },
+          Object {
+            "id": "nemesis-1",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+          Object {
+            "id": "nemesis-2",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+        ],
+      },
+      "4toc": Object {
+        "id": "4toc",
+        "name": "4 ToC",
+        "turnOrderCards": Array [
+          Object {
+            "id": "player1-1",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-2",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-3",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-4",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "nemesis-1",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+          Object {
+            "id": "nemesis-2",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+        ],
+      },
+      "default": Object {
+        "id": "default",
+        "name": "Default (3 ToC)",
+        "turnOrderCards": Array [
+          Object {
+            "id": "player1-1",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-2",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "player1-3",
+            "name": "Player 1",
+            "type": "player1",
+          },
+          Object {
+            "id": "nemesis-1",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+          Object {
+            "id": "nemesis-2",
+            "name": "Nemesis",
+            "type": "nemesis",
+          },
+        ],
+      },
+    },
+  },
+  "SelectedSetup": Object {
+    "id": "default",
+    "name": "Default (3 ToC)",
+    "turnOrderCards": Array [
+      Object {
+        "id": "player1-1",
+        "name": "Player 1",
+        "type": "player1",
+      },
+      Object {
+        "id": "player1-2",
+        "name": "Player 1",
+        "type": "player1",
+      },
+      Object {
+        "id": "player1-3",
+        "name": "Player 1",
+        "type": "player1",
+      },
+      Object {
+        "id": "nemesis-1",
+        "name": "Nemesis",
+        "type": "nemesis",
+      },
+      Object {
+        "id": "nemesis-2",
+        "name": "Nemesis",
+        "type": "nemesis",
+      },
+    ],
+  },
+}
+`;
