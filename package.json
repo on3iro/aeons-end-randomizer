@@ -76,11 +76,13 @@
   ],
   "devDependencies": {
     "@types/classnames": "^2.2.7",
+    "@types/redux-mock-store": "^1.0.2",
     "@types/styled-components": "^4.1.11",
     "babel-plugin-macros": "^2.5.0",
     "husky": "^4.0.10",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.1",
+    "redux-mock-store": "^1.5.4",
     "source-map-explorer": "^2.2.2"
   }
 }

@@ -23,3 +23,9 @@ export enum ActionTypes {
 }
 
 export type Action = ActionsUnion<typeof actions>
+
+export type PlayerCountId =
+  | 'onePlayer'
+  | 'twoPlayers'
+  | 'threePlayers'
+  | 'fourPlayers'
