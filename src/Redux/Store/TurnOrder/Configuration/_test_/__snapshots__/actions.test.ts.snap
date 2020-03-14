@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Turn Order / Configuration / actions should dispatch fetchFromDB action 1`] = `
+exports[`Turn Order | Configuration | actions should dispatch fetchFromDB action 1`] = `
 Array [
   Object {
     "type": "TurnOrder/Configuration/FETCH_FROM_DB",
@@ -8,7 +8,7 @@ Array [
 ]
 `;
 
-exports[`Turn Order / Configuration / actions should dispatch fetchFromDBFailed action 1`] = `
+exports[`Turn Order | Configuration | actions should dispatch fetchFromDBFailed action 1`] = `
 Array [
   Object {
     "type": "TurnOrder/Configuration/FETCH_FROM_DB_FAILURE",
@@ -16,7 +16,7 @@ Array [
 ]
 `;
 
-exports[`Turn Order / Configuration / actions should dispatch fetchFromDBSuccessful action 1`] = `
+exports[`Turn Order | Configuration | actions should dispatch fetchFromDBSuccessful action 1`] = `
 Array [
   Object {
     "payload": Object {
@@ -168,7 +168,7 @@ Array [
 ]
 `;
 
-exports[`Turn Order / Configuration / actions should dispatch noop action 1`] = `
+exports[`Turn Order | Configuration | actions should dispatch noop action 1`] = `
 Array [
   Object {
     "type": "NOOP",
@@ -176,7 +176,7 @@ Array [
 ]
 `;
 
-exports[`Turn Order / Configuration / actions should dispatch selectPlayerCount action with payload 1`] = `
+exports[`Turn Order | Configuration | actions should dispatch selectPlayerCount action with payload 1`] = `
 Array [
   Object {
     "payload": "twoPlayers",
@@ -185,7 +185,7 @@ Array [
 ]
 `;
 
-exports[`Turn Order / Configuration / actions should dispatch selectSetup action with payload 1`] = `
+exports[`Turn Order | Configuration | actions should dispatch selectSetup action with payload 1`] = `
 Array [
   Object {
     "payload": "default",
@@ -194,7 +194,7 @@ Array [
 ]
 `;
 
-exports[`Turn Order / Configuration / actions should dispatch setMode action with payload 1`] = `
+exports[`Turn Order | Configuration | actions should dispatch setMode action with payload 1`] = `
 Array [
   Object {
     "payload": "Default",
@@ -203,7 +203,7 @@ Array [
 ]
 `;
 
-exports[`Turn Order / Configuration / actions should dispatch setToDB action 1`] = `
+exports[`Turn Order | Configuration | actions should dispatch setToDB action 1`] = `
 Array [
   Object {
     "type": "TurnOrder/Configuration/SET_TO_DB",
@@ -211,7 +211,7 @@ Array [
 ]
 `;
 
-exports[`Turn Order / Configuration / actions should dispatch setToDBFailed action 1`] = `
+exports[`Turn Order | Configuration | actions should dispatch setToDBFailed action 1`] = `
 Array [
   Object {
     "type": "TurnOrder/Configuration/SET_TO_DB_FAILURE",
@@ -219,7 +219,7 @@ Array [
 ]
 `;
 
-exports[`Turn Order / Configuration / actions should dispatch setToDBSuccessful action 1`] = `
+exports[`Turn Order | Configuration | actions should dispatch setToDBSuccessful action 1`] = `
 Array [
   Object {
     "type": "TurnOrder/Configuration/SET_TO_DB_SUCCESS",

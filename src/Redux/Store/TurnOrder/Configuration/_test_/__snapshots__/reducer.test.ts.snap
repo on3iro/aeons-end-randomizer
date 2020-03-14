@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Turnorder configuration reducer should handle FETCH_FROM_DB 1`] = `
+exports[`Turn Order | Configuration | reducer should handle FETCH_FROM_DB 1`] = `
 Array [
   Object {
     "Mode": "Default",
@@ -160,7 +160,7 @@ Array [
 ]
 `;
 
-exports[`Turnorder configuration reducer should handle FETCH_FROM_DB_FAILURE 1`] = `
+exports[`Turn Order | Configuration | reducer should handle FETCH_FROM_DB_FAILURE 1`] = `
 Object {
   "Mode": "Default",
   "SelectedPlayerCount": Object {
@@ -307,7 +307,7 @@ Object {
 }
 `;
 
-exports[`Turnorder configuration reducer should handle FETCH_FROM_DB_SUCCESS 1`] = `
+exports[`Turn Order | Configuration | reducer should handle FETCH_FROM_DB_SUCCESS 1`] = `
 Array [
   Object {
     "Mode": "Maelstrom",
@@ -464,7 +464,7 @@ Array [
 ]
 `;
 
-exports[`Turnorder configuration reducer should handle SELECT_PLAYER_COUNT 1`] = `
+exports[`Turn Order | Configuration | reducer should handle SELECT_PLAYER_COUNT 1`] = `
 Array [
   Object {
     "Mode": "Default",
@@ -768,7 +768,7 @@ Array [
 ]
 `;
 
-exports[`Turnorder configuration reducer should handle SELECT_SETUP 1`] = `
+exports[`Turn Order | Configuration | reducer should handle SELECT_SETUP 1`] = `
 Array [
   Object {
     "Mode": "Default",
@@ -1072,7 +1072,7 @@ Array [
 ]
 `;
 
-exports[`Turnorder configuration reducer should handle SET_MODE 1`] = `
+exports[`Turn Order | Configuration | reducer should handle SET_MODE 1`] = `
 Array [
   Object {
     "Mode": "Blitz",
@@ -1376,7 +1376,7 @@ Array [
 ]
 `;
 
-exports[`Turnorder configuration reducer should return the initial state 1`] = `
+exports[`Turn Order | Configuration | reducer should return the initial state 1`] = `
 Object {
   "Mode": "Default",
   "SelectedPlayerCount": Object {

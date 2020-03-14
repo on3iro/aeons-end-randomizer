@@ -4,7 +4,7 @@ import {
   Reducer,
 } from 'Redux/Store/TurnOrder/Configuration/reducer'
 
-describe('Turnorder configuration reducer', () => {
+describe('Turn Order | Configuration | reducer', () => {
   it('should return the initial state', () => {
     // @ts-ignore
     expect(Reducer(undefined, {})).toMatchSnapshot()

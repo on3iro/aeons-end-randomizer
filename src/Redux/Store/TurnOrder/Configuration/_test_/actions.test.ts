@@ -7,7 +7,7 @@ import { actions } from 'Redux/Store/TurnOrder/Configuration/actions'
 const mockStore = configureStore()
 const store = mockStore()
 
-describe('Turn Order / Configuration / actions', () => {
+describe('Turn Order | Configuration | actions', () => {
   beforeEach(() => {
     store.clearActions()
   })
