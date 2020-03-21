@@ -16,61 +16,81 @@ export const getUpgradedBasicNemesisIdsByBattleTier = ({
   availableTier3Ids,
   battleTier,
   getEntity = getRandomEntity,
+  seed,
 }: {
   availableTier1Ids: string[]
   availableTier2Ids: string[]
   availableTier3Ids: string[]
   battleTier: 1 | 2 | 3 | 4
-  getEntity?: types.SeededEntityGetter
-}) => {
+  getEntity: types.SeededEntityGetter
+  seed: types.Seed
+}): { result: string[]; seed: types.Seed } => {
   switch (battleTier) {
     case 1: {
-      return [] // No upgraded cards are added on tier 1
+      return { result: [], seed } // No upgraded cards are added on tier 1
     }
 
     case 2: {
-      const tier1Ids = createIdList(
+      const tier1IdsResult = createIdList(
         availableTier1Ids,
         createArrayWithDefaultValues(1, 'EMPTY'),
-        getEntity
-      ).result
-      const tier2Ids = createIdList(
+        availableIds => getEntity(availableIds, seed)
+      )
+
+      const tier2IdsResult = createIdList(
         availableTier2Ids,
         createArrayWithDefaultValues(3, 'EMPTY'),
-        getEntity
-      ).result
-      const tier3Ids = createIdList(
+        availableIds => getEntity(availableIds, tier1IdsResult.seed)
+      )
+
+      const tier3IdsResult = createIdList(
         availableTier3Ids,
         createArrayWithDefaultValues(3, 'EMPTY'),
-        getEntity
-      ).result
+        availableIds => getEntity(availableIds, tier2IdsResult.seed)
+      )
 
-      return [...tier1Ids, ...tier2Ids, ...tier3Ids]
+      return {
+        result: [
+          ...tier1IdsResult.result,
+          ...tier2IdsResult.result,
+          ...tier3IdsResult.result,
+        ],
+        seed: tier3IdsResult.seed,
+      }
     }
 
     case 3:
     case 4: {
-      const tier1Ids = createIdList(
+      const tier1IdsResult = createIdList(
         availableTier1Ids,
         createArrayWithDefaultValues(1, 'EMPTY'),
-        getEntity
-      ).result
-      const tier2Ids = createIdList(
+        availableIds => getEntity(availableIds, seed)
+      )
+
+      const tier2IdsResult = createIdList(
         availableTier2Ids,
         createArrayWithDefaultValues(1, 'EMPTY'),
-        getEntity
-      ).result
-      const tier3Ids = createIdList(
+        availableIds => getEntity(availableIds, tier1IdsResult.seed)
+      )
+
+      const tier3IdsResult = createIdList(
         availableTier3Ids,
         createArrayWithDefaultValues(2, 'EMPTY'),
-        getEntity
-      ).result
+        availableIds => getEntity(availableIds, tier2IdsResult.seed)
+      )
 
-      return [...tier1Ids, ...tier2Ids, ...tier3Ids]
+      return {
+        result: [
+          ...tier1IdsResult.result,
+          ...tier2IdsResult.result,
+          ...tier3IdsResult.result,
+        ],
+        seed: tier3IdsResult.seed,
+      }
     }
 
     default: {
-      return [] // Should never occur!
+      return { result: [], seed } // Should never occur!
     }
   }
 }
@@ -79,7 +99,8 @@ export const rollNewUpgradedNemesisCards = (
   availableUpgradedBasicNemesisCards: types.UpgradedBasicNemesisCard[],
   previousUpgradedBasicNemesisCards: string[],
   nemesisTier: 1 | 2 | 3 | 4,
-  getEntity: types.SeededEntityGetter
+  getEntity: types.SeededEntityGetter,
+  seed: types.Seed
 ) => {
   const upgradedCardsWithoutPreviousCards = availableUpgradedBasicNemesisCards.filter(
     upgradedCard => !previousUpgradedBasicNemesisCards.includes(upgradedCard.id)
@@ -95,15 +116,24 @@ export const rollNewUpgradedNemesisCards = (
     .filter(card => card.tier === 3)
     .map(card => card.id)
 
-  const upgradedBasicNemesisCardIds = getUpgradedBasicNemesisIdsByBattleTier({
-    battleTier: nemesisTier,
-    availableTier1Ids: tier1AvailableUpgradedNemesisIds,
-    availableTier2Ids: tier2AvailableUpgradedNemesisIds,
-    availableTier3Ids: tier3AvailableUpgradedNemesisIds,
-    getEntity,
-  })
+  const upgradedBasicNemesisCardIdsResult = getUpgradedBasicNemesisIdsByBattleTier(
+    {
+      battleTier: nemesisTier,
+      availableTier1Ids: tier1AvailableUpgradedNemesisIds,
+      availableTier2Ids: tier2AvailableUpgradedNemesisIds,
+      availableTier3Ids: tier3AvailableUpgradedNemesisIds,
+      getEntity,
+      seed,
+    }
+  )
 
-  return [...previousUpgradedBasicNemesisCards, ...upgradedBasicNemesisCardIds]
+  return {
+    result: [
+      ...previousUpgradedBasicNemesisCards,
+      ...upgradedBasicNemesisCardIdsResult.result,
+    ],
+    seed: upgradedBasicNemesisCardIdsResult.seed,
+  }
 }
 
 export const rollNemesisId = (
@@ -111,7 +141,7 @@ export const rollNemesisId = (
   expedition: types.Expedition,
   battle: types.Battle,
   getEntity: types.SeededEntityGetter = getRandomEntity
-): string => {
+): { result: string; seed: types.Seed } => {
   const availableNemeses = selectors.getAvailableNemesisForExpeditionId(state, {
     expeditionId: expedition.id,
   })
@@ -125,13 +155,13 @@ export const rollNemesisId = (
     .map(nemesis => nemesis.id)
     .filter(nemesisId => !previousNemeses.includes(nemesisId))
 
-  const nemesisId = createIdList(
+  const result = createIdList(
     nemesisIds,
     createArrayWithDefaultValues(1, 'EMPTY'),
     availableEntities => getEntity(availableEntities, expedition.seed)
-  ).result[0]
+  )
 
-  return nemesisId
+  return { result: result.result[0], seed: result.seed }
 }
 
 export const createBattle = (
@@ -146,7 +176,16 @@ export const createBattle = (
     { expeditionId: battle.expeditionId }
   )
 
-  const nemesisId = rollNemesisId(state, expedition, battle, getEntity)
+  const nemesisIdResult = rollNemesisId(
+    state,
+    expedition,
+    battle,
+    availableEntities =>
+      getEntity(availableEntities, {
+        seed: expedition.seed.seed,
+        state: expedition.seed.nemesisState,
+      })
+  )
 
   // FIXME Should probably be composed into another "getStillAvailable" selector
   const previousUpgradedBasicNemesisCards = expedition.upgradedBasicNemesisCards
@@ -157,17 +196,23 @@ export const createBattle = (
     }
   )
 
-  const upgradedBasicNemesisCardIds = battle.nemesisTier.isNewTier
+  const upgradedBasicNemesisCardIdsResult = battle.nemesisTier.isNewTier
     ? rollNewUpgradedNemesisCards(
         availableUpgradedBasicNemesisCards,
         previousUpgradedBasicNemesisCards,
         battle.nemesisTier.tier,
-        availableEntities => getEntity(availableEntities, expedition.seed)
+        getEntity,
+        nemesisIdResult.seed
       )
-    : previousUpgradedBasicNemesisCards
+    : { result: previousUpgradedBasicNemesisCards, seed: nemesisIdResult.seed }
 
   return {
-    battle: { ...battle, nemesisId, status: 'before_battle' },
-    upgradedBasicNemesisCardIds,
+    battle: {
+      ...battle,
+      nemesisId: nemesisIdResult.result,
+      status: 'before_battle',
+    },
+    upgradedBasicNemesisCardIds: upgradedBasicNemesisCardIdsResult.result,
+    nemesisSeedState: upgradedBasicNemesisCardIdsResult.seed.state || true,
   }
 }

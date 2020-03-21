@@ -64,6 +64,10 @@ export type RewardType =
   | 'treasure2'
   | 'treasure3'
 
+export type BattleRewardsResult = types.Battle & {
+  seed: types.Seed
+}
+
 export type LossConfig = {
   battle: types.Battle
   type: RewardType

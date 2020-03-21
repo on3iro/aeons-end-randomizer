@@ -14,6 +14,7 @@ export const actions = {
   rollBattleSuccess: (result: {
     battle: types.Battle
     upgradedBasicNemesisCardIds: string[]
+    nemesisSeedState: types.ExpeditionSeedState
   }) => createAction(ActionTypes.ROLL_BATTLE_SUCCESS, result),
   startBattle: (battle: types.Battle) =>
     createAction(ActionTypes.START_BATTLE, { battle }),

@@ -13,7 +13,7 @@ const rollTreasureIdsByLevel = (
   state: RootState,
   battle: types.Battle,
   getEntity: types.SeededEntityGetter = getRandomEntity,
-  seed?: types.Seed
+  seed: types.Seed
 ) => {
   const treasureIdsByTier =
     battle.treasure.hasTreasure && battle.treasure.level
@@ -90,11 +90,16 @@ export const rollWinRewards = (
     { expeditionId: battle.expeditionId }
   )
 
+  const seed = {
+    seed: expedition.seed.seed,
+    state: expedition.seed.supplyState,
+  }
+
   const newTreasuresResult = rollTreasureIdsByLevel(
     state,
     battle,
     getRandomEntity,
-    expedition.seed
+    seed
   )
 
   const newTreasures = newTreasuresResult.result
@@ -102,7 +107,7 @@ export const rollWinRewards = (
   const supplyRewardsResult = rollSupplyRewards(
     state,
     battle.expeditionId,
-    newTreasuresResult.seed || expedition.seed
+    newTreasuresResult.seed
   )
   const supplyRewards = supplyRewardsResult.result
 
@@ -116,6 +121,6 @@ export const rollWinRewards = (
   }
   return {
     battle: updatedBattle,
-    seed: supplyRewardsResult.seed || expedition.seed,
+    seed: supplyRewardsResult.seed,
   }
 }

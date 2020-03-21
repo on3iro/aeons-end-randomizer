@@ -46,7 +46,10 @@ export const rollLossSuccess = (
       ...state.expeditions,
       [battle.expeditionId]: {
         ...oldExpedition,
-        seed,
+        seed: {
+          ...oldExpedition.seed,
+          supplyState: seed.state || true,
+        },
         battles: updatedBattles,
       },
     },
