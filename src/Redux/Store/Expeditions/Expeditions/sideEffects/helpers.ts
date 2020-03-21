@@ -9,7 +9,7 @@ import {
 export const rollNewEntity = (
   list: string[],
   getEntity: types.SeededEntityGetter = getRandomEntity,
-  seed?: types.Seed
+  seed: types.Seed
 ): { result: string; seed: types.Seed } => {
   const idList = createIdList(
     list,

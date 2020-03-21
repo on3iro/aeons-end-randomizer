@@ -26,7 +26,11 @@ export const rollBattleSuccess = (
   state: State,
   action: ReturnType<typeof actions.rollBattleSuccess>
 ) => {
-  const { battle, upgradedBasicNemesisCardIds } = action.payload
+  const {
+    battle,
+    upgradedBasicNemesisCardIds,
+    nemesisSeedState,
+  } = action.payload
 
   const oldExpedition = state.expeditions[battle.expeditionId]
   const oldBattleList = oldExpedition.battles
@@ -44,6 +48,10 @@ export const rollBattleSuccess = (
       ...state.expeditions,
       [battle.expeditionId]: {
         ...oldExpedition,
+        seed: {
+          ...oldExpedition.seed,
+          nemesisState: nemesisSeedState,
+        },
         upgradedBasicNemesisCards: upgradedBasicNemesisCardIds,
         battles: updatedBattles,
       },

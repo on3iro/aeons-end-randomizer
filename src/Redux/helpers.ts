@@ -5,7 +5,7 @@ import shortid from 'shortid'
 type CardListReduceResult = {
   availableCards: types.ICard[]
   result: types.ICard[]
-  seed?: types.Seed
+  seed: types.Seed
 }
 
 /**
@@ -83,7 +83,11 @@ export const createCardList = (
         seed: cardResult.seed,
       }
     },
-    { availableCards, result: [], seed }
+    {
+      availableCards,
+      result: [],
+      seed: seed || { seed: shortid.generate(), state: true },
+    }
   )
 
 /**

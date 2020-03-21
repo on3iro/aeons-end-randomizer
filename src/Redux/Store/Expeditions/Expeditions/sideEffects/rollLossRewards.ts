@@ -3,14 +3,14 @@ import { getRandomEntity } from 'Redux/helpers'
 
 import * as types from 'types'
 
-import { RewardType } from '../types'
+import { RewardType, BattleRewardsResult } from '../types'
 import { rollNewEntity } from './helpers'
 
 export const rollLossRewards = (
   getState: () => RootState,
   battle: types.Battle,
   rewardType: RewardType
-) => {
+): BattleRewardsResult => {
   const state = getState()
 
   const expeditionId = battle.expeditionId
@@ -18,7 +18,10 @@ export const rollLossRewards = (
     state,
     { expeditionId }
   )
-  const { seed } = expedition
+  const seed = {
+    seed: expedition.seed.seed,
+    state: expedition.seed.supplyState,
+  }
 
   const gemIds = selectors.getStillAvailableGemIds(state, {
     expeditionId,
@@ -164,7 +167,7 @@ export const rollLossRewards = (
     }
 
     default: {
-      return { ...battle }
+      return { ...battle, seed }
     }
   }
 }

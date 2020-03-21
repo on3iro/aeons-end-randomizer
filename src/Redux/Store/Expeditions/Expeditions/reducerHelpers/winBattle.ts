@@ -50,7 +50,10 @@ export const winBattleSuccess = (
       ...state.expeditions,
       [battle.expeditionId]: {
         ...oldExpedition,
-        seed,
+        seed: {
+          ...oldExpedition.seed,
+          supplyState: seed.state || true,
+        },
         score: oldExpedition.score + battleScore,
         battles: updatedBattles,
       },
