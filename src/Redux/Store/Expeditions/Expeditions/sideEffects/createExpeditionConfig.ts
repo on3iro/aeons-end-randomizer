@@ -46,7 +46,7 @@ const createTreasureIds = (
   state: RootState,
   treasureIds: string[],
   variantId: string,
-  seed?: types.Seed
+  seed: types.Seed
 ) => {
   const variant = selectors.Expeditions.Variants.getVariantById(state, {
     variantId,
@@ -165,13 +165,19 @@ export const createExpeditionConfig = (
   // Expedition //
   ////////////////
 
-  const newSeed = treasureIdsResult.seed
+  const newSeed = {
+    seed: treasureIdsResult.seed.seed,
+    supplyState: treasureIdsResult.seed.state || true,
+    // this means that as soon as nemesis and nemesis cards are getting rolled
+    // state will be used
+    nemesisState: true,
+  }
 
   return {
     id: expeditionId,
     name: name,
     score: 0,
-    seed: newSeed || seed,
+    seed: newSeed,
     settingsSnapshot,
     barracks: {
       mageIds,

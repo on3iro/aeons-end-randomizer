@@ -129,11 +129,17 @@ export type SettingsSnapshot = {
   availableUpgradedBasicNemesisCardIds: string[]
 }
 
+export type ExpeditionSeedState = Object | true
+export type ExpeditionSeed = Seed & {
+  supplyState: ExpeditionSeedState
+  nemesisState: ExpeditionSeedState
+}
+
 export type Expedition = {
   id: string
   name: string
   score: number
-  seed: Seed
+  seed: ExpeditionSeed
   settingsSnapshot: SettingsSnapshot
   barracks: {
     mageIds: string[]
