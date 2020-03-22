@@ -3,9 +3,8 @@ import { LoopReducer, loop, Cmd } from 'redux-loop'
 import { createSelector } from 'reselect'
 import { get as getFromDb, set as setToDb } from 'idb-keyval'
 
-import * as types from '../../../../types'
-import config from '../../../../config'
-import { RootState } from '../..'
+import * as types from 'types'
+import config from 'config'
 
 const CARDS_DB_KEY = 'cards-1.8'
 
@@ -148,19 +147,39 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
+export type SelectedCardsStateSlice = {
+  Settings: {
+    Expansions: {
+      SelectedCards: State
+    }
+  }
+}
+
+export type SelectedCardsLookupStateSlice = {
+  Settings: {
+    Expansions: {
+      SelectedCards: {
+        cards: Cards
+      }
+    }
+  }
+}
+
 // All
 
-const getSelectedCardsState = (state: RootState) =>
+const getSelectedCardsState = (state: SelectedCardsStateSlice) =>
   state.Settings.Expansions.SelectedCards
 
-const getSelectedCardsLookupObject = (state: RootState) =>
+const getSelectedCardsLookupObject = (state: SelectedCardsLookupStateSlice) =>
   state.Settings.Expansions.SelectedCards.cards
 
-const getExpansionId = (_: any, id: string) => id
-const getIdList = (_: any, props: { cardIds: string[] }) => props.cardIds
+const getExpansionId = (_: unknown, id: string) => id
+const getIdList = (_: unknown, props: { cardIds: string[] }) => props.cardIds
 
-const getCardById = (state: RootState, props: { id: string }) =>
-  state.Settings.Expansions.SelectedCards.cards[props.id]
+const getCardById = (
+  state: SelectedCardsLookupStateSlice,
+  props: { id: string }
+) => state.Settings.Expansions.SelectedCards.cards[props.id]
 
 const getCardIdsArray = createSelector(
   [getSelectedCardsState],
@@ -178,26 +197,22 @@ const getCardsByExpansionId = createSelector(
   (state, cardIds) => cardIds.map(cardId => state.cards[cardId])
 )
 
-const getGemsByExpansionId = createSelector(
-  [getCardsByExpansionId],
-  cards => cards.filter(card => card.type === 'Gem')
+const getGemsByExpansionId = createSelector([getCardsByExpansionId], cards =>
+  cards.filter(card => card.type === 'Gem')
 )
 
-const getRelicsByExpansionId = createSelector(
-  [getCardsByExpansionId],
-  cards => cards.filter(card => card.type === 'Relic')
+const getRelicsByExpansionId = createSelector([getCardsByExpansionId], cards =>
+  cards.filter(card => card.type === 'Relic')
 )
 
-const getSpellsByExpansionId = createSelector(
-  [getCardsByExpansionId],
-  cards => cards.filter(card => card.type === 'Spell')
+const getSpellsByExpansionId = createSelector([getCardsByExpansionId], cards =>
+  cards.filter(card => card.type === 'Spell')
 )
 
 // Selected
 
-const getSelectedCardIds = createSelector(
-  [getSelectedCardsState],
-  state => state.cardIds.filter(id => state.cards[id].selected)
+const getSelectedCardIds = createSelector([getSelectedCardsState], state =>
+  state.cardIds.filter(id => state.cards[id].selected)
 )
 
 const getSelectedCards = createSelector(

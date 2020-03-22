@@ -6,8 +6,6 @@ import { get as getFromDb, set as setToDb } from 'idb-keyval'
 import * as types from 'types'
 import config from 'config'
 
-import { RootState } from 'Redux/Store'
-
 const TREASURES_DB_KEY = 'treasures-1.8'
 
 ///////////
@@ -150,22 +148,42 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
+export type TreasuresStateSlice = {
+  Settings: {
+    Expansions: {
+      Treasures: {
+        treasures: SelectedTreasures
+      }
+    }
+  }
+}
+
+export type TreasureIdsStateSlice = {
+  Settings: {
+    Expansions: {
+      Treasures: {
+        treasureIds: string[]
+      }
+    }
+  }
+}
+
 // All
 
-const getTreasures = (state: RootState) =>
+const getTreasures = (state: TreasuresStateSlice) =>
   state.Settings.Expansions.Treasures.treasures
 
+const getTreasureIds = (state: TreasureIdsStateSlice) =>
+  state.Settings.Expansions.Treasures.treasureIds
+
 const getTreasureLevel = (
-  _: RootState,
+  _: unknown,
   props: { treasureLevel: types.TreasureLevel }
 ) => props.treasureLevel
 
 const getExpansionId = (_: any, id: string) => id
 const getIdList = (_: any, props: { treasureIds: string[] }) =>
   props.treasureIds
-
-const getTreasureIds = (state: RootState) =>
-  state.Settings.Expansions.Treasures.treasureIds
 
 const getTreasureIdsByTreasureLevel = createSelector(
   [getTreasures, getTreasureIds, getTreasureLevel],
