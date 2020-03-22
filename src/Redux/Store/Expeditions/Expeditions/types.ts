@@ -79,3 +79,19 @@ export type LossConfig = {
   treasure2Ids: string[]
   treasure3Ids: string[]
 }
+
+export type ExpeditionsStateSlice = {
+  Expeditions: {
+    Expeditions: {
+      expeditions: types.Expeditions
+    }
+  }
+}
+
+export type ExpeditionIdsStateSlice = {
+  Expeditions: {
+    Expeditions: {
+      expeditionIds: string[]
+    }
+  }
+}
