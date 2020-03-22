@@ -9,7 +9,7 @@ import { getUpgradedBasicNemesisCardsResult } from './getUpgradedBasicNemesisCar
 
 export const generateResult = (
   battle: types.Battle,
-  nemesisId: string,
+  nemesisId: string | undefined,
   upgradedBasicNemesisCardIds: string[],
   nemesisSeedState?: Object
 ) => {
