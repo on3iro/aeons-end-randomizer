@@ -9,7 +9,7 @@ import {
 export const rollNemesisId = (
   nemesisIds: string[],
   getEntity: types.SeededEntityGetter = getRandomEntity
-): { result: string; seed: types.Seed } => {
+): { result: string | undefined; seed: types.Seed } => {
   const result = createIdList(
     nemesisIds,
     createArrayWithDefaultValues(1, 'EMPTY'),
