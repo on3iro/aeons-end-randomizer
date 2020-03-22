@@ -1,22 +1,12 @@
 import { createSelector } from 'reselect'
 
-import * as types from 'types'
+import { ExpeditionsStateSlice, ExpeditionIdsStateSlice } from './types'
 
-const getExpeditions = (state: {
-  Expeditions: {
-    Expeditions: {
-      expeditions: types.Expeditions
-    }
-  }
-}) => state.Expeditions.Expeditions.expeditions
+const getExpeditions = (state: ExpeditionsStateSlice) =>
+  state.Expeditions.Expeditions.expeditions
 
-const getExpeditionIds = (state: {
-  Expeditions: {
-    Expeditions: {
-      expeditionIds: string[]
-    }
-  }
-}) => state.Expeditions.Expeditions.expeditionIds
+const getExpeditionIds = (state: ExpeditionIdsStateSlice) =>
+  state.Expeditions.Expeditions.expeditionIds
 
 const getExpeditionId = (_: any, props: { expeditionId: string }) =>
   props.expeditionId
