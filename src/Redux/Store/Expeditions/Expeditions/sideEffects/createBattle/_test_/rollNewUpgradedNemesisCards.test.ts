@@ -135,7 +135,63 @@ describe('rollNewUpgradedNemesisCards()', () => {
     expect(result.result).toEqual(result.result.filter(distinct))
   })
 
-  test('seed state should differ from input seed state if getRandomEntity() is used as entity getter', () => {
+  test('result should not contain new ids if tier is 1', () => {
+    const result = rollNewUpgradedNemesisCards(
+      [
+        {
+          id: 'tier1_a',
+          tier: 1,
+        },
+        {
+          id: 'tier1_b',
+          tier: 1,
+        },
+        {
+          id: 'tier2_a',
+          tier: 2,
+        },
+        {
+          id: 'tier2_b',
+          tier: 2,
+        },
+        {
+          id: 'tier2_c',
+          tier: 2,
+        },
+        {
+          id: 'tier2_d',
+          tier: 2,
+        },
+        {
+          id: 'tier3_a',
+          tier: 3,
+        },
+        {
+          id: 'tier3_b',
+          tier: 3,
+        },
+        {
+          id: 'tier3_c',
+          tier: 3,
+        },
+        {
+          id: 'tier3_d',
+          tier: 3,
+        },
+      ],
+      ['tier1_a', 'tier2_a'],
+      1,
+      getRandomEntity,
+      {
+        seed: 'test',
+        state: true,
+      }
+    )
+
+    expect(result.result.length).toBe(2)
+  })
+
+  test('seed state should differ from input seed state if getRandomEntity() is used as entity getter and tier is above 1', () => {
     const result = rollNewUpgradedNemesisCards(
       [],
       ['tier1_a', 'tier2_a'],
@@ -148,6 +204,23 @@ describe('rollNewUpgradedNemesisCards()', () => {
     )
 
     expect(result.seed.state).not.toEqual(true)
+  })
+
+  test('seed state should be equal to input seed state, if tier is 1', () => {
+    const inputSeedState = true
+
+    const result = rollNewUpgradedNemesisCards(
+      [],
+      ['tier1_a', 'tier2_a'],
+      1,
+      getRandomEntity,
+      {
+        seed: 'test',
+        state: inputSeedState,
+      }
+    )
+
+    expect(result.seed.state).toEqual(inputSeedState)
   })
 
   test('result seed.seed should equal input seed.seed', () => {
