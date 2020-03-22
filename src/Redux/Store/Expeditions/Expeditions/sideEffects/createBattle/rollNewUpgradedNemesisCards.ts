@@ -3,7 +3,10 @@ import * as types from 'types'
 import { getUpgradedBasicNemesisIdsByBattleTier } from './getUpgradedBasicNemesisIdsByBattleTier'
 
 export const rollNewUpgradedNemesisCards = (
-  availableUpgradedBasicNemesisCards: types.UpgradedBasicNemesisCard[],
+  availableUpgradedBasicNemesisCards: {
+    id: string
+    tier: types.NemesisCardTier
+  }[],
   previousUpgradedBasicNemesisCards: string[],
   nemesisTier: 1 | 2 | 3 | 4,
   getEntity: types.SeededEntityGetter,
