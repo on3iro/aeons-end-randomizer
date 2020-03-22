@@ -1,15 +1,27 @@
 import { createSelector } from 'reselect'
 
-import { RootState } from 'Redux/Store/'
+import * as types from 'types'
 
-const getExpeditions = (state: RootState) =>
-  state.Expeditions.Expeditions.expeditions
-const getExpeditionIds = (state: RootState) =>
-  state.Expeditions.Expeditions.expeditionIds
-const getExpeditionId = (_: RootState, props: { expeditionId: string }) =>
+const getExpeditions = (state: {
+  Expeditions: {
+    Expeditions: {
+      expeditions: types.Expeditions
+    }
+  }
+}) => state.Expeditions.Expeditions.expeditions
+
+const getExpeditionIds = (state: {
+  Expeditions: {
+    Expeditions: {
+      expeditionIds: string[]
+    }
+  }
+}) => state.Expeditions.Expeditions.expeditionIds
+
+const getExpeditionId = (_: any, props: { expeditionId: string }) =>
   props.expeditionId
-const getBattleId = (_: RootState, props: { battleId: string }) =>
-  props.battleId
+
+const getBattleId = (_: any, props: { battleId: string }) => props.battleId
 
 const getExpeditionList = createSelector(
   [getExpeditionIds, getExpeditions],
