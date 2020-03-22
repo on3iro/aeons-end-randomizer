@@ -14,6 +14,11 @@ const saveToFile = (json: string, name: string) => {
 }
 
 const shareApi = (json: string, name: string) => {
+  // We additionally copy the text to the clipboard, so that
+  // users with browsers where saveAs does not work still have an
+  // option to get the text
+  window.navigator.clipboard.writeText(json)
+
   if (window.navigator.share) {
     return window.navigator.share({
       title: name,
