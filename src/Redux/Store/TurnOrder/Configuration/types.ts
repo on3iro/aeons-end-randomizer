@@ -1,13 +1,13 @@
 import { ActionsUnion } from '@martin_hotell/rex-tils'
 
-import { ITurnOrderPlayerCount, ITurnOrderSetup, Mode } from 'types'
+import * as types from 'types'
 
 import { actions } from './actions'
 
 export type State = Readonly<{
-  Mode: Mode
-  SelectedPlayerCount: ITurnOrderPlayerCount
-  SelectedSetup: ITurnOrderSetup
+  Mode: types.Mode
+  SelectedPlayerCount: types.ITurnOrderPlayerCount
+  SelectedSetup: types.ITurnOrderSetup
 }>
 
 export enum ActionTypes {

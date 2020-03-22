@@ -1,12 +1,12 @@
 import { createAction } from '@martin_hotell/rex-tils'
 
-import { Mode } from 'types'
+import * as types from 'types'
 
 import { ActionTypes, State, PlayerCountId } from './types'
 
 export const actions = {
   noOp: () => createAction('NOOP'),
-  setMode: (mode: Mode) => createAction(ActionTypes.SET_MODE, mode),
+  setMode: (mode: types.Mode) => createAction(ActionTypes.SET_MODE, mode),
   selectPlayerCount: (playerCountId: PlayerCountId) =>
     createAction(ActionTypes.SELECT_PLAYER_COUNT, playerCountId),
   selectSetup: (setupId: string) =>
