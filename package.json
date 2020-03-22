@@ -56,6 +56,7 @@
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
+    "test:coverage": "yarn run test -- --coverage --watchAll",
     "analyze:app": "source-map-explorer build/static/js/main.*",
     "analyze:vendor": "source-map-explorer build/static/js/2.*",
     "eject": "react-scripts eject"
