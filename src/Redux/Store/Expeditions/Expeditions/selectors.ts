@@ -8,10 +8,10 @@ const getExpeditions = (state: ExpeditionsStateSlice) =>
 const getExpeditionIds = (state: ExpeditionIdsStateSlice) =>
   state.Expeditions.Expeditions.expeditionIds
 
-const getExpeditionId = (_: any, props: { expeditionId: string }) =>
+const getExpeditionId = (_: unknown, props: { expeditionId: string }) =>
   props.expeditionId
 
-const getBattleId = (_: any, props: { battleId: string }) => props.battleId
+const getBattleId = (_: unknown, props: { battleId: string }) => props.battleId
 
 const getExpeditionList = createSelector(
   [getExpeditionIds, getExpeditions],

@@ -5,6 +5,10 @@ import * as types from 'types'
 import { State } from '../types'
 import { createSettingsSnapshot } from './createSettingsSnapshot'
 
+// FIXME we should find a better way to do this kind of migration, which
+// is more organized and follows a recognizable pattern
+// https://github.com/on3iro/aeons-end-randomizer/issues/138
+
 // We use this to make sure all future and past expeditions have a settings snapshot attached
 // That way we can rely on the snapshot for all our calculations and no longer need to access
 // the useres current settings during an expedition.
