@@ -20,6 +20,9 @@ export const generateResult = (
       status: 'before_battle',
     },
     upgradedBasicNemesisCardIds,
+    // If no seed state is provided, we set it to 'true', so that
+    // the seed generator creates a seed the next time it runs and so that we
+    // do not get any errors further down the line
     nemesisSeedState: nemesisSeedState || true,
   }
 }

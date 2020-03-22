@@ -1,7 +1,10 @@
 import * as types from 'types'
 
 export const getStillAvailableNemesisIds = (
-  availableNemeses: types.Nemesis[],
+  availableNemeses: Array<{
+    id: string
+    expeditionRating: types.ExpeditionRating
+  }>,
   previousNemeses: string[],
   nemesisTier: types.NemesisTier
 ) => {

@@ -88,11 +88,13 @@ export type Expansions = {
   [id: string]: Expansion
 }
 
+export type ExpeditionRating = 1 | 2 | 3 | 4
+
 export type Nemesis = ICreature & {
   health: number
   additionalInfo: string
   difficulty: number
-  expeditionRating: 1 | 2 | 3 | 4
+  expeditionRating: ExpeditionRating
 }
 
 export type Mage = ICreature & {
