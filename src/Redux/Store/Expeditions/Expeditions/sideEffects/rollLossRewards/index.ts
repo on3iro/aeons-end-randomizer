@@ -1,11 +1,21 @@
-import { RootState, selectors } from 'Redux/Store'
+import { selectors } from 'Redux/Store'
 
 import * as types from 'types'
 
-import { RewardType, BattleRewardsResult } from '../../types'
+import {
+  RewardType,
+  BattleRewardsResult,
+  ExpeditionsStateSlice,
+} from '../../types'
 import { handleMage } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollLossRewards/handleMage'
 import { handleTreasure } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollLossRewards/handleTreasure'
 import { handleSupply } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollLossRewards/handleSupply'
+import { SelectedCardsLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedCards'
+import {
+  TreasuresStateSlice,
+  TreasureIdsStateSlice,
+} from 'Redux/Store/Settings/Expansions/Treasures'
+import { SelectedMagesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedMages'
 
 export const handleRewardType = ({
   rewardType,
@@ -66,7 +76,11 @@ export const handleRewardType = ({
 }
 
 export const rollLossRewards = (
-  getState: () => RootState,
+  getState: () => ExpeditionsStateSlice &
+    SelectedCardsLookupStateSlice &
+    TreasuresStateSlice &
+    TreasureIdsStateSlice &
+    SelectedMagesLookupStateSlice,
   battle: types.Battle,
   rewardType: RewardType
 ): BattleRewardsResult => {
