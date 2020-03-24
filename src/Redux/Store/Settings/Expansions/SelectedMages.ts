@@ -5,7 +5,6 @@ import { get as getFromDb, set as setToDb } from 'idb-keyval'
 
 import * as types from '../../../../types'
 import config from '../../../../config'
-import { RootState } from '../..'
 
 const MAGES_DB_KEY = 'mages-1.8'
 
@@ -148,15 +147,40 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
+export type SelectedMagesStateSlice = {
+  Settings: {
+    Expansions: {
+      SelectedMages: State
+    }
+  }
+}
+
+export type SelectedMagesLookupStateSlice = {
+  Settings: {
+    Expansions: {
+      SelectedMages: {
+        mages: Mages
+      }
+    }
+  }
+}
+
 // All
 
-const getSelectedMagesState = (state: RootState) =>
+const getSelectedMagesState = (state: SelectedMagesStateSlice) =>
   state.Settings.Expansions.SelectedMages
 
-const getExpansionId = (_: any, id: string) => id
+const getExpansionId = (_: unknown, id: string) => id
 
-const getMageById = (state: RootState, props: { id: string }) =>
-  state.Settings.Expansions.SelectedMages.mages[props.id]
+const getSelectedMagesLookupObject = (state: SelectedMagesLookupStateSlice) =>
+  state.Settings.Expansions.SelectedMages.mages
+
+const getMageId = (_: unknown, { id }: { id: string }) => id
+
+const getMageById = createSelector(
+  [getSelectedMagesLookupObject, getMageId],
+  (mageLookup, id) => mageLookup[id]
+)
 
 const getMageIdsArray = createSelector(
   [getSelectedMagesState],
@@ -176,14 +200,8 @@ const getMagesByExpansionId = createSelector(
 
 // Selected
 
-const getSelectedMagesIds = createSelector(
-  [getSelectedMagesState],
-  state => state.mageIds.filter(id => state.mages[id].selected)
-)
-
-const getSelectedMagesLookupObject = createSelector(
-  [getSelectedMagesState],
-  state => state.mages
+const getSelectedMagesIds = createSelector([getSelectedMagesState], state =>
+  state.mageIds.filter(id => state.mages[id].selected)
 )
 
 const getSelectedMages = createSelector(
