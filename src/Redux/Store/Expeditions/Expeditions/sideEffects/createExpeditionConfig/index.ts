@@ -84,8 +84,9 @@ export const createExpeditionConfig = (
       treasureIds: settingsSnapshot.availableTreasureIds,
     }
   )
+
   const treasureIdsResult = createTreasureIds(
-    variant,
+    variant.configList[0],
     availableLevel1TreasureIds,
     supplyIdsResult.seed
   )
