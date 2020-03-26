@@ -2,13 +2,15 @@ import { NemesisTier, TreasureLevel } from './data'
 import { IMarketSetup } from 'types'
 import { Seed } from './index'
 
+export type VariantConfig = {
+  tier: NemesisTier
+  treasure: BattleTreasure
+}
+
 export type Variant = {
   id: string
   name: string
-  configList: Array<{
-    tier: NemesisTier
-    treasure: BattleTreasure
-  }>
+  configList: Array<VariantConfig>
 }
 
 export type BattleTreasure = { level?: TreasureLevel; hasTreasure: boolean }
