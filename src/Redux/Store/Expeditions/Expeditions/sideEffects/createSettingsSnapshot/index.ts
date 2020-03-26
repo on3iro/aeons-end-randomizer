@@ -1,47 +1,7 @@
 import { RootState, selectors } from 'Redux/Store'
 import * as types from 'types'
 
-const determineUsedExpansions = (
-  state: RootState,
-  settingsSnapshot: Omit<types.SettingsSnapshot, 'usedExpansions'>
-) => {
-  const {
-    availableCardIds,
-    availableMageIds,
-    availableNemesisIds,
-    availableTreasureIds,
-    availableUpgradedBasicNemesisCardIds,
-  } = settingsSnapshot
-  const allCards = selectors.Settings.Expansions.SelectedCards.getSelectedCardsLookupObject(
-    state
-  )
-  const allMages = selectors.Settings.Expansions.SelectedMages.getSelectedMagesLookupObject(
-    state
-  )
-  const allNemeses = selectors.Settings.Expansions.SelectedNemeses.getSelectedNemesesState(
-    state
-  ).nemeses
-  const allTreasures = selectors.Settings.Expansions.Treasures.getTreasures(
-    state
-  )
-  const allUBNCards = selectors.Settings.Expansions.UpgradedBasicNemesisCards.getUpgradedBasicNemesisCards(
-    state
-  )
-
-  const expansionIds = [
-    ...availableCardIds.map(id => allCards[id]).map(c => c.expansion),
-    ...availableMageIds.map(id => allMages[id]).map(m => m.expansion),
-    ...availableNemesisIds.map(id => allNemeses[id]).map(n => n.expansion),
-    ...availableTreasureIds.map(id => allTreasures[id]).map(t => t.expansion),
-    ...availableUpgradedBasicNemesisCardIds
-      .map(id => allUBNCards[id])
-      .map(c => c.expansion),
-  ]
-
-  const uniqueIds = [...new Set(expansionIds)]
-
-  return uniqueIds
-}
+import { determineUsedExpansions } from './determineUsedExpansions'
 
 export const createSettingsSnapshot = (
   state: RootState,
