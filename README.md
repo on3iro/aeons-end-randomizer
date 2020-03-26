@@ -14,6 +14,11 @@
 - [Available Scripts](#available-scripts)
   - [`yarn start`](#yarn-start)
   - [`yarn test`](#yarn-test)
+  - [`yarn test:coverage`](#yarn-testcoverage)
+  - [`yarn test:components`](#yarn-testcomponents)
+  - [`yarn test:components:coverage`](#yarn-testcomponentscoverage)
+  - [`yarn test:redux`](#yarn-testredux)
+  - [`yarn test:redux:coverage`](#yarn-testreduxcoverage)
   - [`yarn run build`](#yarn-run-build)
   - [`yarn run build:gh-pages`](#yarn-run-buildgh-pages)
   - [`yarn run deploy`](#yarn-run-deploy)
@@ -63,6 +68,26 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn test:coverage`
+
+Runs all tests and creates coverage for them
+
+### `yarn test:components`
+
+Only runs component tests
+
+### `yarn test:components:coverage`
+
+Only runs component tests and creates coverage
+
+### `yarn test:redux`
+
+Only runs redux related tests
+
+### `yarn test:redux:coverage`
+
+Only runs redux tests and creates coverage
 
 ### `yarn run build`
 
