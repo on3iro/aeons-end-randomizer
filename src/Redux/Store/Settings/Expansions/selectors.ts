@@ -86,7 +86,7 @@ export const getTreasuresByLevelForSelectedExpansions = createSelector(
 )
 
 export const getTreasureIds = (
-  _: RootState,
+  _: unknown,
   { treasureIds }: { treasureIds: string[] }
 ) => treasureIds
 
