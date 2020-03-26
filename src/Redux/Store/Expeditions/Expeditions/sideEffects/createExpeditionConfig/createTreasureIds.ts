@@ -6,12 +6,11 @@ import {
 import * as types from 'types'
 
 export const createTreasureIds = (
-  variant: types.Variant,
+  firstBattleConfig: types.VariantConfig,
   availableLevel1TreasureIds: string[],
   seed: types.Seed
 ) => {
   // TODO someday we probably should extend the type so that we have a treasreBeforeFight and treasureAfterFight property
-  const firstBattleConfig = variant.configList[0]
   const startsWithTreasure =
     firstBattleConfig.tier.tier > 1 && firstBattleConfig.treasure.hasTreasure
 
