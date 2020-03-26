@@ -57,6 +57,10 @@
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "test:coverage": "yarn run test -- --coverage --watchAll",
+    "test:components": "yarn run test -- --testPathPattern=/src/components/",
+    "test:components:coverage": "yarn run test -- --coverage --collectCoverageFrom=src/components/**/*.ts --watch --testPathPattern=/src/components/",
+    "test:redux": "yarn run test -- --testPathPattern=/src/Redux/",
+    "test:redux:coverage": "yarn run test -- --coverage --collectCoverageFrom=src/Redux/**/*.ts --watch --testPathPattern=/src/Redux/",
     "analyze:app": "source-map-explorer build/static/js/main.*",
     "analyze:vendor": "source-map-explorer build/static/js/2.*",
     "eject": "react-scripts eject"
