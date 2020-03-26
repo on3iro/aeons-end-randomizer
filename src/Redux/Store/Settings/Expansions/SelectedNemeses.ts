@@ -3,9 +3,8 @@ import { LoopReducer, loop, Cmd } from 'redux-loop'
 import { createSelector } from 'reselect'
 import { get as getFromDb, set as setToDb } from 'idb-keyval'
 
-import * as types from '../../../../types'
-import config from '../../../../config'
-import { RootState } from '../..'
+import * as types from 'types'
+import config from 'config'
 
 const NEMESES_DB_KEY = 'nemeses-1.8'
 
@@ -148,15 +147,41 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
+export type SelectedNemesesStateSlice = {
+  Settings: {
+    Expansions: {
+      SelectedNemeses: State
+    }
+  }
+}
+
+export type SelectedNemesesLookupStateSlice = {
+  Settings: {
+    Expansions: {
+      SelectedNemeses: {
+        nemeses: Nemeses
+      }
+    }
+  }
+}
+
 // All
 
-const getSelectedNemesesState = (state: RootState) =>
+const getSelectedNemesesState = (state: SelectedNemesesStateSlice) =>
   state.Settings.Expansions.SelectedNemeses
 
-const getExpansionId = (_: any, id: string) => id
+const getSelectedNemesesLookupObject = (
+  state: SelectedNemesesLookupStateSlice
+) => state.Settings.Expansions.SelectedNemeses.nemeses
 
-const getNemesisById = (state: RootState, props: { id: string }) =>
-  state.Settings.Expansions.SelectedNemeses.nemeses[props.id]
+const getExpansionId = (_: unknown, id: string) => id
+
+const getNemesisId = (_: unknown, { id }: { id: string }) => id
+
+const getNemesisById = createSelector(
+  [getSelectedNemesesLookupObject, getNemesisId],
+  (nemesesLookup, id) => nemesesLookup[id]
+)
 
 const getNemesisIdsArray = createSelector(
   [getSelectedNemesesState],
@@ -189,6 +214,7 @@ const getSelectedNemeses = createSelector(
 
 export const selectors = {
   getSelectedNemesesState,
+  getSelectedNemesesLookupObject,
   getSelectedNemeses,
   getNemesesByExpansionId,
   getNemesisById,

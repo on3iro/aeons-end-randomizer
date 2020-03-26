@@ -6,8 +6,6 @@ import { get as getFromDb, set as setToDb } from 'idb-keyval'
 import * as types from 'types'
 import config from 'config'
 
-import { RootState } from 'Redux/Store'
-
 const UPGRADED_BASIC_NEMESIS_CARDS_DB_KEY = 'upgradedBasicNemesisCards-1.8'
 
 ///////////
@@ -151,14 +149,38 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
+export type UpgradedBasicNemesisCardsStateSlice = {
+  Settings: {
+    Expansions: {
+      UpgradedBasicNemesisCards: {
+        upgradedBasicNemesisCards: SelectedUpgradedBasicNemesisCards
+      }
+    }
+  }
+}
+
+export type UpgradedBasicNemesisCardIdsStateSlice = {
+  Settings: {
+    Expansions: {
+      UpgradedBasicNemesisCards: {
+        upgradedBasicNemesisCardIds: string[]
+      }
+    }
+  }
+}
+
 // All
 
-const getUpgradedBasicNemesisCards = (state: RootState) =>
+const getUpgradedBasicNemesisCards = (
+  state: UpgradedBasicNemesisCardsStateSlice
+) =>
   state.Settings.Expansions.UpgradedBasicNemesisCards.upgradedBasicNemesisCards
 
-const getExpansionId = (_: any, id: string) => id
+const getExpansionId = (_: unknown, id: string) => id
 
-const getUpgradedBasicNemesisCardIds = (state: RootState) =>
+const getUpgradedBasicNemesisCardIds = (
+  state: UpgradedBasicNemesisCardIdsStateSlice
+) =>
   state.Settings.Expansions.UpgradedBasicNemesisCards
     .upgradedBasicNemesisCardIds
 

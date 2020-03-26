@@ -62,10 +62,11 @@ export const getExpeditionBanishedCards = createSelector(
 export const getAvailableNemesisForExpeditionId = createSelector(
   [
     Expeditions.selectors.Expeditions.getSettingsSnapshotByExpeditionId,
-    Settings.selectors.Expansions.SelectedNemeses.getSelectedNemesesState,
+    Settings.selectors.Expansions.SelectedNemeses
+      .getSelectedNemesesLookupObject,
   ],
-  (settingsSnapshot, nemesisState) =>
-    settingsSnapshot.availableNemesisIds.map(id => nemesisState.nemeses[id])
+  (settingsSnapshot, nemeses) =>
+    settingsSnapshot.availableNemesisIds.map(id => nemeses[id])
 )
 
 export const getAvailableCardsForExpeditionId = createSelector(
