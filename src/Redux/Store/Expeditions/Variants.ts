@@ -2,7 +2,6 @@ import { createSelector } from 'reselect'
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import { RootState } from '../'
 import { Variant, VariantId, variants, variantIds } from 'types'
 
 ///////////
@@ -13,13 +12,11 @@ export type State = {
   variants: {
     [id: string]: Variant
   }
-  selected: VariantId
   variantIds: VariantId[]
 }
 
 export const initialState: State = {
   variants: variants,
-  selected: 'DEFAULT',
   variantIds,
 }
 
@@ -66,8 +63,28 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getVariants = (state: RootState) => state.Expeditions.Variants.variants
-const getVariantId = (_: RootState, props: { variantId: string }) =>
+export type VariantsStateSlice = {
+  Expeditions: {
+    Variants: {
+      variants: {
+        [id: string]: Variant
+      }
+    }
+  }
+}
+
+export type VariantIdsStateSlice = {
+  Expeditions: {
+    Variants: {
+      variantIds: VariantId[]
+    }
+  }
+}
+
+const getVariants = (state: VariantsStateSlice) =>
+  state.Expeditions.Variants.variants
+
+const getVariantId = (_: unknown, props: { variantId: string }) =>
   props.variantId
 
 const getVariantById = createSelector(
@@ -75,16 +92,8 @@ const getVariantById = createSelector(
   (variants, id) => variants[id]
 )
 
-const getSelectedVariantId = (state: RootState) =>
-  state.Expeditions.Variants.selected
-
-const getVariantIds = (state: RootState) =>
+const getVariantIds = (state: VariantIdsStateSlice) =>
   state.Expeditions.Variants.variantIds
-
-const getSelectedVariant = createSelector(
-  [getVariants, getSelectedVariantId],
-  (variants, id) => variants[id]
-)
 
 const getVariantList = createSelector(
   [getVariantIds, getVariants],
@@ -93,8 +102,6 @@ const getVariantList = createSelector(
 
 export const selectors = {
   getVariants,
-  getSelectedVariantId,
-  getSelectedVariant,
   getVariantIds,
   getVariantList,
   getVariantById,
