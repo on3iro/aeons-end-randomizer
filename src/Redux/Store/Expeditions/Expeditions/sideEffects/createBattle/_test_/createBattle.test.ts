@@ -1,9 +1,12 @@
 import { createBattle } from '../index'
 import * as types from 'types'
 
+import * as rollNemesisIdModule from '../rollNemesisId'
+import * as getUpgradedBasicNemesisCardsResultModule from '../getUpgradedBasicNemesisCardsResult'
+
 describe('createBattle()', () => {
   const inputSeed = { seed: 'test', supplyState: true, nemesisState: true }
-  const inputBattle = {
+  const inputBattle: types.Battle = {
     id: 'someBattle',
     nemesisTier: {
       tier: 2,
@@ -17,7 +20,7 @@ describe('createBattle()', () => {
     tries: 0,
   }
 
-  const getExampleState = () => ({
+  const makeGetExampleState = (battle: types.Battle = inputBattle) => () => ({
     Expeditions: {
       Expeditions: {
         expeditions: {
@@ -32,7 +35,7 @@ describe('createBattle()', () => {
               ],
             },
             seed: inputSeed,
-            battles: [inputBattle],
+            battles: [battle],
             upgradedBasicNemesisCards: ['Wreck'],
           } as types.Expedition,
         },
@@ -114,7 +117,10 @@ describe('createBattle()', () => {
   })
 
   it('should create correct result', () => {
-    const result = createBattle(getExampleState, inputBattle as types.Battle)
+    const result = createBattle(
+      makeGetExampleState(),
+      inputBattle as types.Battle
+    )
 
     expect(result).toEqual({
       battle: {
@@ -136,40 +142,60 @@ describe('createBattle()', () => {
     })
   })
 
-  it.skip('should use intermediate seed states', () => {
-    const rollSupplySpy = jest.spyOn(
-      rollSupplyRewardsModule,
-      'rollSupplyRewards'
-    )
-    const rollTreasuresSpy = jest.spyOn(
-      rollTreasureIdsByLevelModule,
-      'rollTreasureIdsByLevel'
-    )
-
-    rollWinRewards(getExampleState, {
-      id: 'someBattle',
-      expeditionId: 'expedition1',
-      treasure: {
-        hasTreasure: true,
-        level: 2,
+  test('handle "no nemesis available" by setting id to UNDEFINED', () => {
+    const battle: types.Battle = {
+      ...inputBattle,
+      nemesisTier: {
+        tier: 3,
+        isNewTier: true,
       },
-    } as types.Battle)
+    }
+    const result = createBattle(makeGetExampleState(battle), battle)
 
-    expect(rollTreasuresSpy).toHaveBeenCalledWith(
-      ['t1'],
-      3,
+    expect(result).toEqual({
+      battle: {
+        expeditionId: 'expedition1',
+        id: 'someBattle',
+        nemesisId: undefined,
+        nemesisTier: {
+          isNewTier: true,
+          tier: 3,
+        },
+        status: 'before_battle',
+        treasure: {
+          hasTreasure: false,
+        },
+        tries: 0,
+      },
+      upgradedBasicNemesisCardIds: ['Wreck', 'BaneCommander'],
+      nemesisSeedState: expect.any(Object),
+    })
+  })
+
+  it('should use intermediate seed states', () => {
+    const rollNemesisSpy = jest.spyOn(rollNemesisIdModule, 'rollNemesisId')
+
+    const getUpgradedBasicNemesisCardsResultSpy = jest.spyOn(
+      getUpgradedBasicNemesisCardsResultModule,
+      'getUpgradedBasicNemesisCardsResult'
+    )
+
+    createBattle(makeGetExampleState(), inputBattle as types.Battle)
+
+    expect(rollNemesisSpy).toHaveBeenCalledWith(
+      ['PrinceOfGluttons'],
+      expect.any(Function)
+    )
+
+    expect(getUpgradedBasicNemesisCardsResultSpy).toHaveBeenCalledWith(
+      { tier: 2, isNewTier: true },
+      expect.any(Array), // FIXME we could probably be more strict with our test here
+      ['Wreck'],
       expect.any(Function),
-      { seed: inputSeed.seed, state: inputSeed.supplyState }
+      rollNemesisSpy.mock.results[0].value.seed
     )
 
-    expect(rollSupplySpy).toHaveBeenCalledWith(
-      [],
-      [],
-      ['spell1'],
-      rollTreasuresSpy.mock.results[0].value.seed
-    )
-
-    rollSupplySpy.mockRestore()
-    rollTreasuresSpy.mockRestore()
+    rollNemesisSpy.mockRestore()
+    getUpgradedBasicNemesisCardsResultSpy.mockRestore()
   })
 })
