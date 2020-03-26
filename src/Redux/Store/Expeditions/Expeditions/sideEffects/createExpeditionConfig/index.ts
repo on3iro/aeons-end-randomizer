@@ -1,6 +1,6 @@
 import shortid from 'shortid'
 
-import { RootState, selectors } from 'Redux/Store'
+import { selectors, RootState } from 'Redux/Store'
 
 import {
   createArrayWithDefaultValues,
@@ -16,6 +16,7 @@ import { createSupplyIds } from './createSupplyIds'
 import { createTreasureIds } from './createTreasureIds'
 import { generateBattles } from './generateBattles'
 
+// TODO Refator used state type (if possible)
 export const createExpeditionConfig = (
   getState: () => RootState,
   {
@@ -48,6 +49,7 @@ export const createExpeditionConfig = (
   ///////////////////////////
 
   // Mages
+
   const mageIdsResult = createIdList(
     settingsSnapshot.availableMageIds,
     createArrayWithDefaultValues(4, 'EMPTY'),

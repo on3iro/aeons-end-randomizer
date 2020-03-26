@@ -181,8 +181,8 @@ const getTreasureLevel = (
   props: { treasureLevel: types.TreasureLevel }
 ) => props.treasureLevel
 
-const getExpansionId = (_: any, id: string) => id
-const getIdList = (_: any, props: { treasureIds: string[] }) =>
+const getExpansionId = (_: unknown, id: string) => id
+const getIdList = (_: unknown, props: { treasureIds: string[] }) =>
   props.treasureIds
 
 const getTreasureIdsByTreasureLevel = createSelector(
