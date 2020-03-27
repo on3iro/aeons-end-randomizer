@@ -1,32 +1,20 @@
 import { createSelector } from 'reselect'
 
-import * as types from 'types'
+import {
+  ModeStateSlice,
+  SelectedPlayerCountStateSlice,
+  SelectedSetupStateSlice,
+} from './types'
 
 import { adjustSetup } from './helpers'
 
-const getMode = (state: {
-  TurnOrder: {
-    Configuration: {
-      Mode: types.Mode
-    }
-  }
-}) => state.TurnOrder.Configuration.Mode
+const getMode = (state: ModeStateSlice) => state.TurnOrder.Configuration.Mode
 
-const getSelectedPlayerCount = (state: {
-  TurnOrder: {
-    Configuration: {
-      SelectedPlayerCount: types.ITurnOrderPlayerCount
-    }
-  }
-}) => state.TurnOrder.Configuration.SelectedPlayerCount
+const getSelectedPlayerCount = (state: SelectedPlayerCountStateSlice) =>
+  state.TurnOrder.Configuration.SelectedPlayerCount
 
-const getSelectedSetup = (state: {
-  TurnOrder: {
-    Configuration: {
-      SelectedSetup: types.ITurnOrderSetup
-    }
-  }
-}) => state.TurnOrder.Configuration.SelectedSetup
+const getSelectedSetup = (state: SelectedSetupStateSlice) =>
+  state.TurnOrder.Configuration.SelectedSetup
 
 const getConfiguration = createSelector(
   [getMode, getSelectedSetup],
