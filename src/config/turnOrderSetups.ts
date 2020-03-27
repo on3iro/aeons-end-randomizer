@@ -6,7 +6,7 @@ export const TURNORDERCARDS: { [key: string]: ITurnOrderCard } = {
   'player1-3': { id: 'player1-3', name: 'Player 1', type: 'player1' },
   'player1-4': { id: 'player1-4', name: 'Player 1', type: 'player1' },
   'player1-alternating': {
-    id: 'player-1-alternating',
+    id: 'player1-alternating',
     name: 'Player 1 (alternate)',
     type: 'player1',
     alternate: true,
