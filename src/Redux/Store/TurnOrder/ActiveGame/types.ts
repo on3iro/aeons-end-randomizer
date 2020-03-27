@@ -27,3 +27,27 @@ export enum ActionTypes {
 }
 
 export type Action = ActionsUnion<typeof actions>
+
+export type DeckStateSlice = {
+  TurnOrder: {
+    ActiveGame: {
+      deck: types.ITurnOrderCard[]
+    }
+  }
+}
+
+export type DiscardStateSlice = {
+  TurnOrder: {
+    ActiveGame: {
+      discard: types.ITurnOrderCard[]
+    }
+  }
+}
+
+export type StartedStateSlice = {
+  TurnOrder: {
+    ActiveGame: {
+      started: boolean
+    }
+  }
+}
