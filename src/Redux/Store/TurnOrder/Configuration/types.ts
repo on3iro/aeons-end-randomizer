@@ -23,3 +23,27 @@ export enum ActionTypes {
 }
 
 export type Action = ActionsUnion<typeof actions>
+
+export type ModeStateSlice = {
+  TurnOrder: {
+    Configuration: {
+      Mode: types.Mode
+    }
+  }
+}
+
+export type SelectedPlayerCountStateSlice = {
+  TurnOrder: {
+    Configuration: {
+      SelectedPlayerCount: types.ITurnOrderPlayerCount
+    }
+  }
+}
+
+export type SelectedSetupStateSlice = {
+  TurnOrder: {
+    Configuration: {
+      SelectedSetup: types.ITurnOrderSetup
+    }
+  }
+}
