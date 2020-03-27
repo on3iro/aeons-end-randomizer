@@ -60,3 +60,20 @@ export const MODES = [
   'Blitz + Maelstrom',
 ] as const
 export type Mode = typeof MODES[number] // automatically creates union from tuple
+
+export const PLAYER_COUNT_IDS = [
+  'onePlayer',
+  'twoPlayers',
+  'threePlayers',
+  'fourPlayers',
+] as const
+export type PlayerCountId = typeof PLAYER_COUNT_IDS[number]
+
+export const TURNORDER_SETUP_VARIATION_IDS = [
+  'default',
+  '4toc',
+  '34alternating',
+  'wildToken',
+  'splitPlayers',
+] as const
+export type TurnorderSetupVariationId = typeof TURNORDER_SETUP_VARIATION_IDS[number]
