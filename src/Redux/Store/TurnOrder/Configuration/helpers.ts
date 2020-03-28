@@ -1,5 +1,23 @@
+import { loop, Cmd } from 'redux-loop'
+import { set as setToDb } from 'idb-keyval'
+
 import config from 'config'
 import * as types from 'types'
+
+import { State } from './types'
+import { TURNORDER_CONFIG_DB_KEY } from './constants'
+import { actions } from './actions'
+
+const newStateWithDBWrite = (newState: State) => {
+  return loop(
+    newState,
+    Cmd.run(setToDb, {
+      args: [TURNORDER_CONFIG_DB_KEY, newState],
+      successActionCreator: actions.setToDBSuccessful,
+      failActionCreator: actions.setToDBFailed,
+    })
+  )
+}
 
 const adjustSetup = (
   mode: types.Mode,
@@ -55,4 +73,4 @@ const adjustSetup = (
   }
 }
 
-export { adjustSetup }
+export { newStateWithDBWrite, adjustSetup }
