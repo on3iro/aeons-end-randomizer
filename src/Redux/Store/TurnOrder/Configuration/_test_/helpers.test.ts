@@ -1,6 +1,38 @@
+import { Cmd, getCmd } from 'redux-loop'
+import { set as setToDb } from 'idb-keyval'
+
 import config from 'config'
 
-import { adjustSetup } from 'Redux/Store/TurnOrder/Configuration/helpers'
+import { State } from '../types'
+import { TURNORDER_CONFIG_DB_KEY } from '../constants'
+import { actions } from '../actions'
+
+import {
+  newStateWithDBWrite,
+  adjustSetup,
+} from 'Redux/Store/TurnOrder/Configuration/helpers'
+
+const mockConfiguration: State = {
+  Mode: 'Blitz',
+  SelectedPlayerCount: config.TURNORDERSETUPS['fourPlayers'],
+  SelectedSetup: config.TURNORDERSETUPS['fourPlayers'].variations['default'],
+}
+
+describe('newStateWithDBWrite()', () => {
+  const result = newStateWithDBWrite(mockConfiguration)
+
+  it('should have right cmd', () => {
+    const cmd = getCmd(result)
+
+    expect(cmd).toEqual(
+      Cmd.run(setToDb, {
+        args: [TURNORDER_CONFIG_DB_KEY, mockConfiguration],
+        successActionCreator: actions.setToDBSuccessful,
+        failActionCreator: actions.setToDBFailed,
+      })
+    )
+  })
+})
 
 describe('adjustSetup()', () => {
   const defaultVariation =
