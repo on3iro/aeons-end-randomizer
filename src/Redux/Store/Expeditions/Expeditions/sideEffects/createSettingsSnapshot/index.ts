@@ -6,8 +6,8 @@ import { handleNewSettingsSnapshot } from 'Redux/Store/Expeditions/Expeditions/s
 
 export const createSettingsSnapshot = (
   state: RootState,
-  existingSettingsSnapshot?: types.SettingsSnapshot,
-  marketId: string = 'DEFAULT'
+  existingSettingsSnapshot?: Omit<types.SettingsSnapshot, 'usedExpansions'>,
+  marketId: string = 'random'
 ): types.SettingsSnapshot => {
   const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
   const availableCardIds = selectors.Settings.Expansions.getSelectedCardIdsForSelectedExpansions(

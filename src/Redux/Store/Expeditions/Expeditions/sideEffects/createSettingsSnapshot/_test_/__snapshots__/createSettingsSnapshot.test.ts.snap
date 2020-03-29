@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createSettingsSnapshot() should produce correct result 1`] = `
+Object {
+  "availableCardIds": Array [
+    "DiamondCluster",
+    "ChaosArc",
+    "Ignite",
+    "EssenceTheft",
+    "SearingRuby",
+  ],
+  "availableMageIds": Array [
+    "Adelheim",
+  ],
+  "availableNemesisIds": Array [
+    "CarapaceQueen",
+    "CrookedMask",
+  ],
+  "availableTreasureIds": Array [
+    "DezmodiasOblivionShard",
+    "UlgimorsCoalFragment",
+  ],
+  "availableUpgradedBasicNemesisCardIds": Array [
+    "HissingAcid",
+    "Wreck",
+    "BaneCommander",
+  ],
+  "supplySetup": Object {
+    "active": true,
+    "default": true,
+    "id": "random",
+    "name": "Random Setup (Default)",
+    "tiles": Array [
+      Object {
+        "operation": "ANY",
+        "type": "Gem",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Gem",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Gem",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Relic",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Relic",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Spell",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Spell",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Spell",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Spell",
+      },
+    ],
+    "type": "official",
+  },
+  "usedExpansions": Array [
+    "AE",
+    "IW",
+    "NA",
+  ],
+}
+`;
