@@ -315,16 +315,67 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getState = (state: RootState) => state.Settings.SupplySetups
+export type SupplySetupsStateSlice = {
+  Settings: {
+    SupplySetups: {
+      Predefined: types.MarketSetups
+      Custom: types.MarketSetups
+    }
+  }
+}
 
-const getPredefinedSetups = (state: RootState) =>
+export type PredefinedSupplySetupsStateSlice = {
+  Settings: {
+    SupplySetups: {
+      Predefined: {
+        setups: { [id: string]: types.IMarketSetup }
+      }
+    }
+  }
+}
+
+export type PredefinedSupplySetupIdsStateSlice = {
+  Settings: {
+    SupplySetups: {
+      Predefined: {
+        ids: string[]
+      }
+    }
+  }
+}
+
+export type CustomSupplySetupsStateSlice = {
+  Settings: {
+    SupplySetups: {
+      Custom: {
+        setups: { [id: string]: types.IMarketSetup }
+      }
+    }
+  }
+}
+
+export type CustomSupplySetupIdsStateSlice = {
+  Settings: {
+    SupplySetups: {
+      Custom: {
+        ids: string[]
+      }
+    }
+  }
+}
+
+const getState = (state: SupplySetupsStateSlice) => state.Settings.SupplySetups
+
+const getPredefinedSetups = (state: PredefinedSupplySetupsStateSlice) =>
   state.Settings.SupplySetups.Predefined.setups
-const getPredefinedIds = (state: RootState) =>
+
+const getPredefinedIds = (state: PredefinedSupplySetupIdsStateSlice) =>
   state.Settings.SupplySetups.Predefined.ids
 
-const getCustomSetups = (state: RootState) =>
+const getCustomSetups = (state: CustomSupplySetupsStateSlice) =>
   state.Settings.SupplySetups.Custom.setups
-const getCustomIds = (state: RootState) =>
+
+const getCustomIds = (state: CustomSupplySetupIdsStateSlice) =>
   state.Settings.SupplySetups.Custom.ids
 
 const getPredefinedList = createSelector(
@@ -349,19 +400,16 @@ const getAllAsArray = createSelector(
 
 const makeGetCustomAndPredefined = () => getCustomAndPredefined
 
-const getAllExceptDefaultSets = createSelector(
-  [getAllAsArray],
-  allSets => allSets.filter(set => !set.default)
+const getAllExceptDefaultSets = createSelector([getAllAsArray], allSets =>
+  allSets.filter(set => !set.default)
 )
 
-const getActiveSetups = createSelector(
-  [getAllAsArray],
-  allSets => allSets.filter(setup => setup.active)
+const getActiveSetups = createSelector([getAllAsArray], allSets =>
+  allSets.filter(setup => setup.active)
 )
 
-const getAllSetsSelected = createSelector(
-  [getState],
-  state => allSetsAreSelected(state)
+const getAllSetsSelected = createSelector([getState], state =>
+  allSetsAreSelected(state)
 )
 
 export const selectors = {
