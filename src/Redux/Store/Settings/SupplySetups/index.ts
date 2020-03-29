@@ -3,10 +3,9 @@ import { LoopReducer, loop, Cmd } from 'redux-loop'
 import { createSelector } from 'reselect'
 import { get as getFromDb, set as setToDb } from 'idb-keyval'
 
-import config from '../../../../config'
-import * as types from '../../../../types'
-import { RootState } from '../../'
-import { sortByCardType } from '../../../../helpers'
+import config from 'config'
+import * as types from 'types'
+import { sortByCardType } from 'helpers'
 
 const SUPPLY_DB_KEY = 'supplySetups-1.6' // FIXME this is a quickfix, see https://github.com/on3iro/aeons-end-randomizer/issues/138
 
