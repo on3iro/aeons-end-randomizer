@@ -1,7 +1,8 @@
 import { RootState, selectors } from 'Redux/Store'
 import * as types from 'types'
 
-import { determineUsedExpansions } from './determineUsedExpansions'
+import { handleExistingSettingsSnapshot } from 'Redux/Store/Expeditions/Expeditions/sideEffects/createSettingsSnapshot/handleExistingSettingsSnapshot'
+import { handleNewSettingsSnapshot } from 'Redux/Store/Expeditions/Expeditions/sideEffects/createSettingsSnapshot/handleNewSettingsSnapshot'
 
 export const createSettingsSnapshot = (
   state: RootState,
@@ -9,66 +10,41 @@ export const createSettingsSnapshot = (
   marketId: string = 'DEFAULT'
 ): types.SettingsSnapshot => {
   const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
+  const availableCardIds = selectors.Settings.Expansions.getSelectedCardIdsForSelectedExpansions(
+    state
+  )
+  const availableMageIds = selectors.Settings.Expansions.getSelectedMageIdsForSelectedExpansions(
+    state
+  )
+  const availableNemesisIds = selectors.Settings.Expansions.getSelectedNemesisIdsForSelectedExpansions(
+    state
+  )
+  const availableTreasureIds = selectors.Settings.Expansions.getSelectedTreasureIdsForSelectedExpansions(
+    state
+  )
+  const availableUpgradedBasicNemesisCardIds = selectors.Settings.Expansions.getSelectedUpgradedBasicNemesisCardIdsForSelectedExpansions(
+    state
+  )
 
-  const existingSupply: {
-    [id: string]: types.IMarketSetup
-  } =
-    existingSettingsSnapshot && existingSettingsSnapshot.supplySetup
-      ? {
-          [existingSettingsSnapshot.supplySetup.id]:
-            existingSettingsSnapshot.supplySetup,
-        }
-      : {}
-
-  const allSupplySetups = {
-    ...getCustomAndPredefined(state),
-    ...existingSupply,
-  }
-
-  const supplySetup = allSupplySetups[marketId]
+  const customAndPredefinedSetups = getCustomAndPredefined(state)
 
   if (existingSettingsSnapshot) {
-    const usedExpansions = determineUsedExpansions(
+    return handleExistingSettingsSnapshot(
       state,
-      existingSettingsSnapshot
+      existingSettingsSnapshot,
+      customAndPredefinedSetups,
+      marketId
     )
-
-    return {
-      ...existingSettingsSnapshot,
-      usedExpansions,
-      supplySetup,
-    }
   } else {
-    const availableCardIds = selectors.Settings.Expansions.getSelectedCardIdsForSelectedExpansions(
-      state
-    )
-    const availableMageIds = selectors.Settings.Expansions.getSelectedMageIdsForSelectedExpansions(
-      state
-    )
-    const availableNemesisIds = selectors.Settings.Expansions.getSelectedNemesisIdsForSelectedExpansions(
-      state
-    )
-    const availableTreasureIds = selectors.Settings.Expansions.getSelectedTreasureIdsForSelectedExpansions(
-      state
-    )
-    const availableUpgradedBasicNemesisCardIds = selectors.Settings.Expansions.getSelectedUpgradedBasicNemesisCardIdsForSelectedExpansions(
-      state
-    )
+    const supplySetup = customAndPredefinedSetups[marketId]
 
-    const baseSnapshot = {
+    return handleNewSettingsSnapshot(state, {
       supplySetup,
       availableCardIds,
       availableMageIds,
       availableNemesisIds,
       availableTreasureIds,
       availableUpgradedBasicNemesisCardIds,
-    }
-
-    const usedExpansions = determineUsedExpansions(state, baseSnapshot)
-
-    return {
-      ...baseSnapshot,
-      usedExpansions,
-    }
+    })
   }
 }
