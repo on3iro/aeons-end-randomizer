@@ -19,13 +19,16 @@ export const handleExistingSettingsSnapshot = (
 ) => {
   const usedExpansions = determineUsedExpansions(state, settingsSnapshot)
 
-  const existingSupply: {
-    [id: string]: types.IMarketSetup
-  } = settingsSnapshot.supplySetup
-    ? {
-        [settingsSnapshot.supplySetup.id]: settingsSnapshot.supplySetup,
-      }
-    : {}
+  // NOTE: Because we currently do get the marketId from the outside
+  // (it is currently passed to an action creator from a react component),
+  // we do not know the actual supply setup.
+  // Therefore we create a lookup object from all predefined setups, user specific custom setups
+  // as well as the setup which was used inside the given snapshot and retrieve the setup by its id.
+  //
+  // FIXME: This should probably be refactored in the future.
+  const existingSupply = {
+    [settingsSnapshot.supplySetup.id]: settingsSnapshot.supplySetup,
+  }
 
   const allSupplySetups = {
     ...baseSupplySetups,
