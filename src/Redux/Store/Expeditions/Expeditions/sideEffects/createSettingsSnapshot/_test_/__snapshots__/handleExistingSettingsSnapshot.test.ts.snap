@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`handleExistingSettingsSnapshot() should produce correct result 1`] = `
+Object {
+  "availableCardIds": Array [
+    "DiamondCluster",
+  ],
+  "availableMageIds": Array [
+    "Adelheim",
+  ],
+  "availableNemesisIds": Array [
+    "Necroswarm",
+  ],
+  "availableTreasureIds": Array [
+    "DezmodiasOblivionShard",
+  ],
+  "availableUpgradedBasicNemesisCardIds": Array [
+    "HissingAcid",
+  ],
+  "supplySetup": Object {
+    "active": true,
+    "default": true,
+    "id": "random",
+    "name": "Random Setup (Default)",
+    "tiles": Array [
+      Object {
+        "operation": "ANY",
+        "type": "Gem",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Gem",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Gem",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Relic",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Relic",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Spell",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Spell",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Spell",
+      },
+      Object {
+        "operation": "ANY",
+        "type": "Spell",
+      },
+    ],
+    "type": "official",
+  },
+  "usedExpansions": Array [
+    "AE",
+    "IW",
+    "NA",
+  ],
+}
+`;
