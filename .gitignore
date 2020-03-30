@@ -205,3 +205,7 @@ package-lock.json
 
 # vim coc reports
 report.*.json
+
+# Cypress
+# =======================================
+cypress/videos/*
