@@ -1,7 +1,8 @@
 import { createSelector, OutputSelector } from 'reselect'
 
-import * as types from '../../../../types'
-import { RootState } from '../../'
+import * as types from 'types'
+
+import { RootState } from 'Redux/Store'
 
 import * as SelectedExpansions from './SelectedExpansions'
 import * as SelectedCards from './SelectedCards'
