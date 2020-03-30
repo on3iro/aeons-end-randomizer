@@ -1,6 +1,6 @@
-import { RootState } from 'Redux/Store'
+import { RandomCardsStateSlice } from './types'
 
-const getBasicNemesisCards = (state: RootState) =>
+const getBasicNemesisCards = (state: RandomCardsStateSlice) =>
   state.Randomizer.BasicNemesisCards.RandomCards
 
 export const selectors = {
