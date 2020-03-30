@@ -1,7 +1,6 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import { RootState } from 'Redux/Store/'
 import * as types from 'types'
 
 ///////////
@@ -21,8 +20,8 @@ export enum ActionTypes {
 }
 
 export const actions = {
-  setCount: (count: MageCount) => createAction(ActionTypes.SET, count),
   noOp: () => createAction('NOOP'),
+  setCount: (count: MageCount) => createAction(ActionTypes.SET, count),
 }
 
 export type Action = ActionsUnion<typeof actions>
@@ -50,7 +49,15 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getCount = (state: RootState) => state.Randomizer.Mages.Count
+export type MagesCountStateSlice = {
+  Randomizer: {
+    Mages: {
+      Count: State
+    }
+  }
+}
+
+const getCount = (state: MagesCountStateSlice) => state.Randomizer.Mages.Count
 
 export const selectors = {
   getCount,

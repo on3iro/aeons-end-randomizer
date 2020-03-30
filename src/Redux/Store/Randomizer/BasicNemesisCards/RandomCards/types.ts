@@ -16,3 +16,11 @@ export enum ActionTypes {
 }
 
 export type Action = ActionsUnion<typeof actions>
+
+export type RandomCardsStateSlice = {
+  Randomizer: {
+    BasicNemesisCards: {
+      RandomCards: State
+    }
+  }
+}

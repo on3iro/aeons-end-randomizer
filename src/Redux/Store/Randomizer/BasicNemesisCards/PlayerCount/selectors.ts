@@ -1,6 +1,6 @@
-import { RootState } from 'Redux/Store'
+import { PlayerCountStateSlice } from './types'
 
-const getCount = (state: RootState) =>
+const getCount = (state: PlayerCountStateSlice) =>
   state.Randomizer.BasicNemesisCards.PlayerCount
 
 export const selectors = {
