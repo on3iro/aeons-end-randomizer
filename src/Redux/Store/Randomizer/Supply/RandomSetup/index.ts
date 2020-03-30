@@ -3,15 +3,17 @@ import { LoopReducer } from 'redux-loop'
 
 import * as types from 'types'
 import { byCost } from 'helpers'
-import { RootState } from 'Redux/Store/index'
+
 import { createSupply } from 'Redux/helpers'
 
 ///////////
 // STATE //
 ///////////
 
+type Tiles = ReadonlyArray<types.ICard> | null
+
 export type State = Readonly<{
-  Tiles: ReadonlyArray<types.ICard> | null
+  Tiles: Tiles
 }>
 
 export const initialState: State = {
@@ -79,7 +81,18 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getTiles = (state: RootState) => state.Randomizer.Supply.RandomSetup.Tiles
+export type RandomSetupTilesStateSlice = {
+  Randomizer: {
+    Supply: {
+      RandomSetup: {
+        Tiles: Tiles
+      }
+    }
+  }
+}
+
+const getTiles = (state: RandomSetupTilesStateSlice) =>
+  state.Randomizer.Supply.RandomSetup.Tiles
 
 export const selectors = {
   getTiles,

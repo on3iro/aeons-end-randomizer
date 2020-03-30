@@ -1,8 +1,8 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import { Mage } from 'types'
-import { RootState } from 'Redux/Store/'
+import * as types from 'types'
+
 import { createSlotList, createMageList, getRandomEntity } from 'Redux/helpers'
 
 import { MageCount } from '../Count'
@@ -11,7 +11,7 @@ import { MageCount } from '../Count'
 // STATE //
 ///////////
 
-export type State = ReadonlyArray<Mage>
+export type State = ReadonlyArray<types.Mage>
 export const initialState: State = []
 
 /////////////
@@ -23,7 +23,11 @@ export enum ActionTypes {
 }
 
 export const actions = {
-  setRandomMages: (availableMages: ReadonlyArray<Mage>, count: MageCount) => {
+  noOp: () => createAction('NOOP'),
+  setRandomMages: (
+    availableMages: ReadonlyArray<types.Mage>,
+    count: MageCount
+  ) => {
     const length = Math.min(availableMages.length, count)
     const slotList = createSlotList(length)
     const mageList = createMageList(availableMages, slotList, getRandomEntity)
@@ -31,7 +35,6 @@ export const actions = {
 
     return createAction(ActionTypes.SET_RANDOM, { mageList })
   },
-  noOp: () => createAction('NOOP'),
 }
 
 export type Action = ActionsUnion<typeof actions>
@@ -59,7 +62,16 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getMages = (state: RootState) => state.Randomizer.Mages.Recruited
+export type MagesRecruitedStateSlice = {
+  Randomizer: {
+    Mages: {
+      Recruited: State
+    }
+  }
+}
+
+const getMages = (state: MagesRecruitedStateSlice) =>
+  state.Randomizer.Mages.Recruited
 
 export const selectors = {
   getMages,

@@ -13,3 +13,11 @@ export enum ActionTypes {
 export type Action = ActionsUnion<typeof actions>
 
 export type PlayerCount = types.PlayerCount
+
+export type PlayerCountStateSlice = {
+  Randomizer: {
+    BasicNemesisCards: {
+      PlayerCount: PlayerCount
+    }
+  }
+}
