@@ -2,7 +2,7 @@ import { createSettingsSnapshot } from '../index'
 import * as handleExistingSettingsSnapshotModule from '../handleExistingSettingsSnapshot'
 import * as handleNewSettingsSnapshotModule from '../handleNewSettingsSnapshot'
 
-import { rootState } from './__fixtures__/rootState'
+import { rootState } from '__fixtures__/rootState'
 
 describe('createSettingsSnapshot()', () => {
   it('should call handleNewSettingsSnapshot()', () => {
