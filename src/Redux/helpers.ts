@@ -221,7 +221,7 @@ export const createMageList = (
 export const createIdList = (
   availableIds: ReadonlyArray<string>,
   slots: string[],
-  getEntity: types.SeededEntityGetter,
+  getEntity: types.SeededEntityGetter = getRandomEntity,
   seed?: types.Seed
 ) => generateListFrom(availableIds, slots, getEntity, seed)
 
