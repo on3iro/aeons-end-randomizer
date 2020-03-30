@@ -13,12 +13,18 @@
 - [Updating to the newest version](#updating-to-the-newest-version)
 - [Available Scripts](#available-scripts)
   - [`yarn start`](#yarn-start)
-  - [`yarn test`](#yarn-test)
+  - [`yarn test:jest`](#yarn-testjest)
+  - [`yarn test:jest:ci`](#yarn-testjestci)
   - [`yarn test:coverage`](#yarn-testcoverage)
   - [`yarn test:components`](#yarn-testcomponents)
   - [`yarn test:components:coverage`](#yarn-testcomponentscoverage)
   - [`yarn test:redux`](#yarn-testredux)
   - [`yarn test:redux:coverage`](#yarn-testreduxcoverage)
+  - [`yarn test:cy`](#yarn-testcy)
+  - [`yarn test:cy:open`](#yarn-testcyopen)
+  - [TODO - CYPRESS coverage](#todo---cypress-coverage)
+  - [TODO - Jest + Cypress coverage](#todo---jest--cypress-coverage)
+  - [TODO - Watcher running Jest + Cypress](#todo---watcher-running-jest--cypress)
   - [`yarn run build`](#yarn-run-build)
   - [`yarn run build:gh-pages`](#yarn-run-buildgh-pages)
   - [`yarn run deploy`](#yarn-run-deploy)
@@ -64,10 +70,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `yarn test:jest`
 
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn test:jest:ci`
+
+Runs jest single threaded for CI purposes.
+Otherwise memory issues might occur.
 
 ### `yarn test:coverage`
 
@@ -88,6 +99,20 @@ Only runs redux related tests
 ### `yarn test:redux:coverage`
 
 Only runs redux tests and creates coverage
+
+### `yarn test:cy`
+
+Runs cypress test inside the command line
+
+### `yarn test:cy:open`
+
+Opens the cypress app to run tests and see the dashboard
+
+### TODO - CYPRESS coverage
+
+### TODO - Jest + Cypress coverage
+
+### TODO - Watcher running Jest + Cypress
 
 ### `yarn run build`
 
