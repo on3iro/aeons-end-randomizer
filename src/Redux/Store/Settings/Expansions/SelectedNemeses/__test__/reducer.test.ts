@@ -91,7 +91,7 @@ describe('Settings | Expansions | SelectedNemeses | reducer', () => {
       nemesisIds: ['CarapaceQueen', 'CrookedMask', 'HordeCrone'],
     }
 
-    const selectedCardsToSave = ['CarapaceQueen']
+    const selectedNemesesToSave = ['CarapaceQueen']
 
     const result = Reducer(
       mockSelectedNemesesState,
@@ -104,7 +104,7 @@ describe('Settings | Expansions | SelectedNemeses | reducer', () => {
     expect(model).toEqual(expected)
     expect(cmd).toEqual(
       Cmd.run(setToDb, {
-        args: [NEMESES_DB_KEY, selectedCardsToSave],
+        args: [NEMESES_DB_KEY, selectedNemesesToSave],
         successActionCreator: actions.setToDBSuccessful,
         failActionCreator: actions.setToDBFailed,
       })

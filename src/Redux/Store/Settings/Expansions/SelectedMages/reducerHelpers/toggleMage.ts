@@ -20,14 +20,14 @@ export const toggleMage = (
     },
   }
 
-  const selectedCardsToSave = state.mageIds.filter(
+  const selectedMagesToSave = state.mageIds.filter(
     id => newState.mages[id].selected
   )
 
   return loop(
     newState,
     Cmd.run(setToDb, {
-      args: [MAGES_DB_KEY, selectedCardsToSave],
+      args: [MAGES_DB_KEY, selectedMagesToSave],
       successActionCreator: actions.setToDBSuccessful,
       failActionCreator: actions.setToDBFailed,
     })
