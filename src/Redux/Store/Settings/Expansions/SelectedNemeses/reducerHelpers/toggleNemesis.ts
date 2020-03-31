@@ -20,14 +20,14 @@ export const toggleNemesis = (
     },
   }
 
-  const selectedCardsToSave = state.nemesisIds.filter(
+  const selectedNemesesToSave = state.nemesisIds.filter(
     id => newState.nemeses[id].selected
   )
 
   return loop(
     newState,
     Cmd.run(setToDb, {
-      args: [NEMESES_DB_KEY, selectedCardsToSave],
+      args: [NEMESES_DB_KEY, selectedNemesesToSave],
       successActionCreator: actions.setToDBSuccessful,
       failActionCreator: actions.setToDBFailed,
     })
