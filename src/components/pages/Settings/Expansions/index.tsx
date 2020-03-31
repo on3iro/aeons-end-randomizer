@@ -33,6 +33,7 @@ const Expansions = ({ accordionState, toggleAccordion }: Props) => {
       expansionKey="expansions"
       expansionHandler={expansionHandler}
       summary="Expansions"
+      data-test="Expansions"
     >
       <ActiveSets />
     </ExpansionPanel>
