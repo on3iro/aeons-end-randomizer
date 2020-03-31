@@ -36,7 +36,12 @@ const Expeditions = ({ hasStandaloneExpansionSelected }: Props) => {
         <CreationDialog finisher={hide} />
       </RenderModal>
 
-      <ShuffleButton onClick={show} color="primary" variant="extended">
+      <ShuffleButton
+        onClick={show}
+        color="primary"
+        variant="extended"
+        data-test="btn-start-expedition"
+      >
         Start new expedition
       </ShuffleButton>
     </React.Fragment>

@@ -9,7 +9,7 @@ type Props = {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const NameInput = ({ expeditionName, handleInputChange }: Props) => {
+const NameInput = ({ expeditionName, handleInputChange, ...rest }: Props) => {
   return (
     <FormControl component={'fieldset' as 'div'}>
       <FormLabel>General</FormLabel>
@@ -22,6 +22,7 @@ const NameInput = ({ expeditionName, handleInputChange }: Props) => {
         onChange={handleInputChange}
         margin="normal"
         variant="outlined"
+        {...rest}
       />
     </FormControl>
   )

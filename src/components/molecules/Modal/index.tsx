@@ -25,14 +25,14 @@ const Modal = ({ titleColor, titleLabel, children, closeModal }: Props) => {
 
   return ReactDOM.createPortal(
     <React.Fragment>
-      <Wrapper>
+      <Wrapper data-test="modal">
         <Backdrop onClick={closeModal} />
         <Content>
           <Header>
             <Title variant="h1" themeColor={titleColor}>
               {titleLabel}
             </Title>
-            <CloseButton onClick={closeModal}>
+            <CloseButton onClick={closeModal} data-test="modal__btn-close">
               <CloseIcon />
             </CloseButton>
           </Header>

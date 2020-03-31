@@ -34,7 +34,7 @@ const MageTile = ({ mage, playerNumber, theme }: Props) => {
   }, [show])
 
   return (
-    <Wrapper item xs={12} sm={6} md={3}>
+    <Wrapper item xs={12} sm={6} md={3} data-test="mage-tile">
       <Tile
         body={<Body mage={mage} />}
         bgColor={bgColor}

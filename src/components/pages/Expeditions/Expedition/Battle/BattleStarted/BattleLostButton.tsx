@@ -13,6 +13,7 @@ const BattleLostButton = ({ handleLoss }: Props) => {
       variant="contained"
       color="secondary"
       onClick={handleLoss}
+      data-test="btn-battle-lost"
     >
       Battle lost
     </Button>

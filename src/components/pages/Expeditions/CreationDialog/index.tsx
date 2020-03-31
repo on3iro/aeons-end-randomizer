@@ -101,6 +101,7 @@ const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
         <NameInput
           expeditionName={expeditionName}
           handleInputChange={handleNameChange}
+          data-test="input-name"
         />
 
         <BigPocketSelect
@@ -127,7 +128,10 @@ const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
       </ModalBodyWrapper>
 
       <ModalFooterWrapper>
-        <CreateButton handleExpeditionCreation={handleExpeditionCreation} />
+        <CreateButton
+          handleExpeditionCreation={handleExpeditionCreation}
+          data-test="btn-expedition-create"
+        />
       </ModalFooterWrapper>
     </React.Fragment>
   )

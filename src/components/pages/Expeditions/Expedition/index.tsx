@@ -39,7 +39,11 @@ const Expedition = ({ expedition }: Props) => {
 
   return (
     <React.Fragment>
-      <BackLink to="/expeditions" label="Back to overview" />
+      <BackLink
+        to="/expeditions"
+        label="Back to overview"
+        data-test="backlink"
+      />
       <Header
         title={expedition.name || expedition.id}
         score={expedition.score}

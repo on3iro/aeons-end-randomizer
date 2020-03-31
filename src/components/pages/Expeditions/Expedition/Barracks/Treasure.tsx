@@ -28,6 +28,7 @@ const Treasure = ({
         expansionKey={expansionKey}
         expansionHandler={expansionHandler}
         expanded={expanded}
+        data-test="treasure"
       >
         <TreasureList treasures={treasures} />
       </ExpansionPanel>

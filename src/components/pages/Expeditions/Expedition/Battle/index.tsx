@@ -88,6 +88,7 @@ const Battle = ({
       <BattleWrapper
         disabled={battle.status === 'locked' || battle.status === 'finished'}
         onClick={handleClick}
+        data-test="btn-battle"
       >
         <BattleTile battle={battle} nemesis={nemesis ? nemesis.name : '?'} />
       </BattleWrapper>
