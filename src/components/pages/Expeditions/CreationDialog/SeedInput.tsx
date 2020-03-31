@@ -24,6 +24,7 @@ const SeedInput = ({ seed, handleInputChange }: Props) => {
         onChange={handleInputChange}
         margin="normal"
         variant="outlined"
+        data-test="input-seed"
       />
 
       <P variant="subtitle2">

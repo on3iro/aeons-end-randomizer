@@ -63,10 +63,14 @@ const LossRewardTypeSelection = ({ battle, rollLoss }: Props) => {
           rewardSelectValue={rewardSelectValue}
           handleRewardSelectChange={handleRewardSelectChange}
           treasureOptions={treasureOptions}
+          data-test="select-loss-reward"
         />
       </ModalBodyWrapper>
       <ModalFooterWrapper>
-        <ConfirmButton handleRewardConfirmation={handleRewardConfirmation} />
+        <ConfirmButton
+          handleRewardConfirmation={handleRewardConfirmation}
+          data-test="btn-confirm-reward"
+        />
       </ModalFooterWrapper>
       >
     </React.Fragment>

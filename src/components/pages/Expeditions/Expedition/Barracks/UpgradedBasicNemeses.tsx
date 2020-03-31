@@ -28,6 +28,7 @@ const UpgradedBasicNemeses = ({
         expansionKey={expansionKey}
         expansionHandler={expansionHandler}
         expanded={expanded}
+        data-test="upgraded-basic-nemesis-cards"
       >
         <UpgradedBasicNemesisCards
           upgradedBasicNemsisCards={upgradedBasicNemsisCards}

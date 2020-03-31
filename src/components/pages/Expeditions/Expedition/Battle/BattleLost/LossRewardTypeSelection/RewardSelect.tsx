@@ -70,6 +70,7 @@ const RewardSelect = ({
   hasLvl1TreasureLeft,
   hasLvl2TreasureLeft,
   hasLvl3TreasureLeft,
+  ...rest
 }: Props) => {
   return (
     <FormControl>
@@ -80,11 +81,28 @@ const RewardSelect = ({
           name: 'reward',
           id: `reward`,
         }}
+        {...rest}
       >
-        {hasMagesLeft && <MenuItem value="mage">Mage</MenuItem>}
-        {hasGemsLeft && <MenuItem value="gem">Gem</MenuItem>}
-        {hasRelicsLeft && <MenuItem value="relic">Relic</MenuItem>}
-        {hasSpellsLeft && <MenuItem value="spell">Spell</MenuItem>}
+        {hasMagesLeft && (
+          <MenuItem value="mage" data-test="option-mage">
+            Mage
+          </MenuItem>
+        )}
+        {hasGemsLeft && (
+          <MenuItem value="gem" data-test="option-gem">
+            Gem
+          </MenuItem>
+        )}
+        {hasRelicsLeft && (
+          <MenuItem value="relic" data-test="option-relic">
+            Relic
+          </MenuItem>
+        )}
+        {hasSpellsLeft && (
+          <MenuItem value="spell" data-test="option-spell">
+            Spell
+          </MenuItem>
+        )}
 
         {treasureOptions.map(option => {
           if (
@@ -93,7 +111,11 @@ const RewardSelect = ({
             (option.level === 3 && hasLvl3TreasureLeft)
           ) {
             return (
-              <MenuItem key={option.level} value={`treasure${option.level}`}>
+              <MenuItem
+                key={option.level}
+                value={`treasure${option.level}`}
+                data-test={`option-treasure-${option.level}`}
+              >
                 Treasure, Level {option.level}
               </MenuItem>
             )

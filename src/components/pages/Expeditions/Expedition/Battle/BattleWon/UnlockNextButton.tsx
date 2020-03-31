@@ -14,6 +14,7 @@ const UnlockNextButton = ({ handleFinish, finishingIsPossible }: Props) => {
       color="primary"
       onClick={handleFinish}
       disabled={!finishingIsPossible}
+      data-test="btn-unlock-next-battle"
     >
       Unlock next battle
     </Button>

@@ -58,7 +58,10 @@ const BeforeBattle = ({
         />
       </ModalBodyWrapper>
       <ModalFooterWrapper>
-        <StartBattleButton handleClick={handleClick} />
+        <StartBattleButton
+          handleClick={handleClick}
+          data-test="btn-start-battle"
+        />
       </ModalFooterWrapper>
     </React.Fragment>
   )

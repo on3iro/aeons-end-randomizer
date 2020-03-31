@@ -1,9 +1,9 @@
 import React from 'react'
 
-import * as types from '../../../../../types'
-import { useModal } from '../../../../../hooks/useModal'
+import * as types from 'types'
+import { useModal } from 'hooks/useModal'
 
-import ShuffleButton from '../../../../atoms/ShuffleButton'
+import ShuffleButton from 'components/atoms/ShuffleButton'
 
 import BarracksContent from './BarracksContent'
 
@@ -19,7 +19,12 @@ const Barracks = ({ expedition }: Props) => {
       <RenderModal titleColor="#333" titleLabel="Barracks">
         <BarracksContent expedition={expedition} />
       </RenderModal>
-      <ShuffleButton onClick={show} color="primary" variant="extended">
+      <ShuffleButton
+        onClick={show}
+        color="primary"
+        variant="extended"
+        data-test="btn-open-barracks"
+      >
         Show Barracks
       </ShuffleButton>
     </React.Fragment>
