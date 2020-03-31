@@ -14,6 +14,7 @@ type Props = {
   summary: string
   children: React.ReactNode
   expansionHandler: (...args: any) => void
+  [key: string]: any
 }
 
 const ExpansionPanel = ({
@@ -22,12 +23,13 @@ const ExpansionPanel = ({
   expansionHandler,
   expansionKey,
   summary,
+  ...rest
 }: Props) => {
   const isExpanded = expanded === true || expanded === expansionKey
 
   return (
     <StyledExpansionPanel expanded={isExpanded} onChange={expansionHandler}>
-      <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+      <StyledExpansionPanelSummary expandIcon={<ExpandMoreIcon />} {...rest}>
         <Heading>{summary}</Heading>
       </StyledExpansionPanelSummary>
       <ExpansionPanelDetails>{isExpanded && children}</ExpansionPanelDetails>

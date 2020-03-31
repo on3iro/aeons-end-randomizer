@@ -23,3 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('selectAllExpansions', () => {
+  cy.visit('/settings')
+
+  cy.get('[data-test*=Expansions]').click({ force: true })
+  cy.get('span')
+    .contains('Select All')
+    .click()
+})
+
+Cypress.Commands.add('cleanupIndexedDB', () => {
+  indexedDB.deleteDatabase('keyval-store')
+})
