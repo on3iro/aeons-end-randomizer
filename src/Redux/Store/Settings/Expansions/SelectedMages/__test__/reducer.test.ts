@@ -163,7 +163,7 @@ describe('Settings | Expansions | SelectedMages | reducer', () => {
       mageIds: ['Adelheim', 'Brama', 'Nym'],
     }
 
-    const selectedCardsToSave = ['Adelheim']
+    const selectedMagesToSave = ['Adelheim']
 
     const result = Reducer(mockSelectedMagesState, actions.toggleMage('Nym'))
 
@@ -173,7 +173,7 @@ describe('Settings | Expansions | SelectedMages | reducer', () => {
     expect(model).toEqual(expected)
     expect(cmd).toEqual(
       Cmd.run(setToDb, {
-        args: [MAGES_DB_KEY, selectedCardsToSave],
+        args: [MAGES_DB_KEY, selectedMagesToSave],
         successActionCreator: actions.setToDBSuccessful,
         failActionCreator: actions.setToDBFailed,
       })
