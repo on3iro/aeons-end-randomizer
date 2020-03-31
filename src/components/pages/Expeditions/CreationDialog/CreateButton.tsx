@@ -6,13 +6,14 @@ type Props = {
   handleExpeditionCreation: () => void
 }
 
-const CreateButton = ({ handleExpeditionCreation }: Props) => {
+const CreateButton = ({ handleExpeditionCreation, ...rest }: Props) => {
   return (
     <Button
       size="small"
       variant="contained"
       color="primary"
       onClick={handleExpeditionCreation}
+      {...rest}
     >
       Create Expedition
     </Button>

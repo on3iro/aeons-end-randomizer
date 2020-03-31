@@ -14,6 +14,7 @@ const ContinueButton = ({ handleContinue, finishingIsPossible }: Props) => {
       color="primary"
       onClick={handleContinue}
       disabled={!finishingIsPossible}
+      data-test="btn-continue"
     >
       Continue
     </Button>

@@ -13,6 +13,7 @@ const BattleWonButton = ({ handleWin }: Props) => {
       variant="contained"
       color="primary"
       onClick={handleWin}
+      data-test="btn-battle-won"
     >
       Battle won
     </Button>

@@ -9,8 +9,8 @@ type Props = {
   label: string
 }
 
-const BackLink = ({ to, label }: Props) => (
-  <Link to={to}>
+const BackLink = ({ to, label, ...rest }: Props) => (
+  <Link to={to} {...rest}>
     <ChevronLeftIcon /> {label}
   </Link>
 )

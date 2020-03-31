@@ -26,6 +26,7 @@ const Banished = ({
         expansionKey={expansionKey}
         expansionHandler={expansionHandler}
         expanded={expanded}
+        data-test="banished-cards"
       >
         <SupplyList tiles={banishedCards} />
       </ExpansionPanel>

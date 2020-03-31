@@ -5,13 +5,14 @@ type Props = {
   handleRewardConfirmation: () => void
 }
 
-const ConfirmButton = ({ handleRewardConfirmation }: Props) => {
+const ConfirmButton = ({ handleRewardConfirmation, ...rest }: Props) => {
   return (
     <Button
       size="small"
       variant="contained"
       color="primary"
       onClick={handleRewardConfirmation}
+      {...rest}
     >
       Confirm choice
     </Button>

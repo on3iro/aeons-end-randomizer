@@ -19,6 +19,7 @@ const Supply = ({ tiles, expansionKey, expansionHandler, expanded }: Props) => (
     expansionKey={expansionKey}
     expansionHandler={expansionHandler}
     expanded={expanded}
+    data-test="supply"
   >
     <SupplyList tiles={tiles} />
   </ExpansionPanel>
