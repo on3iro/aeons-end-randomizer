@@ -48,6 +48,7 @@ const Battle = ({
   expeditionIsFinished,
   nemesis,
   rollBattle,
+  ...rest
 }: Props) => {
   const {
     beforeBattle,
@@ -84,7 +85,7 @@ const Battle = ({
   )
 
   return (
-    <div>
+    <div {...rest}>
       <BattleWrapper
         disabled={battle.status === 'locked' || battle.status === 'finished'}
         onClick={handleClick}

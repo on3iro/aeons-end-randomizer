@@ -7,12 +7,13 @@ type Props = {
   className?: string
 }
 
-const DeleteButton = ({ onClick, className }: Props) => (
+const DeleteButton = ({ onClick, className, ...rest }: Props) => (
   <IconButton
     color="secondary"
     aria-label="Delete"
     onClick={onClick}
     className={className}
+    {...rest}
   >
     <DeleteIcon />
   </IconButton>

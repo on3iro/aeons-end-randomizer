@@ -54,12 +54,12 @@ const OverviewEntry = ({ expedition, deleteHandler, shareHandler }: Props) => {
 
   return (
     <React.Fragment>
-      <ListItem key={expedition.id}>
+      <ListItem key={expedition.id} data-test={expedition.name}>
         <ExpeditionTile url={url} expedition={expedition} />
         <Controls>
-          <Share onClick={handleShare} />
-          <Copy onClick={creationModal.show} />
-          <Delete onClick={openDeletionDialog} />
+          <Share onClick={handleShare} data-test="btn-share" />
+          <Copy onClick={creationModal.show} data-test="btn-copy" />
+          <Delete onClick={openDeletionDialog} data-test="btn-delete" />
         </Controls>
       </ListItem>
 

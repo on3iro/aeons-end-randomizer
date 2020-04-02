@@ -8,12 +8,13 @@ type Props = {
   className?: string
 }
 
-const CopyButton = ({ onClick, className }: Props) => (
+const CopyButton = ({ onClick, className, ...rest }: Props) => (
   <IconButton
     color="primary"
     aria-label="Copy"
     onClick={onClick}
     className={className}
+    {...rest}
   >
     <CopyIcon />
   </IconButton>
