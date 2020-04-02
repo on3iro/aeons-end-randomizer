@@ -23,6 +23,7 @@ const Prompt = ({
           size="small"
           variant="contained"
           color="secondary"
+          data-test="NO"
         >
           No
         </Button>
@@ -31,6 +32,7 @@ const Prompt = ({
           variant="contained"
           color="primary"
           onClick={yesHandler}
+          data-test="YES"
         >
           Yes
         </Button>

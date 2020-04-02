@@ -12,7 +12,9 @@ import Battle from './Battle'
 import Header from './Header'
 
 const renderBattles = (battles: types.Battle[]) =>
-  battles.map(battle => <Battle key={battle.id} battle={battle} />)
+  battles.map((battle, index) => (
+    <Battle key={battle.id} battle={battle} data-test={`battle-${index}`} />
+  ))
 
 type OwnProps = {
   id: string
