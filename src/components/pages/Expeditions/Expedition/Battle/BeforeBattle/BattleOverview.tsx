@@ -17,7 +17,9 @@ const BattleOverview = ({ info, nemesis, upgradedBasicNemsisCards }: Props) => {
   return (
     <>
       <InfoItem label="Tries" info={info} />
-      <SectionHeadline>{nemesis ? nemesis.name : 'Nemesis'}</SectionHeadline>
+      <SectionHeadline data-test={`${nemesis?.name}`}>
+        {nemesis ? nemesis.name : 'Nemesis'}
+      </SectionHeadline>
       <NemesisInformation nemesis={nemesis} />
       <UpgradedBasicNemesisCardList
         upgradedBasicNemsisCards={upgradedBasicNemsisCards}

@@ -7,12 +7,13 @@ type Props = {
   className?: string
 }
 
-const ShareButton = ({ onClick, className }: Props) => (
+const ShareButton = ({ onClick, className, ...rest }: Props) => (
   <IconButton
     color="primary"
     aria-label="Delete"
     onClick={onClick}
     className={className}
+    {...rest}
   >
     <ShareIcon />
   </IconButton>
