@@ -10,6 +10,8 @@ describe('Expedition creation and run through', () => {
 
   after(() => {
     // @ts-ignore disable-line
+    cy.deselectAllExpansions()
+    // @ts-ignore disable-line
     cy.cleanupIndexedDB()
   })
 

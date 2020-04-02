@@ -33,6 +33,15 @@ Cypress.Commands.add('selectAllExpansions', () => {
     .click()
 })
 
+Cypress.Commands.add('deselectAllExpansions', () => {
+  cy.visit('/settings')
+
+  cy.get('[data-test*=Expansions]').click({ force: true })
+  cy.get('span')
+    .contains('Deselect All')
+    .click()
+})
+
 Cypress.Commands.add('cleanupIndexedDB', () => {
   indexedDB.deleteDatabase('keyval-store')
 })
