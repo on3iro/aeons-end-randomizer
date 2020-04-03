@@ -18,7 +18,7 @@ import ImportButton from './ImportButton'
 import { schema as expeditionJsonSchema } from './expeditionJsonSchema'
 
 type Props = {
-  configImportHandler: (config: types.Expedition) => void
+  configImportHandler: (config: types.OldStyleExpedition) => void
 }
 
 const ConfigImport = ({ configImportHandler }: Props) => {

@@ -27,7 +27,7 @@ const shareApi = (json: string, name: string) => {
   }
 }
 
-export const shareExpedition = (expedition: types.Expedition) => {
+export const shareExpedition = (expedition: types.OldStyleExpedition) => {
   // Process data and remove unnecessary parts
   const {
     seed, // we only want the seed not its state

@@ -137,7 +137,7 @@ export type ExpeditionSeed = Seed & {
   nemesisState: ExpeditionSeedState
 }
 
-export type Expedition = {
+export type OldStyleExpedition = {
   id: string
   name: string
   score: number
@@ -157,5 +157,5 @@ export type Expedition = {
 }
 
 export type Expeditions = {
-  [id: string]: Expedition
+  [id: string]: OldStyleExpedition
 }

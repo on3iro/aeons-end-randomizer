@@ -26,7 +26,7 @@ export const createExpeditionConfig = (
     existingSettingsSnapshot,
     seedValue,
   }: BaseConfig
-): types.Expedition => {
+): types.OldStyleExpedition => {
   const state = getState()
 
   /////////////////////////

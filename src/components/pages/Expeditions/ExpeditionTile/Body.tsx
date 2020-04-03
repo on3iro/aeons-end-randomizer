@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../../Redux/Store'
-import { Expedition } from '../../../../types'
+import { OldStyleExpedition } from '../../../../types'
 
 import InfoItem from '../../../molecules/InfoItem'
 
@@ -10,7 +10,7 @@ import Name from './Name'
 import List from './List'
 
 type OwnProps = {
-  expedition: Expedition
+  expedition: OldStyleExpedition
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({
