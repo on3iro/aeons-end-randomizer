@@ -110,7 +110,7 @@ describe('Reducer()', () => {
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.Battle
+    } as types.OldStyleBattle
 
     const state = {
       expeditions: {
@@ -149,7 +149,7 @@ describe('Reducer()', () => {
       status: 'before_battle',
       tries: 0,
       nemesisId: 'Arachnos',
-    } as types.Battle
+    } as types.OldStyleBattle
 
     const state = {
       expeditions: {
@@ -216,7 +216,7 @@ describe('Reducer()', () => {
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.Battle
+    } as types.OldStyleBattle
 
     const state = {
       expeditions: {
@@ -255,7 +255,7 @@ describe('Reducer()', () => {
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.Battle
+    } as types.OldStyleBattle
 
     const state = {
       expeditions: {
@@ -344,7 +344,7 @@ describe('Reducer()', () => {
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.Battle
+    } as types.OldStyleBattle
 
     const state = {
       expeditions: {
@@ -383,7 +383,7 @@ describe('Reducer()', () => {
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.Battle
+    } as types.OldStyleBattle
 
     const state = {
       expeditions: {
@@ -475,7 +475,7 @@ describe('Reducer()', () => {
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.Battle
+    } as types.OldStyleBattle
 
     const state = {
       expeditions: {
@@ -517,7 +517,7 @@ describe('Reducer()', () => {
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.Battle
+    } as types.OldStyleBattle
 
     const state = {
       expeditions: {
@@ -563,7 +563,7 @@ describe('Reducer()', () => {
       expeditionId: 'Expedition1',
       status: 'started',
       tries: 0,
-    } as types.Battle
+    } as types.OldStyleBattle
 
     const state = {
       expeditions: {
@@ -609,7 +609,7 @@ describe('Reducer()', () => {
       expeditionId: 'Expedition1',
       status: 'finished',
       tries: 0,
-    } as types.Battle
+    } as types.OldStyleBattle
 
     const state = {
       expeditions: {

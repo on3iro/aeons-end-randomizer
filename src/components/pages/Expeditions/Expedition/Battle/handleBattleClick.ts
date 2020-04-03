@@ -7,7 +7,7 @@ type ModalType = ReturnType<typeof useModal>
 type Config = {
   expeditionIsFinished: boolean
   expeditionComplete: ModalType
-  battle: types.Battle
+  battle: types.OldStyleBattle
   beforeBattle: ModalType
   battleStarted: ModalType
   battleLost: ModalType

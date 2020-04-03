@@ -15,7 +15,7 @@ import MageReward from './MageReward'
 import ContinueButton from './ContinueButton'
 
 type OwnProps = {
-  battle: types.Battle
+  battle: types.OldStyleBattle
   hide: () => void
   showNext?: () => void
 }

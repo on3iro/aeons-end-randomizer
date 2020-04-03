@@ -9,7 +9,7 @@ export const EXPEDITIONS_DB_KEY = 'expeditions-1.11.0'
 
 export const updateBattle = (
   state: State,
-  battle: types.Battle,
+  battle: types.OldStyleBattle,
   additionalBattleProps?: {
     status?: types.BattleStatus
     tries?: number

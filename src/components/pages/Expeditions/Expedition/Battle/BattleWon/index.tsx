@@ -20,7 +20,7 @@ import TreasureReward from './TreasureReward'
 import UnlockNextButton from './UnlockNextButton'
 
 type OwnProps = {
-  battle: types.Battle
+  battle: types.OldStyleBattle
   hide: () => void
   showNext?: () => void
 }

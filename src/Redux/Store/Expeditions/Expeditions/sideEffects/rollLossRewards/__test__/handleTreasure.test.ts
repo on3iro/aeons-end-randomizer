@@ -3,9 +3,13 @@ import { handleTreasure } from '../handleTreasure'
 
 describe('handleTreasure', () => {
   it('should contain empty treasureIds array, if no result could be created', () => {
-    const result = handleTreasure({ id: 'someBattle' } as types.Battle, [], {
-      seed: 'test',
-    })
+    const result = handleTreasure(
+      { id: 'someBattle' } as types.OldStyleBattle,
+      [],
+      {
+        seed: 'test',
+      }
+    )
 
     expect(result).toEqual({
       id: 'someBattle',
@@ -20,7 +24,7 @@ describe('handleTreasure', () => {
 
   it('should contain treasureId', () => {
     const result = handleTreasure(
-      { id: 'someBattle' } as types.Battle,
+      { id: 'someBattle' } as types.OldStyleBattle,
       ['treasure1'],
       { seed: 'test' }
     )

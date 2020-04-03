@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { Battle } from 'types'
+import { OldStyleBattle } from 'types'
 
 import P from 'components/atoms/P'
 import Tile from 'components/molecules/Tile'
@@ -13,7 +13,7 @@ import Unlocked from './Unlocked'
 import LockIcon from '@material-ui/icons/Lock'
 
 type Props = {
-  battle: Battle
+  battle: OldStyleBattle
   nemesis: string
   theme?: any
 }

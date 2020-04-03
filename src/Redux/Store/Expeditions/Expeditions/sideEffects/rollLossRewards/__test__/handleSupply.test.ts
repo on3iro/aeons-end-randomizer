@@ -3,9 +3,13 @@ import { handleSupply } from '../handleSupply'
 
 describe('handleSupply', () => {
   it('should contain empty supplyIds array, if no result could be created', () => {
-    const result = handleSupply({ id: 'someBattle' } as types.Battle, [], {
-      seed: 'test',
-    })
+    const result = handleSupply(
+      { id: 'someBattle' } as types.OldStyleBattle,
+      [],
+      {
+        seed: 'test',
+      }
+    )
 
     expect(result).toEqual({
       id: 'someBattle',
@@ -20,7 +24,7 @@ describe('handleSupply', () => {
 
   it('should contain supplyId', () => {
     const result = handleSupply(
-      { id: 'someBattle' } as types.Battle,
+      { id: 'someBattle' } as types.OldStyleBattle,
       ['supply1'],
       { seed: 'test' }
     )
