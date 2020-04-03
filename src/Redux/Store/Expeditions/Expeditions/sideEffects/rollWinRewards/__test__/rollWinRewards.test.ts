@@ -36,7 +36,7 @@ describe('rollWinRewards()', () => {
               treasureIds: ['t2'],
             },
             banished: ['gem2'],
-          } as types.Expedition,
+          } as types.OldStyleExpedition,
         },
       },
     },

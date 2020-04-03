@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { Expedition } from 'types'
+import { OldStyleExpedition } from 'types'
 
 import A from 'components/atoms/A'
 import Tile from 'components/molecules/Tile'
@@ -10,7 +10,7 @@ import Body from './Body'
 
 type Props = {
   url: string
-  expedition: Expedition
+  expedition: OldStyleExpedition
   theme: any
 }
 
