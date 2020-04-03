@@ -20,7 +20,7 @@ const banishedKey = 'banished'
 const upgradedBasicNemsisCardsKey = 'upgradedBasicNemsisCards'
 
 type OwnProps = {
-  expedition: types.Expedition
+  expedition: types.OldStyleExpedition
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {

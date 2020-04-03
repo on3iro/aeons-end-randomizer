@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { actions } from '../../../Redux/Store'
 import { usePrompt, useModal } from 'hooks/useModal'
 
-import { Expedition } from 'types'
+import { OldStyleExpedition } from 'types'
 
 import H2 from 'components/atoms/H2'
 
@@ -17,7 +17,7 @@ import ExpeditionTile from './ExpeditionTile'
 import CreationDialog from 'components/pages/Expeditions/CreationDialog'
 
 type OwnProps = {
-  expedition: Expedition
+  expedition: OldStyleExpedition
 }
 
 const mapStateToProps = () => {

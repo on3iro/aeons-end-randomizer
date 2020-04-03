@@ -17,7 +17,7 @@ import VariantSelect from 'components/pages/Expeditions/CreationDialog/VariantSe
 
 type OwnProps = {
   finisher: Function
-  expedition?: types.Expedition
+  expedition?: types.OldStyleExpedition
 }
 
 const mapStateToProps = (state: RootState) => ({})
@@ -32,7 +32,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 
 const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
   const [existingExpedition, changeExistingExpedition] = useState<
-    types.Expedition | undefined
+    types.OldStyleExpedition | undefined
   >(expedition)
 
   const [expeditionName, changeExpeditionName] = useState(
@@ -76,7 +76,7 @@ const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
 
   const configImportHandler = useCallback(
     // FIXME this type is actually not a full expedition
-    (config: types.Expedition) => {
+    (config: types.OldStyleExpedition) => {
       changeExistingExpedition(config)
       changeExpeditionName(config?.name || `${config.id} Copy`)
       changeBigPocketVariant(config?.bigPocketVariant || false)

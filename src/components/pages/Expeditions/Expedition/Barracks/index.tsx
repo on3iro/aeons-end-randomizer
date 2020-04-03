@@ -8,7 +8,7 @@ import ShuffleButton from 'components/atoms/ShuffleButton'
 import BarracksContent from './BarracksContent'
 
 type Props = {
-  expedition: types.Expedition
+  expedition: types.OldStyleExpedition
 }
 
 const Barracks = ({ expedition }: Props) => {

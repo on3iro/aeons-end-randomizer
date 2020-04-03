@@ -19,7 +19,7 @@ export const migrateToSettingsSnapshot = (
     expeditionsToMigrate,
   }: {
     state: State
-    expeditionsToMigrate: types.Expedition[]
+    expeditionsToMigrate: types.OldStyleExpedition[]
   }
 ) => {
   const rootState = getState()
