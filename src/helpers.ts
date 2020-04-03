@@ -47,3 +47,13 @@ export const byCost = (a: { cost?: number }, b: { cost?: number }) => {
 
   return 0
 }
+
+export const byAscendingVersion = (a: types.Migration, b: types.Migration) => {
+  if (a.version > b.version) {
+    return 1
+  } else if (a.version < b.version) {
+    return -1
+  } else {
+    return 0
+  }
+}

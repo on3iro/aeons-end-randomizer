@@ -17,7 +17,7 @@ import ExpeditionTile from './ExpeditionTile'
 import CreationDialog from 'components/pages/Expeditions/CreationDialog'
 
 type OwnProps = {
-  expedition: OldStyleExpedition
+  expedition: Expedition
 }
 
 const mapStateToProps = () => {

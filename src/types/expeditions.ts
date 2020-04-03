@@ -1,16 +1,11 @@
 import { NemesisTier, TreasureLevel } from './data'
-import { IMarketSetup } from 'types'
+import { IMarketSetup, IBluePrint } from 'types'
 import { Seed } from './index'
-
-export type VariantConfig = {
-  tier: NemesisTier
-  treasure: BattleTreasure
-}
 
 export type Variant = {
   id: string
   name: string
-  configList: Array<VariantConfig>
+  configList: Array<BattleConfig>
 }
 
 export type BattleTreasure = { level?: TreasureLevel; hasTreasure: boolean }
@@ -21,19 +16,23 @@ export const variants: { [id: string]: Variant } = {
     name: 'Default',
     configList: [
       {
-        tier: { tier: 1, isNewTier: false },
+        tier: 1,
+        newUBNCards: { ids: [], addRandom: false },
         treasure: { level: 1, hasTreasure: true },
       },
       {
-        tier: { tier: 2, isNewTier: true },
+        tier: 2,
+        newUBNCards: { ids: [], addRandom: true },
         treasure: { level: 2, hasTreasure: true },
       },
       {
-        tier: { tier: 3, isNewTier: true },
+        tier: 3,
+        newUBNCards: { ids: [], addRandom: true },
         treasure: { level: 3, hasTreasure: true },
       },
       {
-        tier: { tier: 4, isNewTier: true },
+        tier: 4,
+        newUBNCards: { ids: [], addRandom: true },
         treasure: { hasTreasure: false },
       },
     ],
@@ -43,15 +42,18 @@ export const variants: { [id: string]: Variant } = {
     name: 'Short',
     configList: [
       {
-        tier: { tier: 2, isNewTier: true },
+        tier: 2,
+        newUBNCards: { ids: [], addRandom: true },
         treasure: { level: 2, hasTreasure: true },
       },
       {
-        tier: { tier: 3, isNewTier: true },
+        tier: 3,
+        newUBNCards: { ids: [], addRandom: true },
         treasure: { level: 3, hasTreasure: true },
       },
       {
-        tier: { tier: 4, isNewTier: true },
+        tier: 4,
+        newUBNCards: { ids: [], addRandom: true },
         treasure: { hasTreasure: false },
       },
     ],
@@ -61,35 +63,43 @@ export const variants: { [id: string]: Variant } = {
     name: 'Extended',
     configList: [
       {
-        tier: { tier: 1, isNewTier: false },
+        tier: 1,
+        newUBNCards: { ids: [], addRandom: false },
         treasure: { hasTreasure: false },
       },
       {
-        tier: { tier: 1, isNewTier: false },
+        tier: 1,
+        newUBNCards: { ids: [], addRandom: false },
         treasure: { level: 1, hasTreasure: true },
       },
       {
-        tier: { tier: 2, isNewTier: true },
+        tier: 2,
+        newUBNCards: { ids: [], addRandom: true },
         treasure: { hasTreasure: false },
       },
       {
-        tier: { tier: 2, isNewTier: false },
+        tier: 2,
+        newUBNCards: { ids: [], addRandom: false },
         treasure: { level: 2, hasTreasure: true },
       },
       {
-        tier: { tier: 3, isNewTier: true },
+        tier: 3,
+        newUBNCards: { ids: [], addRandom: true },
         treasure: { hasTreasure: false },
       },
       {
-        tier: { tier: 3, isNewTier: false },
+        tier: 3,
+        newUBNCards: { ids: [], addRandom: false },
         treasure: { level: 3, hasTreasure: true },
       },
       {
-        tier: { tier: 4, isNewTier: true },
+        tier: 4,
+        newUBNCards: { ids: [], addRandom: true },
         treasure: { hasTreasure: false },
       },
       {
-        tier: { tier: 4, isNewTier: false },
+        tier: 4,
+        newUBNCards: { ids: [], addRandom: false },
         treasure: { hasTreasure: false },
       },
     ],
@@ -110,6 +120,9 @@ export type BattleStatus =
   | 'lost'
   | 'finished'
 
+/*
+ * @deprecated
+ */
 export type OldStyleBattle = {
   id: string
   expeditionId: string
@@ -137,9 +150,13 @@ export type ExpeditionSeed = Seed & {
   nemesisState: ExpeditionSeedState
 }
 
+/*
+ * @deprecated
+ */
 export type OldStyleExpedition = {
   id: string
   name: string
+  migrationVersion?: number
   score: number
   seed: ExpeditionSeed
   settingsSnapshot: SettingsSnapshot
@@ -156,13 +173,66 @@ export type OldStyleExpedition = {
   finished: boolean
 }
 
-export type Branch = OldStyleBattle
+export type OnLoss = 'skip'
 
-export type RoutingConfig = {}
+export type Rewards = {
+  treasure: {
+    ids: Array<string | { random: true; level: 1 | 2 | 3 }>
+  }
+  mage: {
+    ids: Array<string | { random: true }>
+  }
+  supply: {
+    ids: Array<string | IBluePrint>
+    bigPocket: boolean
+  }
+}
+
+export type BattleConfig = {
+  tier: 1 | 2 | 3 | 4
+  nemesisId?: string
+  newUBNCards: { ids: []; addRandom: boolean }
+  specialRules?: string
+  lossRewards?: Rewards[]
+  winRewards?: Rewards
+  treasure: BattleTreasure
+  onLoss?: OnLoss
+}
+
+export type Battle = {
+  id: string
+  type: 'battle'
+  expeditionId: string
+  nemesisId?: string
+  battleConfig: BattleConfig
+  status: BattleStatus
+  rewards?: { treasure: string[]; mage?: string; supplyIds: string[] }
+  tries: number
+}
+
+export type Narrative = {
+  id: string
+  type: 'narrative'
+  text: string
+  descisions: string[]
+}
+
+export type RewardBranch = {
+  id: string
+  type: 'reward'
+  rewards: Rewards
+}
+
+export type BranchConfig = {
+  nextBranchId?: string | { [key: number]: string }
+}
+
+export type Branch = BranchConfig & (Battle | Narrative | RewardBranch)
 
 export type Expedition = {
   id: string
   name: string
+  migrationVersion?: number
   score: number
   seed: ExpeditionSeed
   settingsSnapshot: SettingsSnapshot
@@ -173,9 +243,9 @@ export type Expedition = {
   }
   upgradedBasicNemesisCards: string[]
   banished: string[]
-  progression: {
+  sequence: {
+    firstBattleId: string
     branches: { [id: string]: Branch }
-    routing: RoutingConfig[]
   }
   variantId: string
   bigPocketVariant: boolean
@@ -183,5 +253,5 @@ export type Expedition = {
 }
 
 export type Expeditions = {
-  [id: string]: OldStyleExpedition
+  [id: string]: Expedition
 }

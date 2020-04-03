@@ -10,7 +10,7 @@ import Body from './Body'
 
 type Props = {
   url: string
-  expedition: OldStyleExpedition
+  expedition: Expedition
   theme: any
 }
 
