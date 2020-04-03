@@ -412,74 +412,100 @@ export const expedition1 = {
   banished: ['SearingRuby', 'RecurringJasper', 'PainStone'],
   variantId: 'DEFAULT',
   bigPocketVariant: false,
-  battles: [
-    {
-      id: 'CvghslX3mK',
-      nemesisTier: {
-        tier: 1,
-        isNewTier: false,
+  sequence: {
+    firstBattleId: 'CvghslX3mK',
+    branches: {
+      CvghslX3mK: {
+        id: 'CvghslX3mK',
+        nextBranchId: 'YBsJLx4PfV',
+        type: 'battle',
+        expeditionId: 'Expedition1',
+        nemesisId: 'KnightOfShackles',
+        battleConfig: {
+          tier: 1,
+          newUBNCards: {
+            ids: [],
+            addRandom: false,
+          },
+          treasure: {
+            level: 1,
+            hasTreasure: true,
+          },
+        },
+        status: 'finished',
+        tries: 2,
+        rewards: {
+          treasure: [
+            'SparrowsAid',
+            'MistsAmethystParagon',
+            'BramasBuriedLight',
+            'XaxosPyre',
+            'IndirasLoneOpal',
+          ],
+          supplyIds: ['DiamondCluster', 'PainConduit', 'ThoughtformFamiliar'],
+        },
       },
-      treasure: {
-        level: 1,
-        hasTreasure: true,
+      YBsJLx4PfV: {
+        id: 'YBsJLx4PfV',
+        nextBranchId: '0t22iBGUff',
+        type: 'battle',
+        expeditionId: 'Expedition1',
+        battleConfig: {
+          tier: 2,
+          newUBNCards: {
+            ids: [],
+            addRandom: true,
+          },
+          treasure: {
+            level: 2,
+            hasTreasure: true,
+          },
+        },
+        status: 'unlocked',
+        tries: 0,
       },
-      expeditionId: 'Expedition1',
-      status: 'finished',
-      tries: 2,
-      nemesisId: 'KnightOfShackles',
-      rewards: {
-        treasure: [
-          'SparrowsAid',
-          'MistsAmethystParagon',
-          'BramasBuriedLight',
-          'XaxosPyre',
-          'IndirasLoneOpal',
-        ],
-        supplyIds: ['DiamondCluster', 'PainConduit', 'ThoughtformFamiliar'],
+      '0t22iBGUff': {
+        id: '0t22iBGUff',
+        nextBranchId: 'wXBtzLO1bM',
+        type: 'battle',
+        expeditionId: 'Expedition1',
+        battleConfig: {
+          tier: 3,
+          newUBNCards: {
+            ids: [],
+            addRandom: true,
+          },
+          treasure: {
+            level: 3,
+            hasTreasure: true,
+          },
+        },
+        status: 'locked',
+        tries: 0,
+      },
+      wXBtzLO1bM: {
+        id: 'wXBtzLO1bM',
+        type: 'battle',
+        battleConfig: {
+          tier: 4,
+          newUBNCards: {
+            ids: [],
+            addRandom: true,
+          },
+          treasure: {
+            hasTreasure: false,
+          },
+        },
+        nemesisTier: {
+          isNewTier: true,
+        },
+        expeditionId: 'Expedition1',
+        status: 'locked',
+        tries: 0,
       },
     },
-    {
-      id: 'YBsJLx4PfV',
-      nemesisTier: {
-        tier: 2,
-        isNewTier: true,
-      },
-      treasure: {
-        level: 2,
-        hasTreasure: true,
-      },
-      expeditionId: 'Expedition1',
-      status: 'unlocked',
-      tries: 0,
-    },
-    {
-      id: '0t22iBGUff',
-      nemesisTier: {
-        tier: 3,
-        isNewTier: true,
-      },
-      treasure: {
-        level: 3,
-        hasTreasure: true,
-      },
-      expeditionId: 'Expedition1',
-      status: 'locked',
-      tries: 0,
-    },
-    {
-      id: 'wXBtzLO1bM',
-      nemesisTier: {
-        tier: 4,
-        isNewTier: true,
-      },
-      treasure: {
-        hasTreasure: false,
-      },
-      expeditionId: 'Expedition1',
-      status: 'locked',
-      tries: 0,
-    },
-  ],
+  },
+  battles: [],
   finished: false,
 }
 

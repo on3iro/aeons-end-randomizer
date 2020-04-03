@@ -39,7 +39,7 @@ describe('createBattle()', () => {
             seed: inputSeed,
             battles: [battle],
             upgradedBasicNemesisCards: ['Wreck'],
-          } as types.OldStyleExpedition,
+          } as types.Expedition,
         },
       },
     },
