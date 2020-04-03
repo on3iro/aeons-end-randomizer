@@ -11,7 +11,7 @@ import { SelectedNemesesStateSlice } from 'Redux/Store/Settings/Expansions/Selec
 import { UpgradedBasicNemesisCardsStateSlice } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards'
 
 export const generateResult = (
-  battle: types.Battle,
+  battle: types.OldStyleBattle,
   nemesisId: string | undefined,
   upgradedBasicNemesisCardIds: string[],
   nemesisSeedState?: Object
@@ -34,7 +34,7 @@ export const createBattle = (
   getState: () => ExpeditionsStateSlice &
     SelectedNemesesStateSlice &
     UpgradedBasicNemesisCardsStateSlice,
-  battle: types.Battle,
+  battle: types.OldStyleBattle,
   getEntity: types.SeededEntityGetter = getRandomEntity
 ) => {
   const state = getState()

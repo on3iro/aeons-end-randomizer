@@ -1,7 +1,7 @@
 import React from 'react'
 import List from '@material-ui/core/List'
 
-import { Battle } from 'types'
+import { OldStyleBattle } from 'types'
 
 import InfoItem from 'components/molecules/InfoItem'
 
@@ -9,7 +9,7 @@ import BodyWrapper from './BodyWrapper'
 import Name from './Name'
 
 type Props = {
-  battle: Battle
+  battle: OldStyleBattle
   nemesis: string
 }
 

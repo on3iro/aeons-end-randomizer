@@ -48,7 +48,7 @@ export type BaseConfig = {
 }
 
 export type WinConfig = {
-  battle: types.Battle
+  battle: types.OldStyleBattle
   treasureIds: string[]
   gemIds: string[]
   relicIds: string[]
@@ -64,12 +64,12 @@ export type RewardType =
   | 'treasure2'
   | 'treasure3'
 
-export type BattleRewardsResult = types.Battle & {
+export type BattleRewardsResult = types.OldStyleBattle & {
   seed: types.Seed
 }
 
 export type LossConfig = {
-  battle: types.Battle
+  battle: types.OldStyleBattle
   type: RewardType
   mageIds: string[]
   gemIds: string[]

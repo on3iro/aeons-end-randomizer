@@ -6,7 +6,7 @@ export const generateBattles = (
   expeditionId: string
 ) => {
   const battles = variant.configList.map(
-    (config, index): types.Battle => {
+    (config, index): types.OldStyleBattle => {
       const isFirst = index === 0
 
       return {

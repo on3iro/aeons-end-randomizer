@@ -15,7 +15,7 @@ import BattleLost from './BattleLost'
 import ExpeditionFinished from './ExpeditionFinished'
 
 type OwnProps = {
-  battle: types.Battle
+  battle: types.OldStyleBattle
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {

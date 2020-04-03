@@ -110,7 +110,7 @@ export type BattleStatus =
   | 'lost'
   | 'finished'
 
-export type Battle = {
+export type OldStyleBattle = {
   id: string
   expeditionId: string
   nemesisId?: string
@@ -150,7 +150,33 @@ export type OldStyleExpedition = {
   }
   upgradedBasicNemesisCards: string[]
   banished: string[]
-  battles: Battle[]
+  battles: OldStyleBattle[]
+  variantId: string
+  bigPocketVariant: boolean
+  finished: boolean
+}
+
+export type Branch = OldStyleBattle
+
+export type RoutingConfig = {}
+
+export type Expedition = {
+  id: string
+  name: string
+  score: number
+  seed: ExpeditionSeed
+  settingsSnapshot: SettingsSnapshot
+  barracks: {
+    mageIds: string[]
+    supplyIds: string[]
+    treasureIds: string[]
+  }
+  upgradedBasicNemesisCards: string[]
+  banished: string[]
+  progression: {
+    branches: { [id: string]: Branch }
+    routing: RoutingConfig[]
+  }
   variantId: string
   bigPocketVariant: boolean
   finished: boolean
