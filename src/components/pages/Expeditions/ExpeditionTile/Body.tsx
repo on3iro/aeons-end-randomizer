@@ -10,7 +10,7 @@ import Name from './Name'
 import List from './List'
 
 type OwnProps = {
-  expedition: OldStyleExpedition
+  expedition: Expedition
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({

@@ -10,7 +10,7 @@ import P from '../../atoms/P'
 import List from './List'
 import OverviewEntry from './OverviewEntry'
 
-const renderExpeditions = (expeditions: Array<OldStyleExpedition>) => {
+const renderExpeditions = (expeditions: Array<Expedition>) => {
   return expeditions.map(expedition => (
     <OverviewEntry key={expedition.id} expedition={expedition} />
   ))

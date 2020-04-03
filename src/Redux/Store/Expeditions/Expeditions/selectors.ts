@@ -1,3 +1,4 @@
+import * as types from 'types'
 import { createSelector } from 'reselect'
 
 import { ExpeditionsStateSlice, ExpeditionIdsStateSlice } from './types'
@@ -11,7 +12,10 @@ const getExpeditionIds = (state: ExpeditionIdsStateSlice) =>
 const getExpeditionId = (_: unknown, props: { expeditionId: string }) =>
   props.expeditionId
 
-const getBattleId = (_: unknown, props: { battleId: string }) => props.battleId
+const getBranchId = (_: unknown, props: { branchId: string }) => props.branchId
+
+const getChoiceIndex = (_: unknown, props: { choiceIndex: number }) =>
+  props.choiceIndex
 
 const getExpeditionList = createSelector(
   [getExpeditionIds, getExpeditions],
@@ -33,27 +37,25 @@ const getSettingsSnapshotByExpeditionId = createSelector(
   expedition => expedition.settingsSnapshot
 )
 
-const getHasNextBattle = createSelector(
-  [getExpeditionById, getBattleId],
-  (expedition, battleId) => {
-    const currentBattleIndex = expedition.battles.findIndex(
-      battle => battle.id === battleId
-    )
-
-    return currentBattleIndex + 1 < expedition.battles.length
+const getHasNextBranch = createSelector(
+  [getExpeditionById, getBranchId],
+  (expedition, branchId) => {
+    return !!expedition.sequence.branches[branchId].nextBranchId
   }
 )
 
-const getNextBattle = createSelector(
-  [getExpeditionById, getBattleId],
-  (expedition, battleId) => {
-    const currentBattleIndex = expedition.battles.findIndex(
-      battle => battle.id === battleId
-    )
-    const hasNext = currentBattleIndex < expedition.battles.length
+const getNextBranch = createSelector(
+  [getExpeditionById, getBranchId, getChoiceIndex],
+  (expedition, branchId, choiceIndex) => {
+    const nextBranchId = expedition.sequence.branches[branchId].nextBranchId
 
-    if (hasNext) {
-      return expedition.battles[currentBattleIndex + 1]
+    if (typeof nextBranchId === 'string') {
+      return expedition.sequence.branches[nextBranchId]
+    } else if (typeof nextBranchId === 'object' && !!choiceIndex) {
+      // This is the case if we have multiple descisions each leading to a
+      // different branch id
+      const id = nextBranchId[choiceIndex]
+      return expedition.sequence.branches[id]
     }
 
     return null
@@ -75,16 +77,32 @@ const getMagesByExpeditionId = createSelector(
   expedition => expedition.barracks.mageIds
 )
 
-const getPreviousNemesesByExpeditiionId = createSelector(
+const getBranchIdListByExpeditionId = createSelector(
   [getExpeditionById],
-  expedition =>
-    expedition.battles.reduce((acc: string[], battle) => {
-      if (battle.nemesisId) {
-        return [...acc, battle.nemesisId]
-      }
+  expedition => Object.keys(expedition.sequence.branches)
+)
 
-      return acc
-    }, [])
+const getBranchListByExpeditionId = createSelector(
+  [getExpeditionById, getBranchIdListByExpeditionId],
+  (expedition, branchIds) =>
+    branchIds.map(id => expedition.sequence.branches[id])
+)
+
+const getPreviousNemesesByExpeditionId = createSelector(
+  [getBranchListByExpeditionId],
+  branches =>
+    branches
+      .filter(
+        (branch: types.Branch): branch is types.Battle =>
+          branch.type === 'battle'
+      )
+      .reduce((acc: string[], battle: types.Battle) => {
+        if (battle.nemesisId) {
+          return [...acc, battle.nemesisId]
+        }
+
+        return acc
+      }, [])
 )
 
 const getBarracksTreasureIdsByExpeditionId = createSelector(
@@ -97,13 +115,13 @@ export const selectors = {
   getExpeditionIds,
   getExpeditionList,
   getExpeditionById,
-  getNextBattle,
+  getNextBattle: getNextBranch,
   getSupplyByExpeditionId,
   getBanishedByExpeditionId,
   getMagesByExpeditionId,
   getExpeditionIsFinished,
-  getHasNextBattle,
+  getHasNextBattle: getHasNextBranch,
   getSettingsSnapshotByExpeditionId,
-  getPreviousNemesesByExpeditiionId,
+  getPreviousNemesesByExpeditiionId: getPreviousNemesesByExpeditionId,
   getBarracksTreasureIdsByExpeditionId,
 }
