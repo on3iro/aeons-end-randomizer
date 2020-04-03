@@ -12,7 +12,7 @@ describe('handleRewardType()', () => {
 
     handleRewardType({
       rewardType: 'gem',
-      battle: {} as types.Battle,
+      battle: {} as types.OldStyleBattle,
       seed: {} as types.Seed,
       mageIds: [],
       gemIds: [],
@@ -33,7 +33,7 @@ describe('handleRewardType()', () => {
 
     handleRewardType({
       rewardType: 'relic',
-      battle: {} as types.Battle,
+      battle: {} as types.OldStyleBattle,
       seed: {} as types.Seed,
       mageIds: [],
       gemIds: [],
@@ -54,7 +54,7 @@ describe('handleRewardType()', () => {
 
     handleRewardType({
       rewardType: 'spell',
-      battle: {} as types.Battle,
+      battle: {} as types.OldStyleBattle,
       seed: {} as types.Seed,
       mageIds: [],
       gemIds: [],
@@ -75,7 +75,7 @@ describe('handleRewardType()', () => {
 
     handleRewardType({
       rewardType: 'mage',
-      battle: {} as types.Battle,
+      battle: {} as types.OldStyleBattle,
       seed: {} as types.Seed,
       mageIds: [],
       gemIds: [],
@@ -96,7 +96,7 @@ describe('handleRewardType()', () => {
 
     handleRewardType({
       rewardType: 'treasure1',
-      battle: {} as types.Battle,
+      battle: {} as types.OldStyleBattle,
       seed: {} as types.Seed,
       mageIds: [],
       gemIds: [],
@@ -117,7 +117,7 @@ describe('handleRewardType()', () => {
 
     handleRewardType({
       rewardType: 'treasure2',
-      battle: {} as types.Battle,
+      battle: {} as types.OldStyleBattle,
       seed: {} as types.Seed,
       mageIds: [],
       gemIds: [],
@@ -138,7 +138,7 @@ describe('handleRewardType()', () => {
 
     handleRewardType({
       rewardType: 'treasure3',
-      battle: {} as types.Battle,
+      battle: {} as types.OldStyleBattle,
       seed: {} as types.Seed,
       mageIds: [],
       gemIds: [],
@@ -158,7 +158,7 @@ describe('handleRewardType()', () => {
     const result = handleRewardType({
       // @ts-ignore
       rewardType: 'ANYTHING_ELSE',
-      battle: { id: 'someBattle' } as types.Battle,
+      battle: { id: 'someBattle' } as types.OldStyleBattle,
       seed: { seed: 'test' } as types.Seed,
       mageIds: [],
       gemIds: [],

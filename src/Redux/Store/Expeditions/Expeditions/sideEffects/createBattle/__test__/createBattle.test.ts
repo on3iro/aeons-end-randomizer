@@ -6,7 +6,7 @@ import * as getUpgradedBasicNemesisCardsResultModule from '../getUpgradedBasicNe
 
 describe('createBattle()', () => {
   const inputSeed = { seed: 'test', supplyState: true, nemesisState: true }
-  const inputBattle: types.Battle = {
+  const inputBattle: types.OldStyleBattle = {
     id: 'someBattle',
     nemesisTier: {
       tier: 2,
@@ -20,7 +20,9 @@ describe('createBattle()', () => {
     tries: 0,
   }
 
-  const makeGetExampleState = (battle: types.Battle = inputBattle) => () => ({
+  const makeGetExampleState = (
+    battle: types.OldStyleBattle = inputBattle
+  ) => () => ({
     Expeditions: {
       Expeditions: {
         expeditions: {
@@ -119,7 +121,7 @@ describe('createBattle()', () => {
   it('should create correct result', () => {
     const result = createBattle(
       makeGetExampleState(),
-      inputBattle as types.Battle
+      inputBattle as types.OldStyleBattle
     )
 
     expect(result).toEqual({
@@ -143,7 +145,7 @@ describe('createBattle()', () => {
   })
 
   test('handle "no nemesis available" by setting id to UNDEFINED', () => {
-    const battle: types.Battle = {
+    const battle: types.OldStyleBattle = {
       ...inputBattle,
       nemesisTier: {
         tier: 3,
@@ -180,7 +182,7 @@ describe('createBattle()', () => {
       'getUpgradedBasicNemesisCardsResult'
     )
 
-    createBattle(makeGetExampleState(), inputBattle as types.Battle)
+    createBattle(makeGetExampleState(), inputBattle as types.OldStyleBattle)
 
     expect(rollNemesisSpy).toHaveBeenCalledWith(
       ['PrinceOfGluttons'],

@@ -21,7 +21,7 @@ export const rollWinRewards = (
     TreasuresStateSlice &
     TreasureIdsStateSlice &
     SelectedCardsLookupStateSlice,
-  battle: types.Battle
+  battle: types.OldStyleBattle
 ) => {
   const state = getState()
 

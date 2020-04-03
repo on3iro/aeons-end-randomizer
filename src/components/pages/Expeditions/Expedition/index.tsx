@@ -11,7 +11,7 @@ import Barracks from './Barracks'
 import Battle from './Battle'
 import Header from './Header'
 
-const renderBattles = (battles: types.Battle[]) =>
+const renderBattles = (battles: types.OldStyleBattle[]) =>
   battles.map((battle, index) => (
     <Battle key={battle.id} battle={battle} data-test={`battle-${index}`} />
   ))

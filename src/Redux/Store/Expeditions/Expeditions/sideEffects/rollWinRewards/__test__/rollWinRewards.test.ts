@@ -88,7 +88,7 @@ describe('rollWinRewards()', () => {
         hasTreasure: true,
         level: 2,
       },
-    } as types.Battle
+    } as types.OldStyleBattle
 
     const result = rollWinRewards(getExampleState, inputBattle)
 
@@ -119,7 +119,7 @@ describe('rollWinRewards()', () => {
         hasTreasure: true,
         level: 2,
       },
-    } as types.Battle)
+    } as types.OldStyleBattle)
 
     expect(rollTreasuresSpy).toHaveBeenCalledWith(
       ['t1'],

@@ -10,7 +10,7 @@ import BattleLostButton from 'components/pages/Expeditions/Expedition/Battle/Bat
 import BattleWonButton from 'components/pages/Expeditions/Expedition/Battle/BattleStarted/BattleWonButton'
 
 type OwnProps = {
-  battle: types.Battle
+  battle: types.OldStyleBattle
   hide: () => void
   showNextOnWin?: (expeditionIsFinished: boolean) => void
   showNextOnLoss?: () => void

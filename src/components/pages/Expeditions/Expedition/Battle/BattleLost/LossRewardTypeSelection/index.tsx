@@ -20,7 +20,7 @@ const getTreasureOptionsByTier = (tier: 1 | 2 | 3 | 4) => [
 ]
 
 type OwnProps = {
-  battle: types.Battle
+  battle: types.OldStyleBattle
 }
 
 const mapStateToProps = () => {

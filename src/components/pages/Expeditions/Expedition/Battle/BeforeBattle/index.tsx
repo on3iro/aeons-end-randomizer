@@ -12,7 +12,7 @@ import StartBattleButton from 'components/pages/Expeditions/Expedition/Battle/Be
 type OwnProps = {
   hide: () => void
   showNext?: () => void
-  battle: types.Battle
+  battle: types.OldStyleBattle
   nemesis?: types.Nemesis
 }
 

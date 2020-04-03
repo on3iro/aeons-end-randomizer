@@ -5,7 +5,7 @@ import LossRewardTypeSelection from './LossRewardTypeSelection'
 import RewardScreen from './RewardScreen'
 
 type OwnProps = {
-  battle: types.Battle
+  battle: types.OldStyleBattle
   hide: () => void
   showNext?: () => void
 }
