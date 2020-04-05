@@ -1,5 +1,4 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
-import { RootState } from '../'
 import { LoopReducer } from 'redux-loop'
 
 ///////////
@@ -9,6 +8,7 @@ import { LoopReducer } from 'redux-loop'
 export type State = {
   [id: string]: boolean
 }
+
 export const initialState: State = {
   expansions: false,
 }
@@ -18,13 +18,13 @@ export const initialState: State = {
 /////////////
 
 export enum ActionTypes {
-  TOGGLE = 'Settings/Accordions/TOGGLE',
   NOOP = 'NOOP',
+  TOGGLE = 'Settings/Accordions/TOGGLE',
 }
 
 export const actions = {
-  toggle: (id: string) => createAction(ActionTypes.TOGGLE, id),
   noOp: () => createAction(ActionTypes.NOOP),
+  toggle: (id: string) => createAction(ActionTypes.TOGGLE, id),
 }
 
 export type Action = ActionsUnion<typeof actions>
@@ -57,7 +57,15 @@ export const Reducer: LoopReducer<State, Action> = (
 // SELECTORS //
 ///////////////
 
-const getAccordionStateById = (state: RootState, id: string) =>
+export type AccordionStateSlice = {
+  Settings: {
+    Accordions: {
+      [id: string]: boolean
+    }
+  }
+}
+
+const getAccordionStateById = (state: AccordionStateSlice, id: string) =>
   state.Settings.Accordions[id]
 
 export const selectors = {
