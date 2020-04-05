@@ -1,6 +1,8 @@
 import { loop, Cmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
 
+import * as types from 'types'
+
 import { State } from '../types'
 import { actions } from '../actions'
 
@@ -13,19 +15,18 @@ export const acceptLoss = (
   const { battle, banished, newSupplyIds } = action.payload
 
   const oldExpedition = state.expeditions[battle.expeditionId]
-  const oldBattleList = oldExpedition.battles
+  const branches = oldExpedition.sequence.branches
 
-  const battleIndex = oldBattleList.findIndex(
-    oldBattle => oldBattle.id === battle.id
-  )
+  const newStatus: types.BattleStatus = 'before_battle'
 
-  const updatedBattles = Object.assign([...oldBattleList], {
-    [battleIndex]: {
+  const updatedBranches = {
+    ...branches,
+    [battle.id]: {
       ...battle,
-      status: 'before_battle',
+      status: newStatus,
       rewards: undefined,
     },
-  })
+  }
 
   const newTreasureIds = battle.rewards ? battle.rewards.treasure : []
   const newMageIds =
@@ -37,7 +38,10 @@ export const acceptLoss = (
       ...state.expeditions,
       [battle.expeditionId]: {
         ...oldExpedition,
-        battles: updatedBattles,
+        sequence: {
+          ...oldExpedition.sequence,
+          branches: updatedBranches,
+        },
         barracks: {
           ...oldExpedition.barracks,
           treasureIds: [

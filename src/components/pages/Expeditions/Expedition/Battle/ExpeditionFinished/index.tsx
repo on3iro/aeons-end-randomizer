@@ -11,7 +11,7 @@ import WinOverview from './WinOverview'
 import FinishExpeditionButton from './FinishExpeditionButton'
 
 type OwnProps = {
-  battle: types.OldStyleBattle
+  battle: types.Battle
   hide: () => void
 }
 

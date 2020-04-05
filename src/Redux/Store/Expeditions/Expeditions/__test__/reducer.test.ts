@@ -100,18 +100,19 @@ describe('Reducer()', () => {
   it('should handle ROLL_BATTLE', () => {
     const battle = {
       id: 'YBsJLx4PfV',
-      nemesisTier: {
+      type: 'battle',
+      config: {
         tier: 2,
-        isNewTier: true,
-      },
-      treasure: {
-        level: 2,
-        hasTreasure: true,
+        newUBNCards: { ids: [], addRandom: true },
+        treasure: {
+          level: 2,
+          hasTreasure: true,
+        },
       },
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.OldStyleBattle
+    } as types.Battle
 
     const state = {
       expeditions: {
@@ -138,19 +139,20 @@ describe('Reducer()', () => {
   it('should handle ROLL_BATTLE_SUCCESS', () => {
     const battle = {
       id: 'YBsJLx4PfV',
-      nemesisTier: {
+      type: 'battle',
+      config: {
         tier: 2,
-        isNewTier: true,
-      },
-      treasure: {
-        level: 2,
-        hasTreasure: true,
+        newUBNCards: { ids: [], addRandom: true },
+        treasure: {
+          level: 2,
+          hasTreasure: true,
+        },
       },
       expeditionId: 'Expedition1',
       status: 'before_battle',
       tries: 0,
       nemesisId: 'Arachnos',
-    } as types.OldStyleBattle
+    } as types.Battle
 
     const state = {
       expeditions: {
@@ -171,12 +173,12 @@ describe('Reducer()', () => {
     const model = getModel(result)
     const cmd = getCmd(result)
 
-    const battleIndex = expedition1.battles.findIndex(
-      oldBattle => oldBattle.id === battle.id
-    )
-    const updatedBattles = Object.assign([...expedition1.battles], {
-      [battleIndex]: battle,
-    })
+    const { branches } = expedition1.sequence
+
+    const updatedBranches = {
+      ...branches,
+      [battle.id]: battle,
+    }
 
     expect(model).toEqual({
       ...state,
@@ -189,7 +191,10 @@ describe('Reducer()', () => {
             nemesisState: true,
           },
           upgradedBasicNemesisCards: ['TEST'],
-          battles: updatedBattles,
+          sequence: {
+            ...expedition1.sequence,
+            branches: updatedBranches,
+          },
         },
       },
     })
@@ -206,18 +211,19 @@ describe('Reducer()', () => {
   it('should handle START_BATTLE', () => {
     const battle = {
       id: 'YBsJLx4PfV',
-      nemesisTier: {
+      type: 'battle',
+      config: {
         tier: 2,
-        isNewTier: true,
-      },
-      treasure: {
-        level: 2,
-        hasTreasure: true,
+        newUBNCards: { ids: [], addRandom: true },
+        treasure: {
+          level: 2,
+          hasTreasure: true,
+        },
       },
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.OldStyleBattle
+    } as types.Battle
 
     const state = {
       expeditions: {
@@ -245,18 +251,19 @@ describe('Reducer()', () => {
   it('should handle WIN_BATTLE', () => {
     const battle = {
       id: 'YBsJLx4PfV',
-      nemesisTier: {
+      type: 'battle',
+      config: {
         tier: 2,
-        isNewTier: true,
-      },
-      treasure: {
-        level: 2,
-        hasTreasure: true,
+        newUBNCards: { ids: [], addRandom: true },
+        treasure: {
+          level: 2,
+          hasTreasure: true,
+        },
       },
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.OldStyleBattle
+    } as types.Battle
 
     const state = {
       expeditions: {
@@ -334,18 +341,19 @@ describe('Reducer()', () => {
   it('should handle LOSE_BATTLE', () => {
     const battle = {
       id: 'YBsJLx4PfV',
-      nemesisTier: {
+      type: 'battle',
+      config: {
         tier: 2,
-        isNewTier: true,
-      },
-      treasure: {
-        level: 2,
-        hasTreasure: true,
+        newUBNCards: { ids: [], addRandom: true },
+        treasure: {
+          level: 2,
+          hasTreasure: true,
+        },
       },
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.OldStyleBattle
+    } as types.Battle
 
     const state = {
       expeditions: {
@@ -373,18 +381,19 @@ describe('Reducer()', () => {
   it('should handle ROLL_LOSS', () => {
     const battle = {
       id: 'YBsJLx4PfV',
-      nemesisTier: {
+      type: 'battle',
+      config: {
         tier: 2,
-        isNewTier: true,
-      },
-      treasure: {
-        level: 2,
-        hasTreasure: true,
+        newUBNCards: { ids: [], addRandom: true },
+        treasure: {
+          level: 2,
+          hasTreasure: true,
+        },
       },
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.OldStyleBattle
+    } as types.Battle
 
     const state = {
       expeditions: {
@@ -460,23 +469,25 @@ describe('Reducer()', () => {
   it('should handle ACCEPT_LOSS with rewards', () => {
     const battle = {
       id: 'YBsJLx4PfV',
+      type: 'battle',
+      nextBranchId: '0t22iBGUff',
+      config: {
+        tier: 2,
+        newUBNCards: { ids: [], addRandom: true },
+        treasure: {
+          level: 2,
+          hasTreasure: true,
+        },
+      },
       rewards: {
         mage: 'Adelheim',
         treasure: ['AlchemistsAlembic'],
         supplyIds: [],
       },
-      nemesisTier: {
-        tier: 2,
-        isNewTier: true,
-      },
-      treasure: {
-        level: 2,
-        hasTreasure: true,
-      },
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.OldStyleBattle
+    } as types.Battle
 
     const state = {
       expeditions: {
@@ -507,18 +518,20 @@ describe('Reducer()', () => {
   it('should handle ACCEPT_LOSS without rewards', () => {
     const battle = {
       id: 'YBsJLx4PfV',
-      nemesisTier: {
+      type: 'battle',
+      nextBranchId: '0t22iBGUff',
+      config: {
         tier: 2,
-        isNewTier: true,
-      },
-      treasure: {
-        level: 2,
-        hasTreasure: true,
+        newUBNCards: { ids: [], addRandom: true },
+        treasure: {
+          level: 2,
+          hasTreasure: true,
+        },
       },
       expeditionId: 'Expedition1',
       status: 'unlocked',
       tries: 0,
-    } as types.OldStyleBattle
+    } as types.Battle
 
     const state = {
       expeditions: {
@@ -549,22 +562,23 @@ describe('Reducer()', () => {
   it('should handle FINISH_BATTLE', () => {
     const battle = {
       id: 'YBsJLx4PfV',
+      type: 'battle',
+      config: {
+        tier: 2,
+        newUBNCards: { ids: [], addRandom: true },
+        treasure: {
+          level: 2,
+          hasTreasure: true,
+        },
+      },
       rewards: {
         treasure: ['AlchemistsAlembic'],
         supplyIds: ['Popel'],
       },
-      nemesisTier: {
-        tier: 2,
-        isNewTier: true,
-      },
-      treasure: {
-        level: 2,
-        hasTreasure: true,
-      },
       expeditionId: 'Expedition1',
       status: 'started',
       tries: 0,
-    } as types.OldStyleBattle
+    } as types.Battle
 
     const state = {
       expeditions: {
@@ -598,7 +612,7 @@ describe('Reducer()', () => {
       nextBranchId: '0t22iBGUff',
       type: 'battle',
       expeditionId: 'Expedition1',
-      battleConfig: {
+      config: {
         tier: 2,
         newUBNCards: {
           ids: [],
@@ -611,7 +625,7 @@ describe('Reducer()', () => {
       },
       status: 'unlocked',
       tries: 0,
-    } as types.Branch
+    } as types.Battle
 
     const state = {
       expeditions: {

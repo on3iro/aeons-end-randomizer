@@ -15,7 +15,7 @@ import MageReward from './MageReward'
 import ContinueButton from './ContinueButton'
 
 type OwnProps = {
-  battle: types.OldStyleBattle
+  battle: types.Battle
   hide: () => void
   showNext?: () => void
 }
@@ -52,7 +52,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
   const lists = [
     {
       id: 'newSupply',
-      tiles: newSupplyCards.map(tile => ({
+      tiles: newSupplyCards.map((tile) => ({
         ...tile,
         visualSelection: false,
       })),
@@ -60,7 +60,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
     },
     {
       id: 'expedition',
-      tiles: expeditionSupply.map(tile => ({
+      tiles: expeditionSupply.map((tile) => ({
         ...tile,
         visualSelection: false,
       })),

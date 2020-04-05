@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, selectors } from '../../../../Redux/Store'
-import { OldStyleExpedition } from '../../../../types'
+import { Expedition } from '../../../../types'
 
 import InfoItem from '../../../molecules/InfoItem'
 

@@ -4,7 +4,7 @@ import { getUpgradedBasicNemesisCardsResult } from '../getUpgradedBasicNemesisCa
 import * as rollNewUpgradedNemesisCardsModule from '../rollNewUpgradedNemesisCards'
 
 describe('getUpgradedBasicNemesisCardsResult()', () => {
-  test('rollNewUpgradedNemesisCards() should have been called if isNewtier', () => {
+  test('rollNewUpgradedNemesisCards() should have been called if "drawRandom" is true', () => {
     // We are not interested in the calculation itself here, as rollNewUpgradedNemesisCards() hast its own test
     // We only care about it being called, if the tier is new
     const spy = jest.spyOn(
@@ -13,7 +13,13 @@ describe('getUpgradedBasicNemesisCardsResult()', () => {
     )
 
     getUpgradedBasicNemesisCardsResult(
-      { isNewTier: true, tier: 2 },
+      {
+        tier: 2,
+        newUBNCards: { ids: [], addRandom: true },
+        treasure: {
+          hasTreasure: false,
+        },
+      },
       [],
       [],
       getRandomEntity,
@@ -25,7 +31,7 @@ describe('getUpgradedBasicNemesisCardsResult()', () => {
     spy.mockRestore()
   })
 
-  test('previous cards and seed should be returned, if tier is not new', () => {
+  test('previous cards and seed should be returned, if no random cards should be drawn', () => {
     const spy = jest.spyOn(
       rollNewUpgradedNemesisCardsModule,
       'rollNewUpgradedNemesisCards'
@@ -33,7 +39,13 @@ describe('getUpgradedBasicNemesisCardsResult()', () => {
 
     const inputSeed = { seed: 'test', state: true }
     const result = getUpgradedBasicNemesisCardsResult(
-      { isNewTier: false, tier: 2 },
+      {
+        tier: 2,
+        newUBNCards: { ids: [], addRandom: false },
+        treasure: {
+          hasTreasure: false,
+        },
+      },
       [],
       ['a', 'b'],
       getRandomEntity,

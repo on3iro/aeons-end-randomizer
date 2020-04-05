@@ -1,7 +1,7 @@
 import React from 'react'
 import List from '@material-ui/core/List'
 
-import { OldStyleBattle } from 'types'
+import { Battle } from 'types'
 
 import InfoItem from 'components/molecules/InfoItem'
 
@@ -9,7 +9,7 @@ import BodyWrapper from './BodyWrapper'
 import Name from './Name'
 
 type Props = {
-  battle: OldStyleBattle
+  battle: Battle
   nemesis: string
 }
 
@@ -19,7 +19,7 @@ const Body = ({ battle, nemesis }: Props) => (
       Battle: {nemesis}
     </Name>
     <List>
-      <InfoItem label="Tier" info={battle.nemesisTier.tier.toString()} />
+      <InfoItem label="Tier" info={battle.config.tier.toString()} />
       <InfoItem label="Status" info={battle.status} />
       <InfoItem label="Tries" info={battle.tries.toString()} />
     </List>

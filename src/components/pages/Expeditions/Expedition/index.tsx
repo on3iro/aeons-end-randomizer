@@ -11,10 +11,16 @@ import Barracks from './Barracks'
 import Battle from './Battle'
 import Header from './Header'
 
-const renderBattles = (battles: types.OldStyleBattle[]) =>
-  battles.map((battle, index) => (
-    <Battle key={battle.id} battle={battle} data-test={`battle-${index}`} />
-  ))
+const renderBranches = (branches: types.Branches) =>
+  Object.values(branches)
+    // FIXME as soon as we handle all branch types we should fix the casting in line 17
+    .map((branch, index) => (
+      <Battle
+        key={branch.id}
+        battle={branch as types.Battle}
+        data-test={`battle-${index}`}
+      />
+    ))
 
 type OwnProps = {
   id: string
@@ -51,7 +57,7 @@ const Expedition = ({ expedition }: Props) => {
         score={expedition.score}
       />
 
-      {renderBattles(expedition.battles)}
+      {renderBranches(expedition.sequence.branches)}
       <Barracks expedition={expedition} />
     </React.Fragment>
   )

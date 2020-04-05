@@ -421,7 +421,7 @@ export const expedition1 = {
         type: 'battle',
         expeditionId: 'Expedition1',
         nemesisId: 'KnightOfShackles',
-        battleConfig: {
+        config: {
           tier: 1,
           newUBNCards: {
             ids: [],
@@ -450,7 +450,7 @@ export const expedition1 = {
         nextBranchId: '0t22iBGUff',
         type: 'battle',
         expeditionId: 'Expedition1',
-        battleConfig: {
+        config: {
           tier: 2,
           newUBNCards: {
             ids: [],
@@ -469,7 +469,7 @@ export const expedition1 = {
         nextBranchId: 'wXBtzLO1bM',
         type: 'battle',
         expeditionId: 'Expedition1',
-        battleConfig: {
+        config: {
           tier: 3,
           newUBNCards: {
             ids: [],
@@ -486,7 +486,7 @@ export const expedition1 = {
       wXBtzLO1bM: {
         id: 'wXBtzLO1bM',
         type: 'battle',
-        battleConfig: {
+        config: {
           tier: 4,
           newUBNCards: {
             ids: [],

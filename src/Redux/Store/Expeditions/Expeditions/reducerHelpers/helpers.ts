@@ -9,26 +9,23 @@ export const EXPEDITIONS_DB_KEY = 'expeditions-1.11.0'
 
 export const updateBattle = (
   state: State,
-  battle: types.OldStyleBattle,
+  battle: types.Battle,
   additionalBattleProps?: {
     status?: types.BattleStatus
     tries?: number
-    rewards?: null
+    rewards?: types.Rewards
   }
 ) => {
   const oldExpedition = state.expeditions[battle.expeditionId]
-  const oldBattleList = oldExpedition.battles
+  const branches = oldExpedition.sequence.branches
 
-  const battleIndex = oldBattleList.findIndex(
-    oldBattle => oldBattle.id === battle.id
-  )
-
-  const updatedBattles = Object.assign([...oldBattleList], {
-    [battleIndex]: {
+  const updatedBranches = {
+    ...branches,
+    [battle.id]: {
       ...battle,
       ...additionalBattleProps,
     },
-  })
+  }
 
   const newState = {
     ...state,
@@ -36,7 +33,10 @@ export const updateBattle = (
       ...state.expeditions,
       [battle.expeditionId]: {
         ...oldExpedition,
-        battles: updatedBattles,
+        sequence: {
+          ...oldExpedition.sequence,
+          branches: updatedBranches,
+        },
       },
     },
   }

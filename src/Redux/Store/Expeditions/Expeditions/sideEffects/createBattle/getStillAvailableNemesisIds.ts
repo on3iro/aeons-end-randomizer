@@ -9,7 +9,7 @@ export const getStillAvailableNemesisIds = (
   nemesisTier: types.NemesisTier
 ) => {
   return availableNemeses
-    .filter(nemesis => nemesis.expeditionRating === nemesisTier.tier)
-    .map(nemesis => nemesis.id)
-    .filter(nemesisId => !previousNemeses.includes(nemesisId))
+    .filter((nemesis) => nemesis.expeditionRating === nemesisTier)
+    .map((nemesis) => nemesis.id)
+    .filter((nemesisId) => !previousNemeses.includes(nemesisId))
 }

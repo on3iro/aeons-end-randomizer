@@ -3,17 +3,17 @@ import * as types from 'types'
 import { rollNewUpgradedNemesisCards } from './rollNewUpgradedNemesisCards'
 
 export const getUpgradedBasicNemesisCardsResult = (
-  nemesisTier: types.NemesisTier,
+  config: types.BattleConfig,
   availableUpgradedBasicNemesisCards: types.UpgradedBasicNemesisCard[],
   previousUpgradedBasicNemesisCards: string[],
   getEntity: types.SeededEntityGetter,
   seed: types.Seed
 ) => {
-  return nemesisTier.isNewTier
+  return config.newUBNCards.addRandom
     ? rollNewUpgradedNemesisCards(
         availableUpgradedBasicNemesisCards,
         previousUpgradedBasicNemesisCards,
-        nemesisTier.tier,
+        config.tier,
         getEntity,
         seed
       )
