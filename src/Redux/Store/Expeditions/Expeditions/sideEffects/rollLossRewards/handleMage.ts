@@ -4,7 +4,7 @@ import { getRandomEntity } from 'Redux/helpers'
 import { rollNewEntity } from '../helpers'
 
 export const handleMage = (
-  battle: types.OldStyleBattle,
+  battle: types.Battle,
   mageIds: string[],
   seed: types.Seed
 ) => {

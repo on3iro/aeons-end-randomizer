@@ -15,6 +15,7 @@ import { createSettingsSnapshot } from '../createSettingsSnapshot'
 import { createSupplyIds } from './createSupplyIds'
 import { createTreasureIds } from './createTreasureIds'
 import { generateBattles } from './generateBattles'
+import { getLatestMigrationVersion } from 'Redux/Store/Expeditions/Expeditions/migrations'
 
 export const createExpeditionConfig = (
   getState: () => RootState,
@@ -126,7 +127,16 @@ export const createExpeditionConfig = (
     banished: [],
     variantId,
     bigPocketVariant: bigPocketVariant,
-    battles,
+    sequence: {
+      firstBattleId: battles[0].id,
+      branches: battles.reduce((acc, battle) => {
+        return {
+          ...acc,
+          [battle.id]: battle,
+        }
+      }, {}),
+    },
+    migrationVersion: getLatestMigrationVersion(),
     finished: false,
   }
 }

@@ -33,14 +33,11 @@ export const rollBattleSuccess = (
   } = action.payload
 
   const oldExpedition = state.expeditions[battle.expeditionId]
-  const oldBattleList = oldExpedition.battles
-
-  const battleIndex = oldBattleList.findIndex(
-    oldBattle => oldBattle.id === battle.id
-  )
-  const updatedBattles = Object.assign([...oldBattleList], {
-    [battleIndex]: battle,
-  })
+  const branches = oldExpedition.sequence.branches
+  const updatedBranches = {
+    ...branches,
+    [battle.id]: battle,
+  }
 
   const newState = {
     ...state,
@@ -53,7 +50,10 @@ export const rollBattleSuccess = (
           nemesisState: nemesisSeedState,
         },
         upgradedBasicNemesisCards: upgradedBasicNemesisCardIds,
-        battles: updatedBattles,
+        sequence: {
+          ...oldExpedition.sequence,
+          branches: updatedBranches,
+        },
       },
     },
   }

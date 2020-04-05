@@ -118,7 +118,7 @@ describe('migrateToExpeditionDSL()', () => {
             type: 'battle',
             expeditionId: 'OLD_STYLE',
             nemesisId: 'Bladius',
-            battleConfig: {
+            config: {
               tier: 1,
               newUBNCards: {
                 ids: [],
@@ -147,7 +147,7 @@ describe('migrateToExpeditionDSL()', () => {
             type: 'battle',
             expeditionId: 'OLD_STYLE',
             nextBranchId: 'olps4itk4',
-            battleConfig: {
+            config: {
               tier: 2,
               newUBNCards: {
                 ids: [],
@@ -166,7 +166,7 @@ describe('migrateToExpeditionDSL()', () => {
             type: 'battle',
             expeditionId: 'OLD_STYLE',
             nextBranchId: 'y0gQDPjY5',
-            battleConfig: {
+            config: {
               tier: 3,
               newUBNCards: {
                 ids: [],
@@ -184,7 +184,7 @@ describe('migrateToExpeditionDSL()', () => {
             id: 'y0gQDPjY5',
             type: 'battle',
             expeditionId: 'OLD_STYLE',
-            battleConfig: {
+            config: {
               tier: 4,
               newUBNCards: {
                 ids: [],

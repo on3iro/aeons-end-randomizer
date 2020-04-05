@@ -19,6 +19,15 @@ const migrations: types.Migration[] = [
   },
 ].sort(byAscendingVersion)
 
+export const getLatestMigrationVersion = () =>
+  migrations.reduce((acc, migration) => {
+    if (migration.version > acc) {
+      return migration.version
+    } else {
+      return acc
+    }
+  }, 0)
+
 export const migrate = (
   getState: () => RootState,
   {
@@ -29,9 +38,11 @@ export const migrate = (
 ) => {
   const rootState = getState()
 
-  const expeditions = newState.expeditionIds.map(id => newState.expeditions[id])
+  const expeditions = newState.expeditionIds.map(
+    (id) => newState.expeditions[id]
+  )
 
-  const migratedExpeditions = expeditions.map(expedition => {
+  const migratedExpeditions = expeditions.map((expedition) => {
     return migrations.reduce((acc, migration) => {
       if (!expedition.migrationVersion) {
         return {

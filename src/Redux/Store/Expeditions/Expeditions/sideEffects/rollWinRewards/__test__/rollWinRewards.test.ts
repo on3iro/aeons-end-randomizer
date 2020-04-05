@@ -83,12 +83,17 @@ describe('rollWinRewards()', () => {
   it('should produce correct result', () => {
     const inputBattle = {
       id: 'someBattle',
+      type: 'battle',
       expeditionId: 'expedition1',
-      treasure: {
-        hasTreasure: true,
-        level: 2,
+      config: {
+        tier: 1,
+        newUBNCards: { ids: [], addRandom: false },
+        treasure: {
+          hasTreasure: true,
+          level: 2,
+        },
       },
-    } as types.OldStyleBattle
+    } as types.Battle
 
     const result = rollWinRewards(getExampleState, inputBattle)
 
@@ -115,11 +120,13 @@ describe('rollWinRewards()', () => {
     rollWinRewards(getExampleState, {
       id: 'someBattle',
       expeditionId: 'expedition1',
-      treasure: {
-        hasTreasure: true,
-        level: 2,
+      config: {
+        treasure: {
+          hasTreasure: true,
+          level: 2,
+        },
       },
-    } as types.OldStyleBattle)
+    } as types.Battle)
 
     expect(rollTreasuresSpy).toHaveBeenCalledWith(
       ['t1'],

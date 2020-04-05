@@ -578,7 +578,7 @@ Object {
       "sequence": Object {
         "branches": Object {
           "0t22iBGUff": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],
@@ -597,7 +597,7 @@ Object {
             "type": "battle",
           },
           "CvghslX3mK": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": false,
                 "ids": Array [],
@@ -631,7 +631,7 @@ Object {
             "type": "battle",
           },
           "YBsJLx4PfV": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],
@@ -650,7 +650,7 @@ Object {
             "type": "battle",
           },
           "wXBtzLO1bM": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],
@@ -1349,7 +1349,7 @@ Object {
       "sequence": Object {
         "branches": Object {
           "0WfVFTsXB": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],
@@ -1368,7 +1368,7 @@ Object {
             "type": "battle",
           },
           "RLqy87hY8": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],
@@ -1386,7 +1386,7 @@ Object {
             "type": "battle",
           },
           "sJUKZWynf": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": false,
                 "ids": Array [],
@@ -1405,7 +1405,7 @@ Object {
             "type": "battle",
           },
           "wgH5bJGS-": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],
@@ -2112,7 +2112,7 @@ Object {
       "sequence": Object {
         "branches": Object {
           "4tihtCjRTv": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],
@@ -2131,7 +2131,7 @@ Object {
             "type": "battle",
           },
           "8NbPmkdCrn": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],
@@ -2150,7 +2150,7 @@ Object {
             "type": "battle",
           },
           "Ptqy1NGiT2": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],
@@ -2856,7 +2856,7 @@ Object {
       "sequence": Object {
         "branches": Object {
           "4tihtCjRTv": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],
@@ -2875,7 +2875,7 @@ Object {
             "type": "battle",
           },
           "8NbPmkdCrn": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],
@@ -2894,7 +2894,7 @@ Object {
             "type": "battle",
           },
           "Ptqy1NGiT2": Object {
-            "battleConfig": Object {
+            "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
                 "ids": Array [],

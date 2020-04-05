@@ -3,13 +3,9 @@ import { handleMage } from '../handleMage'
 
 describe('handleMage', () => {
   it('should contain undefined, if no result could be created', () => {
-    const result = handleMage(
-      { id: 'someBattle' } as types.OldStyleBattle,
-      [],
-      {
-        seed: 'test',
-      }
-    )
+    const result = handleMage({ id: 'someBattle' } as types.Battle, [], {
+      seed: 'test',
+    })
 
     expect(result).toEqual({
       id: 'someBattle',
@@ -23,13 +19,9 @@ describe('handleMage', () => {
   })
 
   it('should contain mageId', () => {
-    const result = handleMage(
-      { id: 'someBattle' } as types.OldStyleBattle,
-      ['mage1'],
-      {
-        seed: 'test',
-      }
-    )
+    const result = handleMage({ id: 'someBattle' } as types.Battle, ['mage1'], {
+      seed: 'test',
+    })
 
     expect(result).toEqual({
       id: 'someBattle',

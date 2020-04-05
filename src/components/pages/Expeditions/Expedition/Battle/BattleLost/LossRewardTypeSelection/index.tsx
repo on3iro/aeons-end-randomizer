@@ -20,7 +20,7 @@ const getTreasureOptionsByTier = (tier: 1 | 2 | 3 | 4) => [
 ]
 
 type OwnProps = {
-  battle: types.OldStyleBattle
+  battle: types.Battle
 }
 
 const mapStateToProps = () => {
@@ -36,7 +36,7 @@ type Props = ReturnType<typeof mapStateToProps> &
   OwnProps
 
 const LossRewardTypeSelection = ({ battle, rollLoss }: Props) => {
-  const treasureOptions = getTreasureOptionsByTier(battle.nemesisTier.tier)
+  const treasureOptions = getTreasureOptionsByTier(battle.config.tier)
 
   // FIXME does not work, if mage is not shown as option, due to no available mages
   const [rewardSelectValue, updateRewardSelectValue] = useState<RewardType>(

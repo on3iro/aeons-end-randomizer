@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { actions } from '../../../Redux/Store'
 import { usePrompt, useModal } from 'hooks/useModal'
 
-import { OldStyleExpedition } from 'types'
+import { Expedition } from 'types'
 
 import H2 from 'components/atoms/H2'
 
@@ -49,8 +49,9 @@ const OverviewEntry = ({ expedition, deleteHandler, shareHandler }: Props) => {
   const creationModal = useModal()
 
   const url = `/expeditions/${expedition.id}`
-  const deletionDialogTitle = `Would you really like to delete Expedition: "${expedition.name ||
-    expedition.id}"?`
+  const deletionDialogTitle = `Would you really like to delete Expedition: "${
+    expedition.name || expedition.id
+  }"?`
 
   return (
     <React.Fragment>

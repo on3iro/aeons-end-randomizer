@@ -20,7 +20,7 @@ export const migrateToExpeditionDSL = (
             ...battleProps,
             nextBranchId: battles[index + 1]?.id,
             type: 'battle',
-            battleConfig: {
+            config: {
               tier: nemesisTier.tier,
               newUBNCards: {
                 ids: [],

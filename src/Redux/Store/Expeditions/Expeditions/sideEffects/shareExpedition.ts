@@ -33,7 +33,7 @@ export const shareExpedition = (expedition: types.Expedition) => {
     seed, // we only want the seed not its state
     score,
     barracks,
-    battles,
+    sequence,
     upgradedBasicNemesisCards,
     banished,
     finished,
