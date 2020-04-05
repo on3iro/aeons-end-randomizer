@@ -1,4 +1,4 @@
-export type NemesisTier = {
+export type OldStyleNemesisTier = {
   tier: 1 | 2 | 3 | 4
   isNewTier: boolean
 }

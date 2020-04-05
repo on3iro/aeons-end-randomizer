@@ -1,4 +1,4 @@
-import { NemesisTier, TreasureLevel } from './data'
+import { OldStyleNemesisTier, TreasureLevel } from './data'
 import { IMarketSetup, IBluePrint } from 'types'
 import { Seed } from './index'
 
@@ -108,7 +108,7 @@ export const variants: { [id: string]: Variant } = {
 
 // Automagically generate union type of variant ids from variants
 // object
-export const variantIds = Object.values(variants).map(val => val.id)
+export const variantIds = Object.values(variants).map((val) => val.id)
 export type VariantId = typeof variantIds[number]
 
 export type BattleStatus =
@@ -127,7 +127,7 @@ export type OldStyleBattle = {
   id: string
   expeditionId: string
   nemesisId?: string
-  nemesisTier: NemesisTier
+  nemesisTier: OldStyleNemesisTier
   treasure: BattleTreasure
   status: BattleStatus
   rewards?: { treasure: string[]; mage?: string; supplyIds: string[] }
@@ -175,7 +175,7 @@ export type OldStyleExpedition = {
 
 export type OnLoss = 'skip'
 
-export type Rewards = {
+export type RewardsConfig = {
   treasure: {
     ids: Array<string | { random: true; level: 1 | 2 | 3 }>
   }
@@ -188,46 +188,53 @@ export type Rewards = {
   }
 }
 
+export type NemesisTier = 1 | 2 | 3 | 4
+
 export type BattleConfig = {
-  tier: 1 | 2 | 3 | 4
+  tier: NemesisTier
   nemesisId?: string
   newUBNCards: { ids: []; addRandom: boolean }
   specialRules?: string
-  lossRewards?: Rewards[]
-  winRewards?: Rewards
+  lossRewards?: RewardsConfig[]
+  winRewards?: RewardsConfig
   treasure: BattleTreasure
   onLoss?: OnLoss
 }
+
+export type Rewards = { treasure: string[]; mage?: string; supplyIds: string[] }
 
 export type Battle = {
   id: string
   type: 'battle'
   expeditionId: string
   nemesisId?: string
-  battleConfig: BattleConfig
+  config: BattleConfig
   status: BattleStatus
-  rewards?: { treasure: string[]; mage?: string; supplyIds: string[] }
+  // These are actual rewards which where rolled, not config
+  rewards?: Rewards
   tries: number
-}
+} & BranchConfig
 
 export type Narrative = {
   id: string
   type: 'narrative'
   text: string
   descisions: string[]
-}
+} & BranchConfig
 
 export type RewardBranch = {
   id: string
   type: 'reward'
-  rewards: Rewards
-}
+  rewards: RewardsConfig
+} & BranchConfig
 
 export type BranchConfig = {
   nextBranchId?: string | { [key: number]: string }
 }
 
-export type Branch = BranchConfig & (Battle | Narrative | RewardBranch)
+export type Branch = Battle | Narrative | RewardBranch
+
+export type Branches = { [id: string]: Branch }
 
 export type Expedition = {
   id: string
@@ -245,7 +252,7 @@ export type Expedition = {
   banished: string[]
   sequence: {
     firstBattleId: string
-    branches: { [id: string]: Branch }
+    branches: Branches
   }
   variantId: string
   bigPocketVariant: boolean

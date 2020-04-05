@@ -6,23 +6,22 @@ import * as getUpgradedBasicNemesisCardsResultModule from '../getUpgradedBasicNe
 
 describe('createBattle()', () => {
   const inputSeed = { seed: 'test', supplyState: true, nemesisState: true }
-  const inputBattle: types.OldStyleBattle = {
+  const inputBattle: types.Battle = {
     id: 'someBattle',
-    nemesisTier: {
+    type: 'battle',
+    config: {
       tier: 2,
-      isNewTier: true,
-    },
-    treasure: {
-      hasTreasure: false,
+      newUBNCards: { ids: [], addRandom: true },
+      treasure: {
+        hasTreasure: false,
+      },
     },
     expeditionId: 'expedition1',
     status: 'locked',
     tries: 0,
   }
 
-  const makeGetExampleState = (
-    battle: types.OldStyleBattle = inputBattle
-  ) => () => ({
+  const makeGetExampleState = (battle: types.Battle = inputBattle) => () => ({
     Expeditions: {
       Expeditions: {
         expeditions: {
@@ -37,7 +36,12 @@ describe('createBattle()', () => {
               ],
             },
             seed: inputSeed,
-            battles: [battle],
+            sequence: {
+              firstBattleId: battle.id,
+              branches: {
+                [battle.id]: battle,
+              },
+            },
             upgradedBasicNemesisCards: ['Wreck'],
           } as types.Expedition,
         },
@@ -121,22 +125,21 @@ describe('createBattle()', () => {
   it('should create correct result', () => {
     const result = createBattle(
       makeGetExampleState(),
-      inputBattle as types.OldStyleBattle
+      inputBattle as types.Battle
     )
 
     expect(result).toEqual({
       battle: {
         expeditionId: 'expedition1',
         id: 'someBattle',
+        type: 'battle',
         nemesisId: 'PrinceOfGluttons',
-        nemesisTier: {
-          isNewTier: true,
+        config: {
           tier: 2,
+          newUBNCards: { ids: [], addRandom: true },
+          treasure: { hasTreasure: false },
         },
         status: 'before_battle',
-        treasure: {
-          hasTreasure: false,
-        },
         tries: 0,
       },
       upgradedBasicNemesisCardIds: ['Wreck', 'BaneCommander'],
@@ -145,11 +148,12 @@ describe('createBattle()', () => {
   })
 
   test('handle "no nemesis available" by setting id to UNDEFINED', () => {
-    const battle: types.OldStyleBattle = {
+    const battle: types.Battle = {
       ...inputBattle,
-      nemesisTier: {
+      config: {
         tier: 3,
-        isNewTier: true,
+        newUBNCards: { ids: [], addRandom: true },
+        treasure: { hasTreasure: false },
       },
     }
     const result = createBattle(makeGetExampleState(battle), battle)
@@ -158,15 +162,14 @@ describe('createBattle()', () => {
       battle: {
         expeditionId: 'expedition1',
         id: 'someBattle',
+        type: 'battle',
         nemesisId: undefined,
-        nemesisTier: {
-          isNewTier: true,
+        config: {
           tier: 3,
+          newUBNCards: { ids: [], addRandom: true },
+          treasure: { hasTreasure: false },
         },
         status: 'before_battle',
-        treasure: {
-          hasTreasure: false,
-        },
         tries: 0,
       },
       upgradedBasicNemesisCardIds: ['Wreck', 'BaneCommander'],
@@ -182,7 +185,7 @@ describe('createBattle()', () => {
       'getUpgradedBasicNemesisCardsResult'
     )
 
-    createBattle(makeGetExampleState(), inputBattle as types.OldStyleBattle)
+    createBattle(makeGetExampleState(), inputBattle as types.Battle)
 
     expect(rollNemesisSpy).toHaveBeenCalledWith(
       ['PrinceOfGluttons'],
@@ -190,7 +193,16 @@ describe('createBattle()', () => {
     )
 
     expect(getUpgradedBasicNemesisCardsResultSpy).toHaveBeenCalledWith(
-      { tier: 2, isNewTier: true },
+      {
+        tier: 2,
+        newUBNCards: {
+          ids: [],
+          addRandom: true,
+        },
+        treasure: {
+          hasTreasure: false,
+        },
+      },
       expect.any(Array), // FIXME we could probably be more strict with our test here
       ['Wreck'],
       expect.any(Function),

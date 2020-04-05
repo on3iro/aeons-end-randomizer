@@ -21,7 +21,7 @@ export const rollWinRewards = (
     TreasuresStateSlice &
     TreasureIdsStateSlice &
     SelectedCardsLookupStateSlice,
-  battle: types.OldStyleBattle
+  battle: types.Battle
 ) => {
   const state = getState()
 
@@ -38,14 +38,14 @@ export const rollWinRewards = (
   }
 
   const stillAvailableTreasureIds =
-    battle.treasure.hasTreasure && battle.treasure.level
+    battle.config.treasure.hasTreasure && battle.config.treasure.level
       ? selectors.getStillAvailableTreasureIdsByLevel(state, {
-          treasureLevel: battle.treasure.level,
+          treasureLevel: battle.config.treasure.level,
           expeditionId,
         })
       : []
 
-  const treasureLevel = battle.treasure.level
+  const treasureLevel = battle.config.treasure.level
   const amountOfTreasures = getTreasureAmount(treasureLevel)
 
   const newTreasuresResult = rollTreasureIdsByLevel(

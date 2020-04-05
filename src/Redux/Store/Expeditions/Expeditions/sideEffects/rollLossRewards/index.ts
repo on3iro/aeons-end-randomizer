@@ -30,7 +30,7 @@ export const handleRewardType = ({
   treasure3Ids,
 }: {
   rewardType: RewardType
-  battle: types.OldStyleBattle
+  battle: types.Battle
   seed: types.Seed
   mageIds: string[]
   gemIds: string[]
@@ -81,7 +81,7 @@ export const rollLossRewards = (
     TreasuresStateSlice &
     TreasureIdsStateSlice &
     SelectedMagesLookupStateSlice,
-  battle: types.OldStyleBattle,
+  battle: types.Battle,
   rewardType: RewardType
 ): BattleRewardsResult => {
   const state = getState()

@@ -5,14 +5,17 @@ export const generateBattles = (
   variant: types.Variant,
   expeditionId: string
 ) => {
+  const battleIds = variant.configList.map((_) => shortid.generate())
+
   const battles = variant.configList.map(
-    (config, index): types.OldStyleBattle => {
+    (config, index): types.Battle => {
       const isFirst = index === 0
 
       return {
-        id: shortid.generate(),
-        nemesisTier: config.tier,
-        treasure: config.treasure,
+        id: battleIds[index],
+        type: 'battle',
+        nextBranchId: battleIds[index + 1], // will be undefined for last battle (which is ok)
+        config,
         expeditionId,
         status: isFirst ? 'unlocked' : 'locked',
         tries: 0,

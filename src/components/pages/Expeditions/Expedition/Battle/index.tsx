@@ -15,7 +15,7 @@ import BattleLost from './BattleLost'
 import ExpeditionFinished from './ExpeditionFinished'
 
 type OwnProps = {
-  battle: types.OldStyleBattle
+  battle: types.Battle
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
@@ -74,7 +74,7 @@ const Battle = ({
   ])
 
   const battleWonCallback = useCallback(
-    expeditionIsFinished => {
+    (expeditionIsFinished) => {
       if (expeditionIsFinished) {
         expeditionComplete.show()
       } else {

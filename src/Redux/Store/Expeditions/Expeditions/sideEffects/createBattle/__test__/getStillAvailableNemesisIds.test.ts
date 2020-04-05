@@ -2,10 +2,7 @@ import { getStillAvailableNemesisIds } from '../getStillAvailableNemesisIds'
 
 describe('getStillAvailableNemesisIds()', () => {
   it('should return empty [] if no nemesis are available', () => {
-    const result = getStillAvailableNemesisIds([], ['test'], {
-      tier: 1,
-      isNewTier: false,
-    })
+    const result = getStillAvailableNemesisIds([], ['test'], 1)
 
     expect(result).toEqual([])
   })
@@ -14,7 +11,7 @@ describe('getStillAvailableNemesisIds()', () => {
     const result = getStillAvailableNemesisIds(
       [{ id: 'a', expeditionRating: 2 }],
       ['test'],
-      { tier: 1, isNewTier: false }
+      1
     )
 
     expect(result).toEqual([])
@@ -24,7 +21,7 @@ describe('getStillAvailableNemesisIds()', () => {
     const result = getStillAvailableNemesisIds(
       [{ id: 'a', expeditionRating: 1 }],
       ['a'],
-      { tier: 1, isNewTier: false }
+      1
     )
 
     expect(result).toEqual([])
@@ -34,7 +31,7 @@ describe('getStillAvailableNemesisIds()', () => {
     const result = getStillAvailableNemesisIds(
       [{ id: 'a', expeditionRating: 1 }],
       [],
-      { tier: 1, isNewTier: false }
+      1
     )
 
     expect(result).toEqual(['a'])
@@ -47,7 +44,7 @@ describe('getStillAvailableNemesisIds()', () => {
         { id: 'b', expeditionRating: 1 },
       ],
       ['b'],
-      { tier: 1, isNewTier: false }
+      1
     )
 
     expect(result).toEqual(['a'])

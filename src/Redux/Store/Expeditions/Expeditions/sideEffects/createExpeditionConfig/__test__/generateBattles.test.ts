@@ -1,21 +1,43 @@
+import shortidMock from 'shortid'
+
+jest.mock('shortid', () => {
+  let count = 0
+
+  return {
+    generate: jest.fn(() => {
+      const newId = `TEST_BATTLE_ID_${count}`
+      count = count + 1
+      return newId
+    }),
+  }
+})
+
 import { generateBattles } from '../generateBattles'
 import * as types from 'types'
 
 describe('generateBattles', () => {
-  const config1: types.VariantConfig = {
-    tier: { tier: 1, isNewTier: false },
+  afterAll(() => {
+    jest.restoreAllMocks()
+  })
+
+  const config1: types.BattleConfig = {
+    tier: 1,
+    newUBNCards: { ids: [], addRandom: false },
     treasure: { level: 1, hasTreasure: true },
   }
-  const config2: types.VariantConfig = {
-    tier: { tier: 2, isNewTier: true },
+  const config2: types.BattleConfig = {
+    tier: 2,
+    newUBNCards: { ids: [], addRandom: true },
     treasure: { level: 2, hasTreasure: true },
   }
-  const config3: types.VariantConfig = {
-    tier: { tier: 3, isNewTier: true },
+  const config3: types.BattleConfig = {
+    tier: 3,
+    newUBNCards: { ids: [], addRandom: true },
     treasure: { level: 3, hasTreasure: true },
   }
-  const config4: types.VariantConfig = {
-    tier: { tier: 4, isNewTier: true },
+  const config4: types.BattleConfig = {
+    tier: 4,
+    newUBNCards: { ids: [], addRandom: true },
     treasure: { hasTreasure: false },
   }
 
@@ -30,33 +52,37 @@ describe('generateBattles', () => {
 
     expect(result).toEqual([
       {
-        id: expect.any(String),
-        nemesisTier: config1.tier,
-        treasure: config1.treasure,
+        id: 'TEST_BATTLE_ID_0',
+        type: 'battle',
+        nextBranchId: 'TEST_BATTLE_ID_1',
+        config: config1,
         expeditionId: 'someExpedition',
         status: 'unlocked',
         tries: 0,
       },
       {
-        id: expect.any(String),
-        nemesisTier: config2.tier,
-        treasure: config2.treasure,
+        id: 'TEST_BATTLE_ID_1',
+        type: 'battle',
+        nextBranchId: 'TEST_BATTLE_ID_2',
+        config: config2,
         expeditionId: 'someExpedition',
         status: 'locked',
         tries: 0,
       },
       {
-        id: expect.any(String),
-        nemesisTier: config3.tier,
-        treasure: config3.treasure,
+        id: 'TEST_BATTLE_ID_2',
+        nextBranchId: 'TEST_BATTLE_ID_3',
+        type: 'battle',
+        config: config3,
         expeditionId: 'someExpedition',
         status: 'locked',
         tries: 0,
       },
       {
-        id: expect.any(String),
-        nemesisTier: config4.tier,
-        treasure: config4.treasure,
+        id: 'TEST_BATTLE_ID_3',
+        nextBranchId: undefined,
+        type: 'battle',
+        config: config4,
         expeditionId: 'someExpedition',
         status: 'locked',
         tries: 0,

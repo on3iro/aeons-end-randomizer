@@ -19,7 +19,7 @@ const getChoiceIndex = (_: unknown, props: { choiceIndex: number }) =>
 
 const getExpeditionList = createSelector(
   [getExpeditionIds, getExpeditions],
-  (ids, expeditions) => ids.map(id => expeditions[id])
+  (ids, expeditions) => ids.map((id) => expeditions[id])
 )
 
 const getExpeditionById = createSelector(
@@ -29,12 +29,12 @@ const getExpeditionById = createSelector(
 
 const getExpeditionIsFinished = createSelector(
   [getExpeditionById],
-  expedition => expedition.finished
+  (expedition) => expedition.finished
 )
 
 const getSettingsSnapshotByExpeditionId = createSelector(
   [getExpeditionById],
-  expedition => expedition.settingsSnapshot
+  (expedition) => expedition.settingsSnapshot
 )
 
 const getHasNextBranch = createSelector(
@@ -64,33 +64,33 @@ const getNextBranch = createSelector(
 
 const getSupplyByExpeditionId = createSelector(
   [getExpeditionById],
-  expedition => expedition.barracks.supplyIds
+  (expedition) => expedition.barracks.supplyIds
 )
 
 const getBanishedByExpeditionId = createSelector(
   [getExpeditionById],
-  expedition => expedition.banished
+  (expedition) => expedition.banished
 )
 
 const getMagesByExpeditionId = createSelector(
   [getExpeditionById],
-  expedition => expedition.barracks.mageIds
+  (expedition) => expedition.barracks.mageIds
 )
 
 const getBranchIdListByExpeditionId = createSelector(
   [getExpeditionById],
-  expedition => Object.keys(expedition.sequence.branches)
+  (expedition) => Object.keys(expedition.sequence.branches)
 )
 
 const getBranchListByExpeditionId = createSelector(
   [getExpeditionById, getBranchIdListByExpeditionId],
   (expedition, branchIds) =>
-    branchIds.map(id => expedition.sequence.branches[id])
+    branchIds.map((id) => expedition.sequence.branches[id])
 )
 
 const getPreviousNemesesByExpeditionId = createSelector(
   [getBranchListByExpeditionId],
-  branches =>
+  (branches) =>
     branches
       .filter(
         (branch: types.Branch): branch is types.Battle =>
@@ -107,7 +107,7 @@ const getPreviousNemesesByExpeditionId = createSelector(
 
 const getBarracksTreasureIdsByExpeditionId = createSelector(
   [getExpeditionById],
-  expedition => expedition.barracks.treasureIds
+  (expedition) => expedition.barracks.treasureIds
 )
 
 export const selectors = {
@@ -120,7 +120,7 @@ export const selectors = {
   getBanishedByExpeditionId,
   getMagesByExpeditionId,
   getExpeditionIsFinished,
-  getHasNextBattle: getHasNextBranch,
+  getHasNextBranch,
   getSettingsSnapshotByExpeditionId,
   getPreviousNemesesByExpeditiionId: getPreviousNemesesByExpeditionId,
   getBarracksTreasureIdsByExpeditionId,

@@ -10,7 +10,7 @@ import BattleLostButton from 'components/pages/Expeditions/Expedition/Battle/Bat
 import BattleWonButton from 'components/pages/Expeditions/Expedition/Battle/BattleStarted/BattleWonButton'
 
 type OwnProps = {
-  battle: types.OldStyleBattle
+  battle: types.Battle
   hide: () => void
   showNextOnWin?: (expeditionIsFinished: boolean) => void
   showNextOnLoss?: () => void
@@ -19,9 +19,9 @@ type OwnProps = {
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
   const { expeditionId } = ownProps.battle
 
-  const expeditionHasNextBattle = selectors.Expeditions.Expeditions.getHasNextBattle(
+  const expeditionHasNextBattle = selectors.Expeditions.Expeditions.getHasNextBranch(
     state,
-    { expeditionId, battleId: ownProps.battle.id }
+    { expeditionId, branchId: ownProps.battle.id }
   )
 
   return {
