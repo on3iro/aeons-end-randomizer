@@ -21,6 +21,7 @@ const mockGameState = {
     config.TURNORDERCARDS['nemesis-1'],
   ],
   started: true,
+  round: 4,
 }
 
 const mockGameEndState = {
@@ -34,6 +35,7 @@ const mockGameEndState = {
     config.TURNORDERCARDS['nemesis-1'],
   ],
   started: true,
+  round: 4,
 }
 
 const mockGameStartState = {
@@ -47,6 +49,7 @@ const mockGameStartState = {
   ],
   discard: [],
   started: true,
+  round: 4,
 }
 
 const mockGameWithAlternateState = {
@@ -64,6 +67,7 @@ const mockGameWithAlternateState = {
     config.TURNORDERCARDS['nemesis-1'],
   ],
   started: true,
+  round: 4,
 }
 
 const mockGameWithAlternateEndState = {
@@ -80,6 +84,7 @@ const mockGameWithAlternateEndState = {
     config.TURNORDERCARDS['nemesis-1'],
   ],
   started: true,
+  round: 4,
 }
 
 describe('TurnOrder | ActiveGame | reducer', () => {
@@ -111,6 +116,7 @@ describe('TurnOrder | ActiveGame | reducer', () => {
         config.TURNORDERCARDS['nemesis-1'],
       ],
       started: true,
+      round: 4,
     }
 
     const result = Reducer(mockGameState, actions.draw())
@@ -132,6 +138,7 @@ describe('TurnOrder | ActiveGame | reducer', () => {
         config.TURNORDERCARDS['nemesis-1'],
       ],
       started: true,
+      round: 4,
     }
 
     const result = Reducer(mockGameWithAlternateState, actions.draw())
@@ -162,6 +169,7 @@ describe('TurnOrder | ActiveGame | reducer', () => {
     expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-2'])
     expect(model.discard.length).toBe(0)
     expect(model.started).toBe(true)
+    expect(model.round).toBe(5)
   })
 
   it('should handle NEW_ROUND with an alternate card', () => {
@@ -186,6 +194,7 @@ describe('TurnOrder | ActiveGame | reducer', () => {
     expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-2'])
     expect(model.discard.length).toBe(0)
     expect(model.started).toBe(true)
+    expect(model.round).toBe(5)
   })
 
   it('should handle ADD_TO_TOP', () => {
@@ -199,6 +208,7 @@ describe('TurnOrder | ActiveGame | reducer', () => {
       ],
       discard: [config.TURNORDERCARDS['nemesis-1']],
       started: true,
+      round: 4,
     }
 
     const result = Reducer(mockGameState, actions.addToTop('player3-1'))
@@ -223,6 +233,7 @@ describe('TurnOrder | ActiveGame | reducer', () => {
       ],
       discard: [config.TURNORDERCARDS['nemesis-1']],
       started: true,
+      round: 4,
     }
 
     const result = Reducer(mockGameState, actions.addToBottom('player3-1'))
@@ -273,6 +284,7 @@ describe('TurnOrder | ActiveGame | reducer', () => {
     expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-2'])
     expect(model.discard.length).toBe(0)
     expect(model.started).toBe(true)
+    expect(model.round).toBe(1)
   })
 
   it('should handle START_GAME alternate', () => {
@@ -298,6 +310,7 @@ describe('TurnOrder | ActiveGame | reducer', () => {
     expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-2'])
     expect(model.discard.length).toBe(0)
     expect(model.started).toBe(true)
+    expect(model.round).toBe(1)
   })
 
   it('should handle RESET_GAME', () => {
@@ -305,6 +318,7 @@ describe('TurnOrder | ActiveGame | reducer', () => {
       deck: [],
       discard: [],
       started: false,
+      round: 1,
     }
 
     const result = Reducer(mockGameState, actions.resetGame())

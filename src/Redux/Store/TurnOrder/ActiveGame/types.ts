@@ -8,6 +8,7 @@ export type State = {
   deck: Array<types.ITurnOrderCard>
   discard: Array<types.ITurnOrderCard>
   started: boolean
+  round: number
 }
 
 export enum ActionTypes {
@@ -48,6 +49,14 @@ export type StartedStateSlice = {
   TurnOrder: {
     ActiveGame: {
       started: boolean
+    }
+  }
+}
+
+export type RoundStateSlice = {
+  TurnOrder: {
+    ActiveGame: {
+      round: number
     }
   }
 }

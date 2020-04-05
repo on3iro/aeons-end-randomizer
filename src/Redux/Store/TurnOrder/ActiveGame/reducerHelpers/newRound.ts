@@ -16,10 +16,13 @@ export const newRound = (
     return card
   })
 
+  const newRoundCount = state.round + 1
+
   const newState = {
     ...state,
     deck: adjustedDeck,
     discard: [],
+    round: newRoundCount,
   }
 
   return newStateWithDBWrite(newState)

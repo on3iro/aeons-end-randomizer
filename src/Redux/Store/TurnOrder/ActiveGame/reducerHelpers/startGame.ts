@@ -16,5 +16,6 @@ export const startGame = (action: ReturnType<typeof actions.startGame>) => {
     started: true,
     deck: adjustedDeck,
     discard: [],
+    round: 1,
   })
 }
