@@ -8,10 +8,12 @@ import { RootState, selectors, actions } from '../../../Redux/Store'
 import ShuffleButton from '../../atoms/ShuffleButton'
 
 import DiscardTable from './DiscardTable'
+import RoundCount from './RoundCount'
 
 const mapStateToProps = (state: RootState) => ({
   deck: selectors.TurnOrder.ActiveGame.getDeck(state),
   discard: selectors.TurnOrder.ActiveGame.getDiscard(state),
+  roundCount: selectors.TurnOrder.ActiveGame.getRoundCount(state),
 })
 
 const mapDispatchToProps = {
@@ -25,6 +27,7 @@ type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 const ActiveTurnOrder = ({
   deck,
   discard,
+  roundCount,
   resetGame,
   newRound,
   drawCard,
@@ -49,6 +52,8 @@ const ActiveTurnOrder = ({
         Draw a card
       </Button>
     )}
+
+    <RoundCount count={roundCount} />
 
     <DiscardTable />
 
