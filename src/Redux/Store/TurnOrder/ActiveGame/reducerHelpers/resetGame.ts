@@ -5,5 +5,6 @@ export const resetGame = () => {
     started: false,
     deck: [],
     discard: [],
+    round: 1,
   })
 }

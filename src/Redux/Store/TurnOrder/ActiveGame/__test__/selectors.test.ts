@@ -16,6 +16,7 @@ const mockGameState = {
         config.TURNORDERCARDS['nemesis-1'],
       ],
       started: true,
+      round: 4,
     },
   },
 }
@@ -49,5 +50,11 @@ describe('TurnOrder | ActiveGame | selectors', () => {
     const result = selectors.getHasStarted(mockGameState)
 
     expect(result).toBe(true)
+  })
+
+  it('should get the current round with getRoundCount()', () => {
+    const result = selectors.getRoundCount(mockGameState)
+
+    expect(result).toBe(4)
   })
 })

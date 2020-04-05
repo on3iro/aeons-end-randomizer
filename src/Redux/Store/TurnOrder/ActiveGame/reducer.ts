@@ -8,6 +8,7 @@ export const initialState: State = {
   deck: [],
   discard: [],
   started: false,
+  round: 1,
 }
 
 export const Reducer: LoopReducer<State, Action> = (
