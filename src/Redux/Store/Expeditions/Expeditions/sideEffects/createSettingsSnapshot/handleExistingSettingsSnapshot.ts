@@ -16,7 +16,7 @@ export const handleExistingSettingsSnapshot = (
   settingsSnapshot: Omit<types.SettingsSnapshot, 'usedExpansions'>,
   baseSupplySetups: { [id: string]: types.IMarketSetup },
   marketId: string
-): types.SettingsSnapshot & { usedExpansions: string[] } => {
+): types.SettingsSnapshot => {
   const usedExpansions = determineUsedExpansions(state, settingsSnapshot)
 
   // NOTE: Because we currently do get the marketId from the outside
