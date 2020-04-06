@@ -196,23 +196,25 @@ export type NemesisTier = 1 | 2 | 3 | 4
 // Configuration //
 ///////////////////
 
-export type RewardsConfig = {
-  treasure: {
-    ids: Array<string | { random: true; level: 1 | 2 | 3 }>
-  }
-  mage: {
-    ids: Array<string | { random: true }>
-  }
-  supply: {
-    ids: Array<string | IBluePrint>
-    bigPocket: boolean
-  }
-}
+export type RewardsConfig =
+  | {
+      treasure?: {
+        ids: Array<string | { random: boolean; level: 1 | 2 | 3 }>
+      }
+      mage?: {
+        ids: Array<string | { random: boolean }>
+      }
+      supply?: {
+        ids: Array<string | IBluePrint>
+        bigPocket?: boolean
+      }
+    }
+  | { regular: true }
 
 export type BattleConfig = {
   tier: NemesisTier
   nemesisId?: string
-  newUBNCards: { ids: []; addRandom: boolean }
+  newUBNCards: { ids: string[]; addRandom: boolean }
   specialRules?: string
   lossRewards?: RewardsConfig[]
   winRewards?: RewardsConfig
@@ -228,13 +230,13 @@ export type BattleBranch = {
 
 export type NarrativeConfig = {
   text: string
-  descisions: string[]
+  descisions: string[] | false
 }
 
 export type NarrativeBranch = {
   type: 'narrative'
   config: NarrativeConfig
-  nextBranchId: { [key: number]: string }
+  nextBranchId?: { [key: number]: string }
 }
 
 export type RewardBranch = {
