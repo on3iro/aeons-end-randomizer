@@ -9,6 +9,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 import IconButton from 'components/atoms/IconButton'
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined'
+import Label from './Label'
 
 const Wrapper = styled('div')``
 
@@ -38,7 +39,7 @@ const CheckboxWithDetails = ({
         control={
           <Checkbox checked={checked} onChange={handleChange} value={id} />
         }
-        label={label}
+        label={<Label label={label} additionalInfo={` (#Id: ${id})`} />}
       />
       <IconButton
         color="primary"
@@ -49,7 +50,7 @@ const CheckboxWithDetails = ({
       </IconButton>
       {keywords && keywords.length >= 1 ? (
         <Keywords inCheckboxList={true}>
-          {keywords.map(keyword => (
+          {keywords.map((keyword) => (
             <Keyword key={keyword}>{keyword}</Keyword>
           ))}
         </Keywords>
