@@ -124,6 +124,8 @@ export type BattleStatus =
   | 'lost'
   | 'finished'
 
+export type Status = 'locked' | 'unlocked' | 'finished'
+
 export type SettingsSnapshotConfig = {
   supplySetup: IMarketSetup
   availableCardIds: string[]
@@ -256,8 +258,9 @@ export type SequenceConfig = {
 
 export type ExpeditionConfig = {
   name: string
+  seedConfig?: string
   sequenceConfig: SequenceConfig
-  variantIdConfig: string
+  variantIdConfig?: string
   bigPocketVariantConfig: boolean
   initialBarracksConfig?: Barracks
   initialUBNCardsConfig?: string[]
@@ -282,11 +285,13 @@ export type Battle = BattleBranch & {
 
 export type Narrative = NarrativeBranch & {
   id: string
+  status: Status
   expeditionId: string
 }
 
 export type Reward = RewardBranch & {
   id: string
+  status: Status
   expeditionId: string
 }
 
@@ -302,7 +307,7 @@ export type Sequence = {
 export type Expedition = {
   id: string
   name: string
-  variantId: string
+  variantId?: string
   bigPocketVariant: boolean
   score: number
   seed: ExpeditionSeed
@@ -313,6 +318,8 @@ export type Expedition = {
   settingsSnapshot: SettingsSnapshot
   finished: boolean
   migrationVersion?: number
+  initialBarracksConfig?: Barracks
+  initialUBNCardsConfig?: string[]
 }
 
 export type Expeditions = {
