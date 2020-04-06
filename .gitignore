@@ -209,3 +209,4 @@ report.*.json
 # Cypress
 # =======================================
 cypress/videos/*
+cypress/screenshots/*
