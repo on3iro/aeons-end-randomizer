@@ -668,7 +668,7 @@ Object {
             "type": "battle",
           },
         },
-        "firstBattleId": "CvghslX3mK",
+        "firstBranchId": "CvghslX3mK",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [
@@ -1424,7 +1424,7 @@ Object {
             "type": "battle",
           },
         },
-        "firstBattleId": "sJUKZWynf",
+        "firstBranchId": "sJUKZWynf",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [
@@ -2168,7 +2168,7 @@ Object {
             "type": "battle",
           },
         },
-        "firstBattleId": "4tihtCjRTv",
+        "firstBranchId": "4tihtCjRTv",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [
@@ -2912,7 +2912,7 @@ Object {
             "type": "battle",
           },
         },
-        "firstBattleId": "4tihtCjRTv",
+        "firstBranchId": "4tihtCjRTv",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [

@@ -315,7 +315,7 @@ Object {
         "type": "battle",
       },
     },
-    "firstBattleId": "TEST_EXPEDITION_ID",
+    "firstBranchId": "TEST_EXPEDITION_ID",
   },
   "settingsSnapshot": Object {
     "availableCardIds": Array [
