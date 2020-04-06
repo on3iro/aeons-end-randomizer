@@ -128,7 +128,7 @@ export const createExpeditionConfig = (
     variantId,
     bigPocketVariant: bigPocketVariant,
     sequence: {
-      firstBattleId: battles[0].id,
+      firstBranchId: battles[0].id,
       branches: battles.reduce((acc, battle) => {
         return {
           ...acc,

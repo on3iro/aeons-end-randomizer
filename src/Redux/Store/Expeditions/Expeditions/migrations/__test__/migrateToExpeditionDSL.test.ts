@@ -110,7 +110,7 @@ describe('migrateToExpeditionDSL()', () => {
       bigPocketVariant: false,
       finished: false,
       sequence: {
-        firstBattleId: 'fHFX3VH99',
+        firstBranchId: 'fHFX3VH99',
         branches: {
           fHFX3VH99: {
             id: 'fHFX3VH99',

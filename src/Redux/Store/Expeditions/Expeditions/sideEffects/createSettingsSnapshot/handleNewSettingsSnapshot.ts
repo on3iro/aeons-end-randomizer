@@ -21,7 +21,7 @@ export const handleNewSettingsSnapshot = (
     availableTreasureIds: string[]
     availableUpgradedBasicNemesisCardIds: string[]
   }
-) => {
+): types.SettingsSnapshot & { usedExpansions: string[] } => {
   const usedExpansions = determineUsedExpansions(state, baseSnapshot)
 
   return {

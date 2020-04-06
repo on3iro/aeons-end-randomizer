@@ -10,7 +10,7 @@ export const migrateToExpeditionDSL = (
   return {
     ...expeditionProps,
     sequence: {
-      firstBattleId: battles[0].id,
+      firstBranchId: battles[0].id,
       branches: battles.reduce((acc, battle, index) => {
         const { nemesisTier, treasure, ...battleProps } = battle
 
