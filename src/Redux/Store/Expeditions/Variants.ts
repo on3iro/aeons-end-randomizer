@@ -84,12 +84,12 @@ export type VariantIdsStateSlice = {
 const getVariants = (state: VariantsStateSlice) =>
   state.Expeditions.Variants.variants
 
-const getVariantId = (_: unknown, props: { variantId: string }) =>
+const getVariantId = (_: unknown, props: { variantId?: string }) =>
   props.variantId
 
 const getVariantById = createSelector(
   [getVariants, getVariantId],
-  (variants, id) => variants[id]
+  (variants, id) => (id ? variants[id] : undefined)
 )
 
 const getVariantIds = (state: VariantIdsStateSlice) =>
@@ -97,7 +97,7 @@ const getVariantIds = (state: VariantIdsStateSlice) =>
 
 const getVariantList = createSelector(
   [getVariantIds, getVariants],
-  (ids, variants) => ids.map(id => variants[id])
+  (ids, variants) => ids.map((id) => variants[id])
 )
 
 export const selectors = {

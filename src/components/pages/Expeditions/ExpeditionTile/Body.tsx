@@ -45,7 +45,13 @@ const Body = ({ expedition, variant, usedExpansions }: Props) => (
         info={expedition.score.toString()}
         data-test="info--score"
       />
-      <InfoItem label="Variant" info={variant.name} data-test="info--variant" />
+      {variant && (
+        <InfoItem
+          label="Variant"
+          info={variant.name}
+          data-test="info--variant"
+        />
+      )}
       <InfoItem
         label="Big Pocket"
         info={expedition.bigPocketVariant ? 'Yes' : 'No'}

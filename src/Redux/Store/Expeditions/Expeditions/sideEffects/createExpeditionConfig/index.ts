@@ -35,9 +35,11 @@ export const createExpeditionConfig = (
   /////////////////////////
 
   const expeditionId = generate()
+
   const seed = {
     seed: seedValue || expeditionId,
   }
+
   const settingsSnapshot = createSettingsSnapshot(
     state,
     existingSettingsSnapshot,
@@ -89,6 +91,8 @@ export const createExpeditionConfig = (
   )
 
   const treasureIdsResult = createTreasureIds(
+    // FIXME
+    // @ts-ignore disable-line
     variant.configList[0],
     availableLevel1TreasureIds,
     supplyIdsResult.seed
@@ -98,6 +102,8 @@ export const createExpeditionConfig = (
 
   // Battles
 
+  // FIXME
+  // @ts-ignore disable-line
   const battles = generateBattles(variant, expeditionId)
 
   ////////////////

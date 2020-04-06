@@ -1,6 +1,7 @@
 import { saveAs } from 'file-saver'
 
 import * as types from 'types'
+import { convertToConfig } from 'Redux/Store/Expeditions/Expeditions/sideEffects/shareExpedition/convertToConfig'
 
 const saveToFile = (json: string, name: string) => {
   const blob = new Blob([json], { type: 'text/json;charset=utf-8' })
@@ -28,26 +29,7 @@ const shareApi = (json: string, name: string) => {
 }
 
 export const shareExpedition = (expedition: types.Expedition) => {
-  // Process data and remove unnecessary parts
-  const {
-    seed, // we only want the seed not its state
-    score,
-    barracks,
-    sequence,
-    upgradedBasicNemesisCards,
-    banished,
-    finished,
-    settingsSnapshot, // we do not want to have the usedExpansions property, as it might be misleading
-    ...bareExpedition
-  } = expedition
-
-  const { usedExpansions, ...snapshot } = settingsSnapshot
-
-  const config = {
-    ...bareExpedition,
-    seed: { seed: seed.seed },
-    settingsSnapshot: snapshot,
-  }
+  const config = convertToConfig(expedition)
 
   const json = JSON.stringify(config, undefined, 4)
   const name = (expedition.name || expedition.id).replace(/\s/g, '_')
