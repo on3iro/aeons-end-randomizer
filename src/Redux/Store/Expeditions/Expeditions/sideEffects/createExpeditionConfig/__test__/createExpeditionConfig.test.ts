@@ -6,7 +6,7 @@ jest.mock('shortid', () => {
   }
 })
 
-import { createExpeditionConfig } from '../index'
+import { createExpedition } from '../index'
 
 import * as helpersModule from 'Redux/helpers'
 import * as createSupplyIdsModule from '../createSupplyIds'
@@ -21,7 +21,7 @@ describe('createExpeditionConfig()', () => {
   })
 
   it('should produce correct result', () => {
-    const result = createExpeditionConfig(getState, {
+    const result = createExpedition(getState, {
       variantId: 'SHORT',
       name: 'Test expedition config',
       bigPocketVariant: true,
@@ -36,7 +36,7 @@ describe('createExpeditionConfig()', () => {
   it('should use provided seedValue', () => {
     const createIdListSpy = jest.spyOn(helpersModule, 'createIdList')
 
-    createExpeditionConfig(getState, {
+    createExpedition(getState, {
       variantId: 'SHORT',
       name: 'Test expedition config',
       bigPocketVariant: true,
@@ -60,7 +60,7 @@ describe('createExpeditionConfig()', () => {
   it('should fallback to expeditionId as seed value', () => {
     const createIdListSpy = jest.spyOn(helpersModule, 'createIdList')
 
-    createExpeditionConfig(getState, {
+    createExpedition(getState, {
       variantId: 'SHORT',
       name: 'Test expedition config',
       bigPocketVariant: true,
@@ -91,7 +91,7 @@ describe('createExpeditionConfig()', () => {
       'createTreasureIds'
     )
 
-    const result = createExpeditionConfig(getState, {
+    const result = createExpedition(getState, {
       variantId: 'SHORT',
       name: 'Test expedition config',
       bigPocketVariant: true,

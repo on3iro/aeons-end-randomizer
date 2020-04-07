@@ -1,17 +1,20 @@
-import * as types from 'types'
-import { convertToConfig } from '../convertToConfig'
+import shortidMock from 'shortid'
 
-describe('convertToConfig()', () => {
-  const expedition: types.Expedition = {
-    id: 'T7MjVDVfP',
+jest.mock('shortid', () => {
+  return {
+    generate: jest.fn(() => 'TEST_EXPEDITION_ID'),
+  }
+})
+
+import * as types from 'types'
+import { convertExpeditionFromConfig } from '../convertExpeditionFromConfig'
+import { rootState } from '__fixtures__/rootState'
+
+describe('convertFromConfig()', () => {
+  const config: types.ExpeditionConfig = {
     name: 'Test',
-    score: 0,
-    seed: {
-      seed: 'TEST',
-      supplyState: true,
-      nemesisState: true,
-    },
-    settingsSnapshot: {
+    seedConfig: 'TEST',
+    settingsSnapshotConfig: {
       supplySetup: {
         id: 'random',
         name: 'Random Setup (Default)',
@@ -70,32 +73,13 @@ describe('convertToConfig()', () => {
         'Wreck',
         'BaneCommander',
       ],
-      usedExpansions: ['AE', 'BS'],
     },
-    barracks: {
-      mageIds: ['Inco', 'Nym', 'YanMagda', 'Adelheim'],
-      supplyIds: [
-        'VriswoodAmber',
-        'ScoriaSlag',
-        'BanishingTopaz',
-        'ConclaveScroll',
-        'ReflectiveConduit',
-        'Ignite',
-        'ForceAmplifier',
-        'PyrotechnicSurge',
-        'Fulminate',
-      ],
-      treasureIds: [],
-    },
-    upgradedBasicNemesisCards: [],
-    banished: [],
-    variantId: 'DEFAULT',
-    bigPocketVariant: false,
-    sequence: {
+    variantIdConfig: 'DEFAULT',
+    bigPocketVariantConfig: false,
+    sequenceConfig: {
       firstBranchId: 'wLZW1WbKvj',
       branches: {
         wLZW1WbKvj: {
-          id: 'wLZW1WbKvj',
           type: 'battle',
           nextBranchId: 'yeGhjj6TEQ',
           config: {
@@ -109,12 +93,8 @@ describe('convertToConfig()', () => {
               hasTreasure: true,
             },
           },
-          expeditionId: 'T7MjVDVfP',
-          status: 'unlocked',
-          tries: 0,
         },
         yeGhjj6TEQ: {
-          id: 'yeGhjj6TEQ',
           type: 'battle',
           nextBranchId: 'j0rHxtpU0_',
           config: {
@@ -128,12 +108,8 @@ describe('convertToConfig()', () => {
               hasTreasure: true,
             },
           },
-          expeditionId: 'T7MjVDVfP',
-          status: 'locked',
-          tries: 0,
         },
         j0rHxtpU0_: {
-          id: 'j0rHxtpU0_',
           type: 'reward',
           nextBranchId: 'PVFuOBCY4n',
           config: {
@@ -148,43 +124,108 @@ describe('convertToConfig()', () => {
               bigPocket: true,
             },
           },
-          expeditionId: 'T7MjVDVfP',
-          status: 'locked',
         },
         PVFuOBCY4n: {
-          id: 'PVFuOBCY4n',
           type: 'narrative',
           config: {
             text: 'Something happens',
             descisions: false,
           },
-          expeditionId: 'T7MjVDVfP',
-          status: 'locked',
         },
       },
     },
-    migrationVersion: 2020030401,
-    finished: false,
   }
 
-  it('should correctly convert expedition', () => {
-    const result = convertToConfig(expedition)
+  it('should correctly convert expeditionConfig to expedition', () => {
+    const result = convertExpeditionFromConfig(config, rootState)
 
-    const {
-      usedExpansions,
-      ...settingsSnapshotConfig
-    } = expedition.settingsSnapshot
-
-    const expected: types.ExpeditionConfig = {
+    const expected: types.Expedition = {
+      id: 'TEST_EXPEDITION_ID',
       name: 'Test',
-      seedConfig: 'TEST',
-      settingsSnapshotConfig,
-      variantIdConfig: 'DEFAULT',
-      bigPocketVariantConfig: false,
-      sequenceConfig: {
+      score: 0,
+      seed: {
+        seed: 'TEST',
+        supplyState: true,
+        nemesisState: true,
+      },
+      settingsSnapshot: {
+        supplySetup: {
+          id: 'random',
+          name: 'Random Setup (Default)',
+          type: 'official',
+          default: true,
+          active: true,
+          tiles: [
+            {
+              type: 'Gem',
+              operation: 'ANY',
+            },
+            {
+              type: 'Gem',
+              operation: 'ANY',
+            },
+            {
+              type: 'Gem',
+              operation: 'ANY',
+            },
+            {
+              type: 'Relic',
+              operation: 'ANY',
+            },
+            {
+              type: 'Relic',
+              operation: 'ANY',
+            },
+            {
+              type: 'Spell',
+              operation: 'ANY',
+            },
+            {
+              type: 'Spell',
+              operation: 'ANY',
+            },
+            {
+              type: 'Spell',
+              operation: 'ANY',
+            },
+            {
+              type: 'Spell',
+              operation: 'ANY',
+            },
+          ],
+        },
+        availableCardIds: ['DiamondCluster', 'ChaosArc'],
+        availableMageIds: ['Adelheim', 'Brama', 'Jian'],
+        availableNemesisIds: [
+          'CarapaceQueen',
+          'CrookedMask',
+          'PrinceOfGluttons',
+        ],
+        availableTreasureIds: [
+          'DezmodiasOblivionShard',
+          'UlgimorsCoalFragment',
+          'IndirasLoneOpal',
+        ],
+        availableUpgradedBasicNemesisCardIds: [
+          'HissingAcid',
+          'Wreck',
+          'BaneCommander',
+        ],
+        usedExpansions: ['AE', 'IW', 'NA'],
+      },
+      barracks: {
+        mageIds: [],
+        supplyIds: [],
+        treasureIds: [],
+      },
+      upgradedBasicNemesisCards: [],
+      banished: [],
+      bigPocketVariant: false,
+      sequence: {
         firstBranchId: 'wLZW1WbKvj',
         branches: {
           wLZW1WbKvj: {
+            id: 'wLZW1WbKvj',
             type: 'battle',
             nextBranchId: 'yeGhjj6TEQ',
             config: {
@@ -198,8 +239,12 @@ describe('convertToConfig()', () => {
                 hasTreasure: true,
               },
             },
+            expeditionId: 'TEST_EXPEDITION_ID',
+            status: 'unlocked',
+            tries: 0,
           },
           yeGhjj6TEQ: {
+            id: 'yeGhjj6TEQ',
             type: 'battle',
             nextBranchId: 'j0rHxtpU0_',
             config: {
@@ -213,8 +258,12 @@ describe('convertToConfig()', () => {
                 hasTreasure: true,
               },
             },
+            expeditionId: 'TEST_EXPEDITION_ID',
+            status: 'locked',
+            tries: 0,
           },
           j0rHxtpU0_: {
+            id: 'j0rHxtpU0_',
             type: 'reward',
             nextBranchId: 'PVFuOBCY4n',
             config: {
@@ -229,18 +278,29 @@ describe('convertToConfig()', () => {
                 bigPocket: true,
               },
             },
+            expeditionId: 'TEST_EXPEDITION_ID',
+            status: 'locked',
           },
           PVFuOBCY4n: {
+            id: 'PVFuOBCY4n',
             type: 'narrative',
             config: {
               text: 'Something happens',
               descisions: false,
             },
+            expeditionId: 'TEST_EXPEDITION_ID',
+            status: 'locked',
           },
         },
       },
+      migrationVersion: 2020030401,
+      finished: false,
     }
 
     expect(result).toEqual(expected)
   })
+
+  it.todo('should handle initial barracks')
+
+  it.todo('should handle initial UBNcards')
 })

@@ -37,7 +37,7 @@ describe('Reducer()', () => {
     expect(model).toEqual(initialState)
 
     expect(cmd).toEqual(
-      Cmd.run(sideEffects.createExpeditionConfig, {
+      Cmd.run(sideEffects.createExpedition, {
         args: [Cmd.getState, baseConfig],
         successActionCreator: actions.createExpeditionSuccess,
       })

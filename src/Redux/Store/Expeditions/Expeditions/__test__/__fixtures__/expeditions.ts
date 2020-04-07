@@ -412,7 +412,6 @@ export const expedition1: types.Expedition = {
   },
   upgradedBasicNemesisCards: [],
   banished: ['SearingRuby', 'RecurringJasper', 'PainStone'],
-  variantId: 'DEFAULT',
   bigPocketVariant: false,
   sequence: {
     firstBranchId: 'CvghslX3mK',

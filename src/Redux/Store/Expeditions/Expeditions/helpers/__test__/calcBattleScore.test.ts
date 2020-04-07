@@ -1,4 +1,4 @@
-import { calcBattleScore } from '../helpers'
+import { calcBattleScore } from '../index'
 
 describe('calcBattleScore()', () => {
   it('should return 0 for more than 3 tries', () => {

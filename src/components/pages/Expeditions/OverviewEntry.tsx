@@ -15,6 +15,7 @@ import ListItem from './ListItem'
 import Controls from './Controls'
 import ExpeditionTile from './ExpeditionTile'
 import CreationDialog from 'components/pages/Expeditions/CreationDialog'
+import { convertExpeditionToConfig } from 'Redux/Store/Expeditions/Expeditions/helpers'
 
 type OwnProps = {
   expedition: Expedition
@@ -65,7 +66,10 @@ const OverviewEntry = ({ expedition, deleteHandler, shareHandler }: Props) => {
       </ListItem>
 
       <creationModal.RenderModal titleColor="#333" titleLabel="New Expedition">
-        <CreationDialog finisher={creationModal.hide} expedition={expedition} />
+        <CreationDialog
+          finisher={creationModal.hide}
+          existingExpeditionConfig={convertExpeditionToConfig(expedition)}
+        />
       </creationModal.RenderModal>
 
       <deletionPrompt.RenderPrompt
