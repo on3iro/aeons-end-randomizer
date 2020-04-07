@@ -436,6 +436,7 @@ export const expedition1: types.Expedition = {
         status: 'finished',
         tries: 2,
         rewards: {
+          mages: [],
           treasure: [
             'SparrowsAid',
             'MistsAmethystParagon',

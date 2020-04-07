@@ -1,7 +1,7 @@
-//
 // This schema has been created by using https://github.com/YousefED/typescript-json-schema
-// To recreate the schema run 'typescript-json-schema tsconfig.json ExpeditionConfig --include ./src/types/**/*.ts --required' at the project root,
-// copy it to this directory and remove unwanted properties.
+// To recreate the schema run:
+//
+// typescript-json-schema tsconfig.json ExpeditionConfig --include ./src/types/**/*.ts --required --aliasRefs
 //
 
 export const schema = {
@@ -214,17 +214,22 @@ export const schema = {
               required: ['ids'],
               type: 'object',
             },
+            type: {
+              enum: ['custom'],
+              type: 'string',
+            },
           },
+          required: ['type'],
           type: 'object',
         },
         {
           properties: {
-            regular: {
-              enum: [true],
-              type: 'boolean',
+            type: {
+              enum: ['regular'],
+              type: 'string',
             },
           },
-          required: ['regular'],
+          required: ['type'],
           type: 'object',
         },
       ],
@@ -263,17 +268,22 @@ export const schema = {
               required: ['ids'],
               type: 'object',
             },
+            type: {
+              enum: ['custom'],
+              type: 'string',
+            },
           },
+          required: ['type'],
           type: 'object',
         },
         {
           properties: {
-            regular: {
-              enum: [true],
-              type: 'boolean',
+            type: {
+              enum: ['regular'],
+              type: 'string',
             },
           },
-          required: ['regular'],
+          required: ['type'],
           type: 'object',
         },
       ],
@@ -395,17 +405,22 @@ export const schema = {
                     required: ['ids'],
                     type: 'object',
                   },
+                  type: {
+                    enum: ['custom'],
+                    type: 'string',
+                  },
                 },
+                required: ['type'],
                 type: 'object',
               },
               {
                 properties: {
-                  regular: {
-                    enum: [true],
-                    type: 'boolean',
+                  type: {
+                    enum: ['regular'],
+                    type: 'string',
                   },
                 },
-                required: ['regular'],
+                required: ['type'],
                 type: 'object',
               },
             ],

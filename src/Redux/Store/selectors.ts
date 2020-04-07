@@ -11,7 +11,7 @@ export const getUpgradedBasicNemesisCardsByExpeditionId = createSelector(
   ],
   (expedition, upgradedBasicNemsisCards) =>
     expedition.upgradedBasicNemesisCards.map(
-      cardId => upgradedBasicNemsisCards[cardId]
+      (cardId) => upgradedBasicNemsisCards[cardId]
     )
 )
 
@@ -21,7 +21,7 @@ export const getExpeditionSupply = createSelector(
     Settings.selectors.Expansions.SelectedCards.getSelectedCardsLookupObject,
   ],
   (expedition, supplyCards) =>
-    expedition.barracks.supplyIds.map(id => supplyCards[id])
+    expedition.barracks.supplyIds.map((id) => supplyCards[id])
 )
 
 export const getExpeditionMages = createSelector(
@@ -29,7 +29,7 @@ export const getExpeditionMages = createSelector(
     Expeditions.selectors.Expeditions.getExpeditionById,
     Settings.selectors.Expansions.SelectedMages.getSelectedMagesLookupObject,
   ],
-  (expedition, mages) => expedition.barracks.mageIds.map(id => mages[id])
+  (expedition, mages) => expedition.barracks.mageIds.map((id) => mages[id])
 )
 
 export const getExpeditionTreasure = createSelector(
@@ -38,7 +38,7 @@ export const getExpeditionTreasure = createSelector(
     Settings.selectors.Expansions.Treasures.getTreasures,
   ],
   (expedition, treasures) =>
-    expedition.barracks.treasureIds.map(id => treasures[id])
+    expedition.barracks.treasureIds.map((id) => treasures[id])
 )
 
 export const getExpeditionUpgradedBasicNemesis = createSelector(
@@ -48,7 +48,9 @@ export const getExpeditionUpgradedBasicNemesis = createSelector(
       .getUpgradedBasicNemesisCards,
   ],
   (expedition, upgradedBasicNemsisCards) =>
-    expedition.upgradedBasicNemesisCards.map(id => upgradedBasicNemsisCards[id])
+    expedition.upgradedBasicNemesisCards.map(
+      (id) => upgradedBasicNemsisCards[id]
+    )
 )
 
 export const getExpeditionBanishedCards = createSelector(
@@ -56,7 +58,7 @@ export const getExpeditionBanishedCards = createSelector(
     Expeditions.selectors.Expeditions.getExpeditionById,
     Settings.selectors.Expansions.SelectedCards.getSelectedCardsLookupObject,
   ],
-  (expedition, cards) => expedition.banished.map(id => cards[id])
+  (expedition, cards) => expedition.banished.map((id) => cards[id])
 )
 
 export const getAvailableNemesisForExpeditionId = createSelector(
@@ -66,7 +68,7 @@ export const getAvailableNemesisForExpeditionId = createSelector(
       .getSelectedNemesesLookupObject,
   ],
   (settingsSnapshot, nemeses) =>
-    settingsSnapshot.availableNemesisIds.map(id => nemeses[id])
+    settingsSnapshot.availableNemesisIds.map((id) => nemeses[id])
 )
 
 export const getAvailableCardsForExpeditionId = createSelector(
@@ -75,7 +77,7 @@ export const getAvailableCardsForExpeditionId = createSelector(
     Settings.selectors.Expansions.SelectedCards.getSelectedCardsLookupObject,
   ],
   (settingsSnapshot, allCards) =>
-    settingsSnapshot.availableCardIds.map(id => allCards[id])
+    settingsSnapshot.availableCardIds.map((id) => allCards[id])
 )
 
 export const getAvailableMagesForExpeditionId = createSelector(
@@ -84,7 +86,7 @@ export const getAvailableMagesForExpeditionId = createSelector(
     Settings.selectors.Expansions.SelectedMages.getSelectedMagesLookupObject,
   ],
   (settingsSnapshot, allMages) =>
-    settingsSnapshot.availableMageIds.map(id => allMages[id])
+    settingsSnapshot.availableMageIds.map((id) => allMages[id])
 )
 
 export const getAvailableTreasureForExpeditionId = createSelector(
@@ -93,7 +95,7 @@ export const getAvailableTreasureForExpeditionId = createSelector(
     Settings.selectors.Expansions.Treasures.getTreasures,
   ],
   (settingsSnapshot, treasures) =>
-    settingsSnapshot.availableTreasureIds.map(id => treasures[id])
+    settingsSnapshot.availableTreasureIds.map((id) => treasures[id])
 )
 
 export const getAvailableUpgradedBasicNemesisCardsForExpeditionId = createSelector(
@@ -104,7 +106,7 @@ export const getAvailableUpgradedBasicNemesisCardsForExpeditionId = createSelect
   ],
   (settingsSnapshot, UBNCards) =>
     settingsSnapshot.availableUpgradedBasicNemesisCardIds.map(
-      id => UBNCards[id]
+      (id) => UBNCards[id]
     )
 )
 
@@ -116,9 +118,17 @@ export const getStillAvailableGemIds = createSelector(
   ],
   (availableCards, expeditionSupplyIds, banishedIds) =>
     availableCards
-      .filter(card => card.type === 'Gem')
-      .map(card => card.id)
-      .filter(id => ![...expeditionSupplyIds, ...banishedIds].includes(id))
+      .filter((card) => card.type === 'Gem')
+      .map((card) => card.id)
+      .filter((id) => ![...expeditionSupplyIds, ...banishedIds].includes(id))
+)
+
+export const getStillAvailableGems = createSelector(
+  [
+    Settings.selectors.Expansions.SelectedCards.getSelectedCardsLookupObject,
+    getStillAvailableGemIds,
+  ],
+  (cards, stillAvailableGemIds) => stillAvailableGemIds.map((id) => cards[id])
 )
 
 export const getStillAvailableRelicIds = createSelector(
@@ -129,9 +139,18 @@ export const getStillAvailableRelicIds = createSelector(
   ],
   (availableCards, expeditionSupplyIds, banishedIds) =>
     availableCards
-      .filter(card => card.type === 'Relic')
-      .map(card => card.id)
-      .filter(id => ![...expeditionSupplyIds, ...banishedIds].includes(id))
+      .filter((card) => card.type === 'Relic')
+      .map((card) => card.id)
+      .filter((id) => ![...expeditionSupplyIds, ...banishedIds].includes(id))
+)
+
+export const getStillAvailableRelics = createSelector(
+  [
+    Settings.selectors.Expansions.SelectedCards.getSelectedCardsLookupObject,
+    getStillAvailableRelicIds,
+  ],
+  (cards, stillAvailableRelicIds) =>
+    stillAvailableRelicIds.map((id) => cards[id])
 )
 
 export const getStillAvailableSpellIds = createSelector(
@@ -142,9 +161,18 @@ export const getStillAvailableSpellIds = createSelector(
   ],
   (availableCards, expeditionSupplyIds, banishedIds) =>
     availableCards
-      .filter(card => card.type === 'Spell')
-      .map(card => card.id)
-      .filter(id => ![...expeditionSupplyIds, ...banishedIds].includes(id))
+      .filter((card) => card.type === 'Spell')
+      .map((card) => card.id)
+      .filter((id) => ![...expeditionSupplyIds, ...banishedIds].includes(id))
+)
+
+export const getStillAvailableSpells = createSelector(
+  [
+    Settings.selectors.Expansions.SelectedCards.getSelectedCardsLookupObject,
+    getStillAvailableSpellIds,
+  ],
+  (cards, stillAvailableSpellIds) =>
+    stillAvailableSpellIds.map((id) => cards[id])
 )
 
 export const getStillAvailableMageIds = createSelector(
@@ -154,8 +182,8 @@ export const getStillAvailableMageIds = createSelector(
   ],
   (availableMages, expeditionMageIds) =>
     availableMages
-      .map(mage => mage.id)
-      .filter(id => !expeditionMageIds.includes(id))
+      .map((mage) => mage.id)
+      .filter((id) => !expeditionMageIds.includes(id))
 )
 
 // Inversion of control -> this is so that we can compose a selector with
@@ -164,8 +192,8 @@ export const getStillAvailableMageIds = createSelector(
 // We will denote such a callback with a '$' prefix for the consuming parameter
 const getCallbackForAllTreasuresByLevelFromIdList = createSelector(
   [Settings.selectors.Expansions.Treasures.getTreasureIdsByTreasureLevel],
-  tByLevel => (treasureIds: string[]) => {
-    return treasureIds.filter(id => tByLevel.includes(id))
+  (tByLevel) => (treasureIds: string[]) => {
+    return treasureIds.filter((id) => tByLevel.includes(id))
   }
 )
 
@@ -177,8 +205,8 @@ export const getStillAvailableTreasureIdsByLevel = createSelector(
   ],
   (treasureIds, allAvailable, $getTreasuresByLevelFrom) => {
     const stillAvailable = allAvailable
-      .map(t => t.id)
-      .filter(t => !treasureIds.includes(t))
+      .map((t) => t.id)
+      .filter((t) => !treasureIds.includes(t))
 
     return $getTreasuresByLevelFrom(stillAvailable)
   }

@@ -29,6 +29,10 @@ export enum ActionTypes {
   EXPEDITION_SHARE = 'Expeditions/Expeditions/SHARE_EXPEDITION',
   EXPEDITION_SHARE_SUCCESS = 'Expeditions/Expeditions/SHARE_EXPEDITION_SUCCESS',
   EXPEDITION_SHARE_FAILURE = 'Expeditions/Expeditions/SHARE_EXPEDITION_FAILURE',
+  NARRATIVE_RESOLVE = 'Expeditions/Expeditions/RESOLVE_NARRATIVE',
+  REWARDS_GENERATE = 'Expeditions/Expeditions/GENERATE_REWARDS',
+  REWARDS_GENERATE_SUCCESS = 'Expeditions/Expeditions/GENERATE_REWARDS_SUCCESS',
+  REWARDS_ACCEPT = 'Expeditions/Expeditions/ACCEPT_REWARDS',
 }
 
 export type Action = ActionsUnion<typeof actions>

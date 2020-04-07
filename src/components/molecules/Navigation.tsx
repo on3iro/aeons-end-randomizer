@@ -19,7 +19,7 @@ const Navigation = ({ clickHandler }: Props) => (
       <i className="ra ra-lg ra-player-lift" />
     </Link>
     <Link text="Expeditions" to="/expeditions" onClick={clickHandler}>
-      <i className="ra ra-lg ra-quill-ink" />
+      <i className="ra ra-lg ra-raven" />
     </Link>
     <Link text="Settings" to="/settings" onClick={clickHandler}>
       <BuildIcon
