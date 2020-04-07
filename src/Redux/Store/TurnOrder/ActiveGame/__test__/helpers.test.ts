@@ -20,6 +20,7 @@ const mockGameState = {
     config.TURNORDERCARDS['nemesis-1'],
   ],
   started: true,
+  round: 0,
 }
 
 describe('newStateWithDBWrite()', () => {

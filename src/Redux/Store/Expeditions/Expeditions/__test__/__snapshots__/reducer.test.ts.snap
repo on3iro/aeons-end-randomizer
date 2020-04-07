@@ -34,7 +34,6 @@ Object {
           "AlchemistsAlembic",
         ],
       },
-      "battles": Array [],
       "bigPocketVariant": false,
       "finished": false,
       "id": "Expedition1",
@@ -133,15 +132,12 @@ Object {
             },
             "expeditionId": "Expedition1",
             "id": "wXBtzLO1bM",
-            "nemesisTier": Object {
-              "isNewTier": true,
-            },
             "status": "locked",
             "tries": 0,
             "type": "battle",
           },
         },
-        "firstBattleId": "CvghslX3mK",
+        "firstBranchId": "CvghslX3mK",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [
@@ -560,7 +556,6 @@ Object {
           "IndirasLoneOpal",
         ],
       },
-      "battles": Array [],
       "bigPocketVariant": false,
       "finished": false,
       "id": "Expedition1",
@@ -659,15 +654,12 @@ Object {
             },
             "expeditionId": "Expedition1",
             "id": "wXBtzLO1bM",
-            "nemesisTier": Object {
-              "isNewTier": true,
-            },
             "status": "locked",
             "tries": 0,
             "type": "battle",
           },
         },
-        "firstBattleId": "CvghslX3mK",
+        "firstBranchId": "CvghslX3mK",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [
@@ -1089,7 +1081,6 @@ Object {
           "AlchemistsAlembic",
         ],
       },
-      "battles": Array [],
       "bigPocketVariant": false,
       "finished": false,
       "id": "Expedition1",
@@ -1194,15 +1185,12 @@ Object {
             },
             "expeditionId": "Expedition1",
             "id": "wXBtzLO1bM",
-            "nemesisTier": Object {
-              "isNewTier": true,
-            },
             "status": "locked",
             "tries": 0,
             "type": "battle",
           },
         },
-        "firstBattleId": "CvghslX3mK",
+        "firstBranchId": "CvghslX3mK",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [
@@ -1630,7 +1618,6 @@ Object {
           "IndirasLoneOpal",
         ],
       },
-      "battles": Array [],
       "bigPocketVariant": false,
       "finished": true,
       "id": "Expedition1",
@@ -1728,15 +1715,12 @@ Object {
             },
             "expeditionId": "Expedition1",
             "id": "wXBtzLO1bM",
-            "nemesisTier": Object {
-              "isNewTier": true,
-            },
             "status": "locked",
             "tries": 0,
             "type": "battle",
           },
         },
-        "firstBattleId": "CvghslX3mK",
+        "firstBranchId": "CvghslX3mK",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [
@@ -2164,7 +2148,6 @@ Object {
           "IndirasLoneOpal",
         ],
       },
-      "battles": Array [],
       "bigPocketVariant": false,
       "finished": false,
       "id": "Expedition1",
@@ -2261,15 +2244,12 @@ Object {
             },
             "expeditionId": "Expedition1",
             "id": "wXBtzLO1bM",
-            "nemesisTier": Object {
-              "isNewTier": true,
-            },
             "status": "locked",
             "tries": 0,
             "type": "battle",
           },
         },
-        "firstBattleId": "CvghslX3mK",
+        "firstBranchId": "CvghslX3mK",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [
@@ -2697,7 +2677,6 @@ Object {
           "IndirasLoneOpal",
         ],
       },
-      "battles": Array [],
       "bigPocketVariant": false,
       "finished": false,
       "id": "Expedition1",
@@ -2766,13 +2745,20 @@ Object {
             "type": "battle",
           },
           "YBsJLx4PfV": Object {
+            "config": Object {
+              "newUBNCards": Object {
+                "addRandom": true,
+                "ids": Array [],
+              },
+              "tier": 2,
+              "treasure": Object {
+                "hasTreasure": true,
+                "level": 2,
+              },
+            },
             "expeditionId": "Expedition1",
             "id": "YBsJLx4PfV",
             "nemesisId": "Arachnos",
-            "nemesisTier": Object {
-              "isNewTier": true,
-              "tier": 2,
-            },
             "rewards": Object {
               "supplyIds": Array [
                 "HauntedBerylite",
@@ -2786,11 +2772,8 @@ Object {
               ],
             },
             "status": "started",
-            "treasure": Object {
-              "hasTreasure": true,
-              "level": 2,
-            },
             "tries": 1,
+            "type": "battle",
           },
           "wXBtzLO1bM": Object {
             "config": Object {
@@ -2805,15 +2788,12 @@ Object {
             },
             "expeditionId": "Expedition1",
             "id": "wXBtzLO1bM",
-            "nemesisTier": Object {
-              "isNewTier": true,
-            },
             "status": "locked",
             "tries": 0,
             "type": "battle",
           },
         },
-        "firstBattleId": "CvghslX3mK",
+        "firstBranchId": "CvghslX3mK",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [
@@ -3241,7 +3221,6 @@ Object {
           "IndirasLoneOpal",
         ],
       },
-      "battles": Array [],
       "bigPocketVariant": false,
       "finished": false,
       "id": "Expedition1",
@@ -3338,15 +3317,12 @@ Object {
             },
             "expeditionId": "Expedition1",
             "id": "wXBtzLO1bM",
-            "nemesisTier": Object {
-              "isNewTier": true,
-            },
             "status": "locked",
             "tries": 0,
             "type": "battle",
           },
         },
-        "firstBattleId": "CvghslX3mK",
+        "firstBranchId": "CvghslX3mK",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [
@@ -3774,7 +3750,6 @@ Object {
           "IndirasLoneOpal",
         ],
       },
-      "battles": Array [],
       "bigPocketVariant": false,
       "finished": false,
       "id": "Expedition1",
@@ -3843,13 +3818,20 @@ Object {
             "type": "battle",
           },
           "YBsJLx4PfV": Object {
+            "config": Object {
+              "newUBNCards": Object {
+                "addRandom": true,
+                "ids": Array [],
+              },
+              "tier": 2,
+              "treasure": Object {
+                "hasTreasure": true,
+                "level": 2,
+              },
+            },
             "expeditionId": "Expedition1",
             "id": "YBsJLx4PfV",
             "nemesisId": "Arachnos",
-            "nemesisTier": Object {
-              "isNewTier": true,
-              "tier": 2,
-            },
             "rewards": Object {
               "supplyIds": Array [
                 "HauntedBerylite",
@@ -3863,11 +3845,8 @@ Object {
               ],
             },
             "status": "won",
-            "treasure": Object {
-              "hasTreasure": true,
-              "level": 2,
-            },
             "tries": 1,
+            "type": "battle",
           },
           "wXBtzLO1bM": Object {
             "config": Object {
@@ -3882,15 +3861,12 @@ Object {
             },
             "expeditionId": "Expedition1",
             "id": "wXBtzLO1bM",
-            "nemesisTier": Object {
-              "isNewTier": true,
-            },
             "status": "locked",
             "tries": 0,
             "type": "battle",
           },
         },
-        "firstBattleId": "CvghslX3mK",
+        "firstBranchId": "CvghslX3mK",
       },
       "settingsSnapshot": Object {
         "availableCardIds": Array [
