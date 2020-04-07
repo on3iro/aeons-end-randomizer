@@ -13,7 +13,7 @@ export const createExpedition = (
 ) => {
   return loop(
     state,
-    Cmd.run(sideEffects.createExpeditionConfig, {
+    Cmd.run(sideEffects.createExpedition, {
       args: [Cmd.getState, action.payload.baseConfig],
       successActionCreator: actions.createExpeditionSuccess,
     })

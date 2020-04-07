@@ -2,7 +2,6 @@ import * as types from 'types'
 
 export const ExampleExpeditionConfigBattlesOnly: types.ExpeditionConfig = {
   name: 'Example Expedition Full',
-  variantIdConfig: 'DEFAULT',
   bigPocketVariantConfig: false,
   sequenceConfig: {
     firstBranchId: 'FirstBattle',
@@ -434,7 +433,6 @@ export const ExampleExpeditionConfigBattlesOnly: types.ExpeditionConfig = {
 
 export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
   name: 'Example Expedition Full',
-  variantIdConfig: 'DEFAULT',
   bigPocketVariantConfig: false,
   sequenceConfig: {
     firstBranchId: 'TheLanding',

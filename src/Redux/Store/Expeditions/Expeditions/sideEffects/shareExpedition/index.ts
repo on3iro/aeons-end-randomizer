@@ -1,7 +1,7 @@
 import { saveAs } from 'file-saver'
 
 import * as types from 'types'
-import { convertToConfig } from 'Redux/Store/Expeditions/Expeditions/sideEffects/shareExpedition/convertToConfig'
+import { convertExpeditionToConfig } from 'Redux/Store/Expeditions/Expeditions/helpers'
 
 const saveToFile = (json: string, name: string) => {
   const blob = new Blob([json], { type: 'text/json;charset=utf-8' })
@@ -29,7 +29,7 @@ const shareApi = (json: string, name: string) => {
 }
 
 export const shareExpedition = (expedition: types.Expedition) => {
-  const config = convertToConfig(expedition)
+  const config = convertExpeditionToConfig(expedition)
 
   const json = JSON.stringify(config, undefined, 4)
   const name = (expedition.name || expedition.id).replace(/\s/g, '_')

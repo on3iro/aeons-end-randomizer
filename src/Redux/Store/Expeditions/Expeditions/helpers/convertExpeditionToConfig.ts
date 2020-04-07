@@ -1,6 +1,6 @@
 import * as types from 'types'
 
-export const convertToConfig = (
+export const convertExpeditionToConfig = (
   expedition: types.Expedition
 ): types.ExpeditionConfig => {
   const {
@@ -12,7 +12,6 @@ export const convertToConfig = (
     name: expedition.name,
     seedConfig: expedition.seed.seed,
     bigPocketVariantConfig: expedition.bigPocketVariant,
-    variantIdConfig: expedition?.variantId,
     initialBarracksConfig: expedition?.initialBarracksConfig,
     initialUBNCardsConfig: expedition?.initialUBNCardsConfig,
     settingsSnapshotConfig,

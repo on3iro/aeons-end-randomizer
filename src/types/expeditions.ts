@@ -260,7 +260,6 @@ export type ExpeditionConfig = {
   name: string
   seedConfig?: string
   sequenceConfig: SequenceConfig
-  variantIdConfig?: string
   bigPocketVariantConfig: boolean
   initialBarracksConfig?: Barracks
   initialUBNCardsConfig?: string[]
@@ -307,7 +306,6 @@ export type Sequence = {
 export type Expedition = {
   id: string
   name: string
-  variantId?: string
   bigPocketVariant: boolean
   score: number
   seed: ExpeditionSeed

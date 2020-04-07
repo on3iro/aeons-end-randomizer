@@ -39,12 +39,12 @@ export type State = {
 }
 
 export type BaseConfig = {
-  variantId: string
+  variantId?: string
   name: string
   bigPocketVariant: boolean
   marketId: string
+  expeditionConfig?: types.ExpeditionConfig
   seedValue?: string
-  existingSettingsSnapshot?: types.SettingsSnapshot
 }
 
 export type WinConfig = {

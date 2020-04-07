@@ -17,10 +17,10 @@ import VariantSelect from 'components/pages/Expeditions/CreationDialog/VariantSe
 
 type OwnProps = {
   finisher: Function
-  expedition?: types.Expedition
+  existingExpeditionConfig?: types.ExpeditionConfig
 }
 
-const mapStateToProps = (state: RootState) => ({})
+const mapStateToProps = (_: RootState) => ({})
 
 const mapDispatchToProps = {
   createExpedition: actions.Expeditions.Expeditions.createExpedition,
@@ -30,25 +30,31 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
-  const [existingExpedition, changeExistingExpedition] = useState<
-    types.Expedition | undefined
-  >(expedition)
+const CreationDialog = ({
+  finisher,
+  existingExpeditionConfig,
+  createExpedition,
+}: Props) => {
+  const [expeditionConfig, changeExpeditionConfig] = useState<
+    types.ExpeditionConfig | undefined
+  >(existingExpeditionConfig)
 
   const [expeditionName, changeExpeditionName] = useState(
-    existingExpedition ? `${existingExpedition.name} Copy` : ''
+    expeditionConfig ? `${expeditionConfig.name} Copy` : ''
   )
   const [bigPocketVariant, changeBigPocketVariant] = useState(
-    existingExpedition?.bigPocketVariant || false
+    expeditionConfig?.bigPocketVariantConfig || false
   )
   const [selectedMarketId, selectMarketId] = useState(
-    existingExpedition?.settingsSnapshot?.supplySetup?.id || 'random'
+    expeditionConfig?.settingsSnapshotConfig?.supplySetup?.id || 'random'
   )
   const [selectedVariant, selectVariant] = useState(
-    existingExpedition?.variantId || 'DEFAULT'
+    expeditionConfig
+      ? undefined // We will have a ready made sequence instead
+      : 'DEFAULT'
   )
   const [seedValue, changeSeedValue] = useState(
-    existingExpedition?.seed.seed || ''
+    expeditionConfig?.seedConfig || ''
   )
 
   const supplySelectHandler = (id: string) => {
@@ -64,29 +70,30 @@ const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
 
   const handleExpeditionCreation = () => {
     createExpedition({
+      expeditionConfig,
       variantId: selectedVariant,
       name: expeditionName,
       bigPocketVariant,
       marketId: selectedMarketId,
       seedValue,
-      existingSettingsSnapshot: existingExpedition?.settingsSnapshot,
     })
     finisher()
   }
 
   const configImportHandler = useCallback(
-    // FIXME this type is actually not a full expedition
-    (config: types.Expedition) => {
-      changeExistingExpedition(config)
-      changeExpeditionName(config?.name || `${config.id} Copy`)
-      changeBigPocketVariant(config?.bigPocketVariant || false)
-      selectMarketId(config?.settingsSnapshot?.supplySetup?.id || 'random')
-      selectVariant(config?.variantId || 'DEFAULT')
-      changeSeedValue(config?.seed?.seed || '')
+    (expeditionConfig: types.ExpeditionConfig) => {
+      changeExpeditionConfig(expeditionConfig)
+      changeExpeditionName(expeditionConfig?.name)
+      changeBigPocketVariant(expeditionConfig?.bigPocketVariantConfig || false)
+      selectMarketId(
+        expeditionConfig?.settingsSnapshotConfig?.supplySetup?.id || 'random'
+      )
+      selectVariant(undefined)
+      changeSeedValue(expeditionConfig?.seedConfig || '')
     },
     [
       selectMarketId,
-      changeExistingExpedition,
+      changeExpeditionConfig,
       changeExpeditionName,
       selectVariant,
       changeSeedValue,
@@ -109,17 +116,19 @@ const CreationDialog = ({ finisher, expedition, createExpedition }: Props) => {
           changeBigPocketVariant={changeBigPocketVariant}
         />
 
-        <VariantSelect
-          handleVariantChange={handleVariantChange}
-          selectedVariantId={selectedVariant}
-        />
+        {selectedVariant && (
+          <VariantSelect
+            handleVariantChange={handleVariantChange}
+            selectedVariantId={selectedVariant}
+          />
+        )}
 
         <MarketSelect
           selectedMarketId={selectedMarketId}
           clickHandler={supplySelectHandler}
           additionalSetups={
-            existingExpedition?.settingsSnapshot?.supplySetup && [
-              existingExpedition.settingsSnapshot.supplySetup,
+            existingExpeditionConfig?.settingsSnapshotConfig?.supplySetup && [
+              existingExpeditionConfig.settingsSnapshotConfig.supplySetup,
             ]
           }
         />
