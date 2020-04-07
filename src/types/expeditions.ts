@@ -238,7 +238,7 @@ export type NarrativeConfig = {
 export type NarrativeBranch = {
   type: 'narrative'
   config: NarrativeConfig
-  nextBranchId?: { [key: number]: string }
+  nextBranchId?: string[]
 }
 
 export type RewardBranch = {
