@@ -23,20 +23,21 @@ describe('rollWinRewards()', () => {
     Expeditions: {
       Expeditions: {
         expeditions: {
-          expedition1: {
-            id: 'expedition1',
-            settingsSnapshot: {
-              availableCardIds: ['spell1', 'gem2'],
-              availableTreasureIds: ['t1'],
-            },
-            seed: inputSeed,
-            barracks: {
-              mageIds: ['mage1'],
-              supplyIds: ['gem1'],
-              treasureIds: ['t2'],
-            },
-            banished: ['gem2'],
-          } as types.Expedition,
+          expedition1:
+            {
+              id: 'expedition1',
+              settingsSnapshot: {
+                availableCardIds: ['spell1', 'gem2'],
+                availableTreasureIds: ['t1'],
+              },
+              seed: inputSeed,
+              barracks: {
+                mageIds: ['mage1'],
+                supplyIds: ['gem1'],
+                treasureIds: ['t2'],
+              },
+              banished: ['gem2'],
+            } as types.Expedition,
         },
       },
     },
@@ -44,36 +45,41 @@ describe('rollWinRewards()', () => {
       Expansions: {
         Treasures: {
           treasures: {
-            t1: {
-              id: 't1',
-              level: 2,
-              selected: true,
-            } as types.Treasure & { selected: boolean },
+            t1:
+              {
+                id: 't1',
+                level: 2,
+                selected: true,
+              } as types.Treasure & { selected: boolean },
           },
           treasureIds: ['t1'],
         },
         SelectedCards: {
           cards: {
-            gem1: {
-              type: 'Gem',
-              id: 'gem1',
-              selected: true,
-            } as types.ICard & { selected: boolean },
-            gem2: {
-              type: 'Gem',
-              id: 'gem2',
-              selected: true,
-            } as types.ICard & { selected: boolean },
-            relic1: {
-              type: 'Relic',
-              id: 'relic1',
-              selected: true,
-            } as types.ICard & { selected: boolean },
-            spell1: {
-              type: 'Spell',
-              id: 'spell1',
-              selected: true,
-            } as types.ICard & { selected: boolean },
+            gem1:
+              {
+                type: 'Gem',
+                id: 'gem1',
+                selected: true,
+              } as types.ICard & { selected: boolean },
+            gem2:
+              {
+                type: 'Gem',
+                id: 'gem2',
+                selected: true,
+              } as types.ICard & { selected: boolean },
+            relic1:
+              {
+                type: 'Relic',
+                id: 'relic1',
+                selected: true,
+              } as types.ICard & { selected: boolean },
+            spell1:
+              {
+                type: 'Spell',
+                id: 'spell1',
+                selected: true,
+              } as types.ICard & { selected: boolean },
           },
         },
       },
@@ -81,19 +87,22 @@ describe('rollWinRewards()', () => {
   })
 
   it('should produce correct result', () => {
-    const inputBattle = {
-      id: 'someBattle',
-      type: 'battle',
-      expeditionId: 'expedition1',
-      config: {
-        tier: 1,
-        newUBNCards: { ids: [], addRandom: false },
-        treasure: {
-          hasTreasure: true,
-          level: 2,
+    const inputBattle =
+      {
+        id: 'someBattle',
+        type: 'battle',
+        expeditionId: 'expedition1',
+        config: {
+          tier: 1,
+          newUBNCards: { ids: [], addRandom: false },
+          treasure: {
+            hasTreasure: true,
+            level: 2,
+          },
         },
-      },
-    } as types.Battle
+        status: 'started',
+        tries: 1,
+      } as types.Battle
 
     const result = rollWinRewards(getExampleState, inputBattle)
 

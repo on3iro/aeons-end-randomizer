@@ -1,4 +1,6 @@
-export const expedition1 = {
+import * as types from 'types'
+
+export const expedition1: types.Expedition = {
   id: 'Expedition1',
   name: 'test',
   score: 4,
@@ -413,7 +415,7 @@ export const expedition1 = {
   variantId: 'DEFAULT',
   bigPocketVariant: false,
   sequence: {
-    firstBattleId: 'CvghslX3mK',
+    firstBranchId: 'CvghslX3mK',
     branches: {
       CvghslX3mK: {
         id: 'CvghslX3mK',
@@ -496,16 +498,12 @@ export const expedition1 = {
             hasTreasure: false,
           },
         },
-        nemesisTier: {
-          isNewTier: true,
-        },
         expeditionId: 'Expedition1',
         status: 'locked',
         tries: 0,
       },
     },
   },
-  battles: [],
   finished: false,
 }
 

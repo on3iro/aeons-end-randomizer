@@ -1,6 +1,6 @@
 //
 // This schema has been created by using https://github.com/YousefED/typescript-json-schema
-// To recreate the schema run 'typescript-json-schema tsconfig.json Expedition' at the project root,
+// To recreate the schema run 'typescript-json-schema tsconfig.json ExpeditionConfig --include ./src/types/**/*.ts' at the project root,
 // copy it to this directory and remove unwanted properties.
 //
 
