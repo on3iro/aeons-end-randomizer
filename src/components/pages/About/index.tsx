@@ -45,6 +45,10 @@ const About = () => (
         Aeons End is copyrighted &#169; 2016-2019 by Indie Boards & Cards and
         ActionPhase Games, all rights reserved.
       </P>
+      <P>
+        All the used RPG-Icons are from Rpg-Awesome, Copyright (c) 2014, Daniela
+        Howe All rights reserved.
+      </P>
     </CardContent>
   </Card>
 )

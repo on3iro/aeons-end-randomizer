@@ -8,19 +8,13 @@ import * as types from 'types'
 import BackLink from 'components/molecules/BackLink'
 
 import Barracks from './Barracks'
-import Battle from './Battle'
+import Branch from './Branch/'
 import Header from './Header'
 
 const renderBranches = (branches: types.Branches) =>
-  Object.values(branches)
-    // FIXME as soon as we handle all branch types we should fix the casting in line 17
-    .map((branch, index) => (
-      <Battle
-        key={branch.id}
-        battle={branch as types.Battle}
-        data-test={`battle-${index}`}
-      />
-    ))
+  Object.values(branches).map((branch, index) => (
+    <Branch key={branch.id} branch={branch} data-test={`battle-${index}`} />
+  ))
 
 type OwnProps = {
   id: string

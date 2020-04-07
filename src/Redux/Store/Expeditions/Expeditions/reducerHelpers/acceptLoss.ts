@@ -16,13 +16,15 @@ export const acceptLoss = (
 
   const oldExpedition = state.expeditions[battle.expeditionId]
   const branches = oldExpedition.sequence.branches
+  // FIXME fix type casting
+  const branch = oldExpedition.sequence.branches[battle.id] as types.Battle
 
   const newStatus: types.BattleStatus = 'before_battle'
 
   const updatedBranches = {
     ...branches,
     [battle.id]: {
-      ...battle,
+      ...branch,
       status: newStatus,
       rewards: undefined,
     },
@@ -30,7 +32,7 @@ export const acceptLoss = (
 
   const newTreasureIds = battle.rewards ? battle.rewards.treasure : []
   const newMageIds =
-    battle.rewards && battle.rewards.mage ? [battle.rewards.mage] : []
+    battle.rewards && battle.rewards.mages ? battle.rewards.mages : []
 
   const newState = {
     ...state,

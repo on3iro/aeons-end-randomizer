@@ -2,7 +2,7 @@ import * as types from 'types'
 import { handleMage } from '../handleMage'
 
 describe('handleMage', () => {
-  it('should contain undefined, if no result could be created', () => {
+  it('should contain empty array, if no result could be created', () => {
     const result = handleMage({ id: 'someBattle' } as types.Battle, [], {
       seed: 'test',
     })
@@ -11,7 +11,7 @@ describe('handleMage', () => {
       id: 'someBattle',
       rewards: {
         treasure: [],
-        mage: undefined,
+        mages: [],
         supplyIds: [],
       },
       seed: { seed: 'test', state: expect.any(Object) },
@@ -27,7 +27,7 @@ describe('handleMage', () => {
       id: 'someBattle',
       rewards: {
         treasure: [],
-        mage: 'mage1',
+        mages: ['mage1'],
         supplyIds: [],
       },
       seed: { seed: 'test', state: expect.any(Object) },

@@ -60,7 +60,7 @@ export const createCardList = (
 ): CardListReduceResult =>
   blueprints.reduce(
     (acc: CardListReduceResult, blueprint: types.IBluePrint) => {
-      const filteredByCost = acc.availableCards.filter(card =>
+      const filteredByCost = acc.availableCards.filter((card) =>
         filterByCost(card, blueprint)
       )
 
@@ -74,7 +74,7 @@ export const createCardList = (
 
       // Make sure each entity will only be added to the result list once
       const remainingCards = acc.availableCards.filter(
-        entity => entity.id !== card.id
+        (entity) => entity.id !== card.id
       )
 
       return {
@@ -98,7 +98,7 @@ export const createCardList = (
  *
  * return List<Card>
  */
-const getRandomCardsByType = (
+export const getRandomCardsByType = (
   availableCards: ReadonlyArray<types.ICard>,
   tileSetups: ReadonlyArray<types.IBluePrint>,
   cardType: types.CardType,

@@ -25,7 +25,7 @@ export const actions = {
   loseBattle: (battle: types.Battle) =>
     createAction(ActionTypes.LOSE_BATTLE, { battle }),
   acceptLoss: (
-    battle: types.Battle,
+    battle: { id: string; expeditionId: string; rewards?: types.Rewards },
     banished: string[],
     newSupplyIds: string[]
   ) =>
@@ -40,8 +40,8 @@ export const actions = {
     banished: string[]
   ) =>
     createAction(ActionTypes.FINISH_BATTLE, { battle, newSupplyIds, banished }),
-  finishExpedition: (battle: types.Battle) =>
-    createAction(ActionTypes.FINISH_EXPEDITION, { battle }),
+  finishExpedition: (branch: types.Branch) =>
+    createAction(ActionTypes.FINISH_EXPEDITION, { branch }),
   deleteExpedition: (id: string) =>
     createAction(ActionTypes.DELETE_EXPEDITION, id),
   setToDB: (state: State) => createAction(ActionTypes.SET_TO_DB, state),
@@ -61,4 +61,32 @@ export const actions = {
     createAction(ActionTypes.EXPEDITION_SHARE_SUCCESS),
   shareExpeditionFailure: () =>
     createAction(ActionTypes.EXPEDITION_SHARE_FAILURE),
+  resolveNarrative: (config: {
+    expeditionId: string
+    narrativeId: string
+    descision: number
+  }) => createAction(ActionTypes.NARRATIVE_RESOLVE, config),
+  generateRewards: (config: { reward: types.Reward }) =>
+    createAction(ActionTypes.REWARDS_GENERATE, config),
+  generateRewardsSuccess: (result: {
+    seed: types.Seed
+    rewards: types.Rewards
+    expeditionId: string
+    branchId: string
+  }) => createAction(ActionTypes.REWARDS_GENERATE_SUCCESS, result),
+  acceptRewards: (
+    reward: {
+      id: string
+      expeditionId: string
+      rewards?: types.Rewards
+      nextBranchId?: string
+    },
+    banished: string[],
+    newSupplyIds: string[]
+  ) =>
+    createAction(ActionTypes.REWARDS_ACCEPT, {
+      reward,
+      banished,
+      newSupplyIds,
+    }),
 }

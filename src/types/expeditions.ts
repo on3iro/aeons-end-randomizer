@@ -115,16 +115,9 @@ export const variants: { [id: string]: Variant } = {
 export const variantIds = Object.values(variants).map((val) => val.id)
 export type VariantId = typeof variantIds[number]
 
-export type BattleStatus =
-  | 'locked'
-  | 'unlocked'
-  | 'before_battle'
-  | 'started'
-  | 'won'
-  | 'lost'
-  | 'finished'
-
 export type Status = 'locked' | 'unlocked' | 'finished'
+
+export type BattleStatus = Status | 'before_battle' | 'started' | 'won' | 'lost'
 
 export type SettingsSnapshotConfig = {
   supplySetup: IMarketSetup
@@ -198,20 +191,27 @@ export type NemesisTier = 1 | 2 | 3 | 4
 // Configuration //
 ///////////////////
 
+export type TreasureRewardConfig = {
+  ids: Array<string | { random: true; level: 1 | 2 | 3 }>
+}
+
+export type MageRewardConfig = {
+  ids: Array<string | { random: true }>
+}
+
+export type SupplyRewardConfig = {
+  ids: Array<string | IBluePrint>
+  bigPocket?: boolean
+}
+
 export type RewardsConfig =
   | {
-      treasure?: {
-        ids: Array<string | { random: boolean; level: 1 | 2 | 3 }>
-      }
-      mage?: {
-        ids: Array<string | { random: boolean }>
-      }
-      supply?: {
-        ids: Array<string | IBluePrint>
-        bigPocket?: boolean
-      }
+      type: 'custom'
+      treasure?: TreasureRewardConfig
+      mage?: MageRewardConfig
+      supply?: SupplyRewardConfig
     }
-  | { regular: true }
+  | { type: 'regular' }
 
 export type BattleConfig = {
   tier: NemesisTier
@@ -270,7 +270,11 @@ export type ExpeditionConfig = {
 // Expedition //
 ////////////////
 
-export type Rewards = { treasure: string[]; mage?: string; supplyIds: string[] }
+export type Rewards = {
+  treasure: string[]
+  mages: string[]
+  supplyIds: string[]
+}
 
 export type Battle = BattleBranch & {
   id: string
@@ -291,6 +295,8 @@ export type Narrative = NarrativeBranch & {
 export type Reward = RewardBranch & {
   id: string
   status: Status
+  // These are actual rewards which where rolled, not config
+  rewards?: Rewards
   expeditionId: string
 }
 
