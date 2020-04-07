@@ -11,7 +11,7 @@ describe('handleSupply', () => {
       id: 'someBattle',
       rewards: {
         treasure: [],
-        mage: undefined,
+        mages: [],
         supplyIds: [],
       },
       seed: { seed: 'test', state: expect.any(Object) },
@@ -29,7 +29,7 @@ describe('handleSupply', () => {
       id: 'someBattle',
       rewards: {
         treasure: [],
-        mage: undefined,
+        mages: [],
         supplyIds: ['supply1'],
       },
       seed: { seed: 'test', state: expect.any(Object) },

@@ -12,29 +12,32 @@ export const finishExpedition = (
   state: State,
   action: ReturnType<typeof actions.finishExpedition>
 ) => {
-  const { battle } = action.payload
-  const oldExpedition = state.expeditions[battle.expeditionId]
+  const { branch } = action.payload
+  const oldExpedition = state.expeditions[branch.expeditionId]
   const branches = oldExpedition.sequence.branches
 
   const newStatus: BattleStatus = 'finished'
 
   const updatedBranches = {
     ...branches,
-    [battle.id]: {
-      ...battle,
+    [branch.id]: {
+      ...branch,
       status: newStatus,
     },
   }
-
-  const battleScore = helpers.calcBattleScore(battle.tries)
 
   const newState = {
     ...state,
     expeditions: {
       ...state.expeditions,
-      [battle.expeditionId]: {
+      [branch.expeditionId]: {
         ...oldExpedition,
-        score: oldExpedition.score + battleScore,
+        ...(branch.type === 'battle'
+          ? {
+              score:
+                oldExpedition.score + helpers.calcBattleScore(branch.tries),
+            }
+          : {}),
         sequence: {
           ...oldExpedition.sequence,
           branches: updatedBranches,

@@ -82,6 +82,7 @@ Object {
             "nemesisId": "KnightOfShackles",
             "nextBranchId": "YBsJLx4PfV",
             "rewards": Object {
+              "mages": Array [],
               "supplyIds": Array [
                 "DiamondCluster",
                 "PainConduit",
@@ -603,6 +604,7 @@ Object {
             "nemesisId": "KnightOfShackles",
             "nextBranchId": "YBsJLx4PfV",
             "rewards": Object {
+              "mages": Array [],
               "supplyIds": Array [
                 "DiamondCluster",
                 "PainConduit",
@@ -1127,6 +1129,7 @@ Object {
             "nemesisId": "KnightOfShackles",
             "nextBranchId": "YBsJLx4PfV",
             "rewards": Object {
+              "mages": Array [],
               "supplyIds": Array [
                 "DiamondCluster",
                 "PainConduit",
@@ -1663,6 +1666,7 @@ Object {
             "nemesisId": "KnightOfShackles",
             "nextBranchId": "YBsJLx4PfV",
             "rewards": Object {
+              "mages": Array [],
               "supplyIds": Array [
                 "DiamondCluster",
                 "PainConduit",
@@ -2192,6 +2196,7 @@ Object {
             "nemesisId": "KnightOfShackles",
             "nextBranchId": "YBsJLx4PfV",
             "rewards": Object {
+              "mages": Array [],
               "supplyIds": Array [
                 "DiamondCluster",
                 "PainConduit",
@@ -2722,6 +2727,7 @@ Object {
             "nemesisId": "KnightOfShackles",
             "nextBranchId": "YBsJLx4PfV",
             "rewards": Object {
+              "mages": Array [],
               "supplyIds": Array [
                 "DiamondCluster",
                 "PainConduit",
@@ -3263,6 +3269,7 @@ Object {
             "nemesisId": "KnightOfShackles",
             "nextBranchId": "YBsJLx4PfV",
             "rewards": Object {
+              "mages": Array [],
               "supplyIds": Array [
                 "DiamondCluster",
                 "PainConduit",
@@ -3793,6 +3800,7 @@ Object {
             "nemesisId": "KnightOfShackles",
             "nextBranchId": "YBsJLx4PfV",
             "rewards": Object {
+              "mages": Array [],
               "supplyIds": Array [
                 "DiamondCluster",
                 "PainConduit",

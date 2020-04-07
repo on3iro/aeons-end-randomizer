@@ -489,7 +489,7 @@ describe('Reducer()', () => {
           },
         },
         rewards: {
-          mage: 'Adelheim',
+          mages: ['Adelheim'],
           treasure: ['AlchemistsAlembic'],
           supplyIds: [],
         },

@@ -27,12 +27,14 @@ export const ExampleExpeditionConfigBattlesOnly: types.ExpeditionConfig = {
           onLoss: 'skip',
           lossRewards: [
             {
+              type: 'custom',
               treasure: { ids: [] },
               mage: { ids: ['Lost'] },
               supply: { ids: [] },
             },
           ],
           winRewards: {
+            type: 'custom',
             treasure: { ids: [{ random: true, level: 1 }] },
             mage: { ids: ['Soskel', { random: true }] },
             supply: { ids: ['Jade'], bigPocket: true },
@@ -466,12 +468,14 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
           onLoss: 'skip',
           lossRewards: [
             {
+              type: 'custom',
               treasure: { ids: [] },
               mage: { ids: ['Lost'] },
               supply: { ids: [] },
             },
           ],
           winRewards: {
+            type: 'custom',
             treasure: { ids: [{ random: true, level: 1 }] },
             mage: { ids: ['Soskel', { random: true }] },
             supply: { ids: ['Jade'], bigPocket: true },
@@ -494,12 +498,28 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
             hasTreasure: false,
           },
         },
-        nextBranchId: 'AMageJoins',
+        nextBranchId: 'TreasureAhead',
       },
-      AMageJoins: {
+      TreasureAhead: {
         type: 'reward',
         config: {
-          mage: { ids: ['Claudia'] },
+          type: 'custom',
+          supply: {
+            ids: [
+              'ArcaneNexus',
+              {
+                type: 'Gem',
+                operation: '>=',
+                threshold: 5,
+              },
+            ],
+          },
+          mage: {
+            ids: ['Claudia', { random: true }],
+          },
+          treasure: {
+            ids: ['PurifiedBangle', { random: true, level: 2 }],
+          },
         },
         nextBranchId: 'ChooseEnding',
       },

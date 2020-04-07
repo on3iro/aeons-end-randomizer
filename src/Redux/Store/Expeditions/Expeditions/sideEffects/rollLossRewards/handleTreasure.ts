@@ -15,7 +15,7 @@ export const handleTreasure = (
     ...battle,
     rewards: {
       treasure: newTreasure ? [newTreasure] : [],
-      mage: undefined,
+      mages: [],
       supplyIds: [],
     },
     seed: newTreasureResult.seed,

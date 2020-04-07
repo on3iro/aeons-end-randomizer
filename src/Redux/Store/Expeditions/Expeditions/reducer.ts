@@ -100,6 +100,22 @@ export const Reducer: LoopReducer<State, Action> = (
       return reducerHelpers.shareExpeditionFailure(state, action)
     }
 
+    case ActionTypes.NARRATIVE_RESOLVE: {
+      return reducerHelpers.resolveNarrative(state, action)
+    }
+
+    case ActionTypes.REWARDS_GENERATE: {
+      return reducerHelpers.generateRewards(state, action)
+    }
+
+    case ActionTypes.REWARDS_GENERATE_SUCCESS: {
+      return reducerHelpers.generateRewardsSuccess(state, action)
+    }
+
+    case ActionTypes.REWARDS_ACCEPT: {
+      return reducerHelpers.acceptRewards(state, action)
+    }
+
     default: {
       return state
     }

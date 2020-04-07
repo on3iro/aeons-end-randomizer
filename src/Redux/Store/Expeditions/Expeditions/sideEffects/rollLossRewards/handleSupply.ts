@@ -15,7 +15,7 @@ export const handleSupply = (
     ...battle,
     rewards: {
       treasure: [],
-      mage: undefined,
+      mages: [],
       supplyIds: newSupplyItemId ? [newSupplyItemId] : [],
     },
     seed: newSupplyItemResult.seed,
