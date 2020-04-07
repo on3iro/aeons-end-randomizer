@@ -1,3 +1,6 @@
+export * from './convertExpeditionToConfig'
+export * from './convertExpeditionFromConfig'
+
 export const calcBattleScore = (tries: number) => {
   switch (tries) {
     case 1: {

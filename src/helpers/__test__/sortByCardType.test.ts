@@ -1,4 +1,4 @@
-import { sortByCardType } from '../helpers'
+import { sortByCardType } from '../index'
 
 describe('sortByCardType()', () => {
   it('should put Gems first', () => {

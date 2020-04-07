@@ -1,4 +1,4 @@
-import { byCost } from '../helpers'
+import { byCost } from '../index'
 
 describe('byCost()', () => {
   it('should put a first if it does not have cost', () => {

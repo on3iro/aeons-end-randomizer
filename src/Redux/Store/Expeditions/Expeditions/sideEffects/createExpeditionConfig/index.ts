@@ -1,148 +1,31 @@
-import { generate } from 'shortid'
+import { RootState } from 'Redux/Store'
 
-import { selectors, RootState } from 'Redux/Store'
-
-import {
-  createArrayWithDefaultValues,
-  createIdList,
-  getRandomEntity,
-} from 'Redux/helpers'
 import * as types from 'types'
 
 import { BaseConfig } from '../../types'
-import { createSettingsSnapshot } from '../createSettingsSnapshot'
 
-import { createSupplyIds } from './createSupplyIds'
-import { createTreasureIds } from './createTreasureIds'
-import { generateBattles } from './generateBattles'
-import { getLatestMigrationVersion } from 'Redux/Store/Expeditions/Expeditions/migrations'
+import { handleWithoutConfig } from './handleWithoutConfig'
+import { handleExistingConfig } from './handleExistingConfig'
 
-export const createExpeditionConfig = (
+export const createExpedition = (
   getState: () => RootState,
-  {
-    variantId,
-    name,
-    bigPocketVariant,
-    marketId,
-    existingSettingsSnapshot,
-    seedValue,
-  }: BaseConfig
+  baseConfig: BaseConfig
 ): types.Expedition => {
   const state = getState()
+  const { expeditionConfig } = baseConfig
 
-  /////////////////////////
-  // Basic configuration //
-  /////////////////////////
-
-  const expeditionId = generate()
-
-  const seed = {
-    seed: seedValue || expeditionId,
-  }
-
-  const settingsSnapshot = createSettingsSnapshot(
-    state,
-    existingSettingsSnapshot,
-    marketId
-  )
-
-  ///////////////////////////
-  // Content randomziation //
-  ///////////////////////////
-
-  // Mages
-
-  const mageIdsResult = createIdList(
-    settingsSnapshot.availableMageIds,
-    createArrayWithDefaultValues(4, 'EMPTY'),
-    getRandomEntity,
-    seed
-  )
-
-  const mageIds = mageIdsResult.result
-
-  const availableCards = selectors.Settings.Expansions.SelectedCards.getCardsByIdList(
-    state,
-    { cardIds: settingsSnapshot.availableCardIds }
-  )
-
-  // Supply
-
-  const supplyIdsResult = createSupplyIds(
-    availableCards,
-    settingsSnapshot.supplySetup,
-    mageIdsResult.seed
-  )
-
-  const supplyIds = supplyIdsResult.result
-
-  // Treasures
-
-  const variant = selectors.Expeditions.Variants.getVariantById(state, {
-    variantId,
-  })
-
-  const availableLevel1TreasureIds = selectors.Settings.Expansions.getTreasureIdsByLevelMappedFromIds(
-    state,
-    {
-      treasureLevel: 1,
-      treasureIds: settingsSnapshot.availableTreasureIds,
-    }
-  )
-
-  const treasureIdsResult = createTreasureIds(
-    // FIXME
-    // @ts-ignore disable-line
-    variant.configList[0],
-    availableLevel1TreasureIds,
-    supplyIdsResult.seed
-  )
-
-  const treasureIds = treasureIdsResult.result
-
-  // Battles
-
-  // FIXME
-  // @ts-ignore disable-line
-  const battles = generateBattles(variant, expeditionId)
-
-  ////////////////
-  // Expedition //
-  ////////////////
-
-  const newSeed = {
-    seed: treasureIdsResult.seed.seed,
-    supplyState: treasureIdsResult.seed.state || true,
-    // this means that as soon as nemesis and nemesis cards are getting rolled
-    // state will be used
-    nemesisState: true,
-  }
-
-  return {
-    id: expeditionId,
-    name: name,
-    score: 0,
-    seed: newSeed,
-    settingsSnapshot,
-    barracks: {
-      mageIds,
-      supplyIds,
-      treasureIds,
-    },
-    upgradedBasicNemesisCards: [],
-    banished: [],
-    variantId,
-    bigPocketVariant: bigPocketVariant,
-    sequence: {
-      firstBranchId: battles[0].id,
-      branches: battles.reduce((acc, battle) => {
-        return {
-          ...acc,
-          [battle.id]: battle,
-        }
-      }, {}),
-    },
-    migrationVersion: getLatestMigrationVersion(),
-    finished: false,
+  if (expeditionConfig) {
+    return handleExistingConfig(
+      {
+        // This transformation is necessary so that typescript knows
+        // that we actually have an expedition (just checking baseConfig.expeditionConfig
+        // and handing that over as argument did somehow not work)
+        ...baseConfig,
+        expeditionConfig,
+      },
+      state
+    )
+  } else {
+    return handleWithoutConfig(baseConfig, state)
   }
 }

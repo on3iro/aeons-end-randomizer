@@ -703,6 +703,5 @@ Object {
     ],
   },
   "upgradedBasicNemesisCards": Array [],
-  "variantId": "SHORT",
 }
 `;

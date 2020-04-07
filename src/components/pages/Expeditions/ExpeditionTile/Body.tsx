@@ -18,9 +18,6 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({
     state,
     { expansionIds: ownProps.expedition.settingsSnapshot.usedExpansions }
   ),
-  variant: selectors.Expeditions.Variants.getVariantById(state, {
-    variantId: ownProps.expedition.variantId,
-  }),
 })
 
 const mapDispatchToProps = {}
@@ -29,7 +26,7 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const Body = ({ expedition, variant, usedExpansions }: Props) => (
+const Body = ({ expedition, usedExpansions }: Props) => (
   <React.Fragment>
     <Name variant="h6" component="h2">
       {expedition.name || expedition.id}
@@ -45,13 +42,6 @@ const Body = ({ expedition, variant, usedExpansions }: Props) => (
         info={expedition.score.toString()}
         data-test="info--score"
       />
-      {variant && (
-        <InfoItem
-          label="Variant"
-          info={variant.name}
-          data-test="info--variant"
-        />
-      )}
       <InfoItem
         label="Big Pocket"
         info={expedition.bigPocketVariant ? 'Yes' : 'No'}
