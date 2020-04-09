@@ -15,7 +15,7 @@ describe('getUpgradedBasicNemesisCardsResult()', () => {
     getUpgradedBasicNemesisCardsResult(
       {
         tier: 2,
-        newUBNCards: { ids: [], addRandom: true },
+        newUBNCards: { type: 'regular', addRandom: true },
         treasure: {
           hasTreasure: false,
         },
@@ -41,7 +41,7 @@ describe('getUpgradedBasicNemesisCardsResult()', () => {
     const result = getUpgradedBasicNemesisCardsResult(
       {
         tier: 2,
-        newUBNCards: { ids: [], addRandom: false },
+        newUBNCards: { type: 'regular', addRandom: false },
         treasure: {
           hasTreasure: false,
         },
