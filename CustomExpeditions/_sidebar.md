@@ -1,3 +1,5 @@
+- [Overview](./README.md)
 - [API](./API.md)
+- [Types](./Types.md)
 - [Example](./Example.md)
-- [Import](./Import.md)
+- [FAQ](./FAQ.md)
