@@ -11,7 +11,7 @@ import { MageCount } from '../Count'
 // STATE //
 ///////////
 
-export type State = ReadonlyArray<types.Mage>
+export type State = ReadonlyArray<{ id: Readonly<string> }>
 export const initialState: State = []
 
 /////////////
@@ -32,8 +32,13 @@ export const actions = {
     const slotList = createSlotList(length)
     const mageList = createMageList(availableMages, slotList, getRandomEntity)
       .result
+    const mageIds = mageList.map(mage => {
+      return {
+        id: mage.id,
+      }
+    })
 
-    return createAction(ActionTypes.SET_RANDOM, { mageList })
+    return createAction(ActionTypes.SET_RANDOM, { mageIds })
   },
 }
 
@@ -49,7 +54,7 @@ export const Reducer: LoopReducer<State, Action> = (
 ) => {
   switch (action.type) {
     case ActionTypes.SET_RANDOM: {
-      return action.payload.mageList
+      return action.payload.mageIds
     }
 
     default: {
