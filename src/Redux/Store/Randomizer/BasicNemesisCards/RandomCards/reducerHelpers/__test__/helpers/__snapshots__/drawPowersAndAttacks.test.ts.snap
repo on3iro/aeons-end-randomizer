@@ -4,7 +4,6 @@ exports[`drawPowersAndAttacks() should return 1 power or attack card 1`] = `
 Array [
   Object {
     "id": "card4",
-    "type": "Power",
   },
 ]
 `;
@@ -13,15 +12,12 @@ exports[`drawPowersAndAttacks() should return 3 power or attack cards 1`] = `
 Array [
   Object {
     "id": "card4",
-    "type": "Power",
   },
   Object {
     "id": "card2",
-    "type": "Power",
   },
   Object {
     "id": "card3",
-    "type": "Attack",
   },
 ]
 `;

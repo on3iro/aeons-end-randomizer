@@ -61,13 +61,18 @@ export const drawMinions = (
   seed?: types.Seed
 ) => {
   const minions = cards.filter(card => card.type === 'Minion')
-
-  return createBasicNemesisCardList(
+  const minionsList = createBasicNemesisCardList(
     minions,
     createSlotList(amount),
     getRandomEntity,
     seed
   ).result
+
+  return minionsList.map(minion => {
+    return {
+      id: minion.id,
+    }
+  })
 }
 
 export const drawPowersAndAttacks = (
@@ -76,13 +81,18 @@ export const drawPowersAndAttacks = (
   seed?: types.Seed
 ) => {
   const powersAndAttacks = cards.filter(card => card.type !== 'Minion')
-
-  return createBasicNemesisCardList(
+  const powersAndAttacksList = createBasicNemesisCardList(
     powersAndAttacks,
     createSlotList(amount),
     getRandomEntity,
     seed
   ).result
+
+  return powersAndAttacksList.map(powerAndAttack => {
+    return {
+      id: powerAndAttack.id,
+    }
+  })
 }
 
 export const getRandomBasicNemesisCardsByTier = (
