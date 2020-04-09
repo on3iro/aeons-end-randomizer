@@ -11,20 +11,49 @@ import EmptyHint from './EmptyHint'
 import PlayerAmountPicker from './PlayerAmountPicker'
 import Tier from './Tier'
 
-const mapStateToProps = (state: RootState) => ({
-  hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
+const mapStateToProps = (state: RootState) => {
+  const basicNemesisCardIds = selectors.Randomizer.BasicNemesisCards.RandomCards.getBasicNemesisCards(
     state
-  ),
-  availableBasicNemesisCards: selectors.Settings.Expansions.getSelectedBasicNemesisCardsForSelectedExpansions(
-    state
-  ),
-  randomBasicNemesisCards: selectors.Randomizer.BasicNemesisCards.RandomCards.getBasicNemesisCards(
-    state
-  ),
-  playerCount: selectors.Randomizer.BasicNemesisCards.PlayerCount.getCount(
-    state
-  ),
-})
+  )
+
+  return {
+    hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
+      state
+    ),
+    availableBasicNemesisCards: selectors.Settings.Expansions.getSelectedBasicNemesisCardsForSelectedExpansions(
+      state
+    ),
+    playerCount: selectors.Randomizer.BasicNemesisCards.PlayerCount.getCount(
+      state
+    ),
+    randomBasicNemesisCards: {
+      Tier1: basicNemesisCardIds.Tier1.map(basicNemesisCardId =>
+        selectors.Settings.Expansions.BasicNemesisCards.getBasicNemesisCardById(
+          state,
+          {
+            id: basicNemesisCardId.id,
+          }
+        )
+      ),
+      Tier2: basicNemesisCardIds.Tier2.map(basicNemesisCardId =>
+        selectors.Settings.Expansions.BasicNemesisCards.getBasicNemesisCardById(
+          state,
+          {
+            id: basicNemesisCardId.id,
+          }
+        )
+      ),
+      Tier3: basicNemesisCardIds.Tier3.map(basicNemesisCardId =>
+        selectors.Settings.Expansions.BasicNemesisCards.getBasicNemesisCardById(
+          state,
+          {
+            id: basicNemesisCardId.id,
+          }
+        )
+      ),
+    },
+  }
+}
 
 const mapDispatchToProps = {
   createDeck:

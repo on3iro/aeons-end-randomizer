@@ -1,13 +1,11 @@
 import { ActionsUnion } from '@martin_hotell/rex-tils'
 
-import * as types from 'types'
-
 import { actions } from './actions'
 
 export type State = Readonly<{
-  Tier1: ReadonlyArray<types.BasicNemesisCard>
-  Tier2: ReadonlyArray<types.BasicNemesisCard>
-  Tier3: ReadonlyArray<types.BasicNemesisCard>
+  Tier1: ReadonlyArray<{ id: Readonly<string> }>
+  Tier2: ReadonlyArray<{ id: Readonly<string> }>
+  Tier3: ReadonlyArray<{ id: Readonly<string> }>
   recoverySeed?: string
 }>
 

@@ -4,7 +4,6 @@ exports[`drawMinions() should return 1 minion 1`] = `
 Array [
   Object {
     "id": "card6",
-    "type": "Minion",
   },
 ]
 `;
@@ -13,15 +12,12 @@ exports[`drawMinions() should return 3 minions 1`] = `
 Array [
   Object {
     "id": "card6",
-    "type": "Minion",
   },
   Object {
     "id": "card1",
-    "type": "Minion",
   },
   Object {
     "id": "card5",
-    "type": "Minion",
   },
 ]
 `;
