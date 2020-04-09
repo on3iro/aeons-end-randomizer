@@ -1,1 +1,3 @@
-- [Custom Expeditions](./CustomExpeditions.md)
+- [Home](./README.md)
+- [Custom Expeditions](./CustomExpeditions/README.md)
+- [Seeds](./Seeds.md)
