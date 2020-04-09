@@ -10,7 +10,7 @@ import { createSupply } from 'Redux/helpers'
 // STATE //
 ///////////
 
-type Tiles = ReadonlyArray<types.ICard> | null
+type Tiles = ReadonlyArray<{ id: Readonly<string> }> | null
 
 export type State = Readonly<{
   Tiles: Tiles
@@ -37,9 +37,23 @@ export const actions = {
     tiles: ReadonlyArray<types.Slot>
   ) => {
     const { gems, relics, spells } = createSupply(availableCards, tiles)
-    const gemsByCost = gems.sort(byCost)
-    const relicsByCost = relics.sort(byCost)
-    const spellsByCost = spells.sort(byCost)
+    const gemsByCost = gems.sort(byCost).map(gem => {
+      return {
+        id: gem.id,
+      }
+    })
+
+    const relicsByCost = relics.sort(byCost).map(relic => {
+      return {
+        id: relic.id,
+      }
+    })
+
+    const spellsByCost = spells.sort(byCost).map(spell => {
+      return {
+        id: spell.id,
+      }
+    })
 
     return createAction(ActionTypes.CREATE, {
       supply: [...gemsByCost, ...relicsByCost, ...spellsByCost],
