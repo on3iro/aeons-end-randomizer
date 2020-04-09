@@ -9,7 +9,7 @@ import { getRandomEntity } from 'Redux/helpers'
 // STATE //
 ///////////
 
-export type State = Readonly<types.Nemesis> | undefined
+export type State = { id: Readonly<string> } | undefined
 export const initialState: State = undefined
 
 /////////////
@@ -40,7 +40,9 @@ export const Reducer: LoopReducer<State, Action> = (
 ) => {
   switch (action.type) {
     case ActionTypes.SET_RANDOM: {
-      return action.payload.nemesis.entity
+      return {
+        id: action.payload.nemesis.entity.id,
+      }
     }
 
     default: {
