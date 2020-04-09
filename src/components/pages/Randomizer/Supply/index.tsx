@@ -10,16 +10,24 @@ import MarketSelect from 'components/molecules/MarketSelect'
 import ShuffleButton from 'components/atoms/ShuffleButton'
 
 const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
-const mapStateToProps = (state: RootState) => ({
-  hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
-    state
-  ),
-  availableCards: selectors.Settings.Expansions.getSelectedCardsForSelectedExpansions(
-    state
-  ),
-  allMarketSetups: getCustomAndPredefined(state),
-  randomCards: selectors.Randomizer.Supply.RandomSetup.getTiles(state),
-})
+const mapStateToProps = (state: RootState) => {
+  const supplyIds = selectors.Randomizer.Supply.RandomSetup.getTiles(state)
+
+  return {
+    hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
+      state
+    ),
+    availableCards: selectors.Settings.Expansions.getSelectedCardsForSelectedExpansions(
+      state
+    ),
+    allMarketSetups: getCustomAndPredefined(state),
+    randomCards: supplyIds?.map(supplyId =>
+      selectors.Settings.Expansions.SelectedCards.getCardById(state, {
+        id: supplyId.id,
+      })
+    ),
+  }
+}
 
 const mapDispatchToProps = {
   createMarket: actions.Randomizer.Supply.RandomSetup.createMarket,
