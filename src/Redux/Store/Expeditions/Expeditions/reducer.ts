@@ -77,7 +77,7 @@ export const Reducer: LoopReducer<State, Action> = (
       if (!action.payload) {
         return state
       }
-      return reducerHelpers.migrateAfterFetch(action)
+      return reducerHelpers.migrateAfterFetch(state, action)
     }
 
     case ActionTypes.SETTINGS_SNAPSHOT_MIGRATION_SUCCESS: {
