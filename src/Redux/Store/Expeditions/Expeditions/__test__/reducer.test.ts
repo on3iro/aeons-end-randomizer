@@ -701,7 +701,7 @@ describe('Reducer()', () => {
 
     const result = Reducer(initialState, actions.fetchFromDBSuccessful(state))
 
-    expect(getModel(result)).toEqual(state)
+    expect(getModel(result)).toEqual(initialState)
     expect(getCmd(result)).toEqual(
       Cmd.run(migrate, {
         args: [
