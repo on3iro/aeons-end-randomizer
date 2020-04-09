@@ -11,16 +11,24 @@ import ShuffleButton from 'components/atoms/ShuffleButton'
 import MageCountPicker from './MageCountPicker'
 import EmptyMageListHint from './EmptyMageListHint'
 
-const mapStateToProps = (state: RootState) => ({
-  hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
-    state
-  ),
-  availableMages: selectors.Settings.Expansions.getSelectedMagesForSelectedExpansions(
-    state
-  ),
-  mageCount: selectors.Randomizer.Mages.Count.getCount(state),
-  mages: selectors.Randomizer.Mages.Recruited.getMages(state),
-})
+const mapStateToProps = (state: RootState) => {
+  const mageIds = selectors.Randomizer.Mages.Recruited.getMages(state)
+
+  return {
+    hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
+      state
+    ),
+    availableMages: selectors.Settings.Expansions.getSelectedMagesForSelectedExpansions(
+      state
+    ),
+    mageCount: selectors.Randomizer.Mages.Count.getCount(state),
+    mages: mageIds.map(mageId =>
+      selectors.Settings.Expansions.SelectedMages.getMageById(state, {
+        id: mageId.id,
+      })
+    ),
+  }
+}
 
 const mapDispatchToProps = {
   setMageCount: actions.Randomizer.Mages.Count.setCount,
