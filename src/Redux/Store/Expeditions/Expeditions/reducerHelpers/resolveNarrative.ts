@@ -12,13 +12,13 @@ export const resolveNarrative = (
   state: State,
   action: ReturnType<typeof actions.resolveNarrative>
 ) => {
-  const { expeditionId, narrativeId, descision } = action.payload
+  const { expeditionId, narrativeId, decision } = action.payload
   const oldExpedition = state.expeditions[expeditionId]
   const branches = oldExpedition.sequence.branches
   const narrative = branches[narrativeId]
 
   const nextBranchId = narrative.nextBranchId
-    ? narrative.nextBranchId[descision]
+    ? narrative.nextBranchId[decision]
     : false
 
   const hasNext = !!nextBranchId

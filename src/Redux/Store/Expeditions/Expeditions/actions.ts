@@ -64,7 +64,7 @@ export const actions = {
   resolveNarrative: (config: {
     expeditionId: string
     narrativeId: string
-    descision: number
+    decision: number
   }) => createAction(ActionTypes.NARRATIVE_RESOLVE, config),
   generateRewards: (config: { reward: types.Reward }) =>
     createAction(ActionTypes.REWARDS_GENERATE, config),
