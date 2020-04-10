@@ -14,13 +14,18 @@ type Props = {
   children?: React.ReactNode
 }
 
-const CheckboxWithPreview = ({ changeHandler, setup, children }: Props) => {
+const CheckboxWithPreview = ({
+  changeHandler,
+  setup,
+  children,
+  ...rest
+}: Props) => {
   const handleSelection = useCallback(() => {
     changeHandler(setup.id)
   }, [changeHandler, setup.id])
 
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       <FormControlLabel
         control={
           <Checkbox

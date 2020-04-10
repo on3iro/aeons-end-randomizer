@@ -1,12 +1,13 @@
 import React, { useCallback } from 'react'
 
-import * as types from '../../../../../types'
-import { useModal, usePrompt } from '../../../../../hooks/useModal'
+import * as types from 'types'
+import { useModal, usePrompt } from 'hooks/useModal'
 
-import EditButton from '../../../../molecules/EditButton'
-import DeleteButton from '../../../../molecules/DeleteButton'
+import EditButton from 'components/molecules/EditButton'
+import DeleteButton from 'components/molecules/DeleteButton'
 
-import ModalBodyWrapper from '../../../../atoms/ModalBodyWrapper'
+import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
+import P from 'components/atoms/P'
 
 import CheckboxWithPreview from '../CheckboxWithPreview'
 import CustomSetupEdit from '../CustomSetupEdit'
@@ -59,10 +60,20 @@ const CustomSetupCheckbox = ({
   }, [setup.id, deleteSetup, hideDeletionDialog])
 
   return (
-    <CheckboxWithPreview setup={setup} changeHandler={changeHandler}>
+    <CheckboxWithPreview
+      setup={setup}
+      changeHandler={changeHandler}
+      data-test="supply-setup-wrapper"
+    >
       <CheckboxWithPreviewControls>
-        <EditButton onClick={handleEdit} />
-        <DeleteButton onClick={openDeletionDialog} />
+        <EditButton
+          onClick={handleEdit}
+          data-test="btn-edit-custom-supply-setup"
+        />
+        <DeleteButton
+          onClick={openDeletionDialog}
+          data-test="btn-delete-custom-supply-setup"
+        />
       </CheckboxWithPreviewControls>
       <RenderEditModal
         titleColor="#333"
@@ -79,7 +90,7 @@ const CustomSetupCheckbox = ({
         titleColor="#333"
         titleLabel="Delete Setup"
       >
-        <p>Would you really like to delete setup: "{setup.name}"?</p>
+        <P>Would you really like to delete setup: "{setup.name}"?</P>
       </RenderDeletionPrompt>
     </CheckboxWithPreview>
   )

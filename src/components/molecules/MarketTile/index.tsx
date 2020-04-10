@@ -141,6 +141,7 @@ const MarketTile = ({
             icon={theme.icons[marketTile.type.toLowerCase()]}
             iconColor={theme.colors.cards[marketTile.type.toLowerCase()].color}
             showDetails={card ? handleDetails : undefined}
+            data-test={`market-tile-${marketTile.type.toLocaleLowerCase()}`}
           />
           <SupplyModal card={card} RenderModal={RenderModal} />
         </Wrapper>

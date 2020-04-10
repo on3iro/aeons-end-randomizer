@@ -73,6 +73,7 @@ const Supply = ({
         color="primary"
         variant="extended"
         withBottomNav={true}
+        data-test="btn-create-market"
       >
         Create Market
       </ShuffleButton>

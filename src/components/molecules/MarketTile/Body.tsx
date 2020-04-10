@@ -47,6 +47,7 @@ const Body = ({ supplyCard, expansionName }: Props) => {
           info={
             supplyCard && supplyCard.cost ? supplyCard.cost.toString() : '-'
           }
+          data-test="market-tile-cost"
         />
       </List>
     </React.Fragment>
