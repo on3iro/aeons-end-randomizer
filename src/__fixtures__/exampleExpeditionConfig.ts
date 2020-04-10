@@ -11,7 +11,7 @@ export const ExampleExpeditionConfigBattlesOnly: types.ExpeditionConfig = {
         config: {
           tier: 1,
           nemesisId: 'CarapaceQueen',
-          newUBNCards: { ids: [], addRandom: true },
+          newUBNCards: { type: 'regular', addRandom: true },
           specialRules: 'You may not talk',
           treasure: {
             level: 1,
@@ -39,7 +39,7 @@ export const ExampleExpeditionConfigBattlesOnly: types.ExpeditionConfig = {
             mage: { ids: ['Soskel', { random: true }] },
             supply: { ids: ['Jade'], bigPocket: true },
           },
-          newUBNCards: { ids: ['Wreck'], addRandom: true },
+          newUBNCards: { ids: ['Wreck'], type: 'custom' },
           treasure: {
             level: 2,
             hasTreasure: true,
@@ -52,7 +52,7 @@ export const ExampleExpeditionConfigBattlesOnly: types.ExpeditionConfig = {
         config: {
           tier: 1,
           nemesisId: 'Rageborne',
-          newUBNCards: { ids: [], addRandom: false },
+          newUBNCards: { type: 'regular', addRandom: false },
           treasure: {
             hasTreasure: false,
           },
@@ -443,7 +443,7 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
         type: 'narrative',
         config: {
           text: 'The four mages landed ashore...',
-          descisions: ['Next'],
+          decisions: ['Next'],
         },
         nextBranchId: ['FirstBattle'],
       },
@@ -452,7 +452,7 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
         config: {
           tier: 1,
           nemesisId: 'CarapaceQueen',
-          newUBNCards: { ids: [], addRandom: true },
+          newUBNCards: { type: 'regular', addRandom: true },
           specialRules: 'You may not talk',
           treasure: {
             level: 1,
@@ -480,7 +480,7 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
             mage: { ids: ['Soskel', { random: true }] },
             supply: { ids: ['Jade'], bigPocket: true },
           },
-          newUBNCards: { ids: ['Wreck'], addRandom: true },
+          newUBNCards: { ids: ['Wreck'], type: 'custom' },
           treasure: {
             level: 2,
             hasTreasure: true,
@@ -493,7 +493,7 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
         config: {
           tier: 1,
           nemesisId: 'Rageborne',
-          newUBNCards: { ids: [], addRandom: false },
+          newUBNCards: { type: 'regular', addRandom: false },
           treasure: {
             hasTreasure: false,
           },
@@ -527,7 +527,7 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
         type: 'narrative',
         config: {
           text: "That's it, and now what?",
-          descisions: ['Leave the island', 'Stay and build a home'],
+          decisions: ['Leave the island', 'Stay and build a home'],
         },
         nextBranchId: ['Leave', 'Stay'],
       },
@@ -535,14 +535,14 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
         type: 'narrative',
         config: {
           text: 'Bye bye',
-          descisions: false,
+          decisions: false,
         },
       },
       Stay: {
         type: 'narrative',
         config: {
           text: 'Make yourself comfy',
-          descisions: false,
+          decisions: false,
         },
       },
     },

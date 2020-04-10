@@ -21,22 +21,22 @@ export const variants: { [id: string]: Variant } = {
     configList: [
       {
         tier: 1,
-        newUBNCards: { ids: [], addRandom: false },
+        newUBNCards: { type: 'regular', addRandom: false },
         treasure: { level: 1, hasTreasure: true },
       },
       {
         tier: 2,
-        newUBNCards: { ids: [], addRandom: true },
+        newUBNCards: { type: 'regular', addRandom: true },
         treasure: { level: 2, hasTreasure: true },
       },
       {
         tier: 3,
-        newUBNCards: { ids: [], addRandom: true },
+        newUBNCards: { type: 'regular', addRandom: true },
         treasure: { level: 3, hasTreasure: true },
       },
       {
         tier: 4,
-        newUBNCards: { ids: [], addRandom: true },
+        newUBNCards: { type: 'regular', addRandom: true },
         treasure: { hasTreasure: false },
       },
     ],
@@ -47,17 +47,17 @@ export const variants: { [id: string]: Variant } = {
     configList: [
       {
         tier: 2,
-        newUBNCards: { ids: [], addRandom: true },
+        newUBNCards: { type: 'regular', addRandom: true },
         treasure: { level: 2, hasTreasure: true },
       },
       {
         tier: 3,
-        newUBNCards: { ids: [], addRandom: true },
+        newUBNCards: { type: 'regular', addRandom: true },
         treasure: { level: 3, hasTreasure: true },
       },
       {
         tier: 4,
-        newUBNCards: { ids: [], addRandom: true },
+        newUBNCards: { type: 'regular', addRandom: true },
         treasure: { hasTreasure: false },
       },
     ],
@@ -68,42 +68,42 @@ export const variants: { [id: string]: Variant } = {
     configList: [
       {
         tier: 1,
-        newUBNCards: { ids: [], addRandom: false },
+        newUBNCards: { type: 'regular', addRandom: false },
         treasure: { hasTreasure: false },
       },
       {
         tier: 1,
-        newUBNCards: { ids: [], addRandom: false },
+        newUBNCards: { type: 'regular', addRandom: false },
         treasure: { level: 1, hasTreasure: true },
       },
       {
         tier: 2,
-        newUBNCards: { ids: [], addRandom: true },
+        newUBNCards: { type: 'regular', addRandom: true },
         treasure: { hasTreasure: false },
       },
       {
         tier: 2,
-        newUBNCards: { ids: [], addRandom: false },
+        newUBNCards: { type: 'regular', addRandom: false },
         treasure: { level: 2, hasTreasure: true },
       },
       {
         tier: 3,
-        newUBNCards: { ids: [], addRandom: true },
+        newUBNCards: { type: 'regular', addRandom: true },
         treasure: { hasTreasure: false },
       },
       {
         tier: 3,
-        newUBNCards: { ids: [], addRandom: false },
+        newUBNCards: { type: 'regular', addRandom: false },
         treasure: { level: 3, hasTreasure: true },
       },
       {
         tier: 4,
-        newUBNCards: { ids: [], addRandom: true },
+        newUBNCards: { type: 'regular', addRandom: true },
         treasure: { hasTreasure: false },
       },
       {
         tier: 4,
-        newUBNCards: { ids: [], addRandom: false },
+        newUBNCards: { type: 'regular', addRandom: false },
         treasure: { hasTreasure: false },
       },
     ],
@@ -216,7 +216,9 @@ export type RewardsConfig =
 export type BattleConfig = {
   tier: NemesisTier
   nemesisId?: string
-  newUBNCards: { ids: string[]; addRandom: boolean }
+  newUBNCards:
+    | { ids: string[]; type: 'custom' }
+    | { type: 'regular'; addRandom: boolean }
   specialRules?: string
   lossRewards?: RewardsConfig[]
   winRewards?: RewardsConfig
@@ -232,7 +234,7 @@ export type BattleBranch = {
 
 export type NarrativeConfig = {
   text: string
-  descisions: string[] | false
+  decisions: string[] | false
 }
 
 export type NarrativeBranch = {
@@ -244,7 +246,7 @@ export type NarrativeBranch = {
 export type RewardBranch = {
   type: 'reward'
   config: RewardsConfig
-  nextBranchId?: string
+  nextBranchId: string // mandatory
 }
 
 export type BranchConfig = BattleBranch | NarrativeBranch | RewardBranch

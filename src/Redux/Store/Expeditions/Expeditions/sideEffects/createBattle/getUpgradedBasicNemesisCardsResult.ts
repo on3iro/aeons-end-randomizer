@@ -9,13 +9,17 @@ export const getUpgradedBasicNemesisCardsResult = (
   getEntity: types.SeededEntityGetter,
   seed: types.Seed
 ) => {
-  return config.newUBNCards.addRandom
-    ? rollNewUpgradedNemesisCards(
-        availableUpgradedBasicNemesisCards,
-        previousUpgradedBasicNemesisCards,
-        config.tier,
-        getEntity,
-        seed
-      )
-    : { result: previousUpgradedBasicNemesisCards, seed }
+  if (config.newUBNCards.type === 'regular') {
+    return config.newUBNCards.addRandom
+      ? rollNewUpgradedNemesisCards(
+          availableUpgradedBasicNemesisCards,
+          previousUpgradedBasicNemesisCards,
+          config.tier,
+          getEntity,
+          seed
+        )
+      : { result: previousUpgradedBasicNemesisCards, seed }
+  }
+
+  return { result: previousUpgradedBasicNemesisCards, seed }
 }

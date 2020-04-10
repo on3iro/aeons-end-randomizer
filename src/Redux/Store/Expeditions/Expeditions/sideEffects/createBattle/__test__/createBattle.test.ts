@@ -11,7 +11,7 @@ describe('createBattle()', () => {
     type: 'battle',
     config: {
       tier: 2,
-      newUBNCards: { ids: [], addRandom: true },
+      newUBNCards: { type: 'regular', addRandom: true },
       treasure: {
         hasTreasure: false,
       },
@@ -140,7 +140,7 @@ describe('createBattle()', () => {
         nemesisId: 'PrinceOfGluttons',
         config: {
           tier: 2,
-          newUBNCards: { ids: [], addRandom: true },
+          newUBNCards: { type: 'regular', addRandom: true },
           treasure: { hasTreasure: false },
         },
         status: 'before_battle',
@@ -156,7 +156,7 @@ describe('createBattle()', () => {
       ...inputBattle,
       config: {
         tier: 3,
-        newUBNCards: { ids: [], addRandom: true },
+        newUBNCards: { type: 'regular', addRandom: true },
         treasure: { hasTreasure: false },
       },
     }
@@ -170,7 +170,7 @@ describe('createBattle()', () => {
         nemesisId: undefined,
         config: {
           tier: 3,
-          newUBNCards: { ids: [], addRandom: true },
+          newUBNCards: { type: 'regular', addRandom: true },
           treasure: { hasTreasure: false },
         },
         status: 'before_battle',
@@ -200,7 +200,7 @@ describe('createBattle()', () => {
       {
         tier: 2,
         newUBNCards: {
-          ids: [],
+          type: 'regular',
           addRandom: true,
         },
         treasure: {

@@ -33,6 +33,15 @@ const About = () => (
         <i>The Void</i>, <i>Outer Dark</i>, <i>Buried Secrets</i>,{' '}
         <i>Into The Wild</i>, <i>The Ancients</i>, <i>Shattered Dreams</i>.
       </P>
+
+      <H2>
+        User documentation: You can find our documentation on how to use the
+        randomizer and how to create custom expeditions here:{' '}
+        <A to="https://on3iro.github.io/aeons-end-randomizer/">
+          https://on3iro.github.io/aeons-end-randomizer/
+        </A>
+      </H2>
+
       <H2>A note on collected user data</H2>
       <P>We do not track any user specific data whatsoever.</P>
       <H2>A note on official imagery</H2>

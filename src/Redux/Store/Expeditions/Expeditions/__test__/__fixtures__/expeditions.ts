@@ -425,7 +425,7 @@ export const expedition1: types.Expedition = {
         config: {
           tier: 1,
           newUBNCards: {
-            ids: [],
+            type: 'regular',
             addRandom: false,
           },
           treasure: {
@@ -455,7 +455,7 @@ export const expedition1: types.Expedition = {
         config: {
           tier: 2,
           newUBNCards: {
-            ids: [],
+            type: 'regular',
             addRandom: true,
           },
           treasure: {
@@ -474,7 +474,7 @@ export const expedition1: types.Expedition = {
         config: {
           tier: 3,
           newUBNCards: {
-            ids: [],
+            type: 'regular',
             addRandom: true,
           },
           treasure: {
@@ -491,7 +491,7 @@ export const expedition1: types.Expedition = {
         config: {
           tier: 4,
           newUBNCards: {
-            ids: [],
+            type: 'regular',
             addRandom: true,
           },
           treasure: {

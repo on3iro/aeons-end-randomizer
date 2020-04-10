@@ -8,11 +8,12 @@ import { actions } from '../actions'
 import { EXPEDITIONS_DB_KEY } from './helpers'
 
 export const migrateAfterFetch = (
+  state: State,
   action: ReturnType<typeof actions.fetchFromDBSuccessful>
 ) => {
   const newState = action.payload
   return loop(
-    newState,
+    state,
     Cmd.run(migrate, {
       args: [
         Cmd.getState,
