@@ -6,7 +6,7 @@ type Props = {
   handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
-const DescisionButton = ({ label, handleClick, ...rest }: Props) => {
+const DecisionButton = ({ label, handleClick, ...rest }: Props) => {
   return (
     <Button
       size="small"
@@ -20,4 +20,4 @@ const DescisionButton = ({ label, handleClick, ...rest }: Props) => {
   )
 }
 
-export default React.memo(DescisionButton)
+export default React.memo(DecisionButton)

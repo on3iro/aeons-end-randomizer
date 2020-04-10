@@ -641,7 +641,7 @@ Defines that this is a narrative branch.
 
 type: [`NarrativeConfig`](#NarrativeConfig)
 
-Defines the resulting narrative and the descision the players can make.
+Defines the resulting narrative and the decision the players can make.
 
 ##### Example
 
@@ -651,7 +651,7 @@ For further details see [`NarrativeConfig`](#NarrativeConfig)
 {
   "config": {
     "text": "Once upon a time...",
-    "descisions": ["Go left", "Go right"]
+    "decisions": ["Go left", "Go right"]
   }
 }
 ```
@@ -663,7 +663,7 @@ For further details see [`NarrativeConfig`](#NarrativeConfig)
 type: `string[]`
 
 List of identifiers of branches which might follow after the current one.
-Each identifier should have a corresponding `descision` inside `config.descisions`. Which branch follows depends on the descision the players make.
+Each identifier should have a corresponding `decision` inside `config.decisions`. Which branch follows depends on the decision the players make.
 If this property is ommitted, the expedition will end after this branch.
 
 ##### Example
@@ -672,7 +672,7 @@ If this property is ommitted, the expedition will end after this branch.
 {
   "config": {
     ...,
-    "descisions": [
+    "decisions": [
       "Go left",
       "Go right"
     ]
@@ -708,7 +708,7 @@ Defines that this is a reward branch.
 
 type: [`RewardsConfig`](#RewardsConfig)
 
-Defines the resulting narrative and the descision the players can make.
+Defines the resulting narrative and the decision the players can make.
 
 ##### Example
 

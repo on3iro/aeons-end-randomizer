@@ -234,7 +234,7 @@ export type BattleBranch = {
 
 export type NarrativeConfig = {
   text: string
-  descisions: string[] | false
+  decisions: string[] | false
 }
 
 export type NarrativeBranch = {

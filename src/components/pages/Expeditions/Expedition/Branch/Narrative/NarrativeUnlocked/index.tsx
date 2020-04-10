@@ -5,7 +5,7 @@ import * as types from 'types'
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
 import Text from 'components/pages/Expeditions/Expedition/Branch/Narrative/NarrativeUnlocked/Text'
-import Descisions from 'components/pages/Expeditions/Expedition/Branch/Narrative/NarrativeUnlocked/Descisions'
+import Decisions from 'components/pages/Expeditions/Expedition/Branch/Narrative/NarrativeUnlocked/Decisions'
 
 type Props = {
   hide: () => void
@@ -24,7 +24,7 @@ const NarrativeUnlocked = ({ narrative, hide }: Props) => {
       </ModalBodyWrapper>
 
       <ModalFooterWrapper>
-        <Descisions narrative={narrative} clickCallback={handleClick} />
+        <Decisions narrative={narrative} clickCallback={handleClick} />
       </ModalFooterWrapper>
     </>
   )
