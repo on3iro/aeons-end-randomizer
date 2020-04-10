@@ -246,8 +246,6 @@ Sets from which tier the nemesis and new upgraded basic nemesis cards are rolled
 
 ### nemesisId **(optional)**
 
-> **NOTE:** This property is not yet fully supported and might not work in the current Beta-build
-
 ##### Definition
 
 type: `string`
