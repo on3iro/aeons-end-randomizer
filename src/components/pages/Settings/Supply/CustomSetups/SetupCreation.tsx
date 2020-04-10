@@ -45,6 +45,7 @@ const SetupCreation = () => {
         color="secondary"
         style={{ marginTop: '16px' }}
         onClick={handleCreation}
+        data-test="btn-add-custom-supply-setup"
       >
         Add
       </Button>

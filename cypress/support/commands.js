@@ -25,23 +25,39 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('selectAllExpansions', () => {
-  cy.visit('/settings')
-
   cy.get('[data-test*=Expansions]').click({ force: true })
   cy.get('span')
     .contains('Select All')
     .click()
+  cy.get('[data-test*=Expansions]').click({ force: true })
 })
 
 Cypress.Commands.add('deselectAllExpansions', () => {
-  cy.visit('/settings')
-
   cy.get('[data-test*=Expansions]').click({ force: true })
   cy.get('span')
     .contains('Deselect All')
     .click()
+  cy.get('[data-test*=Expansions]').click({ force: true })
 })
 
 Cypress.Commands.add('cleanupIndexedDB', () => {
   indexedDB.deleteDatabase('keyval-store')
+})
+
+Cypress.Commands.add('selectAllSupplySetups', () => {
+  cy.get('[data-test=SupplySetups]').click({ force: true })
+  cy.get('[data-test=supply-select-all]')
+    .get('span')
+    .contains('Select All')
+    .click()
+  cy.get('[data-test=SupplySetups]').click({ force: true })
+})
+
+Cypress.Commands.add('deselectAllSupplySetups', () => {
+  cy.get('[data-test=SupplySetups]').click({ force: true })
+  cy.get('[data-test=supply-select-all]')
+    .get('span')
+    .contains('Deselect All')
+    .click()
+  cy.get('[data-test=SupplySetups]').click({ force: true })
 })

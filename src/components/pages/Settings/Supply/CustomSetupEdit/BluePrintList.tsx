@@ -17,6 +17,7 @@ const BluePrintList = ({ bluePrintList, dispatch }: Props) => {
         variant="outlined"
         color="primary"
         onClick={() => dispatch({ type: 'ADD' })}
+        data-test="btn-add-supply-tile"
       >
         Add Supply tile
       </Button>
@@ -25,6 +26,7 @@ const BluePrintList = ({ bluePrintList, dispatch }: Props) => {
           key={bluePrint.id}
           bluePrint={bluePrint}
           dispatch={dispatch}
+          data-test={'blueprint'}
         />
       ))}
     </ListWrapper>

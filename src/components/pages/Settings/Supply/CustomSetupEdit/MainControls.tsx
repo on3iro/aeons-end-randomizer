@@ -34,6 +34,7 @@ const MainControls = ({
         value={setupName}
         onChange={e => setSetupName(e.currentTarget.value)}
         margin="normal"
+        data-test="input-name"
       />
       <IconButton
         color="primary"
@@ -41,6 +42,7 @@ const MainControls = ({
         onClick={() =>
           saveCustomSetup({ ...setup, name: setupName, tiles: bluePrintList })
         }
+        data-test="btn-save-custom-supply-setup"
       >
         <SaveIcon />
       </IconButton>
@@ -48,6 +50,7 @@ const MainControls = ({
         color="secondary"
         aria-label="Cancel"
         onClick={() => cancelEdit(setup.id)}
+        data-test="btn-cancel-edit-custom-supply-setup"
       >
         <CancelIcon />
       </IconButton>

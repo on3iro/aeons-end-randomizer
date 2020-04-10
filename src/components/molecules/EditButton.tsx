@@ -6,8 +6,8 @@ type Props = {
   onClick: (...args: any) => void
 }
 
-const EditButton = ({ onClick }: Props) => (
-  <IconButton color="primary" aria-label="Edit" onClick={onClick}>
+const EditButton = ({ onClick, ...rest }: Props) => (
+  <IconButton color="primary" aria-label="Edit" onClick={onClick} {...rest}>
     <EditIcon />
   </IconButton>
 )

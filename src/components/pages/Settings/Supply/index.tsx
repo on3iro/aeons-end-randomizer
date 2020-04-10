@@ -17,6 +17,7 @@ const Supply = () => {
       expansionHandler={expansionHandler}
       expansionKey={expansionKey}
       summary="Supply Setups"
+      data-test="SupplySetups"
     >
       <SetupSelection />
     </ExpansionPanel>

@@ -41,6 +41,7 @@ const renderInputFieldsByOperation = (
           }
           type="number"
           margin="normal"
+          data-test="input-threshold"
         />
       </FormControl>
     )
@@ -77,6 +78,7 @@ const renderInputFieldsByOperation = (
             }
             type="number"
             margin="normal"
+            data-test="input-value-1"
           />
         </FormControl>
         <FormControl>
@@ -97,6 +99,7 @@ const renderInputFieldsByOperation = (
             }
             type="number"
             margin="normal"
+            data-test="input-value-2"
           />
         </FormControl>
       </React.Fragment>
@@ -106,9 +109,9 @@ const renderInputFieldsByOperation = (
   return null
 }
 
-const BluePrint = ({ bluePrint, dispatch }: Props) => {
+const BluePrint = ({ bluePrint, dispatch, ...rest }: Props) => {
   return (
-    <BluePrintWrapper type={bluePrint.type}>
+    <BluePrintWrapper type={bluePrint.type} {...rest}>
       <CancelButton
         onClick={() =>
           dispatch({
@@ -138,9 +141,10 @@ const BluePrint = ({ bluePrint, dispatch }: Props) => {
             name: 'type',
             id: `type-${bluePrint.id}`,
           }}
+          data-test="select-type"
         >
           {types.CARD_TYPES.filter(TYPE => TYPE !== 'EMPTY').map(TYPE => (
-            <MenuItem key={TYPE} value={TYPE}>
+            <MenuItem key={TYPE} value={TYPE} data-test="select-type-menu-item">
               {TYPE}
             </MenuItem>
           ))}
@@ -161,11 +165,16 @@ const BluePrint = ({ bluePrint, dispatch }: Props) => {
             name: 'operation',
             id: `operation-${bluePrint.id}`,
           }}
+          data-test="select-operation"
         >
           {types.SUPPLY_OPERATIONS.filter(
             OPERATION => OPERATION !== 'NoOp'
           ).map(OPERATION => (
-            <MenuItem key={OPERATION} value={OPERATION}>
+            <MenuItem
+              key={OPERATION}
+              value={OPERATION}
+              data-test="select-operation-menu-item"
+            >
               {OPERATION}
             </MenuItem>
           ))}

@@ -73,6 +73,7 @@ const MarketSelect = ({
       expansionKey={expansionKey}
       summary={selectedMarketSetup.name}
       expansionHandler={expansionHandler}
+      data-test="Supply"
     >
       <MarketOptionsWrapper>
         {activeMarketSetups.map(setup => (
