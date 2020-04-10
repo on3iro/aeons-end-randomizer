@@ -371,16 +371,204 @@ The same goes for when a battle has been won and treasures should be rolled.
 ##### Example
 
 ```json
-
+{
+  "treasure": { "level": 1, "hasTreasure": true }
+}
 ```
 
 ### onLoss **(optional)**
 
 > **NOTE:** This property is not yet fully supported and might not work to some extend in the current Beta-build
 
+##### Defintion
+
+type: `string: "skip"`
+
+If `"skip"` is being specified, the battle cannot be repeated and the expedition will instead continue with the next branch.
+
+##### Example
+
+```json
+{
+  "onLoss": "skip"
+}
+```
+
 ## NarrativeConfig
 
+### text
+
+##### Definition
+
+type: `string`
+
+The `text` property defines the content the players see, when the narrative screen opens.
+
+The `decisions` property can either be a list of decisions or `false`.
+If the latter is used, this will be the last screen of the expedition.
+
+If a list of decisions is beeing specified, the order of decisions has to match
+the order of `nextBranchId`s in the parent [`NarrativeBranch`](#NarrativeBranch). Each decision maps to a respective `nextBranchId`. So if the players make a decision, this determines which branch will be unlocked next.
+
+##### Examples
+
+```json
+{
+  "decisions": ["look closer", "leave"]
+}
+```
+
+### decisions
+
+##### Definition
+
+type: `string[]`
+
+The `decisions` property can either be a list of decisions or `false`.
+If the latter is used, this will be the last screen of the expedition.
+
+If a list of decisions is beeing specified, the order of decisions has to match
+the order of `nextBranchId`s in the parent [`NarrativeBranch`](#NarrativeBranch). Each decision maps to a respective `nextBranchId`. So if the players make a decision, this determines which branch will be unlocked next.
+
+##### Examples
+
+```json
+{
+  "text": "Something interesting happens...",
+  "decisions": ["look closer", "leave"]
+}
+```
+
+```json
+{
+  "text": "This is the end!",
+  "decisions": false
+}
+```
+
 ## RewardsConfig
+
+> **NOTE:** This property is not yet fully supported and might not work in the current Beta-build
+
+### type
+
+##### Defintion
+
+type: `string: "custom" | "regular"`
+
+If `regular` is set, rewards will be rolled as usual on a win/loss of a battle.
+This does only work in the context of a [`BattleBranch`](#BattleBranch).
+In this case all other properties of the config do nothing.
+
+The type `custom` can be specified for [`BattleBranches`](#BattleBranch) as well as [`RewardBranches`](#RewardBranch).
+
+##### Examples
+
+```json
+{
+  type: "custom",
+  treasure: { ... }
+}
+```
+
+```json
+{
+  "type": "regular"
+}
+```
+
+### treasure **(optional)**
+
+##### Defintion
+
+type: `{ ids: (string | { random: true, level: 1 | 2 | 3 })[] }`
+
+The treasure config consists of one property `ids`. `ids` is a list, which may
+consist of two different types:
+
+1. simple treasureIds
+2. random roll definitions
+
+A random roll definition consists of the key `random: true` as well as a specifed treasure level.
+
+You can mix and match cases **1** and **2** inside one list.
+
+##### Examples
+
+```json
+{
+  // This example will add "DezmodiasOblivionShard" as well as a random level 2 treasure
+  "type": "custom",
+  "treasure": {
+    "ids": ["DezmodiasOblivionShard", { "random": true, "level": 2 }]
+  }
+}
+```
+
+### mage **(optional)**
+
+##### Defintion
+
+type: `{ ids: (string | { random: true })[] }`
+
+The mage config consists of one property `ids`. `ids` is a list, which may
+consist of two different types:
+
+1. simple mageIds
+2. random roll definitions
+
+A random roll definition consists just of the key `random: true`.
+
+You can mix and match cases **1** and **2** inside one list.
+
+##### Examples
+
+```json
+{
+  // This example will add "Adelheim" as well as a random other mage
+  "type": "custom",
+  "mage": {
+    "ids": ["Adelheim", { "random": true }]
+  }
+}
+```
+
+### supply **(optional)**
+
+##### Defintion
+
+type: `{ ids: (string | Blueprint)[], bigPocket?: boolean }`
+
+The supply config consists of two properties `ids` and the optional `bigPocket`.
+
+`ids` is a list, which may
+consist of two different types:
+
+1. simple supplyIds
+2. random roll [`Blueprints`](#Blueprint)
+
+You can mix and match cases **1** and **2** inside one list.
+
+If `bigPocket` is set to `true`, these treasures will be added to the barracks without the selection for players to banish any cards. Otherwise the same amount of newly added cards will have to be banished by the players.
+
+##### Examples
+
+```json
+{
+  // This will add "Jade" as well as any other gem. No cards will have to be banished
+  "type": "custom",
+  "supply": {
+    "ids": [
+      "Jade",
+      {
+        "type": "Gem",
+        "operation": "ANY"
+      }
+    ],
+    "bigPocket": true
+  }
+}
+```
 
 ## BattleBranch
 
@@ -459,7 +647,7 @@ Defines that this is a narrative branch.
 
 type: [`NarrativeConfig`](#NarrativeConfig)
 
-Defines the resulting narrative and the descision the players can make.
+Defines the resulting narrative and the decision the players can make.
 
 ##### Example
 
@@ -469,7 +657,7 @@ For further details see [`NarrativeConfig`](#NarrativeConfig)
 {
   "config": {
     "text": "Once upon a time...",
-    "descisions": ["Go left", "Go right"]
+    "decisions": ["Go left", "Go right"]
   }
 }
 ```
@@ -481,7 +669,7 @@ For further details see [`NarrativeConfig`](#NarrativeConfig)
 type: `string[]`
 
 List of identifiers of branches which might follow after the current one.
-Each identifier should have a corresponding `descision` inside `config.descisions`. Which branch follows depends on the descision the players make.
+Each identifier should have a corresponding `decision` inside `config.decisions`. Which branch follows depends on the decision the players make.
 If this property is ommitted, the expedition will end after this branch.
 
 ##### Example
@@ -490,7 +678,7 @@ If this property is ommitted, the expedition will end after this branch.
 {
   "config": {
     ...,
-    "descisions": [
+    "decisions": [
       "Go left",
       "Go right"
     ]
@@ -526,7 +714,7 @@ Defines that this is a reward branch.
 
 type: [`RewardsConfig`](#RewardsConfig)
 
-Defines the resulting narrative and the descision the players can make.
+Defines the resulting narrative and the decision the players can make.
 
 ##### Example
 
