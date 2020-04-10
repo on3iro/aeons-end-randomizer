@@ -1,7 +1,7 @@
 [![CircleCI](https://circleci.com/gh/on3iro/aeons-end-randomizer/tree/master.svg?style=svg)](https://circleci.com/gh/on3iro/aeons-end-randomizer/tree/master)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/210c9bd3-9f4d-4554-b9fc-0b319d89b81e/deploy-status)](https://app.netlify.com/sites/aer/deploys)
 [![App](https://img.shields.io/badge/App-aeons--end--randomizer.de-%232196f3)](https://aeons-end-randomizer.de)
-[![Docs](https://img.shields.io/badge/Docs-https%3A%2F%2Fon3iro.github.io%2Faeons--end--randomizer%2F-success)](https://on3iro.github.io/aeons-end-randomizer/)
+[![Docs](https://img.shields.io/badge/Docs-on3iro.github.io%2Faeons--end--randomizer-success)](https://on3iro.github.io/aeons-end-randomizer)
 [![Official Aeons End Discord](https://img.shields.io/badge/AE%20Discord-https%3A%2F%2Fdiscord.gg%2FPvjcfPt-%237289DA.svg?style=flat-squar)](https://discord.gg/PvjcfPt)
 
 ![AER](./public/images/android-icon-96x96.png)
