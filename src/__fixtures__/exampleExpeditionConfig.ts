@@ -443,7 +443,7 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
         type: 'narrative',
         config: {
           text: 'The four mages landed ashore...',
-          descisions: ['Next'],
+          decisions: ['Next'],
         },
         nextBranchId: ['FirstBattle'],
       },
@@ -527,7 +527,7 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
         type: 'narrative',
         config: {
           text: "That's it, and now what?",
-          descisions: ['Leave the island', 'Stay and build a home'],
+          decisions: ['Leave the island', 'Stay and build a home'],
         },
         nextBranchId: ['Leave', 'Stay'],
       },
@@ -535,14 +535,14 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
         type: 'narrative',
         config: {
           text: 'Bye bye',
-          descisions: false,
+          decisions: false,
         },
       },
       Stay: {
         type: 'narrative',
         config: {
           text: 'Make yourself comfy',
-          descisions: false,
+          decisions: false,
         },
       },
     },

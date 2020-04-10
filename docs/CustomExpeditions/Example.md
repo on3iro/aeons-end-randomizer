@@ -22,13 +22,13 @@ You are still allowed to already use these in your configurations, but they will
         "config": {
           // configuration of the branch (in this case "narrative")
           "text": "The four mages landed ashore...", // narrative text which will be displayed
-          "descisions": [
-            // list of descisions, these will be shown as buttons
+          "decisions": [
+            // list of decisions, these will be shown as buttons
             "Next"
           ]
         },
         "nextBranchId": [
-          // list of descision outcomes -> the position of an "id" has to match the position in "descisions" of its respective "descision"
+          // list of decision outcomes -> the position of an "id" has to match the position in "decisions" of its respective "decision"
           "FirstBattle"
         ]
       },
@@ -166,7 +166,7 @@ You are still allowed to already use these in your configurations, but they will
         "type": "narrative",
         "config": {
           "text": "That's it, and now what?",
-          "descisions": ["Leave the island", "Stay and build a home"]
+          "decisions": ["Leave the island", "Stay and build a home"]
         },
         "nextBranchId": ["Leave", "Stay"]
       },
@@ -174,14 +174,14 @@ You are still allowed to already use these in your configurations, but they will
         "type": "narrative",
         "config": {
           "text": "Bye bye",
-          "descisions": false
+          "decisions": false
         } // NOTE: no additional nextBranchId means, the expedition will be over after this branch
       },
       "Stay": {
         "type": "narrative",
         "config": {
           "text": "Make yourself comfy",
-          "descisions": false
+          "decisions": false
         } // NOTE: no additional nextBranchId means, the expedition will be over after this branch
       }
     }
@@ -587,7 +587,7 @@ Use this if you want to try this expedition out and import it into the randomize
         "type": "narrative",
         "config": {
           "text": "The four mages landed ashore...",
-          "descisions": ["Next"]
+          "decisions": ["Next"]
         },
         "nextBranchId": ["FirstBattle"]
       },
@@ -714,7 +714,7 @@ Use this if you want to try this expedition out and import it into the randomize
         "type": "narrative",
         "config": {
           "text": "That's it, and now what?",
-          "descisions": ["Leave the island", "Stay and build a home"]
+          "decisions": ["Leave the island", "Stay and build a home"]
         },
         "nextBranchId": ["Leave", "Stay"]
       },
@@ -722,14 +722,14 @@ Use this if you want to try this expedition out and import it into the randomize
         "type": "narrative",
         "config": {
           "text": "Bye bye",
-          "descisions": false
+          "decisions": false
         }
       },
       "Stay": {
         "type": "narrative",
         "config": {
           "text": "Make yourself comfy",
-          "descisions": false
+          "decisions": false
         }
       }
     }

@@ -4,16 +4,16 @@ import { connect } from 'react-redux'
 import * as types from 'types'
 import { RootState, actions } from 'Redux/Store'
 
-import DescisionButton from 'components/pages/Expeditions/Expedition/Branch/Narrative/NarrativeUnlocked/DescisionButton'
+import DecisionButton from 'components/pages/Expeditions/Expedition/Branch/Narrative/NarrativeUnlocked/DecisionButton'
 
-const renderDescisions = (
-  descisions: string[],
-  handleClick: (descision: number) => void
+const renderDecisions = (
+  decisions: string[],
+  handleClick: (decision: number) => void
 ) => {
-  return descisions.map((descision, index) => (
-    <DescisionButton
+  return decisions.map((decision, index) => (
+    <DecisionButton
       key={index}
-      label={descision}
+      label={decision}
       handleClick={() => handleClick(index)}
     />
   ))
@@ -35,22 +35,22 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const Descisions = ({
+const Decisions = ({
   narrative,
   clickCallback,
   resolveNarrative,
   finishExpedition,
 }: Props) => {
-  const { descisions } = narrative.config
+  const { decisions } = narrative.config
   const { expeditionId, id } = narrative
 
   const clickHandler = useCallback(
-    (descision: number) => {
+    (decision: number) => {
       clickCallback()
       resolveNarrative({
         expeditionId,
         narrativeId: id,
-        descision,
+        decision,
       })
     },
     [clickCallback, resolveNarrative, expeditionId, id]
@@ -63,13 +63,10 @@ const Descisions = ({
 
   return (
     <>
-      {descisions ? (
-        renderDescisions(descisions, clickHandler)
+      {decisions ? (
+        renderDecisions(decisions, clickHandler)
       ) : (
-        <DescisionButton
-          label="Finish Expedition"
-          handleClick={finishHandler}
-        />
+        <DecisionButton label="Finish Expedition" handleClick={finishHandler} />
       )}
     </>
   )
@@ -78,4 +75,4 @@ const Descisions = ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(React.memo(Descisions))
+)(React.memo(Decisions))
