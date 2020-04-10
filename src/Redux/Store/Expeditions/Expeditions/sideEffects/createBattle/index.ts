@@ -58,14 +58,20 @@ export const createBattle = (
     battle.config.tier
   )
 
-  const nemesisIdResult = rollNemesisId(
-    stillAvailableNemesisIds,
-    (availableEntities) =>
-      getEntity(availableEntities, {
-        seed: expedition.seed.seed,
-        state: expedition.seed.nemesisState,
-      })
-  )
+  const nemesisIdResult = battle.config.nemesisId
+    ? {
+        result: battle.config.nemesisId,
+        seed: {
+          seed: expedition.seed.seed,
+          state: expedition.seed.nemesisState,
+        },
+      }
+    : rollNemesisId(stillAvailableNemesisIds, (availableEntities) =>
+        getEntity(availableEntities, {
+          seed: expedition.seed.seed,
+          state: expedition.seed.nemesisState,
+        })
+      )
 
   // FIXME Should probably be composed into another "getStillAvailable" selector
   const previousUpgradedBasicNemesisCards = expedition.upgradedBasicNemesisCards
