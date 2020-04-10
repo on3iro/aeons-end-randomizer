@@ -17,6 +17,7 @@ export const schema = {
                 type: 'number',
               },
               random: {
+                enum: [true],
                 type: 'boolean',
               },
             },
@@ -36,6 +37,7 @@ export const schema = {
           {
             properties: {
               random: {
+                enum: [true],
                 type: 'boolean',
               },
             },
@@ -162,6 +164,15 @@ export const schema = {
       required: ['operation', 'type'],
       type: 'object',
     },
+    MageRewardConfig: {
+      properties: {
+        ids: {
+          $ref: '#/definitions/Array_1',
+        },
+      },
+      required: ['ids'],
+      type: 'object',
+    },
     MarketType: {
       enum: ['custom', 'official'],
       type: 'string',
@@ -185,34 +196,13 @@ export const schema = {
         {
           properties: {
             mage: {
-              properties: {
-                ids: {
-                  $ref: '#/definitions/Array_1',
-                },
-              },
-              required: ['ids'],
-              type: 'object',
+              $ref: '#/definitions/MageRewardConfig',
             },
             supply: {
-              properties: {
-                bigPocket: {
-                  type: 'boolean',
-                },
-                ids: {
-                  $ref: '#/definitions/Array_2',
-                },
-              },
-              required: ['ids'],
-              type: 'object',
+              $ref: '#/definitions/SupplyRewardConfig',
             },
             treasure: {
-              properties: {
-                ids: {
-                  $ref: '#/definitions/Array',
-                },
-              },
-              required: ['ids'],
-              type: 'object',
+              $ref: '#/definitions/TreasureRewardConfig',
             },
             type: {
               enum: ['custom'],
@@ -239,34 +229,13 @@ export const schema = {
         {
           properties: {
             mage: {
-              properties: {
-                ids: {
-                  $ref: '#/definitions/Array_1',
-                },
-              },
-              required: ['ids'],
-              type: 'object',
+              $ref: '#/definitions/MageRewardConfig',
             },
             supply: {
-              properties: {
-                bigPocket: {
-                  type: 'boolean',
-                },
-                ids: {
-                  $ref: '#/definitions/Array_2',
-                },
-              },
-              required: ['ids'],
-              type: 'object',
+              $ref: '#/definitions/SupplyRewardConfig',
             },
             treasure: {
-              properties: {
-                ids: {
-                  $ref: '#/definitions/Array',
-                },
-              },
-              required: ['ids'],
-              type: 'object',
+              $ref: '#/definitions/TreasureRewardConfig',
             },
             type: {
               enum: ['custom'],
@@ -294,9 +263,30 @@ export const schema = {
     SettingsSnapshotConfig: {
       $ref: '#/definitions/__type_5',
     },
+    SupplyRewardConfig: {
+      properties: {
+        bigPocket: {
+          type: 'boolean',
+        },
+        ids: {
+          $ref: '#/definitions/Array_2',
+        },
+      },
+      required: ['ids'],
+      type: 'object',
+    },
     TreasureLevel: {
       enum: [1, 2, 3],
       type: 'number',
+    },
+    TreasureRewardConfig: {
+      properties: {
+        ids: {
+          $ref: '#/definitions/Array',
+        },
+      },
+      required: ['ids'],
+      type: 'object',
     },
     __type: {
       properties: {
@@ -361,7 +351,7 @@ export const schema = {
                 type: 'string',
               },
             },
-            required: ['config', 'type'],
+            required: ['config', 'nextBranchId', 'type'],
             type: 'object',
           },
         ],
@@ -376,34 +366,13 @@ export const schema = {
               {
                 properties: {
                   mage: {
-                    properties: {
-                      ids: {
-                        $ref: '#/definitions/Array_1',
-                      },
-                    },
-                    required: ['ids'],
-                    type: 'object',
+                    $ref: '#/definitions/MageRewardConfig',
                   },
                   supply: {
-                    properties: {
-                      bigPocket: {
-                        type: 'boolean',
-                      },
-                      ids: {
-                        $ref: '#/definitions/Array_2',
-                      },
-                    },
-                    required: ['ids'],
-                    type: 'object',
+                    $ref: '#/definitions/SupplyRewardConfig',
                   },
                   treasure: {
-                    properties: {
-                      ids: {
-                        $ref: '#/definitions/Array',
-                      },
-                    },
-                    required: ['ids'],
-                    type: 'object',
+                    $ref: '#/definitions/TreasureRewardConfig',
                   },
                   type: {
                     enum: ['custom'],
@@ -431,19 +400,37 @@ export const schema = {
           type: 'string',
         },
         newUBNCards: {
-          properties: {
-            addRandom: {
-              type: 'boolean',
-            },
-            ids: {
-              items: {
-                type: 'string',
+          anyOf: [
+            {
+              properties: {
+                ids: {
+                  items: {
+                    type: 'string',
+                  },
+                  type: 'array',
+                },
+                type: {
+                  enum: ['custom'],
+                  type: 'string',
+                },
               },
-              type: 'array',
+              required: ['ids', 'type'],
+              type: 'object',
             },
-          },
-          required: ['addRandom', 'ids'],
-          type: 'object',
+            {
+              properties: {
+                addRandom: {
+                  type: 'boolean',
+                },
+                type: {
+                  enum: ['regular'],
+                  type: 'string',
+                },
+              },
+              required: ['addRandom', 'type'],
+              type: 'object',
+            },
+          ],
         },
         onLoss: {
           $ref: '#/definitions/OnLoss',
@@ -478,7 +465,7 @@ export const schema = {
     },
     __type_4: {
       properties: {
-        descisions: {
+        decisions: {
           anyOf: [
             {
               items: {
@@ -496,7 +483,7 @@ export const schema = {
           type: 'string',
         },
       },
-      required: ['descisions', 'text'],
+      required: ['decisions', 'text'],
       type: 'object',
     },
     __type_5: {
