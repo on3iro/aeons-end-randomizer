@@ -11,6 +11,14 @@ const About = () => (
   <Card>
     <CardContent>
       <H1>Aeons End Randomizer</H1>
+
+      <a href="https://on3iro.github.io/aeons-end-randomizer">
+        <img
+          alt="docs"
+          src="https://img.shields.io/badge/Docs-on3iro.github.io%2Faeons--end--randomizer-success"
+        />
+      </a>
+
       <P>
         <b>Aeons End Randomizer</b> is an unofficial companion app for the
         popular deck building game Aeons End. It helps you draw random mages,
@@ -34,13 +42,14 @@ const About = () => (
         <i>Into The Wild</i>, <i>The Ancients</i>, <i>Shattered Dreams</i>.
       </P>
 
-      <H2>
-        User documentation: You can find our documentation on how to use the
-        randomizer and how to create custom expeditions here:{' '}
-        <A to="https://on3iro.github.io/aeons-end-randomizer/">
+      <H2>User documentation:</H2>
+      <P>
+        You can find our documentation on how to use the randomizer and how to
+        create custom expeditions here:{' '}
+        <a href="https://on3iro.github.io/aeons-end-randomizer/">
           https://on3iro.github.io/aeons-end-randomizer/
-        </A>
-      </H2>
+        </a>
+      </P>
 
       <H2>A note on collected user data</H2>
       <P>We do not track any user specific data whatsoever.</P>
