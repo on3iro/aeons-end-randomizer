@@ -216,4 +216,47 @@ describe('createBattle()', () => {
     rollNemesisSpy.mockRestore()
     getUpgradedBasicNemesisCardsResultSpy.mockRestore()
   })
+
+  it('should handle "battle.config.nemesisId"', () => {
+    const inputBattle = {
+      id: 'someBattle',
+      type: 'battle',
+      config: {
+        tier: 2,
+        nemesisId: 'CarapaceQueen',
+        newUBNCards: { type: 'regular', addRandom: true },
+        treasure: {
+          hasTreasure: false,
+        },
+      },
+      expeditionId: 'expedition1',
+      status: 'locked',
+      tries: 0,
+    }
+
+    const result = createBattle(
+      makeGetExampleState(),
+      inputBattle as types.Battle
+    )
+
+    expect(result).toEqual({
+      battle: {
+        expeditionId: 'expedition1',
+        id: 'someBattle',
+        type: 'battle',
+        nemesisId: 'CarapaceQueen',
+        config: {
+          nemesisId: 'CarapaceQueen',
+          tier: 2,
+          newUBNCards: { type: 'regular', addRandom: true },
+          treasure: { hasTreasure: false },
+        },
+        status: 'before_battle',
+        tries: 0,
+      },
+      upgradedBasicNemesisCardIds: ['Wreck', 'HissingAcid'],
+
+      nemesisSeedState: expect.any(Object),
+    })
+  })
 })
