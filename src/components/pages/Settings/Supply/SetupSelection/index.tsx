@@ -26,7 +26,7 @@ const SetupSelection = ({ allSetsSelected, toggleAll }: Props) => {
   return (
     <SetupSelectionWrapper component={'fieldset' as 'div'}>
       <FormLabel />
-      <FormGroup>
+      <FormGroup data-test="supply-select-all">
         <FormControlLabel
           control={
             <Checkbox

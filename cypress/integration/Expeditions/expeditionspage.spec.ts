@@ -2,21 +2,23 @@ describe('Expedition page', () => {
   beforeEach(() => {
     // @ts-ignore disable-line
     cy.cleanupIndexedDB()
-
-    // @ts-ignore disable-line
-    cy.selectAllExpansions()
-    cy.visit('expeditions')
+      .visit('settings')
+      .wait(1000)
+      // @ts-ignore disable-line
+      .selectAllExpansions()
+      .visit('expeditions')
   })
 
   after(() => {
-    // @ts-ignore disable-line
-    cy.deselectAllExpansions()
-    // @ts-ignore disable-line
-    cy.cleanupIndexedDB()
+    cy.visit('settings')
+      .wait(1000)
+      // @ts-ignore disable-line
+      .deselectAllExpansions()
+      // @ts-ignore disable-line
+      .cleanupIndexedDB()
   })
 
   it('successfully loads', () => {
-    // cy.visit('/expeditions')
     cy.get('h6').contains('Expeditions')
   })
 })

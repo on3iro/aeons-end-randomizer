@@ -26,8 +26,14 @@ const Tile = ({
   showDetails,
   selected,
   clickHandler,
+  ...rest
 }: Props) => (
-  <Wrapper themeColor={bgColor} selected={selected} onClick={clickHandler}>
+  <Wrapper
+    themeColor={bgColor}
+    selected={selected}
+    onClick={clickHandler}
+    {...rest}
+  >
     <Content>{body}</Content>
 
     {icon && iconColor ? <TypeIcon icon={icon} iconColor={iconColor} /> : null}
