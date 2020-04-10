@@ -404,12 +404,6 @@ type: `string`
 
 The `text` property defines the content the players see, when the narrative screen opens.
 
-The `decisions` property can either be a list of decisions or `false`.
-If the latter is used, this will be the last screen of the expedition.
-
-If a list of decisions is beeing specified, the order of decisions has to match
-the order of `nextBranchId`s in the parent [`NarrativeBranch`](#NarrativeBranch). Each decision maps to a respective `nextBranchId`. So if the players make a decision, this determines which branch will be unlocked next.
-
 ##### Examples
 
 ```json
