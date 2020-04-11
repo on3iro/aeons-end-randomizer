@@ -119,7 +119,7 @@ const MarketTile = ({
 
   return (
     <>
-      {card && (
+      {marketTile && (
         <Wrapper item xs={12} sm={6} md={4} {...rest}>
           <Tile
             clickHandler={handleSelection}
