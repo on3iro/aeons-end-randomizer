@@ -10,7 +10,7 @@ import { createSupply } from 'Redux/helpers'
 // STATE //
 ///////////
 
-type Tiles = ReadonlyArray<{ id: Readonly<string> }> | null
+type Tiles = ReadonlyArray<Readonly<{ id: string }>> | null
 
 export type State = Readonly<{
   Tiles: Tiles
@@ -34,9 +34,10 @@ export const actions = {
   resetMarket: () => createAction(ActionTypes.RESET),
   createMarket: (
     availableCards: ReadonlyArray<types.ICard>,
-    tiles: ReadonlyArray<types.Slot>
+    tiles: ReadonlyArray<types.Slot>,
+    seed?: types.Seed
   ) => {
-    const { gems, relics, spells } = createSupply(availableCards, tiles)
+    const { gems, relics, spells } = createSupply(availableCards, tiles, seed)
     const gemsByCost = gems.sort(byCost).map(gem => {
       return {
         id: gem.id,
