@@ -11,7 +11,7 @@ import { MageCount } from '../Count'
 // STATE //
 ///////////
 
-export type State = ReadonlyArray<{ id: Readonly<string> }>
+export type State = ReadonlyArray<Readonly<{ id: string }>>
 export const initialState: State = []
 
 /////////////
@@ -26,12 +26,17 @@ export const actions = {
   noOp: () => createAction('NOOP'),
   setRandomMages: (
     availableMages: ReadonlyArray<types.Mage>,
-    count: MageCount
+    count: MageCount,
+    seed?: types.Seed
   ) => {
     const length = Math.min(availableMages.length, count)
     const slotList = createSlotList(length)
-    const mageList = createMageList(availableMages, slotList, getRandomEntity)
-      .result
+    const mageList = createMageList(
+      availableMages,
+      slotList,
+      getRandomEntity,
+      seed
+    ).result
     const mageIds = mageList.map(mage => {
       return {
         id: mage.id,
