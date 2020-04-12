@@ -9,7 +9,7 @@ import { getRandomEntity } from 'Redux/helpers'
 // STATE //
 ///////////
 
-export type State = { id: Readonly<string> } | undefined
+export type State = Readonly<{ id: string }> | undefined
 export const initialState: State = undefined
 
 /////////////
@@ -22,9 +22,12 @@ export enum ActionTypes {
 
 export const actions = {
   noOp: () => createAction('NOOP'),
-  setRandomNemesis: (availableNemeses: ReadonlyArray<types.Nemesis>) =>
+  setRandomNemesis: (
+    availableNemeses: ReadonlyArray<types.Nemesis>,
+    seed?: types.Seed
+  ) =>
     createAction(ActionTypes.SET_RANDOM, {
-      nemesis: getRandomEntity(availableNemeses),
+      nemesis: getRandomEntity(availableNemeses, seed),
     }),
 }
 
