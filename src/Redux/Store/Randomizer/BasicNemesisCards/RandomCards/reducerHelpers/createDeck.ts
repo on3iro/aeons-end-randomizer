@@ -8,9 +8,13 @@ export const createDeck = (
   state: State,
   action: ReturnType<typeof actions.createBasicNemesisCardDeck>
 ) => {
-  const { availableCards, playerCount } = action.payload
+  const { availableCards, playerCount, seed } = action.payload
 
-  const newState = getRandomBasicNemesisCardList(availableCards, playerCount)
+  const newState = getRandomBasicNemesisCardList(
+    availableCards,
+    playerCount,
+    seed
+  )
 
   return {
     ...state,

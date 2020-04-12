@@ -34,10 +34,13 @@ const cards = [
 
 describe('getRandomBasicNemesisCardsByTier()', () => {
   it('should handle one player tier 1', () => {
+    const expected = [{ id: 'minion3' }]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 1, 1, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(1)
   })
 
@@ -52,10 +55,13 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
   })
 
   it('should handle one player tier 2', () => {
+    const expected = [{ id: 'minion6' }, { id: 'minion4' }, { id: 'attack6' }]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 2, 1, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(3)
   })
 
@@ -70,10 +76,21 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
   })
 
   it('should handle one player tier 3', () => {
+    const expected = [
+      { id: 'minion9' },
+      { id: 'minion7' },
+      { id: 'attack9' },
+      { id: 'power9' },
+      { id: 'attack8' },
+      { id: 'power7' },
+      { id: 'power8' },
+    ]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 3, 1, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(7)
   })
 
@@ -88,10 +105,13 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
   })
 
   it('should handle two players tier 1', () => {
+    const expected = [{ id: 'minion3' }, { id: 'minion1' }, { id: 'attack3' }]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 1, 2, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(3)
   })
 
@@ -106,10 +126,19 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
   })
 
   it('should handle two players tier 2', () => {
+    const expected = [
+      { id: 'minion6' },
+      { id: 'minion4' },
+      { id: 'attack6' },
+      { id: 'power6' },
+      { id: 'attack5' },
+    ]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 2, 2, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(5)
   })
 
@@ -124,10 +153,21 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
   })
 
   it('should handle two players tier 3', () => {
+    const expected = [
+      { id: 'minion9' },
+      { id: 'minion7' },
+      { id: 'attack9' },
+      { id: 'power9' },
+      { id: 'attack8' },
+      { id: 'power7' },
+      { id: 'power8' },
+    ]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 3, 2, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(7)
   })
 
@@ -142,10 +182,19 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
   })
 
   it('should handle three players tier 1', () => {
+    const expected = [
+      { id: 'minion3' },
+      { id: 'minion1' },
+      { id: 'attack3' },
+      { id: 'power3' },
+      { id: 'attack2' },
+    ]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 1, 3, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(5)
   })
 
@@ -160,10 +209,20 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
   })
 
   it('should handle three players tier 2', () => {
+    const expected = [
+      { id: 'minion6' },
+      { id: 'minion4' },
+      { id: 'attack6' },
+      { id: 'power6' },
+      { id: 'attack5' },
+      { id: 'power4' },
+    ]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 2, 3, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(6)
   })
 
@@ -178,10 +237,21 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
   })
 
   it('should handle three players tier 3', () => {
+    const expected = [
+      { id: 'minion9' },
+      { id: 'minion7' },
+      { id: 'attack9' },
+      { id: 'power9' },
+      { id: 'attack8' },
+      { id: 'power7' },
+      { id: 'power8' },
+    ]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 3, 3, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(7)
   })
 
@@ -196,10 +266,22 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
   })
 
   it('should handle four players tier 1', () => {
+    const expected = [
+      { id: 'minion3' },
+      { id: 'minion1' },
+      { id: 'attack3' },
+      { id: 'power3' },
+      { id: 'attack2' },
+      { id: 'power1' },
+      { id: 'power2' },
+      { id: 'attack1' },
+    ]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 1, 4, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(8)
   })
 
@@ -214,10 +296,21 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
   })
 
   it('should handle four players tier 2', () => {
+    const expected = [
+      { id: 'minion6' },
+      { id: 'minion4' },
+      { id: 'attack6' },
+      { id: 'power6' },
+      { id: 'attack5' },
+      { id: 'power4' },
+      { id: 'power5' },
+    ]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 2, 4, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(7)
   })
 
@@ -232,10 +325,21 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
   })
 
   it('should handle four players tier 3', () => {
+    const expected = [
+      { id: 'minion9' },
+      { id: 'minion7' },
+      { id: 'attack9' },
+      { id: 'power9' },
+      { id: 'attack8' },
+      { id: 'power7' },
+      { id: 'power8' },
+    ]
+
     const result = getRandomBasicNemesisCardsByTier(cards, 3, 4, {
       seed: 'test',
     })
-    expect(result).toMatchSnapshot()
+
+    expect(result).toEqual(expected)
     expect(result.length).toBe(7)
   })
 
