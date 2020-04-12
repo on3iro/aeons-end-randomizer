@@ -10,6 +10,7 @@ export const actions = {
   noOp: () => createAction('NOOP'),
   createBasicNemesisCardDeck: (
     availableCards: ReadonlyArray<types.BasicNemesisCard>,
-    playerCount: PlayerCount
-  ) => createAction(ActionTypes.CREATE, { availableCards, playerCount }),
+    playerCount: PlayerCount,
+    seed?: types.Seed
+  ) => createAction(ActionTypes.CREATE, { availableCards, playerCount, seed }),
 }
