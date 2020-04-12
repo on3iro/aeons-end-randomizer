@@ -2,7 +2,7 @@ import { getRandomMinionAmount } from 'Redux/Store/Randomizer/BasicNemesisCards/
 
 describe('getRandomMinionAmount()', () => {
   it('should get a random number between 1 and 2', () => {
-    const result = getRandomMinionAmount(1, 3)
+    const result = getRandomMinionAmount()
 
     expect(result).toBeGreaterThanOrEqual(1)
     expect(result).toBeLessThan(3)

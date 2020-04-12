@@ -13,14 +13,18 @@ const cards = [
 
 describe('drawPowersAndAttacks()', () => {
   it('should return 1 power or attack card', () => {
+    const expected = [{ id: 'card4' }]
+
     const result = drawPowersAndAttacks(cards, 1, { seed: 'test' })
 
-    expect(result).toMatchSnapshot()
+    expect(result).toEqual(expected)
   })
 
   it('should return 3 power or attack cards', () => {
+    const expected = [{ id: 'card4' }, { id: 'card2' }, { id: 'card3' }]
+
     const result = drawPowersAndAttacks(cards, 3, { seed: 'test' })
 
-    expect(result).toMatchSnapshot()
+    expect(result).toEqual(expected)
   })
 })

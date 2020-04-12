@@ -3,9 +3,9 @@ import { ActionsUnion } from '@martin_hotell/rex-tils'
 import { actions } from './actions'
 
 export type State = Readonly<{
-  Tier1: ReadonlyArray<{ id: Readonly<string> }>
-  Tier2: ReadonlyArray<{ id: Readonly<string> }>
-  Tier3: ReadonlyArray<{ id: Readonly<string> }>
+  Tier1: ReadonlyArray<Readonly<{ id: string }>>
+  Tier2: ReadonlyArray<Readonly<{ id: string }>>
+  Tier3: ReadonlyArray<Readonly<{ id: string }>>
   recoverySeed?: string
 }>
 
