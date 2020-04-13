@@ -1,4 +1,4 @@
-import { Mage } from 'types'
+import { Mage } from 'aer-types'
 
 export const mages: Mage[] = [
   {

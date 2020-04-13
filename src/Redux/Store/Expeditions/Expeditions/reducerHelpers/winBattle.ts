@@ -1,7 +1,7 @@
 import { loop, Cmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 import * as helpers from '../helpers'
 import * as sideEffects from '../sideEffects'
 import { State } from '../types'

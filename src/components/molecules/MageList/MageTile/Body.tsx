@@ -1,7 +1,7 @@
 import React from 'react'
 
 import config from '../../../../config'
-import { Mage } from '../../../../types'
+import { Mage } from 'aer-types'
 
 import ExpansionName from './ExpansionName'
 import Name from './Name'

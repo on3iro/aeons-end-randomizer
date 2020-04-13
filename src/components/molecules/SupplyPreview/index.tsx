@@ -1,7 +1,7 @@
 import React from 'react'
+import { IMarketSetup } from 'aer-types'
 
 import { getOperationString } from '../../../Redux/helpers'
-import { IMarketSetup } from '../../../types'
 
 import Wrapper from './Wrapper'
 import TileList from './TileList'

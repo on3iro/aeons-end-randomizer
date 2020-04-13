@@ -1,4 +1,4 @@
-import { BasicNemesisCard } from 'types/data'
+import { BasicNemesisCard } from 'aer-types'
 
 export const basicNemesisCards: BasicNemesisCard[] = [
   {

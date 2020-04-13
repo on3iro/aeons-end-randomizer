@@ -1,4 +1,4 @@
-import * as types from 'types'
+import * as types from 'aer-types'
 import seedrandom from 'seedrandom'
 import shortid from 'shortid'
 
@@ -60,7 +60,7 @@ export const createCardList = (
 ): CardListReduceResult =>
   blueprints.reduce(
     (acc: CardListReduceResult, blueprint: types.IBluePrint) => {
-      const filteredByCost = acc.availableCards.filter((card) =>
+      const filteredByCost = acc.availableCards.filter(card =>
         filterByCost(card, blueprint)
       )
 
@@ -74,7 +74,7 @@ export const createCardList = (
 
       // Make sure each entity will only be added to the result list once
       const remainingCards = acc.availableCards.filter(
-        (entity) => entity.id !== card.id
+        entity => entity.id !== card.id
       )
 
       return {

@@ -1,6 +1,6 @@
 import { BaseConfig } from '../../types'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 import { RootState, selectors } from 'Redux/Store'
 
 import { convertExpeditionFromConfig } from 'Redux/Store/Expeditions/Expeditions/helpers'

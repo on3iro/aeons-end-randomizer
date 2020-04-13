@@ -1,11 +1,11 @@
 import { loop, Cmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
+import { BattleStatus } from 'aer-types'
 
 import { State } from '../types'
 import { actions } from '../actions'
 
 import { EXPEDITIONS_DB_KEY } from './helpers'
-import { BattleStatus } from 'types'
 
 export const finishBattle = (
   state: State,

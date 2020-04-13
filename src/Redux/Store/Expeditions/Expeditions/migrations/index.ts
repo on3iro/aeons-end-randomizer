@@ -1,4 +1,4 @@
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { RootState } from 'Redux/Store'
 
@@ -38,11 +38,9 @@ export const migrate = (
 ) => {
   const rootState = getState()
 
-  const expeditions = newState.expeditionIds.map(
-    (id) => newState.expeditions[id]
-  )
+  const expeditions = newState.expeditionIds.map(id => newState.expeditions[id])
 
-  const migratedExpeditions = expeditions.map((expedition) => {
+  const migratedExpeditions = expeditions.map(expedition => {
     return migrations.reduce((acc, migration) => {
       if (!expedition.migrationVersion) {
         return {

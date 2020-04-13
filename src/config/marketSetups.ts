@@ -1,4 +1,4 @@
-import { MarketSetups } from '../types'
+import { MarketSetups } from 'aer-types'
 
 export const MARKETSETUPS: MarketSetups = {
   setups: {

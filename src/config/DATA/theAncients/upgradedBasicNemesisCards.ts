@@ -1,4 +1,4 @@
-import { UpgradedBasicNemesisCard } from 'types'
+import { UpgradedBasicNemesisCard } from 'aer-types'
 
 export const upgradedBasicNemesisCards: UpgradedBasicNemesisCard[] = [
   {

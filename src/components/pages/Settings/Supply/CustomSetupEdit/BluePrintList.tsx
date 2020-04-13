@@ -1,5 +1,5 @@
 import React from 'react'
-import * as types from '../../../../../types'
+import * as types from 'aer-types'
 import Button from '@material-ui/core/Button'
 
 import BluePrint from './BluePrint'

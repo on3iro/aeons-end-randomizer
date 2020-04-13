@@ -1,5 +1,5 @@
 import { selectors } from 'Redux/Store'
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { getRandomEntity } from 'Redux/helpers'
 
@@ -66,7 +66,7 @@ export const createBattle = (
           state: expedition.seed.nemesisState,
         },
       }
-    : rollNemesisId(stillAvailableNemesisIds, (availableEntities) =>
+    : rollNemesisId(stillAvailableNemesisIds, availableEntities =>
         getEntity(availableEntities, {
           seed: expedition.seed.seed,
           state: expedition.seed.nemesisState,

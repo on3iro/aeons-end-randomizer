@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import UpgradedBasicNemesisCardList from 'components/molecules/UpgradedBasicNemesisCardList'
 import NemesisInformation from 'components/molecules/NemesisInformation'

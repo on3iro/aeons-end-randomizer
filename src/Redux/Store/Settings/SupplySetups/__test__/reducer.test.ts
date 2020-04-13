@@ -1,7 +1,7 @@
 import { Cmd, getCmd, getModel } from 'redux-loop'
 import { get as getFromDb } from 'idb-keyval'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { State } from 'Redux/Store/Settings/SupplySetups/types'
 import { SUPPLY_DB_KEY } from 'Redux/Store/Settings/SupplySetups/constants'

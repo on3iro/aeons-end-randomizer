@@ -1,4 +1,4 @@
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { RootState } from 'Redux/Store'
 import { handleCustomRewards } from 'Redux/Store/Expeditions/Expeditions/sideEffects/helpers'

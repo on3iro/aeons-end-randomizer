@@ -2,7 +2,7 @@ import { loop, Cmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
 
 import config from 'config'
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { State } from './types'
 import { TURNORDER_CONFIG_DB_KEY } from './constants'

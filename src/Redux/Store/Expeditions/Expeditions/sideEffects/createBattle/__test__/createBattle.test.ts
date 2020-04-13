@@ -1,5 +1,5 @@
 import { createBattle } from '../index'
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import * as rollNemesisIdModule from '../rollNemesisId'
 import * as getUpgradedBasicNemesisCardsResultModule from '../getUpgradedBasicNemesisCardsResult'
@@ -25,26 +25,25 @@ describe('createBattle()', () => {
     Expeditions: {
       Expeditions: {
         expeditions: {
-          expedition1:
-            {
-              id: 'expedition1',
-              settingsSnapshot: {
-                availableNemesisIds: ['CarapaceQueen', 'PrinceOfGluttons'],
-                availableUpgradedBasicNemesisCardIds: [
-                  'BaneCommander',
-                  'Wreck',
-                  'HissingAcid',
-                ],
+          expedition1: {
+            id: 'expedition1',
+            settingsSnapshot: {
+              availableNemesisIds: ['CarapaceQueen', 'PrinceOfGluttons'],
+              availableUpgradedBasicNemesisCardIds: [
+                'BaneCommander',
+                'Wreck',
+                'HissingAcid',
+              ],
+            },
+            seed: inputSeed,
+            sequence: {
+              firstBranchId: battle.id,
+              branches: {
+                [battle.id]: battle,
               },
-              seed: inputSeed,
-              sequence: {
-                firstBranchId: battle.id,
-                branches: {
-                  [battle.id]: battle,
-                },
-              },
-              upgradedBasicNemesisCards: ['Wreck'],
-            } as types.Expedition,
+            },
+            upgradedBasicNemesisCards: ['Wreck'],
+          } as types.Expedition,
         },
       },
     },
@@ -77,44 +76,41 @@ describe('createBattle()', () => {
         },
         UpgradedBasicNemesisCards: {
           upgradedBasicNemesisCards: {
-            HissingAcid:
-              {
-                id: 'HissingAcid',
-                name: 'Hissing Acid',
-                expansion: 'NA',
-                tier: 1,
-                type: 'Power',
-                power: 3,
-                effect:
-                  '\n      <p>\n        <b>To Discard:</b> Spend 6 <span class="aether">&AElig;</span>.<br />\n        <br /> \n        <b>Power 3:</b> Reveal the top card of the turn order deck. If it\'s a player turn order card, Unleash three times. Otherwise, any player suffers 5 damage.\n      </p>\n    ',
-                upgraded: true,
-                selected: true,
-              } as types.UpgradedBasicNemesisCard & { selected: boolean },
-            Wreck:
-              {
-                id: 'Wreck',
-                name: 'Wreck',
-                expansion: 'NA',
-                tier: 1,
-                type: 'Attack',
-                effect:
-                  '\n      <p>\n        Unleash twice. Gravehold suffers 1 damage.\n      </p>\n    ',
-                upgraded: true,
-                selected: true,
-              } as types.UpgradedBasicNemesisCard & { selected: boolean },
-            BaneCommander:
-              {
-                id: 'BaneCommander',
-                name: 'Bane Commander',
-                expansion: 'NA',
-                tier: 1,
-                type: 'Minion',
-                hp: 6,
-                effect:
-                  '\n      <p>\n        <b>Persistent:</b> Unleash. Any player suffers 1 damage.\n      </p>\n    ',
-                upgraded: true,
-                selected: true,
-              } as types.UpgradedBasicNemesisCard & { selected: boolean },
+            HissingAcid: {
+              id: 'HissingAcid',
+              name: 'Hissing Acid',
+              expansion: 'NA',
+              tier: 1,
+              type: 'Power',
+              power: 3,
+              effect:
+                '\n      <p>\n        <b>To Discard:</b> Spend 6 <span class="aether">&AElig;</span>.<br />\n        <br /> \n        <b>Power 3:</b> Reveal the top card of the turn order deck. If it\'s a player turn order card, Unleash three times. Otherwise, any player suffers 5 damage.\n      </p>\n    ',
+              upgraded: true,
+              selected: true,
+            } as types.UpgradedBasicNemesisCard & { selected: boolean },
+            Wreck: {
+              id: 'Wreck',
+              name: 'Wreck',
+              expansion: 'NA',
+              tier: 1,
+              type: 'Attack',
+              effect:
+                '\n      <p>\n        Unleash twice. Gravehold suffers 1 damage.\n      </p>\n    ',
+              upgraded: true,
+              selected: true,
+            } as types.UpgradedBasicNemesisCard & { selected: boolean },
+            BaneCommander: {
+              id: 'BaneCommander',
+              name: 'Bane Commander',
+              expansion: 'NA',
+              tier: 1,
+              type: 'Minion',
+              hp: 6,
+              effect:
+                '\n      <p>\n        <b>Persistent:</b> Unleash. Any player suffers 1 damage.\n      </p>\n    ',
+              upgraded: true,
+              selected: true,
+            } as types.UpgradedBasicNemesisCard & { selected: boolean },
           },
           upgradedBasicNemesisCardIds: [
             'BaneCommander',

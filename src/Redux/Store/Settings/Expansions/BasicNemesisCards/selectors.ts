@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import {
   BasicNemesisCardsStateSlice,

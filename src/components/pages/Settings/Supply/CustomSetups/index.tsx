@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions, selectors } from '../../../../../Redux/Store'
-import * as types from '../../../../../types'
+import { RootState, actions, selectors } from 'Redux/Store'
+import * as types from 'aer-types'
 
-import ListWrapper from '../../../../molecules/ListWrapper'
+import ListWrapper from 'components/molecules/ListWrapper'
 
 import CustomSetupCheckbox from './Checkbox'
 import SetupCreation from './SetupCreation'

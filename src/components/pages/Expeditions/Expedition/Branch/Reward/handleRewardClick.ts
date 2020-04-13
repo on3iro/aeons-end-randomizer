@@ -1,7 +1,7 @@
 import { actions } from 'Redux/Store'
 
 import { useModal } from 'hooks/useModal'
-import * as types from 'types'
+import * as types from 'aer-types'
 
 type ModalType = ReturnType<typeof useModal>
 

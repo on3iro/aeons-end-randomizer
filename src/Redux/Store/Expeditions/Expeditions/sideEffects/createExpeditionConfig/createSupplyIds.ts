@@ -1,7 +1,7 @@
 import { byCost } from 'helpers'
 
 import { createSupply } from 'Redux/helpers'
-import * as types from 'types'
+import * as types from 'aer-types'
 
 export const createSupplyIds = (
   availableCards: (types.ICard & { selected: boolean })[],

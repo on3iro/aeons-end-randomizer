@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { Nemesis } from 'types'
+import { Nemesis } from 'aer-types'
 
 import Tile from 'components/molecules/Tile'
 

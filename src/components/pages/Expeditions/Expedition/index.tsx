@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 import { RootState, selectors } from 'Redux/Store'
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import BackLink from 'components/molecules/BackLink'
 

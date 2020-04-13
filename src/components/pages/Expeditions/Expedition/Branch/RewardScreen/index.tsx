@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { connect } from 'react-redux'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 import { RootState, selectors } from 'Redux/Store'
 
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
@@ -51,7 +51,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
 
   const newMages =
     ownProps.branch.rewards && ownProps.branch.rewards.mages
-      ? ownProps.branch.rewards.mages.map((mage) => {
+      ? ownProps.branch.rewards.mages.map(mage => {
           return selectors.Settings.Expansions.SelectedMages.getMageById(
             state,
             {
@@ -64,7 +64,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
   const lists = [
     {
       id: 'newSupply',
-      tiles: newSupplyCards.map((tile) => ({
+      tiles: newSupplyCards.map(tile => ({
         ...tile,
         visualSelection: false,
       })),
@@ -72,7 +72,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
     },
     {
       id: 'expedition',
-      tiles: expeditionSupply.map((tile) => ({
+      tiles: expeditionSupply.map(tile => ({
         ...tile,
         visualSelection: false,
       })),

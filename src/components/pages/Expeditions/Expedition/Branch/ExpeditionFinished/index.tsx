@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, selectors } from 'Redux/Store'
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'

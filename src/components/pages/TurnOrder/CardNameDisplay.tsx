@@ -3,9 +3,9 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import CardContent from '@material-ui/core/CardContent'
 
-import { ITurnOrderSetup } from '../../../types'
+import { ITurnOrderSetup } from 'aer-types'
 
-import Card from '../../atoms/Card'
+import Card from 'components/atoms/Card'
 
 import ConfigurationCardDisplay from './ConfigurationCardDisplay'
 

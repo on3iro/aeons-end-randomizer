@@ -1,4 +1,4 @@
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { migrateToExpeditionDSL } from '../migrateToExpeditionDSL'
 import { oldStyleExpedition } from './__fixtures__/oldStyleExpedition'

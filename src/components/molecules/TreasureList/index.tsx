@@ -1,7 +1,7 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 
-import * as types from '../../../types'
+import * as types from 'aer-types'
 
 import TreasureTile from './TreasureTile'
 import TreasureGridWrapper from './TreasureGridWrapper'

@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react'
 import { connect } from 'react-redux'
 
-import * as types from '../../../../../types'
-import { RootState, selectors } from '../../../../../Redux/Store'
-import useExpandedHandling from '../../../../../hooks/useExpansionHandling'
+import * as types from 'aer-types'
+import { RootState, selectors } from 'Redux/Store'
+import useExpandedHandling from 'hooks/useExpansionHandling'
 
-import ModalBodyWrapper from '../../../../atoms/ModalBodyWrapper'
+import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 
 import Mages from './Mages'
 import Supply from './Supply'
