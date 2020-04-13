@@ -1,6 +1,6 @@
 import { RootState } from 'Redux/Store'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { BaseConfig } from '../../types'
 

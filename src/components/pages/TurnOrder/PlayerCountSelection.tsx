@@ -10,7 +10,7 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 
 import config from '../../../config'
-import { RootState, actions, selectors } from '../../../Redux/Store'
+import { RootState, actions, selectors } from 'Redux/Store'
 
 const renderPlayerCountOptions = () =>
   Object.values(config.TURNORDERSETUPS).map(playerCount => (

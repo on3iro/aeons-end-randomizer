@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import { Variant, VariantId, variants, variantIds } from 'types'
+import { Variant, VariantId, variants, variantIds } from 'aer-types'
 
 ///////////
 // STATE //
@@ -97,7 +97,7 @@ const getVariantIds = (state: VariantIdsStateSlice) =>
 
 const getVariantList = createSelector(
   [getVariantIds, getVariants],
-  (ids, variants) => ids.map((id) => variants[id])
+  (ids, variants) => ids.map(id => variants[id])
 )
 
 export const selectors = {

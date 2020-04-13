@@ -1,7 +1,7 @@
 import { DATA } from './aeonsData'
 import { MARKETSETUPS } from './marketSetups'
 import { TURNORDERSETUPS, TURNORDERCARDS } from './turnOrderSetups'
-import * as types from '../types'
+import * as types from 'aer-types'
 
 const EXPANSIONS = Object.keys(DATA)
 const DEFAULTSUPPLYCOUNT = 9

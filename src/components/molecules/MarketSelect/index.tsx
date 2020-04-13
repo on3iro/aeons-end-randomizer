@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as types from 'types'
+import * as types from 'aer-types'
 import * as helpers from 'helpers'
 
 import { RootState, selectors } from 'Redux/Store'

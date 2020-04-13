@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Typography from '@material-ui/core/Typography'
 
-import { TurnOrderCardType } from '../../../types'
+import { TurnOrderCardType } from 'aer-types'
 
 type Props = {
   type: TurnOrderCardType

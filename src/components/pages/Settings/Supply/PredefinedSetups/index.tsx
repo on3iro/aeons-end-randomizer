@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
+import { IMarketSetup } from 'aer-types'
 
-import { RootState, actions, selectors } from '../../../../../Redux/Store'
-import { IMarketSetup } from '../../../../../types'
+import { RootState, actions, selectors } from 'Redux/Store'
 
-import ListWrapper from '../../../../molecules/ListWrapper'
+import ListWrapper from 'components/molecules/ListWrapper'
 
 import CheckboxWithPreview from '../CheckboxWithPreview'
 

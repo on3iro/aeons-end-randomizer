@@ -3,7 +3,7 @@ import {
   createIdList,
   getRandomEntity,
 } from 'Redux/helpers'
-import * as types from 'types'
+import * as types from 'aer-types'
 
 export const createTreasureIds = (
   firstBattleConfig: types.BattleConfig,

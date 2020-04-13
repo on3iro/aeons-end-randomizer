@@ -1,4 +1,4 @@
-import { Nemesis } from 'types'
+import { Nemesis } from 'aer-types'
 
 export const nemeses: Nemesis[] = [
   {

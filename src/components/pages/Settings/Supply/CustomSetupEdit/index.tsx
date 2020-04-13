@@ -2,8 +2,9 @@ import React, { useState, useReducer, useCallback } from 'react'
 import shortid from 'shortid'
 import { connect } from 'react-redux'
 
-import * as types from '../../../../../types'
-import { RootState, actions } from '../../../../../Redux/Store'
+import * as types from 'aer-types'
+
+import { RootState, actions } from 'Redux/Store'
 
 import BluePrintList from './BluePrintList'
 import MainControls from './MainControls'

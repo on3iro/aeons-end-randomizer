@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import SupplySelection from 'components/molecules/SupplySelection'
 import SectionHeadline from 'components/atoms/SectionHeadline'

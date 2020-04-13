@@ -1,6 +1,6 @@
 import { createSelector, OutputSelector } from 'reselect'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { RootState } from 'Redux/Store'
 

@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import IconButton from 'components/atoms/IconButton'
 import Typography from '@material-ui/core/Typography'
 import { Loop, Publish, GetApp } from '@material-ui/icons'
+import { ITurnOrderCard } from 'aer-types'
 
-import { ITurnOrderCard } from '../../../../types'
-import { RootState, actions } from '../../../../Redux/Store'
+import { RootState, actions } from 'Redux/Store'
 
 import Cell from './Cell'
 import RowWrapper from './RowWrapper'

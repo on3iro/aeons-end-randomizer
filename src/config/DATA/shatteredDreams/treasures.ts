@@ -1,4 +1,4 @@
-import { Treasure } from 'types'
+import { Treasure } from 'aer-types'
 
 export const treasures: Treasure[] = [
   {

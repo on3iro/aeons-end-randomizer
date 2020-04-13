@@ -1,6 +1,6 @@
 import React from 'react'
 import FormControl from '@material-ui/core/FormControl'
-import * as types from '../../../../../types'
+import * as types from 'aer-types'
 
 import InputField from './InputField'
 import MenuItem from '@material-ui/core/MenuItem'

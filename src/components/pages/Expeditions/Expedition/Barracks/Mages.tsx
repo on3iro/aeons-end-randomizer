@@ -1,9 +1,9 @@
 import React from 'react'
 
-import * as types from '../../../../../types'
+import * as types from 'aer-types'
 
-import ExpansionPanel from '../../../../molecules/ExpansionPanel'
-import MageList from '../../../../molecules/MageList'
+import ExpansionPanel from 'components/molecules/ExpansionPanel'
+import MageList from 'components/molecules/MageList'
 
 type Props = {
   mages: types.Mage[]

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import * as types from '../../../../../types'
+import * as types from 'aer-types'
 
-import ExpansionPanel from '../../../../molecules/ExpansionPanel'
-import TreasureList from '../../../../molecules/TreasureList'
+import ExpansionPanel from 'components/molecules/ExpansionPanel'
+import TreasureList from 'components/molecules/TreasureList'
 
 type Props = {
   treasures: types.Treasure[]

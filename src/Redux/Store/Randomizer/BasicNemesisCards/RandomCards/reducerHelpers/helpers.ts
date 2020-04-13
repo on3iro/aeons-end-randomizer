@@ -1,7 +1,7 @@
 import seedrandom from 'seedrandom'
 import shortid from 'shortid'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import {
   getRandomEntity,

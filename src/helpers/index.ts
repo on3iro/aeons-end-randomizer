@@ -1,4 +1,4 @@
-import * as types from 'types'
+import * as types from 'aer-types'
 
 /**
  * Could be used inside .filter() to create a list of unique elements.
@@ -11,7 +11,7 @@ export const distinctById = <T extends ObjWithId>(
   value: T,
   index: number,
   self: Array<T>
-) => self.findIndex((el) => value.id === el.id) === index
+) => self.findIndex(el => value.id === el.id) === index
 
 export const sortByCardType = (
   a: { type: types.CardType },

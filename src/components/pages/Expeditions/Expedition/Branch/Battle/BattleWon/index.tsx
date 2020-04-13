@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from 'Redux/Store'
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
@@ -53,7 +53,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
   const listsWithVisualSelection = [
     {
       id: 'newSupply',
-      tiles: newSupplyCards.map((tile) => ({
+      tiles: newSupplyCards.map(tile => ({
         ...tile,
         visualSelection: false,
       })),
@@ -61,7 +61,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
     },
     {
       id: 'expedition',
-      tiles: expeditionSupply.map((tile) => ({
+      tiles: expeditionSupply.map(tile => ({
         ...tile,
         visualSelection: false,
       })),

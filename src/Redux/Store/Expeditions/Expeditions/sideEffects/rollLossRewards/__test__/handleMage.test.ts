@@ -1,4 +1,4 @@
-import * as types from 'types'
+import * as types from 'aer-types'
 import { handleMage } from '../handleMage'
 
 describe('handleMage', () => {

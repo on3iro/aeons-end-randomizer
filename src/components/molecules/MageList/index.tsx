@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Mage } from '../../../types'
+import { Mage } from 'aer-types'
 
 import MageGridWrapper from './MageGridWrapper'
 import MageTile from './MageTile'

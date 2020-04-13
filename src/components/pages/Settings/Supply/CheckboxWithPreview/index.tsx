@@ -3,7 +3,7 @@ import React, { useCallback } from 'react'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 
-import { IMarketSetup } from '../../../../../types'
+import { IMarketSetup } from 'aer-types'
 
 import PreviewWrapper from './PreviewWrapper'
 import Wrapper from './Wrapper'

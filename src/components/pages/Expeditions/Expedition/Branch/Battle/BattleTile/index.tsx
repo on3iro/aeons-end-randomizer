@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import P from 'components/atoms/P'
 import Tile from 'components/molecules/Tile'

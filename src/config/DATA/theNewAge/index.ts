@@ -1,4 +1,4 @@
-import { IExpansion } from 'types'
+import { IExpansion } from 'aer-types'
 
 import { nemeses } from './nemeses'
 import { mages } from './mages'
