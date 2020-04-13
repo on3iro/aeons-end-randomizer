@@ -3,7 +3,7 @@ import IconButton from '@material-ui/core/IconButton'
 import SaveIcon from '@material-ui/icons/Save'
 import CancelIcon from '@material-ui/icons/Cancel'
 
-import * as types from '../../../../../types'
+import * as types from 'aer-types'
 
 import InputField from './InputField'
 import MainControlsWrapper from './MainControlsWrapper'

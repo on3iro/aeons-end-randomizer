@@ -1,5 +1,5 @@
 import { selectors } from 'Redux/Store'
-import * as types from 'types'
+import * as types from 'aer-types'
 import { SelectedCardsLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedCards'
 import { SelectedMagesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedMages'
 import { SelectedNemesesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedNemeses'

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import * as types from '../../../../../../types'
+import * as types from 'aer-types'
 
-import ListWrapper from '../../../../../molecules/ListWrapper'
+import ListWrapper from 'components/molecules/ListWrapper'
 
 import Checkbox from './Checkbox'
 

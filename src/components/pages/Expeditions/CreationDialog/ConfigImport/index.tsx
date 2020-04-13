@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 
 import Ajv from 'ajv'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 import useExpandedHandling from 'hooks/useExpansionHandling'
 
 import ExpansionPanel from 'components/molecules/ExpansionPanel'

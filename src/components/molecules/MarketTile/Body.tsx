@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as types from '../../../types'
+import * as types from 'aer-types'
 import { getOperationString } from '../../../Redux/helpers'
 
 import InfoItem from '../InfoItem'

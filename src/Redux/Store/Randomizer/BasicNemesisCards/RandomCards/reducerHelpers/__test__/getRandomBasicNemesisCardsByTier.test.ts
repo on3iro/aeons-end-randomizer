@@ -1,4 +1,4 @@
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { getRandomBasicNemesisCardsByTier } from 'Redux/Store/Randomizer/BasicNemesisCards/RandomCards/reducerHelpers/helpers'
 

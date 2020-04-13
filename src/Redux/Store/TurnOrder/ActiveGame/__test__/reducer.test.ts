@@ -2,7 +2,7 @@ import { Cmd, getCmd, getModel } from 'redux-loop'
 import { get as getFromDb } from 'idb-keyval'
 
 import config from 'config'
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { TURNORDER_GAME_DB_KEY } from 'Redux/Store/TurnOrder/ActiveGame/constants'
 import { actions } from 'Redux/Store/TurnOrder/ActiveGame/actions'

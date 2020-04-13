@@ -6,7 +6,7 @@ jest.mock('shortid', () => {
   }
 })
 
-import * as types from 'types'
+import * as types from 'aer-types'
 import { convertExpeditionFromConfig } from '../convertExpeditionFromConfig'
 import { rootState } from '__fixtures__/rootState'
 

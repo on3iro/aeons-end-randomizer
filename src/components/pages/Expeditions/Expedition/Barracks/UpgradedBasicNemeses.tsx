@@ -1,9 +1,9 @@
 import React from 'react'
 
-import * as types from '../../../../../types'
+import * as types from 'aer-types'
 
-import ExpansionPanel from '../../../../molecules/ExpansionPanel'
-import UpgradedBasicNemesisCards from '../../../../molecules/UpgradedBasicNemesisCardList'
+import ExpansionPanel from 'components/molecules/ExpansionPanel'
+import UpgradedBasicNemesisCards from 'components/molecules/UpgradedBasicNemesisCardList'
 
 type Props = {
   upgradedBasicNemsisCards: types.UpgradedBasicNemesisCard[]

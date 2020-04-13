@@ -2,9 +2,9 @@ import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
 import { connect } from 'react-redux'
+import * as types from 'aer-types'
 
 import { RootState, selectors } from '../../../Redux/Store'
-import * as types from '../../../types'
 
 import { RenderModalType } from '../../../hooks/useModal'
 

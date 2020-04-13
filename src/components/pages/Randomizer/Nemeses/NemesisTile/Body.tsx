@@ -1,7 +1,7 @@
 import React from 'react'
+import { Nemesis } from 'aer-types'
 
 import config from 'config'
-import { Nemesis } from 'types'
 
 import ExpansionName from './ExpansionName'
 import Name from './Name'

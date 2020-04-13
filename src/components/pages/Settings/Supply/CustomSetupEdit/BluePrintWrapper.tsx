@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 type Props = {
   type: types.CardType

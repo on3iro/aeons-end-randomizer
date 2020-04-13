@@ -1,4 +1,4 @@
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { SelectedCardsStateSlice } from 'Redux/Store/Settings/Expansions/SelectedCards/types'
 

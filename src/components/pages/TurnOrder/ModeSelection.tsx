@@ -7,7 +7,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 
-import { MODES } from '../../../types'
+import { MODES } from 'aer-types'
 import { RootState, actions, selectors } from '../../../Redux/Store'
 
 import Card from '../../atoms/Card'

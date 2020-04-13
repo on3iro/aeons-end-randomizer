@@ -1,4 +1,4 @@
-import { ITurnOrderSetups, ITurnOrderCard } from '../types'
+import { ITurnOrderSetups, ITurnOrderCard } from 'aer-types'
 
 export const TURNORDERCARDS: { [key: string]: ITurnOrderCard } = {
   'player1-1': { id: 'player1-1', name: 'Player 1', type: 'player1' },

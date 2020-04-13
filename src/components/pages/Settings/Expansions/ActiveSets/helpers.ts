@@ -1,4 +1,4 @@
-import * as types from '../../../../../types'
+import * as types from 'aer-types'
 
 export const expansionsToItems = (
   expansions: ReadonlyArray<types.Expansion & { selected: boolean }>

@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import * as types from 'aer-types'
 
-import { RootState, selectors, actions } from '../../../../../../Redux/Store'
-import * as types from '../../../../../../types'
+import { RootState, selectors, actions } from 'Redux/Store'
 
-import ListWrapper from '../../../../../molecules/ListWrapper'
+import ListWrapper from 'components/molecules/ListWrapper'
 
 import Checkbox from './Checkbox'
 

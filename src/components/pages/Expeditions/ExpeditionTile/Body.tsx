@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Expedition } from 'aer-types'
 
-import { RootState, selectors } from '../../../../Redux/Store'
-import { Expedition } from '../../../../types'
+import { RootState, selectors } from 'Redux/Store'
 
-import InfoItem from '../../../molecules/InfoItem'
+import InfoItem from 'components/molecules/InfoItem'
 
 import Name from './Name'
 import List from './List'

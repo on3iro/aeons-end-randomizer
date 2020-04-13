@@ -1,4 +1,4 @@
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { State } from 'Redux/Store/Randomizer/BasicNemesisCards/RandomCards/types'
 import { actions } from 'Redux/Store/Randomizer/BasicNemesisCards/RandomCards/actions'

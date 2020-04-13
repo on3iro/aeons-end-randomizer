@@ -1,7 +1,7 @@
 import { loop, Cmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { SUPPLY_DB_KEY } from './constants'
 import { State } from './types'

@@ -1,6 +1,6 @@
 import { ActionsUnion } from '@martin_hotell/rex-tils'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { actions } from './actions'
 

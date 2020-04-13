@@ -1,7 +1,7 @@
 import React from 'react'
 import List from '@material-ui/core/List'
 
-import { UpgradedBasicNemesisCard } from 'types'
+import { UpgradedBasicNemesisCard } from 'aer-types'
 
 import InfoItem from 'components/molecules/InfoItem'
 

@@ -1,7 +1,7 @@
 import { selectors } from 'Redux/Store'
 import { getRandomEntity } from 'Redux/helpers'
 
-import * as types from 'types'
+import * as types from 'aer-types'
 
 import { rollTreasureIdsByLevel } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollWinRewards/rollTreasureIdsByLevel'
 import { rollSupplyRewards } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollWinRewards/rollSupplyRewards'

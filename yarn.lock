@@ -2037,6 +2037,11 @@ adjust-sourcemap-loader@2.0.0:
     object-path "0.11.4"
     regex-parser "2.2.10"
 
+aer-types@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/aer-types/-/aer-types-1.0.4.tgz#7e4abc5e92fadcf120dd34f6e1cffb69043f98cf"
+  integrity sha512-rjYRGQBR7Up81gS3jE36FI9gTjQYYYGigRGnEOIDM7Bas5774uElPE55jsDBs8rmCixuQX5thm10ro1ugVF2GA==
+
 aggregate-error@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/aggregate-error/-/aggregate-error-3.0.1.tgz#db2fe7246e536f40d9b5442a39e117d7dd6a24e0"

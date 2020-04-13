@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 
 import { withTheme } from 'styled-components/macro'
 
-import { Mage } from '../../../../types'
+import { Mage } from 'aer-types'
 import { useModal } from '../../../../hooks/useModal'
 
 import Tile from '../../Tile'

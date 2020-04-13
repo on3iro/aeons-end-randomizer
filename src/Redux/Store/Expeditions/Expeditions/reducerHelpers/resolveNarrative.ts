@@ -1,7 +1,7 @@
 import { loop, Cmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
 
-import { Status } from 'types'
+import { Status } from 'aer-types'
 
 import { EXPEDITIONS_DB_KEY } from './helpers'
 
