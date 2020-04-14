@@ -1,12 +1,12 @@
 import { createTurnOrderCardList } from '../../helpers'
-import { TURNORDERSETUPS } from 'config/turnOrderSetups'
+import AERData from 'aer-data'
 import { getRandomEntity } from 'Redux/helpers'
 
 describe('createTurnOrderCardList()', () => {
   it('test 1', () => {
     const result = createTurnOrderCardList(
-      TURNORDERSETUPS.onePlayer.variations.default.turnOrderCards,
-      TURNORDERSETUPS.onePlayer.variations.default.turnOrderCards,
+      AERData.turnordersetups.onePlayer.variations.default.turnOrderCards,
+      AERData.turnordersetups.onePlayer.variations.default.turnOrderCards,
       getRandomEntity,
       { seed: 'test' }
     )
@@ -16,8 +16,8 @@ describe('createTurnOrderCardList()', () => {
 
   it('test 2', () => {
     const result = createTurnOrderCardList(
-      TURNORDERSETUPS.onePlayer.variations.default.turnOrderCards,
-      TURNORDERSETUPS.onePlayer.variations.default.turnOrderCards,
+      AERData.turnordersetups.onePlayer.variations.default.turnOrderCards,
+      AERData.turnordersetups.onePlayer.variations.default.turnOrderCards,
       getRandomEntity,
       { seed: 'test' }
     )

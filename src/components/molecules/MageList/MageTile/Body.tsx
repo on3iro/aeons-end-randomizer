@@ -1,6 +1,6 @@
 import React from 'react'
 
-import config from '../../../../config'
+import AERData from 'aer-data'
 import { Mage } from 'aer-types'
 
 import ExpansionName from './ExpansionName'
@@ -14,7 +14,7 @@ const Body = ({ mage }: Props) => (
   <React.Fragment>
     <ExpansionName color="textSecondary">
       {/* FIXME remove direct connection to config and use store instead! */}
-      {config.DATA[mage.expansion].name}
+      {AERData.data[mage.expansion].name}
     </ExpansionName>
     <Name variant="h6" component="h2">
       {mage.name}
