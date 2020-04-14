@@ -1,7 +1,7 @@
 import { Cmd, getCmd, getModel } from 'redux-loop'
 import { get as getFromDb } from 'idb-keyval'
 
-import config from 'config'
+import AERData from 'aer-data'
 import * as types from 'aer-types'
 
 import { TURNORDER_GAME_DB_KEY } from 'Redux/Store/TurnOrder/ActiveGame/constants'
@@ -11,14 +11,14 @@ import { initialState, Reducer } from 'Redux/Store/TurnOrder/ActiveGame/reducer'
 
 const mockGameState = {
   deck: [
-    config.TURNORDERCARDS['player1-1'],
-    config.TURNORDERCARDS['player4-1'],
-    config.TURNORDERCARDS['player2-1'],
-    config.TURNORDERCARDS['nemesis-2'],
+    AERData.turnordercards['player1-1'],
+    AERData.turnordercards['player4-1'],
+    AERData.turnordercards['player2-1'],
+    AERData.turnordercards['nemesis-2'],
   ],
   discard: [
-    config.TURNORDERCARDS['player3-1'],
-    config.TURNORDERCARDS['nemesis-1'],
+    AERData.turnordercards['player3-1'],
+    AERData.turnordercards['nemesis-1'],
   ],
   started: true,
   round: 4,
@@ -27,12 +27,12 @@ const mockGameState = {
 const mockGameEndState = {
   deck: [],
   discard: [
-    config.TURNORDERCARDS['player1-1'],
-    config.TURNORDERCARDS['player4-1'],
-    config.TURNORDERCARDS['player2-1'],
-    config.TURNORDERCARDS['nemesis-2'],
-    config.TURNORDERCARDS['player3-1'],
-    config.TURNORDERCARDS['nemesis-1'],
+    AERData.turnordercards['player1-1'],
+    AERData.turnordercards['player4-1'],
+    AERData.turnordercards['player2-1'],
+    AERData.turnordercards['nemesis-2'],
+    AERData.turnordercards['player3-1'],
+    AERData.turnordercards['nemesis-1'],
   ],
   started: true,
   round: 4,
@@ -40,12 +40,12 @@ const mockGameEndState = {
 
 const mockGameStartState = {
   deck: [
-    config.TURNORDERCARDS['player1-1'],
-    config.TURNORDERCARDS['player4-1'],
-    config.TURNORDERCARDS['player2-1'],
-    config.TURNORDERCARDS['nemesis-2'],
-    config.TURNORDERCARDS['player3-1'],
-    config.TURNORDERCARDS['nemesis-1'],
+    AERData.turnordercards['player1-1'],
+    AERData.turnordercards['player4-1'],
+    AERData.turnordercards['player2-1'],
+    AERData.turnordercards['nemesis-2'],
+    AERData.turnordercards['player3-1'],
+    AERData.turnordercards['nemesis-1'],
   ],
   discard: [],
   started: true,
@@ -54,17 +54,17 @@ const mockGameStartState = {
 
 const mockGameWithAlternateState = {
   deck: [
-    config.TURNORDERCARDS['player1-1'],
-    config.TURNORDERCARDS['player1-2'],
+    AERData.turnordercards['player1-1'],
+    AERData.turnordercards['player1-2'],
     {
-      ...config.TURNORDERCARDS['player1-alternating'],
+      ...AERData.turnordercards['player1-alternating'],
       display: false,
     },
   ],
   discard: [
-    config.TURNORDERCARDS['nemesis-2'],
-    config.TURNORDERCARDS['player1-3'],
-    config.TURNORDERCARDS['nemesis-1'],
+    AERData.turnordercards['nemesis-2'],
+    AERData.turnordercards['player1-3'],
+    AERData.turnordercards['nemesis-1'],
   ],
   started: true,
   round: 4,
@@ -73,15 +73,15 @@ const mockGameWithAlternateState = {
 const mockGameWithAlternateEndState = {
   deck: [],
   discard: [
-    config.TURNORDERCARDS['player1-1'],
-    config.TURNORDERCARDS['player1-2'],
+    AERData.turnordercards['player1-1'],
+    AERData.turnordercards['player1-2'],
     {
-      ...config.TURNORDERCARDS['player1-alternating'],
+      ...AERData.turnordercards['player1-alternating'],
       display: false,
     },
-    config.TURNORDERCARDS['nemesis-2'],
-    config.TURNORDERCARDS['player1-3'],
-    config.TURNORDERCARDS['nemesis-1'],
+    AERData.turnordercards['nemesis-2'],
+    AERData.turnordercards['player1-3'],
+    AERData.turnordercards['nemesis-1'],
   ],
   started: true,
   round: 4,
@@ -106,14 +106,14 @@ describe('TurnOrder | ActiveGame | reducer', () => {
   it('should handle DRAW', () => {
     const expected = {
       deck: [
-        config.TURNORDERCARDS['player1-1'],
-        config.TURNORDERCARDS['player4-1'],
-        config.TURNORDERCARDS['player2-1'],
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player4-1'],
+        AERData.turnordercards['player2-1'],
       ],
       discard: [
-        config.TURNORDERCARDS['nemesis-2'],
-        config.TURNORDERCARDS['player3-1'],
-        config.TURNORDERCARDS['nemesis-1'],
+        AERData.turnordercards['nemesis-2'],
+        AERData.turnordercards['player3-1'],
+        AERData.turnordercards['nemesis-1'],
       ],
       started: true,
       round: 4,
@@ -126,16 +126,16 @@ describe('TurnOrder | ActiveGame | reducer', () => {
 
   it('should handle DRAW with an alternate card, that is not displayed', () => {
     const expected = {
-      deck: [config.TURNORDERCARDS['player1-1']],
+      deck: [AERData.turnordercards['player1-1']],
       discard: [
-        config.TURNORDERCARDS['player1-2'],
+        AERData.turnordercards['player1-2'],
         {
-          ...config.TURNORDERCARDS['player1-alternating'],
+          ...AERData.turnordercards['player1-alternating'],
           display: false,
         },
-        config.TURNORDERCARDS['nemesis-2'],
-        config.TURNORDERCARDS['player1-3'],
-        config.TURNORDERCARDS['nemesis-1'],
+        AERData.turnordercards['nemesis-2'],
+        AERData.turnordercards['player1-3'],
+        AERData.turnordercards['nemesis-1'],
       ],
       started: true,
       round: 4,
@@ -161,12 +161,12 @@ describe('TurnOrder | ActiveGame | reducer', () => {
     const model = getModel(result)
 
     expect(model.deck.length).toBe(6)
-    expect(model.deck).toContain(config.TURNORDERCARDS['player1-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['player2-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['player3-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['player4-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-2'])
+    expect(model.deck).toContain(AERData.turnordercards['player1-1'])
+    expect(model.deck).toContain(AERData.turnordercards['player2-1'])
+    expect(model.deck).toContain(AERData.turnordercards['player3-1'])
+    expect(model.deck).toContain(AERData.turnordercards['player4-1'])
+    expect(model.deck).toContain(AERData.turnordercards['nemesis-1'])
+    expect(model.deck).toContain(AERData.turnordercards['nemesis-2'])
     expect(model.discard.length).toBe(0)
     expect(model.started).toBe(true)
     expect(model.round).toBe(5)
@@ -179,19 +179,19 @@ describe('TurnOrder | ActiveGame | reducer', () => {
     )
 
     const alternateCard = {
-      ...config.TURNORDERCARDS['player1-alternating'],
+      ...AERData.turnordercards['player1-alternating'],
       display: true,
     }
 
     const model = getModel(result)
 
     expect(model.deck.length).toBe(6)
-    expect(model.deck).toContain(config.TURNORDERCARDS['player1-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['player1-2'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['player1-3'])
+    expect(model.deck).toContain(AERData.turnordercards['player1-1'])
+    expect(model.deck).toContain(AERData.turnordercards['player1-2'])
+    expect(model.deck).toContain(AERData.turnordercards['player1-3'])
     expect(model.deck).toContainEqual(alternateCard)
-    expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-2'])
+    expect(model.deck).toContain(AERData.turnordercards['nemesis-1'])
+    expect(model.deck).toContain(AERData.turnordercards['nemesis-2'])
     expect(model.discard.length).toBe(0)
     expect(model.started).toBe(true)
     expect(model.round).toBe(5)
@@ -200,13 +200,13 @@ describe('TurnOrder | ActiveGame | reducer', () => {
   it('should handle ADD_TO_TOP', () => {
     const expected = {
       deck: [
-        config.TURNORDERCARDS['player1-1'],
-        config.TURNORDERCARDS['player4-1'],
-        config.TURNORDERCARDS['player2-1'],
-        config.TURNORDERCARDS['nemesis-2'],
-        config.TURNORDERCARDS['player3-1'],
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player4-1'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['nemesis-2'],
+        AERData.turnordercards['player3-1'],
       ],
-      discard: [config.TURNORDERCARDS['nemesis-1']],
+      discard: [AERData.turnordercards['nemesis-1']],
       started: true,
       round: 4,
     }
@@ -225,13 +225,13 @@ describe('TurnOrder | ActiveGame | reducer', () => {
   it('should handle ADD_TO_BOTTOM', () => {
     const expected = {
       deck: [
-        config.TURNORDERCARDS['player3-1'],
-        config.TURNORDERCARDS['player1-1'],
-        config.TURNORDERCARDS['player4-1'],
-        config.TURNORDERCARDS['player2-1'],
-        config.TURNORDERCARDS['nemesis-2'],
+        AERData.turnordercards['player3-1'],
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player4-1'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['nemesis-2'],
       ],
-      discard: [config.TURNORDERCARDS['nemesis-1']],
+      discard: [AERData.turnordercards['nemesis-1']],
       started: true,
       round: 4,
     }
@@ -253,7 +253,7 @@ describe('TurnOrder | ActiveGame | reducer', () => {
     const model = getModel(result)
 
     expect(model.deck.length).toBe(5)
-    expect(model.deck).toContain(config.TURNORDERCARDS['player3-1'])
+    expect(model.deck).toContain(AERData.turnordercards['player3-1'])
     expect(model.discard.length).toBe(1)
     expect(model.started).toBe(true)
   })
@@ -269,19 +269,20 @@ describe('TurnOrder | ActiveGame | reducer', () => {
 
   it('should handle START_GAME default', () => {
     const turnOrderCards: types.ITurnOrderCard[] =
-      config.TURNORDERSETUPS['fourPlayers'].variations['default'].turnOrderCards
+      AERData.turnordersetups['fourPlayers'].variations['default']
+        .turnOrderCards
 
     const result = Reducer(initialState, actions.startGame(turnOrderCards))
 
     const model = getModel(result)
 
     expect(model.deck.length).toBe(6)
-    expect(model.deck).toContain(config.TURNORDERCARDS['player1-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['player2-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['player3-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['player4-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-2'])
+    expect(model.deck).toContain(AERData.turnordercards['player1-1'])
+    expect(model.deck).toContain(AERData.turnordercards['player2-1'])
+    expect(model.deck).toContain(AERData.turnordercards['player3-1'])
+    expect(model.deck).toContain(AERData.turnordercards['player4-1'])
+    expect(model.deck).toContain(AERData.turnordercards['nemesis-1'])
+    expect(model.deck).toContain(AERData.turnordercards['nemesis-2'])
     expect(model.discard.length).toBe(0)
     expect(model.started).toBe(true)
     expect(model.round).toBe(1)
@@ -289,7 +290,7 @@ describe('TurnOrder | ActiveGame | reducer', () => {
 
   it('should handle START_GAME alternate', () => {
     const turnOrderCards: types.ITurnOrderCard[] =
-      config.TURNORDERSETUPS['onePlayer'].variations['34alternating']
+      AERData.turnordersetups['onePlayer'].variations['34alternating']
         .turnOrderCards
 
     const result = Reducer(initialState, actions.startGame(turnOrderCards))
@@ -297,17 +298,17 @@ describe('TurnOrder | ActiveGame | reducer', () => {
     const model = getModel(result)
 
     const alternateCard = {
-      ...config.TURNORDERCARDS['player1-alternating'],
+      ...AERData.turnordercards['player1-alternating'],
       display: true,
     }
 
     expect(model.deck.length).toBe(6)
-    expect(model.deck).toContain(config.TURNORDERCARDS['player1-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['player1-2'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['player1-3'])
+    expect(model.deck).toContain(AERData.turnordercards['player1-1'])
+    expect(model.deck).toContain(AERData.turnordercards['player1-2'])
+    expect(model.deck).toContain(AERData.turnordercards['player1-3'])
     expect(model.deck).toContainEqual(alternateCard)
-    expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-1'])
-    expect(model.deck).toContain(config.TURNORDERCARDS['nemesis-2'])
+    expect(model.deck).toContain(AERData.turnordercards['nemesis-1'])
+    expect(model.deck).toContain(AERData.turnordercards['nemesis-2'])
     expect(model.discard.length).toBe(0)
     expect(model.started).toBe(true)
     expect(model.round).toBe(1)

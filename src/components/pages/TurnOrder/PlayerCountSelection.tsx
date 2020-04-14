@@ -9,11 +9,11 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 
-import config from '../../../config'
+import AERData from 'aer-data'
 import { RootState, actions, selectors } from 'Redux/Store'
 
 const renderPlayerCountOptions = () =>
-  Object.values(config.TURNORDERSETUPS).map(playerCount => (
+  Object.values(AERData.turnordersetups).map(playerCount => (
     <FormControlLabel
       key={playerCount.id}
       value={playerCount.id}

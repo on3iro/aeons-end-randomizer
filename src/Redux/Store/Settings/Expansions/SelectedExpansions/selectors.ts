@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-import config from 'config'
+import AERData from 'aer-data'
 
 import { SelectedExpansionsStateSlice } from './types'
 import { allExpansionsAreSelected } from './helpers'
@@ -52,7 +52,7 @@ const getHasStandaloneExpansion = createSelector(
   [getSelectedExpansionsArray],
   selectedExpansions =>
     selectedExpansions.some(
-      expansion => config.DATA[expansion].type === 'standalone'
+      expansion => AERData.data[expansion].type === 'standalone'
     )
 )
 

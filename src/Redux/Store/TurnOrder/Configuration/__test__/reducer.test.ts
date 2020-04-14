@@ -1,7 +1,7 @@
 import { getModel, getCmd, Cmd } from 'redux-loop'
 import { get as getFromDb } from 'idb-keyval'
 
-import config from 'config'
+import AERData from 'aer-data'
 
 import { State } from 'Redux/Store/TurnOrder/Configuration/types'
 import { TURNORDER_CONFIG_DB_KEY } from 'Redux/Store/TurnOrder/Configuration/constants'
@@ -14,8 +14,8 @@ import {
 
 const mockConfiguration: State = {
   Mode: 'Blitz',
-  SelectedPlayerCount: config.TURNORDERSETUPS['fourPlayers'],
-  SelectedSetup: config.TURNORDERSETUPS['fourPlayers'].variations['default'],
+  SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
+  SelectedSetup: AERData.turnordersetups['fourPlayers'].variations['default'],
 }
 
 describe('TurnOrder | Configuration | reducer', () => {
@@ -31,9 +31,9 @@ describe('TurnOrder | Configuration | reducer', () => {
   it('should handle SET_MODE', () => {
     const expected = {
       Mode: 'Maelstrom',
-      SelectedPlayerCount: config.TURNORDERSETUPS['fourPlayers'],
+      SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
       SelectedSetup:
-        config.TURNORDERSETUPS['fourPlayers'].variations['default'],
+        AERData.turnordersetups['fourPlayers'].variations['default'],
     }
 
     const result = Reducer(mockConfiguration, actions.setMode('Maelstrom'))
@@ -44,8 +44,9 @@ describe('TurnOrder | Configuration | reducer', () => {
   it('should handle SELECT_PLAYER_COUNT', () => {
     const expected = {
       Mode: 'Blitz',
-      SelectedPlayerCount: config.TURNORDERSETUPS['twoPlayers'],
-      SelectedSetup: config.TURNORDERSETUPS['twoPlayers'].variations['default'],
+      SelectedPlayerCount: AERData.turnordersetups['twoPlayers'],
+      SelectedSetup:
+        AERData.turnordersetups['twoPlayers'].variations['default'],
     }
 
     const result = Reducer(
@@ -59,9 +60,9 @@ describe('TurnOrder | Configuration | reducer', () => {
   it('should handle SELECT_PLAYER_COUNT when player count is undefined', () => {
     const expected = {
       Mode: 'Blitz',
-      SelectedPlayerCount: config.TURNORDERSETUPS['fourPlayers'],
+      SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
       SelectedSetup:
-        config.TURNORDERSETUPS['fourPlayers'].variations['default'],
+        AERData.turnordersetups['fourPlayers'].variations['default'],
     }
 
     const result = Reducer(
@@ -76,9 +77,9 @@ describe('TurnOrder | Configuration | reducer', () => {
   it('should handle SELECT_SETUP', () => {
     const expected = {
       Mode: 'Blitz',
-      SelectedPlayerCount: config.TURNORDERSETUPS['fourPlayers'],
+      SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
       SelectedSetup:
-        config.TURNORDERSETUPS['fourPlayers'].variations['splitPlayers'],
+        AERData.turnordersetups['fourPlayers'].variations['splitPlayers'],
     }
 
     const result = Reducer(
@@ -92,9 +93,9 @@ describe('TurnOrder | Configuration | reducer', () => {
   it('should handle SELECT_SETUP when setup does not exist for player count', () => {
     const expected = {
       Mode: 'Blitz',
-      SelectedPlayerCount: config.TURNORDERSETUPS['fourPlayers'],
+      SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
       SelectedSetup:
-        config.TURNORDERSETUPS['fourPlayers'].variations['default'],
+        AERData.turnordersetups['fourPlayers'].variations['default'],
     }
 
     const result = Reducer(mockConfiguration, actions.selectSetup('wildToken'))

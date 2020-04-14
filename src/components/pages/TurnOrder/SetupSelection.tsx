@@ -9,14 +9,14 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import { ITurnOrderPlayerCount } from 'aer-types'
 
-import config from 'config'
+import AERData from 'aer-data'
 import { RootState, actions, selectors } from 'Redux/Store'
 
 import Card from '../../atoms/Card'
 
 const renderSetupOptions = (selectedPlayerCount: ITurnOrderPlayerCount) =>
   Object.values(
-    config.TURNORDERSETUPS[selectedPlayerCount.id].variations
+    AERData.turnordersetups[selectedPlayerCount.id].variations
   ).map(setup => (
     <FormControlLabel
       key={setup.id}
