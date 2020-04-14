@@ -1,7 +1,7 @@
 import { Cmd, getCmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
 
-import config from 'config'
+import AERData from 'aer-data'
 
 import { State } from '../types'
 import { TURNORDER_CONFIG_DB_KEY } from '../constants'
@@ -14,8 +14,8 @@ import {
 
 const mockConfiguration: State = {
   Mode: 'Blitz',
-  SelectedPlayerCount: config.TURNORDERSETUPS['fourPlayers'],
-  SelectedSetup: config.TURNORDERSETUPS['fourPlayers'].variations['default'],
+  SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
+  SelectedSetup: AERData.turnordersetups['fourPlayers'].variations['default'],
 }
 
 describe('newStateWithDBWrite()', () => {
@@ -36,19 +36,19 @@ describe('newStateWithDBWrite()', () => {
 
 describe('adjustSetup()', () => {
   const defaultVariation =
-    config.TURNORDERSETUPS.twoPlayers.variations['default']
+    AERData.turnordersetups.twoPlayers.variations['default']
 
   it('should return the default variation of tocs for 2 players', () => {
     const expected = {
       id: 'default',
       name: 'Default',
       turnOrderCards: [
-        config.TURNORDERCARDS['player1-1'],
-        config.TURNORDERCARDS['player1-2'],
-        config.TURNORDERCARDS['player2-1'],
-        config.TURNORDERCARDS['player2-2'],
-        config.TURNORDERCARDS['nemesis-1'],
-        config.TURNORDERCARDS['nemesis-2'],
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player1-2'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['player2-2'],
+        AERData.turnordercards['nemesis-1'],
+        AERData.turnordercards['nemesis-2'],
       ],
     }
 
@@ -62,12 +62,12 @@ describe('adjustSetup()', () => {
       id: 'default',
       name: 'Default',
       turnOrderCards: [
-        config.TURNORDERCARDS['player1-1'],
-        config.TURNORDERCARDS['player1-2'],
-        config.TURNORDERCARDS['player2-1'],
-        config.TURNORDERCARDS['player2-2'],
-        config.TURNORDERCARDS['maelstrom'],
-        config.TURNORDERCARDS['nemesis-2'],
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player1-2'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['player2-2'],
+        AERData.turnordercards['maelstrom'],
+        AERData.turnordercards['nemesis-2'],
       ],
     }
 
@@ -81,12 +81,12 @@ describe('adjustSetup()', () => {
       id: 'default',
       name: 'Default',
       turnOrderCards: [
-        config.TURNORDERCARDS['player1-1'],
-        config.TURNORDERCARDS['player1-2'],
-        config.TURNORDERCARDS['player2-1'],
-        config.TURNORDERCARDS['player2-2'],
-        config.TURNORDERCARDS['blitz'],
-        config.TURNORDERCARDS['nemesis-2'],
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player1-2'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['player2-2'],
+        AERData.turnordercards['blitz'],
+        AERData.turnordercards['nemesis-2'],
       ],
     }
 
@@ -100,12 +100,12 @@ describe('adjustSetup()', () => {
       id: 'default',
       name: 'Default',
       turnOrderCards: [
-        config.TURNORDERCARDS['player1-1'],
-        config.TURNORDERCARDS['player1-2'],
-        config.TURNORDERCARDS['player2-1'],
-        config.TURNORDERCARDS['player2-2'],
-        config.TURNORDERCARDS['blitz'],
-        config.TURNORDERCARDS['maelstrom'],
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player1-2'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['player2-2'],
+        AERData.turnordercards['blitz'],
+        AERData.turnordercards['maelstrom'],
       ],
     }
 

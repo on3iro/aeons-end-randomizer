@@ -1,23 +1,23 @@
 import { LoopReducer } from 'redux-loop'
 
-import config from 'config'
+import AERData from 'aer-data'
 
 import { Action, ActionTypes, State } from './types'
 
 import * as reducerHelpers from './reducerHelpers'
 
 export const initialState: State = {
-  cards: config.NORMALIZEDDATA.cardIds.reduce(
+  cards: AERData.normalizedData.cardIds.reduce(
     (acc, id) => ({
       ...acc,
       [id]: {
-        ...config.NORMALIZEDDATA.cards[id],
+        ...AERData.normalizedData.cards[id],
         selected: true,
       },
     }),
     {}
   ),
-  cardIds: config.NORMALIZEDDATA.cardIds,
+  cardIds: AERData.normalizedData.cardIds,
 }
 
 export const Reducer: LoopReducer<State, Action> = (

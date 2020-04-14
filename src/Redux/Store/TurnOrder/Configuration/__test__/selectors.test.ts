@@ -1,4 +1,4 @@
-import config from 'config'
+import AERData from 'aer-data'
 
 import {
   ModeStateSlice,
@@ -14,9 +14,9 @@ const mockConfiguration: ModeStateSlice &
   TurnOrder: {
     Configuration: {
       Mode: 'Blitz',
-      SelectedPlayerCount: config.TURNORDERSETUPS['fourPlayers'],
+      SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
       SelectedSetup:
-        config.TURNORDERSETUPS['fourPlayers'].variations['default'],
+        AERData.turnordersetups['fourPlayers'].variations['default'],
     },
   },
 }
@@ -37,24 +37,24 @@ describe('TurnOrder | Configuration | selectors', () => {
           id: 'default',
           name: 'Default',
           turnOrderCards: [
-            config.TURNORDERCARDS['player1-1'],
-            config.TURNORDERCARDS['player2-1'],
-            config.TURNORDERCARDS['player3-1'],
-            config.TURNORDERCARDS['player4-1'],
-            config.TURNORDERCARDS['nemesis-1'],
-            config.TURNORDERCARDS['nemesis-2'],
+            AERData.turnordercards['player1-1'],
+            AERData.turnordercards['player2-1'],
+            AERData.turnordercards['player3-1'],
+            AERData.turnordercards['player4-1'],
+            AERData.turnordercards['nemesis-1'],
+            AERData.turnordercards['nemesis-2'],
           ],
         },
         splitPlayers: {
           id: 'splitPlayers',
           name: 'Split Player Cards (1/2, 3/4)',
           turnOrderCards: [
-            config.TURNORDERCARDS['player12-1'],
-            config.TURNORDERCARDS['player12-2'],
-            config.TURNORDERCARDS['player34-1'],
-            config.TURNORDERCARDS['player34-2'],
-            config.TURNORDERCARDS['nemesis-1'],
-            config.TURNORDERCARDS['nemesis-2'],
+            AERData.turnordercards['player12-1'],
+            AERData.turnordercards['player12-2'],
+            AERData.turnordercards['player34-1'],
+            AERData.turnordercards['player34-2'],
+            AERData.turnordercards['nemesis-1'],
+            AERData.turnordercards['nemesis-2'],
           ],
         },
       },
@@ -70,12 +70,12 @@ describe('TurnOrder | Configuration | selectors', () => {
       id: 'default',
       name: 'Default',
       turnOrderCards: [
-        config.TURNORDERCARDS['player1-1'],
-        config.TURNORDERCARDS['player2-1'],
-        config.TURNORDERCARDS['player3-1'],
-        config.TURNORDERCARDS['player4-1'],
-        config.TURNORDERCARDS['nemesis-1'],
-        config.TURNORDERCARDS['nemesis-2'],
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['player3-1'],
+        AERData.turnordercards['player4-1'],
+        AERData.turnordercards['nemesis-1'],
+        AERData.turnordercards['nemesis-2'],
       ],
     }
 
@@ -89,12 +89,12 @@ describe('TurnOrder | Configuration | selectors', () => {
       id: 'default',
       name: 'Default',
       turnOrderCards: [
-        config.TURNORDERCARDS['player1-1'],
-        config.TURNORDERCARDS['player2-1'],
-        config.TURNORDERCARDS['player3-1'],
-        config.TURNORDERCARDS['player4-1'],
-        config.TURNORDERCARDS['blitz'],
-        config.TURNORDERCARDS['nemesis-2'],
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['player3-1'],
+        AERData.turnordercards['player4-1'],
+        AERData.turnordercards['blitz'],
+        AERData.turnordercards['nemesis-2'],
       ],
     }
 
@@ -105,12 +105,12 @@ describe('TurnOrder | Configuration | selectors', () => {
 
   it('should get the available cards with getAvailableCards()', () => {
     const expected = [
-      config.TURNORDERCARDS['player1-1'],
-      config.TURNORDERCARDS['player2-1'],
-      config.TURNORDERCARDS['player3-1'],
-      config.TURNORDERCARDS['player4-1'],
-      config.TURNORDERCARDS['blitz'],
-      config.TURNORDERCARDS['nemesis-2'],
+      AERData.turnordercards['player1-1'],
+      AERData.turnordercards['player2-1'],
+      AERData.turnordercards['player3-1'],
+      AERData.turnordercards['player4-1'],
+      AERData.turnordercards['blitz'],
+      AERData.turnordercards['nemesis-2'],
     ]
 
     const result = selectors.getAvailableCards(mockConfiguration)

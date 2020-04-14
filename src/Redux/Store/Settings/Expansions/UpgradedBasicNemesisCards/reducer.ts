@@ -1,24 +1,24 @@
 import { LoopReducer } from 'redux-loop'
 
-import config from 'config'
+import AERData from 'aer-data'
 
 import { Action, ActionTypes, State } from './types'
 
 import * as reducerHelpers from './reducerHelpers'
 
 export const initialState: State = {
-  upgradedBasicNemesisCards: config.NORMALIZEDDATA.upgradedBasicNemesisCardIds.reduce(
+  upgradedBasicNemesisCards: AERData.normalizedData.upgradedBasicNemesisCardIds.reduce(
     (acc, id) => ({
       ...acc,
       [id]: {
-        ...config.NORMALIZEDDATA.upgradedBasicNemesisCards[id],
+        ...AERData.normalizedData.upgradedBasicNemesisCards[id],
         selected: true,
       },
     }),
     {}
   ),
   upgradedBasicNemesisCardIds:
-    config.NORMALIZEDDATA.upgradedBasicNemesisCardIds,
+    AERData.normalizedData.upgradedBasicNemesisCardIds,
 }
 
 export const Reducer: LoopReducer<State, Action> = (
