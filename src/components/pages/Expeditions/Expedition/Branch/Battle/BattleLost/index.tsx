@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import * as types from 'aer-types'
@@ -25,17 +25,38 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
+type InputBranch = { id: string; expeditionId: string; rewards?: types.Rewards }
+
 const BattleLost = ({ battle, hide, showNext, acceptLoss }: Props) => {
+  const acceptLossCallback = useCallback(
+    (branch: InputBranch, banished: string[], newSupplyIds: string[]) => {
+      if (battle.config.onLoss === 'skip') {
+        hide()
+      }
+
+      return acceptLoss(branch, banished, newSupplyIds)
+    },
+    [acceptLoss, hide, battle.config.onLoss]
+  )
+
+  const showNextCallback = useCallback(() => {
+    if (battle.config.onLoss === 'skip') {
+      return
+    } else if (showNext) {
+      showNext()
+    }
+  }, [battle.config.onLoss, showNext])
+
   return (
     <React.Fragment>
       {!battle.rewards ? (
         <LossRewardTypeSelection battle={battle} />
       ) : (
         <RewardScreen
-          callback={acceptLoss}
+          callback={acceptLossCallback}
           branch={battle}
           hide={hide}
-          showNext={showNext}
+          showNext={showNextCallback}
         />
       )}
     </React.Fragment>
