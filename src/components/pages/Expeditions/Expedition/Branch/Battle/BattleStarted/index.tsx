@@ -8,6 +8,7 @@ import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
 import BattleLostButton from 'components/pages/Expeditions/Expedition/Branch/Battle/BattleStarted/BattleLostButton'
 import BattleWonButton from 'components/pages/Expeditions/Expedition/Branch/Battle/BattleStarted/BattleWonButton'
+import SpecialRules from '../SpecialRules'
 
 type OwnProps = {
   battle: types.Battle
@@ -80,7 +81,11 @@ const BattleStarted = ({
 
   return (
     <React.Fragment>
-      <ModalBodyWrapper hasFooter={true} />
+      <ModalBodyWrapper hasFooter={true}>
+        {battle.config.specialRules && (
+          <SpecialRules>{battle.config.specialRules}</SpecialRules>
+        )}
+      </ModalBodyWrapper>
       <ModalFooterWrapper>
         <BattleLostButton handleLoss={handleLoss} />
         <BattleWonButton handleWin={handleWin} />
