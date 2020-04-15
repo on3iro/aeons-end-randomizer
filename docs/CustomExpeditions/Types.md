@@ -263,8 +263,6 @@ If ommitted the nemesis for this battle will be rolled regularily.
 
 ### newUBNCards
 
-> **NOTE:** This property is not yet fully supported and might not work to some extend in the current Beta-build
-
 ##### Definition
 
 type: `{ type: "custom", ids: string[] }` | `{ type: "regular", addRandom: boolean}`

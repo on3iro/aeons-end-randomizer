@@ -58,4 +58,32 @@ describe('getUpgradedBasicNemesisCardsResult()', () => {
 
     spy.mockRestore()
   })
+
+  test("specified ids should be used, if type is 'custom'", () => {
+    const spy = jest.spyOn(
+      rollNewUpgradedNemesisCardsModule,
+      'rollNewUpgradedNemesisCards'
+    )
+
+    const inputSeed = { seed: 'test', state: true }
+    const result = getUpgradedBasicNemesisCardsResult(
+      {
+        tier: 2,
+        newUBNCards: { type: 'custom', ids: ['Wreck', 'NeedleDoom'] },
+        treasure: {
+          hasTreasure: false,
+        },
+      },
+      [],
+      ['a', 'b'],
+      getRandomEntity,
+      inputSeed
+    )
+
+    expect(result.result).toEqual(['Wreck', 'NeedleDoom'])
+    expect(result.seed).toEqual(inputSeed)
+    expect(spy).not.toHaveBeenCalled()
+
+    spy.mockRestore()
+  })
 })
