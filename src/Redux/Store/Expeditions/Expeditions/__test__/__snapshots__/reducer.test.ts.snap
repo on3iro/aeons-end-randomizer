@@ -1151,7 +1151,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 2,
               "treasure": Object {
@@ -1688,7 +1688,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 2,
               "treasure": Object {
