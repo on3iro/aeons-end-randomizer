@@ -291,8 +291,6 @@ If set to `true` random cards will be added according to the battles `config.tie
 
 ### specialRules **(optional)**
 
-> **NOTE:** This property is not yet fully supported and might not work to some extend in the current Beta-build
-
 ##### Definition
 
 type: `string`

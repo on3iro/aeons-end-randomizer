@@ -53,6 +53,7 @@ const BeforeBattle = ({
       <ModalBodyWrapper hasFooter={true}>
         <BattleOverview
           info={battle.tries.toString()}
+          specialRules={battle.config.specialRules}
           nemesis={nemesis}
           upgradedBasicNemsisCards={upgradedBasicNemsisCards}
         />
