@@ -372,8 +372,6 @@ The same goes for when a battle has been won and treasures should be rolled.
 
 ### onLoss **(optional)**
 
-> **NOTE:** This property is not yet fully supported and might not work to some extend in the current Beta-build
-
 ##### Defintion
 
 type: `string: "skip"`
