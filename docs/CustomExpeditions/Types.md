@@ -307,15 +307,12 @@ Allows to specify some rules text, which will be shown before the battle.
 
 ### lossRewards **(optional)**
 
-> **NOTE:** This property is not yet fully supported and might not work to some extend in the current Beta-build
-
 ##### Definition
 
 type: [`RewardsConfig`](#RewardsConfig)[]
 
 List of [`RewardsConfig`](#RewardsConfig)s.
 If specified defines what rewards are being generated each time the battle is lost.
-If the players lose more often than configs exist inside the list, no more rewards will be generated.
 If nothing is specified, the rewards will be rolled regularily.
 
 #### Example

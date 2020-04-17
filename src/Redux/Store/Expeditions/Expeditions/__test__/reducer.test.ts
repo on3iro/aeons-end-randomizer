@@ -411,7 +411,7 @@ describe('Reducer()', () => {
     expect(model).toEqual(state)
 
     expect(cmd).toEqual(
-      Cmd.run(sideEffects.rollLossRewards, {
+      Cmd.run(sideEffects.createLossRewards, {
         args: [Cmd.getState, battle, 'mage'],
         successActionCreator: actions.rollLossSuccess,
       })
