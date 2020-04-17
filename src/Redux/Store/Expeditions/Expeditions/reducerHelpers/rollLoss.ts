@@ -15,7 +15,7 @@ export const rollLoss = (
 
   return loop(
     state,
-    Cmd.run(sideEffects.rollLossRewards, {
+    Cmd.run(sideEffects.createLossRewards, {
       args: [Cmd.getState, battle, rewardType],
       successActionCreator: actions.rollLossSuccess,
     })

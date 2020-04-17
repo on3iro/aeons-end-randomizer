@@ -54,6 +54,28 @@ const LossRewardTypeSelection = ({ battle, rollLoss }: Props) => {
     rollLoss(battle, rewardSelectValue)
   }, [rewardSelectValue, battle, rollLoss])
 
+  const tryIndex = battle.tries - 1
+  const rewardsConfig = battle.config.lossRewards
+    ? battle.config.lossRewards[tryIndex]
+    : undefined
+
+  if (rewardsConfig && rewardsConfig.type !== 'regular') {
+    return (
+      <React.Fragment>
+        <ModalBodyWrapper hasFooter={true}>
+          <SectionHeadline>Get your rewards</SectionHeadline>
+        </ModalBodyWrapper>
+        <ModalFooterWrapper>
+          <ConfirmButton
+            handleRewardConfirmation={handleRewardConfirmation}
+            data-test="btn-confirm-reward"
+          />
+        </ModalFooterWrapper>
+        >
+      </React.Fragment>
+    )
+  }
+
   return (
     <React.Fragment>
       <ModalBodyWrapper hasFooter={true}>

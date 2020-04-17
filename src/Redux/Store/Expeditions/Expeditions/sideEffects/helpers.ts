@@ -230,8 +230,6 @@ export const handleCustomRewards = (state: RootState, reward: types.Reward) => {
         seed: expedition.seed.seed,
         state: expedition.seed.supplyState,
       },
-      expeditionId,
-      branchId: reward.id,
     }
   } else {
     ///////////////////////
@@ -313,8 +311,6 @@ export const handleCustomRewards = (state: RootState, reward: types.Reward) => {
         mages: mageIdsResult.result,
       },
       seed: treasureIdsResult.seed,
-      expeditionId: reward.expeditionId,
-      branchId: reward.id,
     }
   }
 }

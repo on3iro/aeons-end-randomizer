@@ -16,6 +16,7 @@ import {
   TreasureIdsStateSlice,
 } from 'Redux/Store/Settings/Expansions/Treasures'
 import { SelectedMagesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedMages'
+import { getSupplyIds, getMageIds, getTreasureIds } from '../helpers'
 
 export const handleRewardType = ({
   rewardType,
@@ -75,7 +76,7 @@ export const handleRewardType = ({
   }
 }
 
-export const rollLossRewards = (
+const rollLossRewards = (
   getState: () => ExpeditionsStateSlice &
     SelectedCardsLookupStateSlice &
     TreasuresStateSlice &
@@ -133,4 +134,160 @@ export const rollLossRewards = (
     treasure2Ids,
     treasure3Ids,
   })
+}
+
+// TODO refactor + add tests
+const handleRewardsFromConfig = (
+  getState: () => ExpeditionsStateSlice &
+    SelectedCardsLookupStateSlice &
+    TreasuresStateSlice &
+    TreasureIdsStateSlice &
+    SelectedMagesLookupStateSlice,
+  battle: types.Battle,
+  rewardsConfig?: types.RewardsConfig,
+  rewardType?: RewardType
+) => {
+  const state = getState()
+
+  const expeditionId = battle.expeditionId
+  const expedition = selectors.Expeditions.Expeditions.getExpeditionById(
+    state,
+    { expeditionId }
+  )
+  const seed = {
+    seed: expedition.seed.seed,
+    state: expedition.seed.supplyState,
+  }
+
+  const rewardTypeMissing = rewardsConfig?.type === 'regular' && !rewardType
+
+  if (!rewardsConfig || rewardTypeMissing) {
+    // If no config is left we simply return empty rewards
+
+    return {
+      ...battle,
+      rewards: {
+        treasure: [],
+        mages: [],
+        supplyIds: [],
+      },
+      seed,
+    }
+  }
+
+  if (rewardsConfig.type === 'regular' && rewardType) {
+    return rollLossRewards(getState, battle, rewardType)
+  } else if (rewardsConfig.type === 'custom') {
+    const stillAvailableCardsByType = {
+      Gem: selectors.getStillAvailableGems(state, {
+        expeditionId,
+      }),
+      Relic: selectors.getStillAvailableRelics(state, {
+        expeditionId,
+      }),
+      Spell: selectors.getStillAvailableSpells(state, {
+        expeditionId,
+      }),
+      EMPTY: [],
+    }
+
+    const stillAvailableTreasureIdsByLevel = {
+      1: selectors.getStillAvailableTreasureIdsByLevel(state, {
+        treasureLevel: 1,
+        expeditionId,
+      }),
+      2: selectors.getStillAvailableTreasureIdsByLevel(state, {
+        treasureLevel: 2,
+        expeditionId,
+      }),
+      3: selectors.getStillAvailableTreasureIdsByLevel(state, {
+        treasureLevel: 3,
+        expeditionId,
+      }),
+    }
+
+    const stillAvailableMageIds = selectors.getStillAvailableMageIds(state, {
+      expeditionId,
+    })
+
+    ////////////
+    // Supply //
+    ////////////
+
+    const { supply } = rewardsConfig
+    const supplyIdsResult = getSupplyIds({
+      supply,
+      seed: {
+        seed: expedition.seed.seed,
+        state: expedition.seed.supplyState,
+      },
+      stillAvailableCardsByType,
+    })
+
+    ///////////
+    // Mages //
+    ///////////
+
+    const { mage } = rewardsConfig
+    const mageIdsResult = getMageIds({
+      mage,
+      seed: supplyIdsResult.seed,
+      stillAvailableMageIds,
+    })
+
+    ///////////////
+    // Treasures //
+    ///////////////
+
+    const { treasure } = rewardsConfig
+    const treasureIdsResult = getTreasureIds({
+      treasure,
+      seed: mageIdsResult.seed,
+      stillAvailableTreasureIdsByLevel,
+    })
+
+    return {
+      ...battle,
+      rewards: {
+        supplyIds: supplyIdsResult.result,
+        treasure: treasureIdsResult.result,
+        mages: mageIdsResult.result,
+      },
+      seed: treasureIdsResult.seed,
+    }
+  }
+
+  // default (should never happen)
+  return {
+    ...battle,
+    rewards: {
+      treasure: [],
+      mages: [],
+      supplyIds: [],
+    },
+    seed,
+  }
+}
+
+export const createLossRewards = (
+  getState: () => ExpeditionsStateSlice &
+    SelectedCardsLookupStateSlice &
+    TreasuresStateSlice &
+    TreasureIdsStateSlice &
+    SelectedMagesLookupStateSlice,
+  battle: types.Battle,
+  rewardType: RewardType
+): BattleRewardsResult => {
+  // RewardsConfig is used
+  const tryIndex = battle.tries - 1
+  const rewardsConfig = battle.config.lossRewards
+    ? battle.config.lossRewards[tryIndex]
+    : undefined
+
+  if (rewardsConfig) {
+    return handleRewardsFromConfig(getState, battle, rewardsConfig, rewardType)
+  } else {
+    // regular case
+    return rollLossRewards(getState, battle, rewardType)
+  }
 }

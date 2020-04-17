@@ -121,6 +121,9 @@ Opens the cypress app to run tests and see the dashboard
 Deploys the `./docs` directory directly to github pages.
 You need to have repository access and push permissions to run this command.
 
+> **NOTE:** To show the docs locally, you have to install docsify as global npm
+> package and run `docsify serve docs -p 3001` inside the project root.
+
 ### `yarn run build`
 
 Builds the app for production to the `build` folder.<br>

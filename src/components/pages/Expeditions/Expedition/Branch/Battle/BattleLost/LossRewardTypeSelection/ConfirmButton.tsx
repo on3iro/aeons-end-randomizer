@@ -14,7 +14,7 @@ const ConfirmButton = ({ handleRewardConfirmation, ...rest }: Props) => {
       onClick={handleRewardConfirmation}
       {...rest}
     >
-      Confirm choice
+      Get rewards
     </Button>
   )
 }
