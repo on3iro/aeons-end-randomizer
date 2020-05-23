@@ -13,6 +13,7 @@ describe('migrateToExpeditionDSL()', () => {
       name: 'Oldstyle',
       migrationVersion: 2020030301,
       score: 6,
+      bigPocketVariant: false,
       seed: {
         seed: 'OLD_STYLE',
         supplyState: true,
@@ -106,8 +107,6 @@ describe('migrateToExpeditionDSL()', () => {
       },
       upgradedBasicNemesisCards: [],
       banished: ['VimDynamo', 'FocusingOrb', 'Tethered Darts'],
-      variantId: 'DEFAULT',
-      bigPocketVariant: false,
       finished: false,
       sequence: {
         firstBranchId: 'fHFX3VH99',
@@ -121,7 +120,7 @@ describe('migrateToExpeditionDSL()', () => {
             config: {
               tier: 1,
               newUBNCards: {
-                ids: [],
+                type: 'regular',
                 addRandom: false,
               },
               treasure: {
@@ -131,6 +130,7 @@ describe('migrateToExpeditionDSL()', () => {
             },
             status: 'finished',
             tries: 1,
+            // @ts-ignore disable-line
             rewards: {
               treasure: [
                 'GexsShatteredGeode',
@@ -150,7 +150,7 @@ describe('migrateToExpeditionDSL()', () => {
             config: {
               tier: 2,
               newUBNCards: {
-                ids: [],
+                type: 'regular',
                 addRandom: true,
               },
               treasure: {
@@ -169,7 +169,7 @@ describe('migrateToExpeditionDSL()', () => {
             config: {
               tier: 3,
               newUBNCards: {
-                ids: [],
+                type: 'regular',
                 addRandom: true,
               },
               treasure: {
@@ -182,12 +182,13 @@ describe('migrateToExpeditionDSL()', () => {
           },
           y0gQDPjY5: {
             id: 'y0gQDPjY5',
+            nextBranchId: undefined,
             type: 'battle',
             expeditionId: 'OLD_STYLE',
             config: {
               tier: 4,
               newUBNCards: {
-                ids: [],
+                type: 'regular',
                 addRandom: true,
               },
               treasure: {

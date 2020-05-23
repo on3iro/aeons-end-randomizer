@@ -581,7 +581,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 3,
               "treasure": Object {
@@ -600,7 +600,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": false,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 1,
               "treasure": Object {
@@ -634,7 +634,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 2,
               "treasure": Object {
@@ -653,7 +653,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 4,
               "treasure": Object {
@@ -1051,7 +1051,6 @@ Object {
         ],
       },
       "upgradedBasicNemesisCards": Array [],
-      "variantId": "DEFAULT",
     },
     "HPEBVeG9": Object {
       "banished": Array [],
@@ -1352,7 +1351,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 3,
               "treasure": Object {
@@ -1371,7 +1370,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 4,
               "treasure": Object {
@@ -1389,7 +1388,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": false,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 1,
               "treasure": Object {
@@ -1408,7 +1407,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 2,
               "treasure": Object {
@@ -1807,7 +1806,6 @@ Object {
         ],
       },
       "upgradedBasicNemesisCards": Array [],
-      "variantId": "DEFAULT",
     },
     "V884fJ4MT": Object {
       "banished": Array [],
@@ -2115,7 +2113,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 2,
               "treasure": Object {
@@ -2134,7 +2132,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 3,
               "treasure": Object {
@@ -2153,7 +2151,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 4,
               "treasure": Object {
@@ -2551,7 +2549,6 @@ Object {
         ],
       },
       "upgradedBasicNemesisCards": Array [],
-      "variantId": "SHORT",
     },
     "WITHOUT_SNAPSHOT": Object {
       "banished": Array [],
@@ -2859,7 +2856,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 2,
               "treasure": Object {
@@ -2878,7 +2875,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 3,
               "treasure": Object {
@@ -2897,7 +2894,7 @@ Object {
             "config": Object {
               "newUBNCards": Object {
                 "addRandom": true,
-                "ids": Array [],
+                "type": "regular",
               },
               "tier": 4,
               "treasure": Object {
@@ -3295,7 +3292,6 @@ Object {
         ],
       },
       "upgradedBasicNemesisCards": Array [],
-      "variantId": "SHORT",
     },
   },
 }

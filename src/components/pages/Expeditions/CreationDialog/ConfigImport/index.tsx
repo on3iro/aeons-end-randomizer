@@ -107,6 +107,14 @@ const ConfigImport = ({ configImportHandler }: Props) => {
             expedition and either save the configuration to a file or paste it
             from your clipboard into a text editor.
           </P>
+          <ImportButton
+            color="primary"
+            variant="outlined"
+            onClick={handleConfigImport}
+            disabled={expeditionJsonConfig.length <= 0}
+          >
+            Import
+          </ImportButton>
           {!!validationError.length && (
             <P style={{ color: 'red' }}>
               The following error was encountered: <br />
@@ -122,14 +130,6 @@ const ConfigImport = ({ configImportHandler }: Props) => {
             inputProps={{ accept: '.json' }}
             onChange={handleFileUpload}
           />
-          <ImportButton
-            color="primary"
-            variant="outlined"
-            onClick={handleConfigImport}
-            disabled={expeditionJsonConfig.length <= 0}
-          >
-            Import
-          </ImportButton>
         </ContentWrapper>
       </ExpansionPanel>
     </FormControl>
