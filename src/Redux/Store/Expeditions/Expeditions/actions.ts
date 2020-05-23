@@ -4,6 +4,12 @@ import * as types from 'aer-types'
 
 import { ActionTypes, State, BaseConfig, RewardType } from './types'
 
+export type InputBranch = {
+  id: string
+  expeditionId: string
+  rewards?: types.Rewards
+}
+
 export const actions = {
   createExpedition: (baseConfig: BaseConfig) =>
     createAction(ActionTypes.CREATE_EXPEDITION, { baseConfig }),
@@ -25,7 +31,7 @@ export const actions = {
   loseBattle: (battle: types.Battle) =>
     createAction(ActionTypes.LOSE_BATTLE, { battle }),
   acceptLoss: (
-    battle: { id: string; expeditionId: string; rewards?: types.Rewards },
+    battle: InputBranch,
     banished: string[],
     newSupplyIds: string[]
   ) =>
@@ -35,9 +41,9 @@ export const actions = {
   rollLossSuccess: (result: types.Battle & { seed: types.Seed }) =>
     createAction(ActionTypes.ROLL_LOSS_SUCCESS, result),
   finishBattle: (
-    battle: types.Battle,
-    newSupplyIds: string[],
-    banished: string[]
+    battle: InputBranch,
+    banished: string[],
+    newSupplyIds: string[]
   ) =>
     createAction(ActionTypes.FINISH_BATTLE, { battle, newSupplyIds, banished }),
   finishExpedition: (branch: types.Branch) =>

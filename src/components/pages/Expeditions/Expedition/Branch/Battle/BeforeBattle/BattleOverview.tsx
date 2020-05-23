@@ -12,6 +12,7 @@ type Props = {
   info: string
   nemesis?: types.Nemesis
   specialRules?: string
+  onLoss?: string
   upgradedBasicNemsisCards: types.UpgradedBasicNemesisCard[]
 }
 
@@ -20,6 +21,7 @@ const BattleOverview = ({
   nemesis,
   upgradedBasicNemsisCards,
   specialRules,
+  onLoss,
 }: Props) => {
   return (
     <>
@@ -28,7 +30,16 @@ const BattleOverview = ({
         {nemesis ? nemesis.name : 'Nemesis'}
       </SectionHeadline>
       <NemesisInformation nemesis={nemesis} />
-      {specialRules && <SpecialRules>{specialRules}</SpecialRules>}
+      {(specialRules || onLoss) && (
+        <SpecialRules
+          rules={[
+            ...(specialRules ? [specialRules] : []),
+            ...(onLoss === 'skip'
+              ? ['You only have a single try for this battle!']
+              : []),
+          ]}
+        />
+      )}
       <UpgradedBasicNemesisCardList
         upgradedBasicNemsisCards={upgradedBasicNemsisCards}
       />

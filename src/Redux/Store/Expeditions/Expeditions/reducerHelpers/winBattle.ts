@@ -17,7 +17,7 @@ export const winBattle = (
 
   return loop(
     state,
-    Cmd.run(sideEffects.rollWinRewards, {
+    Cmd.run(sideEffects.createWinRewards, {
       args: [Cmd.getState, battle],
       successActionCreator: actions.winBattleSuccess,
     })

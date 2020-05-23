@@ -3,7 +3,7 @@ import * as types from 'aer-types'
 import * as rollSupplyRewardsModule from '../rollSupplyRewards'
 import * as rollTreasureIdsByLevelModule from '../rollTreasureIdsByLevel'
 
-import { getTreasureAmount, rollWinRewards } from '../index'
+import { getTreasureAmount, createWinRewards } from '../index'
 
 describe('getTreasureAmount()', () => {
   it('should return 3 if treasureLevel equals 2', () => {
@@ -97,7 +97,7 @@ describe('rollWinRewards()', () => {
       tries: 1,
     } as types.Battle
 
-    const result = rollWinRewards(getExampleState, inputBattle)
+    const result = createWinRewards(getExampleState, inputBattle)
 
     expect(result.battle).toEqual({
       ...inputBattle,
@@ -119,7 +119,7 @@ describe('rollWinRewards()', () => {
       'rollTreasureIdsByLevel'
     )
 
-    rollWinRewards(getExampleState, {
+    createWinRewards(getExampleState, {
       id: 'someBattle',
       expeditionId: 'expedition1',
       config: {

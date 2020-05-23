@@ -7,7 +7,14 @@ import {
   createCardList,
 } from 'Redux/helpers'
 
-import { RootState, selectors } from 'Redux/Store'
+import { selectors } from 'Redux/Store'
+import { ExpeditionsStateSlice } from '../types'
+import { SelectedCardsLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedCards'
+import {
+  TreasuresStateSlice,
+  TreasureIdsStateSlice,
+} from 'Redux/Store/Settings/Expansions/Treasures'
+import { SelectedMagesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedMages'
 
 export const rollNewEntity = (
   list: string[],
@@ -204,113 +211,100 @@ export const getMageIds = ({
 }
 
 // TODO add tests
-export const handleCustomRewards = (state: RootState, reward: types.Reward) => {
-  const expeditionId = reward.expeditionId
-  const expedition = selectors.Expeditions.Expeditions.getExpeditionById(
-    state,
-    { expeditionId }
-  )
+export const handleCustomRewards = (
+  state: ExpeditionsStateSlice &
+    SelectedCardsLookupStateSlice &
+    TreasuresStateSlice &
+    TreasureIdsStateSlice &
+    SelectedMagesLookupStateSlice,
+  rewardConfig: {
+    type: 'custom'
+    treasure?: types.TreasureRewardConfig
+    mage?: types.MageRewardConfig
+    supply?: types.SupplyRewardConfig
+  },
+  expedition: types.Expedition
+) => {
+  const expeditionId = expedition.id
 
-  // FIXME
-  // it currently is possible that an id which is used as custom id is also being
-  // rolle before its part of a reward
-  // We definitely need a testcase for this, as well as the logic to avoid clashes like these
+  ///////////////////////
+  // Content Selection //
+  ///////////////////////
 
-  // The 'regular' RewardsConfig property should only be used in other contexts
-  // Which is why we opt out of doing anything, if it was mistakenly added to a
-  // Reward-Branch
-  if (reward.config.type === 'regular') {
-    return {
-      rewards: {
-        treasure: [],
-        mages: [],
-        supplyIds: [],
-      },
-      seed: {
-        seed: expedition.seed.seed,
-        state: expedition.seed.supplyState,
-      },
-    }
-  } else {
-    ///////////////////////
-    // Content Selection //
-    ///////////////////////
-
-    const stillAvailableCardsByType = {
-      Gem: selectors.getStillAvailableGems(state, {
-        expeditionId,
-      }),
-      Relic: selectors.getStillAvailableRelics(state, {
-        expeditionId,
-      }),
-      Spell: selectors.getStillAvailableSpells(state, {
-        expeditionId,
-      }),
-      EMPTY: [],
-    }
-
-    const stillAvailableTreasureIdsByLevel = {
-      1: selectors.getStillAvailableTreasureIdsByLevel(state, {
-        treasureLevel: 1,
-        expeditionId,
-      }),
-      2: selectors.getStillAvailableTreasureIdsByLevel(state, {
-        treasureLevel: 2,
-        expeditionId,
-      }),
-      3: selectors.getStillAvailableTreasureIdsByLevel(state, {
-        treasureLevel: 3,
-        expeditionId,
-      }),
-    }
-
-    const stillAvailableMageIds = selectors.getStillAvailableMageIds(state, {
+  const stillAvailableCardsByType = {
+    Gem: selectors.getStillAvailableGems(state, {
       expeditionId,
-    })
+    }),
+    Relic: selectors.getStillAvailableRelics(state, {
+      expeditionId,
+    }),
+    Spell: selectors.getStillAvailableSpells(state, {
+      expeditionId,
+    }),
+    EMPTY: [],
+  }
 
-    ////////////
-    // Supply //
-    ////////////
+  const stillAvailableTreasureIdsByLevel = {
+    1: selectors.getStillAvailableTreasureIdsByLevel(state, {
+      treasureLevel: 1,
+      expeditionId,
+    }),
+    2: selectors.getStillAvailableTreasureIdsByLevel(state, {
+      treasureLevel: 2,
+      expeditionId,
+    }),
+    3: selectors.getStillAvailableTreasureIdsByLevel(state, {
+      treasureLevel: 3,
+      expeditionId,
+    }),
+  }
 
-    const { supply } = reward.config
-    const supplyIdsResult = getSupplyIds({
-      supply,
-      seed: {
-        seed: expedition.seed.seed,
-        state: expedition.seed.supplyState,
-      },
-      stillAvailableCardsByType,
-    })
+  const stillAvailableMageIds = selectors.getStillAvailableMageIds(state, {
+    expeditionId,
+  })
 
-    ///////////
-    // Mages //
-    ///////////
+  ////////////
+  // Supply //
+  ////////////
 
-    const { mage } = reward.config
-    const mageIdsResult = getMageIds({
-      mage,
-      seed: supplyIdsResult.seed,
-      stillAvailableMageIds,
-    })
+  const { supply } = rewardConfig
+  const supplyIdsResult = getSupplyIds({
+    supply,
+    seed: {
+      seed: expedition.seed.seed,
+      state: expedition.seed.supplyState,
+    },
+    stillAvailableCardsByType,
+  })
 
-    ///////////////
-    // Treasures //
-    ///////////////
+  ///////////
+  // Mages //
+  ///////////
 
-    const { treasure } = reward.config
-    const treasureIdsResult = getTreasureIds({
-      treasure,
-      seed: mageIdsResult.seed,
-      stillAvailableTreasureIdsByLevel,
-    })
+  const { mage } = rewardConfig
+  const mageIdsResult = getMageIds({
+    mage,
+    seed: supplyIdsResult.seed,
+    stillAvailableMageIds,
+  })
 
-    return {
-      rewards: {
-        supplyIds: supplyIdsResult.result,
-        treasure: treasureIdsResult.result,
-        mages: mageIdsResult.result,
-      },
-      seed: treasureIdsResult.seed,
-    }
+  ///////////////
+  // Treasures //
+  ///////////////
+
+  const { treasure } = rewardConfig
+  const treasureIdsResult = getTreasureIds({
+    treasure,
+    seed: mageIdsResult.seed,
+    stillAvailableTreasureIdsByLevel,
+  })
+
+  return {
+    rewards: {
+      supplyIds: supplyIdsResult.result,
+      treasure: treasureIdsResult.result,
+      mages: mageIdsResult.result,
+    },
+    seed: treasureIdsResult.seed,
   }
 }

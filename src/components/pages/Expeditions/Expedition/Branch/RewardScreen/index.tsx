@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { connect } from 'react-redux'
 
-import * as types from 'aer-types'
 import { RootState, selectors } from 'Redux/Store'
 
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
@@ -13,8 +12,7 @@ import SupplyReward from '../SupplyReward'
 import TreasureReward from '../TreasureReward'
 import MageReward from '../MageReward'
 import ContinueButton from './ContinueButton'
-
-type InputBranch = { id: string; expeditionId: string; rewards?: types.Rewards }
+import { InputBranch } from 'Redux/Store/Expeditions/Expeditions/actions'
 
 type OwnProps = {
   branch: InputBranch
