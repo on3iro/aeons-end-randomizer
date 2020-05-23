@@ -6,6 +6,7 @@ import { RootState, actions } from 'Redux/Store'
 
 import LossRewardTypeSelection from './LossRewardTypeSelection'
 import RewardScreen from '../../RewardScreen'
+import { InputBranch } from 'Redux/Store/Expeditions/Expeditions/actions'
 
 type OwnProps = {
   battle: types.Battle
@@ -24,8 +25,6 @@ const mapDispatchToProps = {
 type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
-
-type InputBranch = { id: string; expeditionId: string; rewards?: types.Rewards }
 
 const BattleLost = ({ battle, hide, showNext, acceptLoss }: Props) => {
   const acceptLossCallback = useCallback(

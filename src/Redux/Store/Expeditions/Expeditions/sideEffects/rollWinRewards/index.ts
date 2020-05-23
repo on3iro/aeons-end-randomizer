@@ -12,10 +12,13 @@ import {
   TreasureIdsStateSlice,
 } from 'Redux/Store/Settings/Expansions/Treasures'
 import { SelectedCardsLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedCards'
+import { SelectedMagesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedMages'
+import { handleCustomRewards } from '../helpers'
 
 export const getTreasureAmount = (treasureLevel?: types.TreasureLevel) => {
   return treasureLevel === 2 ? 3 : 5
 }
+
 export const rollWinRewards = (
   getState: () => ExpeditionsStateSlice &
     TreasuresStateSlice &
@@ -86,5 +89,59 @@ export const rollWinRewards = (
   return {
     battle: updatedBattle,
     seed: supplyRewardsResult.seed,
+  }
+}
+
+const handleRewardsFromConfig = (
+  getState: () => ExpeditionsStateSlice &
+    SelectedCardsLookupStateSlice &
+    TreasuresStateSlice &
+    TreasureIdsStateSlice &
+    SelectedMagesLookupStateSlice,
+  battle: types.Battle,
+  rewardsConfig: types.RewardsConfig
+) => {
+  const state = getState()
+
+  const expeditionId = battle.expeditionId
+  const expedition = selectors.Expeditions.Expeditions.getExpeditionById(
+    state,
+    { expeditionId }
+  )
+
+  if (rewardsConfig.type === 'regular') {
+    return rollWinRewards(getState, battle)
+  } else {
+    const result = handleCustomRewards(state, rewardsConfig, expedition)
+
+    const updatedBattle = {
+      ...battle,
+      ...result,
+    }
+
+    const seed = result.seed
+    return {
+      battle: updatedBattle,
+      seed,
+    }
+  }
+}
+
+// TODO add tests
+export const createWinRewards = (
+  getState: () => ExpeditionsStateSlice &
+    SelectedCardsLookupStateSlice &
+    TreasuresStateSlice &
+    TreasureIdsStateSlice &
+    SelectedMagesLookupStateSlice,
+  battle: types.Battle
+) => {
+  const rewardsConfig = battle.config.winRewards
+
+  if (rewardsConfig) {
+    return handleRewardsFromConfig(getState, battle, rewardsConfig)
+  } else {
+    // regular case
+    return rollWinRewards(getState, battle)
   }
 }

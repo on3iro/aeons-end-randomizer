@@ -280,7 +280,7 @@ describe('Reducer()', () => {
     expect(model).toEqual(state)
 
     expect(cmd).toEqual(
-      Cmd.run(sideEffects.rollWinRewards, {
+      Cmd.run(sideEffects.createWinRewards, {
         args: [Cmd.getState, battle],
         successActionCreator: actions.winBattleSuccess,
       })
@@ -1162,7 +1162,7 @@ describe('Reducer()', () => {
 
     const result = Reducer(
       state,
-      actions.finishBattle(battle, ['DiamondCluster'], ['Jade'])
+      actions.finishBattle(battle, ['Jade'], ['DiamondCluster'])
     )
 
     const model = getModel(result)

@@ -79,11 +79,20 @@ const BattleStarted = ({
     }
   }, [loseBattle, hide, battle, showNextOnLoss])
 
+  const { specialRules, onLoss } = battle.config
+
   return (
     <React.Fragment>
       <ModalBodyWrapper hasFooter={true}>
-        {battle.config.specialRules && (
-          <SpecialRules>{battle.config.specialRules}</SpecialRules>
+        {(specialRules || onLoss) && (
+          <SpecialRules
+            rules={[
+              ...(specialRules ? [specialRules] : []),
+              ...(onLoss === 'skip'
+                ? ['You only have a single try for this battle!']
+                : []),
+            ]}
+          />
         )}
       </ModalBodyWrapper>
       <ModalFooterWrapper>

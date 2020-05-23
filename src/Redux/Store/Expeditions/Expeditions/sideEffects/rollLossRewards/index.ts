@@ -16,7 +16,7 @@ import {
   TreasureIdsStateSlice,
 } from 'Redux/Store/Settings/Expansions/Treasures'
 import { SelectedMagesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedMages'
-import { getSupplyIds, getMageIds, getTreasureIds } from '../helpers'
+import { handleCustomRewards } from '../helpers'
 
 export const handleRewardType = ({
   rewardType,
@@ -178,82 +178,9 @@ const handleRewardsFromConfig = (
   if (rewardsConfig.type === 'regular' && rewardType) {
     return rollLossRewards(getState, battle, rewardType)
   } else if (rewardsConfig.type === 'custom') {
-    const stillAvailableCardsByType = {
-      Gem: selectors.getStillAvailableGems(state, {
-        expeditionId,
-      }),
-      Relic: selectors.getStillAvailableRelics(state, {
-        expeditionId,
-      }),
-      Spell: selectors.getStillAvailableSpells(state, {
-        expeditionId,
-      }),
-      EMPTY: [],
-    }
-
-    const stillAvailableTreasureIdsByLevel = {
-      1: selectors.getStillAvailableTreasureIdsByLevel(state, {
-        treasureLevel: 1,
-        expeditionId,
-      }),
-      2: selectors.getStillAvailableTreasureIdsByLevel(state, {
-        treasureLevel: 2,
-        expeditionId,
-      }),
-      3: selectors.getStillAvailableTreasureIdsByLevel(state, {
-        treasureLevel: 3,
-        expeditionId,
-      }),
-    }
-
-    const stillAvailableMageIds = selectors.getStillAvailableMageIds(state, {
-      expeditionId,
-    })
-
-    ////////////
-    // Supply //
-    ////////////
-
-    const { supply } = rewardsConfig
-    const supplyIdsResult = getSupplyIds({
-      supply,
-      seed: {
-        seed: expedition.seed.seed,
-        state: expedition.seed.supplyState,
-      },
-      stillAvailableCardsByType,
-    })
-
-    ///////////
-    // Mages //
-    ///////////
-
-    const { mage } = rewardsConfig
-    const mageIdsResult = getMageIds({
-      mage,
-      seed: supplyIdsResult.seed,
-      stillAvailableMageIds,
-    })
-
-    ///////////////
-    // Treasures //
-    ///////////////
-
-    const { treasure } = rewardsConfig
-    const treasureIdsResult = getTreasureIds({
-      treasure,
-      seed: mageIdsResult.seed,
-      stillAvailableTreasureIdsByLevel,
-    })
-
     return {
       ...battle,
-      rewards: {
-        supplyIds: supplyIdsResult.result,
-        treasure: treasureIdsResult.result,
-        mages: mageIdsResult.result,
-      },
-      seed: treasureIdsResult.seed,
+      ...handleCustomRewards(state, rewardsConfig, expedition),
     }
   }
 
