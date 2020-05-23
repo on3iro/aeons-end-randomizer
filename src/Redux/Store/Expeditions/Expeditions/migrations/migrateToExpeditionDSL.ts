@@ -6,12 +6,10 @@ export const migrateToExpeditionDSL = (
   expedition: types.OldStyleExpedition
 ) => {
   const { battles, ...expeditionProps } = expedition
-
-  const bigPocketVariantConfig = expeditionProps.bigPocketVariant
+  const { variantId, ...actualProps } = expeditionProps
 
   return {
-    ...expeditionProps,
-    bigPocketVariantConfig,
+    ...actualProps,
     sequence: {
       firstBranchId: battles[0].id,
       branches: battles.reduce((acc, battle, index) => {
@@ -26,7 +24,7 @@ export const migrateToExpeditionDSL = (
             config: {
               tier: nemesisTier.tier,
               newUBNCards: {
-                ids: [],
+                type: 'regular',
                 addRandom: nemesisTier.isNewTier,
               },
               treasure,
