@@ -54,6 +54,7 @@ const BeforeBattle = ({
         <BattleOverview
           info={battle.tries.toString()}
           specialRules={battle.config.specialRules}
+          onLoss={battle.config.onLoss}
           nemesis={nemesis}
           upgradedBasicNemsisCards={upgradedBasicNemsisCards}
         />

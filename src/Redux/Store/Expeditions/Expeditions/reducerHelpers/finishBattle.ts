@@ -2,6 +2,8 @@ import { loop, Cmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
 import { BattleStatus } from 'aer-types'
 
+import * as types from 'aer-types'
+
 import { State } from '../types'
 import { actions } from '../actions'
 
@@ -14,8 +16,10 @@ export const finishBattle = (
   const { battle, newSupplyIds, banished } = action.payload
   const oldExpedition = state.expeditions[battle.expeditionId]
   const branches = oldExpedition.sequence.branches
+  // FIXME fix type casting
+  const branch = oldExpedition.sequence.branches[battle.id] as types.Battle
 
-  const { nextBranchId } = battle
+  const { nextBranchId } = branch
 
   // Battles do currently only have one outcome
   const hasNext = !!nextBranchId && typeof nextBranchId === 'string'
@@ -25,8 +29,8 @@ export const finishBattle = (
 
   const updatedBranches = {
     ...branches,
-    [battle.id]: {
-      ...battle,
+    [branch.id]: {
+      ...branch,
       status: newStatus,
     },
     ...(hasNext && {
@@ -37,7 +41,8 @@ export const finishBattle = (
     }),
   }
 
-  const newTreasureIds = battle.rewards ? battle.rewards.treasure : []
+  const newTreasureIds = battle?.rewards?.treasure ?? []
+  const newMageIds = battle?.rewards?.mages ?? []
 
   const newState = {
     ...state,
@@ -51,6 +56,7 @@ export const finishBattle = (
         },
         barracks: {
           ...oldExpedition.barracks,
+          mageIds: [...oldExpedition.barracks.mageIds, ...newMageIds],
           treasureIds: [
             ...oldExpedition.barracks.treasureIds,
             ...newTreasureIds,

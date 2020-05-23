@@ -61,7 +61,7 @@ describe('seeds', () => {
     cy.get('p')
       .contains('Nerve Jab')
       .click()
-    cy.get('[data-test="btn-unlock-next-battle"]').click()
+    cy.get('[data-test="btn-continue"]').click()
 
     cy.get('[data-test=btn-battle]')
       .eq(1)
@@ -107,7 +107,7 @@ describe('seeds', () => {
     cy.get('p')
       .contains('Nerve Jab')
       .click()
-    cy.get('[data-test="btn-unlock-next-battle"]').click()
+    cy.get('[data-test="btn-continue"]').click()
 
     cy.get('[data-test=btn-battle]')
       .eq(1)
@@ -150,7 +150,7 @@ describe('seeds', () => {
       .contains('Nerve Jab')
       .click()
 
-    cy.get('[data-test="btn-unlock-next-battle"]').click()
+    cy.get('[data-test="btn-continue"]').click()
 
     cy.get('[data-test=btn-battle]')
       .eq(1)
@@ -197,7 +197,7 @@ describe('seeds', () => {
       .contains('Amplify Vision')
       .click()
 
-    cy.get('[data-test="btn-unlock-next-battle"]').click()
+    cy.get('[data-test="btn-continue"]').click()
 
     cy.get('[data-test=btn-battle]')
       .eq(1)

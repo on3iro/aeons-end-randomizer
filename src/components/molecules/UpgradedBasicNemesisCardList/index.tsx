@@ -10,7 +10,10 @@ const renderUpgradedBasicNemesisCards = (
   upgradedBasicNemsisCards: types.UpgradedBasicNemesisCard[]
 ) =>
   upgradedBasicNemsisCards.map(upgradedBasicNemsisCard => (
-    <UpgradedBasicNemesisCardTile nemesisCard={upgradedBasicNemsisCard} />
+    <UpgradedBasicNemesisCardTile
+      key={upgradedBasicNemsisCard.id}
+      nemesisCard={upgradedBasicNemsisCard}
+    />
   ))
 
 type Props = {

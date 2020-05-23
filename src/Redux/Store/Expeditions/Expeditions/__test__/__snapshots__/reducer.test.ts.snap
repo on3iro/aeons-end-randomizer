@@ -1108,7 +1108,7 @@ Object {
             "expeditionId": "Expedition1",
             "id": "0t22iBGUff",
             "nextBranchId": "wXBtzLO1bM",
-            "status": "locked",
+            "status": "unlocked",
             "tries": 0,
             "type": "battle",
           },
@@ -1161,14 +1161,7 @@ Object {
             },
             "expeditionId": "Expedition1",
             "id": "YBsJLx4PfV",
-            "rewards": Object {
-              "supplyIds": Array [
-                "Popel",
-              ],
-              "treasure": Array [
-                "AlchemistsAlembic",
-              ],
-            },
+            "nextBranchId": "0t22iBGUff",
             "status": "finished",
             "tries": 0,
             "type": "battle",
