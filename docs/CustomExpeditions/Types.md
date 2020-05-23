@@ -253,6 +253,14 @@ type: `string`
 Id of a specific nemesis. If this is provided, the specified nemesis will be taken and no nemesis will be rolled randomly.
 If ommitted the nemesis for this battle will be rolled regularily.
 
+> **NOTE:** Currently we do not filter out specified nemeses. So if you specify a nemesisId,
+> you need to make sure, that it is not part of the `availableNemesisIds` inside
+> the [`settingsSnapshotConfig`](#SettingsSnapshotConfig)!
+> Otherwise it might happen, that you get nemesis twice, e.g. if the players already rolled the nemesis you specified randomly before!
+>
+> However you can of course specify the same nemesisId for two different battles if you want.
+> That way you can create something like a follow up battle with special rules. ('stage 2' of the fight, if you will ;) )
+
 ##### Example
 
 ```json
@@ -271,6 +279,11 @@ This specifies what upgraded basic nemesis cards are added to the players pool.
 
 If `type: "custom"` is used and a set of ids of upgraded basic nemesis cards is provided,
 these cards will be added to the pool.
+
+> **NOTE:** Currently we do not filter out custom UBNCardIds. So if you specify a UBNCardId,
+> you need to make sure, that it is not part of the `availableUpgradedBasicNemesisCardIds` inside
+> the [`settingsSnapshotConfig`](#SettingsSnapshotConfig)!
+> Otherwise it might happen, that you get a card twice, e.g. if the players already rolled the card you specified randomly before!
 
 If `type: "regular"` is used, `addRandom` will determine if any cards will be added at all.
 If set to `true` random cards will be added according to the battles `config.tier`.
@@ -326,8 +339,6 @@ For further details see [`RewardsConfig`](#RewardsConfig).
 ```
 
 ### winRewards **(optional)**
-
-> **NOTE:** This property is not yet fully supported and might not work to some extend in the current Beta-build
 
 ##### Definition
 
@@ -444,6 +455,11 @@ This does only work in the context of a [`BattleBranch`](#BattleBranch).
 In this case all other properties of the config do nothing.
 
 The type `custom` can be specified for [`BattleBranches`](#BattleBranch) as well as [`RewardBranches`](#RewardBranch).
+
+> **NOTE:** Currently we do not filter out custom rewards. So if you use a specific mage, card or treasure as custom reward,
+> you need to make sure, that it is not part of the `availableCardIds/availableMageIds/availableTreasureIds` inside
+> the [`settingsSnapshotConfig`](#SettingsSnapshotConfig)!
+> Otherwise it might happen, that you get an entity twice, e.g. if the players already rolled a mage you specified randomly before!
 
 ##### Examples
 
