@@ -45,11 +45,14 @@ export const handleExistingConfig = (
   // because 'convertExpeditionFromConfig' already calculates the
   // 'usedExpansions' property. Technically we would only have to
   // check the market setup which was chosen
-  const settingsSnapshot = createSettingsSnapshot(
-    state,
-    expeditionConfig.settingsSnapshotConfig,
-    marketId
-  )
+  const settingsSnapshot = {
+    ...createSettingsSnapshot(
+      state,
+      expeditionConfig.settingsSnapshotConfig,
+      marketId
+    ),
+    usedExpansions: baseExpedition.settingsSnapshot.usedExpansions,
+  }
 
   ///////////////////////////
   // Content randomziation //

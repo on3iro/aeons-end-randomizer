@@ -32,7 +32,9 @@ export const convertExpeditionFromConfig = (
       ...config.settingsSnapshotConfig,
       usedExpansions: determineUsedExpansions(
         state,
-        config.settingsSnapshotConfig
+        config.settingsSnapshotConfig,
+        config.sequenceConfig.branches,
+        config.initialBarracksConfig
       ),
     },
     sequence: {
