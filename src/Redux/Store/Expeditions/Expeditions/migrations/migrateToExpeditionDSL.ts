@@ -7,8 +7,11 @@ export const migrateToExpeditionDSL = (
 ) => {
   const { battles, ...expeditionProps } = expedition
 
+  const bigPocketVariantConfig = expeditionProps.bigPocketVariant
+
   return {
     ...expeditionProps,
+    bigPocketVariantConfig,
     sequence: {
       firstBranchId: battles[0].id,
       branches: battles.reduce((acc, battle, index) => {
