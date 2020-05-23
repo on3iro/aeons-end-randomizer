@@ -5,9 +5,6 @@
 This version is used to explain how the configuration works. Do not try to copy and
 import this, as comments are not valid in **JSON**. Use the uncommented version below instead.
 
-**NOTE**: Comments which are postfixed with `WORK IN PROGRESS` indicate, that the feature has not yet been implemented.
-You are still allowed to already use these in your configurations, but they will currently have no effect.
-
 ```json
 {
   "name": "Example Expedition Full", // Name of the expedition which will be used by default on import
@@ -73,7 +70,7 @@ You are still allowed to already use these in your configurations, but they will
             }
           ],
           "winRewards": {
-            // custom rewards for when the player wins WORK IN PROGRESS
+            // custom rewards for when the player wins
             "type": "custom",
             "treasure": {
               "ids": [
