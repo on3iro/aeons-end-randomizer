@@ -5,9 +5,6 @@
 This version is used to explain how the configuration works. Do not try to copy and
 import this, as comments are not valid in **JSON**. Use the uncommented version below instead.
 
-**NOTE**: Comments which are postfixed with `WORK IN PROGRESS` indicate, that the feature has not yet been implemented.
-You are still allowed to already use these in your configurations, but they will currently have no effect.
-
 ```json
 {
   "name": "Example Expedition Full", // Name of the expedition which will be used by default on import
@@ -39,11 +36,11 @@ You are still allowed to already use these in your configurations, but they will
           "tier": 1, // tier which will be used for upgraded basic nemesis card generation and nemesis rolling
           "nemesisId": "CarapaceQueen", // specific nemesis id -> this will be taken instead of randomly rolled one
           "newUBNCards": {
-            // new upgraded basic nemesis cards to add WORK IN PROGRESS
+            // new upgraded basic nemesis cards to add
             "type": "regular",
             "addRandom": true
           },
-          "specialRules": "You may not talk", // special rules which will be displayed WORK IN PROGRESS
+          "specialRules": "You may not talk", // special rules which will be displayed
           "treasure": {
             // treasure which will be rolled upon completion of the battle
             "level": 1, // level of the treasure to be rolled
@@ -56,9 +53,9 @@ You are still allowed to already use these in your configurations, but they will
         "type": "battle",
         "config": {
           "tier": 2,
-          "onLoss": "skip", // battle can't be repeated WORK IN PROGRESS
+          "onLoss": "skip", // battle can't be repeated
           "lossRewards": [
-            // list of custom rewards for each time the player looses WORK IN PROGRESS
+            // list of custom rewards for each time the player looses
             {
               "type": "custom",
               "treasure": {
@@ -73,7 +70,7 @@ You are still allowed to already use these in your configurations, but they will
             }
           ],
           "winRewards": {
-            // custom rewards for when the player wins WORK IN PROGRESS
+            // custom rewards for when the player wins
             "type": "custom",
             "treasure": {
               "ids": [
