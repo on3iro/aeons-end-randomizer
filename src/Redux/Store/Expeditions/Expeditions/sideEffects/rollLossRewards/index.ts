@@ -136,7 +136,7 @@ const rollLossRewards = (
   })
 }
 
-// TODO refactor + add tests
+// TODO add tests
 const handleRewardsFromConfig = (
   getState: () => ExpeditionsStateSlice &
     SelectedCardsLookupStateSlice &
