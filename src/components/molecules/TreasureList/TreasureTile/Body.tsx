@@ -16,7 +16,7 @@ type OwnProps = {
 }
 
 const mapStateToProps = (state: RootState) => ({
-  expansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
+  expansions: selectors.Settings.Expansions.Expansions.content.getContent(
     state
   ),
 })
@@ -33,7 +33,7 @@ const Body = ({ treasure, expansions }: Props) => (
     <List>
       <InfoItem
         label="Set"
-        info={expansions.expansions[treasure.expansion]?.name || ''}
+        info={expansions.ENG[treasure.expansion]?.name || ''}
       />
       <InfoItem label="Treasure Level" info={treasure.level.toString()} />
       {treasure.subtype && <InfoItem label="Subtype" info={treasure.subtype} />}

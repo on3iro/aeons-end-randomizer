@@ -1,19 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, selectors, actions } from '../../../../../Redux/Store'
+import { RootState, selectors, actions } from 'Redux/Store'
 
 import CardListItem from './CardListItem'
 
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
-  selectedRelics: selectors.Settings.Expansions.SelectedCards.getRelicsByExpansionId(
+  selectedRelics: selectors.Settings.Expansions.Cards.getRelicsByExpansionId(
     state,
     props.expansionId
   ),
 })
 
 const mapDispatchToProps = {
-  handleRelicChange: actions.Settings.Expansions.SelectedCards.toggleCard,
+  handleRelicChange: actions.Settings.Expansions.Cards.selected.toggleCard,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &

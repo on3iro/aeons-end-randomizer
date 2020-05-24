@@ -14,9 +14,8 @@ import Body from 'components/molecules/BasicNemesisCardInformation'
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import P from 'components/atoms/P'
 
-// FIXME refine type (Bug due to withTheme)
-const mapStateToProps = (state: RootState, props: any) => ({
-  selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
+const mapStateToProps = (state: RootState, _: any) => ({
+  expansions: selectors.Settings.Expansions.Expansions.content.getContent(
     state
   ),
 })
@@ -29,12 +28,10 @@ type Props = ReturnType<typeof mapStateToProps> & {
 
 const BasicNemesisCardModal = ({
   card,
-  selectedExpansions,
+  expansions,
   theme,
   RenderModal,
 }: Props) => {
-  const { expansions } = selectedExpansions
-
   const titleColor = card
     ? theme.colors.turnOrderCards['nemesis'].normal
     : theme.colors.text.primary
@@ -46,7 +43,7 @@ const BasicNemesisCardModal = ({
         {card ? (
           <Body
             card={card}
-            expansionName={expansions[card.expansion].name || ''}
+            expansionName={expansions.ENG[card.expansion].name || ''}
           />
         ) : (
           <P>No content</P>

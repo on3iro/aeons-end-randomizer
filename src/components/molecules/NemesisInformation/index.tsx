@@ -4,19 +4,18 @@ import { connect } from 'react-redux'
 import { withTheme } from 'styled-components/macro'
 
 import { Nemesis } from 'aer-types'
-import { RootState, selectors } from '../../../Redux/Store'
+import { RootState, selectors } from 'Redux/Store'
 
 import InfoItem from '../InfoItem'
-import SectionHeadline from '../../atoms/SectionHeadline'
+import SectionHeadline from 'components/atoms/SectionHeadline'
 
 import AdditionalInfo from './AdditionalInfo'
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
   const expansion = ownProps.nemesis
-    ? selectors.Settings.Expansions.SelectedExpansions.getExpansionById(
-        state,
-        ownProps.nemesis.expansion
-      )
+    ? selectors.Settings.Expansions.Expansions.content.getExpansionById(state, {
+        expansionId: ownProps.nemesis.expansion,
+      })
     : null
 
   return {

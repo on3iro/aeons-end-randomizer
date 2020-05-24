@@ -6,7 +6,7 @@ import { RootState, selectors } from '../../../../../Redux/Store'
 import ExpansionList, { ChangeHandler } from './ExpansionList'
 
 const mapStateToProps = (state: RootState) => ({
-  miniExpansions: selectors.Settings.Expansions.SelectedExpansions.getMiniExpansions(
+  miniExpansions: selectors.Settings.Expansions.Expansions.getMiniExpansions(
     state
   ),
 })

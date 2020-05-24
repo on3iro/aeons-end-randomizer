@@ -1,18 +1,18 @@
 import * as types from 'aer-types'
 import { determineUsedExpansions } from './determineUsedExpansions'
 
-import { SelectedCardsLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedCards'
-import { SelectedMagesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedMages'
-import { SelectedNemesesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedNemeses'
-import { TreasuresStateSlice } from 'Redux/Store/Settings/Expansions/Treasures'
-import { UpgradedBasicNemesisCardsStateSlice } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards'
+import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
+import { NemesisContentStateSlice } from 'Redux/Store/Settings/Expansions/Nemeses/content'
+import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/content'
+import { UpgradedBasicNemesisCardContentStateSlice } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards/content'
+import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
 
 export const handleExistingSettingsSnapshot = (
-  state: SelectedCardsLookupStateSlice &
-    SelectedMagesLookupStateSlice &
-    SelectedNemesesLookupStateSlice &
-    TreasuresStateSlice &
-    UpgradedBasicNemesisCardsStateSlice,
+  state: CardsContentStateSlice &
+    MagesContentStateSlice &
+    NemesisContentStateSlice &
+    TreasureContentStateSlice &
+    UpgradedBasicNemesisCardContentStateSlice,
   settingsSnapshot: Omit<types.SettingsSnapshot, 'usedExpansions'>,
   baseSupplySetups: { [id: string]: types.IMarketSetup },
   marketId: string

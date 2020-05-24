@@ -14,14 +14,14 @@ import Mini from './Mini'
 import Promos from './Promos'
 
 const mapStateToProps = (state: RootState) => ({
-  allSetsSelected: selectors.Settings.Expansions.SelectedExpansions.getAllExpansionsSelected(
+  allSetsSelected: selectors.Settings.Expansions.Expansions.getAllExpansionsSelected(
     state
   ),
 })
 
 const mapDispatchToProps = {
-  handleSelectAll: actions.Settings.Expansions.SelectedExpansions.toggleAll,
-  handleChange: actions.Settings.Expansions.SelectedExpansions.toggleExpansion,
+  handleSelectAll: actions.Settings.Expansions.Expansions.main.toggleAll,
+  handleChange: actions.Settings.Expansions.Expansions.selected.toggleExpansion,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}

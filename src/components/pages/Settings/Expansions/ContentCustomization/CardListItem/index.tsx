@@ -6,19 +6,15 @@ import ListWrapper from 'components/molecules/ListWrapper'
 
 import Checkbox from './Checkbox'
 
-export type SelectedCard = types.ICard & { selected: boolean }
 export type ChangeHandler = (id: string) => void
 
-const renderCheckboxes = (
-  items: SelectedCard[],
-  changeHandler: ChangeHandler
-) =>
+const renderCheckboxes = (items: types.ICard[], changeHandler: ChangeHandler) =>
   items.map(item => (
     <Checkbox key={item.id} card={item} changeHandler={changeHandler} />
   ))
 
 type Props = {
-  entities: SelectedCard[]
+  entities: types.ICard[]
   handleCheckboxChange: (...args: any) => void
   label: string
 }

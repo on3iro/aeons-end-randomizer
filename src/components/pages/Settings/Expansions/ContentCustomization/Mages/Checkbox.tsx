@@ -1,19 +1,37 @@
 import React, { useCallback } from 'react'
+import { connect } from 'react-redux'
 
-import { useModal } from '../../../../../../hooks/useModal'
+import * as types from 'aer-types'
 
-import CheckboxWithDetails from '../../../../../molecules/CheckboxWithDetails'
-import MageModal from '../../../../../molecules/MageModal'
+import { useModal } from 'hooks/useModal'
 
-import { SelectedMage, ChangeHandler } from './index'
+import CheckboxWithDetails from 'components/molecules/CheckboxWithDetails'
+import MageModal from 'components/molecules/MageModal'
 
-const Checkbox = ({
-  mage,
-  changeHandler,
-}: {
-  mage: SelectedMage
+import { ChangeHandler } from './index'
+import { RootState, selectors } from 'Redux/Store'
+
+type OwnProps = {
+  mage: types.Mage
   changeHandler: ChangeHandler
-}) => {
+}
+
+const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
+  return {
+    selected: selectors.Settings.Expansions.Mages.selected.getIsSelected(
+      state,
+      { id: ownProps.mage.id }
+    ),
+  }
+}
+
+const mapDispatchToProps = {}
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps &
+  OwnProps
+
+const Checkbox = ({ mage, changeHandler, selected }: Props) => {
   const { show, RenderModal } = useModal()
 
   const handleChange = useCallback(
@@ -31,7 +49,7 @@ const Checkbox = ({
     <React.Fragment>
       <CheckboxWithDetails
         id={mage.id}
-        checked={mage.selected}
+        checked={selected}
         label={mage.name}
         changeHandler={handleChange}
         showDetails={handleDetails}
@@ -41,4 +59,7 @@ const Checkbox = ({
   )
 }
 
-export default React.memo(Checkbox)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(React.memo(Checkbox))

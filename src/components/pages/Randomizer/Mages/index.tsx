@@ -15,7 +15,7 @@ const mapStateToProps = (state: RootState) => {
   const mageIds = selectors.Randomizer.Mages.Recruited.getMages(state)
 
   return {
-    hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
+    hasStandaloneExpansionSelected: selectors.Settings.Expansions.Expansions.getHasStandaloneExpansion(
       state
     ),
     availableMages: selectors.Settings.Expansions.getSelectedMagesForSelectedExpansions(
@@ -23,7 +23,7 @@ const mapStateToProps = (state: RootState) => {
     ),
     mageCount: selectors.Randomizer.Mages.Count.getCount(state),
     mages: mageIds.map(mageId =>
-      selectors.Settings.Expansions.SelectedMages.getMageById(state, {
+      selectors.Settings.Expansions.Mages.content.getMageById(state, {
         id: mageId.id,
       })
     ),

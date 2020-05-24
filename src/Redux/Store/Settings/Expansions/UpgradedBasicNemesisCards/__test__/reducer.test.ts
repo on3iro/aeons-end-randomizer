@@ -1,73 +1,55 @@
 import { Cmd, getCmd, getModel } from 'redux-loop'
 import { set as setToDb, get as getFromDb } from 'idb-keyval'
 
-import { State } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards/types'
-import { UPGRADED_BASIC_NEMESIS_CARDS_DB_KEY } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards/constants'
-import { actions } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards/actions'
+import { State } from 'Redux/Store/Settings/Expansions/SelectedCards/types'
+import { CARDS_DB_KEY } from 'Redux/Store/Settings/Expansions/SelectedCards/constants'
+import { actions } from 'Redux/Store/Settings/Expansions/SelectedCards/actions'
 
 import {
   initialState,
   Reducer,
-} from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards/reducer'
+} from 'Redux/Store/Settings/Expansions/SelectedCards/reducer'
 
-const mockUpgradedBasicNemesisCardsState: State = {
-  upgradedBasicNemesisCards: {
-    HissingAcid: {
-      id: 'HissingAcid',
-      name: 'Hissing Acid',
-      expansion: 'NA',
-      tier: 1,
-      type: 'Power',
-      power: 3,
+const mockSelectedCardsState: State = {
+  cards: {
+    DiamondCluster: {
+      type: 'Gem',
+      expansion: 'AE',
+      name: 'Diamond Cluster',
+      id: 'DiamondCluster',
+      cost: 4,
       effect:
-        '\n      <p>\n        <b>To Discard:</b> Spend 6 <span class="aether">&AElig;</span>.<br />\n        <br /> \n        <b>Power 3:</b> Reveal the top card of the turn order deck. If it\'s a player turn order card, Unleash three times. Otherwise, any player suffers 5 damage.\n      </p>\n    ',
-      upgraded: true,
+        '\n        <p>\n          Gain 2 <span class="aether">&AElig;</span>.<br/>\n          If this is the second time you have played Diamond Cluster this turn \n          gain an additional 2 <span class="aether">&AElig;</span>.\n        </p>\n      ',
+      keywords: [],
       selected: true,
     },
-    Wreck: {
-      id: 'Wreck',
-      name: 'Wreck',
-      expansion: 'NA',
-      tier: 1,
-      type: 'Attack',
+    ChaosArc: {
+      type: 'Spell',
+      expansion: 'AE',
+      name: 'Chaos Arc',
+      id: 'ChaosArc',
+      cost: 6,
       effect:
-        '\n      <p>\n        Unleash twice. Gravehold suffers 1 damage.\n      </p>\n    ',
-      upgraded: true,
+        '\n      <p>\n      <b>Cast:</b> Deal 3 damage.<br/>\n      Deal 2 additional damage for each prepped spell in an adjacent breach.\n        </p>\n        ',
+      keywords: [],
       selected: false,
     },
-    Burialskulk: {
-      id: 'Burialskulk',
-      name: 'Burialskulk',
-      expansion: 'NA',
-      tier: 3,
-      type: 'Minion',
-      hp: 18,
+    SoulCords: {
+      type: 'Relic',
+      expansion: 'BS',
+      name: 'Soul Cords',
+      id: 'SoulCords',
+      cost: 5,
       effect:
-        '\n      <p>\n        <b>Persistent:</b> Unleash twice.\t\n      </p>\n    ',
-      upgraded: true,
+        '\n      <p>\n      Any player gains 1 pulse token.<br/>\n      Each player with 2 or more pulse tokens gains 1 charge.\n      </p>\n      ',
+      keywords: ['pulse'],
       selected: true,
-    },
-    Mangle: {
-      id: 'Mangle',
-      name: 'Mangle',
-      expansion: 'TA',
-      tier: 2,
-      type: 'Attack',
-      effect:
-        '\n      <p>\n        The player with the most charges loses 3 charges and suffers 3 damage. A different player discards three cards in hand.\n      </p>\n    ',
-      upgraded: true,
-      selected: false,
     },
   },
-  upgradedBasicNemesisCardIds: [
-    'HissingAcid',
-    'Wreck',
-    'Burialskulk',
-    'Mangle',
-  ],
+  cardIds: ['DiamondCluster', 'ChaosArc', 'SoulCords'],
 }
 
-describe('Settings | Expansions | UpgradedBasicNemesisCards | reducer', () => {
+describe('Settings | Expansions | SelectedCards | reducer', () => {
   it('should return the initial state', () => {
     // @ts-ignore
     const result = Reducer(undefined, {})
@@ -75,71 +57,51 @@ describe('Settings | Expansions | UpgradedBasicNemesisCards | reducer', () => {
     expect(result).toEqual(initialState)
   })
 
-  it.todo('should handle NOOP')
-
   it('should handle TOGGLE_CARD', () => {
     const expected = {
-      upgradedBasicNemesisCards: {
-        HissingAcid: {
-          id: 'HissingAcid',
-          name: 'Hissing Acid',
-          expansion: 'NA',
-          tier: 1,
-          type: 'Power',
-          power: 3,
+      cards: {
+        DiamondCluster: {
+          type: 'Gem',
+          expansion: 'AE',
+          name: 'Diamond Cluster',
+          id: 'DiamondCluster',
+          cost: 4,
           effect:
-            '\n      <p>\n        <b>To Discard:</b> Spend 6 <span class="aether">&AElig;</span>.<br />\n        <br /> \n        <b>Power 3:</b> Reveal the top card of the turn order deck. If it\'s a player turn order card, Unleash three times. Otherwise, any player suffers 5 damage.\n      </p>\n    ',
-          upgraded: true,
+            '\n        <p>\n          Gain 2 <span class="aether">&AElig;</span>.<br/>\n          If this is the second time you have played Diamond Cluster this turn \n          gain an additional 2 <span class="aether">&AElig;</span>.\n        </p>\n      ',
+          keywords: [],
           selected: true,
         },
-        Wreck: {
-          id: 'Wreck',
-          name: 'Wreck',
-          expansion: 'NA',
-          tier: 1,
-          type: 'Attack',
+        ChaosArc: {
+          type: 'Spell',
+          expansion: 'AE',
+          name: 'Chaos Arc',
+          id: 'ChaosArc',
+          cost: 6,
           effect:
-            '\n      <p>\n        Unleash twice. Gravehold suffers 1 damage.\n      </p>\n    ',
-          upgraded: true,
+            '\n      <p>\n      <b>Cast:</b> Deal 3 damage.<br/>\n      Deal 2 additional damage for each prepped spell in an adjacent breach.\n        </p>\n        ',
+          keywords: [],
           selected: false,
         },
-        Burialskulk: {
-          id: 'Burialskulk',
-          name: 'Burialskulk',
-          expansion: 'NA',
-          tier: 3,
-          type: 'Minion',
-          hp: 18,
+        SoulCords: {
+          type: 'Relic',
+          expansion: 'BS',
+          name: 'Soul Cords',
+          id: 'SoulCords',
+          cost: 5,
           effect:
-            '\n      <p>\n        <b>Persistent:</b> Unleash twice.\t\n      </p>\n    ',
-          upgraded: true,
-          selected: false,
-        },
-        Mangle: {
-          id: 'Mangle',
-          name: 'Mangle',
-          expansion: 'TA',
-          tier: 2,
-          type: 'Attack',
-          effect:
-            '\n      <p>\n        The player with the most charges loses 3 charges and suffers 3 damage. A different player discards three cards in hand.\n      </p>\n    ',
-          upgraded: true,
+            '\n      <p>\n      Any player gains 1 pulse token.<br/>\n      Each player with 2 or more pulse tokens gains 1 charge.\n      </p>\n      ',
+          keywords: ['pulse'],
           selected: false,
         },
       },
-      upgradedBasicNemesisCardIds: [
-        'HissingAcid',
-        'Wreck',
-        'Burialskulk',
-        'Mangle',
-      ],
+      cardIds: ['DiamondCluster', 'ChaosArc', 'SoulCords'],
     }
 
-    const selectedCardsToSave = ['HissingAcid']
+    const selectedCardsToSave = ['DiamondCluster']
 
     const result = Reducer(
-      mockUpgradedBasicNemesisCardsState,
-      actions.toggleCard('Burialskulk')
+      mockSelectedCardsState,
+      actions.toggleCard('SoulCords')
     )
 
     const model = getModel(result)
@@ -148,7 +110,7 @@ describe('Settings | Expansions | UpgradedBasicNemesisCards | reducer', () => {
     expect(model).toEqual(expected)
     expect(cmd).toEqual(
       Cmd.run(setToDb, {
-        args: [UPGRADED_BASIC_NEMESIS_CARDS_DB_KEY, selectedCardsToSave],
+        args: [CARDS_DB_KEY, selectedCardsToSave],
         successActionCreator: actions.setToDBSuccessful,
         failActionCreator: actions.setToDBFailed,
       })
@@ -165,7 +127,7 @@ describe('Settings | Expansions | UpgradedBasicNemesisCards | reducer', () => {
 
     expect(cmd).toEqual(
       Cmd.run(getFromDb, {
-        args: [UPGRADED_BASIC_NEMESIS_CARDS_DB_KEY],
+        args: [CARDS_DB_KEY],
         successActionCreator: actions.fetchFromDBSuccessful,
         failActionCreator: actions.fetchFromDBFailed,
       })
@@ -174,11 +136,11 @@ describe('Settings | Expansions | UpgradedBasicNemesisCards | reducer', () => {
 
   it('should handle FETCH_FROM_DB_SUCCESS for defined state', () => {
     const result = Reducer(
-      mockUpgradedBasicNemesisCardsState,
-      actions.fetchFromDBSuccessful(['HissingAcid', 'Burialskulk'])
+      mockSelectedCardsState,
+      actions.fetchFromDBSuccessful(['DiamondCluster', 'SoulCords'])
     )
 
-    expect(getModel(result)).toEqual(mockUpgradedBasicNemesisCardsState)
+    expect(getModel(result)).toEqual(mockSelectedCardsState)
   })
 
   it('should handle FETCH_FROM_DB_SUCCESS for undefined state', () => {

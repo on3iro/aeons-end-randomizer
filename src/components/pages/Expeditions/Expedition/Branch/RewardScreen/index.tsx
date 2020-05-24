@@ -38,7 +38,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
     : []
 
   const newSupplyCards = ownProps.branch.rewards
-    ? selectors.Settings.Expansions.SelectedCards.getCardsByIdList(state, {
+    ? selectors.Settings.Expansions.Cards.getCardsByIdList(state, {
         cardIds: ownProps.branch.rewards.supplyIds,
       })
     : []
@@ -50,7 +50,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
   const newMages =
     ownProps.branch.rewards && ownProps.branch.rewards.mages
       ? ownProps.branch.rewards.mages.map(mage => {
-          return selectors.Settings.Expansions.SelectedMages.getMageById(
+          return selectors.Settings.Expansions.Mages.content.getMageById(
             state,
             {
               id: mage,

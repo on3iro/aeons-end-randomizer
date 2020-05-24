@@ -1,10 +1,10 @@
 import { selectors } from 'Redux/Store'
 import * as types from 'aer-types'
-import { SelectedCardsLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedCards'
-import { SelectedMagesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedMages'
-import { SelectedNemesesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedNemeses'
-import { TreasuresStateSlice } from 'Redux/Store/Settings/Expansions/Treasures'
-import { UpgradedBasicNemesisCardsStateSlice } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards'
+import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
+import { NemesisContentStateSlice } from 'Redux/Store/Settings/Expansions/Nemeses/content'
+import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/content'
+import { UpgradedBasicNemesisCardContentStateSlice } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards/content'
+import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
 
 const getFixIdsFromRewardsConfig = (config: types.RewardsConfig) => {
   return {
@@ -169,11 +169,11 @@ const getFixIdsFromSequenceBranches = (
 }
 
 export const determineUsedExpansions = (
-  state: SelectedCardsLookupStateSlice &
-    SelectedMagesLookupStateSlice &
-    SelectedNemesesLookupStateSlice &
-    TreasuresStateSlice &
-    UpgradedBasicNemesisCardsStateSlice,
+  state: CardsContentStateSlice &
+    MagesContentStateSlice &
+    NemesisContentStateSlice &
+    TreasureContentStateSlice &
+    UpgradedBasicNemesisCardContentStateSlice,
   settingsSnapshot: Omit<types.SettingsSnapshot, 'usedExpansions'>,
   branches?: types.BranchesConfig,
   initialBarracks?: types.Barracks
@@ -186,21 +186,23 @@ export const determineUsedExpansions = (
     availableUpgradedBasicNemesisCardIds,
   } = settingsSnapshot
 
-  const allCards = selectors.Settings.Expansions.SelectedCards.getSelectedCardsLookupObject(
+  const allCards = selectors.Settings.Expansions.Cards.content.getContent(state)
+    .ENG
+
+  const allMages = selectors.Settings.Expansions.Mages.content.getContent(state)
+    .ENG
+
+  const allNemeses = selectors.Settings.Expansions.Nemeses.content.getContent(
     state
-  )
-  const allMages = selectors.Settings.Expansions.SelectedMages.getSelectedMagesLookupObject(
+  ).ENG
+
+  const allTreasures = selectors.Settings.Expansions.Treasures.content.getContent(
     state
-  )
-  const allNemeses = selectors.Settings.Expansions.SelectedNemeses.getSelectedNemesesLookupObject(
+  ).ENG
+
+  const allUBNCards = selectors.Settings.Expansions.UpgradedBasicNemesisCards.content.getContent(
     state
-  )
-  const allTreasures = selectors.Settings.Expansions.Treasures.getTreasures(
-    state
-  )
-  const allUBNCards = selectors.Settings.Expansions.UpgradedBasicNemesisCards.getUpgradedBasicNemesisCards(
-    state
-  )
+  ).ENG
 
   const fromBranches = getFixIdsFromSequenceBranches(branches)
   const fromInitialBarracks = initialBarracks ?? {
