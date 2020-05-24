@@ -1,16 +1,34 @@
 import React, { useCallback } from 'react'
+import { connect } from 'react-redux'
+
+import * as types from 'aer-types'
 
 import CheckboxWithControls from '../../../../../molecules/CheckboxWithControls'
 
-import { SelectedExpansion, ChangeHandler } from './index'
+import { ChangeHandler } from './index'
+import { RootState, selectors } from 'Redux/Store'
 
-const Checkbox = ({
-  expansion,
-  changeHandler,
-}: {
-  expansion: SelectedExpansion
+type OwnProps = {
+  expansion: types.Expansion
   changeHandler: ChangeHandler
-}) => {
+}
+
+const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
+  return {
+    selected: selectors.Settings.Expansions.Expansions.selected.getIsSelected(
+      state,
+      { expansionId: ownProps.expansion.id }
+    ),
+  }
+}
+
+const mapDispatchToProps = {}
+
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps &
+  OwnProps
+
+const Checkbox = ({ expansion, changeHandler, selected }: Props) => {
   const handleChange = useCallback(
     (id: string) => {
       changeHandler(id)
@@ -22,7 +40,7 @@ const Checkbox = ({
     <React.Fragment>
       <CheckboxWithControls
         id={expansion.id}
-        checked={expansion.selected}
+        checked={selected}
         label={expansion.name}
         changeHandler={handleChange}
       />
@@ -30,4 +48,7 @@ const Checkbox = ({
   )
 }
 
-export default React.memo(Checkbox)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(React.memo(Checkbox))

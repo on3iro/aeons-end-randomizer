@@ -9,12 +9,10 @@ import {
 
 import { selectors } from 'Redux/Store'
 import { ExpeditionsStateSlice } from '../types'
-import { SelectedCardsLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedCards'
-import {
-  TreasuresStateSlice,
-  TreasureIdsStateSlice,
-} from 'Redux/Store/Settings/Expansions/Treasures'
-import { SelectedMagesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedMages'
+import { TreasureIdsStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/ids'
+import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/content'
+import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
+import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
 
 export const rollNewEntity = (
   list: string[],
@@ -213,10 +211,10 @@ export const getMageIds = ({
 // TODO add tests
 export const handleCustomRewards = (
   state: ExpeditionsStateSlice &
-    SelectedCardsLookupStateSlice &
-    TreasuresStateSlice &
+    CardsContentStateSlice &
+    TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    SelectedMagesLookupStateSlice,
+    MagesContentStateSlice,
   rewardConfig: {
     type: 'custom'
     treasure?: types.TreasureRewardConfig

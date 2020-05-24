@@ -4,7 +4,7 @@ import { createSupply } from 'Redux/helpers'
 import * as types from 'aer-types'
 
 export const createSupplyIds = (
-  availableCards: (types.ICard & { selected: boolean })[],
+  availableCards: types.ICard[],
   supplySetup: types.IMarketSetup,
   seed: types.Seed
 ) => {

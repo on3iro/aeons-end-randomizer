@@ -16,13 +16,13 @@ const mapStateToProps = (state: RootState) => {
   const nemesis = selectors.Randomizer.Nemesis.getNemesis(state) ?? { id: '' }
 
   return {
-    hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
+    hasStandaloneExpansionSelected: selectors.Settings.Expansions.Expansions.getHasStandaloneExpansion(
       state
     ),
     availableNemeses: selectors.Settings.Expansions.getSelectedNemesesForSelectedExpansions(
       state
     ),
-    randomNemesis: selectors.Settings.Expansions.SelectedNemeses.getNemesisById(
+    randomNemesis: selectors.Settings.Expansions.Nemeses.content.getById(
       state,
       { id: nemesis.id }
     ),

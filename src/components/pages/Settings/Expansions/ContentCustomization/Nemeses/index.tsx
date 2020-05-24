@@ -8,11 +8,10 @@ import ListWrapper from 'components/molecules/ListWrapper'
 
 import Checkbox from './Checkbox'
 
-export type SelectedNemesis = types.Nemesis & { selected: boolean }
 export type ChangeHandler = (id: string) => void
 
 const renderCheckboxes = (
-  items: SelectedNemesis[],
+  items: types.Nemesis[],
   changeHandler: ChangeHandler
 ) =>
   items.map(item => (
@@ -20,15 +19,14 @@ const renderCheckboxes = (
   ))
 
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
-  selectedNemeses: selectors.Settings.Expansions.SelectedNemeses.getNemesesByExpansionId(
+  selectedNemeses: selectors.Settings.Expansions.Nemeses.getNemesesByExpansionId(
     state,
     props.expansionId
   ),
 })
 
 const mapDispatchToProps = {
-  handleNemesisChange:
-    actions.Settings.Expansions.SelectedNemeses.toggleNemesis,
+  handleNemesisChange: actions.Settings.Expansions.Nemeses.selected.toggle,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &

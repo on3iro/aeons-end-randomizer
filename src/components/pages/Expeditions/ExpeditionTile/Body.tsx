@@ -14,7 +14,7 @@ type OwnProps = {
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({
-  usedExpansions: selectors.Settings.Expansions.SelectedExpansions.getExpansionNamesByIdList(
+  usedExpansions: selectors.Settings.Expansions.Expansions.getExpansionNamesByIdList(
     state,
     { expansionIds: ownProps.expedition.settingsSnapshot.usedExpansions }
   ),

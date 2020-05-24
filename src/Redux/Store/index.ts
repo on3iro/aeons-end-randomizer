@@ -74,11 +74,13 @@ export const MainReducer: LoopReducer<RootState, RootAction> = (
         state,
         Cmd.list<RootAction>([
           Cmd.action(
-            actions.Settings.Expansions.SelectedExpansions.fetchFromDB()
+            actions.Settings.Expansions.Expansions.selected.fetchFromDB()
           ),
-          Cmd.action(actions.Settings.Expansions.SelectedCards.fetchFromDB()),
-          Cmd.action(actions.Settings.Expansions.SelectedNemeses.fetchFromDB()),
-          Cmd.action(actions.Settings.Expansions.SelectedMages.fetchFromDB()),
+          Cmd.action(actions.Settings.Expansions.Cards.selected.fetchFromDB()),
+          Cmd.action(
+            actions.Settings.Expansions.Nemeses.selected.fetchFromDB()
+          ),
+          Cmd.action(actions.Settings.Expansions.Mages.selected.fetchFromDB()),
           Cmd.action(actions.Settings.SupplySetups.fetchFromDB()),
           Cmd.action(actions.TurnOrder.Configuration.fetchFromDB()),
           Cmd.action(actions.Expeditions.Expeditions.fetchFromDB()),

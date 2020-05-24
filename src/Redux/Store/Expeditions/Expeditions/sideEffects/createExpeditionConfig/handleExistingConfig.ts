@@ -79,7 +79,7 @@ export const handleExistingConfig = (
         seed: mageIdsResult.seed,
       }
     } else {
-      const availableCards = selectors.Settings.Expansions.SelectedCards.getCardsByIdList(
+      const availableCards = selectors.Settings.Expansions.Cards.getCardsByIdList(
         state,
         { cardIds: settingsSnapshot.availableCardIds }
       )

@@ -4,10 +4,10 @@ import * as types from 'aer-types'
 
 import { RootState } from 'Redux/Store'
 
-import * as SelectedExpansions from './SelectedExpansions'
-import * as SelectedCards from './SelectedCards'
-import * as SelectedNemeses from './SelectedNemeses'
-import * as SelectedMages from './SelectedMages'
+import * as Expansions from './Expansions'
+import * as Cards from './Cards'
+import * as Nemeses from './Nemeses'
+import * as Mages from './Mages'
 import * as Treasures from './Treasures'
 import * as BasicNemesisCards from './BasicNemesisCards'
 import * as UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
@@ -21,13 +21,13 @@ export const getSelectedEntitiesForSelectedExpansions = <T>(
   >
 ) =>
   createSelector(
-    [SelectedExpansions.selectors.getSelectedExpansionsArray, entitySelector],
+    [Expansions.selectors.selected.getSelected, entitySelector],
     (expansionIds, entities) =>
       entities.filter(entity => expansionIds.includes(entity.expansion))
   )
 
 export const getSelectedCardsForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
-  SelectedCards.selectors.getSelectedCards
+  Cards.selectors.getSelectedCards
 )
 
 export const getSelectedCardIdsForSelectedExpansions = createSelector(
@@ -51,7 +51,7 @@ export const getSpellIdsForSelectedExpansions = createIdsByCardTypeSelector(
 )
 
 export const getSelectedNemesesForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
-  SelectedNemeses.selectors.getSelectedNemeses
+  Nemeses.selectors.getSelectedNemeses
 )
 
 export const getSelectedNemesisIdsForSelectedExpansions = createSelector(
@@ -60,7 +60,7 @@ export const getSelectedNemesisIdsForSelectedExpansions = createSelector(
 )
 
 export const getSelectedMagesForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
-  SelectedMages.selectors.getSelectedMages
+  Mages.selectors.getSelectedMages
 )
 
 export const getSelectedMageIdsForSelectedExpansions = createSelector(
@@ -79,7 +79,7 @@ export const getSelectedTreasureIdsForSelectedExpansions = createSelector(
 
 export const getTreasuresByLevelForSelectedExpansions = createSelector(
   [
-    SelectedExpansions.selectors.getSelectedExpansionsArray,
+    Expansions.selectors.selected.getSelected,
     Treasures.selectors.getTreasureListByLevel,
   ],
   (expansionIds, entities) =>
@@ -111,7 +111,7 @@ export const getSelectedUpgradedBasicNemesisCardIdsForSelectedExpansions = creat
 )
 
 export const getSelectedBasicNemesisCardsForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
-  BasicNemesisCards.selectors.getSelectedBasicNemesisCards
+  BasicNemesisCards.selectors.getSelectedContent
 )
 
 export const getSelectedBasicNemesisCardIdsForSelectedExpansions = createSelector(

@@ -3,11 +3,11 @@ import { withTheme } from 'styled-components/macro'
 
 import { connect } from 'react-redux'
 
-import { RootState, selectors } from '../../../Redux/Store'
+import { RootState, selectors } from 'Redux/Store'
 
-import { RenderModalType } from '../../../hooks/useModal'
+import { RenderModalType } from 'hooks/useModal'
 
-import ModalBodyWrapper from '../../atoms/ModalBodyWrapper'
+import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 
 import NemesisInformation from '../NemesisInformation'
 
@@ -22,7 +22,7 @@ type OwnProps = {
 // This is probably due to a typscript shortcoming, which is unable to
 // unwrap withTheme() and connect() at once.
 const mapStateToProps = (state: RootState, ownProps: any) => ({
-  nemesis: selectors.Settings.Expansions.SelectedNemeses.getNemesisById(
+  nemesis: selectors.Settings.Expansions.Nemeses.content.getById(
     state,
     ownProps
   ),

@@ -5,19 +5,18 @@ import * as types from 'aer-types'
 import ListWrapper from 'components/molecules/ListWrapper'
 import Checkbox from './Checkbox'
 
-export type SelectedCard = types.Treasure & { selected: boolean }
 export type ChangeHandler = (id: string) => void
 
 const renderCheckboxes = (
-  items: SelectedCard[],
+  items: types.Treasure[],
   changeHandler: ChangeHandler
 ) =>
   items.map(item => (
-    <Checkbox key={item.id} card={item} changeHandler={changeHandler} />
+    <Checkbox key={item.id} treasure={item} changeHandler={changeHandler} />
   ))
 
 type Props = {
-  entities: SelectedCard[]
+  entities: types.Treasure[]
   handleCheckboxChange: (...args: any) => void
   label: string
 }

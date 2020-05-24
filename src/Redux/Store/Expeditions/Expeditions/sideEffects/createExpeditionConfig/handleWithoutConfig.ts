@@ -47,7 +47,7 @@ export const handleWithoutConfig = (
   const mageIds = mageIdsResult.result
 
   // Supply
-  const availableCards = selectors.Settings.Expansions.SelectedCards.getCardsByIdList(
+  const availableCards = selectors.Settings.Expansions.Cards.getCardsByIdList(
     state,
     { cardIds: settingsSnapshot.availableCardIds }
   )
