@@ -12,9 +12,8 @@ import ModalBodyWrapper from '../../atoms/ModalBodyWrapper'
 
 import MageInformation from '../MageInformation'
 
-// FIXME refine type (withStyle is the issue here)
-const mapStateToProps = (state: RootState, props: any) => ({
-  selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
+const mapStateToProps = (state: RootState, _: any) => ({
+  expansions: selectors.Settings.Expansions.Expansions.content.getContent(
     state
   ),
 })
@@ -26,15 +25,7 @@ type Props = ReturnType<typeof mapStateToProps> & {
   RenderModal: RenderModalType
 }
 
-const MageModal = ({
-  player,
-  mage,
-  selectedExpansions,
-  theme,
-  RenderModal,
-}: Props) => {
-  const { expansions } = selectedExpansions
-
+const MageModal = ({ player, mage, expansions, theme, RenderModal }: Props) => {
   const titleColor = player
     ? theme.colors.playerColors[player].normal
     : theme.colors.playerColors['player1'].normal
@@ -44,7 +35,7 @@ const MageModal = ({
     <MageInformation
       mage={mage}
       player={player}
-      expansionName={expansions[mage.expansion].name || ''}
+      expansionName={expansions.ENG[mage.expansion].name || ''}
     />
   ) : (
     'No content'

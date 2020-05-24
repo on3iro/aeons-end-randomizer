@@ -6,11 +6,10 @@ import ListWrapper from 'components/molecules/ListWrapper'
 
 import Checkbox from './Checkbox'
 
-export type SelectedExpansion = types.Expansion & { selected: boolean }
 export type ChangeHandler = (id: string) => void
 
 const renderCheckboxes = (
-  items: SelectedExpansion[],
+  items: types.Expansion[],
   changeHandler: ChangeHandler
 ) =>
   items.map(item => (
@@ -18,7 +17,7 @@ const renderCheckboxes = (
   ))
 
 type Props = {
-  expansions: SelectedExpansion[]
+  expansions: types.Expansion[]
   handleChange: (selection: string) => void
   label: string
 }

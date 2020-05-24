@@ -25,7 +25,6 @@ type MaybeMarketTile =
       cost?: number
       keywords?: string[]
       effect?: string
-      selected?: boolean
     }
   | undefined
 
@@ -37,7 +36,6 @@ type MaybeOutputMarketTile =
       cost: number
       keywords: string[]
       effect: string
-      selected: boolean
     }
   | undefined
 
@@ -46,15 +44,9 @@ const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
     return undefined
   }
 
-  const { type, name, expansion, cost, keywords, effect, selected } = marketTile
+  const { type, name, expansion, cost, keywords, effect } = marketTile
 
-  return type &&
-    name &&
-    expansion &&
-    cost &&
-    keywords &&
-    effect !== undefined &&
-    selected !== undefined
+  return type && name && expansion && cost && keywords && effect !== undefined
     ? {
         type,
         name,
@@ -62,13 +54,12 @@ const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
         cost,
         keywords,
         effect,
-        selected,
       }
     : undefined
 }
 
 const mapStateToProps = (state: RootState) => ({
-  selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
+  expansions: selectors.Settings.Expansions.Expansions.content.getContent(
     state
   ),
 })
@@ -93,13 +84,7 @@ type Props = ReturnType<typeof mapStateToProps> &
     theme: any
   }
 
-const MarketTile = ({
-  marketTile,
-  selectedExpansions,
-  theme,
-  ...rest
-}: Props) => {
-  const { expansions } = selectedExpansions
+const MarketTile = ({ marketTile, expansions, theme, ...rest }: Props) => {
   const { show, RenderModal } = useModal()
 
   const { selectionHandler, listId } = useContext(SelectionHandlerContext)
@@ -129,7 +114,7 @@ const MarketTile = ({
                 supplyCard={marketTile}
                 expansionName={
                   marketTile.expansion
-                    ? expansions[marketTile.expansion].name
+                    ? expansions.ENG[marketTile.expansion].name
                     : ''
                 }
               />

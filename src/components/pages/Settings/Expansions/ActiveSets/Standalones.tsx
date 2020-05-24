@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, selectors } from '../../../../../Redux/Store'
+import { RootState, selectors } from 'Redux/Store'
 
 import ExpansionList, { ChangeHandler } from './ExpansionList'
 
 const mapStateToProps = (state: RootState) => ({
-  standalones: selectors.Settings.Expansions.SelectedExpansions.getStandaloneExpansions(
+  standalones: selectors.Settings.Expansions.Expansions.getStandaloneExpansions(
     state
   ),
 })

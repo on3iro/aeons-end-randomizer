@@ -6,14 +6,14 @@ import { RootState, selectors, actions } from 'Redux/Store'
 import TreasureListItem from './TreasureListItem'
 
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
-  selectedTreasures: selectors.Settings.Expansions.Treasures.getTreasuresByExpansionId(
+  treasures: selectors.Settings.Expansions.Treasures.getTreasuresByExpansionId(
     state,
     props.expansionId
   ),
 })
 
 const mapDispatchToProps = {
-  handleTreasureChange: actions.Settings.Expansions.Treasures.toggleCard,
+  handleTreasureChange: actions.Settings.Expansions.Treasures.selected.toggle,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
@@ -21,11 +21,11 @@ type Props = ReturnType<typeof mapStateToProps> &
     expansionId: string
   }
 
-const Treasures = ({ selectedTreasures, handleTreasureChange }: Props) => (
+const Treasures = ({ treasures, handleTreasureChange }: Props) => (
   <React.Fragment>
-    {selectedTreasures.length > 0 && (
+    {treasures.length > 0 && (
       <TreasureListItem
-        entities={selectedTreasures}
+        entities={treasures}
         handleCheckboxChange={handleTreasureChange}
         label="Treasures"
       />

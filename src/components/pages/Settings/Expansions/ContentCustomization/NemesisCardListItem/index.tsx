@@ -5,11 +5,10 @@ import * as types from 'aer-types'
 import ListWrapper from 'components/molecules/ListWrapper'
 import Checkbox from './Checkbox'
 
-export type SelectedCard = types.BasicNemesisCard & { selected: boolean }
 export type ChangeHandler = (id: string) => void
 
 const renderCheckboxes = (
-  items: SelectedCard[],
+  items: types.BasicNemesisCard[],
   changeHandler: ChangeHandler
 ) =>
   items.map(item => (
@@ -17,7 +16,7 @@ const renderCheckboxes = (
   ))
 
 type Props = {
-  entities: SelectedCard[]
+  entities: types.BasicNemesisCard[]
   handleCheckboxChange: (...args: any) => void
   label: string
 }

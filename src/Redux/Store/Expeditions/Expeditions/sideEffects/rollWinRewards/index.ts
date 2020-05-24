@@ -7,13 +7,11 @@ import { rollTreasureIdsByLevel } from 'Redux/Store/Expeditions/Expeditions/side
 import { rollSupplyRewards } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollWinRewards/rollSupplyRewards'
 
 import { ExpeditionsStateSlice } from '../../types'
-import {
-  TreasuresStateSlice,
-  TreasureIdsStateSlice,
-} from 'Redux/Store/Settings/Expansions/Treasures'
-import { SelectedCardsLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedCards'
-import { SelectedMagesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedMages'
+import { TreasureIdsStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/ids'
+import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/content'
+import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
 import { handleCustomRewards } from '../helpers'
+import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
 
 export const getTreasureAmount = (treasureLevel?: types.TreasureLevel) => {
   return treasureLevel === 2 ? 3 : 5
@@ -21,9 +19,9 @@ export const getTreasureAmount = (treasureLevel?: types.TreasureLevel) => {
 
 export const rollWinRewards = (
   getState: () => ExpeditionsStateSlice &
-    TreasuresStateSlice &
+    TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    SelectedCardsLookupStateSlice,
+    CardsContentStateSlice,
   battle: types.Battle
 ) => {
   const state = getState()
@@ -94,10 +92,10 @@ export const rollWinRewards = (
 
 const handleRewardsFromConfig = (
   getState: () => ExpeditionsStateSlice &
-    SelectedCardsLookupStateSlice &
-    TreasuresStateSlice &
+    CardsContentStateSlice &
+    TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    SelectedMagesLookupStateSlice,
+    MagesContentStateSlice,
   battle: types.Battle,
   rewardsConfig: types.RewardsConfig
 ) => {
@@ -130,10 +128,10 @@ const handleRewardsFromConfig = (
 // TODO add tests
 export const createWinRewards = (
   getState: () => ExpeditionsStateSlice &
-    SelectedCardsLookupStateSlice &
-    TreasuresStateSlice &
+    CardsContentStateSlice &
+    TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    SelectedMagesLookupStateSlice,
+    MagesContentStateSlice,
   battle: types.Battle
 ) => {
   const rewardsConfig = battle.config.winRewards

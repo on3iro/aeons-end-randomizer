@@ -1,162 +1,156 @@
-import {
-  UpgradedBasicNemesisCardsStateSlice,
-  UpgradedBasicNemesisCardIdsStateSlice,
-} from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards/types'
+import * as types from 'aer-types'
 
-import { selectors } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards/selectors'
+import { SelectedCardsStateSlice } from 'Redux/Store/Settings/Expansions/SelectedCards/types'
 
-const mockUpgradedBasicNemesisCardsState: UpgradedBasicNemesisCardsStateSlice &
-  UpgradedBasicNemesisCardIdsStateSlice = {
+import { selectors } from 'Redux/Store/Settings/Expansions/SelectedCards/selectors'
+
+const mockSelectedCardsState: SelectedCardsStateSlice = {
   Settings: {
     Expansions: {
-      UpgradedBasicNemesisCards: {
-        upgradedBasicNemesisCards: {
-          HissingAcid: {
-            id: 'HissingAcid',
-            name: 'Hissing Acid',
-            expansion: 'NA',
-            tier: 1,
-            type: 'Power',
-            power: 3,
+      SelectedCards: {
+        cards: {
+          DiamondCluster: {
+            type: 'Gem',
+            expansion: 'AE',
+            name: 'Diamond Cluster',
+            id: 'DiamondCluster',
+            cost: 4,
             effect:
-              '\n      <p>\n        <b>To Discard:</b> Spend 6 <span class="aether">&AElig;</span>.<br />\n        <br /> \n        <b>Power 3:</b> Reveal the top card of the turn order deck. If it\'s a player turn order card, Unleash three times. Otherwise, any player suffers 5 damage.\n      </p>\n    ',
-            upgraded: true,
+              '\n        <p>\n          Gain 2 <span class="aether">&AElig;</span>.<br/>\n          If this is the second time you have played Diamond Cluster this turn \n          gain an additional 2 <span class="aether">&AElig;</span>.\n        </p>\n      ',
+            keywords: [],
             selected: true,
           },
-          Wreck: {
-            id: 'Wreck',
-            name: 'Wreck',
-            expansion: 'NA',
-            tier: 1,
-            type: 'Attack',
+          ChaosArc: {
+            type: 'Spell',
+            expansion: 'AE',
+            name: 'Chaos Arc',
+            id: 'ChaosArc',
+            cost: 6,
             effect:
-              '\n      <p>\n        Unleash twice. Gravehold suffers 1 damage.\n      </p>\n    ',
-            upgraded: true,
-            selected: true,
+              '\n      <p>\n      <b>Cast:</b> Deal 3 damage.<br/>\n      Deal 2 additional damage for each prepped spell in an adjacent breach.\n        </p>\n        ',
+            keywords: [],
+            selected: false,
           },
-          Burialskulk: {
-            id: 'Burialskulk',
-            name: 'Burialskulk',
-            expansion: 'NA',
-            tier: 3,
-            type: 'Minion',
-            hp: 18,
+          SoulCords: {
+            type: 'Relic',
+            expansion: 'BS',
+            name: 'Soul Cords',
+            id: 'SoulCords',
+            cost: 5,
             effect:
-              '\n      <p>\n        <b>Persistent:</b> Unleash twice.\t\n      </p>\n    ',
-            upgraded: true,
-            selected: true,
-          },
-          Mangle: {
-            id: 'Mangle',
-            name: 'Mangle',
-            expansion: 'TA',
-            tier: 2,
-            type: 'Attack',
-            effect:
-              '\n      <p>\n        The player with the most charges loses 3 charges and suffers 3 damage. A different player discards three cards in hand.\n      </p>\n    ',
-            upgraded: true,
+              '\n      <p>\n      Any player gains 1 pulse token.<br/>\n      Each player with 2 or more pulse tokens gains 1 charge.\n      </p>\n      ',
+            keywords: ['pulse'],
             selected: true,
           },
         },
-        upgradedBasicNemesisCardIds: [
-          'HissingAcid',
-          'Wreck',
-          'Burialskulk',
-          'Mangle',
-        ],
+        cardIds: ['DiamondCluster', 'ChaosArc', 'SoulCords'],
       },
     },
   },
 }
 
-describe('Settings | Expansions | UpgradedBasicNemesisCards | selectors', () => {
-  test('getUpgradedBasicNemesisCardIdsByExpansionId()', () => {
-    const expected = ['Mangle']
+describe('Settings | Expansions | SelectedCards | selectors', () => {
+  test('getCardById()', () => {
+    const expected = {
+      type: 'Relic',
+      expansion: 'BS',
+      name: 'Soul Cords',
+      id: 'SoulCords',
+      cost: 5,
+      effect:
+        '\n      <p>\n      Any player gains 1 pulse token.<br/>\n      Each player with 2 or more pulse tokens gains 1 charge.\n      </p>\n      ',
+      keywords: ['pulse'],
+      selected: true,
+    }
 
-    const result = selectors.getUpgradedBasicNemesisCardIdsByExpansionId(
-      mockUpgradedBasicNemesisCardsState,
-      'TA'
+    const result = selectors.getCardById(mockSelectedCardsState, {
+      id: 'SoulCords',
+    })
+
+    expect(result).toEqual(expected)
+  })
+
+  test('getGemsByExpansionId()', () => {
+    const expected = [
+      {
+        type: 'Gem',
+        expansion: 'AE',
+        name: 'Diamond Cluster',
+        id: 'DiamondCluster',
+        cost: 4,
+        effect:
+          '\n        <p>\n          Gain 2 <span class="aether">&AElig;</span>.<br/>\n          If this is the second time you have played Diamond Cluster this turn \n          gain an additional 2 <span class="aether">&AElig;</span>.\n        </p>\n      ',
+        keywords: [],
+        selected: true,
+      },
+    ]
+
+    const result = selectors.getGemsByExpansionId(mockSelectedCardsState, 'AE')
+
+    expect(result).toEqual(expected)
+  })
+
+  test('getRelicsByExpansionId()', () => {
+    const expected = [] as types.ICard[]
+
+    const result = selectors.getRelicsByExpansionId(
+      mockSelectedCardsState,
+      'AE'
     )
 
     expect(result).toEqual(expected)
   })
 
-  test('getUpgradedBasicNemesisCardsByExpansionId()', () => {
+  test('getSpellsByExpansionId()', () => {
     const expected = [
       {
-        id: 'Mangle',
-        name: 'Mangle',
-        expansion: 'TA',
-        tier: 2,
-        type: 'Attack',
+        type: 'Spell',
+        expansion: 'AE',
+        name: 'Chaos Arc',
+        id: 'ChaosArc',
+        cost: 6,
         effect:
-          '\n      <p>\n        The player with the most charges loses 3 charges and suffers 3 damage. A different player discards three cards in hand.\n      </p>\n    ',
-        upgraded: true,
-        selected: true,
+          '\n      <p>\n      <b>Cast:</b> Deal 3 damage.<br/>\n      Deal 2 additional damage for each prepped spell in an adjacent breach.\n        </p>\n        ',
+        keywords: [],
+        selected: false,
       },
     ]
 
-    const result = selectors.getUpgradedBasicNemesisCardsByExpansionId(
-      mockUpgradedBasicNemesisCardsState,
-      'TA'
+    const result = selectors.getSpellsByExpansionId(
+      mockSelectedCardsState,
+      'AE'
     )
 
     expect(result).toEqual(expected)
   })
 
-  test('getUpgradedBasicNemesisCardList()', () => {
+  test('getSelectedCards()', () => {
     const expected = [
       {
-        id: 'HissingAcid',
-        name: 'Hissing Acid',
-        expansion: 'NA',
-        tier: 1,
-        type: 'Power',
-        power: 3,
+        type: 'Gem',
+        expansion: 'AE',
+        name: 'Diamond Cluster',
+        id: 'DiamondCluster',
+        cost: 4,
         effect:
-          '\n      <p>\n        <b>To Discard:</b> Spend 6 <span class="aether">&AElig;</span>.<br />\n        <br /> \n        <b>Power 3:</b> Reveal the top card of the turn order deck. If it\'s a player turn order card, Unleash three times. Otherwise, any player suffers 5 damage.\n      </p>\n    ',
-        upgraded: true,
+          '\n        <p>\n          Gain 2 <span class="aether">&AElig;</span>.<br/>\n          If this is the second time you have played Diamond Cluster this turn \n          gain an additional 2 <span class="aether">&AElig;</span>.\n        </p>\n      ',
+        keywords: [],
         selected: true,
       },
       {
-        id: 'Wreck',
-        name: 'Wreck',
-        expansion: 'NA',
-        tier: 1,
-        type: 'Attack',
+        type: 'Relic',
+        expansion: 'BS',
+        name: 'Soul Cords',
+        id: 'SoulCords',
+        cost: 5,
         effect:
-          '\n      <p>\n        Unleash twice. Gravehold suffers 1 damage.\n      </p>\n    ',
-        upgraded: true,
-        selected: true,
-      },
-      {
-        id: 'Burialskulk',
-        name: 'Burialskulk',
-        expansion: 'NA',
-        tier: 3,
-        type: 'Minion',
-        hp: 18,
-        effect:
-          '\n      <p>\n        <b>Persistent:</b> Unleash twice.\t\n      </p>\n    ',
-        upgraded: true,
-        selected: true,
-      },
-      {
-        id: 'Mangle',
-        name: 'Mangle',
-        expansion: 'TA',
-        tier: 2,
-        type: 'Attack',
-        effect:
-          '\n      <p>\n        The player with the most charges loses 3 charges and suffers 3 damage. A different player discards three cards in hand.\n      </p>\n    ',
-        upgraded: true,
+          '\n      <p>\n      Any player gains 1 pulse token.<br/>\n      Each player with 2 or more pulse tokens gains 1 charge.\n      </p>\n      ',
+        keywords: ['pulse'],
         selected: true,
       },
     ]
 
-    const result = selectors.getUpgradedBasicNemesisCardList(
-      mockUpgradedBasicNemesisCardsState
-    )
+    const result = selectors.getSelectedCards(mockSelectedCardsState)
 
     expect(result).toEqual(expected)
   })

@@ -6,7 +6,7 @@ import { RootState, selectors, actions } from 'Redux/Store'
 import NemesisCardListItem from './NemesisCardListItem'
 
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
-  selectedBasicNemesisCards: selectors.Settings.Expansions.BasicNemesisCards.getBasicNemesisCardsByExpansionId(
+  basicNemesisCards: selectors.Settings.Expansions.BasicNemesisCards.getContentByExpansionId(
     state,
     props.expansionId
   ),
@@ -14,7 +14,7 @@ const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
 
 const mapDispatchToProps = {
   handleBasicNemesisCardChange:
-    actions.Settings.Expansions.BasicNemesisCards.toggleCard,
+    actions.Settings.Expansions.BasicNemesisCards.selected.toggleCard,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
@@ -23,13 +23,13 @@ type Props = ReturnType<typeof mapStateToProps> &
   }
 
 const BasicNemesisCards = ({
-  selectedBasicNemesisCards,
+  basicNemesisCards,
   handleBasicNemesisCardChange,
 }: Props) => (
   <React.Fragment>
-    {selectedBasicNemesisCards.length > 0 && (
+    {basicNemesisCards.length > 0 && (
       <NemesisCardListItem
-        entities={selectedBasicNemesisCards}
+        entities={basicNemesisCards}
         handleCheckboxChange={handleBasicNemesisCardChange}
         label="Basic Nemesis Cards"
       />

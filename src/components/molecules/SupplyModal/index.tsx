@@ -22,9 +22,8 @@ export type CardProperties = {
   selected: boolean
 }
 
-// FIXME refine type (Bug due to withTheme)
-const mapStateToProps = (state: RootState, props: any) => ({
-  selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
+const mapStateToProps = (state: RootState, _: any) => ({
+  expansions: selectors.Settings.Expansions.Expansions.content.getContent(
     state
   ),
 })
@@ -35,20 +34,16 @@ type Props = ReturnType<typeof mapStateToProps> & {
   RenderModal: RenderModalType
 }
 
-const SupplyModal = ({
-  card,
-  selectedExpansions,
-  theme,
-  RenderModal,
-}: Props) => {
-  const { expansions } = selectedExpansions
-
+const SupplyModal = ({ card, expansions, theme, RenderModal }: Props) => {
   const titleColor = card
     ? theme.colors.cards[card.type.toLowerCase()].color
     : theme.colors.text
   const titleLabel = card ? card.name : ''
   const body = card ? (
-    <Body card={card} expansionName={expansions[card.expansion].name || ''} />
+    <Body
+      card={card}
+      expansionName={expansions.ENG[card.expansion].name || ''}
+    />
   ) : (
     'No content'
   )

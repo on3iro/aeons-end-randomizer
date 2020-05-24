@@ -14,7 +14,7 @@ const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
 
 const mapDispatchToProps = {
   handleUpgradedBasicNemesisCardChange:
-    actions.Settings.Expansions.UpgradedBasicNemesisCards.toggleCard,
+    actions.Settings.Expansions.UpgradedBasicNemesisCards.selected.toggle,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &

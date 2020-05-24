@@ -10,13 +10,11 @@ import {
 import { handleMage } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollLossRewards/handleMage'
 import { handleTreasure } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollLossRewards/handleTreasure'
 import { handleSupply } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollLossRewards/handleSupply'
-import { SelectedCardsLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedCards'
-import {
-  TreasuresStateSlice,
-  TreasureIdsStateSlice,
-} from 'Redux/Store/Settings/Expansions/Treasures'
-import { SelectedMagesLookupStateSlice } from 'Redux/Store/Settings/Expansions/SelectedMages'
+import { TreasureIdsStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/ids'
+import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/content'
+import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
 import { handleCustomRewards } from '../helpers'
+import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
 
 export const handleRewardType = ({
   rewardType,
@@ -78,10 +76,10 @@ export const handleRewardType = ({
 
 const rollLossRewards = (
   getState: () => ExpeditionsStateSlice &
-    SelectedCardsLookupStateSlice &
-    TreasuresStateSlice &
+    CardsContentStateSlice &
+    TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    SelectedMagesLookupStateSlice,
+    MagesContentStateSlice,
   battle: types.Battle,
   rewardType: RewardType
 ): BattleRewardsResult => {
@@ -139,10 +137,10 @@ const rollLossRewards = (
 // TODO add tests
 const handleRewardsFromConfig = (
   getState: () => ExpeditionsStateSlice &
-    SelectedCardsLookupStateSlice &
-    TreasuresStateSlice &
+    CardsContentStateSlice &
+    TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    SelectedMagesLookupStateSlice,
+    MagesContentStateSlice,
   battle: types.Battle,
   rewardsConfig?: types.RewardsConfig,
   rewardType?: RewardType
@@ -198,10 +196,10 @@ const handleRewardsFromConfig = (
 
 export const createLossRewards = (
   getState: () => ExpeditionsStateSlice &
-    SelectedCardsLookupStateSlice &
-    TreasuresStateSlice &
+    CardsContentStateSlice &
+    TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    SelectedMagesLookupStateSlice,
+    MagesContentStateSlice,
   battle: types.Battle,
   rewardType: RewardType
 ): BattleRewardsResult => {

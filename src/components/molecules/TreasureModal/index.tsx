@@ -14,9 +14,8 @@ import Body from 'components/molecules/TreasureInformation'
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import P from 'components/atoms/P'
 
-// FIXME refine type (Bug due to withTheme)
-const mapStateToProps = (state: RootState, props: any) => ({
-  selectedExpansions: selectors.Settings.Expansions.SelectedExpansions.getSelectedExpansionsState(
+const mapStateToProps = (state: RootState, _: any) => ({
+  expansions: selectors.Settings.Expansions.Expansions.content.getContent(
     state
   ),
 })
@@ -28,9 +27,7 @@ type Props = ReturnType<typeof mapStateToProps> & {
 }
 
 const TreasureModal = React.memo(
-  ({ card, selectedExpansions, theme, RenderModal }: Props) => {
-    const { expansions } = selectedExpansions
-
+  ({ card, expansions, theme, RenderModal }: Props) => {
     const titleColor = theme.colors.text.primary
     const titleLabel = card ? card.name : ''
 
@@ -40,7 +37,7 @@ const TreasureModal = React.memo(
           {card ? (
             <Body
               card={card}
-              expansionName={expansions[card.expansion].name || ''}
+              expansionName={expansions.ENG[card.expansion].name || ''}
             />
           ) : (
             <P>No content</P>

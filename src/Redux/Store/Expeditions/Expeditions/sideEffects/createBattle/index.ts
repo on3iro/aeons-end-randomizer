@@ -7,8 +7,8 @@ import { rollNemesisId } from './rollNemesisId'
 import { getStillAvailableNemesisIds } from './getStillAvailableNemesisIds'
 import { getUpgradedBasicNemesisCardsResult } from './getUpgradedBasicNemesisCardsResult'
 import { ExpeditionsStateSlice } from 'Redux/Store/Expeditions/Expeditions/types'
-import { SelectedNemesesStateSlice } from 'Redux/Store/Settings/Expansions/SelectedNemeses'
-import { UpgradedBasicNemesisCardsStateSlice } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards'
+import { NemesisContentStateSlice } from 'Redux/Store/Settings/Expansions/Nemeses/content'
+import { UpgradedBasicNemesisCardContentStateSlice } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards/content'
 
 export const generateResult = (
   battle: types.Battle,
@@ -32,8 +32,8 @@ export const generateResult = (
 
 export const createBattle = (
   getState: () => ExpeditionsStateSlice &
-    SelectedNemesesStateSlice &
-    UpgradedBasicNemesisCardsStateSlice,
+    NemesisContentStateSlice &
+    UpgradedBasicNemesisCardContentStateSlice,
   battle: types.Battle,
   getEntity: types.SeededEntityGetter = getRandomEntity
 ) => {

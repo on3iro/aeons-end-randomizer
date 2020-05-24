@@ -14,7 +14,7 @@ const mapStateToProps = (state: RootState) => {
   const supplyIds = selectors.Randomizer.Supply.RandomSetup.getTiles(state)
 
   return {
-    hasStandaloneExpansionSelected: selectors.Settings.Expansions.SelectedExpansions.getHasStandaloneExpansion(
+    hasStandaloneExpansionSelected: selectors.Settings.Expansions.Expansions.getHasStandaloneExpansion(
       state
     ),
     availableCards: selectors.Settings.Expansions.getSelectedCardsForSelectedExpansions(
@@ -22,7 +22,7 @@ const mapStateToProps = (state: RootState) => {
     ),
     allMarketSetups: getCustomAndPredefined(state),
     randomCards: supplyIds?.map(supplyId =>
-      selectors.Settings.Expansions.SelectedCards.getCardById(state, {
+      selectors.Settings.Expansions.Cards.content.getCardById(state, {
         id: supplyId.id,
       })
     ),

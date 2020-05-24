@@ -21,7 +21,7 @@ type OwnProps = {
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
   const nemesisId = ownProps.battle.nemesisId
   const nemesis = nemesisId
-    ? selectors.Settings.Expansions.SelectedNemeses.getNemesisById(state, {
+    ? selectors.Settings.Expansions.Nemeses.content.getById(state, {
         id: nemesisId,
       })
     : null
