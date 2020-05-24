@@ -8,26 +8,22 @@ import ListWrapper from 'components/molecules/ListWrapper'
 
 import Checkbox from './Checkbox'
 
-export type SelectedMage = types.Mage & { selected: boolean }
 export type ChangeHandler = (id: string) => void
 
-const renderCheckboxes = (
-  items: SelectedMage[],
-  changeHandler: ChangeHandler
-) =>
+const renderCheckboxes = (items: types.Mage[], changeHandler: ChangeHandler) =>
   items.map(item => (
     <Checkbox key={item.id} mage={item} changeHandler={changeHandler} />
   ))
 
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
-  selectedMages: selectors.Settings.Expansions.SelectedMages.getMagesByExpansionId(
+  selectedMages: selectors.Settings.Expansions.Mages.getMagesByExpansionId(
     state,
     props.expansionId
   ),
 })
 
 const mapDispatchToProps = {
-  handleMageChange: actions.Settings.Expansions.SelectedMages.toggleMage,
+  handleMageChange: actions.Settings.Expansions.Mages.selected.toggle,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &

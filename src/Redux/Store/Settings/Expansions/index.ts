@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux-loop'
 
-import * as SelectedExpansions from './SelectedExpansions'
-import * as SelectedCards from './SelectedCards'
-import * as SelectedNemeses from './SelectedNemeses'
-import * as SelectedMages from './SelectedMages'
+import * as Expansions from './Expansions'
+import * as Cards from './Cards'
+import * as Nemeses from './Nemeses'
+import * as Mages from './Mages'
 import * as Treasures from './Treasures'
 import * as BasicNemesisCards from './BasicNemesisCards'
 import * as UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
@@ -15,20 +15,20 @@ import * as topLevelSelectors from './selectors'
 ///////////
 
 export type State = {
-  SelectedExpansions: SelectedExpansions.State
-  SelectedCards: SelectedCards.State
-  SelectedNemeses: SelectedNemeses.State
-  SelectedMages: SelectedMages.State
+  Expansions: Expansions.State
+  Cards: Cards.State
+  Nemeses: Nemeses.State
+  Mages: Mages.State
   Treasures: Treasures.State
   BasicNemesisCards: BasicNemesisCards.State
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.State
 }
 
 export const initialState: State = {
-  SelectedExpansions: SelectedExpansions.initialState,
-  SelectedCards: SelectedCards.initialState,
-  SelectedNemeses: SelectedNemeses.initialState,
-  SelectedMages: SelectedMages.initialState,
+  Expansions: Expansions.initialState,
+  Cards: Cards.initialState,
+  Nemeses: Nemeses.initialState,
+  Mages: Mages.initialState,
   Treasures: Treasures.initialState,
   BasicNemesisCards: BasicNemesisCards.initialState,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.initialState,
@@ -39,19 +39,19 @@ export const initialState: State = {
 /////////////
 
 export type Action =
-  | SelectedExpansions.Action
-  | SelectedCards.Action
-  | SelectedNemeses.Action
-  | SelectedMages.Action
+  | Expansions.Action
+  | Cards.Action
+  | Nemeses.Action
+  | Mages.Action
   | Treasures.Action
   | BasicNemesisCards.Action
   | UpgradedBasicNemesisCards.Action
 
 export const actions = {
-  SelectedExpansions: SelectedExpansions.actions,
-  SelectedCards: SelectedCards.actions,
-  SelectedNemeses: SelectedNemeses.actions,
-  SelectedMages: SelectedMages.actions,
+  Expansions: Expansions.actions,
+  Cards: Cards.actions,
+  Nemeses: Nemeses.actions,
+  Mages: Mages.actions,
   Treasures: Treasures.actions,
   BasicNemesisCards: BasicNemesisCards.actions,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.actions,
@@ -62,10 +62,10 @@ export const actions = {
 /////////////
 
 export const Reducer = combineReducers({
-  SelectedExpansions: SelectedExpansions.Reducer,
-  SelectedCards: SelectedCards.Reducer,
-  SelectedNemeses: SelectedNemeses.Reducer,
-  SelectedMages: SelectedMages.Reducer,
+  Expansions: Expansions.Reducer,
+  Cards: Cards.Reducer,
+  Nemeses: Nemeses.Reducer,
+  Mages: Mages.Reducer,
   Treasures: Treasures.Reducer,
   BasicNemesisCards: BasicNemesisCards.Reducer,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.Reducer,
@@ -76,10 +76,10 @@ export const Reducer = combineReducers({
 ///////////////
 
 export const selectors = {
-  SelectedExpansions: SelectedExpansions.selectors,
-  SelectedCards: SelectedCards.selectors,
-  SelectedNemeses: SelectedNemeses.selectors,
-  SelectedMages: SelectedMages.selectors,
+  Expansions: Expansions.selectors,
+  Cards: Cards.selectors,
+  Nemeses: Nemeses.selectors,
+  Mages: Mages.selectors,
   Treasures: Treasures.selectors,
   BasicNemesisCards: BasicNemesisCards.selectors,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.selectors,

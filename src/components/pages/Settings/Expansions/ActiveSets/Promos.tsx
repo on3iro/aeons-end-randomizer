@@ -6,7 +6,7 @@ import { RootState, selectors } from '../../../../../Redux/Store'
 import ExpansionList, { ChangeHandler } from './ExpansionList'
 
 const mapStateToProps = (state: RootState) => ({
-  promos: selectors.Settings.Expansions.SelectedExpansions.getPromos(state),
+  promos: selectors.Settings.Expansions.Expansions.getPromos(state),
 })
 
 const mapDispatchToProps = {}
