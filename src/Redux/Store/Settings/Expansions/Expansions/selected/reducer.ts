@@ -1,12 +1,10 @@
 import { LoopReducer } from 'redux-loop'
 
-import AERData from 'aer-data'
-
 import { Action, ActionTypes, State } from './types'
 
 import * as reducerHelpers from './reducerHelpers'
 
-export const initialState: State = AERData.normalizedData.ENG.expansionIds
+export const initialState: State = []
 
 export const Reducer: LoopReducer<State, Action> = (
   state: State = initialState,
