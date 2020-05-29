@@ -8,7 +8,7 @@ import NemesisCardListItem from './NemesisCardListItem'
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
   basicNemesisCards: selectors.Settings.Expansions.BasicNemesisCards.getContentByExpansionId(
     state,
-    props.expansionId
+    props
   ),
 })
 

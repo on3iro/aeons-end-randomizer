@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux-loop'
-
-import * as types from 'aer-types'
+import { selectors as LanguageSelectors } from '../Languages'
 
 import * as Content from './content'
 import * as Selected from './selected'
 import * as Ids from './ids'
-import { BasicNemesisCardsContentStateSlice } from './content'
 import { createSelector } from 'reselect'
+import {
+  getEntitiesByIdListWithLanguageFallback,
+  getContentByIdWithLanguageFallback,
+} from '../helpers'
 
 ///////////
 // STATE //
@@ -52,28 +54,10 @@ export const Reducer = combineReducers({
 
 // Primitive
 
-const getBasicNemesisCardTier = (
-  _: unknown,
-  props: { tier: types.NemesisCardTier }
-) => props.tier
-
-const getExpansionId = (_: unknown, id: string) => id
-
-const getBasicNemesisCardById = (
-  state: BasicNemesisCardsContentStateSlice,
-  props: { id: string }
-) => state.Settings.Expansions.BasicNemesisCards.content.ENG[props.id]
+const getExpansionId = (_: unknown, props: { expansionId: string }) =>
+  props.expansionId
 
 // Memoized
-
-const getIdsByTier = createSelector(
-  [Content.selectors.getContent, Ids.selectors.getIds, getBasicNemesisCardTier],
-  (content, ids, tier) =>
-    ids
-      .map(id => content.ENG[id])
-      .filter(basicNemesisCard => basicNemesisCard.tier === tier)
-      .map(basicNemesisCard => basicNemesisCard.id)
-)
 
 const getIdsByExpansionId = createSelector(
   [Content.selectors.getContent, Ids.selectors.getIds, getExpansionId],
@@ -82,51 +66,30 @@ const getIdsByExpansionId = createSelector(
 )
 
 const getContentByExpansionId = createSelector(
-  [Content.selectors.getContent, getIdsByExpansionId],
-  (content, idsByExpansion) => idsByExpansion.map(id => content.ENG[id])
-)
-
-const getContentAsList = createSelector(
-  [Content.selectors.getContent, Ids.selectors.getIds],
-  (content, ids) => ids.map(id => content.ENG[id])
-)
-
-const getContentAsListByTier = createSelector(
-  [Content.selectors.getContent, getIdsByTier],
-  (content, ids) => ids.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    getIdsByExpansionId,
+    LanguageSelectors.getSelectedLanguageByExpansionId,
+  ],
+  getEntitiesByIdListWithLanguageFallback
 )
 
 const getSelectedContent = createSelector(
-  [Content.selectors.getContent, Selected.selectors.getSelected],
-  (content, selectedIds) => selectedIds.map(id => content.ENG[id])
-)
-
-const getSelectedIdsByTier = createSelector(
   [
     Content.selectors.getContent,
     Selected.selectors.getSelected,
-    getBasicNemesisCardTier,
+    LanguageSelectors.getLanguagesByExpansion,
   ],
-  (content, selectedIds, tier) =>
-    selectedIds
-      .map(id => content.ENG[id])
-      .filter(basicNemesisCard => basicNemesisCard.tier === tier)
-      .map(basicNemesisCard => basicNemesisCard.id)
-)
-
-const getSelectedContentAsListByTier = createSelector(
-  [Content.selectors.getContent, getSelectedIdsByTier],
-  (content, ids) => ids.map(id => content.ENG[id])
+  (content, selectedIds, languages) =>
+    selectedIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
 )
 
 export const selectors = {
   selected: Selected.selectors,
   ids: Ids.selectors,
   content: Content.selectors,
-  getBasicNemesisCardById,
   getContentByExpansionId,
-  getContentAsList,
-  getContentAsListByTier,
   getSelectedContent,
-  getSelectedContentAsListByTier,
 }

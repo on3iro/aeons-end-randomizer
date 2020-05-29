@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions, selectors } from '../../../../Redux/Store'
+import { RootState, actions, selectors } from 'Redux/Store'
 
-import ExpansionPanel from '../../../molecules/ExpansionPanel'
+import ExpansionPanel from 'components/molecules/ExpansionPanel'
 
 import ActiveSets from './ActiveSets'
 

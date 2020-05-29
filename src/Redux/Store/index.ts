@@ -76,6 +76,7 @@ export const MainReducer: LoopReducer<RootState, RootAction> = (
           Cmd.action(
             actions.Settings.Expansions.Expansions.selected.fetchFromDB()
           ),
+          Cmd.action(actions.Settings.Expansions.Languages.fetchFromDB()),
           Cmd.action(actions.Settings.Expansions.Cards.selected.fetchFromDB()),
           Cmd.action(
             actions.Settings.Expansions.Nemeses.selected.fetchFromDB()

@@ -13,6 +13,7 @@ import { TreasureIdsStateSlice } from 'Redux/Store/Settings/Expansions/Treasures
 import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/content'
 import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
 import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
+import { SelectedLanguagesStateSlice } from 'Redux/Store/Settings/Expansions/Languages'
 
 export const rollNewEntity = (
   list: string[],
@@ -214,7 +215,8 @@ export const handleCustomRewards = (
     CardsContentStateSlice &
     TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    MagesContentStateSlice,
+    MagesContentStateSlice &
+    SelectedLanguagesStateSlice,
   rewardConfig: {
     type: 'custom'
     treasure?: types.TreasureRewardConfig

@@ -91,7 +91,7 @@ const Battle = ({
         onClick={handleClick}
         data-test="btn-battle"
       >
-        <BattleTile battle={battle} nemesis={nemesis ? nemesis.name : '?'} />
+        <BattleTile battle={battle} nemesis={nemesis?.name || '?'} />
       </BranchWrapper>
 
       <beforeBattle.RenderModal titleColor="#333" titleLabel="Before Fight">

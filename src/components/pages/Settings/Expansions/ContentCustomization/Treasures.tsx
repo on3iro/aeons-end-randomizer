@@ -8,7 +8,7 @@ import TreasureListItem from './TreasureListItem'
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
   treasures: selectors.Settings.Expansions.Treasures.getTreasuresByExpansionId(
     state,
-    props.expansionId
+    props
   ),
 })
 

@@ -7,6 +7,7 @@ import * as Mages from './Mages'
 import * as Treasures from './Treasures'
 import * as BasicNemesisCards from './BasicNemesisCards'
 import * as UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
+import * as Languages from './Languages'
 
 import * as topLevelSelectors from './selectors'
 
@@ -15,6 +16,7 @@ import * as topLevelSelectors from './selectors'
 ///////////
 
 export type State = {
+  Languages: Languages.State
   Expansions: Expansions.State
   Cards: Cards.State
   Nemeses: Nemeses.State
@@ -25,6 +27,7 @@ export type State = {
 }
 
 export const initialState: State = {
+  Languages: Languages.initialState,
   Expansions: Expansions.initialState,
   Cards: Cards.initialState,
   Nemeses: Nemeses.initialState,
@@ -39,6 +42,7 @@ export const initialState: State = {
 /////////////
 
 export type Action =
+  | Languages.Action
   | Expansions.Action
   | Cards.Action
   | Nemeses.Action
@@ -48,6 +52,7 @@ export type Action =
   | UpgradedBasicNemesisCards.Action
 
 export const actions = {
+  Languages: Languages.actions,
   Expansions: Expansions.actions,
   Cards: Cards.actions,
   Nemeses: Nemeses.actions,
@@ -62,6 +67,7 @@ export const actions = {
 /////////////
 
 export const Reducer = combineReducers({
+  Languages: Languages.Reducer,
   Expansions: Expansions.Reducer,
   Cards: Cards.Reducer,
   Nemeses: Nemeses.Reducer,
@@ -76,6 +82,7 @@ export const Reducer = combineReducers({
 ///////////////
 
 export const selectors = {
+  Languages: Languages.selectors,
   Expansions: Expansions.selectors,
   Cards: Cards.selectors,
   Nemeses: Nemeses.selectors,

@@ -1,9 +1,14 @@
 import { combineReducers } from 'redux-loop'
 import { createSelector } from 'reselect'
+import { selectors as LanguageSelectors } from '../Languages'
 
 import * as Content from './content'
 import * as Selected from './selected'
 import * as Ids from './ids'
+import {
+  getEntitiesByIdListWithLanguageFallback,
+  getContentByIdWithLanguageFallback,
+} from '../helpers'
 
 ///////////
 // STATE //
@@ -49,7 +54,8 @@ export const Reducer = combineReducers({
 
 // Primitive
 
-const getExpansionId = (_: unknown, id: string) => id
+const getExpansionId = (_: unknown, props: { expansionId: string }) =>
+  props.expansionId
 const getIdList = (_: unknown, props: { cardIds: string[] }) => props.cardIds
 
 // Memoized
@@ -61,8 +67,12 @@ const getIdsByExpansionId = createSelector(
 )
 
 const getContentByExpansionId = createSelector(
-  [Content.selectors.getContent, getIdsByExpansionId],
-  (content, ids) => ids.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    getIdsByExpansionId,
+    LanguageSelectors.getSelectedLanguageByExpansionId,
+  ],
+  getEntitiesByIdListWithLanguageFallback
 )
 
 const getGemsByExpansionId = createSelector(
@@ -81,13 +91,25 @@ const getSpellsByExpansionId = createSelector(
 )
 
 const getSelectedCards = createSelector(
-  [Content.selectors.getContent, Selected.selectors.getSelected],
-  (content, selectedIds) => selectedIds.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    Selected.selectors.getSelected,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, selectedIds, languages) =>
+    selectedIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
 )
 
 const getCardsByIdList = createSelector(
-  [Content.selectors.getContent, getIdList],
-  (content, idList) => idList.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    getIdList,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, idList, languages) =>
+    idList.map(id => getContentByIdWithLanguageFallback(languages, content, id))
 )
 
 export const selectors = {

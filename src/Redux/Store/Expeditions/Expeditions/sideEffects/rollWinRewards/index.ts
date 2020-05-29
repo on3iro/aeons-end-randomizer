@@ -12,6 +12,7 @@ import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treas
 import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
 import { handleCustomRewards } from '../helpers'
 import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
+import { SelectedLanguagesStateSlice } from 'Redux/Store/Settings/Expansions/Languages'
 
 export const getTreasureAmount = (treasureLevel?: types.TreasureLevel) => {
   return treasureLevel === 2 ? 3 : 5
@@ -21,7 +22,8 @@ export const rollWinRewards = (
   getState: () => ExpeditionsStateSlice &
     TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    CardsContentStateSlice,
+    CardsContentStateSlice &
+    SelectedLanguagesStateSlice,
   battle: types.Battle
 ) => {
   const state = getState()
@@ -95,7 +97,8 @@ const handleRewardsFromConfig = (
     CardsContentStateSlice &
     TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    MagesContentStateSlice,
+    MagesContentStateSlice &
+    SelectedLanguagesStateSlice,
   battle: types.Battle,
   rewardsConfig: types.RewardsConfig
 ) => {
@@ -131,7 +134,8 @@ export const createWinRewards = (
     CardsContentStateSlice &
     TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    MagesContentStateSlice,
+    MagesContentStateSlice &
+    SelectedLanguagesStateSlice,
   battle: types.Battle
 ) => {
   const rewardsConfig = battle.config.winRewards

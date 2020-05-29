@@ -23,7 +23,7 @@ const mapStateToProps = (state: RootState) => {
     ),
     mageCount: selectors.Randomizer.Mages.Count.getCount(state),
     mages: mageIds.map(mageId =>
-      selectors.Settings.Expansions.Mages.content.getMageById(state, {
+      selectors.Settings.Expansions.Mages.content.getById(state, {
         id: mageId.id,
       })
     ),

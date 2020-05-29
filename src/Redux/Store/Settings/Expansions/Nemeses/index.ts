@@ -1,9 +1,14 @@
 import { combineReducers } from 'redux-loop'
 import { createSelector } from 'reselect'
+import { selectors as LanguageSelectors } from '../Languages'
 
 import * as Content from './content'
 import * as Selected from './selected'
 import * as Ids from './ids'
+import {
+  getContentByIdWithLanguageFallback,
+  getEntitiesByIdListWithLanguageFallback,
+} from '../helpers'
 
 ///////////
 // STATE //
@@ -49,7 +54,8 @@ export const Reducer = combineReducers({
 
 // Primitive
 
-const getExpansionId = (_: unknown, id: string) => id
+const getExpansionId = (_: unknown, props: { expansionId: string }) =>
+  props.expansionId
 
 // Memoized
 
@@ -60,13 +66,25 @@ const getNemesisIdsByExpansionId = createSelector(
 )
 
 const getNemesesByExpansionId = createSelector(
-  [Content.selectors.getContent, getNemesisIdsByExpansionId],
-  (content, nemesisIds) => nemesisIds.map(nemesisId => content.ENG[nemesisId])
+  [
+    Content.selectors.getContent,
+    getNemesisIdsByExpansionId,
+    LanguageSelectors.getSelectedLanguageByExpansionId,
+  ],
+  getEntitiesByIdListWithLanguageFallback
 )
 
 const getSelectedNemeses = createSelector(
-  [Content.selectors.getContent, Selected.selectors.getSelected],
-  (content, nemesisIds) => nemesisIds.map(nemesisId => content.ENG[nemesisId])
+  [
+    Content.selectors.getContent,
+    Selected.selectors.getSelected,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, nemesisIds, languages) => {
+    return nemesisIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
+  }
 )
 
 export const selectors = {
