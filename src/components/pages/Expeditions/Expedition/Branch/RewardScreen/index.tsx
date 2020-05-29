@@ -50,12 +50,9 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
   const newMages =
     ownProps.branch.rewards && ownProps.branch.rewards.mages
       ? ownProps.branch.rewards.mages.map(mage => {
-          return selectors.Settings.Expansions.Mages.content.getMageById(
-            state,
-            {
-              id: mage,
-            }
-          )
+          return selectors.Settings.Expansions.Mages.content.getById(state, {
+            id: mage,
+          })
         })
       : []
 

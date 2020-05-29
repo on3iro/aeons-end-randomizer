@@ -15,6 +15,7 @@ import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treas
 import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
 import { handleCustomRewards } from '../helpers'
 import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
+import { SelectedLanguagesStateSlice } from 'Redux/Store/Settings/Expansions/Languages'
 
 export const handleRewardType = ({
   rewardType,
@@ -79,7 +80,8 @@ const rollLossRewards = (
     CardsContentStateSlice &
     TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    MagesContentStateSlice,
+    MagesContentStateSlice &
+    SelectedLanguagesStateSlice,
   battle: types.Battle,
   rewardType: RewardType
 ): BattleRewardsResult => {
@@ -140,7 +142,8 @@ const handleRewardsFromConfig = (
     CardsContentStateSlice &
     TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    MagesContentStateSlice,
+    MagesContentStateSlice &
+    SelectedLanguagesStateSlice,
   battle: types.Battle,
   rewardsConfig?: types.RewardsConfig,
   rewardType?: RewardType
@@ -199,7 +202,8 @@ export const createLossRewards = (
     CardsContentStateSlice &
     TreasureContentStateSlice &
     TreasureIdsStateSlice &
-    MagesContentStateSlice,
+    MagesContentStateSlice &
+    SelectedLanguagesStateSlice,
   battle: types.Battle,
   rewardType: RewardType
 ): BattleRewardsResult => {

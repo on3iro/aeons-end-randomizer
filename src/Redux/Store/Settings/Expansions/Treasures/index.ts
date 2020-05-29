@@ -1,11 +1,16 @@
 import { combineReducers } from 'redux-loop'
 import { createSelector } from 'reselect'
+import { selectors as LanguageSelectors } from '../Languages'
 
 import * as types from 'aer-types'
 
 import * as Content from './content'
 import * as Selected from './selected'
 import * as Ids from './ids'
+import {
+  getEntitiesByIdListWithLanguageFallback,
+  getContentByIdWithLanguageFallback,
+} from '../helpers'
 
 ///////////
 // STATE //
@@ -56,7 +61,8 @@ const getTreasureLevel = (
   props: { treasureLevel: types.TreasureLevel }
 ) => props.treasureLevel
 
-const getExpansionId = (_: unknown, id: string) => id
+const getExpansionId = (_: unknown, props: { expansionId: string }) =>
+  props.expansionId
 
 const getIdList = (_: unknown, props: { treasureIds: string[] }) =>
   props.treasureIds
@@ -79,29 +85,52 @@ const getTreasureIdsByExpansionId = createSelector(
 )
 
 const getTreasuresByExpansionId = createSelector(
-  [Content.selectors.getContent, getTreasureIdsByExpansionId],
-  (content, treasureIds) =>
-    treasureIds.map(treasureId => content.ENG[treasureId])
+  [
+    Content.selectors.getContent,
+    getTreasureIdsByExpansionId,
+    LanguageSelectors.getSelectedLanguageByExpansionId,
+  ],
+  getEntitiesByIdListWithLanguageFallback
 )
 
 const getTreasureList = createSelector(
-  [Content.selectors.getContent, Ids.selectors.getIds],
-  (content, ids) => ids.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    Ids.selectors.getIds,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, ids, languages) =>
+    ids.map(id => getContentByIdWithLanguageFallback(languages, content, id))
 )
 
 const getTreasureListByLevel = createSelector(
-  [Content.selectors.getContent, getTreasureIdsByTreasureLevel],
-  (content, ids) => ids.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    getTreasureIdsByTreasureLevel,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, ids, languages) =>
+    ids.map(id => getContentByIdWithLanguageFallback(languages, content, id))
 )
 
 const getTreasureListFromIdList = createSelector(
-  [Content.selectors.getContent, getIdList],
-  (content, ids) => ids.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    getIdList,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, ids, languages) =>
+    ids.map(id => getContentByIdWithLanguageFallback(languages, content, id))
 )
 
 const getSelectedTreasures = createSelector(
-  [Content.selectors.getContent, Selected.selectors.getSelected],
-  (content, ids) => ids.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    Selected.selectors.getSelected,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, ids, languages) =>
+    ids.map(id => getContentByIdWithLanguageFallback(languages, content, id))
 )
 
 const getSelectedTreasureIdsByTreasureLevel = createSelector(
@@ -109,17 +138,23 @@ const getSelectedTreasureIdsByTreasureLevel = createSelector(
     Content.selectors.getContent,
     Selected.selectors.getSelected,
     getTreasureLevel,
+    LanguageSelectors.getLanguagesByExpansion,
   ],
-  (content, ids, level) =>
+  (content, ids, level, languages) =>
     ids
-      .map(id => content.ENG[id])
+      .map(id => getContentByIdWithLanguageFallback(languages, content, id))
       .filter(treasure => treasure.level === level)
       .map(treasure => treasure.id)
 )
 
 const getSelectedTreasureListByLevel = createSelector(
-  [Content.selectors.getContent, getSelectedTreasureIdsByTreasureLevel],
-  (content, ids) => ids.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    getSelectedTreasureIdsByTreasureLevel,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, ids, languages) =>
+    ids.map(id => getContentByIdWithLanguageFallback(languages, content, id))
 )
 
 export const selectors = {

@@ -28,28 +28,19 @@ const mapStateToProps = (state: RootState) => {
     ),
     randomBasicNemesisCards: {
       Tier1: basicNemesisCardIds.Tier1.map(basicNemesisCardId =>
-        selectors.Settings.Expansions.BasicNemesisCards.getBasicNemesisCardById(
-          state,
-          {
-            id: basicNemesisCardId.id,
-          }
-        )
+        selectors.Settings.Expansions.BasicNemesisCards.content.getById(state, {
+          id: basicNemesisCardId.id,
+        })
       ),
       Tier2: basicNemesisCardIds.Tier2.map(basicNemesisCardId =>
-        selectors.Settings.Expansions.BasicNemesisCards.getBasicNemesisCardById(
-          state,
-          {
-            id: basicNemesisCardId.id,
-          }
-        )
+        selectors.Settings.Expansions.BasicNemesisCards.content.getById(state, {
+          id: basicNemesisCardId.id,
+        })
       ),
       Tier3: basicNemesisCardIds.Tier3.map(basicNemesisCardId =>
-        selectors.Settings.Expansions.BasicNemesisCards.getBasicNemesisCardById(
-          state,
-          {
-            id: basicNemesisCardId.id,
-          }
-        )
+        selectors.Settings.Expansions.BasicNemesisCards.content.getById(state, {
+          id: basicNemesisCardId.id,
+        })
       ),
     },
   }

@@ -8,7 +8,7 @@ import CardListItem from './CardListItem'
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
   selectedGems: selectors.Settings.Expansions.Cards.getGemsByExpansionId(
     state,
-    props.expansionId
+    props
   ),
 })
 

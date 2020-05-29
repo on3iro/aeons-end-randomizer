@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 
 import { RootState, selectors, actions } from 'Redux/Store'
 
-import NemesisCardListItem from './NemesisCardListItem'
+import UpgradedNemesisCardListItem from './UpgradedNemesisCardListItem'
 
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
   selectedUpgradedBasicNemesisCards: selectors.Settings.Expansions.UpgradedBasicNemesisCards.getUpgradedBasicNemesisCardsByExpansionId(
     state,
-    props.expansionId
+    props
   ),
 })
 
@@ -28,7 +28,7 @@ const UpgradedBasicNemesisCards = ({
 }: Props) => (
   <React.Fragment>
     {selectedUpgradedBasicNemesisCards.length > 0 && (
-      <NemesisCardListItem
+      <UpgradedNemesisCardListItem
         entities={selectedUpgradedBasicNemesisCards}
         handleCheckboxChange={handleUpgradedBasicNemesisCardChange}
         label="Upgraded Basic Nemesis Cards"

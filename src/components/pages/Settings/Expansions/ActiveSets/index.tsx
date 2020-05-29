@@ -7,7 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormLabel from '@material-ui/core/FormLabel'
 
-import { RootState, selectors, actions } from '../../../../../Redux/Store'
+import { RootState, selectors, actions } from 'Redux/Store'
 
 import Standalones from './Standalones'
 import Mini from './Mini'

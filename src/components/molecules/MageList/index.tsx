@@ -8,15 +8,17 @@ import MageTile from './MageTile'
 import Grid from '@material-ui/core/Grid'
 
 type Props = {
-  mages: ReadonlyArray<Mage>
+  mages: ReadonlyArray<Mage | undefined>
 }
 
 const MageList = ({ mages }: Props) => (
   <MageGridWrapper>
     <Grid container spacing={16}>
-      {mages.map((mage, index) => (
-        <MageTile mage={mage} key={mage.name} playerNumber={index + 1} />
-      ))}
+      {mages
+        .filter((m): m is Mage => !!m)
+        .map((mage, index) => (
+          <MageTile mage={mage} key={mage.name} playerNumber={index + 1} />
+        ))}
     </Grid>
   </MageGridWrapper>
 )
