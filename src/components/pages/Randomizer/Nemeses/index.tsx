@@ -13,7 +13,7 @@ import NemesisModal from 'components/molecules/NemesisModal'
 import { useModal } from 'hooks/useModal'
 
 const mapStateToProps = (state: RootState) => {
-  const nemesis = selectors.Randomizer.Nemesis.getNemesis(state) ?? { id: '' }
+  const nemesis = selectors.Randomizer.Nemesis.getNemesis(state)
 
   return {
     hasStandaloneExpansionSelected: selectors.Settings.Expansions.Expansions.getHasStandaloneExpansion(
@@ -22,10 +22,11 @@ const mapStateToProps = (state: RootState) => {
     availableNemeses: selectors.Settings.Expansions.getSelectedNemesesForSelectedExpansions(
       state
     ),
-    randomNemesis: selectors.Settings.Expansions.Nemeses.content.getById(
-      state,
-      { id: nemesis.id }
-    ),
+    randomNemesis: nemesis
+      ? selectors.Settings.Expansions.Nemeses.content.getById(state, {
+          id: nemesis.id,
+        })
+      : undefined,
   }
 }
 

@@ -22,15 +22,18 @@ type OwnProps = {
 // This is probably due to a typscript shortcoming, which is unable to
 // unwrap withTheme() and connect() at once.
 const mapStateToProps = (state: RootState, ownProps: any) => ({
-  nemesis: selectors.Settings.Expansions.Nemeses.content.getById(
-    state,
-    ownProps
-  ),
+  nemesis: ownProps.id
+    ? selectors.Settings.Expansions.Nemeses.content.getById(state, ownProps)
+    : undefined,
 })
 
 type Props = ReturnType<typeof mapStateToProps> & OwnProps
 
 const NemesisModal = ({ theme, RenderModal, nemesis }: Props) => {
+  if (!nemesis) {
+    return null
+  }
+
   const titleColor = theme.colors.turnOrderCards.nemesis.normal
   const titleLabel = nemesis ? nemesis.name : ''
 

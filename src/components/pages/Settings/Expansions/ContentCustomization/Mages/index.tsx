@@ -18,7 +18,7 @@ const renderCheckboxes = (items: types.Mage[], changeHandler: ChangeHandler) =>
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
   selectedMages: selectors.Settings.Expansions.Mages.getMagesByExpansionId(
     state,
-    props.expansionId
+    props
   ),
 })
 

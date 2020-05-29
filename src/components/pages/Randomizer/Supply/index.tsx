@@ -22,7 +22,7 @@ const mapStateToProps = (state: RootState) => {
     ),
     allMarketSetups: getCustomAndPredefined(state),
     randomCards: supplyIds?.map(supplyId =>
-      selectors.Settings.Expansions.Cards.content.getCardById(state, {
+      selectors.Settings.Expansions.Cards.content.getById(state, {
         id: supplyId.id,
       })
     ),

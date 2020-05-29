@@ -1,9 +1,14 @@
 import { combineReducers } from 'redux-loop'
 import { createSelector } from 'reselect'
+import { selectors as LanguageSelectors } from '../Languages'
 
 import * as Content from './content'
 import * as Selected from './selected'
 import * as Ids from './ids'
+import {
+  getEntitiesByIdListWithLanguageFallback,
+  getContentByIdWithLanguageFallback,
+} from '../helpers'
 
 ///////////
 // STATE //
@@ -49,7 +54,8 @@ export const Reducer = combineReducers({
 
 // Primitive
 
-const getExpansionId = (_: unknown, id: string) => id
+const getExpansionId = (_: unknown, props: { expansionId: string }) =>
+  props.expansionId
 
 // Memoized
 
@@ -60,13 +66,24 @@ const getMageIdsByExpansionId = createSelector(
 )
 
 const getMagesByExpansionId = createSelector(
-  [Content.selectors.getContent, getMageIdsByExpansionId],
-  (content, ids) => ids.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    getMageIdsByExpansionId,
+    LanguageSelectors.getSelectedLanguageByExpansionId,
+  ],
+  getEntitiesByIdListWithLanguageFallback
 )
 
 const getSelectedMages = createSelector(
-  [Content.selectors.getContent, Selected.selectors.getSelected],
-  (content, selectedIds) => selectedIds.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    Selected.selectors.getSelected,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, selectedIds, languages) =>
+    selectedIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
 )
 
 export const selectors = {

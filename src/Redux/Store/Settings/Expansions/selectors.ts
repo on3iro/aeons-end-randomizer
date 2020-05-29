@@ -23,7 +23,9 @@ export const getSelectedEntitiesForSelectedExpansions = <T>(
   createSelector(
     [Expansions.selectors.selected.getSelected, entitySelector],
     (expansionIds, entities) =>
-      entities.filter(entity => expansionIds.includes(entity.expansion))
+      entities.filter(
+        entity => entity && expansionIds.includes(entity.expansion)
+      )
   )
 
 export const getSelectedCardsForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(

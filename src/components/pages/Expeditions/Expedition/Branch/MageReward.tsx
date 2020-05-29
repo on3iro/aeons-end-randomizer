@@ -6,7 +6,7 @@ import SectionHeadline from 'components/atoms/SectionHeadline'
 import MageList from 'components/molecules/MageList'
 
 type Props = {
-  mages: types.Mage[]
+  mages: (types.Mage | undefined)[]
 }
 
 const MageReward = ({ mages }: Props) => {
