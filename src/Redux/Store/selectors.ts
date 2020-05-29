@@ -2,15 +2,17 @@ import { createSelector } from 'reselect'
 
 import * as Settings from './Settings'
 import * as Expeditions from './Expeditions'
+import { getContentByIdWithLanguageFallback } from './Settings/Expansions/helpers'
 
 export const getUpgradedBasicNemesisCardsByExpeditionId = createSelector(
   [
     Expeditions.selectors.Expeditions.getExpeditionById,
     Settings.selectors.Expansions.UpgradedBasicNemesisCards.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (expedition, upgradedBasicNemsisCards) =>
-    expedition.upgradedBasicNemesisCards.map(
-      cardId => upgradedBasicNemsisCards.ENG[cardId]
+  (expedition, content, languages) =>
+    expedition.upgradedBasicNemesisCards.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
     )
 )
 
@@ -18,35 +20,47 @@ export const getExpeditionSupply = createSelector(
   [
     Expeditions.selectors.Expeditions.getExpeditionById,
     Settings.selectors.Expansions.Cards.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (expedition, cards) => expedition.barracks.supplyIds.map(id => cards.ENG[id])
+  (expedition, content, languages) =>
+    expedition.barracks.supplyIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
 )
 
 export const getExpeditionMages = createSelector(
   [
     Expeditions.selectors.Expeditions.getExpeditionById,
     Settings.selectors.Expansions.Mages.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (expedition, mages) => expedition.barracks.mageIds.map(id => mages.ENG[id])
+  (expedition, content, languages) =>
+    expedition.barracks.mageIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
 )
 
 export const getExpeditionTreasure = createSelector(
   [
     Expeditions.selectors.Expeditions.getExpeditionById,
     Settings.selectors.Expansions.Treasures.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (expedition, treasures) =>
-    expedition.barracks.treasureIds.map(id => treasures.ENG[id])
+  (expedition, content, languages) =>
+    expedition.barracks.treasureIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
 )
 
 export const getExpeditionUpgradedBasicNemesis = createSelector(
   [
     Expeditions.selectors.Expeditions.getExpeditionById,
     Settings.selectors.Expansions.UpgradedBasicNemesisCards.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (expedition, upgradedBasicNemsisCards) =>
-    expedition.upgradedBasicNemesisCards.map(
-      id => upgradedBasicNemsisCards.ENG[id]
+  (expedition, content, languages) =>
+    expedition.upgradedBasicNemesisCards.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
     )
 )
 
@@ -54,54 +68,71 @@ export const getExpeditionBanishedCards = createSelector(
   [
     Expeditions.selectors.Expeditions.getExpeditionById,
     Settings.selectors.Expansions.Cards.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (expedition, cards) => expedition.banished.map(id => cards.ENG[id])
+  (expedition, content, languages) =>
+    expedition.banished.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
 )
 
 export const getAvailableNemesisForExpeditionId = createSelector(
   [
     Expeditions.selectors.Expeditions.getSettingsSnapshotByExpeditionId,
     Settings.selectors.Expansions.Nemeses.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (settingsSnapshot, nemeses) =>
-    settingsSnapshot.availableNemesisIds.map(id => nemeses.ENG[id])
+  (settingsSnapshot, content, languages) =>
+    settingsSnapshot.availableNemesisIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
 )
 
 export const getAvailableCardsForExpeditionId = createSelector(
   [
     Expeditions.selectors.Expeditions.getSettingsSnapshotByExpeditionId,
     Settings.selectors.Expansions.Cards.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (settingsSnapshot, cards) =>
-    settingsSnapshot.availableCardIds.map(id => cards.ENG[id])
+  (settingsSnapshot, content, languages) =>
+    settingsSnapshot.availableCardIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
 )
 
 export const getAvailableMagesForExpeditionId = createSelector(
   [
     Expeditions.selectors.Expeditions.getSettingsSnapshotByExpeditionId,
     Settings.selectors.Expansions.Mages.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (settingsSnapshot, allMages) =>
-    settingsSnapshot.availableMageIds.map(id => allMages.ENG[id])
+  (settingsSnapshot, content, languages) =>
+    settingsSnapshot.availableMageIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
 )
 
 export const getAvailableTreasureForExpeditionId = createSelector(
   [
     Expeditions.selectors.Expeditions.getSettingsSnapshotByExpeditionId,
     Settings.selectors.Expansions.Treasures.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (settingsSnapshot, treasures) =>
-    settingsSnapshot.availableTreasureIds.map(id => treasures.ENG[id])
+  (settingsSnapshot, content, languages) =>
+    settingsSnapshot.availableTreasureIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
 )
 
 export const getAvailableUpgradedBasicNemesisCardsForExpeditionId = createSelector(
   [
     Expeditions.selectors.Expeditions.getSettingsSnapshotByExpeditionId,
     Settings.selectors.Expansions.UpgradedBasicNemesisCards.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (settingsSnapshot, UBNCards) =>
-    settingsSnapshot.availableUpgradedBasicNemesisCardIds.map(
-      id => UBNCards.ENG[id]
+  (settingsSnapshot, content, languages) =>
+    settingsSnapshot.availableUpgradedBasicNemesisCardIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, content, id)
     )
 )
 
@@ -122,8 +153,12 @@ export const getStillAvailableGems = createSelector(
   [
     Settings.selectors.Expansions.Cards.content.getContent,
     getStillAvailableGemIds,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (cards, stillAvailableGemIds) => stillAvailableGemIds.map(id => cards.ENG[id])
+  (cards, stillAvailableGemIds, languages) =>
+    stillAvailableGemIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, cards, id)
+    )
 )
 
 export const getStillAvailableRelicIds = createSelector(
@@ -143,9 +178,12 @@ export const getStillAvailableRelics = createSelector(
   [
     Settings.selectors.Expansions.Cards.content.getContent,
     getStillAvailableRelicIds,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (cards, stillAvailableRelicIds) =>
-    stillAvailableRelicIds.map(id => cards.ENG[id])
+  (cards, stillAvailableRelicIds, languages) =>
+    stillAvailableRelicIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, cards, id)
+    )
 )
 
 export const getStillAvailableSpellIds = createSelector(
@@ -165,9 +203,12 @@ export const getStillAvailableSpells = createSelector(
   [
     Settings.selectors.Expansions.Cards.content.getContent,
     getStillAvailableSpellIds,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
   ],
-  (cards, stillAvailableSpellIds) =>
-    stillAvailableSpellIds.map(id => cards.ENG[id])
+  (cards, stillAvailableSpellIds, languages) =>
+    stillAvailableSpellIds.map(id =>
+      getContentByIdWithLanguageFallback(languages, cards, id)
+    )
 )
 
 export const getStillAvailableMageIds = createSelector(

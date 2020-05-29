@@ -21,7 +21,7 @@ const renderCheckboxes = (
 const mapStateToProps = (state: RootState, props: { expansionId: string }) => ({
   selectedNemeses: selectors.Settings.Expansions.Nemeses.getNemesesByExpansionId(
     state,
-    props.expansionId
+    props
   ),
 })
 
