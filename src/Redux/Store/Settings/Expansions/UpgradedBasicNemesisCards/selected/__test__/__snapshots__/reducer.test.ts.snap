@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings | Expansions | UpgradedBasicNemesisCards | selected | reducer should handle TOGGLE 1`] = `
+Array [
+  "HissingAcid",
+  "BaneCommander",
+  "SkyTremor",
+  "EngulfingMadness",
+  "Separate",
+  "NeedleDoom",
+  "Marked",
+  "Eradicate",
+  "FlashOfDecay",
+  "Terrify",
+  "RayOfDesolation",
+  "ThunderousTempest",
+  "Sacrifice",
+  "Burialskulk",
+  "Rupture",
+  "FurrowOfDestruction",
+  "Mangle",
+  "HowlingSlayer",
+]
+`;
