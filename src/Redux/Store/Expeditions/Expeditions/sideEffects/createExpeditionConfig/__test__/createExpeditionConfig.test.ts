@@ -26,7 +26,6 @@ describe('createExpeditionConfig()', () => {
       name: 'Test expedition config',
       bigPocketVariant: true,
       marketId: 'market1',
-      existingSettingsSnapshot: undefined,
       seedValue: 'TEST',
     })
 
@@ -41,7 +40,6 @@ describe('createExpeditionConfig()', () => {
       name: 'Test expedition config',
       bigPocketVariant: true,
       marketId: 'market1',
-      existingSettingsSnapshot: undefined,
       seedValue: 'TEST_SEED',
     })
 
@@ -65,7 +63,6 @@ describe('createExpeditionConfig()', () => {
       name: 'Test expedition config',
       bigPocketVariant: true,
       marketId: 'market1',
-      existingSettingsSnapshot: undefined,
     })
 
     expect(createIdListSpy.mock.calls[0]).toEqual([
@@ -96,7 +93,6 @@ describe('createExpeditionConfig()', () => {
       name: 'Test expedition config',
       bigPocketVariant: true,
       marketId: 'market1',
-      existingSettingsSnapshot: undefined,
     })
 
     expect(createIdListSpy.mock.calls[0]).toEqual([

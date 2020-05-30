@@ -2,14 +2,14 @@ import { Cmd, getCmd, getModel } from 'redux-loop'
 import { set as setToDb, get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { LANGUAGE_DB_KEY } from '../constants'
+import { NEMESES_DB_KEY } from '../../constants'
 import { actions } from '../actions'
 
 import { initialState, Reducer } from '../reducer'
 
-const mockSelectedCardsState: State = initialState
+const mockSelectedNemesesState: State = initialState
 
-describe('Settings | Expansions | Languages | reducer', () => {
+describe('Settings | Expansions | Nemeses | selected | reducer', () => {
   it('should return the initial state', () => {
     // @ts-ignore
     const result = Reducer(undefined, {})
@@ -17,22 +17,20 @@ describe('Settings | Expansions | Languages | reducer', () => {
     expect(result).toEqual(initialState)
   })
 
-  it('should handle SELECT', () => {
-    const result = Reducer(mockSelectedCardsState, actions.select('WE', 'PL'))
+  it('should handle TOGGLE', () => {
+    const selectedNemesesToSave = initialState.filter(
+      treasure => treasure !== 'Maggoth'
+    )
 
-    const expected = {
-      ...initialState,
-      WE: 'PL',
-    }
+    const result = Reducer(mockSelectedNemesesState, actions.toggle('Maggoth'))
 
     const model = getModel(result)
     const cmd = getCmd(result)
 
-    expect(model).toEqual(expected)
-
+    expect(model).toMatchSnapshot()
     expect(cmd).toEqual(
       Cmd.run(setToDb, {
-        args: [LANGUAGE_DB_KEY, expected],
+        args: [NEMESES_DB_KEY, selectedNemesesToSave],
         successActionCreator: actions.setToDBSuccessful,
         failActionCreator: actions.setToDBFailed,
       })
@@ -49,7 +47,7 @@ describe('Settings | Expansions | Languages | reducer', () => {
 
     expect(cmd).toEqual(
       Cmd.run(getFromDb, {
-        args: [LANGUAGE_DB_KEY],
+        args: [NEMESES_DB_KEY],
         successActionCreator: actions.fetchFromDBSuccessful,
         failActionCreator: actions.fetchFromDBFailed,
       })
@@ -58,11 +56,11 @@ describe('Settings | Expansions | Languages | reducer', () => {
 
   it('should handle FETCH_FROM_DB_SUCCESS for defined state', () => {
     const result = Reducer(
-      mockSelectedCardsState,
-      actions.fetchFromDBSuccessful(initialState)
+      mockSelectedNemesesState,
+      actions.fetchFromDBSuccessful(['Maggoth'])
     )
 
-    expect(getModel(result)).toEqual(mockSelectedCardsState)
+    expect(getModel(result)).toEqual(['Maggoth'])
   })
 
   it('should handle FETCH_FROM_DB_SUCCESS for undefined state', () => {
