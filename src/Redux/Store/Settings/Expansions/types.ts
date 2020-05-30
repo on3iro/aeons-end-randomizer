@@ -1,2 +1,4 @@
-export const LANGUAGE_KEYS = ['ENG', 'FR'] as const
-export type LanguageKey = typeof LANGUAGE_KEYS[number]
+import AERData from 'aer-data'
+
+export const LANGUAGE_KEYS = Object.keys(AERData.normalizedData)
+export type LanguageKey = keyof typeof AERData.normalizedData
