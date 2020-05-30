@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import MuiSelect from '@material-ui/core/Select'
 import MuiFormControl from '@material-ui/core/FormControl'
 
-const Wrapper = styled(MuiFormControl)`
+export const Wrapper = styled(MuiFormControl)`
   width: 50%;
 `
 
-const Select = styled(MuiSelect)`
+export const Select = styled(MuiSelect)`
   margin: 0 8px 16px;
 `
 
