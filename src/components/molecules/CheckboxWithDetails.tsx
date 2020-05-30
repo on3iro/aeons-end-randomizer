@@ -11,7 +11,7 @@ import IconButton from 'components/atoms/IconButton'
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined'
 import Label from './Label'
 
-const Wrapper = styled('div')``
+export const Wrapper = styled('div')``
 
 type Props = {
   id: string
@@ -50,7 +50,7 @@ const CheckboxWithDetails = ({
       </IconButton>
       {keywords && keywords.length >= 1 ? (
         <Keywords inCheckboxList={true}>
-          {keywords.map((keyword) => (
+          {keywords.map(keyword => (
             <Keyword key={keyword}>{keyword}</Keyword>
           ))}
         </Keywords>
