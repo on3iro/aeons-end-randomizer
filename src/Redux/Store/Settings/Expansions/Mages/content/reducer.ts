@@ -7,6 +7,7 @@ import { Action, State } from './types'
 export const initialState: State = {
   ENG: AERData.normalizedData.ENG.mages,
   FR: AERData.normalizedData.FR.mages,
+  PL: AERData.normalizedData.PL.mages,
 }
 
 export const Reducer: LoopReducer<State, Action> = (
