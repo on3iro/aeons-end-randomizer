@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, selectors, actions } from 'Redux/Store'
@@ -11,12 +11,8 @@ import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import { FormGroup, MenuItem, InputLabel } from '@material-ui/core'
 import FormControl from '@material-ui/core/FormControl'
-import Tooltip from '@material-ui/core/Tooltip'
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
-import InfoIcon from '@material-ui/icons/Info'
 
 import BackLink from 'components/molecules/BackLink'
-import IconButton from 'components/atoms/IconButton'
 import SelectField from 'components/atoms/SelectField'
 
 import Wrapper from './Wrapper'
@@ -29,6 +25,7 @@ import Spells from './Spells'
 import BasicNemesisCards from './BasicNemesisCards'
 import UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
 import Treasures from './Treasures'
+import Tooltip from 'components/molecules/Tooltip'
 
 type OwnProps = { expansionId: string }
 
@@ -51,16 +48,6 @@ type Props = ReturnType<typeof mapStateToProps> &
   OwnProps
 
 const ContentCustomization = ({ expansionId, lang, selectLanguage }: Props) => {
-  const [tooltipOpen, setTooltipOpen] = useState<boolean>(false)
-
-  const handleTooltipClose = () => {
-    setTooltipOpen(false)
-  }
-
-  const handleTooltipOpen = () => {
-    setTooltipOpen(!tooltipOpen)
-  }
-
   return (
     <Card>
       <CardContent>
@@ -95,32 +82,10 @@ const ContentCustomization = ({ expansionId, lang, selectLanguage }: Props) => {
                   ))}
                 </SelectField>
               </FormGroup>
-              <ClickAwayListener onClickAway={handleTooltipClose}>
-                <Tooltip
-                  title="Note: Content without available translations will fallback to english!"
-                  PopperProps={{
-                    disablePortal: true,
-                    modifiers: {
-                      arrow: {
-                        enabled: true,
-                      },
-                    },
-                  }}
-                  onClose={handleTooltipClose}
-                  open={tooltipOpen}
-                  disableFocusListener
-                  disableHoverListener
-                  disableTouchListener
-                >
-                  <IconButton
-                    color="primary"
-                    aria-label="Show language select info"
-                    onClick={handleTooltipOpen}
-                  >
-                    <InfoIcon />
-                  </IconButton>
-                </Tooltip>
-              </ClickAwayListener>
+
+              <Tooltip>
+                Content without available translations will fallback to english!
+              </Tooltip>
             </SelectWithTooltipWrapper>
             <Nemeses expansionId={expansionId} />
             <Mages expansionId={expansionId} />
