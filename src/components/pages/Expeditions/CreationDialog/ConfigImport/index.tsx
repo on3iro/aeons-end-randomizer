@@ -16,6 +16,7 @@ import ConfigTextField from './ConfigTextField'
 import FileUpload from './FileUpload'
 import ImportButton from './ImportButton'
 import { schema as expeditionJsonSchema } from './expeditionJsonSchema'
+import Tooltip from 'components/molecules/Tooltip'
 
 type Props = {
   configImportHandler: (config: types.ExpeditionConfig) => void
@@ -96,7 +97,7 @@ const ConfigImport = ({ configImportHandler }: Props) => {
         expansionHandler={expansionHandler}
       >
         <ContentWrapper>
-          <P>
+          <Tooltip>
             This allows you to import an existing expedition either by uploading
             a correctly formatted JSON-file or by directly pasting the
             JSON-configuration into the text field below. If you you don't
@@ -106,7 +107,7 @@ const ConfigImport = ({ configImportHandler }: Props) => {
             config looks like, simply press the share button on an existing
             expedition and either save the configuration to a file or paste it
             from your clipboard into a text editor.
-          </P>
+          </Tooltip>
           <ImportButton
             color="primary"
             variant="outlined"
