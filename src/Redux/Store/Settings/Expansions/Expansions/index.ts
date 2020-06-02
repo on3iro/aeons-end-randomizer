@@ -1,12 +1,14 @@
 import { combineReducers, reduceReducers, Cmd, loop } from 'redux-loop'
 import { createSelector } from 'reselect'
 import { set as setToDb } from 'idb-keyval'
+import { selectors as LanguageSelectors } from '../Languages'
 
 import * as Content from './content'
 import * as Selected from './selected'
 import * as Ids from './ids'
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { EXPANSIONS_DB_KEY } from './constants'
+import { getContentWithLanguageFallback } from './content/selectors'
 
 ///////////
 // STATE //
@@ -154,16 +156,31 @@ const getPromoIds = createSelector(
 )
 
 const getStandaloneExpansions = createSelector(
-  [Content.selectors.getContent, getStandaloneExpansionIds],
-  (content, ids) => ids.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    getStandaloneExpansionIds,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, ids, languages) =>
+    ids.map(id => getContentWithLanguageFallback(languages, content, id))
 )
 const getMiniExpansions = createSelector(
-  [Content.selectors.getContent, getMiniExpansionIds],
-  (content, ids) => ids.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    getMiniExpansionIds,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, ids, languages) =>
+    ids.map(id => getContentWithLanguageFallback(languages, content, id))
 )
 const getPromos = createSelector(
-  [Content.selectors.getContent, getPromoIds],
-  (content, ids) => ids.map(id => content.ENG[id])
+  [
+    Content.selectors.getContent,
+    getPromoIds,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, ids, languages) =>
+    ids.map(id => getContentWithLanguageFallback(languages, content, id))
 )
 
 export const selectors = {
