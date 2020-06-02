@@ -19,7 +19,7 @@ type Entity =
   | UpgradedBasicNemesisCard
   | ICard
 
-type ContentStruct<T> = {
+export type ContentStruct<T> = {
   [key in LanguageKey]: {
     [id: string]: T
   }
