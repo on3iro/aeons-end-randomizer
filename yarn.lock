@@ -1973,9 +1973,9 @@ adjust-sourcemap-loader@2.0.0:
     regex-parser "2.2.10"
 
 aer-data@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/aer-data/-/aer-data-2.1.0.tgz#b350e2c67a19b4a1dce48bac395ca7895cb656a5"
-  integrity sha512-A15AmGlgnmV1Ljvhng8JVsule4BAUUtO3BdrT8N+qAFlWwViYzqRjJaspBZPuzApFBWE129Zf3GkpZNZMasz9Q==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/aer-data/-/aer-data-2.2.0.tgz#7b2d443c4ddf728ac75531cd340c0d8a1de4a1f4"
+  integrity sha512-Gxra20m5J3vWJd5gtcqBPgPSzr01nT+3CN0UpRi5xpRpIu/pmzIF0Y1P2EqbaHzAeYWXnK4HHoWmAQNuoCxtMw==
 
 aer-types@^1.0.4:
   version "1.0.4"
