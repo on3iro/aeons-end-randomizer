@@ -1977,10 +1977,10 @@ aer-data@^2.0.0:
   resolved "https://registry.yarnpkg.com/aer-data/-/aer-data-2.2.0.tgz#7b2d443c4ddf728ac75531cd340c0d8a1de4a1f4"
   integrity sha512-Gxra20m5J3vWJd5gtcqBPgPSzr01nT+3CN0UpRi5xpRpIu/pmzIF0Y1P2EqbaHzAeYWXnK4HHoWmAQNuoCxtMw==
 
-aer-types@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/aer-types/-/aer-types-1.0.4.tgz#7e4abc5e92fadcf120dd34f6e1cffb69043f98cf"
-  integrity sha512-rjYRGQBR7Up81gS3jE36FI9gTjQYYYGigRGnEOIDM7Bas5774uElPE55jsDBs8rmCixuQX5thm10ro1ugVF2GA==
+aer-types@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/aer-types/-/aer-types-1.0.11.tgz#03e5070d9f891323620d51a138c0f1800076a847"
+  integrity sha512-ehf6vYBPlxmzpXniW3lyzNc2VG714035JFlFBzD/CFMaE0nBwHal9fu1kddLKYWm8nV7IFLBZsg+uGNjLLlKZw==
 
 aggregate-error@^3.0.0:
   version "3.0.1"
