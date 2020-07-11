@@ -30,7 +30,7 @@ const bluePrintReducer = (
         ...state,
         [id]: {
           id,
-          type: 'Gem',
+          type: 'ANY',
           operation: 'ANY',
         },
       }

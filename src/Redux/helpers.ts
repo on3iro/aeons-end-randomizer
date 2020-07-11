@@ -105,9 +105,12 @@ export const getRandomCardsByType = (
   seed?: types.Seed
 ): CardListReduceResult => {
   const cardSlots = tileSetups.filter(({ type }) => type === cardType)
-  const availableCardsOfType = availableCards.filter(
-    ({ type }) => type === cardType
-  )
+  const availableCardsOfType =
+    cardType === 'ANY'
+      ? (availableCards as types.ICard[])
+      : availableCards.filter(({ type }) => type === cardType)
+
+  console.log({ availableCardsOfType })
 
   return createCardList(availableCardsOfType, cardSlots, getRandomEntity, seed)
 }
@@ -125,25 +128,50 @@ export const createSupply = (
   tileSetups: ReadonlyArray<types.IBluePrint>,
   seed?: types.Seed
 ) => {
-  const gems = getRandomCardsByType(availableCards, tileSetups, 'Gem', seed)
-  const relics = getRandomCardsByType(
+  const gemsResult = getRandomCardsByType(
+    availableCards,
+    tileSetups,
+    'Gem',
+    seed
+  )
+  const relicsResult = getRandomCardsByType(
     availableCards,
     tileSetups,
     'Relic',
-    gems.seed
+    gemsResult.seed
   )
-  const spells = getRandomCardsByType(
+  const spellsResult = getRandomCardsByType(
     availableCards,
     tileSetups,
     'Spell',
-    relics.seed
+    relicsResult.seed
   )
 
+  const anyResult = getRandomCardsByType(
+    availableCards,
+    tileSetups,
+    'ANY',
+    spellsResult.seed
+  )
+
+  const gems = [
+    ...gemsResult.result,
+    ...anyResult.result.filter(c => c.type === 'Gem'),
+  ]
+  const relics = [
+    ...relicsResult.result,
+    ...anyResult.result.filter(c => c.type === 'Relic'),
+  ]
+  const spells = [
+    ...spellsResult.result,
+    ...anyResult.result.filter(c => c.type === 'Spell'),
+  ]
+
   return {
-    gems: gems.result,
-    relics: relics.result,
-    spells: spells.result,
-    seed: spells.seed,
+    gems,
+    relics,
+    spells,
+    seed: anyResult.seed,
   }
 }
 
