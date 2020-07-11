@@ -123,6 +123,10 @@ export const mainTheme = {
     },
     cards: {
       ...treasureColors,
+      any: {
+        color: '#ecf0f1',
+        background: '#ecf0f1',
+      },
       gem: {
         color: '#B39DDB',
         background: '#EDE7F6',
