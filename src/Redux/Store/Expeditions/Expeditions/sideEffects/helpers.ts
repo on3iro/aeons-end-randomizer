@@ -50,6 +50,7 @@ export const getSupplyIds = ({
     Relic: types.ICard[]
     Spell: types.ICard[]
     EMPTY: never[]
+    ANY: never[]
   }
 }) => {
   const baseResult = {
@@ -242,6 +243,7 @@ export const handleCustomRewards = (
       expeditionId,
     }),
     EMPTY: [],
+    ANY: [],
   }
 
   const stillAvailableTreasureIdsByLevel = {
