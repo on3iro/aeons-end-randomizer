@@ -21,7 +21,7 @@ export const getUpgradedBasicNemesisCardsResult = (
       : { result: previousUpgradedBasicNemesisCards, seed }
   } else if (config.newUBNCards.type === 'custom') {
     return {
-      result: config.newUBNCards.ids,
+      result: [...previousUpgradedBasicNemesisCards, ...config.newUBNCards.ids],
       seed,
     }
   }
