@@ -8,6 +8,7 @@ export const initialState: State = {
   ENG: AERData.normalizedData.ENG.upgradedBasicNemesisCards,
   FR: AERData.normalizedData.FR.upgradedBasicNemesisCards,
   PL: AERData.normalizedData.PL.upgradedBasicNemesisCards,
+  DE: AERData.normalizedData.DE.upgradedBasicNemesisCards,
 }
 
 export const Reducer: LoopReducer<State, Action> = (
