@@ -86,7 +86,7 @@
   ],
   "devDependencies": {
     "@types/classnames": "^2.2.7",
-    "@types/styled-components": "^4.1.11",
+    "@types/styled-components": "^5.1.2",
     "babel-plugin-macros": "^2.5.0",
     "cypress": "4.6.0",
     "husky": "^4.0.10",
