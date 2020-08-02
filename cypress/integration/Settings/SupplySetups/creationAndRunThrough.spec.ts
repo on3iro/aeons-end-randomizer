@@ -1,3 +1,7 @@
+// FIXME some of these tests are no longer deterministic because of the
+// any tile - we should probably create a separate test for the any tile
+// and remove the tile from these tests here
+
 describe('Custom Supply Setup creation and run through', () => {
   before(() => {
     // @ts-ignore disable-line
