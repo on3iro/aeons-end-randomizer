@@ -71,7 +71,6 @@ const LossRewardTypeSelection = ({ battle, rollLoss }: Props) => {
             data-test="btn-confirm-reward"
           />
         </ModalFooterWrapper>
-        >
       </React.Fragment>
     )
   }
@@ -94,7 +93,6 @@ const LossRewardTypeSelection = ({ battle, rollLoss }: Props) => {
           data-test="btn-confirm-reward"
         />
       </ModalFooterWrapper>
-      >
     </React.Fragment>
   )
 }
