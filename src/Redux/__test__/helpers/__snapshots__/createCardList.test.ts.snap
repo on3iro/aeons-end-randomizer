@@ -266,6 +266,7 @@ Object {
   ],
   "result": Array [
     Object {
+      "blueprintId": 0,
       "cost": 3,
       "effect": "
     <p>
@@ -280,6 +281,7 @@ Object {
       "type": "Gem",
     },
     Object {
+      "blueprintId": 0,
       "cost": 4,
       "effect": "
     <p>
@@ -295,6 +297,7 @@ Object {
       "type": "Gem",
     },
     Object {
+      "blueprintId": 0,
       "cost": 5,
       "effect": "
     <p>
@@ -311,6 +314,7 @@ Object {
       "type": "Spell",
     },
     Object {
+      "blueprintId": 0,
       "cost": 5,
       "effect": "
     <p>
@@ -325,6 +329,7 @@ Object {
       "type": "Gem",
     },
     Object {
+      "blueprintId": 0,
       "cost": 3,
       "effect": "
     <p>
@@ -340,6 +345,7 @@ Object {
       "type": "Relic",
     },
     Object {
+      "blueprintId": 0,
       "cost": 3,
       "effect": "
       <p>
@@ -354,6 +360,7 @@ Object {
       "type": "Spell",
     },
     Object {
+      "blueprintId": 0,
       "cost": 4,
       "effect": "
     <p>
@@ -368,6 +375,7 @@ Object {
       "type": "Spell",
     },
     Object {
+      "blueprintId": 0,
       "cost": 5,
       "effect": "
       <p>
@@ -382,6 +390,7 @@ Object {
       "type": "Spell",
     },
     Object {
+      "blueprintId": 0,
       "cost": 7,
       "effect": "
     <p>

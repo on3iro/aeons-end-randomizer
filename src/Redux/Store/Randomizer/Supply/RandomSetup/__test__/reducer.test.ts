@@ -7,9 +7,11 @@ import {
   actions,
 } from 'Redux/Store/Randomizer/Supply/RandomSetup'
 
-const availableSupplyCards: ReadonlyArray<types.ICard & {
-  selected: boolean
-}> = [
+const availableSupplyCards: ReadonlyArray<
+  types.ICard & {
+    selected: boolean
+  }
+> = [
   {
     type: 'Gem',
     expansion: 'AE',
@@ -89,21 +91,31 @@ describe('Randomizer | Supply | RandomSetup | reducer', () => {
 
   it('should handle CREATE', () => {
     const expected = {
-      Tiles: [{ id: 'SearingRuby' }, { id: 'SoulCords' }, { id: 'ChaosArc' }],
+      Tiles: [
+        { id: 'SearingRuby', type: 'Gem', blueprintId: 0 },
+        { id: 'SoulCords', type: 'Relic', blueprintId: 1 },
+        { id: 'ChaosArc', type: 'Spell', blueprintId: 2 },
+      ],
     }
     const result = Reducer(
       mockSupply,
       actions.createMarket(
         availableSupplyCards,
         [
-          { type: 'Gem', operation: 'ANY' },
-          { type: 'Relic', operation: 'ANY' },
-          { type: 'Spell', operation: 'ANY' },
+          // @ts-ignore
+          { type: 'Gem', operation: 'ANY', id: 0 },
+          // @ts-ignore
+          { type: 'Relic', operation: 'ANY', id: 1 },
+          // @ts-ignore
+          { type: 'Spell', operation: 'ANY', id: 2 },
         ],
+        [],
         { seed: 'Test' }
       )
     )
 
     expect(result).toEqual(expected)
   })
+
+  it.todo('should hanlde locked cards')
 })
