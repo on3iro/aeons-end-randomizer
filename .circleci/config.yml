@@ -6,7 +6,7 @@ jobs:
   jest:
     working_directory: ~/aeons-end-randomizer
     docker:
-      - image: circleci/node:11.10.1
+      - image: circleci/node:12.18.4
     steps:
       - checkout
       - run:
