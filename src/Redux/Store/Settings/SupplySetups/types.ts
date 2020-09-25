@@ -7,6 +7,7 @@ import { actions } from './actions'
 export type State = {
   Predefined: types.MarketSetups
   Custom: types.MarketSetups
+  migrationVersion: number
 }
 
 export enum ActionTypes {
@@ -19,6 +20,7 @@ export enum ActionTypes {
   SET_TO_DB = 'Settings/SupplySetups/SET_TO_DB',
   SET_TO_DB_SUCCESS = 'Settings/SupplySetups/SET_TO_DB_SUCCESS',
   SET_TO_DB_FAILURE = 'Settings/SupplySetups/SET_TO_DB_FAILURE',
+  MIGRATION_SUCCESS = 'Settings/SupplySetups/MIGRATION_SUCCESS',
   FETCH_FROM_DB = 'Settings/SupplySetups/FETCH_FROM_DB',
   FETCH_FROM_DB_SUCCESS = 'Settings/SupplySetups/FETCH_FROM_DB_SUCCESS',
   FETCH_FROM_DB_FAILURE = 'Settings/SupplySetups/FETCH_FROM_DB_FAILURE',
@@ -30,10 +32,7 @@ export type Action = ActionsUnion<typeof actions>
 
 export type SupplySetupsStateSlice = {
   Settings: {
-    SupplySetups: {
-      Predefined: types.MarketSetups
-      Custom: types.MarketSetups
-    }
+    SupplySetups: State
   }
 }
 

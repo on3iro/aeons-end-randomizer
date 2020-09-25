@@ -29,6 +29,7 @@ export const toggleAll = (state: State) => {
       ...state.Custom,
       setups: updatedCustom,
     },
+    migrationVersion: state.migrationVersion,
   }
 
   return newStateWithDBWrite(newState)

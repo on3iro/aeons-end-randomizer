@@ -18,6 +18,8 @@ export const actions = {
     createAction(ActionTypes.DELETE_CUSTOM_SETUP, id),
   setToDB: (state: State) => createAction(ActionTypes.SET_TO_DB, state),
   setToDBSuccessful: () => createAction(ActionTypes.SET_TO_DB_SUCCESS),
+  migrationSuccess: (state: State) =>
+    createAction(ActionTypes.MIGRATION_SUCCESS, state),
   setToDBFailed: (error: Object) =>
     createAction(ActionTypes.SET_TO_DB_FAILURE, error),
   fetchFromDB: () => createAction(ActionTypes.FETCH_FROM_DB),

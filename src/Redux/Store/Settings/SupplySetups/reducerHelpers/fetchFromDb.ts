@@ -3,7 +3,6 @@ import { get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
 import { SUPPLY_DB_KEY } from '../constants'
-import { migrate } from '../helpers'
 import { actions } from '../actions'
 
 export const fetchFromDb = (state: State) => {
@@ -20,8 +19,5 @@ export const fetchFromDb = (state: State) => {
 export const fetchFromDbSuccess = (
   action: ReturnType<typeof actions.fetchFromDBSuccessful>
 ) => {
-  // Migration from 1.6 to 2.0.0
-  const newState = migrate(action.payload)
-
-  return newState
+  return action.payload
 }
