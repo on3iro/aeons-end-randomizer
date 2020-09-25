@@ -4,7 +4,7 @@ import shortid from 'shortid'
 
 type CardListReduceResult = {
   availableCards: types.ICard[]
-  result: types.ICard[]
+  result: Array<types.ICard & { blueprintId: number | string }>
   seed: types.Seed
 }
 
@@ -60,7 +60,7 @@ export const createCardList = (
 ): CardListReduceResult =>
   blueprints.reduce(
     (acc: CardListReduceResult, blueprint: types.IBluePrint) => {
-      const filteredByCost = acc.availableCards.filter(card =>
+      const filteredByCost = acc.availableCards.filter((card) =>
         filterByCost(card, blueprint)
       )
 
@@ -70,11 +70,11 @@ export const createCardList = (
       }
 
       const cardResult = getEntity(filteredByCost, acc.seed)
-      const card = cardResult.entity
+      const card = { ...cardResult.entity, blueprintId: blueprint.id || 0 }
 
       // Make sure each entity will only be added to the result list once
       const remainingCards = acc.availableCards.filter(
-        entity => entity.id !== card.id
+        (entity) => entity.id !== card.id
       )
 
       return {
@@ -109,8 +109,6 @@ export const getRandomCardsByType = (
     cardType === 'ANY'
       ? (availableCards as types.ICard[])
       : availableCards.filter(({ type }) => type === cardType)
-
-  console.log({ availableCardsOfType })
 
   return createCardList(availableCardsOfType, cardSlots, getRandomEntity, seed)
 }
@@ -156,15 +154,15 @@ export const createSupply = (
 
   const gems = [
     ...gemsResult.result,
-    ...anyResult.result.filter(c => c.type === 'Gem'),
+    ...anyResult.result.filter((c) => c.type === 'Gem'),
   ]
   const relics = [
     ...relicsResult.result,
-    ...anyResult.result.filter(c => c.type === 'Relic'),
+    ...anyResult.result.filter((c) => c.type === 'Relic'),
   ]
   const spells = [
     ...spellsResult.result,
-    ...anyResult.result.filter(c => c.type === 'Spell'),
+    ...anyResult.result.filter((c) => c.type === 'Spell'),
   ]
 
   return {
