@@ -5,12 +5,15 @@ import * as types from 'aer-types'
 import { byCost } from 'helpers'
 
 import { createSupply } from 'Redux/helpers'
+import { LockedCard } from '../LockedCards'
 
 ///////////
 // STATE //
 ///////////
 
-type Tiles = ReadonlyArray<Readonly<{ id: string }>> | null
+type Tiles = ReadonlyArray<
+  Readonly<{ id: string; blueprintId: string | number }>
+> | null
 
 export type State = Readonly<{
   Tiles: Tiles
@@ -29,38 +32,52 @@ export enum ActionTypes {
   CREATE = 'Supply/RandomSetup/CREATE',
 }
 
+const sortEntitiesByCost = (entities: Array<LockedCard>) =>
+  entities.sort(byCost).map((entity) => {
+    return {
+      id: entity.id,
+      blueprintId: entity.blueprintId || 0, // FIXME we should probably rather fix this in aer-data and aer-types
+      type: entity.type,
+    }
+  })
+
 export const actions = {
   noOp: () => createAction('NOOP'),
   resetMarket: () => createAction(ActionTypes.RESET),
   createMarket: (
     availableCards: ReadonlyArray<types.ICard>,
     tiles: ReadonlyArray<types.Slot>,
+    lockedCards: ReadonlyArray<LockedCard>,
     seed?: types.Seed
   ) => {
-    // TODO
-    // * Filter tiles by locked blueprints
-    // * Filter availableCards by locked cards
-    // * Create supply
-    // * Merge locked cards with each type from supply
+    const tilesFilteredByLocked = tiles.filter(
+      (tile) =>
+        lockedCards.findIndex((card) => card.blueprintId === tile.id) === -1
+    )
 
-    const { gems, relics, spells } = createSupply(availableCards, tiles, seed)
-    const gemsByCost = gems.sort(byCost).map((gem) => {
-      return {
-        id: gem.id,
-      }
-    })
+    const lockedGems = lockedCards.filter(
+      (lockedCard) => lockedCard.type === 'Gem'
+    )
+    const lockedRelics = lockedCards.filter(
+      (lockedCard) => lockedCard.type === 'Relic'
+    )
+    const lockedSpells = lockedCards.filter(
+      (lockedCard) => lockedCard.type === 'Spell'
+    )
 
-    const relicsByCost = relics.sort(byCost).map((relic) => {
-      return {
-        id: relic.id,
-      }
-    })
+    const {
+      gems: newGems,
+      relics: newRelics,
+      spells: newSpells,
+    } = createSupply(availableCards, tilesFilteredByLocked, seed)
 
-    const spellsByCost = spells.sort(byCost).map((spell) => {
-      return {
-        id: spell.id,
-      }
-    })
+    const gems = [...lockedGems, ...newGems]
+    const relics = [...lockedRelics, ...newRelics]
+    const spells = [...lockedSpells, ...newSpells]
+
+    const gemsByCost = sortEntitiesByCost(gems)
+    const relicsByCost = sortEntitiesByCost(relics)
+    const spellsByCost = sortEntitiesByCost(spells)
 
     return createAction(ActionTypes.CREATE, {
       supply: [...gemsByCost, ...relicsByCost, ...spellsByCost],

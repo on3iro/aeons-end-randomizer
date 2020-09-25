@@ -5,6 +5,7 @@ import ShowDetailsButton from '../ShowDetailsButton'
 import Wrapper from './Wrapper'
 import Content from './Content'
 import TypeIcon from './TypeIcon'
+import LockButton from '../LockButton'
 
 type Props = {
   body: React.ReactElement | string
@@ -13,6 +14,8 @@ type Props = {
   icon?: string
   iconColor?: string
   showDetails?: (e: Event) => void
+  lock?: (e: Event) => void
+  isLocked?: boolean
   selected?: boolean
   clickHandler?: Function
 }
@@ -24,6 +27,8 @@ const Tile = ({
   icon,
   iconColor,
   showDetails,
+  lock,
+  isLocked,
   selected,
   clickHandler,
   ...rest
@@ -40,6 +45,10 @@ const Tile = ({
 
     {showDetails ? (
       <ShowDetailsButton showDetails={showDetails} theme={fontColor} />
+    ) : null}
+
+    {lock ? (
+      <LockButton lock={lock} theme={fontColor} isLocked={isLocked} />
     ) : null}
   </Wrapper>
 )

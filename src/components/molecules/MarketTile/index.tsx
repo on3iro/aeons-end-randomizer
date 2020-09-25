@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { withTheme } from 'styled-components/macro'
 
-import { RootState, selectors } from 'Redux/Store'
+import { RootState, selectors, actions } from 'Redux/Store'
 import * as types from 'aer-types'
 import { useModal } from 'hooks/useModal'
 
@@ -13,12 +13,14 @@ import SupplyModal from '../SupplyModal'
 
 import Wrapper from './Wrapper'
 import Body from './Body'
+import { LockedCard } from 'Redux/Store/Randomizer/Supply/LockedCards'
 
 // FIXME
 // This is currently a typing hack
 // We ensure that our modal will only be shown
 type MaybeMarketTile =
   | {
+      id?: string
       type?: types.CardType
       name?: string
       expansion?: string
@@ -30,6 +32,7 @@ type MaybeMarketTile =
 
 type MaybeOutputMarketTile =
   | {
+      id: string
       type: types.CardType
       name: string
       expansion: string
@@ -44,10 +47,17 @@ const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
     return undefined
   }
 
-  const { type, name, expansion, cost, keywords, effect } = marketTile
+  const { id, type, name, expansion, cost, keywords, effect } = marketTile
 
-  return type && name && expansion && cost && keywords && effect !== undefined
+  return id &&
+    type &&
+    name &&
+    expansion &&
+    cost &&
+    keywords &&
+    effect !== undefined
     ? {
+        id,
         type,
         name,
         expansion,
@@ -70,6 +80,7 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps & {
     marketTile: {
       id?: string
+      blueprintId?: string | number
       type: types.CardType
       expansion?: string
       name?: string
@@ -82,9 +93,18 @@ type Props = ReturnType<typeof mapStateToProps> &
       visualSelection?: boolean
     }
     theme: any
+    lockedCards?: ReadonlyArray<LockedCard>
+    toggleLock?: typeof actions.Randomizer.Supply.LockedCards.toggleLock
   }
 
-const MarketTile = ({ marketTile, expansions, theme, ...rest }: Props) => {
+const MarketTile = ({
+  marketTile,
+  expansions,
+  theme,
+  lockedCards,
+  toggleLock,
+  ...rest
+}: Props) => {
   const { show, RenderModal } = useModal()
 
   const { selectionHandler, listId } = useContext(SelectionHandlerContext)
@@ -101,6 +121,27 @@ const MarketTile = ({ marketTile, expansions, theme, ...rest }: Props) => {
   )
 
   const card = getCard(marketTile)
+
+  const handleLock = useCallback(() => {
+    if (
+      toggleLock &&
+      marketTile.id &&
+      marketTile.blueprintId !== undefined &&
+      marketTile.cost
+    ) {
+      toggleLock({
+        id: marketTile.id,
+        blueprintId: marketTile.blueprintId,
+        type: marketTile.type,
+        cost: marketTile.cost,
+      })
+    }
+  }, [toggleLock, marketTile])
+
+  const isLocked = lockedCards
+    ? lockedCards.findIndex((lockedCard) => lockedCard.id === marketTile?.id) >
+      -1
+    : false
 
   return (
     <>
@@ -126,6 +167,8 @@ const MarketTile = ({ marketTile, expansions, theme, ...rest }: Props) => {
             icon={theme.icons[marketTile.type.toLowerCase()]}
             iconColor={theme.colors.cards[marketTile.type.toLowerCase()].color}
             showDetails={card ? handleDetails : undefined}
+            lock={card ? handleLock : undefined}
+            isLocked={isLocked}
             data-test={`market-tile-${marketTile.type.toLocaleLowerCase()}`}
           />
           <SupplyModal card={card} RenderModal={RenderModal} />
