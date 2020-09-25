@@ -6,12 +6,28 @@ import { Action, ActionTypes, State } from './types'
 
 import * as reducerHelpers from './reducerHelpers'
 
+const marketSetupsWithTileIds = Object.values(
+  AERData.marketsetups.setups
+).reduce((acc, setup) => {
+  return {
+    ...acc,
+    [setup.id]: {
+      ...setup,
+      tiles: setup.tiles.map((tile, index) => ({ ...tile, id: index })),
+    },
+  }
+}, {})
+
 export const initialState: State = {
-  Predefined: AERData.marketsetups,
+  Predefined: {
+    setups: marketSetupsWithTileIds,
+    ids: AERData.marketsetups.ids,
+  },
   Custom: {
     setups: {},
     ids: [],
   },
+  migrationVersion: 0,
 }
 
 export const Reducer: LoopReducer<State, Action> = (
@@ -32,7 +48,11 @@ export const Reducer: LoopReducer<State, Action> = (
     }
 
     case ActionTypes.FETCH_FROM_DB_SUCCESS: {
-      return reducerHelpers.fetchFromDbSuccess(action)
+      return reducerHelpers.migrateAfterFetch(state, action)
+    }
+
+    case ActionTypes.MIGRATION_SUCCESS: {
+      return reducerHelpers.migrateAfterFetchSuccess(state, action)
     }
 
     case ActionTypes.FETCH_FROM_DB_FAILURE: {

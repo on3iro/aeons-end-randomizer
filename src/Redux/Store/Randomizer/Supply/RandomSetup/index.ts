@@ -37,20 +37,26 @@ export const actions = {
     tiles: ReadonlyArray<types.Slot>,
     seed?: types.Seed
   ) => {
+    // TODO
+    // * Filter tiles by locked blueprints
+    // * Filter availableCards by locked cards
+    // * Create supply
+    // * Merge locked cards with each type from supply
+
     const { gems, relics, spells } = createSupply(availableCards, tiles, seed)
-    const gemsByCost = gems.sort(byCost).map(gem => {
+    const gemsByCost = gems.sort(byCost).map((gem) => {
       return {
         id: gem.id,
       }
     })
 
-    const relicsByCost = relics.sort(byCost).map(relic => {
+    const relicsByCost = relics.sort(byCost).map((relic) => {
       return {
         id: relic.id,
       }
     })
 
-    const spellsByCost = spells.sort(byCost).map(spell => {
+    const spellsByCost = spells.sort(byCost).map((spell) => {
       return {
         id: spell.id,
       }
