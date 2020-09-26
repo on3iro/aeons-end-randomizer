@@ -20,7 +20,7 @@ export enum ActionTypes {
 }
 
 export const actions = {
-  noOp: () => createAction('NOOP'),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
   setCount: (count: MageCount) => createAction(ActionTypes.SET, count),
 }
 

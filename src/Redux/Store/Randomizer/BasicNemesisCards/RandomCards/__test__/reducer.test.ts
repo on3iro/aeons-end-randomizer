@@ -82,7 +82,7 @@ describe('Randomizer | BasicNemesisCards | RandomCards | reducer', () => {
     expect(result).toEqual(initialState)
   })
 
-  it.todo('should handle NOOP')
+  it.todo('should handle @@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING')
 
   it('should handle CREATE for 1 player', () => {
     const expected = {

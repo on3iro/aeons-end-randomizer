@@ -7,7 +7,7 @@ import { shuffleDeck } from 'Redux/helpers'
 import { ActionTypes, State } from './types'
 
 export const actions = {
-  noOp: () => createAction('NOOP'),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
   init: (state: State) => createAction(ActionTypes.INIT, state),
   draw: () => createAction(ActionTypes.DRAW),
   newRound: (turnOrderCards: types.ITurnOrderCard[]) =>
@@ -27,7 +27,7 @@ export const actions = {
     createAction(ActionTypes.START_GAME, shuffleDeck(turnOrderCards)),
   resetGame: () => createAction(ActionTypes.RESET_GAME),
   fetchFromDB: () => createAction(ActionTypes.FETCH_FROM_DB),
-  fetchFromDBSuccessful: (state: State) =>
+  fetchFromDBSuccessful: (state: unknown) =>
     createAction(ActionTypes.FETCH_FROM_DB_SUCCESS, state),
   fetchFromDBFailed: () => createAction(ActionTypes.FETCH_FROM_DB_FAILURE),
 }

@@ -151,7 +151,7 @@ describe('rollWinRewards()', () => {
       rewards: {
         treasure: ['t1'],
         supplyIds: ['spell1'],
-        mage: undefined,
+        mages: [],
       },
     })
   })

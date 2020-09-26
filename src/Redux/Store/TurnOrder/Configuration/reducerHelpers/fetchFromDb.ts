@@ -26,7 +26,11 @@ export const fetchFromDbSuccess = (
   action: ReturnType<typeof actions.fetchFromDBSuccessful>
 ) => {
   // If the fetched state somehow is undefined just take the current state instead
-  const newState = action.payload || state
+  const newState =
+    typeof action.payload === 'object' && action.payload !== null
+      ? (action.payload as State)
+      : state
+
   return loop(
     newState,
     // If we could load the configuration also load the actual

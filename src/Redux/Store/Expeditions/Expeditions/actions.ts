@@ -55,7 +55,7 @@ export const actions = {
   setToDBFailed: (error: Object) =>
     createAction(ActionTypes.SET_TO_DB_FAILURE, error),
   fetchFromDB: () => createAction(ActionTypes.FETCH_FROM_DB),
-  fetchFromDBSuccessful: (state: State) =>
+  fetchFromDBSuccessful: (state: unknown) =>
     createAction(ActionTypes.FETCH_FROM_DB_SUCCESS, state),
   fetchFromDBFailed: (error: Object) =>
     createAction(ActionTypes.FETCH_FROM_DB_FAILURE, error),
@@ -95,4 +95,5 @@ export const actions = {
       banished,
       newSupplyIds,
     }),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
 }

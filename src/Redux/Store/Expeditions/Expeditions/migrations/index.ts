@@ -1,12 +1,12 @@
 import * as types from 'aer-types'
 
-import { RootState } from 'Redux/Store'
-
 import { State } from '../types'
 
 import { migrateToSettingsSnapshot } from './migrateToSettingsSnapshot'
 import { migrateToExpeditionDSL } from 'Redux/Store/Expeditions/Expeditions/migrations/migrateToExpeditionDSL'
 import { byAscendingVersion } from 'helpers'
+import { GetStateFn } from 'Redux/helpers'
+import { isExpeditionState } from '../reducer'
 
 const migrations: types.Migration[] = [
   {
@@ -29,18 +29,24 @@ export const getLatestMigrationVersion = () =>
   }, 0)
 
 export const migrate = (
-  getState: () => RootState,
+  getState: GetStateFn,
   {
     newState,
   }: {
-    newState: State
+    newState: unknown
   }
-) => {
+): State => {
   const rootState = getState()
 
-  const expeditions = newState.expeditionIds.map(id => newState.expeditions[id])
+  if (!isExpeditionState(newState)) {
+    return rootState.Expeditions.Expeditions
+  }
 
-  const migratedExpeditions = expeditions.map(expedition => {
+  const expeditions = newState.expeditionIds.map(
+    (id) => newState.expeditions[id]
+  )
+
+  const migratedExpeditions = expeditions.map((expedition) => {
     return migrations.reduce((acc, migration) => {
       if (!expedition.migrationVersion) {
         return {
