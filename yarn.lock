@@ -2185,10 +2185,10 @@ adjust-sourcemap-loader@2.0.0:
     object-path "0.11.4"
     regex-parser "2.2.10"
 
-aer-data@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/aer-data/-/aer-data-2.4.0.tgz#bb2e3aaa29e894be8bf54132aaaf945cc6eb8c40"
-  integrity sha512-AviM+6Jle0cig0EW1yjedCIdLqMIXg9/JvAFTOyUO4xqDWAWS8eUjy2XDNBzEWAgg05up4YqSk/M1F4uPFVf7A==
+aer-data@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/aer-data/-/aer-data-2.5.0.tgz#1a288ff0401c4ddb1376bb424de43cc5a693e1fc"
+  integrity sha512-5Ht7dLAGxbiCGTaghyK4CFyRiDWZqalodsr0m7gOZzJokrpgI2a+/GBZKGBHHHrcGPMEMPi1mBIqls0VKt91OA==
 
 aer-types@^1.0.12:
   version "1.0.12"
