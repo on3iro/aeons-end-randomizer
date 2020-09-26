@@ -1,13 +1,11 @@
 import * as types from 'aer-types'
+import { GetStateFn } from 'Redux/helpers'
 
-import { RootState, selectors } from 'Redux/Store'
+import { selectors } from 'Redux/Store'
 import { handleCustomRewards } from 'Redux/Store/Expeditions/Expeditions/sideEffects/helpers'
 
 // TODO add tests
-export const createRewards = (
-  getState: () => RootState,
-  reward: types.Reward
-) => {
+export const createRewards = (getState: GetStateFn, reward: types.Reward) => {
   const state = getState()
   const expeditionId = reward.expeditionId
   const expedition = selectors.Expeditions.Expeditions.getExpeditionById(
@@ -34,10 +32,12 @@ export const createRewards = (
         seed: expedition.seed.seed,
         state: expedition.seed.supplyState,
       },
+      expeditionId,
+      branchId: reward.id,
     }
   } else {
     return {
-      expeditionId: reward.expeditionId,
+      expeditionId,
       branchId: reward.id,
       ...handleCustomRewards(state, reward.config, expedition),
     }

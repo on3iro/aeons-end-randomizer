@@ -1,22 +1,22 @@
 import { selectors } from 'Redux/Store'
 import * as types from 'aer-types'
 
-import { getRandomEntity } from 'Redux/helpers'
+import { getRandomEntity, GetStateFn } from 'Redux/helpers'
 
 import { rollNemesisId } from './rollNemesisId'
 import { getStillAvailableNemesisIds } from './getStillAvailableNemesisIds'
 import { getUpgradedBasicNemesisCardsResult } from './getUpgradedBasicNemesisCardsResult'
-import { ExpeditionsStateSlice } from 'Redux/Store/Expeditions/Expeditions/types'
-import { NemesisContentStateSlice } from 'Redux/Store/Settings/Expansions/Nemeses/content'
-import { UpgradedBasicNemesisCardContentStateSlice } from 'Redux/Store/Settings/Expansions/UpgradedBasicNemesisCards/content'
-import { SelectedLanguagesStateSlice } from 'Redux/Store/Settings/Expansions/Languages/types'
 
 export const generateResult = (
   battle: types.Battle,
   nemesisId: string | undefined,
   upgradedBasicNemesisCardIds: string[],
   nemesisSeedState?: Object
-) => {
+): {
+  battle: types.Battle
+  upgradedBasicNemesisCardIds: string[]
+  nemesisSeedState: types.ExpeditionSeedState
+} => {
   return {
     battle: {
       ...battle,
@@ -32,13 +32,14 @@ export const generateResult = (
 }
 
 export const createBattle = (
-  getState: () => ExpeditionsStateSlice &
-    NemesisContentStateSlice &
-    UpgradedBasicNemesisCardContentStateSlice &
-    SelectedLanguagesStateSlice,
+  getState: GetStateFn,
   battle: types.Battle,
   getEntity: types.SeededEntityGetter = getRandomEntity
-) => {
+): {
+  battle: types.Battle
+  upgradedBasicNemesisCardIds: string[]
+  nemesisSeedState: types.ExpeditionSeedState
+} => {
   const state = getState()
 
   const expedition = selectors.Expeditions.Expeditions.getExpeditionById(
@@ -68,7 +69,7 @@ export const createBattle = (
           state: expedition.seed.nemesisState,
         },
       }
-    : rollNemesisId(stillAvailableNemesisIds, availableEntities =>
+    : rollNemesisId(stillAvailableNemesisIds, (availableEntities) =>
         getEntity(availableEntities, {
           seed: expedition.seed.seed,
           state: expedition.seed.nemesisState,

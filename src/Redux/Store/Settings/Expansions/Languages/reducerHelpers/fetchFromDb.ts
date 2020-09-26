@@ -21,5 +21,8 @@ export const fetchFromDbSuccess = (
   _: State,
   action: ReturnType<typeof actions.fetchFromDBSuccessful>
 ) => {
-  return action.payload || initialState
+  if (typeof action.payload === 'object' && action.payload !== null) {
+    return action.payload as State
+  }
+  return initialState
 }

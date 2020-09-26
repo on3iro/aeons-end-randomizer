@@ -1,12 +1,17 @@
+import { Cmd } from 'redux-loop'
 import * as types from 'aer-types'
 import seedrandom from 'seedrandom'
 import shortid from 'shortid'
+import { RootState } from './Store'
 
 type CardListReduceResult = {
   availableCards: types.ICard[]
   result: Array<types.ICard & { blueprintId: number | string }>
   seed: types.Seed
 }
+
+export type GetStateFn = <R = RootState>() => R
+export type DispatchFn = Cmd.Dispatch
 
 /**
  * Given a card object and a setupBlueprint this returns either

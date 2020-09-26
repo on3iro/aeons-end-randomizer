@@ -42,7 +42,7 @@ const sortEntitiesByCost = (entities: Array<LockedCard>) =>
   })
 
 export const actions = {
-  noOp: () => createAction('NOOP'),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
   resetMarket: () => createAction(ActionTypes.RESET),
   createMarket: (
     availableCards: ReadonlyArray<types.ICard>,

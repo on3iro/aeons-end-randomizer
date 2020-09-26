@@ -7,7 +7,7 @@ import { ActionTypes } from './types'
 import { PlayerCount } from '../PlayerCount/types'
 
 export const actions = {
-  noOp: () => createAction('NOOP'),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
   createBasicNemesisCardDeck: (
     availableCards: ReadonlyArray<types.BasicNemesisCard>,
     playerCount: PlayerCount,
