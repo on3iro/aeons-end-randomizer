@@ -20,7 +20,7 @@ import { LockedCard } from 'Redux/Store/Randomizer/Supply/LockedCards'
 // We ensure that our modal will only be shown
 type MaybeMarketTile =
   | {
-      id?: string
+      id?: string | number
       type?: types.CardType
       name?: string
       expansion?: string
@@ -50,6 +50,7 @@ const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
   const { id, type, name, expansion, cost, keywords, effect } = marketTile
 
   return id &&
+    typeof id === 'string' &&
     type &&
     name &&
     expansion &&
@@ -79,7 +80,7 @@ const mapDispatchToProps = {}
 type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps & {
     marketTile: {
-      id?: string
+      id?: string | number
       blueprintId?: string | number
       type: types.CardType
       expansion?: string
@@ -125,18 +126,19 @@ const MarketTile = ({
   const handleLock = useCallback(() => {
     if (
       toggleLock &&
-      marketTile.id &&
+      card &&
+      card.id &&
       marketTile.blueprintId !== undefined &&
-      marketTile.cost
+      card.cost
     ) {
       toggleLock({
-        id: marketTile.id,
+        id: card.id,
         blueprintId: marketTile.blueprintId,
-        type: marketTile.type,
-        cost: marketTile.cost,
+        type: card.type,
+        cost: card.cost,
       })
     }
-  }, [toggleLock, marketTile])
+  }, [toggleLock, card, marketTile])
 
   const isLocked = lockedCards
     ? lockedCards.findIndex((lockedCard) => lockedCard.id === marketTile?.id) >
