@@ -14,7 +14,7 @@ import { LockedCard } from 'Redux/Store/Randomizer/Supply/LockedCards'
 // To eliminate resulting errors we check for issues inside the respective sub-components
 // TODO this needs some cleanup
 export type OptionalTile = {
-  id?: string
+  id?: string | number
   type: types.CardType
   expansion?: string
   name?: string

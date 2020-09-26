@@ -24,7 +24,7 @@
     "@types/seedrandom": "^2.4.28",
     "@types/shortid": "^0.0.29",
     "aer-data": "^2.4.0",
-    "aer-types": "^1.0.11",
+    "aer-types": "^1.0.12",
     "ajv": "^6.12.5",
     "classnames": "^2.2.6",
     "core-js": "^3.2.1",
