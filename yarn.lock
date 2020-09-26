@@ -10369,10 +10369,10 @@ recursive-readdir@2.2.2:
   dependencies:
     minimatch "3.0.4"
 
-redux-loop@^5.0.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/redux-loop/-/redux-loop-5.1.1.tgz#39586c6eae5e04021ede996ffea4c28c7dcab104"
-  integrity sha512-85Yqy37osGBeoxPPuNTtNQh0Xcuig7HG+WmDBbK9dif0CusPX/uA2hi7ZVLI/M9QVU4GQ8lmFu62NrJG/ahAlg==
+redux-loop@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/redux-loop/-/redux-loop-6.0.1.tgz#7107d9775f35268b6c9e2cbce91f95b5d9b603a8"
+  integrity sha512-vr7+aR9FpPFZK9oBGtlewH2NfgCzYcT4jXyBB0undzKuT1mfZSw1hvmFim15NZy2UpVUj65R/cS0aI/cLUHyig==
 
 redux@^4.0.0, redux@^4.0.1:
   version "4.0.5"

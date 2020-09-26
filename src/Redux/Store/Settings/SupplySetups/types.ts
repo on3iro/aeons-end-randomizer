@@ -10,6 +10,16 @@ export type State = {
   migrationVersion: number
 }
 
+export const isSupplySetupState = (value: unknown): value is State => {
+  if (typeof value !== 'object' || !value) {
+    return false
+  } else {
+    return (
+      'Predefined' in value && 'Custom' in value && 'migrationVersion' in value
+    )
+  }
+}
+
 export enum ActionTypes {
   TOGGLE_ALL = 'Settings/SupplySetups/TOGGLE_ALL',
   TOGGLE_SETUP = 'Settings/SupplySetups/TOGGLE_SETUP',

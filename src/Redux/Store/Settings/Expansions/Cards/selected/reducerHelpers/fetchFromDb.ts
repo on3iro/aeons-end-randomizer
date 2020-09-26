@@ -21,5 +21,8 @@ export const fetchFromDbSuccess = (
   _: State,
   action: ReturnType<typeof actions.fetchFromDBSuccessful>
 ) => {
-  return action.payload || initialState
+  if (Array.isArray(action.payload)) {
+    return action.payload
+  }
+  return initialState
 }

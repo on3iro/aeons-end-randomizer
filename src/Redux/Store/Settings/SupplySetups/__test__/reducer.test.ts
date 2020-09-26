@@ -210,7 +210,7 @@ describe('Settings | SupplySetups | reducer', () => {
     expect(result).toEqual(initialState)
   })
 
-  it.todo('should handle NOOP')
+  it.todo('should handle @@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING')
 
   it('should handle TOGGLE_ALL', () => {
     const expected = {

@@ -18,12 +18,11 @@ export const initialState: State = {
 /////////////
 
 export enum ActionTypes {
-  NOOP = 'NOOP',
   TOGGLE = 'Settings/Accordions/TOGGLE',
 }
 
 export const actions = {
-  noOp: () => createAction(ActionTypes.NOOP),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
   toggle: (id: string) => createAction(ActionTypes.TOGGLE, id),
 }
 

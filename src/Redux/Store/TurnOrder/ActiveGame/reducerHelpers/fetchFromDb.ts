@@ -20,7 +20,8 @@ export const fetchFromDbSuccess = (
   state: State,
   action: ReturnType<typeof actions.fetchFromDBSuccessful>
 ) => {
-  // If the fetched state somehow is undefined just take the current state instead
-  const newState = action.payload || state
-  return newState
+  if (typeof action.payload === 'object' && action.payload !== null) {
+    return action.payload as State
+  }
+  return state
 }

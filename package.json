@@ -39,7 +39,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.2.0",
     "redux": "^4.0.1",
-    "redux-loop": "^5.0.1",
+    "redux-loop": "^6.0.1",
     "regenerator-runtime": "^0.13.3",
     "reselect": "^4.0.0",
     "rpg-awesome": "^0.2.0",

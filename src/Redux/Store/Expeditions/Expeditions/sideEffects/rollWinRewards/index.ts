@@ -1,31 +1,21 @@
 import { selectors } from 'Redux/Store'
-import { getRandomEntity } from 'Redux/helpers'
+import { getRandomEntity, GetStateFn } from 'Redux/helpers'
 
 import * as types from 'aer-types'
 
 import { rollTreasureIdsByLevel } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollWinRewards/rollTreasureIdsByLevel'
 import { rollSupplyRewards } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollWinRewards/rollSupplyRewards'
 
-import { ExpeditionsStateSlice } from '../../types'
-import { TreasureIdsStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/ids'
-import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/content'
-import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
 import { handleCustomRewards } from '../helpers'
-import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
-import { SelectedLanguagesStateSlice } from 'Redux/Store/Settings/Expansions/Languages'
 
 export const getTreasureAmount = (treasureLevel?: types.TreasureLevel) => {
   return treasureLevel === 2 ? 3 : 5
 }
 
 export const rollWinRewards = (
-  getState: () => ExpeditionsStateSlice &
-    TreasureContentStateSlice &
-    TreasureIdsStateSlice &
-    CardsContentStateSlice &
-    SelectedLanguagesStateSlice,
+  getState: GetStateFn,
   battle: types.Battle
-) => {
+): { battle: types.Battle; seed: types.Seed } => {
   const state = getState()
 
   const { expeditionId } = battle
@@ -78,12 +68,12 @@ export const rollWinRewards = (
   )
   const supplyRewards = supplyRewardsResult.result
 
-  const updatedBattle = {
+  const updatedBattle: types.Battle = {
     ...battle,
     rewards: {
       treasure: newTreasures,
       supplyIds: supplyRewards,
-      mage: undefined, // we explicitely overwrite the mage reward from earlier losses
+      mages: [], // we explicitely overwrite the mage reward from earlier losses
     },
   }
   return {
@@ -93,15 +83,10 @@ export const rollWinRewards = (
 }
 
 const handleRewardsFromConfig = (
-  getState: () => ExpeditionsStateSlice &
-    CardsContentStateSlice &
-    TreasureContentStateSlice &
-    TreasureIdsStateSlice &
-    MagesContentStateSlice &
-    SelectedLanguagesStateSlice,
+  getState: GetStateFn,
   battle: types.Battle,
   rewardsConfig: types.RewardsConfig
-) => {
+): { battle: types.Battle; seed: types.Seed } => {
   const state = getState()
 
   const expeditionId = battle.expeditionId
@@ -130,14 +115,9 @@ const handleRewardsFromConfig = (
 
 // TODO add tests
 export const createWinRewards = (
-  getState: () => ExpeditionsStateSlice &
-    CardsContentStateSlice &
-    TreasureContentStateSlice &
-    TreasureIdsStateSlice &
-    MagesContentStateSlice &
-    SelectedLanguagesStateSlice,
+  getState: GetStateFn,
   battle: types.Battle
-) => {
+): { battle: types.Battle; seed: types.Seed } => {
   const rewardsConfig = battle.config.winRewards
 
   if (rewardsConfig) {

@@ -4,5 +4,5 @@ import { ActionTypes, PlayerCount } from './types'
 
 export const actions = {
   setCount: (count: PlayerCount) => createAction(ActionTypes.SET, count),
-  noOp: () => createAction('NOOP'),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
 }
