@@ -1,5 +1,6 @@
 import { loop, Cmd } from 'redux-loop'
 import { get as getFromDb } from 'idb-keyval'
+import AERData from 'aer-data'
 
 import { State } from '../types'
 import { LANGUAGE_DB_KEY } from '../constants'
@@ -22,7 +23,25 @@ export const fetchFromDbSuccess = (
   action: ReturnType<typeof actions.fetchFromDBSuccessful>
 ) => {
   if (typeof action.payload === 'object' && action.payload !== null) {
-    return action.payload as State
+    const newState = action.payload as State
+
+    // WHY:
+    // When expensions are newly added to aer-data, they will never be part of a users saved state.
+    // This leads to a situation, where our default (ENG) won't be selected for these expansions, which
+    // might lead to a crash of the app.
+    // TODO - handle the default gracefully, so we do no longer need this workaround
+    const withDefaultValuesForUnselectedExpansions = AERData.normalizedData.ENG.expansionIds.reduce(
+      (acc, id) => {
+        if (!(id in newState)) {
+          return { ...acc, [id]: 'ENG' }
+        } else {
+          return acc
+        }
+      },
+      action.payload
+    )
+
+    return withDefaultValuesForUnselectedExpansions as State
   }
   return initialState
 }
