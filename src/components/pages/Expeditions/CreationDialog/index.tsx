@@ -100,6 +100,16 @@ const CreationDialog = ({
     ]
   )
 
+  const additionalSetups = (() => {
+    if (existingExpeditionConfig?.settingsSnapshotConfig?.supplySetup) {
+      return [existingExpeditionConfig.settingsSnapshotConfig.supplySetup]
+    } else if (expeditionConfig) {
+      return [expeditionConfig.settingsSnapshotConfig.supplySetup]
+    } else {
+      return []
+    }
+  })()
+
   return (
     <React.Fragment>
       <ModalBodyWrapper hasFooter={true}>
@@ -126,11 +136,7 @@ const CreationDialog = ({
         <MarketSelect
           selectedMarketId={selectedMarketId}
           clickHandler={supplySelectHandler}
-          additionalSetups={
-            existingExpeditionConfig?.settingsSnapshotConfig?.supplySetup && [
-              existingExpeditionConfig.settingsSnapshotConfig.supplySetup,
-            ]
-          }
+          additionalSetups={additionalSetups}
         />
 
         <SeedInput seed={seedValue} handleInputChange={handleSeedChange} />
