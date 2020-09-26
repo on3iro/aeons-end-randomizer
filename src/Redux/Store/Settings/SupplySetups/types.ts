@@ -14,9 +14,7 @@ export const isSupplySetupState = (value: unknown): value is State => {
   if (typeof value !== 'object' || !value) {
     return false
   } else {
-    return (
-      'Predefined' in value && 'Custom' in value && 'migrationVersion' in value
-    )
+    return 'Predefined' in value && 'Custom' in value
   }
 }
 
