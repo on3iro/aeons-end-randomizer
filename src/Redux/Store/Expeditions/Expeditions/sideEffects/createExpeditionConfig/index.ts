@@ -1,14 +1,13 @@
-import { RootState } from 'Redux/Store'
-
 import * as types from 'aer-types'
 
 import { BaseConfig } from '../../types'
 
 import { handleWithoutConfig } from './handleWithoutConfig'
 import { handleExistingConfig } from './handleExistingConfig'
+import { GetStateFn } from 'Redux/helpers'
 
 export const createExpedition = (
-  getState: () => RootState,
+  getState: GetStateFn,
   baseConfig: BaseConfig
 ): types.Expedition => {
   const state = getState()

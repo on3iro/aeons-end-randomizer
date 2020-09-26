@@ -31,7 +31,7 @@ export enum ActionTypes {
 export const actions = {
   updateSelected: (id: VariantId) =>
     createAction(ActionTypes.UPDATE_SELECTED, { id }),
-  noOp: () => createAction('NOOP'),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
 }
 
 export type Action = ActionsUnion<typeof actions>
@@ -97,7 +97,7 @@ const getVariantIds = (state: VariantIdsStateSlice) =>
 
 const getVariantList = createSelector(
   [getVariantIds, getVariants],
-  (ids, variants) => ids.map(id => variants[id])
+  (ids, variants) => ids.map((id) => variants[id])
 )
 
 export const selectors = {

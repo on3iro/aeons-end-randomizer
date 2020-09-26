@@ -1,11 +1,10 @@
 import * as types from 'aer-types'
 
-import { RootState } from 'Redux/Store'
-
-import { State } from '../types'
+import { isSupplySetupState } from '../types'
 
 import { byAscendingVersion } from 'helpers'
 import { migrateToPredefinedWithIds } from './migrateToPredefinedWithIds'
+import { GetStateFn } from 'Redux/helpers'
 
 const migrations: types.Migration[] = [
   {
@@ -24,14 +23,18 @@ export const getLatestMigrationVersion = () =>
   }, 0)
 
 export const migrate = (
-  getState: () => RootState,
+  getState: GetStateFn,
   {
     newState,
   }: {
-    newState: State
+    newState: unknown
   }
 ) => {
   const rootState = getState()
+
+  if (!isSupplySetupState(newState)) {
+    return rootState.Settings.SupplySetups
+  }
 
   const migrated = migrations.reduce((acc, migration) => {
     if (!newState) {

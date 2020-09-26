@@ -81,7 +81,7 @@ describe('Randomizer | Supply | RandomSetup | reducer', () => {
     expect(result).toEqual(initialState)
   })
 
-  it.todo('should handle NOOP')
+  it.todo('should handle @@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING')
 
   it('should handle RESET', () => {
     const result = Reducer(mockSupply, actions.resetMarket())

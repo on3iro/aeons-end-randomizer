@@ -72,7 +72,7 @@ export const MainReducer: LoopReducer<RootState, RootAction> = (
     case ActionTypes.USER_CONFIGURATION_GET: {
       return loop(
         state,
-        Cmd.list<RootAction>([
+        Cmd.list([
           Cmd.action(
             actions.Settings.Expansions.Expansions.selected.fetchFromDB()
           ),

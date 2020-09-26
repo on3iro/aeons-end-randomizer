@@ -26,7 +26,7 @@ export enum ActionTypes {
 }
 
 export const actions = {
-  noOp: () => createAction('NOOP'),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
   toggleLock: (lockedCard: LockedCard) =>
     createAction(ActionTypes.LOCK_TOGGLE, lockedCard),
 }

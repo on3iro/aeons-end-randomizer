@@ -21,7 +21,7 @@ export enum ActionTypes {
 }
 
 export const actions = {
-  noOp: () => createAction('NOOP'),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
   setRandomNemesis: (
     availableNemeses: ReadonlyArray<types.Nemesis>,
     seed?: types.Seed

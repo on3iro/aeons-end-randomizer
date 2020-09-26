@@ -8,6 +8,14 @@ export const initialState: State = {
   expeditionIds: [],
 }
 
+export const isExpeditionState = (value: unknown): value is State => {
+  if (typeof value !== 'object' || !value) {
+    return false
+  } else {
+    return 'expeditions' in value && 'expeditionIds' in value
+  }
+}
+
 export const Reducer: LoopReducer<State, Action> = (
   state: State = initialState,
   action: Action

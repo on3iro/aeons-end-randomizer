@@ -5,7 +5,7 @@ import * as types from 'aer-types'
 import { ActionTypes, State, SetupType } from './types'
 
 export const actions = {
-  noOp: () => createAction('NOOP'),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
   toggleAll: () => createAction(ActionTypes.TOGGLE_ALL),
   toggleSetup: (setup: string, setupType: SetupType) =>
     createAction(ActionTypes.TOGGLE_SETUP, { setup, setupType }),
@@ -23,7 +23,7 @@ export const actions = {
   setToDBFailed: (error: Object) =>
     createAction(ActionTypes.SET_TO_DB_FAILURE, error),
   fetchFromDB: () => createAction(ActionTypes.FETCH_FROM_DB),
-  fetchFromDBSuccessful: (state: State) =>
+  fetchFromDBSuccessful: (state: unknown) =>
     createAction(ActionTypes.FETCH_FROM_DB_SUCCESS, state),
   fetchFromDBFailed: (error: Object) =>
     createAction(ActionTypes.FETCH_FROM_DB_FAILURE, error),

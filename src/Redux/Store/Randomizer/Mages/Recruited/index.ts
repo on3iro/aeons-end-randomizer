@@ -23,7 +23,7 @@ export enum ActionTypes {
 }
 
 export const actions = {
-  noOp: () => createAction('NOOP'),
+  noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
   setRandomMages: (
     availableMages: ReadonlyArray<types.Mage>,
     count: MageCount,
@@ -37,7 +37,7 @@ export const actions = {
       getRandomEntity,
       seed
     ).result
-    const mageIds = mageList.map(mage => {
+    const mageIds = mageList.map((mage) => {
       return {
         id: mage.id,
       }

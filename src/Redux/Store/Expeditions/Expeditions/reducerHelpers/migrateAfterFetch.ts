@@ -11,7 +11,7 @@ export const migrateAfterFetch = (
   state: State,
   action: ReturnType<typeof actions.fetchFromDBSuccessful>
 ) => {
-  const newState = action.payload
+  const newState = action.payload as State
   return loop(
     state,
     Cmd.run(migrate, {
@@ -30,7 +30,7 @@ export const migrateAfterFetchSuccess = (
   state: State,
   action: ReturnType<typeof actions.migrateToSettingsSnapshotSuccessful>
 ) => {
-  const newState = action.payload || state
+  const newState: State = action.payload || state
   return loop(
     newState,
     Cmd.run(setToDb, {
