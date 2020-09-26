@@ -117,13 +117,13 @@ export const schema = {
       $ref: '#/definitions/__type_1',
     },
     CardType: {
-      enum: ['EMPTY', 'Gem', 'Relic', 'Spell'],
+      enum: ['ANY', 'EMPTY', 'Gem', 'Relic', 'Spell'],
       type: 'string',
     },
     IBluePrint: {
       properties: {
         id: {
-          type: 'string',
+          type: ['string', 'number'],
         },
         operation: {
           $ref: '#/definitions/Operation',
@@ -144,7 +144,7 @@ export const schema = {
     IEmptyBluePrint: {
       properties: {
         id: {
-          type: 'string',
+          type: ['string', 'number'],
         },
         operation: {
           enum: ['NoOp'],
