@@ -12,7 +12,7 @@ import List from '@material-ui/core/List'
 
 type Props = {
   supplyCard: {
-    id?: string
+    id?: string | number
     type: types.CardType
     expansion?: string
     name?: string

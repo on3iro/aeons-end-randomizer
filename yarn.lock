@@ -2190,10 +2190,10 @@ aer-data@^2.4.0:
   resolved "https://registry.yarnpkg.com/aer-data/-/aer-data-2.4.0.tgz#bb2e3aaa29e894be8bf54132aaaf945cc6eb8c40"
   integrity sha512-AviM+6Jle0cig0EW1yjedCIdLqMIXg9/JvAFTOyUO4xqDWAWS8eUjy2XDNBzEWAgg05up4YqSk/M1F4uPFVf7A==
 
-aer-types@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/aer-types/-/aer-types-1.0.11.tgz#03e5070d9f891323620d51a138c0f1800076a847"
-  integrity sha512-ehf6vYBPlxmzpXniW3lyzNc2VG714035JFlFBzD/CFMaE0nBwHal9fu1kddLKYWm8nV7IFLBZsg+uGNjLLlKZw==
+aer-types@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/aer-types/-/aer-types-1.0.12.tgz#96c1d689b1222102ec9beb3b0b850151e68d0403"
+  integrity sha512-LmF6jmDHHkVCGzTOCE0e0LFKJTJj4R55bKshpbu27Wkg8AJaBIAcKr7dkdUHI9+SFU06X2I4eulq0+miu0BCQg==
 
 aggregate-error@^3.0.0:
   version "3.0.1"
