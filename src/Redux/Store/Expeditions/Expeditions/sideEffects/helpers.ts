@@ -66,7 +66,7 @@ export const getSupplyIds = ({
     // 1.) it lets us filter available cards by those ids, which have been explicitely specified
     // 2.) it makes the reduce call a bit easer to read and maintain, as we don't have to handle the 'string' case
     const ids = supply.ids.filter(
-      idOrBlueprint => typeof idOrBlueprint === 'string'
+      (idOrBlueprint) => typeof idOrBlueprint === 'string'
     )
     const bluePrints = supply.ids.filter(
       (idOrBlueprint): idOrBlueprint is types.IBluePrint =>
@@ -77,7 +77,7 @@ export const getSupplyIds = ({
       (acc: RewardResult, blueprint) => {
         const cardType = blueprint.type
         const stillAvailableCards = stillAvailableCardsByType[cardType].filter(
-          card => ids.indexOf(card.id) === -1
+          (card) => ids.indexOf(card.id) === -1
         )
 
         const cardCreationResult = createCardList(
@@ -90,7 +90,7 @@ export const getSupplyIds = ({
         return {
           result: [
             ...acc.result,
-            ...cardCreationResult.result.map(card => card.id),
+            ...cardCreationResult.result.map((card) => card.id),
           ],
           seed: cardCreationResult.seed,
         }
@@ -125,7 +125,7 @@ export const getTreasureIds = ({
     return baseResult
   } else {
     const ids = treasure.ids.filter(
-      idOrRandom => typeof idOrRandom === 'string'
+      (idOrRandom) => typeof idOrRandom === 'string'
     )
 
     const randomTreasureConfigs = treasure.ids.filter(
@@ -138,7 +138,7 @@ export const getTreasureIds = ({
         const treasureLevel = config.level
         const stillAvailableCards = stillAvailableTreasureIdsByLevel[
           treasureLevel
-        ].filter(treasureId => ids.indexOf(treasureId) === -1)
+        ].filter((treasureId) => ids.indexOf(treasureId) === -1)
 
         const treasureIdsResult = createIdList(
           stillAvailableCards,
@@ -177,7 +177,7 @@ export const getMageIds = ({
   if (mage === undefined) {
     return baseResult
   } else {
-    const ids = mage.ids.filter(idOrRandom => typeof idOrRandom === 'string')
+    const ids = mage.ids.filter((idOrRandom) => typeof idOrRandom === 'string')
 
     const randomTreasureConfigs = mage.ids.filter(
       (idOrRandom): idOrRandom is { random: true } =>
@@ -187,7 +187,57 @@ export const getMageIds = ({
     return randomTreasureConfigs.reduce(
       (acc: RewardResult, _) => {
         const filteredMageIds = stillAvailableMageIds.filter(
-          mageId => ids.indexOf(mageId) === -1
+          (mageId) => ids.indexOf(mageId) === -1
+        )
+
+        const mageIdsResult = createIdList(
+          filteredMageIds,
+          ['EMPTY'],
+          undefined,
+          acc.seed
+        )
+
+        return {
+          result: [...acc.result, ...mageIdsResult.result],
+          seed: mageIdsResult.seed,
+        }
+      },
+      {
+        ...baseResult,
+        result: ids,
+      } as RewardResult // FIXME casting should technically not be necessary (but i could make it work without)
+    )
+  }
+}
+
+export const getMageIdsFromSimpleArray = ({
+  mage,
+  stillAvailableMageIds,
+  seed,
+}: {
+  mage: Array<string | { random: true }> | undefined
+  seed: types.Seed
+  stillAvailableMageIds: string[]
+}) => {
+  const baseResult = {
+    result: [],
+    seed,
+  }
+
+  if (mage === undefined) {
+    return baseResult
+  } else {
+    const ids = mage.filter((idOrRandom) => typeof idOrRandom === 'string')
+
+    const randomTreasureConfigs = mage.filter(
+      (idOrRandom): idOrRandom is { random: true } =>
+        typeof idOrRandom !== 'string'
+    )
+
+    return randomTreasureConfigs.reduce(
+      (acc: RewardResult, _) => {
+        const filteredMageIds = stillAvailableMageIds.filter(
+          (mageId) => ids.indexOf(mageId) === -1
         )
 
         const mageIdsResult = createIdList(

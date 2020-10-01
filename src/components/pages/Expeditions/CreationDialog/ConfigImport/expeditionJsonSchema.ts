@@ -1,5 +1,5 @@
 // This schema has been created by using https://github.com/YousefED/typescript-json-schema
-// To recreate the schema run and replace it in here:
+// To recreate the schema run:
 //
 // typescript-json-schema tsconfig.json ExpeditionConfig --include ./node_modules/aer-types/types/**/*.ts --required --aliasRefs
 //
@@ -86,10 +86,7 @@ export const schema = {
     Barracks: {
       properties: {
         mageIds: {
-          items: {
-            type: 'string',
-          },
-          type: 'array',
+          $ref: '#/definitions/Array_1',
         },
         supplyIds: {
           items: {
