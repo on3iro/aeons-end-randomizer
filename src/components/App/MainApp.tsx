@@ -32,6 +32,7 @@ const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
     postMessage: Function
   }) => {
     if (registration && registration.waiting) {
+      console.log('onServiceWorkerUpdate')
       setWaitingWorker(registration.waiting)
     }
 
@@ -48,10 +49,12 @@ const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
 
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
+      console.log('called register')
       serviceWorker.register({ onUpdate: onServiceWorkerUpdate })
     }
 
     if (newVersionAvailable) {
+      console.log('new version available, open snackbar')
       setShowSnackBar(true)
     }
   }, [])
@@ -61,6 +64,8 @@ const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
   useEffect(() => {
     getUserConfiguration()
   }, [getUserConfiguration])
+
+  console.log({ showSnackBar })
 
   return (
     <React.Fragment>
