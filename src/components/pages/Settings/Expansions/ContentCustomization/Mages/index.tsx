@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { RootState, selectors, actions } from 'Redux/Store'
 
@@ -11,7 +11,7 @@ import Checkbox from './Checkbox'
 export type ChangeHandler = (id: string) => void
 
 const renderCheckboxes = (items: types.Mage[], changeHandler: ChangeHandler) =>
-  items.map(item => (
+  items.map((item) => (
     <Checkbox key={item.id} mage={item} changeHandler={changeHandler} />
   ))
 

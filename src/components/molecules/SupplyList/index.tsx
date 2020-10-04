@@ -3,7 +3,7 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import { actions } from 'Redux/Store'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import ListWrapper from './ListWrapper'
 import MarketTile from '../MarketTile'

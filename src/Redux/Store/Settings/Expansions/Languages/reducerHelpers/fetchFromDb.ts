@@ -1,6 +1,6 @@
 import { loop, Cmd } from 'redux-loop'
 import { get as getFromDb } from 'idb-keyval'
-import AERData from 'aer-data'
+import AERData from 'aer-data/src/index'
 
 import { State } from '../types'
 import { LANGUAGE_DB_KEY } from '../constants'

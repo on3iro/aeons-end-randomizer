@@ -1,7 +1,7 @@
 import { byCost } from 'helpers'
 
 import { createSupply } from 'Redux/helpers'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 export const createSupplyIds = (
   availableCards: types.ICard[],
@@ -19,7 +19,7 @@ export const createSupplyIds = (
 
   return {
     result: [...gemsByCost, ...relicsByCost, ...spellsByCost].map(
-      card => card.id
+      (card) => card.id
     ),
     seed: resultSeed,
   }

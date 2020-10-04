@@ -7,13 +7,13 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 
-import { MODES } from 'aer-types'
+import { MODES } from 'aer-types/types'
 import { RootState, actions, selectors } from '../../../Redux/Store'
 
 import Card from '../../atoms/Card'
 
 const renderModeOptions = () =>
-  MODES.map(mode => (
+  MODES.map((mode) => (
     <FormControlLabel
       key={mode}
       value={mode}

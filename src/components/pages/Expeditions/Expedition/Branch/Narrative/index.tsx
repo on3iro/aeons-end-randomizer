@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import { RootState, selectors } from 'Redux/Store'
 import BranchWrapper from '../BranchWrapper'
 import NarrativeTile from './NarrativeTile'

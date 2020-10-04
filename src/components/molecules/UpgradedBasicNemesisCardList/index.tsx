@@ -1,7 +1,7 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import UpgradedBasicNemesisCardTile from './UpgradedBasicNemesisCardTile'
 import UpgradedBasicNemesisCardGridWrapper from './UpgradedBasicNemesisCardGridWrapper'
@@ -9,7 +9,7 @@ import UpgradedBasicNemesisCardGridWrapper from './UpgradedBasicNemesisCardGridW
 const renderUpgradedBasicNemesisCards = (
   upgradedBasicNemsisCards: types.UpgradedBasicNemesisCard[]
 ) =>
-  upgradedBasicNemsisCards.map(upgradedBasicNemsisCard => (
+  upgradedBasicNemsisCards.map((upgradedBasicNemsisCard) => (
     <UpgradedBasicNemesisCardTile
       key={upgradedBasicNemsisCard.id}
       nemesisCard={upgradedBasicNemsisCard}

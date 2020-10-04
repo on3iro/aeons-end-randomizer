@@ -1,4 +1,4 @@
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 export const oldStyleExpedition: types.OldStyleExpedition = {
   id: 'OLD_STYLE',

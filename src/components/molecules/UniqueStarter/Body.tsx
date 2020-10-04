@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICard } from 'aer-types'
+import { ICard } from 'aer-types/types'
 
 import AbilityText from '../../atoms/AbilityText'
 import InfoItem from '../../molecules/InfoItem'

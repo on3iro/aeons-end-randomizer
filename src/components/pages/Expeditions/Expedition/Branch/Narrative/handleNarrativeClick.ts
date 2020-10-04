@@ -1,5 +1,5 @@
 import { useModal } from 'hooks/useModal'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 type ModalType = ReturnType<typeof useModal>
 

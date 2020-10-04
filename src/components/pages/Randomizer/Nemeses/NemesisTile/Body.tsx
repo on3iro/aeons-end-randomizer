@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nemesis } from 'aer-types'
+import { Nemesis } from 'aer-types/types'
 
 import ExpansionName from './ExpansionName'
 import Name from './Name'

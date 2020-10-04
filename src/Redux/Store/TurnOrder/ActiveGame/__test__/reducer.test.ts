@@ -1,8 +1,8 @@
 import { Cmd, getCmd, getModel } from 'redux-loop'
 import { get as getFromDb } from 'idb-keyval'
 
-import AERData from 'aer-data'
-import * as types from 'aer-types'
+import AERData from 'aer-data/src/index'
+import * as types from 'aer-types/types'
 
 import { TURNORDER_GAME_DB_KEY } from 'Redux/Store/TurnOrder/ActiveGame/constants'
 import { actions } from 'Redux/Store/TurnOrder/ActiveGame/actions'

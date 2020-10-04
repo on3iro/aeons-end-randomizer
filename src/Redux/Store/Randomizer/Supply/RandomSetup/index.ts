@@ -1,7 +1,7 @@
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import { byCost } from 'helpers'
 
 import { createSupply } from 'Redux/helpers'
@@ -36,7 +36,7 @@ const sortEntitiesByCost = (entities: Array<LockedCard>) =>
   entities.sort(byCost).map((entity) => {
     return {
       id: entity.id,
-      blueprintId: entity.blueprintId || 0, // FIXME we should probably rather fix this in aer-data and aer-types
+      blueprintId: entity.blueprintId || 0, // FIXME we should probably rather fix this in aer-data and aer-types/types
       type: entity.type,
     }
   })

@@ -7,9 +7,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormLabel from '@material-ui/core/FormLabel'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
-import { ITurnOrderPlayerCount } from 'aer-types'
+import { ITurnOrderPlayerCount } from 'aer-types/types'
 
-import AERData from 'aer-data'
+import AERData from 'aer-data/src/index'
 import { RootState, actions, selectors } from 'Redux/Store'
 
 import Card from '../../atoms/Card'
@@ -17,7 +17,7 @@ import Card from '../../atoms/Card'
 const renderSetupOptions = (selectedPlayerCount: ITurnOrderPlayerCount) =>
   Object.values(
     AERData.turnordersetups[selectedPlayerCount.id].variations
-  ).map(setup => (
+  ).map((setup) => (
     <FormControlLabel
       key={setup.id}
       value={setup.id}

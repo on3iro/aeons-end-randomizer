@@ -4,7 +4,7 @@ import {
   getRandomEntity,
 } from 'Redux/helpers'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 export const rollTreasureIdsByLevel = (
   stillAvailableTreasureIds: string[],

@@ -1,4 +1,4 @@
-import AERData from 'aer-data'
+import AERData from 'aer-data/src/index'
 
 const INITIAL_MODE = 'Default'
 const INITIAL_PLAYER_SETUP = AERData.turnordersetups['onePlayer']

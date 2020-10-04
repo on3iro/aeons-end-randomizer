@@ -1,8 +1,8 @@
 import { loop, Cmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
-import { BattleStatus } from 'aer-types'
+import { BattleStatus } from 'aer-types/types'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { State } from '../types'
 import { actions } from '../actions'

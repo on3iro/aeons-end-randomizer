@@ -2185,16 +2185,6 @@ adjust-sourcemap-loader@2.0.0:
     object-path "0.11.4"
     regex-parser "2.2.10"
 
-aer-data@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/aer-data/-/aer-data-2.5.0.tgz#1a288ff0401c4ddb1376bb424de43cc5a693e1fc"
-  integrity sha512-5Ht7dLAGxbiCGTaghyK4CFyRiDWZqalodsr0m7gOZzJokrpgI2a+/GBZKGBHHHrcGPMEMPi1mBIqls0VKt91OA==
-
-aer-types@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/aer-types/-/aer-types-1.0.12.tgz#96c1d689b1222102ec9beb3b0b850151e68d0403"
-  integrity sha512-LmF6jmDHHkVCGzTOCE0e0LFKJTJj4R55bKshpbu27Wkg8AJaBIAcKr7dkdUHI9+SFU06X2I4eulq0+miu0BCQg==
-
 aggregate-error@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/aggregate-error/-/aggregate-error-3.0.1.tgz#db2fe7246e536f40d9b5442a39e117d7dd6a24e0"

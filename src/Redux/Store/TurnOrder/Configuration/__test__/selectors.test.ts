@@ -1,4 +1,4 @@
-import AERData from 'aer-data'
+import AERData from 'aer-data/src/index'
 
 import {
   ModeStateSlice,

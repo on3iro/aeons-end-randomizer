@@ -1,7 +1,7 @@
 import { Cmd, getCmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
 
-import AERData from 'aer-data'
+import AERData from 'aer-data/src/index'
 
 import { TURNORDER_GAME_DB_KEY } from 'Redux/Store/TurnOrder/ActiveGame/constants'
 import { actions } from 'Redux/Store/TurnOrder/ActiveGame/actions'

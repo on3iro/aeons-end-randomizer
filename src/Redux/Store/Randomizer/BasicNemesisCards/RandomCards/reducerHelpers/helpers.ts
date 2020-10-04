@@ -1,7 +1,7 @@
 import seedrandom from 'seedrandom'
 import shortid from 'shortid'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import {
   getRandomEntity,
@@ -39,7 +39,7 @@ export const cardMatrix: CardMatrix = {
 export const getBasicNemesisCardsByTier = (
   cards: ReadonlyArray<types.BasicNemesisCard>,
   tier: types.NemesisCardTier
-) => cards.filter(card => card.tier === tier)
+) => cards.filter((card) => card.tier === tier)
 
 export const getRandomMinionAmount = (
   minCount: number = 1,
@@ -60,7 +60,7 @@ export const drawMinions = (
   amount: number,
   seed?: types.Seed
 ) => {
-  const minions = cards.filter(card => card.type === 'Minion')
+  const minions = cards.filter((card) => card.type === 'Minion')
   const minionsList = createBasicNemesisCardList(
     minions,
     createSlotList(amount),
@@ -68,7 +68,7 @@ export const drawMinions = (
     seed
   ).result
 
-  return minionsList.map(minion => {
+  return minionsList.map((minion) => {
     return {
       id: minion.id,
     }
@@ -80,7 +80,7 @@ export const drawPowersAndAttacks = (
   amount: number,
   seed?: types.Seed
 ) => {
-  const powersAndAttacks = cards.filter(card => card.type !== 'Minion')
+  const powersAndAttacks = cards.filter((card) => card.type !== 'Minion')
   const powersAndAttacksList = createBasicNemesisCardList(
     powersAndAttacks,
     createSlotList(amount),
@@ -88,7 +88,7 @@ export const drawPowersAndAttacks = (
     seed
   ).result
 
-  return powersAndAttacksList.map(powerAndAttack => {
+  return powersAndAttacksList.map((powerAndAttack) => {
     return {
       id: powerAndAttack.id,
     }
