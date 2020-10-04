@@ -1,8 +1,8 @@
 import { loop, Cmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
 
-import AERData from 'aer-data'
-import * as types from 'aer-types'
+import AERData from 'aer-data/src/index'
+import * as types from 'aer-types/types'
 
 import { State } from './types'
 import { TURNORDER_CONFIG_DB_KEY } from './constants'
@@ -28,7 +28,7 @@ const adjustSetup = (
       return {
         id: setup.id,
         name: setup.name,
-        turnOrderCards: setup.turnOrderCards.map(card => {
+        turnOrderCards: setup.turnOrderCards.map((card) => {
           return card.id === 'nemesis-1' || card.id === 'blitz'
             ? AERData.turnordercards['maelstrom']
             : card
@@ -40,7 +40,7 @@ const adjustSetup = (
       return {
         id: setup.id,
         name: setup.name,
-        turnOrderCards: setup.turnOrderCards.map(card => {
+        turnOrderCards: setup.turnOrderCards.map((card) => {
           return card.id === 'nemesis-1' || card.id === 'maelstrom'
             ? AERData.turnordercards['blitz']
             : card
@@ -52,7 +52,7 @@ const adjustSetup = (
       return {
         id: setup.id,
         name: setup.name,
-        turnOrderCards: setup.turnOrderCards.map(card => {
+        turnOrderCards: setup.turnOrderCards.map((card) => {
           if (card.id === 'nemesis-1') {
             return AERData.turnordercards['blitz']
           }

@@ -1,4 +1,4 @@
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import shortid from 'shortid'
 import { determineUsedExpansions } from 'Redux/Store/Expeditions/Expeditions/sideEffects/createSettingsSnapshot/determineUsedExpansions'
 import { RootState } from 'Redux/Store'
@@ -40,7 +40,7 @@ export const convertExpeditionFromConfig = (
     sequence: {
       firstBranchId: config.sequenceConfig.firstBranchId,
       branches: Object.keys(config.sequenceConfig.branches)
-        .map(key => {
+        .map((key) => {
           const branch = {
             ...config.sequenceConfig.branches[key],
             id: key,

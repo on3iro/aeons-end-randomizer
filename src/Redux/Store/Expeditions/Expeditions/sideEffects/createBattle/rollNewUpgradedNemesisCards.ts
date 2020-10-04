@@ -1,4 +1,4 @@
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { getUpgradedBasicNemesisIdsByBattleTier } from './getUpgradedBasicNemesisIdsByBattleTier'
 
@@ -13,18 +13,19 @@ export const rollNewUpgradedNemesisCards = (
   seed: types.Seed
 ) => {
   const upgradedCardsWithoutPreviousCards = availableUpgradedBasicNemesisCards.filter(
-    upgradedCard => !previousUpgradedBasicNemesisCards.includes(upgradedCard.id)
+    (upgradedCard) =>
+      !previousUpgradedBasicNemesisCards.includes(upgradedCard.id)
   )
 
   const tier1AvailableUpgradedNemesisIds = upgradedCardsWithoutPreviousCards
-    .filter(card => card.tier === 1)
-    .map(card => card.id)
+    .filter((card) => card.tier === 1)
+    .map((card) => card.id)
   const tier2AvailableUpgradedNemesisIds = upgradedCardsWithoutPreviousCards
-    .filter(card => card.tier === 2)
-    .map(card => card.id)
+    .filter((card) => card.tier === 2)
+    .map((card) => card.id)
   const tier3AvailableUpgradedNemesisIds = upgradedCardsWithoutPreviousCards
-    .filter(card => card.tier === 3)
-    .map(card => card.id)
+    .filter((card) => card.tier === 3)
+    .map((card) => card.id)
 
   const upgradedBasicNemesisCardIdsResult = getUpgradedBasicNemesisIdsByBattleTier(
     {

@@ -1,7 +1,7 @@
 import { Cmd, getCmd, getModel } from 'redux-loop'
 import { set as setToDb, get as getFromDb } from 'idb-keyval'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import { Reducer, initialState } from '../reducer'
 import { actions } from '../actions'
 import { EXPEDITIONS_DB_KEY } from '../reducerHelpers/helpers'

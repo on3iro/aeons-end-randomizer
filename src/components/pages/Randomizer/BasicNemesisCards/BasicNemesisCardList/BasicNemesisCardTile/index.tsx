@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { BasicNemesisCard } from 'aer-types'
+import { BasicNemesisCard } from 'aer-types/types'
 
 import { useModal } from 'hooks/useModal'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Expedition } from 'aer-types'
+import { Expedition } from 'aer-types/types'
 
 import { RootState, selectors } from '../../../Redux/Store'
 
@@ -10,7 +10,7 @@ import List from './List'
 import OverviewEntry from './OverviewEntry'
 
 const renderExpeditions = (expeditions: Array<Expedition>) => {
-  return expeditions.map(expedition => (
+  return expeditions.map((expedition) => (
     <OverviewEntry key={expedition.id} expedition={expedition} />
   ))
 }

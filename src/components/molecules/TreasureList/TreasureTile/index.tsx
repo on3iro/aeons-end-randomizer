@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { Treasure } from 'aer-types'
+import { Treasure } from 'aer-types/types'
 
 import Tile from '../../Tile'
 

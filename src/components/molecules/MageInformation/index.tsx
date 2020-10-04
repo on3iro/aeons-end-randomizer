@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { Mage, ICard } from 'aer-types'
+import { Mage, ICard } from 'aer-types/types'
 
 import InfoItem from '../InfoItem'
 

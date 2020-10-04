@@ -1,11 +1,11 @@
 import shortid from 'shortid'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 export const generateBattles = (
   variant: types.Variant,
   expeditionId: string
 ) => {
-  const battleIds = variant.configList.map(_ => shortid.generate())
+  const battleIds = variant.configList.map((_) => shortid.generate())
 
   const battles = variant.configList.map(
     (config, index): types.Battle => {

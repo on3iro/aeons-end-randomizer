@@ -1,5 +1,5 @@
 import React from 'react'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import Button from '@material-ui/core/Button'
 
 import BluePrint from './BluePrint'
@@ -21,7 +21,7 @@ const BluePrintList = ({ bluePrintList, dispatch }: Props) => {
       >
         Add Supply tile
       </Button>
-      {bluePrintList.map(bluePrint => (
+      {bluePrintList.map((bluePrint) => (
         <BluePrint
           key={bluePrint.id}
           bluePrint={bluePrint}

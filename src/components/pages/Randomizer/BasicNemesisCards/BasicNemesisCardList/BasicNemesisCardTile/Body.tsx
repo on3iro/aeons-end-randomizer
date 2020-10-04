@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import List from '@material-ui/core/List'
-import { BasicNemesisCard } from 'aer-types'
+import { BasicNemesisCard } from 'aer-types/types'
 
 import { RootState, selectors } from 'Redux/Store'
 

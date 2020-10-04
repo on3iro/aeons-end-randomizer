@@ -3,7 +3,7 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import CardContent from '@material-ui/core/CardContent'
 
-import { ITurnOrderSetup } from 'aer-types'
+import { ITurnOrderSetup } from 'aer-types/types'
 
 import Card from 'components/atoms/Card'
 

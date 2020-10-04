@@ -1,6 +1,6 @@
 import { selectors } from 'Redux/Store'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import {
   RewardType,

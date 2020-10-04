@@ -2,7 +2,7 @@ import { rollNewEntity } from '../helpers'
 
 import { getRandomEntity } from 'Redux/helpers'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 export const rollSupplyRewards = (
   gemIds: string[],

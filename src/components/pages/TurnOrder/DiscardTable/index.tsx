@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import TableBody from '@material-ui/core/TableBody'
-import { ITurnOrderCard } from 'aer-types'
+import { ITurnOrderCard } from 'aer-types/types'
 
 import { RootState, selectors } from 'Redux/Store'
 

@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import shortid from 'shortid'
 import Button from '@material-ui/core/Button'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { useModal } from 'hooks/useModal'
 

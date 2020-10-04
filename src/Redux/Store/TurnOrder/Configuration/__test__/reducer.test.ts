@@ -1,7 +1,7 @@
 import { getModel, getCmd, Cmd } from 'redux-loop'
 import { get as getFromDb } from 'idb-keyval'
 
-import AERData from 'aer-data'
+import AERData from 'aer-data/src/index'
 
 import { State } from 'Redux/Store/TurnOrder/Configuration/types'
 import { TURNORDER_CONFIG_DB_KEY } from 'Redux/Store/TurnOrder/Configuration/constants'

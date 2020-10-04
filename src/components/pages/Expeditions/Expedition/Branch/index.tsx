@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import Battle from 'components/pages/Expeditions/Expedition/Branch/Battle'
 import Narrative from 'components/pages/Expeditions/Expedition/Branch/Narrative'
 import Reward from 'components/pages/Expeditions/Expedition/Branch/Reward'

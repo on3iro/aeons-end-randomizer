@@ -2,7 +2,7 @@ import React from 'react'
 
 import { withTheme } from 'styled-components/macro'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import InfoItem from '../InfoItem'
 
@@ -44,7 +44,7 @@ const Body = ({ card, expansionName, theme }: Props) => (
     />
     {card.keywords ? (
       <Keywords>
-        {card.keywords.map(keyword => (
+        {card.keywords.map((keyword) => (
           <Keyword key={keyword}>{keyword}</Keyword>
         ))}
       </Keywords>

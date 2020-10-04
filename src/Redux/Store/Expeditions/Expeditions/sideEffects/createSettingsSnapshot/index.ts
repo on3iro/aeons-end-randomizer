@@ -1,5 +1,5 @@
 import { RootState, selectors } from 'Redux/Store'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { handleExistingSettingsSnapshot } from 'Redux/Store/Expeditions/Expeditions/sideEffects/createSettingsSnapshot/handleExistingSettingsSnapshot'
 import { handleNewSettingsSnapshot } from 'Redux/Store/Expeditions/Expeditions/sideEffects/createSettingsSnapshot/handleNewSettingsSnapshot'

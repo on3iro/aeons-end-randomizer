@@ -1,6 +1,6 @@
 import { saveAs } from 'file-saver'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import { convertExpeditionToConfig } from 'Redux/Store/Expeditions/Expeditions/helpers'
 
 const saveToFile = (json: string, name: string) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { RootState, selectors, actions } from 'Redux/Store'
 
@@ -14,7 +14,7 @@ const renderCheckboxes = (
   items: types.Nemesis[],
   changeHandler: ChangeHandler
 ) =>
-  items.map(item => (
+  items.map((item) => (
     <Checkbox key={item.id} nemesis={item} changeHandler={changeHandler} />
   ))
 

@@ -1,4 +1,4 @@
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { getRandomEntity } from 'Redux/helpers'
 import { rollNewEntity } from '../helpers'

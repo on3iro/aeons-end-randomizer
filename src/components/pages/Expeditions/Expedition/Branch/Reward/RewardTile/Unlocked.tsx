@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Status } from 'aer-types'
+import { Status } from 'aer-types/types'
 
 import UnlockedBase from '../../Unlocked'
 
@@ -8,7 +8,7 @@ type Props = {
 }
 
 const Unlocked = styled(UnlockedBase)<Props>`
-  background: ${props =>
+  background: ${(props) =>
     props.status === 'unlocked'
       ? props.theme.colors.cards.treasure3.normal
       : props.theme.colors.cards.treasure3.light};

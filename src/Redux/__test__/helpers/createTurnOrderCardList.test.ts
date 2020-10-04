@@ -1,5 +1,5 @@
 import { createTurnOrderCardList } from '../../helpers'
-import AERData from 'aer-data'
+import AERData from 'aer-data/src/index'
 import { getRandomEntity } from 'Redux/helpers'
 
 describe('createTurnOrderCardList()', () => {

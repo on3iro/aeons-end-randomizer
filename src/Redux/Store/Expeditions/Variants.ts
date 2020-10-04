@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { LoopReducer } from 'redux-loop'
 
-import { Variant, VariantId, variants, variantIds } from 'aer-types'
+import { Variant, VariantId, variants, variantIds } from 'aer-types/types'
 
 ///////////
 // STATE //
