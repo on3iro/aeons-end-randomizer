@@ -1,0 +1,16 @@
+{
+  "name": "aer-types",
+  "version": "1.0.12",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aeons-end-ranzomizer",
+    "aer",
+    "types"
+  ],
+  "author": "Theo Salzmann",
+  "license": "MIT"
+}

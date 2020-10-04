@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from 'Redux/Store'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import ListWrapper from 'components/molecules/ListWrapper'
 
@@ -24,7 +24,7 @@ const renderCheckboxes = ({
   deleteSetup: ChangeHandler
   cancelEdit: ChangeHandler
 }) =>
-  customSetups.map(setup => (
+  customSetups.map((setup) => (
     <CustomSetupCheckbox
       key={setup.id}
       setup={setup}
@@ -55,7 +55,7 @@ const CustomSetups = ({
   deleteSetup,
   cancelEdit,
 }: Props) => {
-  const handleSelection = useCallback(item => toggleSetup(item, 'Custom'), [
+  const handleSelection = useCallback((item) => toggleSetup(item, 'Custom'), [
     toggleSetup,
   ])
 

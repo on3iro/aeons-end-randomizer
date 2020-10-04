@@ -7,7 +7,7 @@ import {
   BasicNemesisCard,
   UpgradedBasicNemesisCard,
   ICard,
-} from 'aer-types'
+} from 'aer-types/types'
 
 import { LanguageKey } from './types'
 
@@ -42,7 +42,7 @@ export const getEntitiesByIdListWithLanguageFallback = <T extends Entity>(
   ids: string[],
   language: LanguageKey
 ) => {
-  return ids.map(id => {
+  return ids.map((id) => {
     return content[language][id] || content.ENG[id]
   })
 }

@@ -4,7 +4,7 @@ import * as Languages from '../../Languages'
 
 import { selectors as LanguageSelectors } from '../../Languages'
 import { ContentStruct } from '../../helpers'
-import { Expansion } from 'aer-types'
+import { Expansion } from 'aer-types/types'
 
 const getContent = (state: ExpansionContentStateSlice) =>
   state.Settings.Expansions.Expansions.content

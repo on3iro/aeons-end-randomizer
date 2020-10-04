@@ -1,6 +1,6 @@
 import { LoopReducer } from 'redux-loop'
 
-import AERData from 'aer-data'
+import AERData from 'aer-data/src/index'
 
 import { Action, State } from './types'
 

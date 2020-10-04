@@ -1,7 +1,7 @@
 import React from 'react'
 import List from '@material-ui/core/List'
 
-import { Battle } from 'aer-types'
+import { Battle } from 'aer-types/types'
 
 import InfoItem from 'components/molecules/InfoItem'
 

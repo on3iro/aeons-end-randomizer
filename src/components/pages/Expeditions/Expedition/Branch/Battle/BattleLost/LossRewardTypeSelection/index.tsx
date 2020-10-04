@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { connect } from 'react-redux'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { actions } from 'Redux/Store'
 import { RewardType } from 'Redux/Store/Expeditions/Expeditions/'

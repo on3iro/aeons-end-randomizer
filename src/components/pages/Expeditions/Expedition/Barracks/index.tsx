@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import { useModal } from 'hooks/useModal'
 
 import ShuffleButton from 'components/atoms/ShuffleButton'

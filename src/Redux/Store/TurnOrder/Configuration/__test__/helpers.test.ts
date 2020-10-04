@@ -1,7 +1,7 @@
 import { Cmd, getCmd } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
 
-import AERData from 'aer-data'
+import AERData from 'aer-data/src/index'
 
 import { State } from '../types'
 import { TURNORDER_CONFIG_DB_KEY } from '../constants'

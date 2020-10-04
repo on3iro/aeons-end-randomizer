@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 type Props = {
   type: types.CardType
@@ -12,7 +12,7 @@ const BluePrintWrapper = styled('div')<Props>`
   display: flex;
   flex-direction: column;
 
-  background-color: ${props =>
+  background-color: ${(props) =>
     props.type === 'EMPTY'
       ? '#ecf0f1'
       : props.theme.colors.cards[props.type.toLowerCase()].background};

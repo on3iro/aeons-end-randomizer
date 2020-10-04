@@ -1,6 +1,6 @@
 import { createAction } from '@martin_hotell/rex-tils'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { ActionTypes } from './types'
 

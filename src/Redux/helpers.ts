@@ -1,5 +1,5 @@
 import { Cmd } from 'redux-loop'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import seedrandom from 'seedrandom'
 import shortid from 'shortid'
 import { RootState } from './Store'

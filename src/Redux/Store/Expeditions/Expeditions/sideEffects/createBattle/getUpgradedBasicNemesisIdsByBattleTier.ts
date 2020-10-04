@@ -1,4 +1,4 @@
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import {
   getRandomEntity,
@@ -34,19 +34,19 @@ export const getUpgradedBasicNemesisIdsByBattleTier = ({
       const tier1IdsResult = createIdList(
         availableTier1Ids,
         createArrayWithDefaultValues(1, 'EMPTY'),
-        availableIds => getEntity(availableIds, seed)
+        (availableIds) => getEntity(availableIds, seed)
       )
 
       const tier2IdsResult = createIdList(
         availableTier2Ids,
         createArrayWithDefaultValues(3, 'EMPTY'),
-        availableIds => getEntity(availableIds, tier1IdsResult.seed)
+        (availableIds) => getEntity(availableIds, tier1IdsResult.seed)
       )
 
       const tier3IdsResult = createIdList(
         availableTier3Ids,
         createArrayWithDefaultValues(3, 'EMPTY'),
-        availableIds => getEntity(availableIds, tier2IdsResult.seed)
+        (availableIds) => getEntity(availableIds, tier2IdsResult.seed)
       )
 
       return {
@@ -64,19 +64,19 @@ export const getUpgradedBasicNemesisIdsByBattleTier = ({
       const tier1IdsResult = createIdList(
         availableTier1Ids,
         createArrayWithDefaultValues(1, 'EMPTY'),
-        availableIds => getEntity(availableIds, seed)
+        (availableIds) => getEntity(availableIds, seed)
       )
 
       const tier2IdsResult = createIdList(
         availableTier2Ids,
         createArrayWithDefaultValues(1, 'EMPTY'),
-        availableIds => getEntity(availableIds, tier1IdsResult.seed)
+        (availableIds) => getEntity(availableIds, tier1IdsResult.seed)
       )
 
       const tier3IdsResult = createIdList(
         availableTier3Ids,
         createArrayWithDefaultValues(2, 'EMPTY'),
-        availableIds => getEntity(availableIds, tier2IdsResult.seed)
+        (availableIds) => getEntity(availableIds, tier2IdsResult.seed)
       )
 
       return {

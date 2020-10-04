@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Expedition } from 'aer-types'
+import { Expedition } from 'aer-types/types'
 
 import { RootState, selectors } from 'Redux/Store'
 

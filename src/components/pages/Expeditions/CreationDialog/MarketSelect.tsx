@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import FormControl from '../FormControl'
 import FormLabel from './FormLabel'

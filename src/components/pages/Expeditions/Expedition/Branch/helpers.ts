@@ -1,4 +1,4 @@
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import { byCost } from 'helpers'
 
 type Tile = {
@@ -20,7 +20,7 @@ export const getAffectedList = (
   selectedValue: SelectedValue
 ) => {
   const affectedListIndex = listsWithSelectionState.findIndex(
-    list => list.id === selectedValue.listId
+    (list) => list.id === selectedValue.listId
   )
   return {
     affectedList: listsWithSelectionState[affectedListIndex],
@@ -36,7 +36,7 @@ export const createUpdatedLists = (
   listsWithSelectionState: ListWithSelection[]
 ) => {
   const elementIndex = affectedList.tiles.findIndex(
-    card => card.id === selectedValue.supplyCardId
+    (card) => card.id === selectedValue.supplyCardId
   )
   const affectedElement = affectedList.tiles[elementIndex]
 
@@ -60,7 +60,7 @@ export const createUpdatedLists = (
 
 export const calculateNumberOfSelectedCards = (lists: ListWithSelection[]) =>
   lists.reduce((acc, list) => {
-    const selectedList = list.tiles.filter(tile => tile.visualSelection)
+    const selectedList = list.tiles.filter((tile) => tile.visualSelection)
     return selectedList.length + acc
   }, 0)
 
@@ -81,7 +81,7 @@ const tilesToCardId = (
 
 export const createBanishedAndSupplyFromList = (list: Tile[]) => {
   const banished = list
-    .filter(tile => tile.visualSelection)
+    .filter((tile) => tile.visualSelection)
     .reduce((acc: string[], tile) => {
       if (!tile.id) {
         return acc
@@ -90,7 +90,7 @@ export const createBanishedAndSupplyFromList = (list: Tile[]) => {
       return [...acc, tile.id]
     }, [])
 
-  const newSupplyList = list.filter(tile => !tile.visualSelection)
+  const newSupplyList = list.filter((tile) => !tile.visualSelection)
 
   const gems = tilesToCardId(newSupplyList, 'Gem')
   const relics = tilesToCardId(newSupplyList, 'Relic')

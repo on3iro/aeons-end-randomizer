@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import { useModal, usePrompt } from 'hooks/useModal'
 
 import EditButton from 'components/molecules/EditButton'

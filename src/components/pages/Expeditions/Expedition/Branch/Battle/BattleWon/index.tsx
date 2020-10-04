@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions } from 'Redux/Store'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import RewardScreen from '../../RewardScreen'
 

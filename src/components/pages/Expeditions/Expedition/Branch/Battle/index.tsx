@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from 'Redux/Store'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import BranchWrapper from '../BranchWrapper'
 import { useStateModals } from './useStateModals'
@@ -74,7 +74,7 @@ const Battle = ({
   ])
 
   const battleWonCallback = useCallback(
-    expeditionIsFinished => {
+    (expeditionIsFinished) => {
       if (expeditionIsFinished) {
         expeditionComplete.show()
       } else {

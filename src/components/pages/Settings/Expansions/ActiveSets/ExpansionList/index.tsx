@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import ListWrapper from 'components/molecules/ListWrapper'
 
@@ -12,7 +12,7 @@ const renderCheckboxes = (
   items: types.Expansion[],
   changeHandler: ChangeHandler
 ) =>
-  items.map(item => (
+  items.map((item) => (
     <Checkbox key={item.id} expansion={item} changeHandler={changeHandler} />
   ))
 

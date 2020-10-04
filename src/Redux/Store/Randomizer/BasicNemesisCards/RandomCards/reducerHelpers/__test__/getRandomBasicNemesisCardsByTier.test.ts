@@ -1,4 +1,4 @@
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { getRandomBasicNemesisCardsByTier } from 'Redux/Store/Randomizer/BasicNemesisCards/RandomCards/reducerHelpers/helpers'
 
@@ -48,7 +48,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 1, 1)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(0)
     expect(minions.length).toBeLessThan(2)
@@ -69,7 +69,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 2, 1)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(1)
     expect(minions.length).toBeLessThan(3)
@@ -98,7 +98,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 3, 1)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(1)
     expect(minions.length).toBeLessThan(3)
@@ -119,7 +119,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 1, 2)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(1)
     expect(minions.length).toBeLessThan(3)
@@ -146,7 +146,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 2, 2)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(1)
     expect(minions.length).toBeLessThan(3)
@@ -175,7 +175,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 3, 2)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(1)
     expect(minions.length).toBeLessThan(3)
@@ -202,7 +202,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 1, 3)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(1)
     expect(minions.length).toBeLessThan(3)
@@ -230,7 +230,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 2, 3)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(1)
     expect(minions.length).toBeLessThan(3)
@@ -259,7 +259,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 3, 3)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(1)
     expect(minions.length).toBeLessThan(3)
@@ -289,7 +289,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 1, 4)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(1)
     expect(minions.length).toBeLessThan(3)
@@ -318,7 +318,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 2, 4)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(1)
     expect(minions.length).toBeLessThan(3)
@@ -347,7 +347,7 @@ describe('getRandomBasicNemesisCardsByTier()', () => {
     const result = getRandomBasicNemesisCardsByTier(cards, 3, 4)
 
     const regex = new RegExp('minion\\d*', 'g')
-    const minions = result.filter(card => card.id.match(regex))
+    const minions = result.filter((card) => card.id.match(regex))
 
     expect(minions.length).toBeGreaterThanOrEqual(1)
     expect(minions.length).toBeLessThan(3)

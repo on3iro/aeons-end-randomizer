@@ -13,7 +13,7 @@ jest.mock('shortid', () => {
 })
 
 import { generateBattles } from '../generateBattles'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 describe('generateBattles', () => {
   afterAll(() => {

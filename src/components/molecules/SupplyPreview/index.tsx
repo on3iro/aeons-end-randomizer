@@ -1,5 +1,5 @@
 import React from 'react'
-import { IMarketSetup } from 'aer-types'
+import { IMarketSetup } from 'aer-types/types'
 
 import { getOperationString } from '../../../Redux/helpers'
 
