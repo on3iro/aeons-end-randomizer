@@ -2,7 +2,7 @@ import React, { useState, useReducer, useCallback } from 'react'
 import shortid from 'shortid'
 import { connect } from 'react-redux'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { RootState, actions } from 'Redux/Store'
 
@@ -85,7 +85,7 @@ const CustomSetupEdit = ({
   const bluePrintList = Object.values(bluePrints).reverse()
 
   const handleSave = useCallback(
-    setup => {
+    (setup) => {
       saveCustomSetup(setup)
       saveCallback()
     },

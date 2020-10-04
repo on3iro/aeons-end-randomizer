@@ -1,5 +1,5 @@
 import { selectors } from 'Redux/Store'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
 import { NemesisContentStateSlice } from 'Redux/Store/Settings/Expansions/Nemeses/content'
 import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/content'
@@ -217,28 +217,28 @@ export const determineUsedExpansions = (
       ...fromBranches.cardIds,
       ...fromInitialBarracks.supplyIds,
     ]
-      .map(id => allCards[id])
-      .map(c => c.expansion),
+      .map((id) => allCards[id])
+      .map((c) => c.expansion),
     ...[
       ...availableMageIds,
       ...fromBranches.mageIds,
       ...fromInitialBarracks.mageIds,
     ]
-      .map(id => allMages[id])
-      .map(m => m.expansion),
+      .map((id) => allMages[id])
+      .map((m) => m.expansion),
     ...[...availableNemesisIds, ...fromBranches.nemesisIds]
-      .map(id => allNemeses[id])
-      .map(n => n.expansion),
+      .map((id) => allNemeses[id])
+      .map((n) => n.expansion),
     ...[
       ...availableTreasureIds,
       ...fromBranches.treasureIds,
       ...fromInitialBarracks.treasureIds,
     ]
-      .map(id => allTreasures[id])
-      .map(t => t.expansion),
+      .map((id) => allTreasures[id])
+      .map((t) => t.expansion),
     ...[...availableUpgradedBasicNemesisCardIds]
-      .map(id => allUBNCards[id])
-      .map(c => c.expansion),
+      .map((id) => allUBNCards[id])
+      .map((c) => c.expansion),
   ]
 
   const uniqueIds = [...new Set(expansionIds)]

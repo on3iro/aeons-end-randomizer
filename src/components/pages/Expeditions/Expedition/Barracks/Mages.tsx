@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import ExpansionPanel from 'components/molecules/ExpansionPanel'
 import MageList from 'components/molecules/MageList'

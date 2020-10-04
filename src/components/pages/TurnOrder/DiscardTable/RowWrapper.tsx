@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import MuiTableRow from '@material-ui/core/TableRow'
 
-import { TurnOrderCardType } from 'aer-types'
+import { TurnOrderCardType } from 'aer-types/types'
 import { TurnOrderColors } from '../../../../mainTheme'
 
 type Props = {
@@ -30,7 +30,7 @@ const getTurnOrderCardStyles = (
 }
 
 const RowWrapper = styled(MuiTableRow)<Props>`
-  ${props =>
+  ${(props) =>
     getTurnOrderCardStyles(props.theme.colors.turnOrderCards, props.type)}
 
   &:first-child {

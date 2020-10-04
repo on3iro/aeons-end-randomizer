@@ -1,5 +1,5 @@
 import { createBattle } from '../index'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import * as rollNemesisIdModule from '../rollNemesisId'
 import * as getUpgradedBasicNemesisCardsResultModule from '../getUpgradedBasicNemesisCardsResult'

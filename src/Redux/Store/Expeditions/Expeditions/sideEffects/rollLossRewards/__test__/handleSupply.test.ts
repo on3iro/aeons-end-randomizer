@@ -1,4 +1,4 @@
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import { handleSupply } from '../handleSupply'
 
 describe('handleSupply', () => {

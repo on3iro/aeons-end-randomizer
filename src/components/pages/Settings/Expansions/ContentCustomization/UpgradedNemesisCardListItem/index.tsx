@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import ListWrapper from 'components/molecules/ListWrapper'
 import Checkbox from './Checkbox'
@@ -11,7 +11,7 @@ const renderCheckboxes = (
   items: types.UpgradedBasicNemesisCard[],
   changeHandler: ChangeHandler
 ) =>
-  items.map(item => (
+  items.map((item) => (
     <Checkbox key={item.id} card={item} changeHandler={changeHandler} />
   ))
 

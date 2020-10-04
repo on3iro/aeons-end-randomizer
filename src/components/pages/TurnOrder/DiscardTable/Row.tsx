@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import IconButton from 'components/atoms/IconButton'
 import Typography from '@material-ui/core/Typography'
 import { Loop, Publish, GetApp } from '@material-ui/icons'
-import { ITurnOrderCard } from 'aer-types'
+import { ITurnOrderCard } from 'aer-types/types'
 
 import { RootState, actions } from 'Redux/Store'
 

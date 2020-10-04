@@ -2,7 +2,7 @@ import React from 'react'
 
 import { withTheme } from 'styled-components/macro'
 
-import { ICard } from 'aer-types'
+import { ICard } from 'aer-types/types'
 
 import Tile from '../Tile'
 

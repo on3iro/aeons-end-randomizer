@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { Expedition } from 'aer-types'
+import { Expedition } from 'aer-types/types'
 
 import A from 'components/atoms/A'
 import Tile from 'components/molecules/Tile'

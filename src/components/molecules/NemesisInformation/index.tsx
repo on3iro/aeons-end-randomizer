@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { withTheme } from 'styled-components/macro'
 
-import { Nemesis } from 'aer-types'
+import { Nemesis } from 'aer-types/types'
 import { RootState, selectors } from 'Redux/Store'
 
 import InfoItem from '../InfoItem'

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
-import { IMarketSetup } from 'aer-types'
+import { IMarketSetup } from 'aer-types/types'
 
 import { RootState, actions, selectors } from 'Redux/Store'
 
@@ -14,7 +14,7 @@ const renderCheckboxes = (
   items: IMarketSetup[],
   changeHandler: ChangeHandler
 ) =>
-  items.map(item => (
+  items.map((item) => (
     <CheckboxWithPreview
       key={item.id}
       setup={item}

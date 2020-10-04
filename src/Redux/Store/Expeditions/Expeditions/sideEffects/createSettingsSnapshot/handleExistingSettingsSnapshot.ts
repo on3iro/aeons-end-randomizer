@@ -1,4 +1,4 @@
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import { determineUsedExpansions } from './determineUsedExpansions'
 
 import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'

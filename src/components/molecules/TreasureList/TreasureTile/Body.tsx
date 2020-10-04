@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import List from '@material-ui/core/List'
 
-import { Treasure } from 'aer-types'
+import { Treasure } from 'aer-types/types'
 import { RootState, selectors } from 'Redux/Store'
 
 import AbilityText from 'components/atoms/AbilityText'

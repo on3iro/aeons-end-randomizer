@@ -1,6 +1,6 @@
 import React from 'react'
 import FormControl from '@material-ui/core/FormControl'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import InputField from './InputField'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -143,7 +143,7 @@ const BluePrint = ({ bluePrint, dispatch, ...rest }: Props) => {
           }}
           data-test="select-type"
         >
-          {types.CARD_TYPES.filter(TYPE => TYPE !== 'EMPTY').map(TYPE => (
+          {types.CARD_TYPES.filter((TYPE) => TYPE !== 'EMPTY').map((TYPE) => (
             <MenuItem key={TYPE} value={TYPE} data-test="select-type-menu-item">
               {TYPE}
             </MenuItem>
@@ -168,8 +168,8 @@ const BluePrint = ({ bluePrint, dispatch, ...rest }: Props) => {
           data-test="select-operation"
         >
           {types.SUPPLY_OPERATIONS.filter(
-            OPERATION => OPERATION !== 'NoOp'
-          ).map(OPERATION => (
+            (OPERATION) => OPERATION !== 'NoOp'
+          ).map((OPERATION) => (
             <MenuItem
               key={OPERATION}
               value={OPERATION}

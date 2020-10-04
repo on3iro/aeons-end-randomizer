@@ -1,6 +1,6 @@
 import { RootState } from 'Redux/Store'
 
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 import { createSettingsSnapshot } from '../sideEffects/createSettingsSnapshot'
 

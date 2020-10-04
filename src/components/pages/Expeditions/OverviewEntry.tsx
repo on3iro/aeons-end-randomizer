@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
-import { Expedition } from 'aer-types'
+import { Expedition } from 'aer-types/types'
 
 import { actions } from 'Redux/Store'
 import { usePrompt, useModal } from 'hooks/useModal'
@@ -49,8 +49,9 @@ const OverviewEntry = ({ expedition, deleteHandler, shareHandler }: Props) => {
   const creationModal = useModal()
 
   const url = `/expeditions/${expedition.id}`
-  const deletionDialogTitle = `Would you really like to delete Expedition: "${expedition.name ||
-    expedition.id}"?`
+  const deletionDialogTitle = `Would you really like to delete Expedition: "${
+    expedition.name || expedition.id
+  }"?`
 
   return (
     <React.Fragment>

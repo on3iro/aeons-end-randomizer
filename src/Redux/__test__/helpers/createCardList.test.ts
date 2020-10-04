@@ -1,6 +1,6 @@
 import { createCardList } from '../../helpers'
 import { getRandomEntity } from 'Redux/helpers'
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 
 const marketSetup: types.IMarketSetup = {
   id: 'market1Inc',

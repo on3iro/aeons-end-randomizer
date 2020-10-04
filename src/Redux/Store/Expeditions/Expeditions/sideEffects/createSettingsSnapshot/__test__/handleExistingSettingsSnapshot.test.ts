@@ -1,4 +1,4 @@
-import * as types from 'aer-types'
+import * as types from 'aer-types/types'
 import { handleExistingSettingsSnapshot } from '../handleExistingSettingsSnapshot'
 import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
 import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
