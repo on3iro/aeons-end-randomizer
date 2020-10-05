@@ -2,7 +2,7 @@ import { Cmd, getCmd, getModel } from 'redux-loop'
 import { set as setToDb, get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { BASIC_NEMESIS_CARDS_DB_KEY } from '../constants'
+import { BASIC_NEMESIS_CARDS_DB_KEY } from '../../constants'
 import { actions } from '../actions'
 
 import { initialState, Reducer } from '../reducer'
@@ -19,7 +19,7 @@ describe('Settings | Expansions | BasicNemesisCards | selected | reducer', () =>
 
   it('should handle TOGGLE', () => {
     const selectedBasicNemesisCardsToSave = initialState.filter(
-      treasure => treasure !== 'BaneSire-AE'
+      (treasure) => treasure !== 'BaneSire-AE'
     )
 
     const result = Reducer(

@@ -1,14 +1,25 @@
-import { combineReducers } from 'redux-loop'
+import { combineReducers, reduceReducers, loop, Cmd } from 'redux-loop'
 import { createSelector } from 'reselect'
-import { selectors as LanguageSelectors } from '../Languages'
+import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
+import { set as setToDb } from 'idb-keyval'
 
-import * as Content from './content'
-import * as Selected from './selected'
-import * as Ids from './ids'
 import {
   getEntitiesByIdListWithLanguageFallback,
   getContentByIdWithLanguageFallback,
 } from '../helpers'
+import { selectors as LanguageSelectors } from '../Languages'
+import {
+  Action as ExpansionAction,
+  ActionTypes as ExpansionActionTypes,
+} from '../'
+
+import * as Content from './content'
+import * as Selected from './selected'
+import * as Ids from './ids'
+
+import { CARDS_DB_KEY } from './constants'
+
+import * as types from 'aer-types/types'
 
 ///////////
 // STATE //
@@ -30,23 +41,79 @@ export const initialState: State = {
 // ACTIONS //
 /////////////
 
-export type Action = Selected.Action
+export enum ActionTypes {
+  TOGGLE_ALL = 'Settings/Expansions/Cards/TOGGLE_ALL',
+}
+
+export const mainActions = {
+  toggleAll: (expansionId: string, toggleType: types.ToggleType) =>
+    createAction(ActionTypes.TOGGLE_ALL, {
+      expansionId,
+      toggleType,
+    }),
+}
+
+export type MainAction = ActionsUnion<typeof mainActions>
 
 export const actions = {
   selected: Selected.actions,
   ids: Ids.actions,
   content: Content.actions,
+  main: mainActions,
 }
+
+export type Action = Selected.Action | MainAction
 
 /////////////
 // REDUCER //
 /////////////
 
-export const Reducer = combineReducers({
-  selected: Selected.Reducer,
-  ids: Ids.Reducer,
-  content: Content.Reducer,
-})
+export const Reducer = reduceReducers(
+  combineReducers<State>({
+    selected: Selected.Reducer,
+    ids: Ids.Reducer,
+    content: Content.Reducer,
+  }),
+  (state: State, action: Action | ExpansionAction) => {
+    switch (action.type) {
+      case ExpansionActionTypes.TOGGLE_ALL_EXPANSION_CONTENT:
+      case ActionTypes.TOGGLE_ALL: {
+        const { expansionId, toggleType } = action.payload
+
+        const allCardsOfExpansion = state.ids.filter(
+          (id) => state.content.ENG[id].expansion === expansionId
+        )
+
+        const newSelected = toggleType === 'deselect' ? [] : allCardsOfExpansion
+
+        const newSelectedCards =
+          newSelected.length === 0
+            ? state.selected.filter(
+                (id) => state.content.ENG[id].expansion !== expansionId
+              )
+            : [...new Set([...state.selected, ...newSelected])]
+
+        const newState = {
+          ...state,
+          selected: newSelectedCards,
+        }
+
+        return loop(
+          newState,
+          Cmd.run(setToDb, {
+            args: [CARDS_DB_KEY, newState],
+            successActionCreator: actions.selected.setToDBSuccessful,
+            failActionCreator: actions.selected.setToDBFailed,
+          })
+        )
+      }
+
+      default: {
+        return state
+      }
+    }
+  }
+)
 
 ///////////////
 // SELECTORS //
@@ -63,7 +130,7 @@ const getIdList = (_: unknown, props: { cardIds: string[] }) => props.cardIds
 const getIdsByExpansionId = createSelector(
   [Content.selectors.getContent, Ids.selectors.getIds, getExpansionId],
   (content, ids, expansionId) =>
-    ids.filter(id => content.ENG[id].expansion === expansionId)
+    ids.filter((id) => content.ENG[id].expansion === expansionId)
 )
 
 const getContentByExpansionId = createSelector(
@@ -77,17 +144,17 @@ const getContentByExpansionId = createSelector(
 
 const getGemsByExpansionId = createSelector(
   [getContentByExpansionId],
-  content => content.filter(card => card.type === 'Gem')
+  (content) => content.filter((card) => card.type === 'Gem')
 )
 
 const getRelicsByExpansionId = createSelector(
   [getContentByExpansionId],
-  content => content.filter(card => card.type === 'Relic')
+  (content) => content.filter((card) => card.type === 'Relic')
 )
 
 const getSpellsByExpansionId = createSelector(
   [getContentByExpansionId],
-  cards => cards.filter(card => card.type === 'Spell')
+  (cards) => cards.filter((card) => card.type === 'Spell')
 )
 
 const getSelectedCards = createSelector(
@@ -97,7 +164,7 @@ const getSelectedCards = createSelector(
     LanguageSelectors.getLanguagesByExpansion,
   ],
   (content, selectedIds, languages) =>
-    selectedIds.map(id =>
+    selectedIds.map((id) =>
       getContentByIdWithLanguageFallback(languages, content, id)
     )
 )
@@ -109,7 +176,22 @@ const getCardsByIdList = createSelector(
     LanguageSelectors.getLanguagesByExpansion,
   ],
   (content, idList, languages) =>
-    idList.map(id => getContentByIdWithLanguageFallback(languages, content, id))
+    idList.map((id) =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    )
+)
+
+const getSelectedCardsByExpansionId = createSelector(
+  [getSelectedCards, getContentByExpansionId],
+  (selectedCardIds, expansionCardIds) => {
+    return selectedCardIds.filter((id) => expansionCardIds.includes(id))
+  }
+)
+
+const getAllCardsOfExpansionSelected = createSelector(
+  [getSelectedCardsByExpansionId, getContentByExpansionId],
+  (selectedCardIds, allCardIds) =>
+    allCardIds.every((id) => selectedCardIds.includes(id))
 )
 
 export const selectors = {
@@ -121,4 +203,6 @@ export const selectors = {
   getRelicsByExpansionId,
   getSpellsByExpansionId,
   getCardsByIdList,
+  getSelectedCardsByExpansionId,
+  getAllCardsOfExpansionSelected,
 }
