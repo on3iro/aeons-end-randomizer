@@ -40,6 +40,12 @@ export const TURNORDERCARDS: { [key: string]: ITurnOrderCard } = {
     name: 'Blitz',
     type: 'blitz',
   },
+
+  thiefOfDreams: {
+    id: 'thiefOfDreams',
+    name: 'Thief Of Dreams Delirium',
+    type: 'thief-of-dreams',
+  },
 }
 
 export const TURNORDERSETUPS: ITurnOrderSetups = {

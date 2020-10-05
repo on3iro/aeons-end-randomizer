@@ -120,6 +120,10 @@ export const mainTheme = {
         normal: '#607D8B',
         light: '#ECEFF1',
       },
+      'thief-of-dreams': {
+        normal: '#192A56',
+        light: '#D6DFEB',
+      },
     },
     cards: {
       ...treasureColors,
