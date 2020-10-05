@@ -2,7 +2,7 @@ import { Cmd, loop } from 'redux-loop'
 import { set as setToDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { BASIC_NEMESIS_CARDS_DB_KEY } from '../constants'
+import { BASIC_NEMESIS_CARDS_DB_KEY } from '../../constants'
 import { actions } from '../actions'
 
 export const toggleCard = (
@@ -10,7 +10,7 @@ export const toggleCard = (
   action: ReturnType<typeof actions.toggleCard>
 ) => {
   const newState = state.includes(action.payload)
-    ? state.filter(id => id !== action.payload)
+    ? state.filter((id) => id !== action.payload)
     : [...state, action.payload]
 
   return loop(
