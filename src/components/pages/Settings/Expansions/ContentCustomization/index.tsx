@@ -9,8 +9,9 @@ import {
 
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import { FormGroup, MenuItem, InputLabel } from '@material-ui/core'
+import { FormGroup, MenuItem, InputLabel, Checkbox } from '@material-ui/core'
 import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 import BackLink from 'components/molecules/BackLink'
 import SelectField from 'components/atoms/SelectField'
@@ -35,19 +36,93 @@ const mapStateToProps = (state: RootState, { expansionId }: OwnProps) => {
       state,
       { expansionId }
     ),
+    allNemesesSelected: selectors.Settings.Expansions.Nemeses.getAllNemesesOfExpansionSelected(
+      state,
+      { expansionId }
+    ),
+    allMagesSelected: selectors.Settings.Expansions.Mages.getAllMagesOfExpansionSelected(
+      state,
+      { expansionId }
+    ),
+    allSupplyCardsSelected: selectors.Settings.Expansions.Cards.getAllCardsOfExpansionSelected(
+      state,
+      { expansionId }
+    ),
+    allTreasuresSelected: selectors.Settings.Expansions.Treasures.getAllTreasuresOfExpansionSelected(
+      state,
+      { expansionId }
+    ),
+    allBasicNemesisCardsSelected: selectors.Settings.Expansions.BasicNemesisCards.getAllBasicNemesisCardsOfExpansionSelected(
+      state,
+      { expansionId }
+    ),
+    allUpgradedBasicNemesisCardsSelected: selectors.Settings.Expansions.UpgradedBasicNemesisCards.getAllUpgradedBasicNemesisCardsOfExpansionSelected(
+      state,
+      { expansionId }
+    ),
   }
 }
 
 const mapDispatchToProps = {
   // FIXME use available expansions instead
   selectLanguage: actions.Settings.Expansions.Languages.select,
+  handleSelectAllNemeses: actions.Settings.Expansions.Nemeses.main.toggleAll,
+  handleSelectAllMages: actions.Settings.Expansions.Mages.main.toggleAll,
+  handleSelectAllSupplyCards: actions.Settings.Expansions.Cards.main.toggleAll,
+  handleSelectAllTreasures:
+    actions.Settings.Expansions.Treasures.main.toggleAll,
+  handleSelectAllBasicNemesisCards:
+    actions.Settings.Expansions.BasicNemesisCards.main.toggleAll,
+  handleSelectAllUpgradedBasicNemesisCards:
+    actions.Settings.Expansions.UpgradedBasicNemesisCards.main.toggleAll,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const ContentCustomization = ({ expansionId, lang, selectLanguage }: Props) => {
+const ContentCustomization = ({
+  expansionId,
+  lang,
+  allNemesesSelected,
+  allMagesSelected,
+  allSupplyCardsSelected,
+  allTreasuresSelected,
+  allBasicNemesisCardsSelected,
+  allUpgradedBasicNemesisCardsSelected,
+  selectLanguage,
+  handleSelectAllNemeses,
+  handleSelectAllMages,
+  handleSelectAllSupplyCards,
+  handleSelectAllTreasures,
+  handleSelectAllBasicNemesisCards,
+  handleSelectAllUpgradedBasicNemesisCards,
+}: Props) => {
+  const handleCheckboxChange = () => {
+    if (
+      allNemesesSelected &&
+      allMagesSelected &&
+      allSupplyCardsSelected &&
+      allTreasuresSelected &&
+      allBasicNemesisCardsSelected &&
+      allUpgradedBasicNemesisCardsSelected
+    ) {
+      handleSelectAllNemeses(expansionId, 'deselect')
+      handleSelectAllMages(expansionId, 'deselect')
+      handleSelectAllSupplyCards(expansionId, 'deselect')
+      handleSelectAllTreasures(expansionId, 'deselect')
+      handleSelectAllBasicNemesisCards(expansionId, 'deselect')
+      handleSelectAllUpgradedBasicNemesisCards(expansionId, 'deselect')
+    } else {
+      handleSelectAllNemeses(expansionId, 'select')
+      handleSelectAllMages(expansionId, 'select')
+      handleSelectAllSupplyCards(expansionId, 'select')
+      handleSelectAllTreasures(expansionId, 'select')
+      handleSelectAllBasicNemesisCards(expansionId, 'select')
+      handleSelectAllUpgradedBasicNemesisCards(expansionId, 'select')
+    }
+  }
+
   return (
     <Card>
       <CardContent>
@@ -71,7 +146,7 @@ const ContentCustomization = ({ expansionId, lang, selectLanguage }: Props) => {
                   }}
                   data-test="select-type"
                 >
-                  {LANGUAGE_KEYS.map(language => (
+                  {LANGUAGE_KEYS.map((language) => (
                     <MenuItem
                       key={language}
                       value={language}
@@ -87,6 +162,44 @@ const ContentCustomization = ({ expansionId, lang, selectLanguage }: Props) => {
                 Content without available translations will fallback to english!
               </Tooltip>
             </SelectWithTooltipWrapper>
+
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={
+                      allNemesesSelected &&
+                      allMagesSelected &&
+                      allSupplyCardsSelected &&
+                      allTreasuresSelected &&
+                      allBasicNemesisCardsSelected &&
+                      allUpgradedBasicNemesisCardsSelected
+                    }
+                    onChange={handleCheckboxChange}
+                    value={
+                      allNemesesSelected &&
+                      allMagesSelected &&
+                      allSupplyCardsSelected &&
+                      allTreasuresSelected &&
+                      allBasicNemesisCardsSelected &&
+                      allUpgradedBasicNemesisCardsSelected
+                        ? 'Deselect All'
+                        : 'Select All'
+                    }
+                  />
+                }
+                label={
+                  allNemesesSelected &&
+                  allMagesSelected &&
+                  allSupplyCardsSelected &&
+                  allTreasuresSelected &&
+                  allBasicNemesisCardsSelected &&
+                  allUpgradedBasicNemesisCardsSelected
+                    ? 'Deselect All'
+                    : 'Select All'
+                }
+              />
+            </FormGroup>
             <Nemeses expansionId={expansionId} />
             <Mages expansionId={expansionId} />
             <Gems expansionId={expansionId} />

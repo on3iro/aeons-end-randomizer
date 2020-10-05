@@ -1,16 +1,25 @@
-import { combineReducers } from 'redux-loop'
+import { combineReducers, reduceReducers, loop, Cmd } from 'redux-loop'
 import { createSelector } from 'reselect'
-import { selectors as LanguageSelectors } from '../Languages'
+import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
+import { set as setToDb } from 'idb-keyval'
 
-import * as types from 'aer-types/types'
-
-import * as Content from './content'
-import * as Selected from './selected'
-import * as Ids from './ids'
 import {
   getEntitiesByIdListWithLanguageFallback,
   getContentByIdWithLanguageFallback,
 } from '../helpers'
+import { selectors as LanguageSelectors } from '../Languages'
+import {
+  Action as ExpansionAction,
+  ActionTypes as ExpansionActionTypes,
+} from '../'
+
+import * as Content from './content'
+import * as Selected from './selected'
+import * as Ids from './ids'
+
+import { TREASURES_DB_KEY } from './constants'
+
+import * as types from 'aer-types/types'
 
 ///////////
 // STATE //
@@ -32,23 +41,80 @@ export const initialState: State = {
 // ACTIONS //
 /////////////
 
-export type Action = Selected.Action
+export enum ActionTypes {
+  TOGGLE_ALL = 'Settings/Expansions/Treasures/TOGGLE_ALL',
+}
+
+export const mainActions = {
+  toggleAll: (expansionId: string, toggleType: types.ToggleType) =>
+    createAction(ActionTypes.TOGGLE_ALL, {
+      expansionId,
+      toggleType,
+    }),
+}
+
+export type MainAction = ActionsUnion<typeof mainActions>
 
 export const actions = {
   selected: Selected.actions,
   ids: Ids.actions,
   content: Content.actions,
+  main: mainActions,
 }
+
+export type Action = Selected.Action | MainAction
 
 /////////////
 // REDUCER //
 /////////////
 
-export const Reducer = combineReducers({
-  selected: Selected.Reducer,
-  ids: Ids.Reducer,
-  content: Content.Reducer,
-})
+export const Reducer = reduceReducers(
+  combineReducers<State>({
+    selected: Selected.Reducer,
+    ids: Ids.Reducer,
+    content: Content.Reducer,
+  }),
+  (state: State, action: Action | ExpansionAction) => {
+    switch (action.type) {
+      case ExpansionActionTypes.TOGGLE_ALL_EXPANSION_CONTENT:
+      case ActionTypes.TOGGLE_ALL: {
+        const { expansionId, toggleType } = action.payload
+
+        const allTreasuresOfExpansion = state.ids.filter(
+          (id) => state.content.ENG[id].expansion === expansionId
+        )
+
+        const newSelected =
+          toggleType === 'deselect' ? [] : allTreasuresOfExpansion
+
+        const newSelectedTreasures =
+          newSelected.length === 0
+            ? state.selected.filter(
+                (id) => state.content.ENG[id].expansion !== expansionId
+              )
+            : [...new Set([...state.selected, ...newSelected])]
+
+        const newState = {
+          ...state,
+          selected: newSelectedTreasures,
+        }
+
+        return loop(
+          newState,
+          Cmd.run(setToDb, {
+            args: [TREASURES_DB_KEY, newState],
+            successActionCreator: actions.selected.setToDBSuccessful,
+            failActionCreator: actions.selected.setToDBFailed,
+          })
+        )
+      }
+
+      default: {
+        return state
+      }
+    }
+  }
+)
 
 ///////////////
 // SELECTORS //
@@ -157,6 +223,19 @@ const getSelectedTreasureListByLevel = createSelector(
     ids.map((id) => getContentByIdWithLanguageFallback(languages, content, id))
 )
 
+const getSelectedTreasuresByExpansionId = createSelector(
+  [getSelectedTreasures, getTreasuresByExpansionId],
+  (selectedTreasureIds, expansionTreasureIds) => {
+    return selectedTreasureIds.filter((id) => expansionTreasureIds.includes(id))
+  }
+)
+
+const getAllTreasuresOfExpansionSelected = createSelector(
+  [getSelectedTreasuresByExpansionId, getTreasuresByExpansionId],
+  (selectedTreasureIds, allTreasureIds) =>
+    allTreasureIds.every((id) => selectedTreasureIds.includes(id))
+)
+
 export const selectors = {
   selected: Selected.selectors,
   ids: Ids.selectors,
@@ -169,4 +248,6 @@ export const selectors = {
   getSelectedTreasures,
   getSelectedTreasureIdsByTreasureLevel,
   getSelectedTreasureListByLevel,
+  getSelectedTreasuresByExpansionId,
+  getAllTreasuresOfExpansionSelected,
 }

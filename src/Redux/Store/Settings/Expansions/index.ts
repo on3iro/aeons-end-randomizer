@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux-loop'
+import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 
 import * as Expansions from './Expansions'
 import * as Cards from './Cards'
@@ -10,6 +11,8 @@ import * as UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
 import * as Languages from './Languages'
 
 import * as topLevelSelectors from './selectors'
+
+import * as types from 'aer-types/types'
 
 ///////////
 // STATE //
@@ -41,6 +44,23 @@ export const initialState: State = {
 // ACTIONS //
 /////////////
 
+export enum ActionTypes {
+  TOGGLE_ALL_EXPANSION_CONTENT = 'Settings/Expansions/TOGGLE_ALL_EXPANSION_CONTENT',
+}
+
+export const mainActions = {
+  toggleAllExpansionContent: (
+    expansionId: string,
+    toggleType: types.ToggleType
+  ) =>
+    createAction(ActionTypes.TOGGLE_ALL_EXPANSION_CONTENT, {
+      expansionId,
+      toggleType,
+    }),
+}
+
+export type MainAction = ActionsUnion<typeof mainActions>
+
 export type Action =
   | Languages.Action
   | Expansions.Action
@@ -50,6 +70,7 @@ export type Action =
   | Treasures.Action
   | BasicNemesisCards.Action
   | UpgradedBasicNemesisCards.Action
+  | MainAction
 
 export const actions = {
   Languages: Languages.actions,
@@ -60,6 +81,7 @@ export const actions = {
   Treasures: Treasures.actions,
   BasicNemesisCards: BasicNemesisCards.actions,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.actions,
+  main: mainActions,
 }
 
 /////////////
