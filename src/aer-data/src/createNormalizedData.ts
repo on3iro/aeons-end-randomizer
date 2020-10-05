@@ -1,4 +1,4 @@
-import * as types from 'aer-types/types'
+import * as types from '../../aer-types/types'
 
 export const createNormalizedData = (
   data: types.IExpansionData

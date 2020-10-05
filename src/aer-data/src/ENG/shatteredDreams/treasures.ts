@@ -1,4 +1,4 @@
-import { Treasure } from 'aer-types/types'
+import { Treasure } from '../../../../aer-types/types'
 
 export const treasures: Treasure[] = [
   {
