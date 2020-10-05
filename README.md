@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/on3iro/aeons-end-randomizer/tree/master.svg?style=svg)](https://circleci.com/gh/on3iro/aeons-end-randomizer/tree/master)
+[![CircleCI](https://circleci.com/gh/on3iro/aeons-end-randomizer/tree/dev.svg?style=svg)](https://circleci.com/gh/on3iro/aeons-end-randomizer/tree/dev)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/210c9bd3-9f4d-4554-b9fc-0b319d89b81e/deploy-status)](https://app.netlify.com/sites/aer/deploys)
 [![App](https://img.shields.io/badge/App-aeons--end--randomizer.de-%232196f3)](https://aeons-end-randomizer.de)
 [![Docs](https://img.shields.io/badge/Docs-on3iro.github.io%2Faeons--end--randomizer-success)](https://on3iro.github.io/aeons-end-randomizer)
