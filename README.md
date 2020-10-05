@@ -23,9 +23,6 @@
   - [`yarn test:redux:coverage`](#yarn-testreduxcoverage)
   - [`yarn test:cy`](#yarn-testcy)
   - [`yarn test:cy:open`](#yarn-testcyopen)
-  - [TODO - CYPRESS coverage](#todo---cypress-coverage)
-  - [TODO - Jest + Cypress coverage](#todo---jest--cypress-coverage)
-  - [TODO - Watcher running Jest + Cypress](#todo---watcher-running-jest--cypress)
   - [`yarn deploy:docs`](#yarn-deploydocs)
   - [`yarn run build`](#yarn-run-build)
   - [`yarn run build:gh-pages`](#yarn-run-buildgh-pages)
@@ -112,12 +109,6 @@ Runs cypress test inside the command line
 
 Opens the cypress app to run tests and see the dashboard
 
-### TODO - CYPRESS coverage
-
-### TODO - Jest + Cypress coverage
-
-### TODO - Watcher running Jest + Cypress
-
 ### `yarn deploy:docs`
 
 Deploys the `./docs` directory directly to github pages.
@@ -161,8 +152,8 @@ The typings and all of our aeons end data are part of this mono-repository.
 However we publish both separately to npm, so they can be easily consumed by other
 applications and libraries.
 
-[Aeons End data](https://www.npmjs.com/package/aer-data)
-[Aeons End typescript types](https://www.npmjs.com/package/aer-types)
+* [Aeons End data](https://www.npmjs.com/package/aer-data)
+* [Aeons End typescript types](https://www.npmjs.com/package/aer-types)
 
 ## TODO - writing client side migrations
 
