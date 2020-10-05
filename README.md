@@ -32,6 +32,8 @@
   - [`yarn run deploy`](#yarn-run-deploy)
   - [`yarn run analyze:app`](#yarn-run-analyzeapp)
   - [`yarn run analyze:vendor`](#yarn-run-analyzevendor)
+- [Using types and data in other apps](#using-types-and-data-in-other-apps)
+- [TODO - writing client side migrations](#todo---writing-client-side-migrations)
 - [Contribution Guidelines](#contribution-guidelines)
 - [Code of Conduct](#code-of-conduct)
 
@@ -152,6 +154,17 @@ This analyzes only app data. `node_modules` are skipped.
 
 Runs the source-map-explorer and displays its results inside the browser.
 This analyzes only vendor data. `app` data is skipped.
+
+## Using types and data in other apps
+
+The typings and all of our aeons end data are part of this mono-repository.
+However we publish both separately to npm, so they can be easily consumed by other
+applications and libraries.
+
+[Aeons End data](https://www.npmjs.com/package/aer-data)
+[Aeons End typescript types](https://www.npmjs.com/package/aer-types)
+
+## TODO - writing client side migrations
 
 ## [Contribution Guidelines](CONTRIBUTING.md)
 
