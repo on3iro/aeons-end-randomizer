@@ -6,6 +6,7 @@ import H1 from '../../atoms/H1'
 import H2 from '../../atoms/H2'
 import P from '../../atoms/P'
 import A from '../../atoms/A'
+import Li from '../../atoms/Li'
 
 const About = () => (
   <Card>
@@ -36,10 +37,45 @@ const About = () => (
       <P>
         <b>Aeons End Randomizer</b> supports all expansions released to date as
         well as all promos. The following expansions are supported:
-        <i>Aeons End</i>, <i>Aeons End: War Eternal</i>, <i>Aeons End Legacy</i>
-        , <i>Aeons End: The New Age</i>, <i>The Depths</i>, <i>The Nameless</i>,{' '}
-        <i>The Void</i>, <i>Outer Dark</i>, <i>Buried Secrets</i>,{' '}
-        <i>Into The Wild</i>, <i>The Ancients</i>, <i>Shattered Dreams</i>.
+      </P>
+      <ul>
+        <Li>Aeons End</Li>
+        <Li>The Depths</Li>
+        <Li>The Nameless</Li>
+        <Li>Aeons End: War Eternal</Li>
+        <Li>The Void</Li>
+        <Li>The Outer Dark</Li>
+        <Li>Aeons End: Legacy</Li>
+        <Li>Buried Secrets</Li>
+        <Li>Aeons End: The New Age</Li>
+        <Li>Into The Wild</Li>
+        <Li>The Ancients</Li>
+        <Li>Shattered Dreams</Li>
+        <Li>Aeons End: Outcasts</Li>
+        <Li>Return To Gravehold</Li>
+        <Li>Southern Village</Li>
+      </ul>
+
+      <H2>Supported Languages</H2>
+      <P>
+        We currently do only support english as language for the user interface.
+        However some content has already been translated into different
+        languages. We will continue supporting multiple languages as they become
+        available in their respective countries and might even start adding
+        UI-translations in the future as well. The following languages are
+        currently (partly) supported:
+      </P>
+      <ul>
+        <Li>English (full support)</Li>
+        <Li>Polish</Li>
+        <Li>French</Li>
+        <Li>German</Li>
+      </ul>
+      <P>
+        <i>
+          If you are interested in contributing language files, please file an
+          issue inside our Github-repository or contact us on discord.
+        </i>
       </P>
 
       <H2>User documentation:</H2>
