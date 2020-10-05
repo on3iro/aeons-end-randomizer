@@ -66,6 +66,18 @@ const adjustSetup = (
       }
     }
 
+    case 'Thief Of Dreams': {
+      return {
+        id: setup.id,
+        name: setup.name,
+        turnOrderCards: setup.turnOrderCards.map((card) => {
+          return card.id === 'nemesis-1'
+            ? AERData.turnordercards['thiefOfDreams']
+            : card
+        }),
+      }
+    }
+
     case 'Default':
     default: {
       return setup
