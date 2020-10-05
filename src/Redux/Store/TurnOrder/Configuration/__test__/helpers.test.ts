@@ -113,4 +113,23 @@ describe('adjustSetup()', () => {
 
     expect(result).toEqual(expected)
   })
+
+  it('should switch the nemesis-1 card with thief of dreams', () => {
+    const expected = {
+      id: 'default',
+      name: 'Default',
+      turnOrderCards: [
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player1-2'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['player2-2'],
+        AERData.turnordercards['thiefOfDreams'],
+        AERData.turnordercards['nemesis-2'],
+      ],
+    }
+
+    const result = adjustSetup('Thief Of Dreams', defaultVariation)
+
+    expect(result).toEqual(expected)
+  })
 })
