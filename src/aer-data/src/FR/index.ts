@@ -1,4 +1,4 @@
-import { IExpansionData } from 'aer-types/types'
+import { IExpansionData } from '../../../aer-types/types'
 
 import { aeData } from './aeonsEnd'
 import { depthsData } from './theDepths'
