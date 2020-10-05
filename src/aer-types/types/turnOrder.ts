@@ -11,6 +11,7 @@ export type Player =
   | 'Wild Token'
   | 'Maelstrom Assault'
   | 'Blitz'
+  | 'Thief Of Dreams Delirium'
 
 export type TurnOrderCardType =
   | 'player1'
@@ -24,6 +25,7 @@ export type TurnOrderCardType =
   | 'nemesis'
   | 'maelstrom'
   | 'blitz'
+  | 'thief-of-dreams'
 
 export interface ITurnOrderCard {
   id: string
@@ -58,6 +60,7 @@ export const MODES = [
   'Maelstrom',
   'Blitz',
   'Blitz + Maelstrom',
+  'Thief Of Dreams',
 ] as const
 export type Mode = typeof MODES[number] // automatically creates union from tuple
 
