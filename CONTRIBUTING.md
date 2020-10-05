@@ -42,14 +42,14 @@ Before you send a pull request into review, check the following steps:
 
 - Does the PR target the correct branch?:
   - Does the corresponding issue have a milestone? -> target the respective release branch
-  - Is it a severe bug? -> target master (we will change the branch if necessary)
+  - Is it a severe bug? -> target `main` (we will change the branch if necessary)
 - Squash your commits locally - usually your PR should contain exactly one commit (of course there are exceptions to this rule)
 - Follow these commit rules:
   - First line no longer than 50 characters
   - Start with commit type:
-    - `[FEATURE]` if it contains new functionality
-    - `[BUGFIX]` if it contains a fix
-    - `[TASK]` if it contains some _"under the hood"_ doings
+    - `FEATURE` if it contains new functionality
+    - `BUGFIX` if it contains a fix
+    - `TASK` if it contains some _"under the hood"_ doings (e.g. CI changes etc.)
   - Follow with the commit messag in presence (e.g. "Fix but that caused...")
   - Leave the second line empty
   - Tag the github issue on the the third line (e.g. "Issue: #1")
