@@ -32,6 +32,8 @@ const mapDispatchToProps = {
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
+console.log(MODES)
+
 const ModeSelection = ({ mode, setMode }: Props) => (
   <Card>
     <CardContent>
