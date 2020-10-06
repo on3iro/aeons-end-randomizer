@@ -17,7 +17,12 @@ yarn publish --new-version $VERSION
 echo "Done."
 
 # DATA
-cd ${BASH_SOURCE%/*}/../src/aer-data
+echo "Building types for data...";
+rm -rf dist;
+tsc;
+echo "Done.";
+
+cd ../aer-data
 
 echo "Building data..."
 yarn run tsc
@@ -28,7 +33,7 @@ yarn publish --new-version $VERSION
 echo "Done."
 
 # App
-cd ${BASH_SOURCE&/*}/..
+cd ../../
 
 echo "Building app..."
 yarn build
