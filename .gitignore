@@ -188,6 +188,7 @@ src/js/main.bundle.*
 src/css
 
 /dist
+*/dist
 /build
 
 */**/sprite.svg
