@@ -1,6 +1,6 @@
 {
   "name": "aer-data",
-  "version": "3.6.1",
+  "version": "3.6.2",
   "description": "Data for aeons-end-randomizer",
   "main": "dist/cjs/index.js",
   "module": "dist/index.js",
