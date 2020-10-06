@@ -7,12 +7,12 @@ import { treasures } from './treasures'
 import { basicNemesisCards } from './basicNemesisCards'
 import { upgradedBasicNemesisCards } from './upgradedBasicNemesisCards'
 
-export const promosData: IExpansion = {
-  id: 'promos',
-  name: 'Promos',
-  type: 'promo',
-  mages,
+export const outcastsData: IExpansion = {
+  id: 'O',
+  name: 'Outcasts',
+  type: 'standalone',
   nemeses,
+  mages,
   cards,
   treasures,
   basicNemesisCards,

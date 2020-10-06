@@ -187,8 +187,9 @@ jspm_packages
 src/js/main.bundle.*
 src/css
 
+dist
+build
 /dist
-*/dist
 /build
 
 */**/sprite.svg
