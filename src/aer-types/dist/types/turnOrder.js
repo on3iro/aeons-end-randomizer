@@ -1,4 +1,10 @@
-export const MODES = ['Default', 'Maelstrom', 'Blitz', 'Blitz + Maelstrom']
+export const MODES = [
+  'Default',
+  'Maelstrom',
+  'Blitz',
+  'Blitz + Maelstrom',
+  'Thief Of Dreams',
+]
 export const PLAYER_COUNT_IDS = [
   'onePlayer',
   'twoPlayers',
