@@ -11,6 +11,7 @@ export declare type Player =
   | 'Wild Token'
   | 'Maelstrom Assault'
   | 'Blitz'
+  | 'Thief Of Dreams Delirium'
 export declare type TurnOrderCardType =
   | 'player1'
   | 'player2'
@@ -23,6 +24,7 @@ export declare type TurnOrderCardType =
   | 'nemesis'
   | 'maelstrom'
   | 'blitz'
+  | 'thief-of-dreams'
 export interface ITurnOrderCard {
   id: string
   name: Player
@@ -50,7 +52,8 @@ export declare const MODES: readonly [
   'Default',
   'Maelstrom',
   'Blitz',
-  'Blitz + Maelstrom'
+  'Blitz + Maelstrom',
+  'Thief Of Dreams'
 ]
 export declare type Mode = typeof MODES[number]
 export declare const PLAYER_COUNT_IDS: readonly [
