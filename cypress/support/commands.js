@@ -26,17 +26,29 @@
 
 Cypress.Commands.add('selectAllExpansions', () => {
   cy.get('[data-test*=Expansions]').click({ force: true })
-  cy.get('span')
-    .contains('Select All')
-    .click()
+  cy.get('span').contains('Select All').click()
+  cy.get('[data-test*=Expansions]').click({ force: true })
+})
+
+Cypress.Commands.add('selectSubsetOfExpansions', () => {
+  cy.get('[data-test*=Expansions]').click({ force: true })
+  cy.get('label').contains('Aeons End').click()
+  cy.get('label').contains('The New Age').click()
+  cy.get('label').contains('War Eternal').click()
+  cy.get('label').contains('Buried Secrets').click()
+  cy.get('label').contains('The Depths').click()
+  cy.get('label').contains('Into The Wild').click()
+  cy.get('label').contains('The Nameless').click()
+  cy.get('label').contains('Outer Dark').click()
+  cy.get('label').contains('Shattered Dreams').click()
+  cy.get('label').contains('The Ancients').click()
+  cy.get('label').contains('The Void').click()
   cy.get('[data-test*=Expansions]').click({ force: true })
 })
 
 Cypress.Commands.add('deselectAllExpansions', () => {
   cy.get('[data-test*=Expansions]').click({ force: true })
-  cy.get('span')
-    .contains('Deselect All')
-    .click()
+  cy.get('span').contains('Deselect All').click()
   cy.get('[data-test*=Expansions]').click({ force: true })
 })
 
