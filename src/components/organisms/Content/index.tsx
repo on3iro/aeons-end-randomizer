@@ -2,6 +2,7 @@ import React from 'react'
 
 import CircularProgress from '@material-ui/core/CircularProgress'
 
+import ErrorBoundary from '../../atoms/ErrorBoundary'
 import HeaderPlaceholder from './HeaderPlaceholder'
 import Wrapper from './Wrapper'
 
@@ -14,7 +15,9 @@ type Props = {
 const Content = ({ isLoading }: Props) => (
   <Wrapper isLoading={isLoading}>
     <HeaderPlaceholder />
-    {isLoading ? <CircularProgress /> : <Routing />}
+    <ErrorBoundary>
+      {isLoading ? <CircularProgress /> : <Routing />}
+    </ErrorBoundary>
   </Wrapper>
 )
 
