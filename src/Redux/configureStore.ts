@@ -15,7 +15,7 @@ const configureStore = (initialState: RootState) => {
     // @ts-ignore
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       // @ts-ignore
-      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true, traceLimit: 25 })
       : compose
 
   const enhancedCreateStore = createStore as StoreCreator

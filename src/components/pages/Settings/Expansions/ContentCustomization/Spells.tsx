@@ -22,11 +22,15 @@ type Props = ReturnType<typeof mapStateToProps> &
   }
 
 const Spells = ({ selectedSpells, handleSpellChange }: Props) => (
-  <CardListItem
-    entities={selectedSpells}
-    handleCheckboxChange={handleSpellChange}
-    label="Spells"
-  />
+  <React.Fragment>
+    {selectedSpells.length > 0 && (
+      <CardListItem
+        entities={selectedSpells}
+        handleCheckboxChange={handleSpellChange}
+        label="Spells"
+      />
+    )}
+  </React.Fragment>
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Spells))
