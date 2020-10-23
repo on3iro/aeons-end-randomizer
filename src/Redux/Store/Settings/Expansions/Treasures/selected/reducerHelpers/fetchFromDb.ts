@@ -1,16 +1,14 @@
 import { loop, Cmd } from 'redux-loop'
-import { get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { TREASURES_DB_KEY } from '../../constants'
 import { initialState } from '../reducer'
 import { actions } from '../actions'
+import { getSelectedTreasuresFromDB } from '../sideEffects'
 
 export const fetchFromDb = (state: State) => {
   return loop(
     state,
-    Cmd.run(getFromDb, {
-      args: [TREASURES_DB_KEY],
+    Cmd.run(getSelectedTreasuresFromDB, {
       successActionCreator: actions.fetchFromDBSuccessful,
       failActionCreator: actions.fetchFromDBFailed,
     })
