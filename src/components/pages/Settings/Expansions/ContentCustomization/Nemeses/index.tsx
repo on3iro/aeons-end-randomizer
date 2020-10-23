@@ -37,11 +37,13 @@ type Props = ReturnType<typeof mapStateToProps> &
 const Nemeses = ({ selectedNemeses, handleNemesisChange }: Props) => {
   return (
     <React.Fragment>
-      <ListWrapper label="Nemeses">
-        <React.Fragment>
-          {renderCheckboxes(selectedNemeses, handleNemesisChange)}
-        </React.Fragment>
-      </ListWrapper>
+      {selectedNemeses.length > 0 && (
+        <ListWrapper label="Nemeses">
+          <React.Fragment>
+            {renderCheckboxes(selectedNemeses, handleNemesisChange)}
+          </React.Fragment>
+        </ListWrapper>
+      )}
     </React.Fragment>
   )
 }

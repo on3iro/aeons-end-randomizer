@@ -34,11 +34,13 @@ type Props = ReturnType<typeof mapStateToProps> &
 const Mages = ({ selectedMages, handleMageChange }: Props) => {
   return (
     <React.Fragment>
-      <ListWrapper label="Mages">
-        <React.Fragment>
-          {renderCheckboxes(selectedMages, handleMageChange)}
-        </React.Fragment>
-      </ListWrapper>
+      {selectedMages.length > 0 && (
+        <ListWrapper label="Mages">
+          <React.Fragment>
+            {renderCheckboxes(selectedMages, handleMageChange)}
+          </React.Fragment>
+        </ListWrapper>
+      )}
     </React.Fragment>
   )
 }

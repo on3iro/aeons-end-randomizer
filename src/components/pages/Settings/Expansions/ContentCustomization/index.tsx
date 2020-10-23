@@ -66,15 +66,8 @@ const mapStateToProps = (state: RootState, { expansionId }: OwnProps) => {
 const mapDispatchToProps = {
   // FIXME use available expansions instead
   selectLanguage: actions.Settings.Expansions.Languages.select,
-  handleSelectAllNemeses: actions.Settings.Expansions.Nemeses.main.toggleAll,
-  handleSelectAllMages: actions.Settings.Expansions.Mages.main.toggleAll,
-  handleSelectAllSupplyCards: actions.Settings.Expansions.Cards.main.toggleAll,
-  handleSelectAllTreasures:
-    actions.Settings.Expansions.Treasures.main.toggleAll,
-  handleSelectAllBasicNemesisCards:
-    actions.Settings.Expansions.BasicNemesisCards.main.toggleAll,
-  handleSelectAllUpgradedBasicNemesisCards:
-    actions.Settings.Expansions.UpgradedBasicNemesisCards.main.toggleAll,
+  handleSelectAllExpansionContent:
+    actions.Settings.Expansions.main.toggleAllExpansionContent,
 }
 
 type Props = ReturnType<typeof mapStateToProps> &
@@ -91,12 +84,7 @@ const ContentCustomization = ({
   allBasicNemesisCardsSelected,
   allUpgradedBasicNemesisCardsSelected,
   selectLanguage,
-  handleSelectAllNemeses,
-  handleSelectAllMages,
-  handleSelectAllSupplyCards,
-  handleSelectAllTreasures,
-  handleSelectAllBasicNemesisCards,
-  handleSelectAllUpgradedBasicNemesisCards,
+  handleSelectAllExpansionContent,
 }: Props) => {
   const handleCheckboxChange = () => {
     if (
@@ -107,19 +95,9 @@ const ContentCustomization = ({
       allBasicNemesisCardsSelected &&
       allUpgradedBasicNemesisCardsSelected
     ) {
-      handleSelectAllNemeses(expansionId, 'deselect')
-      handleSelectAllMages(expansionId, 'deselect')
-      handleSelectAllSupplyCards(expansionId, 'deselect')
-      handleSelectAllTreasures(expansionId, 'deselect')
-      handleSelectAllBasicNemesisCards(expansionId, 'deselect')
-      handleSelectAllUpgradedBasicNemesisCards(expansionId, 'deselect')
+      handleSelectAllExpansionContent(expansionId, 'deselect')
     } else {
-      handleSelectAllNemeses(expansionId, 'select')
-      handleSelectAllMages(expansionId, 'select')
-      handleSelectAllSupplyCards(expansionId, 'select')
-      handleSelectAllTreasures(expansionId, 'select')
-      handleSelectAllBasicNemesisCards(expansionId, 'select')
-      handleSelectAllUpgradedBasicNemesisCards(expansionId, 'select')
+      handleSelectAllExpansionContent(expansionId, 'select')
     }
   }
 

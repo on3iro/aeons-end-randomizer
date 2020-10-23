@@ -22,11 +22,15 @@ type Props = ReturnType<typeof mapStateToProps> &
   }
 
 const Gems = ({ selectedGems, handleGemChange }: Props) => (
-  <CardListItem
-    entities={selectedGems}
-    handleCheckboxChange={handleGemChange}
-    label="Gems"
-  />
+  <React.Fragment>
+    {selectedGems.length > 0 && (
+      <CardListItem
+        entities={selectedGems}
+        handleCheckboxChange={handleGemChange}
+        label="Gems"
+      />
+    )}
+  </React.Fragment>
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Gems))
