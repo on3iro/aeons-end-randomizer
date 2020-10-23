@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux-loop'
+import { createSelector } from 'reselect'
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 
 import * as Expansions from './Expansions'
@@ -103,6 +104,32 @@ export const Reducer = combineReducers({
 // SELECTORS //
 ///////////////
 
+const getAllContentOfExpansionSelected = createSelector(
+  [
+    Nemeses.selectors.getAllNemesesOfExpansionSelected,
+    Mages.selectors.getAllMagesOfExpansionSelected,
+    Cards.selectors.getAllCardsOfExpansionSelected,
+    Treasures.selectors.getAllTreasuresOfExpansionSelected,
+    BasicNemesisCards.selectors.getAllBasicNemesisCardsOfExpansionSelected,
+    UpgradedBasicNemesisCards.selectors
+      .getAllUpgradedBasicNemesisCardsOfExpansionSelected,
+  ],
+  (
+    allNemesesSelected,
+    allMagesSelected,
+    allSupplyCardsSelected,
+    allTreasuresSelected,
+    allBasicNemesisCardsSelected,
+    allUpgradedBasicNemesisCardsSelected
+  ) =>
+    allNemesesSelected &&
+    allMagesSelected &&
+    allSupplyCardsSelected &&
+    allTreasuresSelected &&
+    allBasicNemesisCardsSelected &&
+    allUpgradedBasicNemesisCardsSelected
+)
+
 export const selectors = {
   Languages: Languages.selectors,
   Expansions: Expansions.selectors,
@@ -113,4 +140,5 @@ export const selectors = {
   BasicNemesisCards: BasicNemesisCards.selectors,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.selectors,
   ...topLevelSelectors,
+  getAllContentOfExpansionSelected,
 }

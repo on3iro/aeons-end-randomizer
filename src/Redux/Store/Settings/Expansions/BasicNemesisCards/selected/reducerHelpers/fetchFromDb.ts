@@ -1,16 +1,14 @@
 import { loop, Cmd } from 'redux-loop'
-import { get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { BASIC_NEMESIS_CARDS_DB_KEY } from '../../constants'
 import { initialState } from '../reducer'
 import { actions } from '../actions'
+import { getSelectedBasicNemesisCardsFromDB } from '../sideEffects'
 
 export const fetchFromDb = (state: State) => {
   return loop(
     state,
-    Cmd.run(getFromDb, {
-      args: [BASIC_NEMESIS_CARDS_DB_KEY],
+    Cmd.run(getSelectedBasicNemesisCardsFromDB, {
       successActionCreator: actions.fetchFromDBSuccessful,
       failActionCreator: actions.fetchFromDBFailed,
     })

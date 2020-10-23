@@ -1,16 +1,14 @@
 import { loop, Cmd } from 'redux-loop'
-import { get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { MAGES_DB_KEY } from '../../constants'
 import { initialState } from '../reducer'
 import { actions } from '../actions'
+import { getSelectedMagesFromDB } from '../sideEffects'
 
 export const fetchFromDb = (state: State) => {
   return loop(
     state,
-    Cmd.run(getFromDb, {
-      args: [MAGES_DB_KEY],
+    Cmd.run(getSelectedMagesFromDB, {
       successActionCreator: actions.fetchFromDBSuccessful,
       failActionCreator: actions.fetchFromDBFailed,
     })
