@@ -36,27 +36,7 @@ const mapStateToProps = (state: RootState, { expansionId }: OwnProps) => {
       state,
       { expansionId }
     ),
-    allNemesesSelected: selectors.Settings.Expansions.Nemeses.getAllNemesesOfExpansionSelected(
-      state,
-      { expansionId }
-    ),
-    allMagesSelected: selectors.Settings.Expansions.Mages.getAllMagesOfExpansionSelected(
-      state,
-      { expansionId }
-    ),
-    allSupplyCardsSelected: selectors.Settings.Expansions.Cards.getAllCardsOfExpansionSelected(
-      state,
-      { expansionId }
-    ),
-    allTreasuresSelected: selectors.Settings.Expansions.Treasures.getAllTreasuresOfExpansionSelected(
-      state,
-      { expansionId }
-    ),
-    allBasicNemesisCardsSelected: selectors.Settings.Expansions.BasicNemesisCards.getAllBasicNemesisCardsOfExpansionSelected(
-      state,
-      { expansionId }
-    ),
-    allUpgradedBasicNemesisCardsSelected: selectors.Settings.Expansions.UpgradedBasicNemesisCards.getAllUpgradedBasicNemesisCardsOfExpansionSelected(
+    allExpansionContentSelected: selectors.Settings.Expansions.getAllContentOfExpansionSelected(
       state,
       { expansionId }
     ),
@@ -77,28 +57,14 @@ type Props = ReturnType<typeof mapStateToProps> &
 const ContentCustomization = ({
   expansionId,
   lang,
-  allNemesesSelected,
-  allMagesSelected,
-  allSupplyCardsSelected,
-  allTreasuresSelected,
-  allBasicNemesisCardsSelected,
-  allUpgradedBasicNemesisCardsSelected,
+  allExpansionContentSelected,
   selectLanguage,
   handleSelectAllExpansionContent,
 }: Props) => {
   const handleCheckboxChange = () => {
-    if (
-      allNemesesSelected &&
-      allMagesSelected &&
-      allSupplyCardsSelected &&
-      allTreasuresSelected &&
-      allBasicNemesisCardsSelected &&
-      allUpgradedBasicNemesisCardsSelected
-    ) {
-      handleSelectAllExpansionContent(expansionId, 'deselect')
-    } else {
-      handleSelectAllExpansionContent(expansionId, 'select')
-    }
+    allExpansionContentSelected
+      ? handleSelectAllExpansionContent(expansionId, 'deselect')
+      : handleSelectAllExpansionContent(expansionId, 'select')
   }
 
   return (
@@ -145,36 +111,17 @@ const ContentCustomization = ({
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={
-                      allNemesesSelected &&
-                      allMagesSelected &&
-                      allSupplyCardsSelected &&
-                      allTreasuresSelected &&
-                      allBasicNemesisCardsSelected &&
-                      allUpgradedBasicNemesisCardsSelected
-                    }
+                    checked={allExpansionContentSelected}
                     onChange={handleCheckboxChange}
                     value={
-                      allNemesesSelected &&
-                      allMagesSelected &&
-                      allSupplyCardsSelected &&
-                      allTreasuresSelected &&
-                      allBasicNemesisCardsSelected &&
-                      allUpgradedBasicNemesisCardsSelected
+                      allExpansionContentSelected
                         ? 'Deselect All'
                         : 'Select All'
                     }
                   />
                 }
                 label={
-                  allNemesesSelected &&
-                  allMagesSelected &&
-                  allSupplyCardsSelected &&
-                  allTreasuresSelected &&
-                  allBasicNemesisCardsSelected &&
-                  allUpgradedBasicNemesisCardsSelected
-                    ? 'Deselect All'
-                    : 'Select All'
+                  allExpansionContentSelected ? 'Deselect All' : 'Select All'
                 }
               />
             </FormGroup>
