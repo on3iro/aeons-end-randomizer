@@ -1,7 +1,8 @@
 import { combineReducers, reduceReducers, loop, Cmd } from 'redux-loop'
 import { createSelector } from 'reselect'
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
-import { set as setToDb } from 'idb-keyval'
+
+import * as types from 'aer-types/types'
 
 import {
   getEntitiesByIdListWithLanguageFallback,
@@ -17,9 +18,7 @@ import * as Content from './content'
 import * as Selected from './selected'
 import * as Ids from './ids'
 
-import { CARDS_DB_KEY } from './constants'
-
-import * as types from 'aer-types/types'
+import { setSelectedCardsToDB } from './selected/sideEffects'
 
 ///////////
 // STATE //
@@ -100,8 +99,8 @@ export const Reducer = reduceReducers(
 
         return loop(
           newState,
-          Cmd.run(setToDb, {
-            args: [CARDS_DB_KEY, newState],
+          Cmd.run(setSelectedCardsToDB, {
+            args: [newState.selected],
             successActionCreator: actions.selected.setToDBSuccessful,
             failActionCreator: actions.selected.setToDBFailed,
           })

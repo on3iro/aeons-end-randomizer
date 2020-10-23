@@ -1,9 +1,8 @@
 import { Cmd, loop } from 'redux-loop'
-import { set as setToDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { BASIC_NEMESIS_CARDS_DB_KEY } from '../../constants'
 import { actions } from '../actions'
+import { setSelectedBasicNemesisCardsToDB } from '../sideEffects'
 
 export const toggleCard = (
   state: State,
@@ -15,8 +14,8 @@ export const toggleCard = (
 
   return loop(
     newState,
-    Cmd.run(setToDb, {
-      args: [BASIC_NEMESIS_CARDS_DB_KEY, newState],
+    Cmd.run(setSelectedBasicNemesisCardsToDB, {
+      args: [newState],
       successActionCreator: actions.setToDBSuccessful,
       failActionCreator: actions.setToDBFailed,
     })
