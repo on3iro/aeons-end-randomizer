@@ -162,7 +162,7 @@ export const upgradedBasicNemesisCards: UpgradedBasicNemesisCard[] = [
     upgraded: true,
   },
   {
-    id: 'Sacrifice',
+    id: 'Sacrifice-O',
     name: 'Sacrifice',
     expansion: 'O',
     tier: 3,
@@ -192,7 +192,7 @@ export const upgradedBasicNemesisCards: UpgradedBasicNemesisCard[] = [
     upgraded: true,
   },
   {
-    id: 'RayOfDesolation',
+    id: 'RayOfDesolation-O',
     name: 'Ray Of Desolation',
     expansion: 'O',
     tier: 3,
