@@ -1,9 +1,11 @@
 import { Cmd, getCmd, getModel } from 'redux-loop'
-import { set as setToDb, get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { BASIC_NEMESIS_CARDS_DB_KEY } from '../../constants'
 import { actions } from '../actions'
+import {
+  getSelectedBasicNemesisCardsFromDB,
+  setSelectedBasicNemesisCardsToDB,
+} from '../sideEffects'
 
 import { initialState, Reducer } from '../reducer'
 
@@ -32,8 +34,8 @@ describe('Settings | Expansions | BasicNemesisCards | selected | reducer', () =>
 
     expect(model).toMatchSnapshot()
     expect(cmd).toEqual(
-      Cmd.run(setToDb, {
-        args: [BASIC_NEMESIS_CARDS_DB_KEY, selectedBasicNemesisCardsToSave],
+      Cmd.run(setSelectedBasicNemesisCardsToDB, {
+        args: [selectedBasicNemesisCardsToSave],
         successActionCreator: actions.setToDBSuccessful,
         failActionCreator: actions.setToDBFailed,
       })
@@ -49,8 +51,7 @@ describe('Settings | Expansions | BasicNemesisCards | selected | reducer', () =>
     expect(model).toEqual(initialState)
 
     expect(cmd).toEqual(
-      Cmd.run(getFromDb, {
-        args: [BASIC_NEMESIS_CARDS_DB_KEY],
+      Cmd.run(getSelectedBasicNemesisCardsFromDB, {
         successActionCreator: actions.fetchFromDBSuccessful,
         failActionCreator: actions.fetchFromDBFailed,
       })

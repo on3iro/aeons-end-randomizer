@@ -1,9 +1,8 @@
 import { Cmd, getCmd, getModel } from 'redux-loop'
-import { set as setToDb, get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { MAGES_DB_KEY } from '../../constants'
 import { actions } from '../actions'
+import { getSelectedMagesFromDB, setSelectedMagesToDB } from '../sideEffects'
 
 import { initialState, Reducer } from '../reducer'
 
@@ -19,7 +18,7 @@ describe('Settings | Expansions | Mages | selected | reducer', () => {
 
   it('should handle TOGGLE', () => {
     const selectedExpansionsToSave = initialState.filter(
-      mage => mage !== 'Adelheim'
+      (mage) => mage !== 'Adelheim'
     )
 
     const result = Reducer(mockSelectedMagesState, actions.toggle('Adelheim'))
@@ -29,8 +28,8 @@ describe('Settings | Expansions | Mages | selected | reducer', () => {
 
     expect(model).toMatchSnapshot()
     expect(cmd).toEqual(
-      Cmd.run(setToDb, {
-        args: [MAGES_DB_KEY, selectedExpansionsToSave],
+      Cmd.run(setSelectedMagesToDB, {
+        args: [selectedExpansionsToSave],
         successActionCreator: actions.setToDBSuccessful,
         failActionCreator: actions.setToDBFailed,
       })
@@ -46,8 +45,7 @@ describe('Settings | Expansions | Mages | selected | reducer', () => {
     expect(model).toEqual(initialState)
 
     expect(cmd).toEqual(
-      Cmd.run(getFromDb, {
-        args: [MAGES_DB_KEY],
+      Cmd.run(getSelectedMagesFromDB, {
         successActionCreator: actions.fetchFromDBSuccessful,
         failActionCreator: actions.fetchFromDBFailed,
       })

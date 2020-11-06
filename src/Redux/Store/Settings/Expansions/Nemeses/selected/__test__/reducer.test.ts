@@ -1,9 +1,11 @@
 import { Cmd, getCmd, getModel } from 'redux-loop'
-import { set as setToDb, get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { NEMESES_DB_KEY } from '../../constants'
 import { actions } from '../actions'
+import {
+  getSelectedNemesesFromDB,
+  setSelectedNemesesToDB,
+} from '../sideEffects'
 
 import { initialState, Reducer } from '../reducer'
 
@@ -19,7 +21,7 @@ describe('Settings | Expansions | Nemeses | selected | reducer', () => {
 
   it('should handle TOGGLE', () => {
     const selectedNemesesToSave = initialState.filter(
-      treasure => treasure !== 'Maggoth'
+      (treasure) => treasure !== 'Maggoth'
     )
 
     const result = Reducer(mockSelectedNemesesState, actions.toggle('Maggoth'))
@@ -29,8 +31,8 @@ describe('Settings | Expansions | Nemeses | selected | reducer', () => {
 
     expect(model).toMatchSnapshot()
     expect(cmd).toEqual(
-      Cmd.run(setToDb, {
-        args: [NEMESES_DB_KEY, selectedNemesesToSave],
+      Cmd.run(setSelectedNemesesToDB, {
+        args: [selectedNemesesToSave],
         successActionCreator: actions.setToDBSuccessful,
         failActionCreator: actions.setToDBFailed,
       })
@@ -46,8 +48,7 @@ describe('Settings | Expansions | Nemeses | selected | reducer', () => {
     expect(model).toEqual(initialState)
 
     expect(cmd).toEqual(
-      Cmd.run(getFromDb, {
-        args: [NEMESES_DB_KEY],
+      Cmd.run(getSelectedNemesesFromDB, {
         successActionCreator: actions.fetchFromDBSuccessful,
         failActionCreator: actions.fetchFromDBFailed,
       })
