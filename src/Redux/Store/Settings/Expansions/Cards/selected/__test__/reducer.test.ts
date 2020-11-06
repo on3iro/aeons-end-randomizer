@@ -1,9 +1,8 @@
 import { Cmd, getCmd, getModel } from 'redux-loop'
-import { set as setToDb, get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { CARDS_DB_KEY } from '../../constants'
 import { actions } from '../actions'
+import { getSelectedCardsFromDB, setSelectedCardsToDB } from '../sideEffects'
 
 import { initialState, Reducer } from '../reducer'
 
@@ -19,7 +18,7 @@ describe('Settings | Expansions | Cards | selected | reducer', () => {
 
   it('should handle TOGGLE', () => {
     const selectedCardsToSave = initialState.filter(
-      card => card !== 'DiamondCluster'
+      (card) => card !== 'DiamondCluster'
     )
 
     const result = Reducer(
@@ -32,8 +31,8 @@ describe('Settings | Expansions | Cards | selected | reducer', () => {
 
     expect(model).toMatchSnapshot()
     expect(cmd).toEqual(
-      Cmd.run(setToDb, {
-        args: [CARDS_DB_KEY, selectedCardsToSave],
+      Cmd.run(setSelectedCardsToDB, {
+        args: [selectedCardsToSave],
         successActionCreator: actions.setToDBSuccessful,
         failActionCreator: actions.setToDBFailed,
       })
@@ -49,8 +48,7 @@ describe('Settings | Expansions | Cards | selected | reducer', () => {
     expect(model).toEqual(initialState)
 
     expect(cmd).toEqual(
-      Cmd.run(getFromDb, {
-        args: [CARDS_DB_KEY],
+      Cmd.run(getSelectedCardsFromDB, {
         successActionCreator: actions.fetchFromDBSuccessful,
         failActionCreator: actions.fetchFromDBFailed,
       })
