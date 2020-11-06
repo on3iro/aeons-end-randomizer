@@ -1,9 +1,11 @@
 import { Cmd, getCmd, getModel } from 'redux-loop'
-import { set as setToDb, get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { TREASURES_DB_KEY } from '../../constants'
 import { actions } from '../actions'
+import {
+  getSelectedTreasuresFromDB,
+  setSelectedTreasuresToDB,
+} from '../sideEffects'
 
 import { initialState, Reducer } from '../reducer'
 
@@ -19,7 +21,7 @@ describe('Settings | Expansions | Treasures | selected | reducer', () => {
 
   it('should handle TOGGLE', () => {
     const selectedTreasuresToSave = initialState.filter(
-      treasure => treasure !== 'CronesAmulet'
+      (treasure) => treasure !== 'CronesAmulet'
     )
 
     const result = Reducer(
@@ -32,8 +34,8 @@ describe('Settings | Expansions | Treasures | selected | reducer', () => {
 
     expect(model).toMatchSnapshot()
     expect(cmd).toEqual(
-      Cmd.run(setToDb, {
-        args: [TREASURES_DB_KEY, selectedTreasuresToSave],
+      Cmd.run(setSelectedTreasuresToDB, {
+        args: [selectedTreasuresToSave],
         successActionCreator: actions.setToDBSuccessful,
         failActionCreator: actions.setToDBFailed,
       })
@@ -49,8 +51,7 @@ describe('Settings | Expansions | Treasures | selected | reducer', () => {
     expect(model).toEqual(initialState)
 
     expect(cmd).toEqual(
-      Cmd.run(getFromDb, {
-        args: [TREASURES_DB_KEY],
+      Cmd.run(getSelectedTreasuresFromDB, {
         successActionCreator: actions.fetchFromDBSuccessful,
         failActionCreator: actions.fetchFromDBFailed,
       })
