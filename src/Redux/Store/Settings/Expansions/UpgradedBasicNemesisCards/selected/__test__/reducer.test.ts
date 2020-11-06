@@ -1,9 +1,11 @@
 import { Cmd, getCmd, getModel } from 'redux-loop'
-import { set as setToDb, get as getFromDb } from 'idb-keyval'
 
 import { State } from '../types'
-import { UPGRADED_BASIC_NEMESIS_CARDS_DB_KEY } from '../../constants'
 import { actions } from '../actions'
+import {
+  getSelectedUpgradedBasicNemesisCardsFromDB,
+  setSelectedUpgradedBasicNemesisCardsToDB,
+} from '../sideEffects'
 
 import { initialState, Reducer } from '../reducer'
 
@@ -19,7 +21,7 @@ describe('Settings | Expansions | UpgradedBasicNemesisCards | selected | reducer
 
   it('should handle TOGGLE', () => {
     const selectedUpgradedBasicNemesisCardsToSave = initialState.filter(
-      treasure => treasure !== 'Wreck'
+      (treasure) => treasure !== 'Wreck'
     )
 
     const result = Reducer(
@@ -32,11 +34,8 @@ describe('Settings | Expansions | UpgradedBasicNemesisCards | selected | reducer
 
     expect(model).toMatchSnapshot()
     expect(cmd).toEqual(
-      Cmd.run(setToDb, {
-        args: [
-          UPGRADED_BASIC_NEMESIS_CARDS_DB_KEY,
-          selectedUpgradedBasicNemesisCardsToSave,
-        ],
+      Cmd.run(setSelectedUpgradedBasicNemesisCardsToDB, {
+        args: [selectedUpgradedBasicNemesisCardsToSave],
         successActionCreator: actions.setToDBSuccessful,
         failActionCreator: actions.setToDBFailed,
       })
@@ -52,8 +51,7 @@ describe('Settings | Expansions | UpgradedBasicNemesisCards | selected | reducer
     expect(model).toEqual(initialState)
 
     expect(cmd).toEqual(
-      Cmd.run(getFromDb, {
-        args: [UPGRADED_BASIC_NEMESIS_CARDS_DB_KEY],
+      Cmd.run(getSelectedUpgradedBasicNemesisCardsFromDB, {
         successActionCreator: actions.fetchFromDBSuccessful,
         failActionCreator: actions.fetchFromDBFailed,
       })
