@@ -12,17 +12,19 @@ import { mainTheme, muiTheme } from '../../mainTheme'
 import MainApp from './MainApp'
 import Wrapper from './Wrapper'
 
-const App = () => (
-  <ThemeProvider theme={mainTheme}>
-    <MuiThemeProvider theme={muiTheme}>
-      <Router>
-        <Wrapper>
-          <CssBaseline />
-          <MainApp />
-        </Wrapper>
-      </Router>
-    </MuiThemeProvider>
-  </ThemeProvider>
-)
+const App = () => {
+  return (
+    <ThemeProvider theme={mainTheme}>
+      <MuiThemeProvider theme={muiTheme}>
+        <Router>
+          <Wrapper>
+            <CssBaseline />
+            <MainApp />
+          </Wrapper>
+        </Router>
+      </MuiThemeProvider>
+    </ThemeProvider>
+  )
+}
 
 export default React.memo(App)
