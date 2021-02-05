@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import 'rpg-awesome/css/rpg-awesome.min.css'
 
-import CssBaseline from '@material-ui/core/CssBaseline'
+import GlobalStyle from './GlobalStyle'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 
 import { mainTheme, muiTheme } from '../../mainTheme'
@@ -17,7 +17,7 @@ const App = () => (
     <MuiThemeProvider theme={muiTheme}>
       <Router>
         <Wrapper>
-          <CssBaseline />
+          <GlobalStyle />
           <MainApp />
         </Wrapper>
       </Router>
