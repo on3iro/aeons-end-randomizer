@@ -3,7 +3,7 @@ import { withTheme } from 'styled-components/macro'
 
 import * as types from 'aer-types/types'
 
-import P from 'components/atoms/P'
+import P from 'components/P'
 import Tile from 'components/molecules/Tile'
 
 import Locked from '../../Locked'

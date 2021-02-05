@@ -12,10 +12,8 @@ type Props = {
 
 const Body = ({ mage, expansionName }: Props) => (
   <React.Fragment>
-    <ExpansionName color="textSecondary">{expansionName}</ExpansionName>
-    <Name variant="h6" component="h2">
-      {mage.name}
-    </Name>
+    <ExpansionName>{expansionName}</ExpansionName>
+    <Name>{mage.name}</Name>
   </React.Fragment>
 )
 

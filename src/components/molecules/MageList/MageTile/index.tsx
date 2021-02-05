@@ -44,7 +44,7 @@ const MageTile = ({ mage, playerNumber, theme, expansion }: Props) => {
       ? (`player${playerNumber}` as Player)
       : 'default'
 
-  const bgColor = theme.colors.playerColors[player].normal
+  const bgColor = theme.colors.PlayerColors[player].normal
 
   const handleMageDetails = useCallback(() => {
     show()

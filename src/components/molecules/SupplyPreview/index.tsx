@@ -45,9 +45,7 @@ const SupplyPreview = ({
     >
       <TileList>{renderMarketSetupItems(setup.tiles)}</TileList>
       {showName ? (
-        <SupplyName variant="caption" selected={selected}>
-          {setup.name}
-        </SupplyName>
+        <SupplyName selected={selected}>{setup.name}</SupplyName>
       ) : null}
     </Wrapper>
   )

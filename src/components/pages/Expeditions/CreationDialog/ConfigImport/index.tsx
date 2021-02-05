@@ -6,7 +6,7 @@ import * as types from 'aer-types/types'
 import useExpandedHandling from 'hooks/useExpansionHandling'
 
 import ExpansionPanel from 'components/molecules/ExpansionPanel'
-import P from 'components/atoms/P'
+import P from 'components/P'
 
 import FormLabel from '../FormLabel'
 import FormControl from '../../FormControl'

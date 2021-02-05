@@ -1,6 +1,11 @@
 import styled from 'styled-components/macro'
-import Typography from '@material-ui/core/Typography'
 
-const Text = styled(Typography)``
+import { setTypography } from 'theme/helpers'
+
+const Text = styled('p')`
+  ${setTypography('body2')}
+
+  margin: 0;
+`
 
 export default Text

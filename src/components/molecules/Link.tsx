@@ -4,7 +4,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 
-import A from '../atoms/A'
+import A from 'components/atoms/A'
 
 type Props = {
   text: string

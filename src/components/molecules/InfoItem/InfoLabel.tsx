@@ -1,8 +1,12 @@
 import styled from 'styled-components/macro'
-import Typography from '@material-ui/core/Typography'
 
-const InfoLabel = styled(Typography)`
-  margin-right: 8px;
+import Colors from 'theme/Colors'
+import { setTypography } from 'theme/helpers'
+
+const InfoLabel = styled('p')`
+  ${setTypography('body2', { color: Colors.text.secondary })}
+
+  margin: 0 8px 0 0;
   display: inline-block;
 `
 

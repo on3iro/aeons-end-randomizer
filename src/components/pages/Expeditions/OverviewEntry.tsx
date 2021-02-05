@@ -5,7 +5,7 @@ import { Expedition } from 'aer-types/types'
 import { actions } from 'Redux/Store'
 import { usePrompt, useModal } from 'hooks/useModal'
 
-import H2 from 'components/atoms/H2'
+import H2 from 'components/H2'
 
 import Delete from './Delete'
 import Copy from './Copy'

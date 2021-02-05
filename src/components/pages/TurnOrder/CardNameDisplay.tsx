@@ -1,17 +1,17 @@
 import React from 'react'
 
-import Typography from '@material-ui/core/Typography'
 import CardContent from '@material-ui/core/CardContent'
 
 import { ITurnOrderSetup } from 'aer-types/types'
 
 import Card from 'components/atoms/Card'
 
+import CardNameDisplayHeadline from './CardNameDisplayHeadline'
 import ConfigurationCardDisplay from './ConfigurationCardDisplay'
 
 const renderCardNames = (turnOrderSetup: ITurnOrderSetup) =>
   turnOrderSetup.turnOrderCards.map((card, i) => (
-    <ConfigurationCardDisplay component="p" key={i} type={card.type}>
+    <ConfigurationCardDisplay key={i} type={card.type}>
       {card.name}
     </ConfigurationCardDisplay>
   ))
@@ -23,9 +23,7 @@ type Props = {
 const CardNameDisplay = ({ turnOrderSetup }: Props) => (
   <Card>
     <CardContent>
-      <Typography color="textSecondary" gutterBottom>
-        Turn order cards
-      </Typography>
+      <CardNameDisplayHeadline>Turn order cards</CardNameDisplayHeadline>
       {renderCardNames(turnOrderSetup)}
     </CardContent>
   </Card>

@@ -27,7 +27,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 
 const Body = ({ nemesisCard, expansions }: Props) => (
   <React.Fragment>
-    <Name component="p">{nemesisCard.name}</Name>
+    <Name>{nemesisCard.name}</Name>
     <List>
       <InfoItem
         label="Set"

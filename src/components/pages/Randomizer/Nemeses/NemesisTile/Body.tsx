@@ -11,10 +11,8 @@ type Props = {
 
 const Body = ({ nemesis, expansionName }: Props) => (
   <React.Fragment>
-    <ExpansionName color="textSecondary">{expansionName}</ExpansionName>
-    <Name variant="h6" component="h2">
-      {nemesis['name']}
-    </Name>
+    <ExpansionName>{expansionName}</ExpansionName>
+    <Name>{nemesis['name']}</Name>
   </React.Fragment>
 )
 

@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import IconButton from 'components/atoms/IconButton'
-import Typography from '@material-ui/core/Typography'
 import { Loop, Publish, GetApp } from '@material-ui/icons'
 import { ITurnOrderCard } from 'aer-types/types'
 
@@ -10,6 +9,7 @@ import { RootState, actions } from 'Redux/Store'
 
 import Cell from './Cell'
 import RowWrapper from './RowWrapper'
+import Name from './Name'
 
 const mapStateToProps = (state: RootState) => ({})
 
@@ -27,7 +27,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 const Row = ({ card, addToTop, addToBottom, shuffleIntoDeck }: Props) => (
   <RowWrapper type={card.type}>
     <Cell>
-      <Typography component="p">{card.name}</Typography>
+      <Name>{card.name}</Name>
     </Cell>
     <Cell align="right">
       <IconButton

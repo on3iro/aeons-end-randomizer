@@ -1,8 +1,11 @@
 import styled from 'styled-components/macro'
-import Typography from '@material-ui/core/Typography'
 
-const EmptyNemesisHint = styled(Typography)``
+import { setTypography } from 'theme/helpers'
 
-EmptyNemesisHint.displayName = 'EmptyNemesisHint'
+const EmptyNemesisHint = styled('p')`
+  ${setTypography('body2')}
+
+  margin: 0;
+`
 
 export default EmptyNemesisHint

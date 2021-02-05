@@ -1,10 +1,12 @@
 import styled from 'styled-components/macro'
-import Typography from '@material-ui/core/Typography'
 
-const Name = styled(Typography)`
+import { setTypography } from 'theme/helpers'
+
+const Name = styled('h2')`
+  ${setTypography('h6', { color: 'rgba(0, 0, 0, 0.87)' })}
+
   padding-right: 48px;
+  margin: 0;
 `
-
-Name.displayName = 'Name'
 
 export default Name

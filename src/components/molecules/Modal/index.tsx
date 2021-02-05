@@ -29,9 +29,7 @@ const Modal = ({ titleColor, titleLabel, children, closeModal }: Props) => {
         <Backdrop onClick={closeModal} />
         <Content>
           <Header>
-            <Title variant="h1" themeColor={titleColor}>
-              {titleLabel}
-            </Title>
+            <Title themeColor={titleColor}>{titleLabel}</Title>
             <CloseButton onClick={closeModal} data-test="modal__btn-close">
               <CloseIcon />
             </CloseButton>

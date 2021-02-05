@@ -28,9 +28,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 
 const Body = ({ expedition, usedExpansions }: Props) => (
   <React.Fragment>
-    <Name variant="h6" component="h2">
-      {expedition.name || expedition.id}
-    </Name>
+    <Name>{expedition.name || expedition.id}</Name>
     <List>
       <InfoItem
         label="Finished"

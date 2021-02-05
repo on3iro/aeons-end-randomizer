@@ -1,7 +1,10 @@
 import styled from 'styled-components/macro'
-import Typography from '@material-ui/core/Typography'
 
-const Info = styled(Typography)`
+import { setTypography } from 'theme/helpers'
+
+const Info = styled('span')`
+  ${setTypography('body2')}
+
   display: inline-block;
 `
 

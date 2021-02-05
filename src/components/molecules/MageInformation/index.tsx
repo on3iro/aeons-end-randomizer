@@ -38,8 +38,8 @@ const MageInformation = ({ mage, player, expansionName, theme }: Props) => (
       isMage={true}
       themeColor={
         player
-          ? theme.colors.playerColors[player].normal
-          : theme.colors.playerColors['player1'].normal
+          ? theme.colors.PlayerColors[player].normal
+          : theme.colors.PlayerColors['player1'].normal
       }
       dangerouslySetInnerHTML={{
         __html: mage.ability,
@@ -49,8 +49,8 @@ const MageInformation = ({ mage, player, expansionName, theme }: Props) => (
     <SectionHeadline
       themeColor={
         player
-          ? theme.colors.playerColors[player].normal
-          : theme.colors.playerColors['player1'].normal
+          ? theme.colors.PlayerColors[player].normal
+          : theme.colors.PlayerColors['player1'].normal
       }
     >
       Unique Starters

@@ -13,7 +13,7 @@ type Props = {
 
 const Body = ({ nemesisCard }: Props) => (
   <React.Fragment>
-    <Name component="p">{nemesisCard.name}</Name>
+    <Name>{nemesisCard.name}</Name>
     <List>
       <InfoItem label="Set" info={nemesisCard.expansion} />
       <InfoItem label="Tier" info={nemesisCard.tier.toString()} />

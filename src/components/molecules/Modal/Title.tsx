@@ -1,16 +1,16 @@
-import React from 'react'
 import styled from 'styled-components'
 
-import H1 from '../../atoms/H1'
+import H1 from 'components/H1'
 
 type Props = {
   themeColor: string
 }
 
-// NOTE: we need to take away additional props, so that they are not passed
-// to DOM elements by MUI Components (we really should get rid of MUI...)
-const Title = styled(({ themeColor, ...rest }) => <H1 {...rest} />)<Props>`
-  color: ${props => props.themeColor};
+const Title = styled(H1)<Props>`
+  color: ${(props) => props.themeColor};
+  font-weight: ${(props) => props.theme.typography.fontWeightLight};
+  line-height: 1;
+  letter-spacing: -0.01562em;
 `
 
 export default Title

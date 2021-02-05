@@ -1,8 +1,11 @@
 import styled from 'styled-components/macro'
-import Typography from '@material-ui/core/Typography'
 
-const ExpansionName = styled(Typography)`
-  color: #fff;
+import { setTypography } from 'theme/helpers'
+
+const ExpansionName = styled('p')`
+  ${setTypography('body2', { color: '#fff' })}
+
+  margin: 0;
 `
 
 export default ExpansionName

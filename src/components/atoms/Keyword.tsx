@@ -3,12 +3,16 @@ import styled from 'styled-components'
 
 import { withTheme } from 'styled-components/macro'
 
+import { setTypography } from 'theme/helpers'
+
 type Props = {
   theme: any
 }
 
 const Keyword = styled(({ theme, ...rest }) => <span {...rest} />)<Props>`
-  background: ${props => props.theme.colors.keywordBg};
+  ${setTypography('body2', { lineHeight: '18px' })}
+
+  background: ${(props) => props.theme.colors.keywordBg};
   padding: 4px 8px;
   margin: 4px;
   border-radius: 12px;
@@ -17,10 +21,6 @@ const Keyword = styled(({ theme, ...rest }) => <span {...rest} />)<Props>`
 
   display: inline-block;
   text-align: center;
-
-  color: ${props => props.theme.colors.text.primary};
-  font-size: 0.875rem;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 `
 
 export default withTheme(Keyword)

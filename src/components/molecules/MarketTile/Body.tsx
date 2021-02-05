@@ -30,13 +30,11 @@ const Body = ({ supplyCard, expansionName }: Props) => {
   return (
     <React.Fragment>
       {operation && (
-        <CostOperation color="textSecondary">
+        <CostOperation>
           {type} {getOperationString(operation, values, threshold)}
         </CostOperation>
       )}
-      <Name component="p">
-        {supplyCard && supplyCard.name ? supplyCard.name : '-'}
-      </Name>
+      <Name>{supplyCard && supplyCard.name ? supplyCard.name : '-'}</Name>
       <List>
         <InfoItem
           label="Set"

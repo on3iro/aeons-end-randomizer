@@ -27,8 +27,8 @@ type Props = ReturnType<typeof mapStateToProps> & {
 
 const MageModal = ({ player, mage, expansions, theme, RenderModal }: Props) => {
   const titleColor = player
-    ? theme.colors.playerColors[player].normal
-    : theme.colors.playerColors['player1'].normal
+    ? theme.colors.PlayerColors[player].normal
+    : theme.colors.PlayerColors['player1'].normal
 
   const titleLabel = mage ? mage.name : ''
   const body = mage ? (

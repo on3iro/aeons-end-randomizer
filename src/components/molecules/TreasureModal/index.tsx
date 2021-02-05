@@ -12,7 +12,7 @@ import { RenderModalType } from 'hooks/useModal'
 import Body from 'components/molecules/TreasureInformation'
 
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
-import P from 'components/atoms/P'
+import P from 'components/P'
 
 const mapStateToProps = (state: RootState, _: any) => ({
   expansions: selectors.Settings.Expansions.Expansions.content.getContent(

@@ -6,7 +6,7 @@ import ExpansionPanelDetails from './ExpansionPanelDetails'
 import StyledExpansionPanel from './StyledExpansionPanel'
 import StyledExpansionPanelSummary from './StyledExpansionPanelSummary'
 
-import Heading from 'components/atoms/Heading'
+import Heading from 'components/Heading'
 
 type Props = {
   expanded: string | boolean

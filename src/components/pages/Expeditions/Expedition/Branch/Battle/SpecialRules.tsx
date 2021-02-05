@@ -1,13 +1,13 @@
 import React from 'react'
 import SectionHeadline from 'components/atoms/SectionHeadline'
-import Li from 'components/atoms/Li'
+import Li from 'components/Li'
 
 const SpecialRules = ({ rules }: { rules: string[] }) => {
   return (
     <>
       <SectionHeadline>Special rules:</SectionHeadline>
       <ul>
-        {rules.map(rule => (
+        {rules.map((rule) => (
           <Li key={rule}>{rule}</Li>
         ))}
       </ul>

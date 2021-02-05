@@ -25,7 +25,7 @@ type List = ListProps & {
 
 // FIXME refine types
 const renderLists = (lists: List[], selectionHandler: (val: any) => void) =>
-  lists.map(list => {
+  lists.map((list) => {
     const selectionContextValue = {
       selectionHandler,
       listId: list.id,
@@ -57,7 +57,7 @@ const SupplySelection = ({
   return (
     <Wrapper>
       <SectionHeadline>
-        Please select {amountOfCardsToSelect} cards to banish!
+        Please select {amountOfCardsToSelect} supply cards to banish!
       </SectionHeadline>
       <InfoItem
         label="Cards selected"

@@ -4,7 +4,7 @@ import { Expedition } from 'aer-types/types'
 
 import { RootState, selectors } from '../../../Redux/Store'
 
-import P from '../../atoms/P'
+import P from 'components/P'
 
 import List from './List'
 import OverviewEntry from './OverviewEntry'

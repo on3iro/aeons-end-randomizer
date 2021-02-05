@@ -1,7 +1,7 @@
 import React from 'react'
 
 import InfoItem from 'components/molecules/InfoItem'
-import P from 'components/atoms/P'
+import P from 'components/P'
 
 type Props = {
   info: string

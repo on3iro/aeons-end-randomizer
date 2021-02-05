@@ -7,7 +7,7 @@ import EditButton from 'components/molecules/EditButton'
 import DeleteButton from 'components/molecules/DeleteButton'
 
 import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
-import P from 'components/atoms/P'
+import P from 'components/P'
 
 import CheckboxWithPreview from '../CheckboxWithPreview'
 import CustomSetupEdit from '../CustomSetupEdit'

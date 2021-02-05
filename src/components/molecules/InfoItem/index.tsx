@@ -11,8 +11,8 @@ type Props = {
 
 const InfoItem = ({ label, info, ...rest }: Props) => (
   <Wrapper {...rest}>
-    <InfoLabel color="textSecondary">{label}:</InfoLabel>
-    <Info component="span">{info}</Info>
+    <InfoLabel>{label}:</InfoLabel>
+    <Info>{info}</Info>
   </Wrapper>
 )
 

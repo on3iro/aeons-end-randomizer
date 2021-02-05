@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components/macro'
 
-const GlobalStyle = createGlobalStyle`
+type Props = {
+  theme: any
+}
+
+const GlobalStyle = createGlobalStyle<Props>`
   *,
   ::after, 
   ::before {
@@ -8,13 +12,18 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: ${(props) => props.theme.typography.fontFamily};
+    font-size: ${(props) => props.theme.typography.fontSize};
+    font-weight: ${(props) => props.theme.typography.fontWeightRegular};
+    line-height: ${(props) => props.theme.typography.lineHeight};
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
     margin: 0;
     padding: 0;
+    background: ${(props) => props.theme.colors.background.default};
+    color: ${(props) => props.theme.colors.text.primary};
   }
 `
 

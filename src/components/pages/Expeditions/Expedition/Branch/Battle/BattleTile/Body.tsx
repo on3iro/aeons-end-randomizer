@@ -15,9 +15,7 @@ type Props = {
 
 const Body = ({ battle, nemesis }: Props) => (
   <BodyWrapper status={battle.status}>
-    <Name variant="h6" component="h2">
-      Battle: {nemesis}
-    </Name>
+    <Name>Battle: {nemesis}</Name>
     <List>
       <InfoItem label="Tier" info={battle.config.tier.toString()} />
       <InfoItem label="Status" info={battle.status} />

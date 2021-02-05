@@ -1,12 +1,13 @@
 import React from 'react'
 import CardContent from '@material-ui/core/CardContent'
 
-import Card from '../../atoms/Card'
-import H1 from '../../atoms/H1'
-import H2 from '../../atoms/H2'
-import P from '../../atoms/P'
-import A from '../../atoms/A'
-import Li from '../../atoms/Li'
+import Card from 'components/atoms/Card'
+import A from 'components/atoms/A'
+import ExternalLink from 'components/atoms/ExternalLink'
+import H1 from 'components/H1'
+import H2 from 'components/H2'
+import P from 'components/P'
+import Li from 'components/Li'
 
 const About = () => (
   <Card>
@@ -82,9 +83,9 @@ const About = () => (
       <P>
         You can find our documentation on how to use the randomizer and how to
         create custom expeditions here:{' '}
-        <a href="https://on3iro.github.io/aeons-end-randomizer/">
+        <ExternalLink href="https://on3iro.github.io/aeons-end-randomizer/">
           https://on3iro.github.io/aeons-end-randomizer/
-        </a>
+        </ExternalLink>
       </P>
 
       <H2>A note on collected user data</H2>

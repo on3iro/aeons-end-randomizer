@@ -1,15 +1,13 @@
-import React from 'react'
 import styled from 'styled-components'
-import H2 from './H2'
+
+import H2 from 'components/H2'
 
 type Props = {
-  themeColor: string
+  themeColor?: string
 }
 
-const SectionHeadline = styled(({ themeColor, ...rest }) => <H2 {...rest} />)<
-  Props
->`
-  color: ${props => props.themeColor};
+const SectionHeadline = styled(H2)<Props>`
+  ${(props) => (props.themeColor ? `color: ${props.themeColor};` : null)}
   font-weight: 300;
   margin: 16px 0 8px;
 
