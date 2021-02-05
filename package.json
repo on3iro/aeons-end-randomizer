@@ -66,7 +66,9 @@
     "test:redux:coverage": "yarn run test:jest -- --coverage --collectCoverageFrom=src/Redux/**/*.ts --watch --testPathPattern=/src/Redux/",
     "analyze:app": "source-map-explorer build/static/js/main.*",
     "analyze:vendor": "source-map-explorer build/static/js/2.*",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "husky": {
     "hooks": {
@@ -83,6 +85,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@storybook/addon-a11y": "^6.1.17",
+    "@storybook/addon-actions": "^6.1.17",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addon-links": "^6.1.17",
+    "@storybook/node-logger": "^6.1.17",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.1.17",
     "@types/classnames": "^2.2.7",
     "@types/styled-components": "^5.1.2",
     "babel-plugin-macros": "^2.5.0",
