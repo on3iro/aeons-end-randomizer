@@ -87,6 +87,21 @@ const About = () => (
         </a>
       </P>
 
+      <H2>Premade expeditions</H2>
+      <P>
+        We've created{' '}
+        <a href="https://github.com/on3iro/aeons-end-randomizer/blob/main/expeditions/newAge.json">
+          "The New Age"
+        </a>{' '}
+        as well as{' '}
+        <a href="https://github.com/on3iro/aeons-end-randomizer/blob/main/expeditions/intoTheWild.json">
+          "Into The Wild"
+        </a>{' '}
+        as replayable expeditions. To play them, you also need the respective
+        expansions physically. You can then copy and import these expeditions,
+        whenever you create a new expedition from the expedition screen.
+      </P>
+
       <H2>A note on collected user data</H2>
       <P>We do not track any user specific data whatsoever.</P>
       <H2>A note on official imagery</H2>
