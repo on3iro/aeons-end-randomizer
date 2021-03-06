@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { RootState, actions } from 'Redux/Store'
+import { RootState, actions, selectors } from 'Redux/Store'
 import * as types from 'aer-types/types'
 
 import RewardScreen from '../../RewardScreen'
@@ -13,7 +13,14 @@ type OwnProps = {
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
-  return {}
+  const expedition = selectors.Expeditions.Expeditions.getExpeditionById(
+    state,
+    { expeditionId: ownProps.battle.expeditionId }
+  )
+
+  return {
+    barracks: expedition.barracks,
+  }
 }
 
 const mapDispatchToProps = {
@@ -24,13 +31,21 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const BattleWon = ({ battle, finishBattle, hide, showNext }: Props) => {
+const BattleWon = ({
+  battle,
+  finishBattle,
+  hide,
+  showNext,
+  barracks,
+}: Props) => {
   useEffect(() => {
     if (battle.config.winRewards === 'skip') {
       hide()
-      finishBattle(battle, [], [])
+      // Supply ids will be set as they are, so we need to pass the current ids from
+      // our barracks, so that our barracks are not accidentally overwritten
+      finishBattle(battle, [], barracks.supplyIds)
     }
-  }, [hide, finishBattle, battle])
+  }, [hide, finishBattle, battle, barracks.supplyIds])
 
   return (
     <React.Fragment>
