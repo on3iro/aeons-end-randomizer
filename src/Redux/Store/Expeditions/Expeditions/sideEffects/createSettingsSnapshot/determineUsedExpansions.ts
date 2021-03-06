@@ -180,7 +180,7 @@ export const determineUsedExpansions = (
     UpgradedBasicNemesisCardContentStateSlice,
   settingsSnapshot: Omit<types.SettingsSnapshot, 'usedExpansions'>,
   branches?: types.BranchesConfig,
-  initialBarracks?: types.Barracks
+  initialBarracks?: Partial<types.Barracks>
 ) => {
   const {
     availableCardIds,
