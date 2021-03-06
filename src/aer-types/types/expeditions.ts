@@ -258,13 +258,20 @@ export type SequenceConfig = {
   branches: BranchesConfig
 }
 
-export type ExpeditionConfig = {
+export type BaseExpeditionConfig = {
   name: string
   seedConfig?: string
   sequenceConfig: SequenceConfig
   bigPocketVariantConfig: boolean
   initialBarracksConfig?: Barracks
   initialUBNCardsConfig?: string[]
+}
+
+export type ImportedExpeditionConfig = BaseExpeditionConfig & {
+  settingsSnapshotConfig?: SettingsSnapshotConfig
+}
+
+export type ExpeditionConfig = BaseExpeditionConfig & {
   settingsSnapshotConfig: SettingsSnapshotConfig
 }
 
@@ -311,7 +318,7 @@ export type Sequence = {
   branches: Branches
 }
 
-export type Expedition = {
+export type BaseExpedition = {
   id: string
   name: string
   bigPocketVariant: boolean
@@ -321,11 +328,18 @@ export type Expedition = {
   barracks: Barracks
   banished: string[]
   upgradedBasicNemesisCards: string[]
-  settingsSnapshot: SettingsSnapshot
   finished: boolean
   migrationVersion?: number
   initialBarracksConfig?: Barracks
   initialUBNCardsConfig?: string[]
+}
+
+export type ExpeditionFromImportedConfig = BaseExpedition & {
+  settingsSnapshot?: Omit<SettingsSnapshot, 'usedExpansions'>
+}
+
+export type Expedition = BaseExpedition & {
+  settingsSnapshot: SettingsSnapshot
 }
 
 export type Expeditions = {

@@ -227,7 +227,15 @@ describe('handleExistingSettingsSnapshot()', () => {
   it('should produce correct result', () => {
     const result = handleExistingSettingsSnapshot(
       state,
-      settingsSnapshot,
+      {
+        name: 'TEST',
+        settingsSnapshotConfig: settingsSnapshot,
+        bigPocketVariantConfig: true,
+        sequenceConfig: {
+          firstBranchId: '',
+          branches: {} as types.BranchesConfig,
+        },
+      },
       baseSupplySetups,
       'random'
     )

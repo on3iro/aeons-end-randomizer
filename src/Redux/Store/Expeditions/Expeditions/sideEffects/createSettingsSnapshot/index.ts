@@ -6,7 +6,7 @@ import { handleNewSettingsSnapshot } from 'Redux/Store/Expeditions/Expeditions/s
 
 export const createSettingsSnapshot = (
   state: RootState,
-  existingSettingsSnapshot?: Omit<types.SettingsSnapshot, 'usedExpansions'>,
+  existingConfig?: types.ImportedExpeditionConfig,
   marketId: string = 'random'
 ): types.SettingsSnapshot => {
   const getCustomAndPredefined = selectors.Settings.SupplySetups.makeGetCustomAndPredefined()
@@ -28,10 +28,10 @@ export const createSettingsSnapshot = (
 
   const customAndPredefinedSetups = getCustomAndPredefined(state)
 
-  if (existingSettingsSnapshot) {
+  if (existingConfig?.settingsSnapshotConfig) {
     return handleExistingSettingsSnapshot(
       state,
-      existingSettingsSnapshot,
+      existingConfig as types.ExpeditionConfig,
       customAndPredefinedSetups,
       marketId
     )
