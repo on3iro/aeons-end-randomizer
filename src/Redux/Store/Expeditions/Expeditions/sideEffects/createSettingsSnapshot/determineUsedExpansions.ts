@@ -74,7 +74,7 @@ const getFixIdsFromSequenceBranches = (
           } = config.config
 
           const fromLossRewards =
-            lossRewards && lossRewards.length > 0
+            lossRewards && lossRewards.length > 0 && lossRewards !== 'skip'
               ? lossRewards.reduce(
                   (
                     acc: {
@@ -104,7 +104,11 @@ const getFixIdsFromSequenceBranches = (
               : defaultResult
 
           const fromWinRewards = (() => {
-            if (winRewards && winRewards.type === 'custom') {
+            if (
+              winRewards &&
+              winRewards !== 'skip' &&
+              winRewards.type === 'custom'
+            ) {
               const fromConfig = getFixIdsFromRewardsConfig(winRewards)
 
               return {

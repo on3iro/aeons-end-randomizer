@@ -260,39 +260,6 @@ export const schema = {
         },
       ],
     },
-    RewardsConfig_1: {
-      anyOf: [
-        {
-          properties: {
-            mage: {
-              $ref: '#/definitions/MageRewardConfig',
-            },
-            supply: {
-              $ref: '#/definitions/SupplyRewardConfig',
-            },
-            treasure: {
-              $ref: '#/definitions/TreasureRewardConfig',
-            },
-            type: {
-              enum: ['custom'],
-              type: 'string',
-            },
-          },
-          required: ['type'],
-          type: 'object',
-        },
-        {
-          properties: {
-            type: {
-              enum: ['regular'],
-              type: 'string',
-            },
-          },
-          required: ['type'],
-          type: 'object',
-        },
-      ],
-    },
     SequenceConfig: {
       $ref: '#/definitions/__type',
     },
@@ -447,7 +414,7 @@ export const schema = {
           {
             properties: {
               config: {
-                $ref: '#/definitions/RewardsConfig_1',
+                $ref: '#/definitions/RewardsConfig',
               },
               nextBranchId: {
                 type: 'string',
@@ -467,40 +434,48 @@ export const schema = {
     __type_2: {
       properties: {
         lossRewards: {
-          items: {
-            anyOf: [
-              {
-                properties: {
-                  mage: {
-                    $ref: '#/definitions/MageRewardConfig',
+          anyOf: [
+            {
+              items: {
+                anyOf: [
+                  {
+                    properties: {
+                      mage: {
+                        $ref: '#/definitions/MageRewardConfig',
+                      },
+                      supply: {
+                        $ref: '#/definitions/SupplyRewardConfig',
+                      },
+                      treasure: {
+                        $ref: '#/definitions/TreasureRewardConfig',
+                      },
+                      type: {
+                        enum: ['custom'],
+                        type: 'string',
+                      },
+                    },
+                    required: ['type'],
+                    type: 'object',
                   },
-                  supply: {
-                    $ref: '#/definitions/SupplyRewardConfig',
+                  {
+                    properties: {
+                      type: {
+                        enum: ['regular'],
+                        type: 'string',
+                      },
+                    },
+                    required: ['type'],
+                    type: 'object',
                   },
-                  treasure: {
-                    $ref: '#/definitions/TreasureRewardConfig',
-                  },
-                  type: {
-                    enum: ['custom'],
-                    type: 'string',
-                  },
-                },
-                required: ['type'],
-                type: 'object',
+                ],
               },
-              {
-                properties: {
-                  type: {
-                    enum: ['regular'],
-                    type: 'string',
-                  },
-                },
-                required: ['type'],
-                type: 'object',
-              },
-            ],
-          },
-          type: 'array',
+              type: 'array',
+            },
+            {
+              enum: ['skip'],
+              type: 'string',
+            },
+          ],
         },
         nemesisId: {
           type: 'string',
@@ -551,7 +526,41 @@ export const schema = {
           $ref: '#/definitions/BattleTreasure',
         },
         winRewards: {
-          $ref: '#/definitions/RewardsConfig',
+          anyOf: [
+            {
+              properties: {
+                mage: {
+                  $ref: '#/definitions/MageRewardConfig',
+                },
+                supply: {
+                  $ref: '#/definitions/SupplyRewardConfig',
+                },
+                treasure: {
+                  $ref: '#/definitions/TreasureRewardConfig',
+                },
+                type: {
+                  enum: ['custom'],
+                  type: 'string',
+                },
+              },
+              required: ['type'],
+              type: 'object',
+            },
+            {
+              properties: {
+                type: {
+                  enum: ['regular'],
+                  type: 'string',
+                },
+              },
+              required: ['type'],
+              type: 'object',
+            },
+            {
+              enum: ['skip'],
+              type: 'string',
+            },
+          ],
         },
       },
       required: ['newUBNCards', 'tier', 'treasure'],

@@ -55,9 +55,10 @@ const LossRewardTypeSelection = ({ battle, rollLoss }: Props) => {
   }, [rewardSelectValue, battle, rollLoss])
 
   const tryIndex = battle.tries - 1
-  const rewardsConfig = battle.config.lossRewards
-    ? battle.config.lossRewards[tryIndex]
-    : undefined
+  const rewardsConfig =
+    battle.config.lossRewards && battle.config.lossRewards !== 'skip'
+      ? battle.config.lossRewards[tryIndex]
+      : undefined
 
   if (rewardsConfig && rewardsConfig.type !== 'regular') {
     return (
