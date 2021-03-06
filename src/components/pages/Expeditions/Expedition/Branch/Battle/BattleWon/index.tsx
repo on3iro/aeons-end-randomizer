@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions } from 'Redux/Store'
@@ -25,6 +25,12 @@ type Props = ReturnType<typeof mapStateToProps> &
   OwnProps
 
 const BattleWon = ({ battle, finishBattle, hide, showNext }: Props) => {
+  useEffect(() => {
+    if (battle.config.winRewards === 'skip') {
+      hide()
+    }
+  }, [battle.config.winRewards, hide])
+
   return (
     <React.Fragment>
       <RewardScreen
