@@ -47,7 +47,7 @@ export type BaseConfig = {
   name: string
   bigPocketVariant: boolean
   marketId: string
-  expeditionConfig?: types.ExpeditionConfig
+  expeditionConfig?: types.ImportedExpeditionConfig
   seedValue?: string
 }
 

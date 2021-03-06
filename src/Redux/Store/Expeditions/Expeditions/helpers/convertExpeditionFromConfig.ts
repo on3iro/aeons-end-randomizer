@@ -1,13 +1,10 @@
 import * as types from 'aer-types/types'
 import shortid from 'shortid'
-import { determineUsedExpansions } from 'Redux/Store/Expeditions/Expeditions/sideEffects/createSettingsSnapshot/determineUsedExpansions'
-import { RootState } from 'Redux/Store'
 import { getLatestMigrationVersion } from 'Redux/Store/Expeditions/Expeditions/migrations'
 
 export const convertExpeditionFromConfig = (
-  config: types.ExpeditionConfig,
-  state: RootState
-): types.Expedition => {
+  config: types.ImportedExpeditionConfig
+): types.ExpeditionFromImportedConfig => {
   const expeditionId = shortid.generate()
 
   const expedition = {
@@ -28,15 +25,7 @@ export const convertExpeditionFromConfig = (
     banished: [],
     finished: false,
     upgradedBasicNemesisCards: config.initialUBNCardsConfig || [],
-    settingsSnapshot: {
-      ...config.settingsSnapshotConfig,
-      usedExpansions: determineUsedExpansions(
-        state,
-        config.settingsSnapshotConfig,
-        config.sequenceConfig.branches,
-        config.initialBarracksConfig
-      ),
-    },
+    settingsSnapshot: config.settingsSnapshotConfig,
     sequence: {
       firstBranchId: config.sequenceConfig.firstBranchId,
       branches: Object.keys(config.sequenceConfig.branches)
