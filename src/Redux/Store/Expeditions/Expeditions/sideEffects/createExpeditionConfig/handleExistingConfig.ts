@@ -49,18 +49,25 @@ export const handleExistingConfig = (
   ///////////////////////////
 
   // Mages
-  const mageIdsResult =
+  const amountOfAdditionalMages =
     baseExpeditionFromConfig.barracks.mageIds.length > 0
-      ? {
-          result: baseExpeditionFromConfig.barracks.mageIds,
-          seed: baseExpeditionFromConfig.seed,
-        }
-      : createIdList(
-          settingsSnapshot.availableMageIds,
-          createArrayWithDefaultValues(4, 'EMPTY'),
-          getRandomEntity,
-          seed
-        )
+      ? 4 - baseExpeditionFromConfig.barracks.mageIds.length
+      : 4
+
+  const additionalMagesResult = createIdList(
+    settingsSnapshot.availableMageIds,
+    createArrayWithDefaultValues(amountOfAdditionalMages, 'EMPTY'),
+    getRandomEntity,
+    seed
+  )
+
+  const mageIdsResult = {
+    result: [
+      ...baseExpeditionFromConfig.barracks.mageIds,
+      ...additionalMagesResult.result,
+    ],
+    seed: additionalMagesResult.seed,
+  }
 
   const mageIds = mageIdsResult.result
 
