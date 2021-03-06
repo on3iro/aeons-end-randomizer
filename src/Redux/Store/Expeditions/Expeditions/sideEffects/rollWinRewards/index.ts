@@ -120,7 +120,7 @@ export const createWinRewards = (
 ): { battle: types.Battle; seed: types.Seed } => {
   const rewardsConfig = battle.config.winRewards
 
-  if (rewardsConfig) {
+  if (rewardsConfig && rewardsConfig !== 'skip') {
     return handleRewardsFromConfig(getState, battle, rewardsConfig)
   } else {
     // regular case

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import * as types from 'aer-types/types'
@@ -45,6 +45,13 @@ const BattleLost = ({ battle, hide, showNext, acceptLoss }: Props) => {
       showNext()
     }
   }, [battle.config.onLoss, showNext])
+
+  useEffect(() => {
+    if (battle.config.lossRewards === 'skip' && showNext) {
+      hide()
+      showNext()
+    }
+  }, [battle.config.lossRewards, showNext, hide])
 
   return (
     <React.Fragment>
