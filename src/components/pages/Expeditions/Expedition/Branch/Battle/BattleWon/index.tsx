@@ -28,8 +28,9 @@ const BattleWon = ({ battle, finishBattle, hide, showNext }: Props) => {
   useEffect(() => {
     if (battle.config.winRewards === 'skip') {
       hide()
+      finishBattle(battle, [], [])
     }
-  }, [battle.config.winRewards, hide])
+  }, [hide, finishBattle, battle])
 
   return (
     <React.Fragment>

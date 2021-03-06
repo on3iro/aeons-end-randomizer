@@ -17,6 +17,8 @@
         "config": {
           "tier": 1,
           "nemesisId": "Maggoth",
+          "lossRewards": "skip",
+          "winRewards": "skip",
           "newUBNCards": {
             "type": "regular",
             "addRandom": false
@@ -71,6 +73,8 @@
         "config": {
           "tier": 2,
           "nemesisId": "Arachnos",
+          "lossRewards": "skip",
+          "winRewards": "skip",
           "newUBNCards": {
             "type": "custom",
             "ids": [
@@ -132,6 +136,8 @@
         "config": {
           "tier": 1,
           "nemesisId": "AgelessWalker",
+          "lossRewards": "skip",
+          "winRewards": "skip",
           "newUBNCards": {
             "type": "custom",
             "ids": ["HissingAcid", "Marked", "FlashOfDecay", "Terrify"]
@@ -187,6 +193,8 @@
         "config": {
           "tier": 1,
           "nemesisId": "Fenrix",
+          "lossRewards": "skip",
+          "winRewards": "skip",
           "newUBNCards": {
             "type": "custom",
             "ids": [
