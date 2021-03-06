@@ -220,8 +220,8 @@ export type BattleConfig = {
     | { ids: string[]; type: 'custom' }
     | { type: 'regular'; addRandom: boolean }
   specialRules?: string
-  lossRewards?: RewardsConfig[]
-  winRewards?: RewardsConfig
+  lossRewards?: RewardsConfig[] | 'skip'
+  winRewards?: RewardsConfig | 'skip'
   treasure: BattleTreasure
   onLoss?: OnLoss
 }

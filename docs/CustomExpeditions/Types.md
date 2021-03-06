@@ -322,11 +322,12 @@ Allows to specify some rules text, which will be shown before the battle.
 
 ##### Definition
 
-type: [`RewardsConfig`](#RewardsConfig)[]
+type: [`RewardsConfig`](#RewardsConfig)[] | 'skip'
 
 List of [`RewardsConfig`](#RewardsConfig)s.
 If specified defines what rewards are being generated each time the battle is lost.
 If nothing is specified, the rewards will be rolled regularily.
+If `'skip'` is set, the reward screen will be skipped altogether.
 
 #### Example
 
@@ -342,11 +343,12 @@ For further details see [`RewardsConfig`](#RewardsConfig).
 
 ##### Definition
 
-type: [`RewardsConfig`](#RewardsConfig)
+type: [`RewardsConfig`](#RewardsConfig) | 'skip'
 
 A single reward configuration, which determines what rewards the players get upon winning
 the current battle.
 If nothing is specified, the rewards will be rolled regularily.
+If `'skip'` is set, the reward screen will be skipped altogether.
 
 #### Example
 
