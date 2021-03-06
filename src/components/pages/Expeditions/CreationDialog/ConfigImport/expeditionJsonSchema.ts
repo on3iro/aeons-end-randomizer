@@ -1,11 +1,47 @@
 // This schema has been created by using https://github.com/YousefED/typescript-json-schema
 // To recreate the schema run and replace it in here:
 //
-// typescript-json-schema tsconfig.json ExpeditionConfig --include ./node_modules/aer-types/types/types/**/*.ts --required --aliasRefs
-//
+// typescript-json-schema tsconfig.json ImportedExpeditionConfig --include src/aer-types/types/index.ts --required --aliasRefs
 
 export const schema = {
   $schema: 'http://json-schema.org/draft-07/schema#',
+  allOf: [
+    {
+      properties: {
+        bigPocketVariantConfig: {
+          type: 'boolean',
+        },
+        initialBarracksConfig: {
+          $ref: '#/definitions/Barracks',
+        },
+        initialUBNCardsConfig: {
+          items: {
+            type: 'string',
+          },
+          type: 'array',
+        },
+        name: {
+          type: 'string',
+        },
+        seedConfig: {
+          type: 'string',
+        },
+        sequenceConfig: {
+          $ref: '#/definitions/SequenceConfig',
+        },
+      },
+      required: ['bigPocketVariantConfig', 'name', 'sequenceConfig'],
+      type: 'object',
+    },
+    {
+      properties: {
+        settingsSnapshotConfig: {
+          $ref: '#/definitions/SettingsSnapshotConfig',
+        },
+      },
+      type: 'object',
+    },
+  ],
   definitions: {
     Array: {
       items: {
@@ -261,7 +297,77 @@ export const schema = {
       $ref: '#/definitions/__type',
     },
     SettingsSnapshotConfig: {
-      $ref: '#/definitions/__type_5',
+      properties: {
+        availableCardIds: {
+          items: {
+            type: 'string',
+          },
+          type: 'array',
+        },
+        availableMageIds: {
+          items: {
+            type: 'string',
+          },
+          type: 'array',
+        },
+        availableNemesisIds: {
+          items: {
+            type: 'string',
+          },
+          type: 'array',
+        },
+        availableTreasureIds: {
+          items: {
+            type: 'string',
+          },
+          type: 'array',
+        },
+        availableUpgradedBasicNemesisCardIds: {
+          items: {
+            type: 'string',
+          },
+          type: 'array',
+        },
+        supplySetup: {
+          properties: {
+            active: {
+              type: 'boolean',
+            },
+            default: {
+              type: 'boolean',
+            },
+            id: {
+              type: 'string',
+            },
+            isDirty: {
+              type: 'boolean',
+            },
+            isNew: {
+              type: 'boolean',
+            },
+            name: {
+              type: 'string',
+            },
+            tiles: {
+              $ref: '#/definitions/Array_4',
+            },
+            type: {
+              $ref: '#/definitions/MarketType',
+            },
+          },
+          required: ['active', 'id', 'name', 'tiles', 'type'],
+          type: 'object',
+        },
+      },
+      required: [
+        'availableCardIds',
+        'availableMageIds',
+        'availableNemesisIds',
+        'availableTreasureIds',
+        'availableUpgradedBasicNemesisCardIds',
+        'supplySetup',
+      ],
+      type: 'object',
     },
     SupplyRewardConfig: {
       properties: {
@@ -486,111 +592,5 @@ export const schema = {
       required: ['decisions', 'text'],
       type: 'object',
     },
-    __type_5: {
-      properties: {
-        availableCardIds: {
-          items: {
-            type: 'string',
-          },
-          type: 'array',
-        },
-        availableMageIds: {
-          items: {
-            type: 'string',
-          },
-          type: 'array',
-        },
-        availableNemesisIds: {
-          items: {
-            type: 'string',
-          },
-          type: 'array',
-        },
-        availableTreasureIds: {
-          items: {
-            type: 'string',
-          },
-          type: 'array',
-        },
-        availableUpgradedBasicNemesisCardIds: {
-          items: {
-            type: 'string',
-          },
-          type: 'array',
-        },
-        supplySetup: {
-          properties: {
-            active: {
-              type: 'boolean',
-            },
-            default: {
-              type: 'boolean',
-            },
-            id: {
-              type: 'string',
-            },
-            isDirty: {
-              type: 'boolean',
-            },
-            isNew: {
-              type: 'boolean',
-            },
-            name: {
-              type: 'string',
-            },
-            tiles: {
-              $ref: '#/definitions/Array_4',
-            },
-            type: {
-              $ref: '#/definitions/MarketType',
-            },
-          },
-          required: ['active', 'id', 'name', 'tiles', 'type'],
-          type: 'object',
-        },
-      },
-      required: [
-        'availableCardIds',
-        'availableMageIds',
-        'availableNemesisIds',
-        'availableTreasureIds',
-        'availableUpgradedBasicNemesisCardIds',
-        'supplySetup',
-      ],
-      type: 'object',
-    },
   },
-  properties: {
-    bigPocketVariantConfig: {
-      type: 'boolean',
-    },
-    initialBarracksConfig: {
-      $ref: '#/definitions/Barracks',
-    },
-    initialUBNCardsConfig: {
-      items: {
-        type: 'string',
-      },
-      type: 'array',
-    },
-    name: {
-      type: 'string',
-    },
-    seedConfig: {
-      type: 'string',
-    },
-    sequenceConfig: {
-      $ref: '#/definitions/SequenceConfig',
-    },
-    settingsSnapshotConfig: {
-      $ref: '#/definitions/SettingsSnapshotConfig',
-    },
-  },
-  required: [
-    'bigPocketVariantConfig',
-    'name',
-    'sequenceConfig',
-    'settingsSnapshotConfig',
-  ],
-  type: 'object',
 }
