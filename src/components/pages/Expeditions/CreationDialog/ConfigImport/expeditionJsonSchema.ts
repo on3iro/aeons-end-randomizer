@@ -12,7 +12,7 @@ export const schema = {
           type: 'boolean',
         },
         initialBarracksConfig: {
-          $ref: '#/definitions/Barracks',
+          $ref: '#/definitions/Partial',
         },
         initialUBNCardsConfig: {
           items: {
@@ -119,30 +119,6 @@ export const schema = {
       },
       type: 'array',
     },
-    Barracks: {
-      properties: {
-        mageIds: {
-          items: {
-            type: 'string',
-          },
-          type: 'array',
-        },
-        supplyIds: {
-          items: {
-            type: 'string',
-          },
-          type: 'array',
-        },
-        treasureIds: {
-          items: {
-            type: 'string',
-          },
-          type: 'array',
-        },
-      },
-      required: ['mageIds', 'supplyIds', 'treasureIds'],
-      type: 'object',
-    },
     BattleConfig: {
       $ref: '#/definitions/__type_2',
     },
@@ -226,6 +202,33 @@ export const schema = {
     },
     Operation: {
       type: 'string',
+    },
+    Partial: {
+      $ref: '#/definitions/Partial<Barracks>',
+      description: 'Make all properties in T optional',
+    },
+    'Partial<Barracks>': {
+      properties: {
+        mageIds: {
+          items: {
+            type: 'string',
+          },
+          type: 'array',
+        },
+        supplyIds: {
+          items: {
+            type: 'string',
+          },
+          type: 'array',
+        },
+        treasureIds: {
+          items: {
+            type: 'string',
+          },
+          type: 'array',
+        },
+      },
+      type: 'object',
     },
     RewardsConfig: {
       anyOf: [

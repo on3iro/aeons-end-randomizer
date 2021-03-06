@@ -263,7 +263,7 @@ export type BaseExpeditionConfig = {
   seedConfig?: string
   sequenceConfig: SequenceConfig
   bigPocketVariantConfig: boolean
-  initialBarracksConfig?: Barracks
+  initialBarracksConfig?: Partial<Barracks>
   initialUBNCardsConfig?: string[]
 }
 
