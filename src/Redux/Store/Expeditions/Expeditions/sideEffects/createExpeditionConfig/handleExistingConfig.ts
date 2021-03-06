@@ -21,38 +21,28 @@ export const handleExistingConfig = (
     expeditionConfig,
     marketId,
     seedValue,
-  }: BaseConfig & { expeditionConfig: types.ExpeditionConfig },
+  }: BaseConfig & { expeditionConfig: types.ImportedExpeditionConfig },
   state: RootState
 ) => {
   /////////////////////////
   // Basic configuration //
   /////////////////////////
 
-  const baseExpedition = convertExpeditionFromConfig(
-    {
-      ...expeditionConfig,
-      name,
-      bigPocketVariantConfig: bigPocketVariant,
-    },
-    state
-  )
+  const baseExpeditionFromConfig = convertExpeditionFromConfig({
+    ...expeditionConfig,
+    name,
+    bigPocketVariantConfig: bigPocketVariant,
+  })
 
   const seed = {
-    seed: seedValue || baseExpedition.seed.seed,
+    seed: seedValue || baseExpeditionFromConfig.seed.seed,
   }
 
-  // FIXME we could probably do a small optimization here,
-  // because 'convertExpeditionFromConfig' already calculates the
-  // 'usedExpansions' property. Technically we would only have to
-  // check the market setup which was chosen
-  const settingsSnapshot = {
-    ...createSettingsSnapshot(
-      state,
-      expeditionConfig.settingsSnapshotConfig,
-      marketId
-    ),
-    usedExpansions: baseExpedition.settingsSnapshot.usedExpansions,
-  }
+  const settingsSnapshot = createSettingsSnapshot(
+    state,
+    expeditionConfig,
+    marketId
+  )
 
   ///////////////////////////
   // Content randomziation //
@@ -60,8 +50,11 @@ export const handleExistingConfig = (
 
   // Mages
   const mageIdsResult =
-    baseExpedition.barracks.mageIds.length > 0
-      ? { result: baseExpedition.barracks.mageIds, seed: baseExpedition.seed }
+    baseExpeditionFromConfig.barracks.mageIds.length > 0
+      ? {
+          result: baseExpeditionFromConfig.barracks.mageIds,
+          seed: baseExpeditionFromConfig.seed,
+        }
       : createIdList(
           settingsSnapshot.availableMageIds,
           createArrayWithDefaultValues(4, 'EMPTY'),
@@ -73,9 +66,9 @@ export const handleExistingConfig = (
 
   // Supply
   const supplyIdsResult = (() => {
-    if (baseExpedition.barracks.supplyIds.length > 0) {
+    if (baseExpeditionFromConfig.barracks.supplyIds.length > 0) {
       return {
-        result: baseExpedition.barracks.supplyIds,
+        result: baseExpeditionFromConfig.barracks.supplyIds,
         seed: mageIdsResult.seed,
       }
     } else {
@@ -105,12 +98,13 @@ export const handleExistingConfig = (
   )
 
   const treasureIdsResult = (() => {
-    const { branches } = baseExpedition.sequence
-    const firstBranch = branches[baseExpedition.sequence.firstBranchId]
+    const { branches } = baseExpeditionFromConfig.sequence
+    const firstBranch =
+      branches[baseExpeditionFromConfig.sequence.firstBranchId]
 
-    if (baseExpedition.barracks.treasureIds.length > 0) {
+    if (baseExpeditionFromConfig.barracks.treasureIds.length > 0) {
       return {
-        result: baseExpedition.barracks.treasureIds,
+        result: baseExpeditionFromConfig.barracks.treasureIds,
         seed: supplyIdsResult.seed,
       }
     } else if (firstBranch.type === 'battle') {
@@ -139,7 +133,7 @@ export const handleExistingConfig = (
   }
 
   return {
-    ...baseExpedition,
+    ...baseExpeditionFromConfig,
     seed: newSeed,
     settingsSnapshot,
     barracks: {

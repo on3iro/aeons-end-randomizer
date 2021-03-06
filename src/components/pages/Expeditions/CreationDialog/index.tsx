@@ -17,7 +17,7 @@ import VariantSelect from 'components/pages/Expeditions/CreationDialog/VariantSe
 
 type OwnProps = {
   finisher: Function
-  existingExpeditionConfig?: types.ExpeditionConfig
+  existingExpeditionConfig?: types.ImportedExpeditionConfig
 }
 
 const mapStateToProps = (_: RootState) => ({})
@@ -36,7 +36,7 @@ const CreationDialog = ({
   createExpedition,
 }: Props) => {
   const [expeditionConfig, changeExpeditionConfig] = useState<
-    types.ExpeditionConfig | undefined
+    types.ImportedExpeditionConfig | undefined
   >(existingExpeditionConfig)
 
   const [expeditionName, changeExpeditionName] = useState(
@@ -103,7 +103,7 @@ const CreationDialog = ({
   const additionalSetups = (() => {
     if (existingExpeditionConfig?.settingsSnapshotConfig?.supplySetup) {
       return [existingExpeditionConfig.settingsSnapshotConfig.supplySetup]
-    } else if (expeditionConfig) {
+    } else if (expeditionConfig?.settingsSnapshotConfig?.supplySetup) {
       return [expeditionConfig.settingsSnapshotConfig.supplySetup]
     } else {
       return []

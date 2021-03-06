@@ -13,11 +13,16 @@ export const handleExistingSettingsSnapshot = (
     NemesisContentStateSlice &
     TreasureContentStateSlice &
     UpgradedBasicNemesisCardContentStateSlice,
-  settingsSnapshot: Omit<types.SettingsSnapshot, 'usedExpansions'>,
+  existingConfig: types.ExpeditionConfig,
   baseSupplySetups: { [id: string]: types.IMarketSetup },
   marketId: string
 ): types.SettingsSnapshot => {
-  const usedExpansions = determineUsedExpansions(state, settingsSnapshot)
+  const usedExpansions = determineUsedExpansions(
+    state,
+    existingConfig.settingsSnapshotConfig,
+    existingConfig.sequenceConfig.branches,
+    existingConfig.initialBarracksConfig
+  )
 
   // NOTE: Because we currently do get the marketId from the outside
   // (it is currently passed to an action creator from a react component),
@@ -27,7 +32,8 @@ export const handleExistingSettingsSnapshot = (
   //
   // FIXME: This should probably be refactored in the future.
   const existingSupply = {
-    [settingsSnapshot.supplySetup.id]: settingsSnapshot.supplySetup,
+    [existingConfig.settingsSnapshotConfig.supplySetup.id]:
+      existingConfig.settingsSnapshotConfig.supplySetup,
   }
 
   const allSupplySetups = {
@@ -38,7 +44,7 @@ export const handleExistingSettingsSnapshot = (
   const supplySetup = allSupplySetups[marketId]
 
   return {
-    ...settingsSnapshot,
+    ...existingConfig.settingsSnapshotConfig,
     usedExpansions,
     supplySetup,
   }

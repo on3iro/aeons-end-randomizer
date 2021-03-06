@@ -88,13 +88,16 @@ Allows you to provide a list of ids from upgraded basic nemesis cards. These car
 }
 ```
 
-#### settingsSnapshotConfig
+#### settingsSnapshotConfig **(optional)**
 
 ##### Definition
 
 type: [`SettingsSnapshotConfig`](./Types#SettingsSnapshotConfig)
 
 Defines the content which will be used for all random rolls inside the expedition. This makes each expedition completely independent from the settings users have selected.
+
+> If no [`settingsSnapshotConfig`](./Types#SettingsSnapshotConfig) is configured, a new one will be created with the users current settings.
+> To create an empty [`settingsSnapshotConfig`](./Types#SettingsSnapshotConfig) you have to set the [`settingsSnapshotConfig`](./Types#SettingsSnapshotConfig) with empty lists!
 
 ##### Example
 

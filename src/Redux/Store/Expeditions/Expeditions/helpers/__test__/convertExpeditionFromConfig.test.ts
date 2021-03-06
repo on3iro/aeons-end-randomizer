@@ -211,7 +211,6 @@ describe('convertFromConfig()', () => {
           'Wreck',
           'BaneCommander',
         ],
-        usedExpansions: ['AE', 'IW', 'NA'],
       },
       barracks: {
         mageIds: [],
