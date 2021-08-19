@@ -89,7 +89,7 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'AE',
-    name: 'Einblick Ins Nichts',
+    name: 'Einblick ins Nichts',
     id: 'PlanarInsight',
     cost: 6,
     effect: `
@@ -137,8 +137,8 @@ export const cards: ICard[] = [
     effect: `
       <p>
         <b>Wirken:</b> Zerstöre bis zu 2 Karten deiner Wahl auf deiner Hand.<br />
-        Für jede zerstörte Karte:<br />
-        Füge 3 Schaden zu.
+        Füge X Schaden zu.<br />
+        X = 0/3/6 für 0/1/2 zerstörte Karten.
       </p>
     `,
     keywords: [],
@@ -146,7 +146,7 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'AE',
-    name: 'instabiles Prisma',
+    name: 'Instabiles Prisma',
     id: 'UnstablePrism',
     cost: 3,
     effect: `
@@ -176,7 +176,7 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'AE',
-    name: 'Talisman Der Magier',
+    name: 'Talisman der Magier',
     id: 'MagesTalisman',
     cost: 5,
     effect: `
@@ -220,7 +220,7 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'AE',
-    name: 'Vortex In Flaschen',
+    name: 'Vortex in Flaschen',
     id: 'BottledVortex',
     cost: 3,
     effect: `
@@ -255,8 +255,8 @@ export const cards: ICard[] = [
     effect: `
       <p>
         <b>Wirken:</b> Wirf bis zu 2 Karten deiner Wahl von deiner Hand ab.<br />
-        Für jede abgeworfene Karte:<br />
-        Füge 3 Schaden zu.
+        Füge X Schaden zu.<br />
+        X = 0/3/6 für 0/1/2 abgeworfene Karten.
       </p>
     `,
     keywords: [],
@@ -296,7 +296,7 @@ export const cards: ICard[] = [
     cost: 4,
     effect: `
       <p>
-        <b>Wirken:</b> Bündele gratis 1 deiner dunklen Risse mit den geringsten <span class="aether">&AElig;</span>-Kosten.<br />
+        <b>Wirken:</b> Bündele 1 deiner dunklen Risse mit den geringsten <span class="aether">&AElig;</span>-Kosten.<br />
         Füge 2 Schaden zu.<br />
         Sind alle deine Risse aktiv? +1 Schaden.
       </p>
@@ -364,7 +364,7 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'AE',
-    name: 'Orb Der Bündelung',
+    name: 'Orb der Bündelung',
     id: 'FocusingOrb',
     cost: 4,
     effect: `

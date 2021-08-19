@@ -6,7 +6,7 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'AE',
     tier: 1,
     type: 'Power',
-    name: 'Feld Der Qualen',
+    name: 'Feld der Qualen',
     power: 2,
     effect: `
       <p>
@@ -47,7 +47,7 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'AE',
     tier: 1,
     type: 'Power',
-    name: 'Auge Des Nichts',
+    name: 'Auge des Nichts',
     power: 2,
     effect: `
       <p>
@@ -217,7 +217,7 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'AE',
     tier: 3,
     type: 'Power',
-    name: 'Mantel Des Untergangs',
+    name: 'Mantel des Untergangs',
     power: 1,
     effect: `
       <p>

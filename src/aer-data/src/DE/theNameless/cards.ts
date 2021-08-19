@@ -49,7 +49,7 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'Nameless',
-    name: 'Blitz Der Vorsehung',
+    name: 'Blitz der Vorsehung',
     id: 'ScryingBolt',
     cost: 6,
     effect: `
@@ -64,7 +64,7 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'Nameless',
-    name: 'Mal Des Weisen',
+    name: 'Mal des Weisen',
     id: 'SagesBrand',
     cost: 7,
     effect: `
@@ -99,7 +99,7 @@ export const cards: ICard[] = [
     cost: 7,
     effect: `
       <p>
-        Wähle 1 anderen Spieler und wirke 1 seiner gebundenen Zauber. Der Zauber bleibt gebunden.
+        Wähle 1 Spieler und wirke 1 seiner gebundenen Zauber. Der Zauber bleibt gebunden.
       </p>
     `,
     keywords: [],
