@@ -67,7 +67,7 @@ export const mages: Mage[] = [
     ability: `
         <h2>Schwarzer Spiegel</h2>
         <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
-        <p>Wähle 1 anderen Spieler und wirke 1 seiner gebundenen Zauber. Der Zauber bleibt gebunden.</p>
+        <p>Wähle 1 Spieler und wirke 1 seiner gebundenen Zauber. Der Zauber bleibt gebunden.</p>
         <p>Dann wirke diesen Zauber erneut
         <span class="hint">(und er wird abgelegt, wie üblich).</span></p>
       `,
@@ -191,7 +191,7 @@ export const mages: Mage[] = [
         <h2>Rune der Vorsicht</h2>
         <p class="ability-activation">Direkt nachdem ihr eine REIHENFOLGEKARTE GEZOGEN habt:</p>
         <p>Verhindere in diesem Zug allen Schaden, der den Spielern 
-          oder der <i>Feste der letzten Ruhe</i> zugefügt wird.
+          wie auch der <i>Feste der letzten Ruhe</i> zugefügt wird.
         </p>
       `,
     numberOfCharges: 5,
@@ -222,7 +222,7 @@ export const mages: Mage[] = [
         <h2>Metaphysische Verbindung</h2>
         <p class="ability-activation">Im SPIELER-ZUG DEINER WAHL während <i>Aktionen ausführen</i>:</p>
         <p>Erhalte insgesamt 4 Energie und verteile sie auf andere Spieler deiner Wahl. 
-          Decke alle Reihenfolgekarten auf und lege sie in einer Reihenfolge 
+          Decke alle noch verdeckten Reihenfolgekarten auf und lege sie in einer Reihenfolge 
           deiner Wahl verdeckt zurück.
         </p>
       `,

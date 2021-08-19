@@ -3,7 +3,7 @@ import { Nemesis } from '../../../../aer-types/types'
 export const nemeses: Nemesis[] = [
   {
     expansion: 'Nameless',
-    name: 'Lord Des Verderbens',
+    name: 'Lord des Verderbens',
     id: 'BlightLord',
     health: 70,
     difficulty: 4,

@@ -6,7 +6,7 @@ import { cards } from './cards'
 
 export const theDepthsData: IExpansion = {
   id: 'Depths',
-  name: 'The Depths',
+  name: 'Aus den Tiefen',
   type: 'mini',
   nemeses,
   mages,
