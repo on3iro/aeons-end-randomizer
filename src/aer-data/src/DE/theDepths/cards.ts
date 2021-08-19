@@ -4,7 +4,7 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'Depths',
-    name: 'Verbindung Mit Der Leere',
+    name: 'Verbindung mit der Leere',
     id: 'VoidBond',
     cost: 4,
     effect: `
@@ -89,7 +89,7 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'Depths',
-    name: 'Topas Der Verbannung',
+    name: 'Topas der Verbannung',
     id: 'BanishingTopaz',
     cost: 5,
     effect: `
