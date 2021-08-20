@@ -1,8 +1,9 @@
 on:
-  pull_request:
-    branches: [main, dev]
+  release:
+    # Only use the types keyword to narrow down the activity types that will trigger your workflow.
+    types: [published]
 
-name: Publish test build on Netlify
+name: Deploy release to netlify
 
 jobs:
   publish:
@@ -23,7 +24,7 @@ jobs:
       - name: Publish
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dir=build
+          args: deploy --dir=build --prod
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
