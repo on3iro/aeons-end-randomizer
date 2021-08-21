@@ -10,7 +10,7 @@ import { createNormalizedData } from './createNormalizedData'
 
 const DEFAULTSUPPLYCOUNT = 9
 
-export default {
+const aerData = {
   normalizedData: {
     ENG: createNormalizedData(ENG),
     FR: createNormalizedData(FR),
@@ -22,3 +22,5 @@ export default {
   turnordersetups: TURNORDERSETUPS,
   turnordercards: TURNORDERCARDS,
 }
+
+export default aerData

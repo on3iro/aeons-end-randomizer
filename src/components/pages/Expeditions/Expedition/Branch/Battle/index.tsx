@@ -28,10 +28,10 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
 
   return {
     nemesis,
-    expeditionIsFinished: selectors.Expeditions.Expeditions.getExpeditionIsFinished(
-      state,
-      { expeditionId: ownProps.battle.expeditionId }
-    ),
+    expeditionIsFinished:
+      selectors.Expeditions.Expeditions.getExpeditionIsFinished(state, {
+        expeditionId: ownProps.battle.expeditionId,
+      }),
   }
 }
 
@@ -58,20 +58,29 @@ const Battle = ({
     expeditionComplete,
   } = useStateModals()
 
-  const clickHandlerConfig = {
-    expeditionIsFinished,
-    expeditionComplete,
-    battle,
-    beforeBattle,
-    battleStarted,
-    battleLost,
-    battleWon,
-    rollBattle,
-  }
-
-  const handleClick = useCallback(() => handleBattleClick(clickHandlerConfig), [
-    clickHandlerConfig,
-  ])
+  const handleClick = useCallback(
+    () =>
+      handleBattleClick({
+        expeditionIsFinished,
+        expeditionComplete,
+        battle,
+        beforeBattle,
+        battleStarted,
+        battleLost,
+        battleWon,
+        rollBattle,
+      }),
+    [
+      expeditionIsFinished,
+      expeditionComplete,
+      battle,
+      beforeBattle,
+      battleStarted,
+      battleLost,
+      battleWon,
+      rollBattle,
+    ]
+  )
 
   const battleWonCallback = useCallback(
     (expeditionIsFinished) => {

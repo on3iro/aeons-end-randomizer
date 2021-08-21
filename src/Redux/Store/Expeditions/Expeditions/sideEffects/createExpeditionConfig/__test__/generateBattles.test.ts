@@ -4,11 +4,11 @@ jest.mock('shortid', () => {
   let count = 0
 
   return {
-    generate: jest.fn(() => {
+    generate: () => {
       const newId = `TEST_BATTLE_ID_${count}`
       count = count + 1
       return newId
-    }),
+    },
   }
 })
 
@@ -22,22 +22,22 @@ describe('generateBattles', () => {
 
   const config1: types.BattleConfig = {
     tier: 1,
-    newUBNCards: { ids: [], addRandom: false },
+    newUBNCards: { ids: [], type: 'custom' },
     treasure: { level: 1, hasTreasure: true },
   }
   const config2: types.BattleConfig = {
     tier: 2,
-    newUBNCards: { ids: [], addRandom: true },
+    newUBNCards: { type: 'regular', addRandom: true },
     treasure: { level: 2, hasTreasure: true },
   }
   const config3: types.BattleConfig = {
     tier: 3,
-    newUBNCards: { ids: [], addRandom: true },
+    newUBNCards: { type: 'regular', addRandom: true },
     treasure: { level: 3, hasTreasure: true },
   }
   const config4: types.BattleConfig = {
     tier: 4,
-    newUBNCards: { ids: [], addRandom: true },
+    newUBNCards: { type: 'regular', addRandom: true },
     treasure: { hasTreasure: false },
   }
 
