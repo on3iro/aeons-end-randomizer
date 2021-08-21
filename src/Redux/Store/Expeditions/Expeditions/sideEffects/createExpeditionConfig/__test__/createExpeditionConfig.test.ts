@@ -2,7 +2,7 @@ import shortidMock from 'shortid'
 
 jest.mock('shortid', () => {
   return {
-    generate: jest.fn(() => 'TEST_EXPEDITION_ID'),
+    generate: () => 'TEST_EXPEDITION_ID',
   }
 })
 

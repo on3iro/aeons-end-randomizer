@@ -66,12 +66,8 @@ const getFixIdsFromSequenceBranches = (
 
       switch (config.type) {
         case 'battle': {
-          const {
-            nemesisId,
-            lossRewards,
-            winRewards,
-            newUBNCards,
-          } = config.config
+          const { nemesisId, lossRewards, winRewards, newUBNCards } =
+            config.config
 
           const fromLossRewards =
             lossRewards && lossRewards.length > 0 && lossRewards !== 'skip'
@@ -190,23 +186,22 @@ export const determineUsedExpansions = (
     availableUpgradedBasicNemesisCardIds,
   } = settingsSnapshot
 
-  const allCards = selectors.Settings.Expansions.Cards.content.getContent(state)
-    .ENG
+  const allCards =
+    selectors.Settings.Expansions.Cards.content.getContent(state).ENG
 
-  const allMages = selectors.Settings.Expansions.Mages.content.getContent(state)
-    .ENG
+  const allMages =
+    selectors.Settings.Expansions.Mages.content.getContent(state).ENG
 
-  const allNemeses = selectors.Settings.Expansions.Nemeses.content.getContent(
-    state
-  ).ENG
+  const allNemeses =
+    selectors.Settings.Expansions.Nemeses.content.getContent(state).ENG
 
-  const allTreasures = selectors.Settings.Expansions.Treasures.content.getContent(
-    state
-  ).ENG
+  const allTreasures =
+    selectors.Settings.Expansions.Treasures.content.getContent(state).ENG
 
-  const allUBNCards = selectors.Settings.Expansions.UpgradedBasicNemesisCards.content.getContent(
-    state
-  ).ENG
+  const allUBNCards =
+    selectors.Settings.Expansions.UpgradedBasicNemesisCards.content.getContent(
+      state
+    ).ENG
 
   const fromBranches = getFixIdsFromSequenceBranches(branches)
   const fromInitialBarracks = initialBarracks ?? {
@@ -219,14 +214,14 @@ export const determineUsedExpansions = (
     ...[
       ...availableCardIds,
       ...fromBranches.cardIds,
-      ...fromInitialBarracks.supplyIds,
+      ...(fromInitialBarracks?.supplyIds ?? []),
     ]
       .map((id) => allCards[id])
       .map((c) => c.expansion),
     ...[
       ...availableMageIds,
       ...fromBranches.mageIds,
-      ...fromInitialBarracks.mageIds,
+      ...(fromInitialBarracks?.mageIds ?? []),
     ]
       .map((id) => allMages[id])
       .map((m) => m.expansion),
@@ -236,7 +231,7 @@ export const determineUsedExpansions = (
     ...[
       ...availableTreasureIds,
       ...fromBranches.treasureIds,
-      ...fromInitialBarracks.treasureIds,
+      ...(fromInitialBarracks?.treasureIds ?? []),
     ]
       .map((id) => allTreasures[id])
       .map((t) => t.expansion),
