@@ -12,6 +12,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
+        ref: 'refs/heads/main'
 
       - name: Setup node
         uses: actions/setup-node@v2
@@ -34,15 +35,6 @@ jobs:
 
       - name: Set remote url with github token
         run: git remote set-url origin https://${{ secrets.ACTION_GITHUB_BOT }}@github.com/on3iro/aeons-end-randomizer
-
-      - name: Git branch
-        run: git branch
-
-      - name: Git remote
-        run: git remote
-
-      - name: Git remote url
-        run: git remote get-url origin
 
       - name: Push version commit
         run: git push origin main
