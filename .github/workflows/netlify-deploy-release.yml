@@ -22,7 +22,7 @@ jobs:
         run: yarn
 
       - name: Up version
-        run: yarn version --new-version ${{ env.GITHUB_REF }}
+        run: yarn version --new-version ${{ github.event.release.tag_name }}
 
       - name: Set git config
         run: |
