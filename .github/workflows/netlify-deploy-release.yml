@@ -12,7 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-        ref: 'refs/heads/main'
+        with:
+          ref: 'refs/heads/main'
 
       - name: Setup node
         uses: actions/setup-node@v2
