@@ -1,0 +1,294 @@
+{
+  "name": "Aeon's End: Outcasts",
+  "bigPocketVariantConfig": true,
+  "sequenceConfig": {
+    "firstBranchId": "Intro-B1",
+    "branches": {
+      "Intro-B1": {
+        "type": "narrative",
+        "config": {
+          "text": "Azer is a lively village, a bright spot of activity in an otherwise quiet forest. Z'hana sits on the bank of the river that winds through the center of town and stares into the shining water. Chatter spills out from the scattered huts, and around her, children run and play in the grass. It is almost peaceful enough to forget the pain and destruction the Nameless have wrought on this world. Her son Taqren takes a seat beside her and watches the river too. \"This place is beautiful and full of incredible breach magic. We could learn so much by spending a few more months here.\" Taqren folds his arms, and Z'hana waits for the other shoe to drop. \"But it is not our home.\" Z'hana closes her eyes slowly, pressing a hand to her chest. \"You know I cannot go back, Taqren. Not after what I've done.\" \"It's been months, mother. Throw yourself on Brama's mercy. She is a wise woman.\" \"She is shortsighted,\" Z'hana snaps. \"What happened to Southpost was a tragedy, but I do not regret turning against her. New Gravehold needs to evolve or we're headed straight for another Fall. And that could mean the end of everyone.\" \"If you could just talk - \" Taqren is cut off by a sudden shout from the top of a nearby hill. Two young women stand at the top of it, their tattooed hands clasped together and glowing with magical energy. Kel and Ilya. \"We need to get to the north side of town! Hurry!\" Z'hana is the first to move, long years of training embedded deep, her son following close on her heels. As she crests the hill, that feeling of safety that had so briefly warmed her heart drops away into cold reality. A huge creature sits hunched menacingly in the treeline, saliva dripping from its distended mouth. On its head, four long tendrils snake and grow their way toward the fleeing civilians, each with its own toothy maw. \"Where are the rest of the mages?\" Z'hana asks. Ilya shakes her head. \"They're all out on patrol or hunting. We're the only ones left.\" Kel curses sharply. \"A Portalborn in the village. What is the world coming to?\" \"Nothing good.\" Taqren twists his wrists and summons his magical shields. The four mages step forward, placing themselves between Azer and the monster at its gates.",
+          "decisions": ["Fight Nameless"]
+        },
+        "nextBranchId": ["battle-1"]
+      },
+      "battle-1": {
+        "type": "battle",
+        "config": {
+          "tier": 1,
+          "nemesisId": "Experiment153",
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "regular",
+            "addRandom": false
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "B1-Conclusion"
+      },
+      "B1-Conclusion": {
+        "type": "narrative",
+        "config": {
+          "text": "As the last maw is sliced from the creature's head, the Nameless screams and collapses to the ground. Taqren drops his shields triumphantly and turns back to face the group and join in celebration. Suddenly, the creature opens its eyes and screams with an unholy rage. It rises, blood still streaming from its ears, and races at Taqren with its teeth bared. Z'hana rushes forward to protect her son, knowing she won't make it in time. She throws an arm forward in a desperate gesture, and just then a dark breach cracks open in the sky. From it, Xaxos descends, black fire coursing around him as he lands on the Nameless and drives it into the dirt. The creature, already on its last legs, collapses from the blow, and Xaxos rides it down. Taqren stares up at his unlikely savior. All his years spent in the Void have warped Xaxos. Black scales grow up his arms, and his fingers end in wickedly curved claws. He almost looks more Nameless than human.",
+          "decisions": ["Loot"]
+        },
+        "nextBranchId": ["treasures-1"]
+      },
+      "treasures-1": {
+        "type": "reward",
+        "config": {
+          "type": "custom",
+          "supply": {
+            "ids": ["GalvanizedSapphire", "VigorousSunstone", "CarnivorousRoox", "InfusedIgnition"]
+          },
+          "treasure": {
+            "ids": [
+              "RhiasPlanarPocket",
+              "TalixsEverburn",
+              "RazrasTrainingWhistle",
+              "LostsForgedSpark",
+              "MazrasThesis"
+            ]
+          }
+        },
+        "nextBranchId": "Intro-B2"
+      },
+      "Intro-B2": {
+        "type": "narrative",
+        "config": {
+          "text": " \"You are a hard woman to track down, Z'hana!\" Xaxos calls as he hops off the back of the monstrous beast and brushes off his hands. \"Seems like I found you at just the right moment, though. Providence must be on my side.\" \"Providence and no one else.\" Z'hana steps forward to situate herself between Taqren and Xaxos. \"What are you doing out of the Void?\" Xaxos eyes the anger and distrust on Z'hana's face. He frowns. \"You don't seem very happy to see me.\" \"The last time I saw you, you turned on your fellow mages and tried to kill us.\" Taqren steps forward and lays a gentle hand on his mother's shoulder. \"And now he has saved your son.\" Z'hana takes a deep breath, letting her rage settle. \"That is true. I do appear to owe you my thanks.\" \"I understand your distrust and your anger, Z'hana. I have made more mistakes than one man should in his lifetime. The lives lost in the Fall, the death of your husband, Soren, it's all on my head. But that wasn't what I wanted. It isn't what I would have chosen. If I could go back...\" Xaxos lets his head fall solemnly to his chest. \"But I cannot.\" He pauses for a long, silent moment, and then meets their gaze, eyes shining with purple flame. \"I have found something in the Void. Something that can help all of humanity. But I can't go there by myself, and I can't bring this matter before Brama, or the council - they would never have listened to me. I'd be lucky to not be attacked on sight. But Z'hana, you wear my colors.\" Z'hana lifts the edge of her red cloak, staring at the symbol of Xaxos emblazoned on her chest. \"I don't wear this for you. You have too much blood on your hands.\" \"No one will die. I swear.\" \"The way nobody died in your last experiment?\" Z'hana asks. Xaxos clenches a fist in the fabric of his shirt. \"I am trying to atone for what happened in the Fall. This will be the first step.\" Z'hana wishes she could believe him. But it's worth at least hearing him out. \"What's this weapon you've found?\" \"It's not a weapon,\" Xaxos says, unable to keep his excitement from showing. \"It's a place. A magical pool called the Fountain of Souls.\" From behind Z'hana, Kel snorts derisively. \"I'm sorry, you're going on a quest for a magic pool? Are you sure you didn't pick that out of a fairytale?\" \"The Fountain of Souls is very real.\" Xaxos frowns. \"And very powerful. You see, everything in our world is made of aether, and everything in the Void is made of Void energy. Energy can be transferred from one side to the other. I used to be obsessed with how we could use Void energy here, in our world. That was what... accidentally pulled Maelstrom through to Gravehold. \"But it works both ways. When things die near breaches, their aether can be drawn through. And it's drawn into the Fountain of Souls.\" Ilya's eyes are wide and troubled as she fumbles nervously for her Tether's hand. \"But we're aether. People are aether\" \"Exactly,\" says Xaxos. \"You're saying we can bring them back,\" Z'hana says. \"Our fallen compatriots. All the mages we lost in battle. My husband.\" Xaxos closes his eyes, pain knit through his expression. \"Everyone I failed in the Fall.\" Z'hana steps forward. \"We're going.\" \"Hold on a second, Z'hana.\" Kel holds out a hand. \"Maybe I'm the only one who hasn't absolutely lost my mind, but we can't go to the Void. The air is poison. It does that.\" She gestures violently at Xaxos, at the black scales rippled across his flesh, the unnatural purple of his eyes. He is a living testament to the corrupting nature of the Void. \"I've developed a spell that can protect you,\" Xaxos says. \"The Void energy won't be able to touch you as long as you stay near me and let me concentrate. I won't be able to do much fighting, but with the four of you, I have no fear that we can handle whatever might come our way.\" \"Who said we're all going?\" Kel crosses her arms defiantly. Ilya takes both of Kel's hands in her own and looks up at her endearingly. \"It's her husband, Kel. She deserves all the help she can get. What if it was me?\" Kel furrows her brow, turning away from Ilya to hide her flush. \"Fine. We'll go.\" \"Excellent.\" Xaxos turns back to his breach and drags it open a little wider with his claws, so that the four of them can see through to the strange and unfamiliar world on the other side. \"Let's go.\" The second Z'hana steps through the rift, she doubles over in pain. Her head spins, and the air burns her throat as she breathes. Xaxos moves his hands in complex gestures, and the pain and nausea recede. All around them is an alien landscape. The ground beneath them is soft and sandy, a bright red with purple rocks in unnaturally geometric configurations. Colors flash occasionally like lightning in the sky, but they're muted behind an oppressive layer of clouds. \"Is it just me, or are those clouds getting closer?\" Ilya asks, backing up to Keľs side. Everyone looks up. What had been a sky forms into a gigantic shadow, stars and galaxies ebbing and flowing through its misty form. It stretches its immense arms down towards the unprepared mages. They rush to draw their weapons, preparing for battle. \"I need to concentrate on this spell,\" Xaxos gasps out in between incantations. \"It takes up nearly all my energy. I won't be able to help you.\" \"What if we gave you more energy?\" Ilya gestures to her arm. \"In Azer we do it all the time. Taking little bits of our portal energy and feeding it into each other. It works best with a linked Tether, but the principle should stay the same.\" \"That...\" Xaxos purses his lips. \"Yes, I think that would probably work. But my first priority has to be maintaining this spell. If I lose it, none of you will be able to breathe.\" \"Everyone stay close.\" Kel grabs Ilya's hand. The matching tattoos on their arms start to glow with golden light. \"We'd better be prepared for anything.\" ",
+          "decisions": ["Fight Nameless"]
+        },
+        "nextBranchId": ["battle-2"]
+      },
+      "battle-2": {
+        "type": "battle",
+        "config": {
+          "tier": 2,
+          "nemesisId": "ThiefOfDreams",
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "custom",
+            "ids": [
+              "ChaosStrike",
+              "Rescind",
+              "HuntTheWeak",
+              "SilentDecay",
+              "SkyCrush",
+              "ScionOfTheVoid-O",
+              "RayOfDesolation-O"
+            ]
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "B2-Conclusion"
+      },
+      "B2-Conclusion": {
+        "type": "narrative",
+        "config": {
+          "text": "As the Nameless is finally destroyed, the mist burns away into nothing. Everyone relaxes, except Xaxos who continues to hold his concentration on the protective bubble around them. Kel peers up at the red sun they can now see glowing in the sky. It casts the entire landscape into an eerie, flushed palette. \"Hard to tell that thing is dead considering how weird this place is all the time.\" \"You get used to it.\" The group looks up to see a new form walking toward them, slightly obscured through the smudgy barrier of Xaxos's spell. She steps inside and Taqren rushes over to greet her. \"Qu, I didn't know you were coming.\" Qu shakes her head, smiling. The expression is strange on her half face. \"Xaxos is my father. I can't just leave him to do this on his own.\" Taqren glances over his shoulder at Z'hana where she is tending to a wound on Xaxos's arm. \"That, I can understand.\" \"If you still haven't forgiven me, why wear my symbol?\" Xaxos asks, nodding at the red cloak draped over Z'hana's shoulders. \"I will never forgive you for what you did.\" Z'hana places the bottle of medicine back into her pack and brushes off her hands. \"Your colors are colors of rebellion. I disagree with the Council and how Brama is running our city, so these are my colors too.\" \"If you hate me, why trust me?\" Z'hana laughs, bitterly. \"I'm too old to trust anyone, Xaxos. Especially you. I'm not kidding myself. You could be lying about this whole thing. But if there's any chance, even the smallest one, that something like this is real? I wouldn't be able to go on living knowing I'd passed up that potential.\" \"The Fountain is real,\" Xaxos says, and thirty years ago, Z'hana might have believed the earnest quality of his voice, but she's been burned too many times before to waste energy on hope. \"Well. We'd better get going then.\" ",
+          "decisions": ["Loot"]
+        },
+        "nextBranchId": ["treasures-2"]
+      },
+      "treasures-2": {
+        "type": "reward",
+        "config": {
+          "type": "custom",
+          "supply": {
+            "ids": ["ElongatedLooq", "ChainOfRetrieval", "PairedStorm", "ArcaneRelay"]
+          },
+          "mage": {
+            "ids": ["QuO"]
+          },
+          "treasure": {
+            "ids": [
+              "BrokenTooth",
+              "RejuvenatingDiamond",
+              "PoisonHeart"
+            ]
+          }
+        },
+        "nextBranchId": "Intro-B3"
+      },
+      "Intro-B3": {
+        "type": "narrative",
+        "config": {
+          "text": "The group follows Xaxos's lead across the wasteland. He guides them close to the rock formations, doing his best to keep under cover. Sometimes they hear screeching cries in the distance, and once they have to crowd underneath an overhang as a great flying beast makes circles above. As they press on, the landscape becomes more pitted, deep grooves carved into the ground. They look like claw marks, but dozens of feet long. After a few hours of travel, Z'hana throws out an arm and the group stops short. \"I know that creature,\" Z'hana says. On a hill in front of them sits an armor clad skeleton, mounted on a long-dead horse. \"It's a follower of the Knight of Shackles. I was there when it attacked Gravehold.\" \"You're right.\" Xaxos says, \"but I don't see its master anywhere.\" \"That may be the least of our worries right now.\" Qu taps quickly on Xaxos's shoulder. Following in their wake is an army of skeletons, wave after wave of blank-faced infantry marching forward. On the hill, the mounted corpse raises a staff into the air, and the army brandishes their weapons. \"How can he have so many minions? This is three times the number Knight of Shackles commanded last time.\" Z'hana backs up, readying her knives. \"He's had time to prepare, clearly.\" Taqren flicks his fingers out, summoning his shields. \"Look!\" Everyone follows Ilya’s finger as she points up at the mounted figure. As they watch, another row of skeletons springs into being, their forms wavering insubstantially before they solidify and join the ranks. \"He's making some kind of illusion to supplement his armies.\" \"Keep track of which ones are fake. We don't need to waste firepower on those. They should be easily dispersed by a focused blast of aether,\" says Qu. \"Easier said than done.\" Kel grabs Ilya’s hand. \"They all look exactly the same.\" \"They're coming!\" Taqren calls, and everyone braces themselves for combat.",
+          "decisions": ["Fight Nameless"]
+        },
+        "nextBranchId": ["battle-3"]
+      },
+      "battle-3": {
+        "type": "battle",
+        "config": {
+          "tier": 1,
+          "nemesisId": "RisenThrall",
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "custom",
+            "ids": ["RainOfDevastation", "HarbingerOfMonstrosity-O", "Sacrifice-O", "BlightedMagic"]
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "B3-Conclusion"
+      },
+      "B3-Conclusion": {
+        "type": "narrative",
+        "config": {
+          "text": "Bones clatter into dust at the mages' feet as the Nameless finally falls. Ilya lifts her hand and kisses her Tether's knuckles. \"For a trip through the Void,\" she says brightly, \"we're not doing too badly.\" \"Careful!\" Z'hana calls, and the group pauses in their post-battle celebration to whip around to face her. Everyone follows her gaze to see the odd glint of red sunlight reflecting off a suit of armor. A ghostly purple flame swirls out of every metallic joint, and the creature props itself up with a broadsword that is pockmarked and scarred from countless battles. Xaxos breaks the silence with a horrified whisper. \"It's the Knight of Shackles.\" \"Why didn't he fight alongside his army?\" Qu steps forward. \"Why hasn't he attacked us?\" \"Maybe he's trying to get us to let our guard down?\" Ilya suggests, but she doesn't sound very confident. Before the group can come to any kind of consensus, the Knight of Shackles pulls its sword free from where it is stuck in the ground and approaches. The group rushes into a battle stance, but the Knight does not raise its sword. The clatter of its armor rings through the desolate landscape. The Knight steps inside of Xaxos's protective aura, but stops a fair distance from the group. From beneath its helmet, smoke hisses out, and it almost sounds like words. \"Is it speaking?\" Ilya asks, breathlessly. \"I..\" the Knight says again, voice cracking as if it has not been used in decades. \"I-I, I... Thraxir.\" \"Thraxir.\" Ilya asks. Xaxos can barely contain his excitement. \"He's a legend, a breach mage of ancient Gravehold. The similarities in the armor... There were rumors they might be one and the same, but I never truly believed...\" Xaxos rushes forward a few steps, unconcerned with any potential danger. \"You're living proof of my theories!\" The suit of armor shifts to face Xaxos as he approaches. \"Another...like me? Twisted... Void touched....losing yourself.\" \"No, no, I'm nothing like you.\" Xaxos shakes his head quickly. \"You're so much more. Tell me, Thraxir, do you know of a place in the Void where magic is collected, a pool of pure aether?\" \"Yes,\" the word slips out like steam in the purple mist that rises from the armor. \"It is where I come from. Horrible place.\" Z'hana strides up to join them, the rest of the group following closely at her heels. Her face is impatient, hungry for the goal she can see just at her fingertips. \"So it's real. The Fountain of Souls. It's real and you've been there.\" Thraxir nods, slowly. \"And it truly collects the aether of fallen mages.\" Again, Thraxir nods his head. Z'hana clenches her hands in the fabric of her cloak and stares at Thraxir in silent disbelief. Her legs begin to shake and only Taqren's steady hand on her shoulder keeps her from collapsing. \"It's real,\" she whispers. \"It's actually real. My husband, all our fallen friends, they're really here. They're actually really here.\" \"Right.\" Xaxos nods. \"And that's why we need to destroy it.\" ",
+          "decisions": ["Loot"]
+        },
+        "nextBranchId": ["treasures-3"]
+      },
+      "treasures-3": {
+        "type": "reward",
+        "config": {
+          "type": "custom",
+          "supply": {
+            "ids": ["HelixOfAmber", "ReconstitutingCircuit", "UnhingedVortex", "RadiantConflux"]
+          },
+          "mage": {
+            "ids": ["Thraxir"]
+          },
+          "treasure": {
+            "ids": [
+              "ArmoredPauldrons",
+              "ReboundGauntlet",
+              "WorldMarble",
+              "TreasuredStone",
+              "BloodshotGeode"
+            ]
+          }
+        },
+        "nextBranchId": "Intro-B4"
+      },
+      "Intro-B4": {
+        "type": "narrative",
+        "config": {
+          "text": "The group falls silent. Z'hana stares at Xaxos in disbelief. Tagren draws a breath, but before he can say anything, she holds up a hand to silence him. \"Xaxos,\" she says, slowly, her voice dangerously calm. \"Why would we destroy the Fountain? We're here to use it. To bring back the people we lost.\" \"I'm afraid that's impossible. People don't come back.\" Z'hana shakes her head, refusing to listen. \"That's not true, you said it collects aether. You said we came here to fix what you broke in the Fall. You said we could bring back my husband.\" Xaxos smiles a thin, sickly smile, his face pale from the concentration he's still holding on his spell. There is no humor in his eyes, just a grim determination. \"I lied. Isn't that what you always expected from me, Z'hana? I lied so you would come here. I couldn't trust you to do it any other way.\" \"But Thraxir-\" \"The Fountain of Souls doesn't bring people back, does it.\" Taqren steps forward, his voice full of dread certainty. \"It takes their aether and twists it. Turns them into Nameless.\" Xaxos nods and Ilya only just manages to grab Z'hana by the arm before she lunges at him. Xaxos turns and gestures to Thraxir. \"This is what awaits our friends. Your Soren. It's too cruel, having to fight the people we loved. To have our failures thrown back in our faces. It needs to be destroyed.\" \"Your failures!\" Z'hana spits. \"It's your fault they're dead. You killed them!\" \"Which is why I need to be the one to set things right.\" Kel stomps a foot, demanding attention. \"Can everyone just calm down for a minute? Thraxir says he came through it, and he seems to be recovering.\" \"I have some of myself,\" Thraxir says, his voice still strained and unnatural. \"I barely...remember my name. But...years and years of bloodshed. What I have done, the deaths, I cannot...forget.\" \"But you're here,\" Z'hana says, desperation tearing at the edge of her voice. \"You're here. It's possible to become human again, right??\" \"If you really loved my father, would you want to put him through that?\" Taqren lifts his chin and squares his shoulders. Z'hana sees her own pain mirrored in her son's eyes. \"Xaxos is right. We owe it to the world to destroy this Fountain.\" \"And any source of Portalborn is a danger to all of us,\" Ilya chips in. \"Z'hana,\" Xaxos turns to face her and holds out his hand, palm up, \"will you fight with us?\" Z'hana scowls and knocks his hand away. \"You have taken my husband from me twice.\" She closes her eyes and draws in a steady breath. \"But we must destroy this abomination.\" \"Come,\" Thraxir says, slowly. \"I know the way.\" \"So how do we destroy the Fountain?\" Kel asks as they near the mouth of an imposing cave. Xaxos reaches into his cloak and pulls out a small, golden lantern. \"I've been working on this for some time. It runs on a concentrated form of aether that repels other, similar sources of aether. If you can all devote some energy to it, I should be able to keep the souls within the Fountain at bay until we can finish it off.\" The trek into the cave doesn't take very long before they find themselves standing at the mouth of an enormous cavern. It is breathtakingly beautiful. The water casts a faint purple light across the walls. Strange shadows outline the edges of stalactites. The water is perfectly calm, but golden light shimmers beneath the surface. The space seems to breathe around them, gigantic and imposing in its silence. Suddenly, the water starts to ripple and coalesce into a solid form. A hand entirely composed of that odd purple water reaches up and out of the surface of the pool. Slowly, a monstrous form pulls itself up and out of the pool, towering above the group. \"Protect the lantern!\" Xaxos yells, and everyone prepares themselves for battle.",
+          "decisions": ["Fight Nameless"]
+        },
+        "nextBranchId": ["battle-4"]
+      },
+      "battle-4": {
+        "type": "battle",
+        "config": {
+          "tier": 1,
+          "nemesisId": "FountainOfSouls",
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "custom",
+            "ids": [
+              "LabyrinthWraith-O",
+              "MageDevourer-O",
+              "Scour",
+              "BlackenedStars"
+            ]
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "B4-Conclusion"
+      },
+      "B4-Conclusion": {
+        "type": "narrative",
+        "config": {
+          "text": "The final blow lands and the Fountain explodes into a burst of radiant water, coating the cavern and leaving the mages drenched and gasping, \"Is it over?\" Ilya pants, leaning her head on Kel's shoulder in exhaustion. \"It's over,\" Kel answers, sweeping her Tether up in her arms and planting a kiss on her forehead. \"I thought I saw something moving in the pool,\" Taqren says, still holding his shield out in front of him. \"Don't let your guard down.\" The group watches in tense silence as something stirs in what little water remains. A single, human-sized, purple hand reaches up over the lip of the now-empty pool. A man begins to pull himself out. Z'hana sucks in a deep breath, trying to keep herself from hoping for a miracle. The man crawls his way out of the pool on his hands and knees, and then looks up. His face is a mess of eyes, and his skin is coated in fine spiderwebs. Xaxos is the first to recognize him. \"Arachnos?\" Arachnos turns towards the sound of his name, but there is clearly something lost behind his eyes. He is caught somewhere between human and monster. Behind him another figure, as pale as a ghost, crawls her way from the pit. Her skin is rippled and coated in burns. Z'hana falls to her knees in shock. \"Dezmodia.\" Dezmodia and Arachnos struggle their way to their feet, looking weak and unsteady. Thraxir is the first to step forward to meet them, a steady mountain of armor for them to lean against. \"They must have been halfway through the process,\" Xaxos muses quietly. \"Finished enough to survive, but not quite Nameless yet.\" \"Where are the rest of the people who died in the Fall?\" Z'hana looks up at Xaxos desperately. \"Why did only Dezmodia make it through?\" \"Maybe the concentrated energy at the center of the explosion. Maybe her connection with the Void. I don't know.\" Xaxos closes his eyes and hangs his head. \"I'm so sorry, Z'hana.\" Taqren kneels beside his mother and she leans into his shoulder, crying softly. He runs a hand soothingly down her back and murmurs, \"We saved him from a fate worse than death. Now he's free. They all are.\" Z'hana knows it's the truth, but it does little to soothe the cold grief wrapped around her heart. \"Do you see now, Z'hana? There's power in the Void. Powerful places just like this.\" Xaxos spreads his arms wide. \"This is where we'll find the answer. The key to stopping the Nameless for good. The Void is our only hope.\" Z'hana is quiet for a moment, considering his words. \"You're right. This place is important. But I don't think there's an easy answer out there waiting to be found.\" \"There is, and I'll find it.\" Xaxos gestures at the newly reformed mages. \"They can't go back to New Gravehold the way they are, but I can stay with them here. We'll find the way to destroy the Nameless once and for all. You could come with me.\" Z'hana shakes her head, slowly. \"No. You're wrong. But Brama is wrong too. We cannot rely on the Void to fix our problems, but we also cannot ignore its potential. It's time we stop thinking of our world and the Void as separate. We have to embrace them together.\" Resting a hand on Taqren for balance, Z'hana slowly pushes herself to her feet. She reaches up to her throat and unclasps the red cloak draped around her shoulders. With a quick movement she folds it once, and holds it out to Xaxos. His eyes are solemn as he takes it from her. \"Where will you go?\" Z'hana takes a long moment to look at the stony pool, drained of all its magic. The water is flat and empty. \"I think it's about time we had a discussion with Brama. I think it's about time I went home.\" ",
+
+          "decisions": ["Finish Expedition"]
+        },
+        "nextBranchId": ["lastBranch"]
+      },
+      "lastBranch": {
+        "type": "narrative",
+        "config": {
+          "text": "Congratulations, you finished the \"Aeon's End Outcasts Expedition!\" ",
+          "decisions": []
+        }
+      }
+    }
+  },
+  "initialBarracksConfig": {
+    "mageIds": ["Ilya", "Kel", "ZhanaO", "TaqrenO"],
+    "supplyIds": [
+      "MoltenPeridot",
+      "PetrifiedPhoenixium",
+      "DuplicatingSazite",
+      "DestinyForger",
+      "TransmutersLens",
+      "FortifiedFrost",
+      "TwistedFang",
+      "LightningArrow",
+      "TornadoOfInsight"
+    ],
+    "treasureIds": []
+  },
+  "settingsSnapshotConfig": {
+    "supplySetup": {
+      "id": "random",
+      "name": "Random Setup (Default)",
+      "type": "official",
+      "default": true,
+      "active": true,
+      "tiles": [
+        {
+          "type": "Gem",
+          "operation": "ANY"
+        },
+        {
+          "type": "Gem",
+          "operation": "ANY"
+        },
+        {
+          "type": "Gem",
+          "operation": "ANY"
+        },
+        {
+          "type": "Relic",
+          "operation": "ANY"
+        },
+        {
+          "type": "Relic",
+          "operation": "ANY"
+        },
+        {
+          "type": "Spell",
+          "operation": "ANY"
+        },
+        {
+          "type": "Spell",
+          "operation": "ANY"
+        },
+        {
+          "type": "Spell",
+          "operation": "ANY"
+        },
+        {
+          "type": "Spell",
+          "operation": "ANY"
+        }
+      ]
+    },
+    "availableCardIds": [],
+    "availableMageIds": [],
+    "availableNemesisIds": [],
+    "availableTreasureIds": [],
+    "availableUpgradedBasicNemesisCardIds": []
+  }
+}
