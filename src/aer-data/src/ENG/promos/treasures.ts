@@ -197,4 +197,156 @@ export const treasures: Treasure[] = [
       </p>
     `,
   },
+  {
+    id: 'IlyasTruliteOfForce',
+    name: "Ilya's Trulite of Force",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        Gain 1 <span class="aether">&AElig;</span><br />
+	Any ally may discard a card in hand. If they do, gain 1 <span class="aether">&AElig;</span> that can only be used to gain a spell or to focus or open a breach.
+      </p>
+    `,
+  },
+  {
+    id: 'KelsTruliteOfEnergy',
+    name: "Kel's Trulite of Energy",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        Gain 1 <span class="aether">&AElig;</span><br />
+	Any ally may discard a card in hand. If they do, gain 1 <span class="aether">&AElig;</span> that can only be used to gain a spell or to gain a gem or relic.
+      </p>
+    `,
+  },
+  {
+    id: 'QusCallOfTheVoid',
+    name: "Qu's Call of the Void",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        While prepped, the first time you play a gem or relic that costs 1 <span class="aether">&AElig;</span> or more each turn, play that card twice and then return it to the supply.
+      </p>
+      <p>
+	<b>Cast:</b> Deal 1 damage.
+      </p>
+    `,
+  },
+  {
+    id: 'ThraxirsNamelessSiphon',
+    name: "Thraxir's Nameless Siphon",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        Gain 1 <span class="aether">&AElig;</span>.
+        <span class="or">OR</span>
+	Any ally may discard a card in hand. If they do, focus one of your breaches.
+      </p>
+    `,
+  },
+  {
+    id: 'CairnasInvigorate',
+    name: "Cairna's Invigorate",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        <b>Cast:</b> Deal 1 damage.
+        <span class="or">OR</span>
+        <b>Cast:</b> Return a spell in your discarad pile to your hand.
+      </p>
+    `,
+  },
+  {
+    id: 'DezmodiasEternalDarkness',
+    name: "Dezmodia's Eternal Darkness",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        This may be prepped to closed breaches. <br />
+        <b>Cast:</b> Gain 3 <span class="aether">&AElig;</span> that can only be used to focus or open a breach.
+      </p>
+    `,
+  },
+  {
+    id: 'OhatsShowerOfCoals',
+    name: "Ohat's Shower of Coals",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        <b>Cast:</b> Suffer 1 damage and gain 2 <span class="aether">&AElig;</span>.
+        <span class="or">OR</span>
+        <b>Cast:</b> Deal 1 damage.
+      </p>
+    `,
+  },
+  {
+    id: 'LuciensSunShard',
+    name: "Lucien's Sun Shard",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        Gain 1 <span class="aether">&AElig;</span>.
+        <span class="or">OR</span>
+        Gain 3 <span class="aether">&AElig;</span> that can only be used to open a breach.
+      </p>
+    `,
+  },
+  {
+    id: 'RethsFossilizedRoze',
+    name: "Reth's Fossilized Rose",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        <b>Cast:</b> Deal 1 damage.
+        <span class="or">OR</span>
+        <b>Cast:</b> Discard a card in hand. If you do, gain a spell that costs 5 <span class="aether">&AElig;</span> or less from any supply pile.
+      </p>
+    `,
+  },
+  {
+    id: 'TaqrensDefenseGlyphs',
+    name: "Taqren's Defense Glyphs",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        Gain 1 <span class="aether">&AElig;</span>.<br />
+	You may suffer 1 damge. If you do, gain 1 charge.
+      </p>
+    `,
+  },
+  {
+    id: 'ZhanasScimitar',
+    name: "Z'hana's Scimitar",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        Gain 1 <span class="aether">&AElig;</span>
+        <span class="or">OR</span>
+        Place 2 <span class="aether">&AElig;</span> tokens on top of any card in the supply. When any player gains that card, they gain the <span class="aether">&AElig;</span> tokens on it.
+      </p>
+    `,
+  },
+  {
+    id: 'ArachnosSpellbook',
+    name: "Arachnos's Speelbook",
+    expansion: 'promos',
+    level: 1,
+    effect: `
+      <p>
+        <b>Cast:</b> Deal 1 damage. <br />
+	If you have two or more cards in hand that cost 4 <span class="aether">&AElig;</span> or more, gain 1 charge.
+      </p>
+    `,
+  },
 ]
