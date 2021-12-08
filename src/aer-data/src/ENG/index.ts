@@ -16,6 +16,7 @@ import { warEternalData } from './warEternal'
 import { outcastsData } from './outcasts'
 import { returnToGraveholdData } from './returnToGravehold'
 import { southernVillageData } from './southernVillage'
+import { theRuinsData } from './theRuins'
 
 const ENG: IExpansionData = {
   AE: aeonsEndData,
@@ -33,6 +34,7 @@ const ENG: IExpansionData = {
   O: outcastsData,
   RTG: returnToGraveholdData,
   SV: southernVillageData,
+  RU: theRuinsData,
   promos: promosData,
 }
 

@@ -195,4 +195,49 @@ export const cards: ICard[] = [
     `,
     keywords: [],
   },
+  {
+    type: 'Gem',
+    expansion: 'promos',
+    name: 'Talusoid Clod',
+    id: 'TalusoidClod',
+    cost: 4,
+    effect: `
+      <p>
+        Gain 2 <span class="aether">&AElig;</span>.
+      </p>
+      <p>
+	<b>Recall:</b> You may suffer 2 damage to return this to your hand.
+      </p>
+    `,
+    keywords: ['recall'],
+  },
+  {
+    type: 'Relic',
+    expansion: 'promos',
+    name: 'Chronophage Coil',
+    id: 'ChronophageCoil',
+    cost: 8,
+    effect: `
+      <p>
+        Destroy this.<br />
+	Shuffle any player's turn order card into the turn order deck.
+      </p>
+    `,
+    keywords: [],
+  },
+  {
+    type: 'Spell',
+    expansion: 'promos',
+    name: 'Parasitic Force',
+    id: 'ParasiticForce',
+    cost: 8,
+    effect: `
+      <p>
+        You may prep this to any player's opened breach.<br />
+	<b>Cast:</b> Deal 6 damage.<br />
+	You may destroy up to two cards in your hand or discard pile.
+      </p>
+    `,
+    keywords: [],
+  },
 ]
