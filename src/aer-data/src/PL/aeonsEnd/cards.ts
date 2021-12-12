@@ -116,7 +116,7 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'AE',
-    name: 'Burning Opal',
+    name: 'Płonący Opal',
     id: 'BurningOpal',
     cost: 5,
     effect: `
