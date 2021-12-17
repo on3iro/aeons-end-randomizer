@@ -9,10 +9,8 @@ export const cards: ICard[] = [
     cost: 6,
     effect: `
       <p>
-        <b>Cast:</b> Deal 4 damage to a minion or the nemesis.<br />
-        You may lose 2 charges. If you do, repeat this.<br />
-        <span class="hint">(Effects that modify damage affect each 
-        instance of damage this spell deals)</span>
+        <b>Wirken:</b> Füge 4 Schaden zu.<br />
+        Wiederhole das, wenn du 2 Energie abwirfst.
       </p>
     `,
     keywords: [],
@@ -25,9 +23,9 @@ export const cards: ICard[] = [
     cost: 3,
     effect: `
       <p>
-        <b>Cast:</b> Deal 2 damage.<br />
-        Each player may reveal the top two cards of their deck and may discard 
-        any of those cards.
+        <b>Wirken:</b> Füge 2 Schaden zu.<br />
+        <b>Jeder Spieler:</b> Sieh dir die 2 obersten Karten deines
+		Decks an. Du darfst sie jeweils abwerfen.
       </p>
     `,
     keywords: [],
@@ -35,15 +33,15 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'promos',
-    name: 'Splinter Missile',
+    name: 'Splitter-Geschoss',
     id: 'SplinterMissile',
     cost: 5,
     effect: `
       <p>
-        <b>Cast:</b> Deal 4 damage.<br />
-        Any ally may discard a card in hand. 
-        If they do, divide this damage however you choose among the nemesis 
-        and any number of minions.
+        <b>Wirken:</b> Füge 4 Schaden zu.<br />
+        Wirft 1 anderer Spieler deiner Wahl 1 Karte
+		von seiner Hand ab?
+		Der Schaden ist nun aufteilbar.
       </p>
     `,
     keywords: [],
