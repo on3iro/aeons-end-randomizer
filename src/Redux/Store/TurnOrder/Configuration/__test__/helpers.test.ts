@@ -132,4 +132,23 @@ describe('adjustSetup()', () => {
 
     expect(result).toEqual(expected)
   })
+
+  it('should switch the nemesis cards with myth and bone', () => {
+    const expected = {
+      id: 'default',
+      name: 'Default',
+      turnOrderCards: [
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player1-2'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['player2-2'],
+        AERData.turnordercards['myth'],
+        AERData.turnordercards['bone'],
+      ],
+    }
+
+    const result = adjustSetup('Paradox of Myth and Bone', defaultVariation)
+
+    expect(result).toEqual(expected)
+  })
 })
