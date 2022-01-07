@@ -124,6 +124,14 @@ export const mainTheme = {
         normal: '#192A56',
         light: '#D6DFEB',
       },
+      myth: {
+        normal: '#473570',
+        light: '#A39AB7',
+      },
+      bone: {
+        normal: '#5B5B5B',
+        light: '#AEAEAE',
+      },
     },
     cards: {
       ...treasureColors,

@@ -17,6 +17,7 @@ import { outcastsData } from './outcasts'
 import { returnToGraveholdData } from './returnToGravehold'
 import { southernVillageData } from './southernVillage'
 import { theRuinsData } from './theRuins'
+import { legacyOfGraveholdData } from './legacyOfGravehold'
 
 const ENG: IExpansionData = {
   AE: aeonsEndData,
@@ -35,6 +36,7 @@ const ENG: IExpansionData = {
   RTG: returnToGraveholdData,
   SV: southernVillageData,
   RU: theRuinsData,
+  LOG: legacyOfGraveholdData,
   promos: promosData,
 }
 

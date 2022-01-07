@@ -91,7 +91,7 @@ export type Expansions = {
 export type ExpeditionRating = 1 | 2 | 3 | 4
 
 export type Nemesis = ICreature & {
-  health: number
+  health: number | '*'
   additionalInfo: string
   difficulty: number
   expeditionRating: ExpeditionRating

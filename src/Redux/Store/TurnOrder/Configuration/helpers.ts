@@ -28,7 +28,7 @@ const adjustSetup = (
       return {
         id: setup.id,
         name: setup.name,
-        turnOrderCards: setup.turnOrderCards.map((card) => {
+        turnOrderCards: setup.turnOrderCards.map(card => {
           return card.id === 'nemesis-1' || card.id === 'blitz'
             ? AERData.turnordercards['maelstrom']
             : card
@@ -40,7 +40,7 @@ const adjustSetup = (
       return {
         id: setup.id,
         name: setup.name,
-        turnOrderCards: setup.turnOrderCards.map((card) => {
+        turnOrderCards: setup.turnOrderCards.map(card => {
           return card.id === 'nemesis-1' || card.id === 'maelstrom'
             ? AERData.turnordercards['blitz']
             : card
@@ -52,7 +52,7 @@ const adjustSetup = (
       return {
         id: setup.id,
         name: setup.name,
-        turnOrderCards: setup.turnOrderCards.map((card) => {
+        turnOrderCards: setup.turnOrderCards.map(card => {
           if (card.id === 'nemesis-1') {
             return AERData.turnordercards['blitz']
           }
@@ -70,10 +70,28 @@ const adjustSetup = (
       return {
         id: setup.id,
         name: setup.name,
-        turnOrderCards: setup.turnOrderCards.map((card) => {
+        turnOrderCards: setup.turnOrderCards.map(card => {
           return card.id === 'nemesis-1'
             ? AERData.turnordercards['thiefOfDreams']
             : card
+        }),
+      }
+    }
+
+    case 'Paradox of Myth and Bone': {
+      return {
+        id: setup.id,
+        name: setup.name,
+        turnOrderCards: setup.turnOrderCards.map(card => {
+          if (card.id === 'nemesis-1') {
+            return AERData.turnordercards['myth']
+          }
+
+          if (card.id === 'nemesis-2') {
+            return AERData.turnordercards['bone']
+          }
+
+          return card
         }),
       }
     }

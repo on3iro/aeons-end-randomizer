@@ -46,6 +46,18 @@ export const TURNORDERCARDS: { [key: string]: ITurnOrderCard } = {
     name: 'Thief Of Dreams Delirium',
     type: 'thief-of-dreams',
   },
+
+  myth: {
+    id: 'myth',
+    name: 'Myth',
+    type: 'myth',
+  },
+
+  bone: {
+    id: 'bone',
+    name: 'Bone',
+    type: 'bone',
+  },
 }
 
 export const TURNORDERSETUPS: ITurnOrderSetups = {

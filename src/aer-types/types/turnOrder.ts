@@ -12,6 +12,8 @@ export type Player =
   | 'Maelstrom Assault'
   | 'Blitz'
   | 'Thief Of Dreams Delirium'
+  | 'Myth'
+  | 'Bone'
 
 export type TurnOrderCardType =
   | 'player1'
@@ -26,6 +28,8 @@ export type TurnOrderCardType =
   | 'maelstrom'
   | 'blitz'
   | 'thief-of-dreams'
+  | 'myth'
+  | 'bone'
 
 export interface ITurnOrderCard {
   id: string
@@ -61,6 +65,7 @@ export const MODES = [
   'Blitz',
   'Blitz + Maelstrom',
   'Thief Of Dreams',
+  'Paradox of Myth and Bone',
 ] as const
 export type Mode = typeof MODES[number] // automatically creates union from tuple
 
