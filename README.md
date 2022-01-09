@@ -146,6 +146,14 @@ This analyzes only app data. `node_modules` are skipped.
 Runs the source-map-explorer and displays its results inside the browser.
 This analyzes only vendor data. `app` data is skipped.
 
+## Docker Setup
+
+This project can also be deployed via docker-compose.
+
+Simply run `docker-compose up -d` inside the docker folder. Open [http://localhost:8080](http://localhost:8080) to view it in the brwoser.
+
+For further instructions regarding docker or docker-compose please refer to the official documentations of [docker](https://docs.docker.com/) or [docker-compose](https://docs.docker.com/compose/)
+
 ## Using types and data in other apps
 
 The typings and all of our aeons end data are part of this mono-repository.
