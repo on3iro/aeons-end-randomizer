@@ -17,7 +17,7 @@ const MageList = ({ mages }: Props) => (
       {mages
         .filter((m): m is Mage => !!m)
         .map((mage, index) => (
-          <MageTile mage={mage} key={mage.name} playerNumber={index + 1} />
+          <MageTile mage={mage} key={mage.id} playerNumber={index + 1} />
         ))}
     </Grid>
   </MageGridWrapper>
