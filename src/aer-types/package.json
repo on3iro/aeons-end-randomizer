@@ -1,6 +1,6 @@
 {
   "name": "aer-types",
-  "version": "3.6.2",
+  "version": "3.10.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
