@@ -18,6 +18,7 @@ import { returnToGraveholdData } from './returnToGravehold'
 import { southernVillageData } from './southernVillage'
 import { theRuinsData } from './theRuins'
 import { legacyOfGraveholdData } from './legacyOfGravehold'
+import { communityData } from './community'
 
 const ENG: IExpansionData = {
   AE: aeonsEndData,
@@ -38,6 +39,7 @@ const ENG: IExpansionData = {
   RU: theRuinsData,
   LOG: legacyOfGraveholdData,
   promos: promosData,
+  community: communityData,
 }
 
 export default ENG
