@@ -18,14 +18,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'promos',
-    name: 'Fleeting Vision',
+    name: 'Przelotna Wizja',
     id: 'FleetingVision',
     cost: 3,
     effect: `
       <p>
-      <b>Cast:</b> Deal 2 damage.<br/>
-      Each player may reveal the top two cards of their deck and may discard 
-      any of those cards.
+      <b>Aktywacja:</b> Zadaj 2 obrażenia.<br/>
+      Każdy gracz może odkryć 2 karty z wierzchu swojej talii i odrzucić lub odłożyć z powrotem każdą z nich.
         </p>
       `,
     keywords: [],
@@ -33,15 +32,14 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'promos',
-    name: 'Splinter Missile',
+    name: 'Magiczny Pocisk',
     id: 'SplinterMissile',
     cost: 5,
     effect: `
       <p>
-      <b>Cast:</b> Deal 4 damage.<br/>
-      Any ally may discard a card in hand. 
-      If they do, divide this damage however you choose among the nemesis 
-      and any number of minions.
+      <b>Aktywacja:</b> Zadaj 4 obrażenia.<br/>
+      Dowolny sojusznik może odrzucić kartę z ręki. Jeżeli to zrobi, podziel te obrażenia dowolnie pomiędzy
+      Nemezis i dowolną liczbę Popleczników.
         </p>
       `,
     keywords: [],
@@ -49,13 +47,13 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'promos',
-    name: 'Echo Stone',
+    name: 'Echo Kryształ',
     id: 'EchoStone',
     cost: 4,
     effect: `
       <p>
-      Gain 2 <span class="aether">&AElig;</span>.<br/>
-      If you have played another Echo Stone this turn, gain an additional 
+      Otrzymaj 2 <span class="aether">&AElig;</span>.<br/>
+      Jeżeli zagrałeś inny Echo Kryształ w tej turze, otrzymujesz dodatkowo
       1 <span class="aether">&AElig;</span>.
       </p>
       `,
