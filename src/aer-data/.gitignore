@@ -210,3 +210,6 @@ report.*.json
 # =======================================
 cypress/videos/*
 cypress/screenshots/*
+
+
+.DS_STORE

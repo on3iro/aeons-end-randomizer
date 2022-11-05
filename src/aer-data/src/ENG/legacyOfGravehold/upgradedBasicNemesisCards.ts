@@ -132,7 +132,7 @@ export const upgradedBasicNemesisCards: UpgradedBasicNemesisCard[] = [
     id: 'Stifle',
     name: 'Stifle',
     expansion: 'LOG',
-    tier: 3,
+    tier: 2,
     type: 'Attack',
     effect: `
       <p>
