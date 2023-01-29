@@ -73,7 +73,7 @@ const cards: types.ICard[] = [
     effect: `
       <p>
         <b>Cast:</b> Deal 3 damage.<br/>
-        You may discard a card in hand. If your do, any player gains 1 life.
+        You may discard a card in hand. If you do, any player gains 1 life.
       </p>
     `,
     keywords: [],
@@ -157,7 +157,7 @@ const cards: types.ICard[] = [
     cost: 7,
     effect: `
     <p>
-    <b>Cast:</b> Destory up to two cards in hand.<br/>
+    <b>Cast:</b> Destroy up to two cards in hand.<br/>
     Deal 3 damage for each card destroyed in this way.
       </p>
       `,
@@ -218,7 +218,7 @@ const cards: types.ICard[] = [
       The next time you focus or open a breach this turn, it costs 3 
       <span class="aether">&AElig;</span> less.
       <span class="or">OR</span>
-      Destory this. Deal 1 damage.
+      Destroy this. Deal 1 damage.
     </p>
       `,
     keywords: [],
@@ -246,7 +246,7 @@ const cards: types.ICard[] = [
     effect: `
     <p>
       Destroy this.<br/>
-      Destory up to two cards in your hand or discard pile.<br/>
+      Destroy up to two cards in your hand or discard pile.<br/>
       Draw a card.
     </p>
       `,
@@ -391,7 +391,7 @@ const cards: types.ICard[] = [
     <p>
       Focus any player's breach.
       <span class="or">OR</span>
-      Destory this. Gravehold gains 3 life.
+      Destroy this. Gravehold gains 3 life.
     </p>
       `,
     keywords: [],

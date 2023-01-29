@@ -139,7 +139,7 @@ const theAncientsData = {
       </p>
       <p>
         At the end of that player's casting phase, focus this breach.
-        When this breach is opened, destory this card.
+        When this breach is opened, destroy this card.
       </p>
         `,
       keywords: [],

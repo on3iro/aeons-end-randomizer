@@ -321,7 +321,7 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     name: 'Throttle',
     effect: `
       <p>
-        Unleash twice. Any player destorys their three most expensive cards in hand.
+        Unleash twice. Any player destroys their three most expensive cards in hand.
       </p>
     `,
   },

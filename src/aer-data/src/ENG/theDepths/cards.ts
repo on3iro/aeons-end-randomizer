@@ -116,7 +116,7 @@ export const cards: ICard[] = [
     cost: 4,
     effect: `
       <p>
-        Destory a card in hand.<br/>
+        Destroy a card in hand.<br/>
         You may gain a card from any supply pile that costs up to 
         3 <span class="aether">&AElig;</span> more than the destroyed card.
       </p>
