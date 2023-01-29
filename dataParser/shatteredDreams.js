@@ -52,7 +52,7 @@ const shatteredDreamsData = {
       cost: 3,
       effect: `
       <p>
-      Gain 2 aether.
+      Gain 2 <span class="aether">&AElig;</span>.
         <span class="or">OR</span>
       Deal 1 damage to a minion.
       </p>

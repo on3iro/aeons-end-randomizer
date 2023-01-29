@@ -171,7 +171,7 @@ export const cards: ICard[] = [
     cost: 3,
     effect: `
       <p>
-        <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>
+        <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>
         </p>
         <p>
         <b>Cast:</b> Deal 2 damage.<br/>
@@ -232,7 +232,7 @@ export const cards: ICard[] = [
     cost: 4,
     effect: `
       <p>
-      <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>
+      <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>
       </p>
       <p>
       <b>Cast:</b> Deal 3 damage.<br/>

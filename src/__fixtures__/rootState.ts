@@ -612,7 +612,7 @@ export const rootState: RootState = {
               id: 'EssenceTheft',
               cost: 5,
               effect:
-                '\n        <p>\n          <b>Cast:</b> Deal 3 damage.<br/>\n          You may discard a card in hand. If your do, any player gains 1 life.\n        </p>\n      ',
+                '\n        <p>\n          <b>Cast:</b> Deal 3 damage.<br/>\n          You may discard a card in hand. If you do, any player gains 1 life.\n        </p>\n      ',
               keywords: [],
             },
             SearingRuby: {
@@ -672,7 +672,7 @@ export const rootState: RootState = {
               id: 'ConsumingVoid',
               cost: 7,
               effect:
-                '\n      <p>\n      <b>Cast:</b> Destory up to two cards in hand.<br/>\n      Deal 3 damage for each card destroyed in this way.\n        </p>\n        ',
+                '\n      <p>\n      <b>Cast:</b> Destroy up to two cards in hand.<br/>\n      Deal 3 damage for each card destroyed in this way.\n        </p>\n        ',
               keywords: [],
             },
             UnstablePrism: {
@@ -712,7 +712,7 @@ export const rootState: RootState = {
               id: 'FlexingDagger',
               cost: 2,
               effect:
-                '\n      <p>\n        The next time you focus or open a breach this turn, it costs 3 \n        <span class="aether">&AElig;</span> less.\n        <span class="or">OR</span>\n        Destory this. Deal 1 damage.\n      </p>\n        ',
+                '\n      <p>\n        The next time you focus or open a breach this turn, it costs 3 \n        <span class="aether">&AElig;</span> less.\n        <span class="or">OR</span>\n        Destroy this. Deal 1 damage.\n      </p>\n        ',
               keywords: [],
             },
             LavaTendril: {
@@ -732,7 +732,7 @@ export const rootState: RootState = {
               id: 'BottledVortex',
               cost: 3,
               effect:
-                '\n      <p>\n        Destroy this.<br/>\n        Destory up to two cards in your hand or discard pile.<br/>\n        Draw a card.\n      </p>\n        ',
+                '\n      <p>\n        Destroy this.<br/>\n        Destroy up to two cards in your hand or discard pile.<br/>\n        Draw a card.\n      </p>\n        ',
               keywords: [],
             },
             ArcaneNexus: {
@@ -832,7 +832,7 @@ export const rootState: RootState = {
               id: 'FocusingOrb',
               cost: 4,
               effect:
-                '\n      <p>\n        Focus any player\'s breach.\n        <span class="or">OR</span>\n        Destory this. Gravehold gains 3 life.\n      </p>\n        ',
+                '\n      <p>\n        Focus any player\'s breach.\n        <span class="or">OR</span>\n        Destroy this. Gravehold gains 3 life.\n      </p>\n        ',
               keywords: [],
             },
             OblivionSwell: {
@@ -962,7 +962,7 @@ export const rootState: RootState = {
               id: 'PrecisionShot',
               cost: 3,
               effect:
-                '\n      <p>\n        <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>\n        </p>\n        <p>\n        <b>Cast:</b> Deal 2 damage.<br/>\n        If there are six or more other cards in your \n        discard pile, deal 2 additional damage.\n        </p>\n        ',
+                '\n      <p>\n        <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>\n        </p>\n        <p>\n        <b>Cast:</b> Deal 2 damage.<br/>\n        If there are six or more other cards in your \n        discard pile, deal 2 additional damage.\n        </p>\n        ',
               keywords: ['link'],
             },
             MutedLacosite: {
@@ -1002,7 +1002,7 @@ export const rootState: RootState = {
               id: 'FlashOfIntellect',
               cost: 4,
               effect:
-                '\n      <p>\n      <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>\n      </p>\n      <p>\n      <b>Cast:</b> Deal 3 damage.<br/>\n      If there are six or more other cards in your \n      discard pile, you may gain a Flash of Intellect from the supply and \n      place it on top of your deck.\n        </p>\n      ',
+                '\n      <p>\n      <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>\n      </p>\n      <p>\n      <b>Cast:</b> Deal 3 damage.<br/>\n      If there are six or more other cards in your \n      discard pile, you may gain a Flash of Intellect from the supply and \n      place it on top of your deck.\n        </p>\n      ',
               keywords: [],
             },
             ScholarsOpus: {
@@ -1141,7 +1141,7 @@ export const rootState: RootState = {
               id: 'Transmogrifier',
               cost: 4,
               effect:
-                '\n      <p>\n        Destory a card in hand.<br/>\n        You may gain a card from any supply pile that costs up to \n        3 <span class="aether">&AElig;</span> more than the destroyed card.\n      </p>\n        ',
+                '\n      <p>\n        Destroy a card in hand.<br/>\n        You may gain a card from any supply pile that costs up to \n        3 <span class="aether">&AElig;</span> more than the destroyed card.\n      </p>\n        ',
               keywords: [],
             },
             JeweledBrain: {
@@ -1951,7 +1951,7 @@ export const rootState: RootState = {
               id: 'Olivinite',
               cost: 3,
               effect:
-                '\n      <p>\n      Gain 2 aether.\n        <span class="or">OR</span>\n      Deal 1 damage to a minion.\n      </p>\n      ',
+                '\n      <p>\n      Gain 2 <span class="aether">&AElig;</span>.\n        <span class="or">OR</span>\n      Deal 1 damage to a minion.\n      </p>\n      ',
               keywords: [],
             },
             CacheGlass: {
@@ -2081,7 +2081,7 @@ export const rootState: RootState = {
               id: 'FocusingConduit',
               cost: 5,
               effect:
-                "\n      <p>\n        <b>Attach</b> this to any player's breach.\n      </p>\n      <p>\n        At the end of that player's casting phase, focus this breach.\n        When this breach is opened, destory this card.\n      </p>\n        ",
+                "\n      <p>\n        <b>Attach</b> this to any player's breach.\n      </p>\n      <p>\n        At the end of that player's casting phase, focus this breach.\n        When this breach is opened, destroy this card.\n      </p>\n        ",
               keywords: [],
             },
             DualFlash: {
@@ -2151,7 +2151,7 @@ export const rootState: RootState = {
               id: 'Conflagration',
               cost: 3,
               effect:
-                '\n      <p>\n      <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>\n      </p>\n      <p>\n      <b>Cast:</b> Deal 2 damage.<br/>\n      Gain 1 <span class="aether">&AElig;</span>.\n        </p>\n      ',
+                '\n      <p>\n      <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>\n      </p>\n      <p>\n      <b>Cast:</b> Deal 2 damage.<br/>\n      Gain 1 <span class="aether">&AElig;</span>.\n        </p>\n      ',
               keywords: ['link'],
             },
             DimensionalKey: {
@@ -2171,7 +2171,7 @@ export const rootState: RootState = {
               id: 'InnerFire',
               cost: 2,
               effect:
-                '\n      <p>\n        <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>\n      </p>\n      <p>\n        <b>Cast:</b> Deal 1 damage.<br/>\n        If the nemesis tier is 2 or higher, deal 1 additional damage.\n        </p>\n        ',
+                '\n      <p>\n        <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>\n      </p>\n      <p>\n        <b>Cast:</b> Deal 1 damage.<br/>\n        If the nemesis tier is 2 or higher, deal 1 additional damage.\n        </p>\n        ',
               keywords: ['link'],
             },
             Fulminate: {
@@ -2181,7 +2181,7 @@ export const rootState: RootState = {
               id: 'Fulminate',
               cost: 5,
               effect:
-                '\n      <p>\n      While prepped, other spells you cast deal 1 additional damage.\n      </p>\n      <p>\n      <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>\n      </p>  \n      <b>Cast:</b> Deal 3 damage.\n        </p>\n        ',
+                '\n      <p>\n      While prepped, other spells you cast deal 1 additional damage.\n      </p>\n      <p>\n      <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>\n      </p>  \n      <b>Cast:</b> Deal 3 damage.\n        </p>\n        ',
               keywords: ['link'],
             },
             EternityCharm: {
@@ -8070,7 +8070,7 @@ export const rootState: RootState = {
               type: 'Attack',
               name: 'Throttle',
               effect:
-                '\n      <p>\n        Unleash twice. Any player destorys their three most expensive cards in hand.\n      </p>\n    ',
+                '\n      <p>\n        Unleash twice. Any player destroys their three most expensive cards in hand.\n      </p>\n    ',
             },
             'WitheringBeam-WE': {
               id: 'WitheringBeam-WE',

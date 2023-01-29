@@ -375,7 +375,7 @@ const spells: ICard[] = [
     effect: `
       <p>
         <b>Cast:</b> Deal 3 damage.<br/>
-        You may reveal the top two cards of you deck and place any number
+        You may reveal the top two cards of your deck and place any number
         of those cards on top of your discard pile.
       </p>
     `,

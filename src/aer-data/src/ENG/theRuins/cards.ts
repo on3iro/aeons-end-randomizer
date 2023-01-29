@@ -74,7 +74,7 @@ export const cards: ICard[] = [
 	Gain 2 charges.
       </p>
     `,
-    keywords: ['silence'],
+    keywords: [],
   },
   {
     type: 'Relic',

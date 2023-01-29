@@ -21,7 +21,7 @@ Spell,AE,Ignite,Ignite,4,"
 Spell,AE,Essence Theft,EssenceTheft,5,"
         <p>
           <b>Cast:</b> Deal 3 damage.<br/>
-          You may discard a card in hand. If your do, any player gains 1 life.
+          You may discard a card in hand. If you do, any player gains 1 life.
         </p>
       ",[]
 Gem,AE,Searing Ruby,SearingRuby,4,"
@@ -57,7 +57,7 @@ Gem,AE,Burning Opal,BurningOpal,5,"
       ",[]
 Spell,AE,Consuming Void,ConsumingVoid,7,"
       <p>
-      <b>Cast:</b> Destory up to two cards in hand.<br/>
+      <b>Cast:</b> Destroy up to two cards in hand.<br/>
       Deal 3 damage for each card destroyed in this way.
         </p>
         ",[]
@@ -86,7 +86,7 @@ Relic,AE,Flexing Dagger,FlexingDagger,2,"
         The next time you focus or open a breach this turn, it costs 3 
         <span class=""aether"">&AElig;</span> less.
         <span class=""or"">OR</span>
-        Destory this. Deal 1 damage.
+        Destroy this. Deal 1 damage.
       </p>
         ",[]
 Spell,AE,Lava Tendril,LavaTendril,4,"
@@ -98,7 +98,7 @@ Spell,AE,Lava Tendril,LavaTendril,4,"
 Relic,AE,Bottled Vortex,BottledVortex,3,"
       <p>
         Destroy this.<br/>
-        Destory up to two cards in your hand or discard pile.<br/>
+        Destroy up to two cards in your hand or discard pile.<br/>
         Draw a card.
       </p>
         ",[]
@@ -163,7 +163,7 @@ Relic,AE,Focusing Orb,FocusingOrb,4,"
       <p>
         Focus any player's breach.
         <span class=""or"">OR</span>
-        Destory this. Gravehold gains 3 life.
+        Destroy this. Gravehold gains 3 life.
       </p>
         ",[]
 Spell,AE,Oblivion Swell,OblivionSwell,5,"
@@ -250,7 +250,7 @@ Gem,BS,Voidium Spike,VoidiumSpike,3,"
       ",[]
 Spell,BS,Precision Shot,PrecisionShot,3,"
       <p>
-        <b>Link</b> <span class=""hint"">(Two spells with Link mat be prepped to the same breach.)</span>
+        <b>Link</b> <span class=""hint"">(Two spells with Link may be prepped to the same breach.)</span>
         </p>
         <p>
         <b>Cast:</b> Deal 2 damage.<br/>
@@ -279,7 +279,7 @@ Spell,BS,Stunning Force,StunningForce,5,"
       ","[""silence""]"
 Spell,BS,Flash Of Intellect,FlashOfIntellect,4,"
       <p>
-      <b>Link</b> <span class=""hint"">(Two spells with Link mat be prepped to the same breach.)</span>
+      <b>Link</b> <span class=""hint"">(Two spells with Link may be prepped to the same breach.)</span>
       </p>
       <p>
       <b>Cast:</b> Deal 3 damage.<br/>
@@ -740,7 +740,7 @@ Spell,promos,Chronal Arc,ChronalArc,7,"
         ",[]
 Gem,SD,Olivinite,Olivinite,3,"
       <p>
-      Gain 2 aether.
+      Gain 2 <span class="aether">&AElig;</span>.
         <span class=""or"">OR</span>
       Deal 1 damage to a minion.
       </p>
@@ -838,7 +838,7 @@ Relic,TA,Focusing Conduit,FocusingConduit,5,"
       </p>
       <p>
         At the end of that player's casting phase, focus this breach.
-        When this breach is opened, destory this card.
+        When this breach is opened, destroy this card.
       </p>
         ",[]
 Spell,TA,Dual Flash,DualFlash,3,"
@@ -918,7 +918,7 @@ Gem,Depths,Banishing Topaz,BanishingTopaz,5,"
       ",[]
 Relic,Depths,Transmogrifier,Transmogrifier,4,"
       <p>
-        Destory a card in hand.<br/>
+        Destroy a card in hand.<br/>
         You may gain a card from any supply pile that costs up to 
         3 <span class=""aether"">&AElig;</span> more than the destroyed card.
       </p>
@@ -1160,7 +1160,7 @@ Spell,TV,Resonate,Resonate,6,"
       ",[]
 Spell,TV,Conflagration,Conflagration,3,"
       <p>
-      <b>Link</b> <span class=""hint"">(Two spells with Link mat be prepped to the same breach.)</span>
+      <b>Link</b> <span class=""hint"">(Two spells with Link may be prepped to the same breach.)</span>
       </p>
       <p>
       <b>Cast:</b> Deal 2 damage.<br/>
@@ -1177,7 +1177,7 @@ Relic,TV,Dimensional Key,DimensionalKey,8,"
       ",[]
 Spell,TV,Inner Fire,InnerFire,2,"
       <p>
-        <b>Link</b> <span class=""hint"">(Two spells with Link mat be prepped to the same breach.)</span>
+        <b>Link</b> <span class=""hint"">(Two spells with Link may be prepped to the same breach.)</span>
       </p>
       <p>
         <b>Cast:</b> Deal 1 damage.<br/>
@@ -1189,7 +1189,7 @@ Spell,TV,Fulminate,Fulminate,5,"
       While prepped, other spells you cast deal 1 additional damage.
       </p>
       <p>
-      <b>Link</b> <span class=""hint"">(Two spells with Link mat be prepped to the same breach.)</span>
+      <b>Link</b> <span class=""hint"">(Two spells with Link may be prepped to the same breach.)</span>
       </p>  
       <b>Cast:</b> Deal 3 damage.
         </p>
