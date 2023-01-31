@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, selectors, actions } from 'Redux/Store'
@@ -36,16 +36,23 @@ const mapStateToProps = (state: RootState, { expansionId }: OwnProps) => {
       state,
       { expansionId }
     ),
-    allExpansionContentSelected: selectors.Settings.Expansions.getAllContentOfExpansionSelected(
-      state,
-      { expansionId }
-    ),
+    languagesOfExpansions:
+      selectors.Settings.Expansions.Languages.getLanguagesByExpansion(state),
+    globalLang:
+      selectors.Settings.Expansions.GlobalLanguage.getGlobalLanguageOfExpansions(
+        state
+      ),
+    allExpansionContentSelected:
+      selectors.Settings.Expansions.getAllContentOfExpansionSelected(state, {
+        expansionId,
+      }),
   }
 }
 
 const mapDispatchToProps = {
   // FIXME use available expansions instead
   selectLanguage: actions.Settings.Expansions.Languages.select,
+  selectGlobalLanguage: actions.Settings.Expansions.GlobalLanguage.select,
   handleSelectAllExpansionContent:
     actions.Settings.Expansions.main.toggleAllExpansionContent,
 }
@@ -57,8 +64,11 @@ type Props = ReturnType<typeof mapStateToProps> &
 const ContentCustomization = ({
   expansionId,
   lang,
+  languagesOfExpansions,
+  globalLang,
   allExpansionContentSelected,
   selectLanguage,
+  selectGlobalLanguage,
   handleSelectAllExpansionContent,
 }: Props) => {
   const handleCheckboxChange = () => {
@@ -66,6 +76,14 @@ const ContentCustomization = ({
       ? handleSelectAllExpansionContent(expansionId, 'deselect')
       : handleSelectAllExpansionContent(expansionId, 'select')
   }
+
+  useEffect(() => {
+    if (
+      Object.values(languagesOfExpansions).some((lang) => lang !== globalLang)
+    ) {
+      selectGlobalLanguage('CUSTOM')
+    }
+  }, [languagesOfExpansions, globalLang, selectGlobalLanguage])
 
   return (
     <Card>
