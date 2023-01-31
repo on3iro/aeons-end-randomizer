@@ -27,6 +27,7 @@ type MaybeMarketTile =
       cost?: number
       keywords?: string[]
       effect?: string
+      canBeLocked?: boolean
     }
   | undefined
 
@@ -39,6 +40,7 @@ type MaybeOutputMarketTile =
       cost: number
       keywords: string[]
       effect: string
+      canBeLocked: boolean
     }
   | undefined
 
@@ -47,7 +49,8 @@ const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
     return undefined
   }
 
-  const { id, type, name, expansion, cost, keywords, effect } = marketTile
+  const { id, type, name, expansion, cost, keywords, effect, canBeLocked } =
+    marketTile
 
   return id &&
     typeof id === 'string' &&
@@ -56,7 +59,8 @@ const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
     expansion &&
     cost &&
     keywords &&
-    effect !== undefined
+    effect !== undefined &&
+    canBeLocked !== undefined
     ? {
         id,
         type,
@@ -65,14 +69,14 @@ const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
         cost,
         keywords,
         effect,
+        canBeLocked,
       }
     : undefined
 }
 
 const mapStateToProps = (state: RootState) => ({
-  expansions: selectors.Settings.Expansions.Expansions.content.getContent(
-    state
-  ),
+  expansions:
+    selectors.Settings.Expansions.Expansions.content.getContent(state),
 })
 
 const mapDispatchToProps = {}
@@ -92,6 +96,7 @@ type Props = ReturnType<typeof mapStateToProps> &
       threshold?: number
       values?: Array<number>
       visualSelection?: boolean
+      canBeLocked?: boolean
     }
     theme: any
     lockedCards?: ReadonlyArray<LockedCard>
@@ -169,7 +174,7 @@ const MarketTile = ({
             icon={theme.icons[marketTile.type.toLowerCase()]}
             iconColor={theme.colors.cards[marketTile.type.toLowerCase()].color}
             showDetails={card ? handleDetails : undefined}
-            lock={card ? handleLock : undefined}
+            lock={card && card.canBeLocked ? handleLock : undefined}
             isLocked={isLocked}
             data-test={`market-tile-${marketTile.type.toLocaleLowerCase()}`}
           />
