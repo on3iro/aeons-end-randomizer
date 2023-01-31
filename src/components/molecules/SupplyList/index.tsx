@@ -22,6 +22,7 @@ export type OptionalTile = {
   operation?: types.Operation
   threshold?: number
   values?: Array<number>
+  canBeLocked?: boolean
 }
 
 const renderTiles = (
