@@ -79,8 +79,20 @@ const ActiveSets = ({
   const changeGlobalLanguagePromptTitle = `You have individual language settings for some expansions. Changing the global language will reset those . Do you really want to continue?`
 
   useEffect(() => {
+    const languageOfExpansionsArray = Object.values(languagesOfExpansions)
+
     if (
-      Object.values(languagesOfExpansions).some((lang) => lang !== globalLang)
+      languageOfExpansionsArray.every(
+        (lang) => lang === languageOfExpansionsArray[0]
+      )
+    ) {
+      selectGlobalLanguage(languageOfExpansionsArray[0])
+    }
+
+    if (
+      languageOfExpansionsArray.some(
+        (lang) => lang !== languageOfExpansionsArray[0]
+      )
     ) {
       selectGlobalLanguage('CUSTOM')
     }

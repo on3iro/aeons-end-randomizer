@@ -78,8 +78,20 @@ const ContentCustomization = ({
   }
 
   useEffect(() => {
+    const languageOfExpansionsArray = Object.values(languagesOfExpansions)
+
     if (
-      Object.values(languagesOfExpansions).some((lang) => lang !== globalLang)
+      languageOfExpansionsArray.every(
+        (lang) => lang === languageOfExpansionsArray[0]
+      )
+    ) {
+      selectGlobalLanguage(languageOfExpansionsArray[0])
+    }
+
+    if (
+      languageOfExpansionsArray.some(
+        (lang) => lang !== languageOfExpansionsArray[0]
+      )
     ) {
       selectGlobalLanguage('CUSTOM')
     }
