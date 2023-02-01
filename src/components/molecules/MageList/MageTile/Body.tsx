@@ -4,6 +4,7 @@ import { Mage } from 'aer-types/types'
 
 import ExpansionName from './ExpansionName'
 import Name from './Name'
+import Title from './Title'
 
 type Props = {
   mage: Mage
@@ -16,6 +17,7 @@ const Body = ({ mage, expansionName }: Props) => (
     <Name variant="h6" component="h2">
       {mage.name}
     </Name>
+    <Title>{mage.mageTitle}</Title>
   </React.Fragment>
 )
 
