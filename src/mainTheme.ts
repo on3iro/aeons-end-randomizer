@@ -1,6 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 import blue from '@material-ui/core/colors/blue'
 import pink from '@material-ui/core/colors/pink'
+import { keyframes } from 'styled-components/macro'
 
 export const muiTheme = createMuiTheme({
   palette: {
@@ -168,6 +169,67 @@ export const mainTheme = {
     spell: 'ra-scroll-unfurled',
     treasure: 'ra-diamond',
   },
+  snackbar: {
+    success: {
+      color: '#ffffff',
+      bg: '#8BC34A',
+    },
+    error: {
+      color: '#ffffff',
+      bg: '#da0000',
+    },
+    default: {
+      color: '#ffffff',
+      bg: '#2196f3',
+    },
+  },
 }
 
 export type TurnOrderColors = typeof mainTheme.colors.turnOrderCards
+
+// Animation
+
+type FadeInOut = {
+  topStart?: string
+  topEnd?: string
+  leftStart?: string
+  leftEnd?: string
+  bottomStart?: string
+  bottomEnd?: string
+}
+
+export const fadeIn = (props: FadeInOut) => {
+  return keyframes`
+    0% {
+      ${props.topStart && `top: ${props.topStart};`}
+      ${props.leftStart && `left: ${props.leftStart};`}
+      ${props.bottomStart && `bottom: ${props.bottomStart};`}
+      opacity: 0;
+    }
+
+    100% {
+      ${props.topEnd && `top: ${props.topEnd};`}
+      ${props.leftEnd && `left: ${props.leftEnd};`}
+      ${props.bottomEnd && `bottom: ${props.bottomEnd};`}
+      opacity: 1;
+    }
+  `
+}
+
+export const fadeOut = (props: FadeInOut) => {
+  return keyframes`
+    100% {
+      ${props.topStart && `top: ${props.topStart};`}
+      ${props.leftStart && `left: ${props.leftStart};`}
+      ${props.bottomStart && `bottom: ${props.bottomStart};`}
+      opacity: 1;
+    }
+
+    0% {
+      ${props.topEnd && `top: ${props.topEnd};`}
+      ${props.leftEnd && `left: ${props.leftEnd};`}
+      ${props.bottomEnd && `bottom: ${props.bottomEnd};`}
+      opacity: 0;
+    }
+  `
+}

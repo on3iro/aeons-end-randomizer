@@ -4,6 +4,7 @@ import { set as setToDb, get as getFromDb } from 'idb-keyval'
 import * as types from 'aer-types/types'
 import { Reducer, initialState } from '../reducer'
 import { actions } from '../actions'
+import { actions as rootActions } from 'Redux/Store'
 import { EXPEDITIONS_DB_KEY } from '../reducerHelpers/helpers'
 import * as sideEffects from '../sideEffects'
 import {
@@ -61,11 +62,19 @@ describe('Reducer()', () => {
     })
 
     expect(cmd).toEqual(
-      Cmd.run(setToDb, {
-        args: [EXPEDITIONS_DB_KEY, model],
-        successActionCreator: actions.setToDBSuccessful,
-        failActionCreator: actions.setToDBFailed,
-      })
+      Cmd.list([
+        Cmd.run(setToDb, {
+          args: [EXPEDITIONS_DB_KEY, model],
+          successActionCreator: actions.setToDBSuccessful,
+          failActionCreator: actions.setToDBFailed,
+        }),
+        Cmd.action(
+          rootActions.Snackbars.queue({
+            type: 'success',
+            message: 'Expedition created successfully!',
+          })
+        ),
+      ])
     )
   })
 

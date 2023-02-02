@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from '../../Redux/Store'
 
+import Snackbars from 'components/molecules/Snackbars'
 import Content from '../organisms/Content'
 import TopBar from '../organisms/TopBar'
 import DrawerMenu from '../organisms/DrawerMenu'
@@ -30,6 +31,7 @@ const MainApp = ({ getUserConfiguration, isLoading }: Props) => {
       <TopBar drawerIsOpen={drawerIsOpen} toggleDrawer={toggleDrawer} />
       <DrawerMenu drawerIsOpen={drawerIsOpen} toggleDrawer={toggleDrawer} />
       <Content isLoading={isLoading} />
+      <Snackbars />
       <div id="modal-root" />
     </React.Fragment>
   )

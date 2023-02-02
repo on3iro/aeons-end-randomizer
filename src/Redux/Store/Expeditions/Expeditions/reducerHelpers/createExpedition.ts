@@ -4,6 +4,7 @@ import { set as setToDb } from 'idb-keyval'
 import { State } from '../types'
 import * as sideEffects from '../sideEffects'
 import { actions } from '../actions'
+import { actions as rootActions } from 'Redux/Store'
 
 import { EXPEDITIONS_DB_KEY } from './helpers'
 
@@ -37,10 +38,18 @@ export const createExpeditionSuccess = (
 
   return loop(
     newState,
-    Cmd.run(setToDb, {
-      args: [EXPEDITIONS_DB_KEY, newState],
-      successActionCreator: actions.setToDBSuccessful,
-      failActionCreator: actions.setToDBFailed,
-    })
+    Cmd.list([
+      Cmd.run(setToDb, {
+        args: [EXPEDITIONS_DB_KEY, newState],
+        successActionCreator: actions.setToDBSuccessful,
+        failActionCreator: actions.setToDBFailed,
+      }),
+      Cmd.action(
+        rootActions.Snackbars.queue({
+          type: 'success',
+          message: 'Expedition created successfully!',
+        })
+      ),
+    ])
   )
 }
