@@ -10,6 +10,7 @@ import * as Treasures from './Treasures'
 import * as BasicNemesisCards from './BasicNemesisCards'
 import * as UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
 import * as Languages from './Languages'
+import * as GlobalLanguage from './GlobalLanguage'
 
 import * as topLevelSelectors from './selectors'
 
@@ -20,6 +21,7 @@ import * as types from 'aer-types/types'
 ///////////
 
 export type State = {
+  GlobalLanguage: GlobalLanguage.State
   Languages: Languages.State
   Expansions: Expansions.State
   Cards: Cards.State
@@ -31,6 +33,7 @@ export type State = {
 }
 
 export const initialState: State = {
+  GlobalLanguage: GlobalLanguage.initialState,
   Languages: Languages.initialState,
   Expansions: Expansions.initialState,
   Cards: Cards.initialState,
@@ -63,6 +66,7 @@ export const mainActions = {
 export type MainAction = ActionsUnion<typeof mainActions>
 
 export type Action =
+  | GlobalLanguage.Action
   | Languages.Action
   | Expansions.Action
   | Cards.Action
@@ -74,6 +78,7 @@ export type Action =
   | MainAction
 
 export const actions = {
+  GlobalLanguage: GlobalLanguage.actions,
   Languages: Languages.actions,
   Expansions: Expansions.actions,
   Cards: Cards.actions,
@@ -90,6 +95,7 @@ export const actions = {
 /////////////
 
 export const Reducer = combineReducers({
+  GlobalLanguage: GlobalLanguage.Reducer,
   Languages: Languages.Reducer,
   Expansions: Expansions.Reducer,
   Cards: Cards.Reducer,
@@ -131,6 +137,7 @@ const getAllContentOfExpansionSelected = createSelector(
 )
 
 export const selectors = {
+  GlobalLanguage: GlobalLanguage.selectors,
   Languages: Languages.selectors,
   Expansions: Expansions.selectors,
   Cards: Cards.selectors,
