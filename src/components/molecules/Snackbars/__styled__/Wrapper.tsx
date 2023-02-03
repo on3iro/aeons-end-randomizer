@@ -24,7 +24,7 @@ const Wrapper = styled('div')<Props>`
   margin: 0 24px;
   color: ${(props) => props.theme.snackbar[props.type].color};
   background: ${(props) => props.theme.snackbar[props.type].bg};
-  animation: ${fadeIn({ bottomEnd: '24px' })} 1s ease-in both;
+  animation: ${fadeIn({ bottomEnd: '24px' })} 0.4s ease-in both;
 `
 
 export default Wrapper
