@@ -1030,7 +1030,7 @@ Relic,NA,Aether Conduit,AetherConduit,4,"
       <b>Attach</b> this to any player's breach.
       </p>
       <p>
-      Whena spell is cast from this breach, the player who cast that spell 
+      When a spell is cast from this breach, the player who cast that spell 
       gains 1 <span class=""aether"">&AElig;</span>.
       </p>
       ","[""attach""]"
@@ -1348,7 +1348,7 @@ Spell,WE,Pyrotechnic Surge,PyrotechnicSurge,4,"
       This spell must be prepped to two adjacent breaches so that this card 
       touches both breaches. This fully occupies both breaches.<br/>
       <b>Cast:</b> Deal 4 damage.<br/>
-      You may destroy a card in you discard pile.
+      You may destroy a card in your discard pile.
         </p>
       ",[]
 Spell,WE,Aurora,Aurora,5,"

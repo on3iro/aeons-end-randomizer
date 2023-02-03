@@ -1632,7 +1632,7 @@ export const state = {
               id: 'AetherConduit',
               cost: 4,
               effect:
-                '\n      <p>\n      <b>Attach</b> this to any player\'s breach.\n      </p>\n      <p>\n      Whena spell is cast from this breach, the player who cast that spell \n      gains 1 <span class="aether">&AElig;</span>.\n      </p>\n      ',
+                '\n      <p>\n      <b>Attach</b> this to any player\'s breach.\n      </p>\n      <p>\n      When a spell is cast from this breach, the player who cast that spell \n      gains 1 <span class="aether">&AElig;</span>.\n      </p>\n      ',
               keywords: ['attach'],
             },
             WellOfEnergy: {
@@ -2412,7 +2412,7 @@ export const state = {
               id: 'PyrotechnicSurge',
               cost: 4,
               effect:
-                '\n      <p>\n      This spell must be prepped to two adjacent breaches so that this card \n      touches both breaches. This fully occupies both breaches.<br/>\n      <b>Cast:</b> Deal 4 damage.<br/>\n      You may destroy a card in you discard pile.\n        </p>\n      ',
+                '\n      <p>\n      This spell must be prepped to two adjacent breaches so that this card \n      touches both breaches. This fully occupies both breaches.<br/>\n      <b>Cast:</b> Deal 4 damage.<br/>\n      You may destroy a card in your discard pile.\n        </p>\n      ',
               keywords: [],
             },
             Aurora: {
@@ -5017,7 +5017,7 @@ export const state = {
                 },
                 {
                   type: 'Gem',
-                  name: 'MeldedRadite',
+                  name: 'Melded Radite',
                   expansion: 'TA',
                   id: 'MeldedRadite',
                   cost: 0,
@@ -5081,7 +5081,7 @@ export const state = {
               uniqueStarters: [
                 {
                   type: 'Gem',
-                  name: 'Oblivion Shared',
+                  name: 'Oblivion Shard',
                   expansion: 'WE',
                   id: 'OblivionShared',
                   cost: 0,

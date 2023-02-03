@@ -18,7 +18,7 @@ export const mages: Mage[] = [
     uniqueStarters: [
       {
         type: 'Gem',
-        name: 'Oblivion Shared',
+        name: 'Oblivion Shard',
         expansion: 'WE',
         id: 'OblivionShared',
         cost: 0,

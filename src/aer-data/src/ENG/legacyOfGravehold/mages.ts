@@ -61,7 +61,7 @@ export const mages: Mage[] = [
         cost: 0,
         effect: `
           <p>
-            <b>Cast:>/b> Deal 1 damage.<br/>
+            <b>Cast:</b> Deal 1 damage.<br/>
             Gain 1 <span class="aether">&AElig;</span> that can only be used
             to gain gems.
           </p>
@@ -176,7 +176,7 @@ export const mages: Mage[] = [
         Reveal the top four cards of your deck.
         Place any number of spells revealed this way into you hand.
         You may prep spells to closed breaches this turn.
-        YOu may prep up to two spells to each of your breaches this turn.
+        You may prep up to two spells to each of your breaches this turn.
       </p>
     `,
     numberOfCharges: 5,
@@ -189,9 +189,9 @@ export const mages: Mage[] = [
         cost: 0,
         effect: `
           <p>
-            <b>Cast:/b> Deal 1 damage. If you are Ilya, dela 1 additional damage.
+            <b>Cast:</b> Deal 1 damage. If you are Ilya, deal 1 additional damage.
             <span class="or">OR</span>
-            <b>Cast:</br> Deal 1 damage. If you are Kel, gain 1 life.
+            <b>Cast:</b> Deal 1 damage. If you are Kel, gain 1 life.
           </p>
         `,
         keywords: [],
@@ -532,7 +532,7 @@ export const mages: Mage[] = [
         effect: `
           <p>
             Gain 1 <span class="aether">&AElig;</span>.<br/>
-            If you have five or more spells in you discard pile,
+            If you have five or more spells in your discard pile,
             gain an additional 2 <span class="aether">&AElig;</span>.
           </p>
         `,

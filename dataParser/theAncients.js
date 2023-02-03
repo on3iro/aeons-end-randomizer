@@ -70,7 +70,7 @@ const theAncientsData = {
         },
         {
           type: 'Gem',
-          name: 'MeldedRadite',
+          name: 'Melded Radite',
           expansion: 'TA',
           id: 'MeldedRadite',
           cost: 0,
