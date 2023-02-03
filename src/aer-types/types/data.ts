@@ -103,6 +103,7 @@ export type Mage = ICreature & {
   ability: string | 'Custom'
   complexityRating?: number // keep this optional
   numberOfCharges: number | 'Custom'
+  numberOfOvercharges?: number
 }
 
 export type Nemeses = {

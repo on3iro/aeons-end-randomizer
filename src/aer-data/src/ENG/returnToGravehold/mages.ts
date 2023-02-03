@@ -49,7 +49,8 @@ export const mages: Mage[] = [
         lose a charge to prep a spell in your discard pile to one of your opened breaches.
       </p>
     `,
-    numberOfCharges: 6,
+    numberOfCharges: 3,
+    numberOfOvercharges: 3,
     uniqueStarters: [
       {
         type: 'Spell',
