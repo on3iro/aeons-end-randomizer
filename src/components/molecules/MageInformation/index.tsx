@@ -25,11 +25,23 @@ type Props = {
   theme: any
 }
 
+function formatCharges(
+  numberOfCharges: number | 'Custom',
+  numberOfOvercharges?: number
+): string {
+  return `${numberOfCharges}${
+    numberOfOvercharges ? ` + ${numberOfOvercharges}` : ''
+  }`
+}
+
 const MageInformation = ({ mage, player, expansionName, theme }: Props) => (
   <React.Fragment>
     <InfoItem label="Title" info={mage.mageTitle} />
     <InfoItem label="Expansion" info={expansionName} />
-    <InfoItem label="Charges" info={mage.numberOfCharges.toString()} />
+    <InfoItem
+      label="Charges"
+      info={formatCharges(mage.numberOfCharges, mage.numberOfOvercharges)}
+    />
     {mage.complexityRating ? (
       <InfoItem label="Complexity" info={mage.complexityRating.toString()} />
     ) : null}
