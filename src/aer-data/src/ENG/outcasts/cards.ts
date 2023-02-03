@@ -375,7 +375,7 @@ export const cards: ICard[] = [
       <p>
         While prepped, at the end of your casting phase deal 1 damage and 
         gain 1 <span class="aether">&AElig;</span>.<br />
-        <b>Cast:</br> Deal 4 damage.
+        <b>Cast:</b> Deal 4 damage.
       </p>
     `,
     keywords: [],

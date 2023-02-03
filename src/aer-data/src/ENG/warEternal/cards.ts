@@ -323,7 +323,7 @@ export const cards: ICard[] = [
       This spell must be prepped to two adjacent breaches so that this card 
       touches both breaches. This fully occupies both breaches.<br/>
       <b>Cast:</b> Deal 4 damage.<br/>
-      You may destroy a card in you discard pile.
+      You may destroy a card in your discard pile.
         </p>
       `,
     keywords: [],

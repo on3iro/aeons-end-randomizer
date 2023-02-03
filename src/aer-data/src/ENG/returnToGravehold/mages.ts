@@ -11,7 +11,7 @@ export const mages: Mage[] = [
       <p class="ability-activation">Activate during your main phase:</p>
       <p>
         Ohat mode: Suffer 2 damage. Any ally draws five cards and discards two cards in hand.<br />
-        Ulgimore mode: Cast a spell prepped to Ulgimor's IV breach without discarding it.
+        Ulgimor mode: Cast a spell prepped to Ulgimor's IV breach without discarding it.
       </p>
     `,
     numberOfCharges: 4,
