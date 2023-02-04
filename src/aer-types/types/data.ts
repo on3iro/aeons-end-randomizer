@@ -100,6 +100,7 @@ export type Nemesis = ICreature & {
 export type Mage = ICreature & {
   uniqueStarters: ICard[]
   mageTitle: string | 'Custom'
+  aliases?: string[]
   ability: string | 'Custom'
   complexityRating?: number // keep this optional
   numberOfCharges: number | 'Custom'

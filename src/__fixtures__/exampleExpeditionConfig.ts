@@ -3,6 +3,7 @@ import * as types from 'aer-types/types'
 export const ExampleExpeditionConfigBattlesOnly: types.ExpeditionConfig = {
   name: 'Example Expedition Full',
   bigPocketVariantConfig: false,
+  uniqueMageNamesConfig: false,
   sequenceConfig: {
     firstBranchId: 'FirstBattle',
     branches: {
@@ -436,6 +437,7 @@ export const ExampleExpeditionConfigBattlesOnly: types.ExpeditionConfig = {
 export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
   name: 'Example Expedition Full',
   bigPocketVariantConfig: false,
+  uniqueMageNamesConfig: false,
   sequenceConfig: {
     firstBranchId: 'TheLanding',
     branches: {

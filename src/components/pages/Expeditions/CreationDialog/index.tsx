@@ -8,6 +8,7 @@ import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
 
 import BigPocketSelect from 'components/pages/Expeditions/CreationDialog/BigPocketSelect'
+import UniqueMageNamesSelect from 'components/pages/Expeditions/CreationDialog/UniqueMageNamesSelect'
 import ConfigImport from './ConfigImport'
 import CreateButton from 'components/pages/Expeditions/CreationDialog/CreateButton'
 import MarketSelect from './MarketSelect'
@@ -45,6 +46,9 @@ const CreationDialog = ({
   const [bigPocketVariant, changeBigPocketVariant] = useState(
     expeditionConfig?.bigPocketVariantConfig || false
   )
+  const [uniqueMageNames, changeUniqueMageNames] = useState(
+    expeditionConfig?.uniqueMageNamesConfig || false
+  )
   const [selectedMarketId, selectMarketId] = useState(
     expeditionConfig?.settingsSnapshotConfig?.supplySetup?.id || 'random'
   )
@@ -74,6 +78,7 @@ const CreationDialog = ({
       variantId: selectedVariant,
       name: expeditionName,
       bigPocketVariant,
+      uniqueMageNames,
       marketId: selectedMarketId,
       seedValue,
     })
@@ -85,6 +90,7 @@ const CreationDialog = ({
       changeExpeditionConfig(expeditionConfig)
       changeExpeditionName(expeditionConfig?.name)
       changeBigPocketVariant(expeditionConfig?.bigPocketVariantConfig || false)
+      changeUniqueMageNames(expeditionConfig?.uniqueMageNamesConfig || false)
       selectMarketId(
         expeditionConfig?.settingsSnapshotConfig?.supplySetup?.id || 'random'
       )
@@ -95,6 +101,8 @@ const CreationDialog = ({
       selectMarketId,
       changeExpeditionConfig,
       changeExpeditionName,
+      changeBigPocketVariant,
+      changeUniqueMageNames,
       selectVariant,
       changeSeedValue,
     ]
@@ -124,6 +132,11 @@ const CreationDialog = ({
         <BigPocketSelect
           bigPocketVariant={bigPocketVariant}
           changeBigPocketVariant={changeBigPocketVariant}
+        />
+
+        <UniqueMageNamesSelect
+          uniqueMageNames={uniqueMageNames}
+          changeUniqueMageNames={changeUniqueMageNames}
         />
 
         {selectedVariant && (

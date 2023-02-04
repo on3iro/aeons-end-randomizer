@@ -48,6 +48,11 @@ const Body = ({ expedition, usedExpansions }: Props) => (
         data-test="info--big-pocket"
       />
       <InfoItem
+        label="Unique Mage Names"
+        info={expedition.uniqueMageNames ? 'Yes' : 'No'}
+        data-test="info--unique-mage-names"
+      />
+      <InfoItem
         label="Seed"
         info={expedition.seed.seed}
         data-test="info--seed"

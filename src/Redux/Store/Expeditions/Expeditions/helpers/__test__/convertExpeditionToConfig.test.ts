@@ -90,6 +90,7 @@ describe('convertToConfig()', () => {
     upgradedBasicNemesisCards: [],
     banished: [],
     bigPocketVariant: false,
+    uniqueMageNames: true,
     sequence: {
       firstBranchId: 'wLZW1WbKvj',
       branches: {
@@ -169,16 +170,15 @@ describe('convertToConfig()', () => {
   it('should correctly convert expedition', () => {
     const result = convertExpeditionToConfig(expedition)
 
-    const {
-      usedExpansions,
-      ...settingsSnapshotConfig
-    } = expedition.settingsSnapshot
+    const { usedExpansions, ...settingsSnapshotConfig } =
+      expedition.settingsSnapshot
 
     const expected: types.ExpeditionConfig = {
       name: 'Test',
       seedConfig: 'TEST',
       settingsSnapshotConfig,
       bigPocketVariantConfig: false,
+      uniqueMageNamesConfig: true,
       sequenceConfig: {
         firstBranchId: 'wLZW1WbKvj',
         branches: {

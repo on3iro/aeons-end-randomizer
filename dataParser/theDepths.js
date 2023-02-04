@@ -75,7 +75,7 @@ const theDepthsData = {
     },
     {
       expansion: 'Depths',
-      name: 'Zhana',
+      name: "Z'hana",
       id: 'Zhana',
       mageTitle: 'Breach Mage Renegade',
       ability: `

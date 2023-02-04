@@ -62,7 +62,7 @@ export const mages: Mage[] = [
   },
   {
     expansion: 'Depths',
-    name: 'Zhana',
+    name: "Z'hana",
     id: 'Zhana',
     mageTitle: 'Zbuntowana Magini Bram',
     ability: `

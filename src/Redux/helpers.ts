@@ -3,6 +3,7 @@ import * as types from 'aer-types/types'
 import seedrandom from 'seedrandom'
 import shortid from 'shortid'
 import { RootState } from './Store'
+import { Mage } from 'aer-types/types'
 
 type CardListReduceResult = {
   availableCards: types.ICard[]
@@ -188,14 +189,26 @@ export const createArrayWithDefaultValues = (
 export const createSlotList = (amount: number): Array<types.IEmptyBluePrint> =>
   createArrayWithDefaultValues(amount, { type: 'EMPTY', operation: 'NoOp' })
 
+const stringsEqual = (a: string, b: string): boolean => a === b
+
+const entitiesEqual = (a: { id: string }, b: { id: string }): boolean =>
+  a.id === b.id
+
+export const magesHaveSameName = (a: Mage, b: Mage): boolean => {
+  const aNames = [a.name].concat(a.aliases ?? [])
+  const bNames = [b.name].concat(b.aliases ?? [])
+  return aNames.filter((x) => bNames.includes(x)).length > 0
+}
+
 export const generateListFrom = <T extends types.Entity>(
   availableEntities: Array<T> | ReadonlyArray<T>,
   slots: Array<any>,
   getEntity: types.SeededEntityGetter,
+  equivalenceClass: (a: T, b: T) => boolean,
   seed?: types.Seed
 ): { availableEntities: Array<T>; result: Array<T>; seed: types.Seed } => {
   return slots.reduce(
-    (acc, _) => {
+    (acc: { availableEntities: T[]; result: T[]; seed: types.Seed }, _) => {
       // If no entity is left, simply return the actual empty slot
       const rngResult = getEntity(acc.availableEntities, acc.seed)
       const entity = rngResult.entity
@@ -205,19 +218,9 @@ export const generateListFrom = <T extends types.Entity>(
       }
 
       // Make sure each entity will only be added to the result list once
-      const remainingEntities = acc.availableEntities.filter(
-        (available: types.Entity) => {
-          if (typeof available === 'string' && typeof entity === 'string') {
-            return available !== entity
-          }
-
-          if (typeof available === 'object' && typeof entity === 'object') {
-            return available.id !== entity.id
-          }
-
-          return true
-        }
-      )
+      const remainingEntities = acc.availableEntities.filter((available) => {
+        return !equivalenceClass(available, entity)
+      })
 
       return {
         availableEntities: remainingEntities,
@@ -234,7 +237,7 @@ export const createTurnOrderCardList = (
   slots: types.ITurnOrderCard[],
   getEntity: types.SeededEntityGetter,
   seed?: types.Seed
-) => generateListFrom(availableCards, slots, getEntity, seed)
+) => generateListFrom(availableCards, slots, getEntity, entitiesEqual, seed)
 
 export const shuffleDeck = (
   deck: types.ITurnOrderCard[]
@@ -247,14 +250,21 @@ export const createMageList = (
   slots: Array<types.Slot>,
   getEntity: types.SeededEntityGetter,
   seed?: types.Seed
-) => generateListFrom(availableMages, slots, getEntity, seed)
+) => generateListFrom(availableMages, slots, getEntity, entitiesEqual, seed)
+
+export const createUniqueNameMageList = (
+  availableMages: ReadonlyArray<types.Mage>,
+  slots: Array<types.Slot>,
+  getEntity: types.SeededEntityGetter,
+  seed?: types.Seed
+) => generateListFrom(availableMages, slots, getEntity, magesHaveSameName, seed)
 
 export const createIdList = (
   availableIds: ReadonlyArray<string>,
   slots: string[],
   getEntity: types.SeededEntityGetter = getRandomEntity,
   seed?: types.Seed
-) => generateListFrom(availableIds, slots, getEntity, seed)
+) => generateListFrom(availableIds, slots, getEntity, stringsEqual, seed)
 
 /**
  * Gets a random value from a list. (The wording of entities is just used for semantic context)
@@ -309,4 +319,11 @@ export const createBasicNemesisCardList = (
   slots: Array<types.Slot>,
   getEntity: types.SeededEntityGetter,
   seed?: types.Seed
-) => generateListFrom(availableBasicNemesisCards, slots, getEntity, seed)
+) =>
+  generateListFrom(
+    availableBasicNemesisCards,
+    slots,
+    getEntity,
+    entitiesEqual,
+    seed
+  )
