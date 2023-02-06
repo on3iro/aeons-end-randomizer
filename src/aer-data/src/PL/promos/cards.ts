@@ -93,12 +93,12 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'promos',
-    name: 'Rock Launcher',
+    name: 'Wyrzutnia Kryształów',
     id: 'RockLauncher',
     cost: 3,
     effect: `
       <p>
-      Discard or destroy a card in hand. If you do, deal damage equal to its cost.
+      Odrzuć albo zniszcz kartę na ręce. Jeżeli to zrobisz, zadaj obrażenia równe kosztowi tamtej karty.
       </p>
       `,
     keywords: [],
@@ -135,15 +135,15 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'promos',
-    name: 'Chronal Arc',
+    name: 'Łuk Temporalny',
     id: 'ChronalArc',
     cost: 7,
     effect: `
       <p>
-        This spell must be prepped to two adjacent breaches so that this card 
-        touches both breaches. This fully occupies both breaches.<br/>
-        <b>Cast:</b> Deal 4 damage.<br/>
-        You may place this card into your hand.
+        To Zaklęcie musi być przygotowane na dwóch sąsiadujących Bramach.
+        Połóż jego kartę tak, by stykała się z obiema Bramami, które są teraz w pełni zajęte.<br/>
+        <b>Aktywacja:</b> Zadaj 4 obrażenia.<br/>
+        Możesz umieścić tę kartę na swojej ręce.
         </p>
         `,
     keywords: [],
