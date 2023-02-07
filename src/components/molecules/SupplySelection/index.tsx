@@ -25,7 +25,7 @@ type List = ListProps & {
 
 // FIXME refine types
 const renderLists = (lists: List[], selectionHandler: (val: any) => void) =>
-  lists.map(list => {
+  lists.map((list) => {
     const selectionContextValue = {
       selectionHandler,
       listId: list.id,
@@ -35,7 +35,14 @@ const renderLists = (lists: List[], selectionHandler: (val: any) => void) =>
       <div key={list.id}>
         <SelectionHandlerContext.Provider value={selectionContextValue}>
           {list.title && <SectionHeadline>{list.title}</SectionHeadline>}
-          <SupplyList {...list} />
+          <SupplyList
+            {...{
+              ...list,
+              tiles: list.tiles.map((tile) => {
+                return { ...tile, canBeLocked: false }
+              }),
+            }}
+          />
         </SelectionHandlerContext.Provider>
       </div>
     )
