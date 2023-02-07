@@ -5,6 +5,7 @@ export const mages: Mage[] = [
     expansion: 'RTG',
     name: 'Ohat And Ulgimor',
     id: 'OhatAndUlgimor',
+    aliases: ['Ulgimor'],
     mageTitle: '',
     ability: `
       <h2>Enrapture</h2>

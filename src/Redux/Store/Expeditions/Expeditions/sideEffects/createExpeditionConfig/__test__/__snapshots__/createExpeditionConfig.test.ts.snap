@@ -738,6 +738,7 @@ Object {
       "promos",
     ],
   },
+  "uniqueMageNames": false,
   "upgradedBasicNemesisCards": Array [],
 }
 `;

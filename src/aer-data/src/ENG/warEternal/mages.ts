@@ -126,7 +126,7 @@ export const mages: Mage[] = [
   },
   {
     expansion: 'WE',
-    name: 'MistWE',
+    name: 'Mist',
     id: 'MistWE',
     mageTitle: 'Voidwalker',
     ability: `

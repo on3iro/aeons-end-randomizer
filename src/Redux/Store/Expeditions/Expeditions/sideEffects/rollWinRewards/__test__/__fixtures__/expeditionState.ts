@@ -4617,7 +4617,7 @@ export const state = {
             },
             Zhana: {
               expansion: 'Depths',
-              name: 'Zhana',
+              name: "Z'hana",
               id: 'Zhana',
               mageTitle: 'Breach Mage Renegade',
               ability:
@@ -5051,7 +5051,7 @@ export const state = {
             },
             XaxosTV: {
               expansion: 'TV',
-              name: 'XaxosTV',
+              name: 'Xaxos',
               id: 'XaxosTV',
               mageTitle: 'Voidbringer',
               ability:
@@ -5156,7 +5156,7 @@ export const state = {
             },
             MistWE: {
               expansion: 'WE',
-              name: 'MistWE',
+              name: 'Mist',
               id: 'MistWE',
               mageTitle: 'Voidwalker',
               ability:
@@ -5622,7 +5622,7 @@ export const state = {
             },
             Zhana: {
               expansion: 'Depths',
-              name: 'Zhana',
+              name: "Z'hana",
               id: 'Zhana',
               mageTitle: 'Zbuntowana Magini Bram',
               ability:
@@ -5727,7 +5727,7 @@ export const state = {
             },
             XaxosTV: {
               expansion: 'TV',
-              name: 'XaxosTV',
+              name: 'Xaxos',
               id: 'XaxosTV',
               mageTitle: 'Siewca Pustki',
               ability:
@@ -5832,7 +5832,7 @@ export const state = {
             },
             MistWE: {
               expansion: 'WE',
-              name: 'MistWE',
+              name: 'Mist',
               id: 'MistWE',
               mageTitle: 'Krocząca Przez Otchłań',
               ability:

@@ -263,6 +263,7 @@ export type BaseExpeditionConfig = {
   seedConfig?: string
   sequenceConfig: SequenceConfig
   bigPocketVariantConfig: boolean
+  uniqueMageNamesConfig: boolean
   initialBarracksConfig?: Partial<Barracks>
   initialUBNCardsConfig?: string[]
 }
@@ -322,6 +323,7 @@ export type BaseExpedition = {
   id: string
   name: string
   bigPocketVariant: boolean
+  uniqueMageNames?: boolean
   score: number
   seed: ExpeditionSeed
   sequence: Sequence

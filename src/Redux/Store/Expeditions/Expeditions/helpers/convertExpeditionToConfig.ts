@@ -12,6 +12,7 @@ export const convertExpeditionToConfig = (
     name: expedition.name,
     seedConfig: expedition.seed.seed,
     bigPocketVariantConfig: expedition.bigPocketVariant,
+    uniqueMageNamesConfig: expedition.uniqueMageNames || false,
     initialBarracksConfig: expedition?.initialBarracksConfig,
     initialUBNCardsConfig: expedition?.initialUBNCardsConfig,
     settingsSnapshotConfig,

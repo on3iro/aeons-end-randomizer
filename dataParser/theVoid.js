@@ -55,7 +55,7 @@ const theVoidData = {
     },
     {
       expansion: 'TV',
-      name: 'XaxosTV',
+      name: 'Xaxos',
       id: 'XaxosTV',
       mageTitle: 'Voidbringer',
       ability: `

@@ -171,7 +171,7 @@ const warEternalData = {
     },
     {
       expansion: 'WE',
-      name: 'MistWE',
+      name: 'Mist',
       id: 'MistWE',
       mageTitle: 'Voidwalker',
       ability: `

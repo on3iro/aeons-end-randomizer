@@ -121,7 +121,9 @@ const rollLossRewards = (
     expeditionId,
   })
 
-  const mageIds = selectors.getStillAvailableMageIds(state, { expeditionId })
+  const mageIds = expedition.uniqueMageNames
+    ? selectors.getStillAvailableMageWithUniqueNameIds(state, { expeditionId })
+    : selectors.getStillAvailableMageIds(state, { expeditionId })
 
   return handleRewardType({
     rewardType,

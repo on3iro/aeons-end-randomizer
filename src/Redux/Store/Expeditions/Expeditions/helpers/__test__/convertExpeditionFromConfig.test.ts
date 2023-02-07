@@ -76,6 +76,7 @@ describe('convertFromConfig()', () => {
     },
     variantIdConfig: 'DEFAULT',
     bigPocketVariantConfig: false,
+    uniqueMageNamesConfig: true,
     sequenceConfig: {
       firstBranchId: 'wLZW1WbKvj',
       branches: {
@@ -220,6 +221,7 @@ describe('convertFromConfig()', () => {
       upgradedBasicNemesisCards: [],
       banished: [],
       bigPocketVariant: false,
+      uniqueMageNames: true,
       sequence: {
         firstBranchId: 'wLZW1WbKvj',
         branches: {
