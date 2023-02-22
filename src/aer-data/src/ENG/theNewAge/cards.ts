@@ -132,7 +132,7 @@ export const cards: ICard[] = [
       <b>Attach</b> this to any player's breach.
       </p>
       <p>
-      Whena spell is cast from this breach, the player who cast that spell 
+      When a spell is cast from this breach, the player who cast that spell 
       gains 1 <span class="aether">&AElig;</span>.
       </p>
       `,

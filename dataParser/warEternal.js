@@ -63,7 +63,7 @@ const warEternalData = {
       uniqueStarters: [
         {
           type: 'Gem',
-          name: 'Oblivion Shared',
+          name: 'Oblivion Shard',
           expansion: 'WE',
           id: 'OblivionShared',
           cost: 0,
@@ -171,7 +171,7 @@ const warEternalData = {
     },
     {
       expansion: 'WE',
-      name: 'MistWE',
+      name: 'Mist',
       id: 'MistWE',
       mageTitle: 'Voidwalker',
       ability: `
@@ -609,7 +609,7 @@ const warEternalData = {
       This spell must be prepped to two adjacent breaches so that this card 
       touches both breaches. This fully occupies both breaches.<br/>
       <b>Cast:</b> Deal 4 damage.<br/>
-      You may destroy a card in you discard pile.
+      You may destroy a card in your discard pile.
         </p>
       `,
       keywords: [],

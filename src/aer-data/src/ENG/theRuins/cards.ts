@@ -10,7 +10,7 @@ export const cards: ICard[] = [
     effect: `
       <p>
         Gain 1 <span class="aether">&AElig;</span>. Any ally gains an <span class="aether">&AElig;</span> token.<br />
-        You may this during an ally's main phase. If you do that player may <b>Conjure</b>.
+        You may discard this during an ally's main phase. If you do that player may <b>Conjure</b>.
       </p>
     `,
     keywords: ['conjure'],
@@ -74,7 +74,7 @@ export const cards: ICard[] = [
 	Gain 2 charges.
       </p>
     `,
-    keywords: ['silence'],
+    keywords: [],
   },
   {
     type: 'Relic',

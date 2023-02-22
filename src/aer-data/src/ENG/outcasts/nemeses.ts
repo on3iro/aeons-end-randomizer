@@ -5,7 +5,7 @@ export const nemeses: Nemesis[] = [
     expansion: 'O',
     name: 'Experiment 153',
     id: 'Experiment153',
-    health: 80, // * > 4 * 20 per maw
+    health: '*',
     difficulty: 3,
     expeditionRating: 1,
     additionalInfo: '',

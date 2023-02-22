@@ -13,11 +13,12 @@ import { getLatestMigrationVersion } from 'Redux/Store/Expeditions/Expeditions/m
 import {
   createArrayWithDefaultValues,
   createIdList,
+  createUniqueNameMageList,
   getRandomEntity,
 } from 'Redux/helpers'
 
 export const handleWithoutConfig = (
-  { variantId, name, bigPocketVariant, marketId, seedValue }: BaseConfig,
+  { variantId, name, bigPocketVariant, uniqueMageNames, marketId, seedValue }: BaseConfig,
   state: RootState
 ) => {
   /////////////////////////
@@ -37,14 +38,25 @@ export const handleWithoutConfig = (
   ///////////////////////////
 
   // Mages
-  const mageIdsResult = createIdList(
-    settingsSnapshot.availableMageIds,
-    createArrayWithDefaultValues(4, 'EMPTY'),
-    getRandomEntity,
-    seed
-  )
-
-  const mageIds = mageIdsResult.result
+  let mageIdsResult, mageIds
+  if (uniqueMageNames) {
+    const magesResult = createUniqueNameMageList(
+      selectors.Settings.Expansions.getSelectedMagesForSelectedExpansions(state),
+      createArrayWithDefaultValues(4, 'EMPTY'),
+      getRandomEntity,
+      seed
+    )
+    mageIds = magesResult.result.map((mage) => mage.id)
+    mageIdsResult = {result: mageIds, seed: magesResult.seed}
+  } else {
+    mageIdsResult = createIdList(
+      settingsSnapshot.availableMageIds,
+      createArrayWithDefaultValues(4, 'EMPTY'),
+      getRandomEntity,
+      seed
+    )
+    mageIds = mageIdsResult.result
+  }
 
   // Supply
   const availableCards = selectors.Settings.Expansions.Cards.getCardsByIdList(
@@ -115,6 +127,7 @@ export const handleWithoutConfig = (
     upgradedBasicNemesisCards: [],
     banished: [],
     bigPocketVariant: bigPocketVariant,
+    uniqueMageNames: uniqueMageNames || false,
     sequence: {
       firstBranchId: battles[0].id,
       branches: battles.reduce((acc, battle) => {

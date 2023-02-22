@@ -44,7 +44,7 @@ const theNamelessData = {
           cost: 0,
           effect: `
             <p>
-              While prepped, when you suffer 1 damage gain 1 charge.<br/>
+              While prepped, when you suffer damage gain 1 charge.<br/>
               <b>Cast:</b> Deal 1 damage.
             </p>
           `,

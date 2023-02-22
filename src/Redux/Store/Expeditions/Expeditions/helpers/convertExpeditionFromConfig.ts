@@ -11,6 +11,7 @@ export const convertExpeditionFromConfig = (
     id: expeditionId,
     name: config.name,
     bigPocketVariant: config.bigPocketVariantConfig,
+    uniqueMageNames: config.uniqueMageNamesConfig || false,
     score: 0,
     seed: {
       seed: config.seedConfig || shortid.generate(),

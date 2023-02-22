@@ -120,7 +120,7 @@ export const mages: Mage[] = [
   },
   {
     expansion: 'WE',
-    name: 'Mist (FdE)',
+    name: 'Mist',
     id: 'MistWE',
     mageTitle: 'Leeren-Schreiter',
     ability: `

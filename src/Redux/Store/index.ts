@@ -7,6 +7,7 @@ import * as Settings from './Settings'
 import * as Randomizer from './Randomizer'
 import * as TurnOrder from './TurnOrder'
 import * as Expeditions from './Expeditions'
+import * as Snackbars from './Snackbars'
 
 import * as topLevelSelectors from './selectors'
 
@@ -16,6 +17,7 @@ export type RootState = {
   Randomizer: Randomizer.State
   TurnOrder: TurnOrder.State
   Expeditions: Expeditions.State
+  Snackbars: Snackbars.State
 }
 
 export enum ActionTypes {
@@ -34,6 +36,7 @@ export const actions = {
   TurnOrder: TurnOrder.actions,
   Randomizer: Randomizer.actions,
   Expeditions: Expeditions.actions,
+  Snackbars: Snackbars.actions,
 }
 
 export const selectors = {
@@ -44,6 +47,7 @@ export const selectors = {
   TurnOrder: TurnOrder.selectors,
   Randomizer: Randomizer.selectors,
   Expeditions: Expeditions.selectors,
+  Snackbars: Snackbars.selectors,
 
   ...topLevelSelectors,
 }
@@ -55,6 +59,7 @@ export type RootAction =
   | Randomizer.Action
   | TurnOrder.Action
   | Expeditions.Action
+  | Snackbars.Action
 
 export const initialState = {
   Settings: Settings.initialState,
@@ -62,6 +67,7 @@ export const initialState = {
   Randomizer: Randomizer.initialState,
   TurnOrder: TurnOrder.initialState,
   Expeditions: Expeditions.initialState,
+  Snackbars: Snackbars.initialState,
 }
 
 export const MainReducer: LoopReducer<RootState, RootAction> = (
@@ -112,5 +118,6 @@ export const RootReducer = reduceReducers(
     Randomizer: Randomizer.Reducer,
     TurnOrder: TurnOrder.Reducer,
     Expeditions: Expeditions.Reducer,
+    Snackbars: Snackbars.Reducer,
   })
 )

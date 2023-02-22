@@ -55,7 +55,7 @@ const theVoidData = {
     },
     {
       expansion: 'TV',
-      name: 'XaxosTV',
+      name: 'Xaxos',
       id: 'XaxosTV',
       mageTitle: 'Voidbringer',
       ability: `
@@ -140,7 +140,7 @@ const theVoidData = {
       cost: 3,
       effect: `
       <p>
-      <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>
+      <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>
       </p>
       <p>
       <b>Cast:</b> Deal 2 damage.<br/>
@@ -173,7 +173,7 @@ const theVoidData = {
       cost: 2,
       effect: `
       <p>
-        <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>
+        <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>
       </p>
       <p>
         <b>Cast:</b> Deal 1 damage.<br/>
@@ -193,7 +193,7 @@ const theVoidData = {
       While prepped, other spells you cast deal 1 additional damage.
       </p>
       <p>
-      <b>Link</b> <span class="hint">(Two spells with Link mat be prepped to the same breach.)</span>
+      <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>
       </p>  
       <b>Cast:</b> Deal 3 damage.
         </p>

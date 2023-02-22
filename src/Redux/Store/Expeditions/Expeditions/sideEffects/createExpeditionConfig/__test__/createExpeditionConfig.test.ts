@@ -25,6 +25,7 @@ describe('createExpeditionConfig()', () => {
       variantId: 'SHORT',
       name: 'Test expedition config',
       bigPocketVariant: true,
+      uniqueMageNames: false,
       marketId: 'market1',
       seedValue: 'TEST',
     })
@@ -39,6 +40,7 @@ describe('createExpeditionConfig()', () => {
       variantId: 'SHORT',
       name: 'Test expedition config',
       bigPocketVariant: true,
+      uniqueMageNames: false,
       marketId: 'market1',
       seedValue: 'TEST_SEED',
     })
@@ -62,6 +64,7 @@ describe('createExpeditionConfig()', () => {
       variantId: 'SHORT',
       name: 'Test expedition config',
       bigPocketVariant: true,
+      uniqueMageNames: false,
       marketId: 'market1',
     })
 

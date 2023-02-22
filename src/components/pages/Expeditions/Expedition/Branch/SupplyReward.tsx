@@ -38,7 +38,16 @@ const SupplyReward = ({
           selectedCardsCount={selectedCardsCount}
         />
       ) : (
-        newSupplyCards.length > 0 && <SupplyList tiles={newSupplyCards} />
+        newSupplyCards.length > 0 && (
+          <SupplyList
+            tiles={newSupplyCards.map((tile) => {
+              return {
+                ...tile,
+                canBeLocked: false,
+              }
+            })}
+          />
+        )
       )}
     </>
   )

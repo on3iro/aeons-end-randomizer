@@ -33,7 +33,7 @@ export const mages: Mage[] = [
   },
   {
     expansion: 'TV',
-    name: 'XaxosTV',
+    name: 'Xaxos',
     id: 'XaxosTV',
     mageTitle: 'Voidbringer',
     ability: `

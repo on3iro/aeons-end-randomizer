@@ -21,7 +21,14 @@ const Supply = ({ tiles, expansionKey, expansionHandler, expanded }: Props) => (
     expanded={expanded}
     data-test="supply"
   >
-    <SupplyList tiles={tiles} />
+    <SupplyList
+      tiles={tiles.map((tile) => {
+        return {
+          ...tile,
+          canBeLocked: false,
+        }
+      })}
+    />
   </ExpansionPanel>
 )
 Supply.displayName = 'Supply'

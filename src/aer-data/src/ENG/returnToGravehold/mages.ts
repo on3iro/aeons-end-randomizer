@@ -5,13 +5,14 @@ export const mages: Mage[] = [
     expansion: 'RTG',
     name: 'Ohat And Ulgimor',
     id: 'OhatAndUlgimor',
+    aliases: ['Ulgimor'],
     mageTitle: '',
     ability: `
       <h2>Enrapture</h2>
       <p class="ability-activation">Activate during your main phase:</p>
       <p>
         Ohat mode: Suffer 2 damage. Any ally draws five cards and discards two cards in hand.<br />
-        Ulgimore mode: Cast a spell prepped to Ulgimor's IV breach without discarding it.
+        Ulgimor mode: Cast a spell prepped to Ulgimor's IV breach without discarding it.
       </p>
     `,
     numberOfCharges: 4,
@@ -49,7 +50,8 @@ export const mages: Mage[] = [
         lose a charge to prep a spell in your discard pile to one of your opened breaches.
       </p>
     `,
-    numberOfCharges: 6,
+    numberOfCharges: 3,
+    numberOfOvercharges: 3,
     uniqueStarters: [
       {
         type: 'Spell',

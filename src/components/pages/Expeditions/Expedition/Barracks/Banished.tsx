@@ -28,7 +28,14 @@ const Banished = ({
         expanded={expanded}
         data-test="banished-cards"
       >
-        <SupplyList tiles={banishedCards} />
+        <SupplyList
+          tiles={banishedCards.map((tile) => {
+            return {
+              ...tile,
+              canBeLocked: false,
+            }
+          })}
+        />
       </ExpansionPanel>
     )}
   </React.Fragment>

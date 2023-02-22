@@ -91,7 +91,7 @@ export type Expansions = {
 export type ExpeditionRating = 1 | 2 | 3 | 4
 
 export type Nemesis = ICreature & {
-  health: number
+  health: number | '*'
   additionalInfo: string
   difficulty: number
   expeditionRating: ExpeditionRating
@@ -100,9 +100,11 @@ export type Nemesis = ICreature & {
 export type Mage = ICreature & {
   uniqueStarters: ICard[]
   mageTitle: string | 'Custom'
+  aliases?: string[]
   ability: string | 'Custom'
   complexityRating?: number // keep this optional
   numberOfCharges: number | 'Custom'
+  numberOfOvercharges?: number
 }
 
 export type Nemeses = {
