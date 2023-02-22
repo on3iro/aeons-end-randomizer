@@ -8,6 +8,7 @@ import { basicNemesisCards } from './basicNemesisCards'
 export const outerDarkData: IExpansion = {
   id: 'OD',
   name: 'Niezbadany Mrok',
+  wave: '',
   type: 'mini',
   nemeses,
   mages,

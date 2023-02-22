@@ -21,10 +21,10 @@ type Props = {
     threshold?: number
     values?: Array<number>
   }
-  expansionName: string
+  expansion: types.Expansion | null
 }
 
-const Body = ({ supplyCard, expansionName }: Props) => {
+const Body = ({ supplyCard, expansion }: Props) => {
   const { type, operation, values, threshold } = supplyCard
 
   return (
@@ -38,9 +38,10 @@ const Body = ({ supplyCard, expansionName }: Props) => {
         {supplyCard && supplyCard.name ? supplyCard.name : '-'}
       </Name>
       <List>
+        <InfoItem label="Set" info={expansion ? expansion.name : '-'} />
         <InfoItem
-          label="Set"
-          info={expansionName !== '' ? expansionName : '-'}
+          label="Wave"
+          info={expansion && expansion.wave ? expansion.wave : '-'}
         />
         <InfoItem
           label="Cost"

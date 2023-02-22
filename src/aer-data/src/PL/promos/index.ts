@@ -9,6 +9,7 @@ import { basicNemesisCards } from './basicNemesisCards'
 export const promosData: IExpansion = {
   id: 'promos',
   name: 'Promos',
+  wave: '',
   type: 'promo',
   mages,
   nemeses,

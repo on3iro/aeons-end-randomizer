@@ -10,6 +10,7 @@ import { upgradedBasicNemesisCards } from './upgradedBasicNemesisCards'
 export const outcastsData: IExpansion = {
   id: 'O',
   name: 'Outcasts',
+  wave: 'W5-Outcasts',
   type: 'standalone',
   nemeses,
   mages,

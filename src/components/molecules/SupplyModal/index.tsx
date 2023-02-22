@@ -23,9 +23,7 @@ export type CardProperties = {
 }
 
 const mapStateToProps = (state: RootState, _: any) => ({
-  expansions: selectors.Settings.Expansions.Expansions.content.getContent(
-    state
-  ),
+  expansions: selectors.Settings.Expansions.Expansions.getAllExpansions(state),
 })
 
 type Props = ReturnType<typeof mapStateToProps> & {
@@ -40,10 +38,7 @@ const SupplyModal = ({ card, expansions, theme, RenderModal }: Props) => {
     : theme.colors.text
   const titleLabel = card ? card.name : ''
   const body = card ? (
-    <Body
-      card={card}
-      expansionName={expansions.ENG[card.expansion].name || ''}
-    />
+    <Body card={card} expansion={expansions[card.expansion]} />
   ) : (
     'No content'
   )

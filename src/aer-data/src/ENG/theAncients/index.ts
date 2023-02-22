@@ -9,6 +9,7 @@ import { upgradedBasicNemesisCards } from './upgradedBasicNemesisCards'
 export const theAncientsData: IExpansion = {
   id: 'TA',
   name: 'The Ancients',
+  wave: 'W4-The New Age',
   type: 'mini',
   nemeses,
   mages,

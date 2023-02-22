@@ -7,6 +7,7 @@ import { cards } from './cards'
 export const theVoidData: IExpansion = {
   id: 'TV',
   name: 'Otchłań',
+  wave: '',
   type: 'mini',
   nemeses,
   mages,

@@ -8,6 +8,7 @@ import { basicNemesisCards } from './basicNemesisCards'
 export const legacyData: IExpansion = {
   id: 'Legacy',
   name: 'Legacy',
+  wave: '',
   type: 'standalone',
   nemeses,
   mages,

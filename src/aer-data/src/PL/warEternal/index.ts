@@ -8,6 +8,7 @@ import { basicNemesisCards } from './basicNemesisCards'
 export const warEternalData: IExpansion = {
   id: 'WE',
   name: 'Wieczna Wojna',
+  wave: '',
   type: 'standalone',
   nemeses,
   mages,

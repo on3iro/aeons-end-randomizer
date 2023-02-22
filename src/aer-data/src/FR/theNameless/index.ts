@@ -8,6 +8,7 @@ import { basicNemesisCards } from './basicNemesisCards'
 export const namelessData: IExpansion = {
   id: 'Nameless',
   name: 'Les Sans-Noms',
+  wave: '',
   type: 'mini',
   nemeses,
   mages,

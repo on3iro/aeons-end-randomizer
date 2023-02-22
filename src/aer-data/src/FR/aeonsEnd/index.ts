@@ -8,6 +8,7 @@ import { basicNemesisCards } from './basicNemesisCards'
 export const aeData: IExpansion = {
   id: 'AE',
   name: "Aeon's End",
+  wave: '',
   type: 'standalone',
   nemeses,
   mages,

@@ -6,6 +6,7 @@ import { selectors as LanguageSelectors } from '../Languages'
 import * as Content from './content'
 import * as Selected from './selected'
 import * as Ids from './ids'
+import * as types from 'aer-types/types'
 import { createAction, ActionsUnion } from '@martin_hotell/rex-tils'
 import { EXPANSIONS_DB_KEY } from './constants'
 import { getContentWithLanguageFallback } from './content/selectors'
@@ -62,7 +63,7 @@ export const Reducer = reduceReducers(
   (state: State, action: Action) => {
     switch (action.type) {
       case ActionTypes.TOGGLE_ALL: {
-        const allExpansionsSelected = state.ids.every(id =>
+        const allExpansionsSelected = state.ids.every((id) =>
           state.selected.includes(id)
         )
 
@@ -105,40 +106,40 @@ const getExpansionIds = (
 
 const getExpansionsByIdList = createSelector(
   [Content.selectors.getContent, getExpansionIds],
-  (content, ids) => ids.map(id => content.ENG[id])
+  (content, ids) => ids.map((id) => content.ENG[id])
 )
 
 const getExpansionNamesByIdList = createSelector(
   [getExpansionsByIdList],
-  expansions => expansions.map(e => e.name)
+  (expansions) => expansions.map((e) => e.name)
 )
 
 const getAllExpansionsSelected = createSelector(
   [Ids.selectors.getIds, Selected.selectors.getSelected],
-  (ids, selectedIds) => ids.every(id => selectedIds.includes(id))
+  (ids, selectedIds) => ids.every((id) => selectedIds.includes(id))
 )
 
 const getHasStandaloneExpansion = createSelector(
   [Selected.selectors.getSelected, Content.selectors.getContent],
   (selectedIds, content) =>
-    selectedIds.some(id => content.ENG[id].type === 'standalone')
+    selectedIds.some((id) => content.ENG[id].type === 'standalone')
 )
 
 const getStandaloneExpansionIds = createSelector(
   [Ids.selectors.getIds, Content.selectors.getContent],
-  (ids, content) => ids.filter(id => content.ENG[id].type === 'standalone')
+  (ids, content) => ids.filter((id) => content.ENG[id].type === 'standalone')
 )
 
 const getMiniExpansionIds = createSelector(
   [Ids.selectors.getIds, Content.selectors.getContent],
-  (ids, content) => ids.filter(id => content.ENG[id].type === 'mini')
+  (ids, content) => ids.filter((id) => content.ENG[id].type === 'mini')
 )
 
 const getPromoIds = createSelector(
   [Ids.selectors.getIds, Content.selectors.getContent],
   (ids, content) =>
     ids
-      .filter(id => content.ENG[id].type === 'promo')
+      .filter((id) => content.ENG[id].type === 'promo')
       .sort((a, b) => {
         const promoA = content.ENG[a].name
         const promoB = content.ENG[b].name
@@ -155,6 +156,28 @@ const getPromoIds = createSelector(
       })
 )
 
+//
+// Expansion selectors (with language fallback; by expansion id index)
+//
+const getAllExpansions = createSelector(
+  [
+    Content.selectors.getContent,
+    Ids.selectors.getIds,
+    LanguageSelectors.getLanguagesByExpansion,
+  ],
+  (content, ids, languages) => {
+    let result: types.Expansions = {}
+    ids.forEach(
+      (id) =>
+        (result[id] = getContentWithLanguageFallback(languages, content, id))
+    )
+    return result
+  }
+)
+
+//
+// Expansion selectors (with language fallback; by numeric index)
+//
 const getStandaloneExpansions = createSelector(
   [
     Content.selectors.getContent,
@@ -162,7 +185,7 @@ const getStandaloneExpansions = createSelector(
     LanguageSelectors.getLanguagesByExpansion,
   ],
   (content, ids, languages) =>
-    ids.map(id => getContentWithLanguageFallback(languages, content, id))
+    ids.map((id) => getContentWithLanguageFallback(languages, content, id))
 )
 const getMiniExpansions = createSelector(
   [
@@ -171,7 +194,7 @@ const getMiniExpansions = createSelector(
     LanguageSelectors.getLanguagesByExpansion,
   ],
   (content, ids, languages) =>
-    ids.map(id => getContentWithLanguageFallback(languages, content, id))
+    ids.map((id) => getContentWithLanguageFallback(languages, content, id))
 )
 const getPromos = createSelector(
   [
@@ -180,7 +203,7 @@ const getPromos = createSelector(
     LanguageSelectors.getLanguagesByExpansion,
   ],
   (content, ids, languages) =>
-    ids.map(id => getContentWithLanguageFallback(languages, content, id))
+    ids.map((id) => getContentWithLanguageFallback(languages, content, id))
 )
 
 export const selectors = {
@@ -190,6 +213,7 @@ export const selectors = {
   getExpansionNamesByIdList,
   getAllExpansionsSelected,
   getHasStandaloneExpansion,
+  getAllExpansions,
   getStandaloneExpansions,
   getMiniExpansions,
   getPromos,

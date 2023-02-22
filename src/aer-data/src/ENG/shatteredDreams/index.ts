@@ -8,6 +8,7 @@ import { treasures } from './treasures'
 export const shatteredDreamsData: IExpansion = {
   id: 'SD',
   name: 'Shattered Dreams',
+  wave: 'W4-The New Age',
   type: 'mini',
   nemeses,
   mages,

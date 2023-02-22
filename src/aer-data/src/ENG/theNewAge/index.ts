@@ -10,6 +10,7 @@ import { upgradedBasicNemesisCards } from './upgradedBasicNemesisCards'
 export const newAgeData: IExpansion = {
   id: 'NA',
   name: 'The New Age',
+  wave: 'W4-The New Age',
   type: 'standalone',
   nemeses,
   mages,

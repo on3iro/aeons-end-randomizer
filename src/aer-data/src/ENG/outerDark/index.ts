@@ -8,6 +8,7 @@ import { basicNemesisCards } from './basicNemesisCards'
 export const outerDarkData: IExpansion = {
   id: 'OD',
   name: 'Outer Dark',
+  wave: 'W2-War Eternal',
   type: 'mini',
   nemeses,
   mages,
