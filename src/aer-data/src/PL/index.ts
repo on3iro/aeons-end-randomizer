@@ -11,7 +11,6 @@ import { buriedSecretsData } from './buriedSecrets'
 import { intoTheWildData } from './intoTheWild'
 import { newAgeData } from './theNewAge'
 
-
 const PL: IExpansionData = {
   AE: aeonsEndData,
   BS: buriedSecretsData,
@@ -24,7 +23,6 @@ const PL: IExpansionData = {
   TV: theVoidData,
   WE: warEternalData,
   promos: promosData,
-
 }
 
 export default PL
