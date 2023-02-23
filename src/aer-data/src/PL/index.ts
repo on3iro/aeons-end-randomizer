@@ -8,11 +8,15 @@ import { theNamelessData } from './theNameless'
 import { theVoidData } from './theVoid'
 import { warEternalData } from './warEternal'
 import { buriedSecretsData } from './buriedSecrets'
+import { intoTheWildData } from './intoTheWild'
+import { newAgeData } from './theNewAge'
 
 
 const PL: IExpansionData = {
   AE: aeonsEndData,
   BS: buriedSecretsData,
+  IW: intoTheWildData,
+  NA: newAgeData,
   Depths: theDepthsData,
   Legacy: legacyData,
   Nameless: theNamelessData,
