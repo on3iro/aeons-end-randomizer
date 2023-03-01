@@ -9,8 +9,15 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     environment: netlify
+    strategy:
+      matrix:
+        node: [16]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
       - uses: actions/checkout@master
         with:
           ref: 'refs/heads/main'
