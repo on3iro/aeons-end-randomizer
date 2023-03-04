@@ -41,6 +41,7 @@ export const createNormalizedData = (
           [id]: {
             id,
             name: expansion.name,
+            wave: expansion.wave,
             type: expansion.type,
           },
         },

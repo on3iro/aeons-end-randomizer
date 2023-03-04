@@ -8,6 +8,7 @@ import { treasures } from './treasures'
 export const intoTheWildData: IExpansion = {
   id: 'IW',
   name: 'Into The Wild',
+  wave: 'W4 - The New Age',
   type: 'mini',
   nemeses,
   mages,

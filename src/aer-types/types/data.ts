@@ -65,6 +65,7 @@ export type UpgradedBasicNemesisCard = BasicNemesisCard & {
 export interface IExpansion {
   id: string
   name: string
+  wave: string
   type: ExpansionType
   nemeses: Array<Nemesis>
   mages: Array<Mage>
@@ -81,6 +82,7 @@ export interface IExpansionData {
 export type Expansion = {
   id: string
   name: string
+  wave: string
   type: ExpansionType
 }
 

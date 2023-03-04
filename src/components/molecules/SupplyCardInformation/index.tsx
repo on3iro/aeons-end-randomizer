@@ -21,13 +21,14 @@ type Props = {
     keywords: string[]
     effect: string
   }
-  expansionName: string
+  expansion: types.Expansion
   theme: any
 }
 
-const Body = ({ card, expansionName, theme }: Props) => (
+const Body = ({ card, expansion, theme }: Props) => (
   <React.Fragment>
-    <InfoItem label="Expansion" info={expansionName} />
+    <InfoItem label="Expansion" info={expansion.name} />
+    <InfoItem label="Wave" info={expansion.wave || '-'} />
     <InfoItem label="Type" info={card.type} />
     <InfoItem label="Cost" info={card.cost.toString()} />
 

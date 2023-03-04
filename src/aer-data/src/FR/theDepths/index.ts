@@ -8,6 +8,7 @@ import { basicNemesisCards } from './basicNemesisCards'
 export const depthsData: IExpansion = {
   id: 'Depths',
   name: 'Les Profondeurs',
+  wave: "W1 - Aeon's End",
   type: 'mini',
   nemeses,
   mages,
