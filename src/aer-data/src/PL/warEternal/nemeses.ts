@@ -11,7 +11,7 @@ export const nemeses: Nemesis[] = [
     additionalInfo: `
         <p>
           Gdy Megiera Bram przyspiesza przepływ czasu, 
-          traci trzy żetony Nemezis zamiast czterech.
+          traci pięć żetonów Nemezis zamiast czterech.
         </p>
       `,
   },
