@@ -125,6 +125,7 @@ describe('Expedition creation and run through', () => {
     cy.get('p').contains('Oblivium Resin').should('be.visible')
     cy.get('p').contains('Transmogrifier').should('be.visible')
     cy.get('p').contains('Breach Extractor').should('be.visible')
+    cy.get('p').contains('Amplify Vision').scrollIntoView()
     cy.get('p').contains('Amplify Vision').should('be.visible')
     cy.get('p').contains('Feral Lightning').should('be.visible')
     cy.get('p').contains('Celestial Spire').should('be.visible')
