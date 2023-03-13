@@ -4,14 +4,14 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'TV',
-    name: 'Nawiedzony Beryl',
+    name: 'Skarabeusz w bursztynie',
     id: 'FossilizedScarab',
     cost: 3,
     effect: `
       <p>
       Otrzymujesz 2 <span class="aether">&AElig;</span>.
         <span class="or">ALBO</span>
-      Odrzuć kartę z ręki. Jeżeli to zrobisz, otrzymujesz 2 Ładunki.
+      Zniszcz kartę na swojej ręce.
       </p>
       `,
     keywords: [],

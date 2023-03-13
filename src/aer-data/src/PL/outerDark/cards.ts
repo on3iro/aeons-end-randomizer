@@ -145,15 +145,15 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'OD',
-    name: 'Skarabeusz w Bursztynie',
+    name: 'Nawiedzony Beryl',
     id: 'HauntedBerylite',
     cost: 3,
     effect: `
-        <p>
-          Otrzymujesz 2 <span class="aether">&AElig;</span>.
-          <span class="or">ALBO</span>
-          Zniszcz kartę na swojej ręce.
-        </p>
+      <p>
+      Otrzymujesz 2 <span class="aether">&AElig;</span>.
+        <span class="or">ALBO</span>
+      Odrzuć kartę z ręki. Jeżeli to zrobisz, otrzymujesz 2 Ładunki.
+      </p>
       `,
     keywords: [],
   },
