@@ -7,6 +7,7 @@ import { cards } from './cards'
 export const communityData: IExpansion = {
   id: 'community',
   name: 'Community',
+  wave: 'Others',
   type: 'promo',
   mages,
   nemeses,

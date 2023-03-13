@@ -76,7 +76,9 @@ const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
 
 const mapStateToProps = (state: RootState) => ({
   expansions:
-    selectors.Settings.Expansions.Expansions.content.getContent(state),
+    selectors.Settings.Expansions.Expansions.content.getExpansionsWithLanguageFallback(
+      state
+    ),
 })
 
 const mapDispatchToProps = {}
@@ -160,10 +162,8 @@ const MarketTile = ({
             body={
               <Body
                 supplyCard={marketTile}
-                expansionName={
-                  marketTile.expansion
-                    ? expansions.ENG[marketTile.expansion].name
-                    : ''
+                expansion={
+                  marketTile.expansion ? expansions[marketTile.expansion] : null
                 }
               />
             }

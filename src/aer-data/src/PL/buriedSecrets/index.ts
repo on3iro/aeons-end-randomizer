@@ -8,6 +8,7 @@ import { basicNemesisCards } from './basicNemesisCards'
 export const buriedSecretsData: IExpansion = {
   id: 'BS',
   name: 'Pogrzebane Sekrety',
+  wave: 'W3 - Legacy',
   type: 'mini',
   nemeses,
   mages,

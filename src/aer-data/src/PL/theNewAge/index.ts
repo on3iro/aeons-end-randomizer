@@ -10,6 +10,7 @@ import { upgradedBasicNemesisCards } from './upgradedBasicNemesisCards'
 export const newAgeData: IExpansion = {
   id: 'NA',
   name: 'Nowy Początek',
+  wave: 'W4 - Nowy Początek',
   type: 'standalone',
   nemeses,
   mages,

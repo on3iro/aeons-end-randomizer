@@ -7,6 +7,7 @@ import { cards } from './cards'
 export const theVoidData: IExpansion = {
   id: 'TV',
   name: 'The Void',
+  wave: 'W2 - War Eternal',
   type: 'mini',
   nemeses,
   mages,

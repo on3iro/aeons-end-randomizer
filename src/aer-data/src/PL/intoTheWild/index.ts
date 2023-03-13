@@ -8,6 +8,7 @@ import { treasures } from './treasures'
 export const intoTheWildData: IExpansion = {
   id: 'IW',
   name: 'Tajemnica Dziczy',
+  wave: 'W4 - Nowy Początek',
   type: 'mini',
   nemeses,
   mages,

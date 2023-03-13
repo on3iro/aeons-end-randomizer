@@ -10,6 +10,7 @@ import { upgradedBasicNemesisCards } from './upgradedBasicNemesisCards'
 export const promosData: IExpansion = {
   id: 'promos',
   name: 'Promos',
+  wave: 'Others',
   type: 'promo',
   mages,
   nemeses,

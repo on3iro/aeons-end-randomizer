@@ -9,6 +9,7 @@ import { upgradedBasicNemesisCards } from './upgradedBasicNemesisCards'
 export const legacyOfGraveholdData: IExpansion = {
   id: 'LOG',
   name: 'Legacy of Gravehold',
+  wave: 'W6 - The Legacy of Gravehold',
   type: 'standalone',
   nemeses,
   mages,
