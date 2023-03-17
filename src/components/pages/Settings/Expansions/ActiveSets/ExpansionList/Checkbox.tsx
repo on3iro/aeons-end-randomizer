@@ -41,7 +41,7 @@ const Checkbox = ({ expansion, changeHandler, selected }: Props) => {
       <CheckboxWithControls
         id={expansion.id}
         checked={selected}
-        label={formatExpansionName(expansion)}
+        label={types.formatExpansionName(expansion)}
         changeHandler={handleChange}
       />
     </React.Fragment>
@@ -52,9 +52,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(React.memo(Checkbox))
-
-function formatExpansionName(expansion: types.Expansion): string {
-  return expansion.wave
-    ? expansion.name + ' (' + expansion.wave + ')'
-    : expansion.name + ' (-)'
-}

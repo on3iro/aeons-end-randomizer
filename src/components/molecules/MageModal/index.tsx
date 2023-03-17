@@ -13,9 +13,10 @@ import ModalBodyWrapper from '../../atoms/ModalBodyWrapper'
 import MageInformation from '../MageInformation'
 
 const mapStateToProps = (state: RootState, _: any) => ({
-  expansions: selectors.Settings.Expansions.Expansions.content.getContent(
-    state
-  ),
+  expansions:
+    selectors.Settings.Expansions.Expansions.content.getExpansionsWithLanguageFallback(
+      state
+    ),
 })
 
 type Props = ReturnType<typeof mapStateToProps> & {
@@ -35,7 +36,7 @@ const MageModal = ({ player, mage, expansions, theme, RenderModal }: Props) => {
     <MageInformation
       mage={mage}
       player={player}
-      expansionName={expansions.ENG[mage.expansion].name || ''}
+      expansion={expansions[mage.expansion]}
     />
   ) : (
     'No content'

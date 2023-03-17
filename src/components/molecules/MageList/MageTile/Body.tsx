@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Mage } from 'aer-types/types'
+import { Mage, Expansion, formatExpansionName } from 'aer-types/types'
 
 import ExpansionName from './ExpansionName'
 import Name from './Name'
@@ -8,12 +8,14 @@ import Title from './Title'
 
 type Props = {
   mage: Mage
-  expansionName: string
+  expansion: Expansion
 }
 
-const Body = ({ mage, expansionName }: Props) => (
+const Body = ({ mage, expansion }: Props) => (
   <React.Fragment>
-    <ExpansionName color="textSecondary">{expansionName}</ExpansionName>
+    <ExpansionName color="textSecondary">
+      {formatExpansionName(expansion)}
+    </ExpansionName>
     <Name variant="h6" component="h2">
       {mage.name}
     </Name>

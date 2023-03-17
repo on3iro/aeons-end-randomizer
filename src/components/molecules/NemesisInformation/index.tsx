@@ -42,6 +42,7 @@ const NemesisInformation = ({ nemesis, expansion, theme }: Props) => {
   return (
     <React.Fragment>
       <InfoItem label="Expansion" info={expansion.name} />
+      <InfoItem label="Wave" info={expansion.wave || '-'} />
       <InfoItem label="Health" info={nemesis.health.toString()} />
       <InfoItem label="Difficulty" info={nemesis.difficulty.toString()} />
       <InfoItem
