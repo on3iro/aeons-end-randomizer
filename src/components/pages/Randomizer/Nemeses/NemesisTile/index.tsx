@@ -18,10 +18,10 @@ type OwnProps = {
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
   return {
-    expansion: selectors.Settings.Expansions.Expansions.content.getExpansionById(
-      state,
-      { expansionId: ownProps.nemesis.expansion }
-    ),
+    expansion:
+      selectors.Settings.Expansions.Expansions.content.getExpansionById(state, {
+        expansionId: ownProps.nemesis.expansion,
+      }),
   }
 }
 
@@ -39,7 +39,7 @@ const NemesisTile = ({
 }: Props) => {
   return (
     <Tile
-      body={<Body nemesis={nemesis} expansionName={expansion.name} />}
+      body={<Body nemesis={nemesis} expansion={expansion} />}
       bgColor={theme.colors.turnOrderCards.nemesis.normal}
       fontColor={theme.colors.white}
       icon={theme.icons.nemesis}

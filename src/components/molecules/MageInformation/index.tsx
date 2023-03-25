@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { Mage, ICard } from 'aer-types/types'
+import { Mage, ICard, Expansion } from 'aer-types/types'
 
 import InfoItem from '../InfoItem'
 
@@ -21,7 +21,7 @@ const renderUniqueStarters = (uniqueStarters: ICard[]) => {
 type Props = {
   mage: Mage
   player: 'player1' | 'player2' | 'player3' | 'player4'
-  expansionName: string
+  expansion: Expansion
   theme: any
 }
 
@@ -34,10 +34,11 @@ function formatCharges(
   }`
 }
 
-const MageInformation = ({ mage, player, expansionName, theme }: Props) => (
+const MageInformation = ({ mage, player, expansion, theme }: Props) => (
   <React.Fragment>
     <InfoItem label="Title" info={mage.mageTitle} />
-    <InfoItem label="Expansion" info={expansionName} />
+    <InfoItem label="Expansion" info={expansion.name} />
+    <InfoItem label="Wave" info={expansion.wave || '-'} />
     <InfoItem
       label="Charges"
       info={formatCharges(mage.numberOfCharges, mage.numberOfOvercharges)}

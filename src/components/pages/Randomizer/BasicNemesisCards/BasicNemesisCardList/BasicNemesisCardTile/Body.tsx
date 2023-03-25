@@ -14,9 +14,10 @@ type OwnProps = {
 }
 
 const mapStateToProps = (state: RootState) => ({
-  expansions: selectors.Settings.Expansions.Expansions.content.getContent(
-    state
-  ),
+  expansions:
+    selectors.Settings.Expansions.Expansions.content.getExpansionsWithLanguageFallback(
+      state
+    ),
 })
 
 const mapDispatchToProps = {}
@@ -31,7 +32,11 @@ const Body = ({ nemesisCard, expansions }: Props) => (
     <List>
       <InfoItem
         label="Set"
-        info={expansions.ENG[nemesisCard.expansion]?.name || ''}
+        info={expansions[nemesisCard.expansion]?.name || ''}
+      />
+      <InfoItem
+        label="Wave"
+        info={expansions[nemesisCard.expansion]?.wave || ''}
       />
       <InfoItem label="Tier" info={nemesisCard.tier.toString()} />
       {nemesisCard.type && <InfoItem label="Type" info={nemesisCard.type} />}

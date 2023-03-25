@@ -15,9 +15,10 @@ import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import P from 'components/atoms/P'
 
 const mapStateToProps = (state: RootState, _: any) => ({
-  expansions: selectors.Settings.Expansions.Expansions.content.getContent(
-    state
-  ),
+  expansions:
+    selectors.Settings.Expansions.Expansions.content.getExpansionsWithLanguageFallback(
+      state
+    ),
 })
 
 type Props = ReturnType<typeof mapStateToProps> & {
@@ -41,10 +42,7 @@ const BasicNemesisCardModal = ({
     <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
       <ModalBodyWrapper>
         {card ? (
-          <Body
-            card={card}
-            expansionName={expansions.ENG[card.expansion].name || ''}
-          />
+          <Body card={card} expansion={expansions[card.expansion]} />
         ) : (
           <P>No content</P>
         )}

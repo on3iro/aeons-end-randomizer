@@ -23,10 +23,10 @@ type OwnProps = {
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
   return {
-    expansion: selectors.Settings.Expansions.Expansions.content.getExpansionById(
-      state,
-      { expansionId: ownProps.mage.expansion }
-    ),
+    expansion:
+      selectors.Settings.Expansions.Expansions.content.getExpansionById(state, {
+        expansionId: ownProps.mage.expansion,
+      }),
   }
 }
 
@@ -53,7 +53,7 @@ const MageTile = ({ mage, playerNumber, theme, expansion }: Props) => {
   return (
     <Wrapper item xs={12} sm={6} md={3} data-test="mage-tile">
       <Tile
-        body={<Body mage={mage} expansionName={expansion.name} />}
+        body={<Body mage={mage} expansion={expansion} />}
         bgColor={bgColor}
         fontColor={theme.colors.white}
         icon={theme.icons.mage}

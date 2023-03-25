@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import * as types from 'aer-types/types'
+import { formatExpansionName } from 'helpers'
 
 import CheckboxWithControls from '../../../../../molecules/CheckboxWithControls'
 
@@ -52,9 +53,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(React.memo(Checkbox))
-
-function formatExpansionName(expansion: types.Expansion): string {
-  return expansion.wave
-    ? expansion.name + ' (' + expansion.wave + ')'
-    : expansion.name + ' (-)'
-}

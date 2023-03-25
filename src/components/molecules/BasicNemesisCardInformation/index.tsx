@@ -11,13 +11,14 @@ import AbilityText from 'components/atoms/AbilityText'
 
 type Props = {
   card: types.BasicNemesisCard | types.UpgradedBasicNemesisCard
-  expansionName: string
+  expansion: types.Expansion
   theme: any
 }
 
-const Body = ({ card, expansionName, theme }: Props) => (
+const Body = ({ card, expansion, theme }: Props) => (
   <React.Fragment>
-    <InfoItem label="Expansion" info={expansionName} />
+    <InfoItem label="Expansion" info={expansion.name} />
+    <InfoItem label="Wave" info={expansion.wave || '-'} />
     <InfoItem label="Tier" info={card.tier.toString()} />
     {card.type && <InfoItem label="Type" info={card.type} />}
     {card.type === 'Minion' && (
