@@ -90,12 +90,6 @@ export type Expansions = {
   [id: string]: Expansion
 }
 
-export function formatExpansionName(expansion: Expansion): string {
-  return expansion.wave
-    ? expansion.name + ' (' + expansion.wave + ')'
-    : expansion.name + ' (-)'
-}
-
 export type ExpeditionRating = 1 | 2 | 3 | 4
 
 export type Nemesis = ICreature & {

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Nemesis, Expansion, formatExpansionName } from 'aer-types/types'
+import { Nemesis, Expansion } from 'aer-types/types'
+import { formatExpansionName } from 'helpers'
 
 import ExpansionName from './ExpansionName'
 import Name from './Name'

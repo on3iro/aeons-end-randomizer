@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { Mage, Expansion, formatExpansionName } from 'aer-types/types'
+import { Mage, Expansion } from 'aer-types/types'
+import { formatExpansionName } from 'helpers'
 
 import ExpansionName from './ExpansionName'
 import Name from './Name'

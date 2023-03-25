@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 
 import * as types from 'aer-types/types'
+import { formatExpansionName } from 'helpers'
 
 import CheckboxWithControls from '../../../../../molecules/CheckboxWithControls'
 
@@ -41,7 +42,7 @@ const Checkbox = ({ expansion, changeHandler, selected }: Props) => {
       <CheckboxWithControls
         id={expansion.id}
         checked={selected}
-        label={types.formatExpansionName(expansion)}
+        label={formatExpansionName(expansion)}
         changeHandler={handleChange}
       />
     </React.Fragment>

@@ -57,3 +57,9 @@ export const byAscendingVersion = (a: types.Migration, b: types.Migration) => {
     return 0
   }
 }
+
+export function formatExpansionName(expansion: types.Expansion): string {
+  return expansion.wave
+    ? `${expansion.name} (${expansion.wave})`
+    : `${expansion.name} (-)`
+}

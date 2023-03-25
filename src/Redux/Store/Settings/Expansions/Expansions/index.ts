@@ -147,9 +147,7 @@ const getStandaloneExpansions = createSelector(
     LanguageSelectors.getLanguagesByExpansion,
   ],
   (content, ids, languages) => {
-    let expansions: types.Expansion[]
-
-    expansions = ids.map((id) =>
+    const expansions = ids.map((id) =>
       getContentWithLanguageFallback(languages, content, id)
     )
     return sortExpansions(expansions)
@@ -162,9 +160,7 @@ const getMiniExpansions = createSelector(
     LanguageSelectors.getLanguagesByExpansion,
   ],
   (content, ids, languages) => {
-    let expansions: types.Expansion[]
-
-    expansions = ids.map((id) =>
+    const expansions = ids.map((id) =>
       getContentWithLanguageFallback(languages, content, id)
     )
     return sortExpansions(expansions)
@@ -177,9 +173,7 @@ const getPromos = createSelector(
     LanguageSelectors.getLanguagesByExpansion,
   ],
   (content, ids, languages) => {
-    let expansions: types.Expansion[]
-
-    expansions = ids.map((id) =>
+    const expansions = ids.map((id) =>
       getContentWithLanguageFallback(languages, content, id)
     )
     return sortExpansions(expansions)
