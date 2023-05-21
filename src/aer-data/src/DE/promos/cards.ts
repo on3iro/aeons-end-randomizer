@@ -49,14 +49,14 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'promos',
-    name: 'Echo Stone',
+    name: 'Resonanz-Stein',
     id: 'EchoStone',
     cost: 4,
     effect: `
       <p>
-        Gain 2 <span class="aether">&AElig;</span>.<br />
-        If you have played another Echo Stone this turn, gain an additional 
-        1 <span class="aether">&AElig;</span>.
+        Erhalte 2 <span class="aether">&AElig;</span>.<br />
+        Ist dies dein mindestens zweiter gerade gespielter Resonanz-Stein? 
+        Erhalte 1 <span class="aether">&AElig;</span>.
       </p>
     `,
     keywords: [],
