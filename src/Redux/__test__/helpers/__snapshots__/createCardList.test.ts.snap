@@ -1,0 +1,675 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createCardList should return the correct elements with getFirst() entity getter 1`] = `
+Object {
+  "availableCards": Array [
+    Object {
+      "cost": 4,
+      "effect": "
+      <p>
+        Gain 2 <span class=\\"aether\\">&AElig;</span>.<br/>
+        If this is the second time you have played Diamond Cluster this turn 
+        gain an additional 2 <span class=\\"aether\\">&AElig;</span>.
+      </p>
+    ",
+      "expansion": "AE",
+      "id": "DiamondCluster",
+      "keywords": Array [],
+      "name": "Diamond Cluster",
+      "type": "Gem",
+    },
+    Object {
+      "cost": 6,
+      "effect": "
+    <p>
+    <b>Cast:</b> Deal 3 damage.<br/>
+    Deal 2 additional damage for each prepped spell in an adjacent breach.
+      </p>
+      ",
+      "expansion": "AE",
+      "id": "ChaosArc",
+      "keywords": Array [],
+      "name": "Chaos Arc",
+      "type": "Spell",
+    },
+    Object {
+      "cost": 4,
+      "effect": "
+      <p>
+        <b>Cast:</b> Deal 2 damage.<br/>
+        Any ally gains 1 charge.
+      </p>
+        ",
+      "expansion": "AE",
+      "id": "Ignite",
+      "keywords": Array [],
+      "name": "Ignite",
+      "type": "Spell",
+    },
+    Object {
+      "cost": 5,
+      "effect": "
+      <p>
+        This spell may be prepped to a closed breach without focusing it.<br/>
+        <b>Cast:</b> Deal 3 damage.
+      </p>
+    ",
+      "expansion": "AE",
+      "id": "FeralLightning",
+      "keywords": Array [],
+      "name": "Feral Lightning",
+      "type": "Spell",
+    },
+    Object {
+      "cost": 6,
+      "effect": "
+    <p>
+    <b>Cast:</b> Deal 2 damage.<br/>
+      Deal 1 addtional damage for each of your opened breaches.
+      </p>
+    ",
+      "expansion": "AE",
+      "id": "PlanarInsight",
+      "keywords": Array [],
+      "name": "Planar Insight",
+      "type": "Spell",
+    },
+    Object {
+      "cost": 7,
+      "effect": "
+    <p>
+    <b>Cast:</b> Destroy up to two cards in hand.<br/>
+    Deal 3 damage for each card destroyed in this way.
+      </p>
+      ",
+      "expansion": "AE",
+      "id": "ConsumingVoid",
+      "keywords": Array [],
+      "name": "Consuming Void",
+      "type": "Spell",
+    },
+    Object {
+      "cost": 6,
+      "effect": "
+    <p>
+    Gain 3 <span class=\\"aether\\">&AElig;</span>.<br/>
+    If this is the first time you have played Clouded Sapphire this turn, 
+    any ally gains 1 charge.
+    </p>
+    ",
+      "expansion": "AE",
+      "id": "CloudedSapphire",
+      "keywords": Array [],
+      "name": "Clouded Sapphire",
+      "type": "Gem",
+    },
+    Object {
+      "cost": 5,
+      "effect": "
+    <p>
+      Gain 1 charge.<br/>
+      Any ally gains 1 charge.
+    </p>
+      ",
+      "expansion": "AE",
+      "id": "MagesTalisman",
+      "keywords": Array [],
+      "name": "Mages Talisman",
+      "type": "Relic",
+    },
+    Object {
+      "cost": 2,
+      "effect": "
+    <p>
+      The next time you focus or open a breach this turn, it costs 3 
+      <span class=\\"aether\\">&AElig;</span> less.
+      <span class=\\"or\\">OR</span>
+      Destroy this. Deal 1 damage.
+    </p>
+      ",
+      "expansion": "AE",
+      "id": "FlexingDagger",
+      "keywords": Array [],
+      "name": "Flexing Dagger",
+      "type": "Relic",
+    },
+    Object {
+      "cost": 3,
+      "effect": "
+    <p>
+      Destroy this.<br/>
+      Destroy up to two cards in your hand or discard pile.<br/>
+      Draw a card.
+    </p>
+      ",
+      "expansion": "AE",
+      "id": "BottledVortex",
+      "keywords": Array [],
+      "name": "Bottled Vortex",
+      "type": "Relic",
+    },
+    Object {
+      "cost": 5,
+      "effect": "
+      <p>
+      <b>Cast:</b> Discard up to two cards in hand.<br/>
+      Deal 3 damage for each card discarded this way.
+      </p>
+      ",
+      "expansion": "AE",
+      "id": "DarkFire",
+      "keywords": Array [],
+      "name": "Dark Fire",
+      "type": "Spell",
+    },
+    Object {
+      "cost": 3,
+      "effect": "
+      <p>
+        <b>Cast:</b> Deal 2 damage.<br/>
+        You may lose 1 charge to deal 2 additional damage.
+      </p>
+    ",
+      "expansion": "AE",
+      "id": "PhoenixFlame",
+      "keywords": Array [],
+      "name": "Phoenix Flame",
+      "type": "Spell",
+    },
+    Object {
+      "cost": 2,
+      "effect": "
+    <p>
+      Gain 2 <span class=\\"aether\\">&AElig;</span>.
+    </p>
+      ",
+      "expansion": "AE",
+      "id": "Jade",
+      "keywords": Array [],
+      "name": "Jade",
+      "type": "Gem",
+    },
+    Object {
+      "cost": 4,
+      "effect": "
+    <p>
+    <b>Cast:</b> Focus your closed breach with the lowest focus cost.<br/>
+    Deal 2 damage.<br/>
+    If all of your breaches are opened, deal 1 additional damage.
+      </p>
+    ",
+      "expansion": "AE",
+      "id": "AmplifyVision",
+      "keywords": Array [],
+      "name": "Amplify Vision",
+      "type": "Spell",
+    },
+    Object {
+      "cost": 4,
+      "effect": "
+    <p>
+      You may cast a prepped spell that you prepped this turn. If you do, 
+      that spell deals 2 additional damage.
+    </p>
+      ",
+      "expansion": "AE",
+      "id": "BlastingStaff",
+      "keywords": Array [],
+      "name": "Blasting Staff",
+      "type": "Relic",
+    },
+    Object {
+      "cost": 3,
+      "effect": "
+    <p>
+    Gain 2 <span class=\\"aether\\">&AElig;</span>.<br/>
+    Each player reveals the top card of their deck and either discards it or 
+    returns it to the top of their deck.
+    </p>
+    ",
+      "expansion": "AE",
+      "id": "SiftersPearl",
+      "keywords": Array [],
+      "name": "Sifters Pearl",
+      "type": "Gem",
+    },
+    Object {
+      "cost": 6,
+      "effect": "
+    <p>
+    While prepped, during your main phase you may spend 2 <span class=\\"aether\\">&AElig;</span> 
+    to cast any player's prepped spell.<br/>
+      <b>Cast:</b> Deal 4 damage.
+      </p>
+    ",
+      "expansion": "AE",
+      "id": "WildfireWhip",
+      "keywords": Array [],
+      "name": "Wildfire Whip",
+      "type": "Spell",
+    },
+    Object {
+      "cost": 4,
+      "effect": "
+    <p>
+      Focus any player's breach.
+      <span class=\\"or\\">OR</span>
+      Destroy this. Gravehold gains 3 life.
+    </p>
+      ",
+      "expansion": "AE",
+      "id": "FocusingOrb",
+      "keywords": Array [],
+      "name": "Focusing Orb",
+      "type": "Relic",
+    },
+  ],
+  "result": Array [
+    Object {
+      "blueprintId": 0,
+      "cost": 3,
+      "effect": "
+    <p>
+      When gain this, you may place it on top of your deck.<br/>
+      Gain 2 <span class=\\"aether\\">&AElig;</span>.
+    </p>
+      ",
+      "expansion": "AE",
+      "id": "VriswoodAmber",
+      "keywords": Array [],
+      "name": "Vriswood Amber",
+      "type": "Gem",
+    },
+    Object {
+      "blueprintId": 0,
+      "cost": 4,
+      "effect": "
+    <p>
+    Gain 2 <span class=\\"aether\\">&AElig;</span>.<br/>
+    Gain an additional 1 <span class=\\"aether\\">&AElig;</span> that can only 
+    be used to gain a spell.
+    </p>
+    ",
+      "expansion": "AE",
+      "id": "SearingRuby",
+      "keywords": Array [],
+      "name": "Searing Ruby",
+      "type": "Gem",
+    },
+    Object {
+      "blueprintId": 0,
+      "cost": 5,
+      "effect": "
+    <p>
+    While prepped, once per turn during your main phase you may gain 1 
+    <span class=\\"aether\\">&AElig;</span>.<br/>
+    <b>Cast:</b> Deal 2 damage.<br/>
+    You may discard a gem. If you do, deal additional damage equal to its cost.
+      </p>
+    ",
+      "expansion": "AE",
+      "id": "OblivionSwell",
+      "keywords": Array [],
+      "name": "Oblivion Swell",
+      "type": "Spell",
+    },
+    Object {
+      "blueprintId": 0,
+      "cost": 5,
+      "effect": "
+    <p>
+    Gain 3 <span class=\\"aether\\">&AElig;</span>.<br/>
+    You may discard a card in hand. If you do, any ally draws a card.
+    </p>
+    ",
+      "expansion": "AE",
+      "id": "BurningOpal",
+      "keywords": Array [],
+      "name": "Burning Opal",
+      "type": "Gem",
+    },
+    Object {
+      "blueprintId": 0,
+      "cost": 3,
+      "effect": "
+    <p>
+      Play a gem in hand twice and destroy it.
+      <span class=\\"or\\">OR</span>
+      Gain 2 <span class=\\"aether\\">&AElig;</span>.
+    </p>
+      ",
+      "expansion": "AE",
+      "id": "UnstablePrism",
+      "keywords": Array [],
+      "name": "Unstable Prism",
+      "type": "Relic",
+    },
+    Object {
+      "blueprintId": 0,
+      "cost": 3,
+      "effect": "
+      <p>
+        <b>Cast:</b> Deal 2 damage.<br/>
+        You may destroy a card in hand.
+      </p>
+        ",
+      "expansion": "AE",
+      "id": "SpectralEcho",
+      "keywords": Array [],
+      "name": "Spectral Echo",
+      "type": "Spell",
+    },
+    Object {
+      "blueprintId": 0,
+      "cost": 4,
+      "effect": "
+    <p>
+      While prepped, at the end of your casting phase deal 1 damage.<br/>
+      <b>Cast:</b> Deal 3 damage.
+      </p>
+      ",
+      "expansion": "AE",
+      "id": "LavaTendril",
+      "keywords": Array [],
+      "name": "Lava Tendril",
+      "type": "Spell",
+    },
+    Object {
+      "blueprintId": 0,
+      "cost": 5,
+      "effect": "
+      <p>
+        <b>Cast:</b> Deal 3 damage.<br/>
+        You may discard a card in hand. If you do, any player gains 1 life.
+      </p>
+    ",
+      "expansion": "AE",
+      "id": "EssenceTheft",
+      "keywords": Array [],
+      "name": "Essence Theft",
+      "type": "Spell",
+    },
+    Object {
+      "blueprintId": 0,
+      "cost": 7,
+      "effect": "
+    <p>
+    While prepped, once per turn during your main phase you may return a gem 
+    you played this turn to your hand.<br/>
+      <b>Cast:</b> Deal 4 damage.
+      </p>
+    ",
+      "expansion": "AE",
+      "id": "ArcaneNexus",
+      "keywords": Array [],
+      "name": "Arcane Nexus",
+      "type": "Spell",
+    },
+  ],
+  "seed": Object {
+    "seed": "test",
+    "state": Object {
+      "S": Array [
+        92,
+        55,
+        235,
+        213,
+        126,
+        59,
+        37,
+        65,
+        117,
+        41,
+        205,
+        7,
+        51,
+        174,
+        214,
+        0,
+        171,
+        155,
+        139,
+        252,
+        196,
+        91,
+        138,
+        164,
+        223,
+        97,
+        147,
+        203,
+        109,
+        102,
+        190,
+        246,
+        173,
+        81,
+        152,
+        250,
+        56,
+        83,
+        127,
+        136,
+        192,
+        230,
+        200,
+        150,
+        237,
+        64,
+        216,
+        49,
+        62,
+        89,
+        241,
+        225,
+        1,
+        148,
+        54,
+        96,
+        2,
+        67,
+        125,
+        95,
+        73,
+        162,
+        134,
+        101,
+        66,
+        160,
+        69,
+        76,
+        75,
+        222,
+        188,
+        149,
+        34,
+        177,
+        184,
+        191,
+        9,
+        178,
+        238,
+        68,
+        217,
+        187,
+        131,
+        189,
+        185,
+        234,
+        194,
+        143,
+        28,
+        121,
+        167,
+        40,
+        100,
+        255,
+        224,
+        106,
+        86,
+        38,
+        204,
+        123,
+        215,
+        170,
+        114,
+        87,
+        195,
+        115,
+        183,
+        19,
+        31,
+        88,
+        193,
+        186,
+        85,
+        105,
+        60,
+        248,
+        180,
+        156,
+        159,
+        208,
+        210,
+        15,
+        244,
+        12,
+        163,
+        108,
+        35,
+        116,
+        3,
+        13,
+        30,
+        129,
+        154,
+        176,
+        112,
+        70,
+        46,
+        61,
+        239,
+        198,
+        165,
+        110,
+        209,
+        218,
+        94,
+        221,
+        107,
+        228,
+        5,
+        207,
+        226,
+        206,
+        63,
+        50,
+        20,
+        52,
+        122,
+        201,
+        145,
+        157,
+        48,
+        142,
+        219,
+        236,
+        181,
+        104,
+        128,
+        254,
+        135,
+        249,
+        43,
+        82,
+        16,
+        166,
+        212,
+        18,
+        111,
+        146,
+        29,
+        168,
+        10,
+        242,
+        151,
+        78,
+        119,
+        93,
+        17,
+        77,
+        133,
+        227,
+        118,
+        197,
+        132,
+        45,
+        175,
+        140,
+        153,
+        26,
+        211,
+        161,
+        144,
+        58,
+        243,
+        23,
+        245,
+        4,
+        74,
+        27,
+        251,
+        24,
+        253,
+        11,
+        80,
+        14,
+        21,
+        232,
+        137,
+        231,
+        240,
+        57,
+        179,
+        71,
+        33,
+        120,
+        124,
+        8,
+        98,
+        32,
+        72,
+        169,
+        247,
+        22,
+        229,
+        25,
+        53,
+        42,
+        233,
+        99,
+        36,
+        130,
+        172,
+        141,
+        182,
+        6,
+        39,
+        79,
+        202,
+        47,
+        90,
+        199,
+        158,
+        220,
+        103,
+        113,
+        44,
+        84,
+      ],
+      "i": 63,
+      "j": 195,
+    },
+  },
+}
+`;

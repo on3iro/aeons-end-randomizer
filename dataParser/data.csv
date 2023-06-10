@@ -1,0 +1,1386 @@
+type,expansion,name,id,cost,effect,keywords
+Gem,AE,Diamond Cluster,DiamondCluster,4,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+          If this is the second time you have played Diamond Cluster this turn 
+          gain an additional 2 <span class=""aether"">&AElig;</span>.
+        </p>
+      ",[]
+Spell,AE,Chaos Arc,ChaosArc,6,"
+      <p>
+      <b>Cast:</b> Deal 3 damage.<br/>
+      Deal 2 additional damage for each prepped spell in an adjacent breach.
+        </p>
+        ",[]
+Spell,AE,Ignite,Ignite,4,"
+        <p>
+          <b>Cast:</b> Deal 2 damage.<br/>
+          Any ally gains 1 charge.
+        </p>
+          ",[]
+Spell,AE,Essence Theft,EssenceTheft,5,"
+        <p>
+          <b>Cast:</b> Deal 3 damage.<br/>
+          You may discard a card in hand. If you do, any player gains 1 life.
+        </p>
+      ",[]
+Gem,AE,Searing Ruby,SearingRuby,4,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      Gain an additional 1 <span class=""aether"">&AElig;</span> that can only 
+      be used to gain a spell.
+      </p>
+      ",[]
+Spell,AE,Feral Lightning,FeralLightning,5,"
+        <p>
+          This spell may be prepped to a closed breach without focusing it.<br/>
+          <b>Cast:</b> Deal 3 damage.
+        </p>
+      ",[]
+Spell,AE,Planar Insight,PlanarInsight,6,"
+      <p>
+      <b>Cast:</b> Deal 2 damage.<br/>
+        Deal 1 addtional damage for each of your opened breaches.
+        </p>
+      ",[]
+Spell,AE,Spectral Echo,SpectralEcho,3,"
+        <p>
+          <b>Cast:</b> Deal 2 damage.<br/>
+          You may destroy a card in hand.
+        </p>
+          ",[]
+Gem,AE,Burning Opal,BurningOpal,5,"
+      <p>
+      Gain 3 <span class=""aether"">&AElig;</span>.<br/>
+      You may discard a card in hand. If you do, any ally draws a card.
+      </p>
+      ",[]
+Spell,AE,Consuming Void,ConsumingVoid,7,"
+      <p>
+      <b>Cast:</b> Destroy up to two cards in hand.<br/>
+      Deal 3 damage for each card destroyed in this way.
+        </p>
+        ",[]
+Relic,AE,Unstable Prism,UnstablePrism,3,"
+      <p>
+        Play a gem in hand twice and destroy it.
+        <span class=""or"">OR</span>
+        Gain 2 <span class=""aether"">&AElig;</span>.
+      </p>
+        ",[]
+Gem,AE,Clouded Sapphire,CloudedSapphire,6,"
+      <p>
+      Gain 3 <span class=""aether"">&AElig;</span>.<br/>
+      If this is the first time you have played Clouded Sapphire this turn, 
+      any ally gains 1 charge.
+      </p>
+      ",[]
+Relic,AE,Mages Talisman,MagesTalisman,5,"
+      <p>
+        Gain 1 charge.<br/>
+        Any ally gains 1 charge.
+      </p>
+        ",[]
+Relic,AE,Flexing Dagger,FlexingDagger,2,"
+      <p>
+        The next time you focus or open a breach this turn, it costs 3 
+        <span class=""aether"">&AElig;</span> less.
+        <span class=""or"">OR</span>
+        Destroy this. Deal 1 damage.
+      </p>
+        ",[]
+Spell,AE,Lava Tendril,LavaTendril,4,"
+      <p>
+        While prepped, at the end of your casting phase deal 1 damage.<br/>
+        <b>Cast:</b> Deal 3 damage.
+        </p>
+        ",[]
+Relic,AE,Bottled Vortex,BottledVortex,3,"
+      <p>
+        Destroy this.<br/>
+        Destroy up to two cards in your hand or discard pile.<br/>
+        Draw a card.
+      </p>
+        ",[]
+Spell,AE,Arcane Nexus,ArcaneNexus,7,"
+      <p>
+      While prepped, once per turn during your main phase you may return a gem 
+      you played this turn to your hand.<br/>
+        <b>Cast:</b> Deal 4 damage.
+        </p>
+      ",[]
+Spell,AE,Dark Fire,DarkFire,5,"
+        <p>
+        <b>Cast:</b> Discard up to two cards in hand.<br/>
+        Deal 3 damage for each card discarded this way.
+        </p>
+        ",[]
+Spell,AE,Phoenix Flame,PhoenixFlame,3,"
+        <p>
+          <b>Cast:</b> Deal 2 damage.<br/>
+          You may lose 1 charge to deal 2 additional damage.
+        </p>
+      ",[]
+Gem,AE,Jade,Jade,2,"
+      <p>
+        Gain 2 <span class=""aether"">&AElig;</span>.
+      </p>
+        ",[]
+Spell,AE,Amplify Vision,AmplifyVision,4,"
+      <p>
+      <b>Cast:</b> Focus your closed breach with the lowest focus cost.<br/>
+      Deal 2 damage.<br/>
+      If all of your breaches are opened, deal 1 additional damage.
+        </p>
+      ",[]
+Gem,AE,Vriswood Amber,VriswoodAmber,3,"
+      <p>
+        When gain this, you may place it on top of your deck.<br/>
+        Gain 2 <span class=""aether"">&AElig;</span>.
+      </p>
+        ",[]
+Relic,AE,Blasting Staff,BlastingStaff,4,"
+      <p>
+        You may cast a prepped spell that you prepped this turn. If you do, 
+        that spell deals 2 additional damage.
+      </p>
+        ",[]
+Gem,AE,Sifters Pearl,SiftersPearl,3,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      Each player reveals the top card of their deck and either discards it or 
+      returns it to the top of their deck.
+      </p>
+      ",[]
+Spell,AE,Wildfire Whip,WildfireWhip,6,"
+      <p>
+      While prepped, during your main phase you may spend 2 <span class=""aether"">&AElig;</span> 
+      to cast any player's prepped spell.<br/>
+        <b>Cast:</b> Deal 4 damage.
+        </p>
+      ",[]
+Relic,AE,Focusing Orb,FocusingOrb,4,"
+      <p>
+        Focus any player's breach.
+        <span class=""or"">OR</span>
+        Destroy this. Gravehold gains 3 life.
+      </p>
+        ",[]
+Spell,AE,Oblivion Swell,OblivionSwell,5,"
+      <p>
+      While prepped, once per turn during your main phase you may gain 1 
+      <span class=""aether"">&AElig;</span>.<br/>
+      <b>Cast:</b> Deal 2 damage.<br/>
+      You may discard a gem. If you do, deal additional damage equal to its cost.
+        </p>
+      ",[]
+Gem,BS,Triplite Core,TripliteCore,4,"
+      <p>
+      Gain 3 <span class=""aether"">&AElig;</span> that can only be used to gain 
+      cards.
+      </p>
+      ",[]
+Spell,BS,Nerve Jab,NerveJab,2,"
+      <p>
+      <b>Cast:</b> Deal 1 damage.<br/>
+      Silence a minion.
+        </p>
+      ","[""silence""]"
+Spell,BS,Double Tap,DoubleTap,3,"
+      <p>
+      <b>Cast:</b> Deal 1 damage. Deal 1 damage.<br/>
+      <span class=""hint"">(Effects that modify damage affect both 
+      instances of damage this spell deals.)</span>
+        </p>
+        ",[]
+Gem,BS,Oblivium Resin,ObliviumResin,5,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      If you have three or more cards that cost 0 <span class=""aether"">&AElig;</span> 
+      in hand, gain an additional 2 <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Gem,BS,Summonite,Summonite,3,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.
+        <span class=""or"">OR</span>
+      Gain a Summonite from the supply and place it on top of any ally's 
+      discard pile.
+      </p>
+      ",[]
+Relic,BS,Manifold Container,ManifoldContainer,4,"
+      <p>
+      Gain 1 <span class=""aether"">&AElig;</span>.<br/>
+      The next time you gain a card this turn, you may also gain a card 
+      that costs less than the gained card.
+      </p>
+      ",[]
+Spell,BS,Draining Touch,DrainingTouch,2,"
+      <p>
+      <b>Cast:</b> Deal 1 damage.<br/>
+      Gain 1 charge.
+        </p>
+      ",[]
+Gem,BS,Jolting Crust,JoltingCrust,3,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>. Gain 1 pulse token.
+        <span class=""or"">OR</span>
+      Gain 2 <span class=""aether"">&AElig;</span>. Lose 1 pulse token.
+        If you do, gain 1 charge.
+      </p>
+      ","[""pulse""]"
+Gem,BS,Mentite Chunk,MentiteChunk,5,"
+      <p>
+      Gain 3 <span class=""aether"">&AElig;</span>.<br/>
+      If there are seven or more cards in your discard pile, gain an additional 
+      1 <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Relic,BS,Soul Cords,SoulCords,5,"
+      <p>
+      Any player gains 1 pulse token.<br/>
+      Each player with 2 or more pulse tokens gains 1 charge.
+      </p>
+      ","[""pulse""]"
+Gem,BS,Voidium Spike,VoidiumSpike,3,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      Each ally may discard a card in hand. Each ally that does gains 1 charge.
+      </p>
+      ",[]
+Spell,BS,Precision Shot,PrecisionShot,3,"
+      <p>
+        <b>Link</b> <span class=""hint"">(Two spells with Link may be prepped to the same breach.)</span>
+        </p>
+        <p>
+        <b>Cast:</b> Deal 2 damage.<br/>
+        If there are six or more other cards in your 
+        discard pile, deal 2 additional damage.
+        </p>
+        ","[""link""]"
+Gem,BS,Muted Lacosite,MutedLacosite,5,"
+      <p>
+      When you gain this, Silence a minion.<br/>
+      Gain 3 <span class=""aether"">&AElig;</span>.
+      </p>
+      ","[""silence""]"
+Spell,BS,Blade Of Wisdom,BladeOfWisdom,6,"
+      <p>
+      When you gain this, if there are seven or more other cards in your 
+        discard pile, gain 2 life.<br/>
+        <b>Cast:</b> Deal 5 damage.
+        </p>
+      ",[]
+Spell,BS,Stunning Force,StunningForce,5,"
+      <p>
+      <b>Cast:</b> Deal 4 damage to the nemesis.<br/>
+      Silence a minion.
+        </p>
+      ","[""silence""]"
+Spell,BS,Flash Of Intellect,FlashOfIntellect,4,"
+      <p>
+      <b>Link</b> <span class=""hint"">(Two spells with Link may be prepped to the same breach.)</span>
+      </p>
+      <p>
+      <b>Cast:</b> Deal 3 damage.<br/>
+      If there are six or more other cards in your 
+      discard pile, you may gain a Flash of Intellect from the supply and 
+      place it on top of your deck.
+        </p>
+      ",[]
+Relic,BS,Scholars Opus,ScholarsOpus,3,"
+      <p>
+      Gain 1 charge.<br/>
+      If there are seven or more cards in your discard pile, gain 1 
+      additional charge.
+      </p>
+      ",[]
+Relic,BS,Bottled Star,BottledStar,7,"
+      <p>
+      Gain 3 charges.
+      </p>
+      ",[]
+Spell,BS,Burning Current,BurningCurrent,3,"
+      <p>
+      While prepped, during your casting phase you may lose 2 pulse tokens. 
+        If you do, spells you cast this turn deal 1 additional damage.<br/>
+        <b>Cast:</b> Deal 1 damage.<br/>
+        Gain 1 pulse token.
+        </p>
+      ","[""pulse""]"
+Spell,BS,Psychic Eruption,PsychicEruption,8,"
+      <p>
+      <b>Cast:</b> Deal damage equal to the number of cards in any player's 
+      discard pile.
+        </p>
+      ",[]
+Relic,BS,Living Gauntlet,LivingGauntlet,4,"
+      <p>
+      Reveal the top card of your deck.<br/>
+      You may destroy or discard it. Each ally may draw a card. Each ally 
+      that does discards a card in hand.
+      </p>
+      ",[]
+Gem,BS,Shining Tetrite,ShiningTetrite,6,"
+      <p>
+      Gain 4 <span class=""aether"">&AElig;</span> that cannot be used to gain 
+      a card.
+      </p>
+      ",[]
+Gem,IW,Jeweled Brain,JeweledBrain,3,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>.
+          <span class=""or"">OR</span>
+          Gain 1 <span class=""aether"">&AElig;</span>. Return to your hand a 
+          card in your discard pile that costs 0 <span class=""aether"">&AElig;</span>.
+        </p>
+      ",[]
+Relic,IW,Blast Sphere,BlastSphere,8,"
+        <p>
+          Cast any player's prepped spell three times without discarding it 
+          and then destroy it.
+        </p>
+      ",[]
+Spell,IW,Wound Mender,WoundMender,8,"
+        <p>
+          <b>Echo</b>
+        </p>
+        <p>
+          <b>Cast:</b> Deal 2 damage.<br/>
+          If this was cast from an opened III or IV breach, gain 1 life.
+        </p>
+      ","[""echo""]"
+Gem,Legacy,Branching Radite,BranchingRadite,4,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>. <br/>
+          If you have two or more prepped spells, gain an additional 1 
+          <span class=""aether"">&AElig;</span>.
+        </p>
+      ","[""weak""]"
+Spell,Legacy,Fire Chakram,FireChakram,2,"
+        <p>
+          <b>Cast:</b> Deal 2 damage.
+        </p>
+      ","[""weak""]"
+Relic,Legacy,Brane Knife,BraneKnife,3,"
+        <p>
+          Gain 1 charge. <br/>
+          Any ally focuses their closed breach with 
+          the lowest focus cost.
+        </p>
+      ","[""weak""]"
+Gem,Legacy,Fulmite Slab,FulmiteSlab,6,"
+        <p>
+          Gain 1 <span class=""aether"">&AElig;</span>. Gain 2 pulse tokens. <br/>
+          Until the end of the turn, you may lose 1 pulse token to gain 
+          1 <span class=""aether"">&AElig;</span> any number of times.
+        </p>
+      ","[""pulse"",""strong""]"
+Gem,Legacy,Gilded Marble,GildedMarble,6,"
+        <p>
+          Gain 3 <span class=""aether"">&AElig;</span>.
+        </p>
+      ","[""weak""]"
+Relic,Legacy,Voltaic Relay,VoltaicRelay,4,"
+        <p>
+          Any player gains 3 pulse tokens. <br/>
+          That player may lose 1 pulse token. If they do, 
+          they destroy a card in hand.
+        </p>
+      ","[""strong"",""pulse""]"
+Spell,Legacy,Sparking Siphon,SparkingSiphon,3,"
+        <p>
+          When you gain this, gain 2 pulse tokens. <br/>
+          <b>Cast:</b> Deal 2 damage. <br/>
+          You may lose 1 pulse token. If you do, any player gains 1 life.
+        </p>
+      ","[""pulse"",""strong""]"
+Spell,Legacy,Breach Communion,BreachCommunion,4,"
+        <p>
+          While prepped, once per turn during your main phase 
+          you may gain 1 pulse token. <br/>
+          <b>Cast:</b> Deal 2 damage.<br/>
+          You may lose 2 pulse tokens. 
+          If you do, deal 3 additional damage.
+        </p>
+      ","[""strong"",""pulse""]"
+Relic,Legacy,Infernal Mirror,InfernalMirror,5,"
+        <p>
+          Any ally gains 1 charge. Any player gains 2 pulse tokens. 
+          You may lose 2 pulse tokens. If you do, cast any player's 
+          prepped spell. That spell deals 1 additional damage.
+        </p>
+      ","[""pulse"",""strong""]"
+Relic,Legacy,Geophage,Geophage,3,"
+        <p>
+          Gain 1 <span class=""aether"">&AElig;</span>. <br/>
+          You may destroy a gem in hand.
+        </p>
+      ","[""weak""]"
+Spell,Legacy,Force Transfusion,ForceTransfusion,4,"
+        <p>
+          <b>Cast:</b> Deal 3 damage. <br/>
+          If you have 3 or more charges, gain 1 charge.
+        </p>
+      ","[""weak""]"
+Gem,Legacy,Conductive Grit,ConductiveGrit,3,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>. Gain 1 pulse token.
+          <span class=""or"">OR</span>
+          You may lose 1 pulse token. If you do, gain 3 
+          <span class=""aether"">&AElig;</span>.
+        </p>
+      ","[""pulse"",""strong""]"
+Gem,Legacy,Ancient Cyanolith,AncientCyanolith,3,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>.
+        </p>
+      ","[""weak""]"
+Relic,Legacy,Ethereal Hand,EtherealHand,6,"
+        <p>
+          Any ally draws two cards.
+        </p>
+      ","[""weak""]"
+Spell,Legacy,Bending Beam,BendingBeam,5,"
+        <p>
+          <b>Cast:</b> Deal 2 damage. <br/>
+          If this spel was cast from an opened III breach, 
+          deal 3 additional damage.
+        </p>
+      ","[""weak""]"
+Gem,Legacy,Entangled Shard,EntangledShard,4,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>. If you have 3 or more 
+          charges, gain an additional 1 <span class=""aether"">&AElig;</span>.
+        </p>
+      ","[""weak""]"
+Spell,Legacy,Arcane Salvo,ArcaneSalvo,5,"
+        <p>
+          While prepped, once per turn during your main
+          phase you may place a relic you played this turn 
+          or a relic in your discard pile on top of your deck. <br/>
+          <b>Cast:</b> Deal 4 damage.
+        </p>
+      ",[]
+Gem,Legacy,Phased Portalite,PhasedPortalite,4,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>. If your III breach is 
+          opened, gain and additional 1 <span class=""aether"">&AElig;</span>.
+        </p>
+          ",[]
+Spell,Legacy,Pyro Geist,PyroGeist,6,"
+        <p>
+          When you prep this, deal 1 damage. <br/>
+          <b>Cast:</b> Deal 1 damage. Deal 2 damage.
+        </p>
+      ",[]
+Spell,Legacy,Breach Flare,BreachFlare,3,"
+        <p>
+          <b>Cast:</b> Deal 2 damage. <br/>
+          Focus any player's III breach.
+        </p>
+      ","[""weak""]"
+Spell,Legacy,Thunderous Oath,ThunderousOath,8,"
+        <p>
+          <b>Cast:</b> Deal 6 damage.<br/> 
+          Gain 1 pulse token.<br/>
+          You may lose any number of pulse tokens. 
+          If you do, any ally draws cards equal to the number 
+          of pulse tokens lost this way.
+        </p>
+      ","[""pulse"",""strong""]"
+Gem,Legacy,Soothing Torporene,SoothingTorporene,3,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>.
+          <span class=""or"">OR</span>
+          Silence a minion.
+        </p>
+      ","[""silence""]"
+Gem,Legacy,Arcing Silicate,ArcingSilicate,4,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>. Gain 1 pulse token. <br/>
+          You may lose any number of pulse tokens. Deal damage equal to the 
+          number of pulse tokens lost this way.
+        </p>
+      ","[""pulse"",""strong""]"
+Spell,Legacy,Warping Haze,WarpingHaze,3,"
+        <p>
+          <b>Cast:</b> Deal 2 damage. <br/>
+          If you have two or more other prepped spells, deal 1 additional damage.
+        </p>
+      ","[""weak""]"
+Spell,Legacy,Incinerating Fist,IncineratingFist,4,"
+        <p>
+          <b>Cast:</b> Deal 3 damage.
+        </p>
+      ","[""weak""]"
+Relic,Legacy,Reality Stabilizer,RealityStabilizer,6,"
+        <p>
+          Gain 2 charges. <br/>
+          Silence a minion.
+        </p>
+      ","[""silence""]"
+Spell,Legacy,Breach Collision,BreachCollision,7,"
+        <p>
+          When you gain this, you may place it on top 
+          of any player's discard pile. <br/>
+          <b>Cast:</b> Deal 5 damage. <br/>
+          Gravehold gains 1 life.
+        </p>
+      ",[]
+Spell,Legacy,Fiery Conclusion,FieryConclusion,5,"
+        <p>
+          <b>Cast:</b> Deal 4 damage.<br/>
+          If there are three or more empty supply piles, 
+          deal 3 additional damage.
+        </p>
+      ","[""strong""]"
+Spell,Legacy,Starfire Frenzy,StarfireFrenzy,6,"
+        <p>
+          <b>Cast:</b> Deal 4 damage.<br/>
+          You may discard a spell in hand. If you do, deal 1 additional 
+          damage and gain 1 charge.
+        </p>
+      ","[""weak""]"
+Gem,Legacy,Crumbling Compound,CrumblingCompound,5,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>. You may discard a gem in 
+          in hand. If you do, gain an additional 2 <span class=""aether"">&AElig;</span>.
+        </p>
+      ","[""weak""]"
+Relic,Legacy,Prophetic Lens,PropheticLens,4,"
+        <p>
+          Gain 1 charge. <br/>
+          Reveal the top card of your deck. You may destroy it. If you
+          don't, gain 1 <span class=""aether"">&AElig;</span>.
+        </p>
+      ","[""strong""]"
+Relic,Legacy,Adrenal Batteries,AdrenalBatteries,7,"
+        <p>
+          Gain 2 pulse tokens. You may lose 4 pulse tokens. 
+          If you do, open any player's closed breach. Then, 
+          gain a spell from any supply pile that costs 5 
+          <span class=""aether"">&AElig;</span> or less and 
+          prep that spell to any player's opened breach.
+        </p>
+      ","[""pulse"",""strong""]"
+Gem,Legacy,Refined Lumenium,RefinedLumenium,5,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>. <br/>
+          Any ally draws a card.
+        </p>
+      ",[]
+Relic,Legacy,Void Mill,VoidMill,5,"
+        <p>
+          Focus any player's breach. <br/>
+          Two different players may destroy the top card of their 
+          discard pile.
+        </p>
+      ",[]
+Spell,Legacy,Gravity Node,GravityNode,5,"
+        <p>
+          <b>Cast: Any player discards a card in hand. 
+          If they do, deal 4 damage.
+        </p>
+      ","[""weak""]"
+Relic,Legacy,Neural Wreath,NeuralWreath,4,"
+        <p>
+          Focus any player's breach. Any player may prep a spell in hand.
+        </p>
+      ","[""weak""]"
+Spell,Legacy,Sphere OfInversion,SphereOfInversion,9,"
+        <p>
+          <b>Cast:</b> Deal 7 damage. <br/>
+          Any ally may destroy a card in hand. 
+          If they do, they gain 2 life.
+        </p>
+      ","[""strong""]"
+Spell,OD,Char,Char,8,"
+        <p>
+          <b>Cast:</b> Deal 6 damage.<br/>
+          If this damage causes a minion to be discarded, any player gains 2 life.
+        </p>
+      ",[]
+Gem,OD,Alien Element,AlienElement,4,"
+        <p>
+          Gain 1 <span class=""aether"">&AElig;</span>.<br/>
+          For each of your breaches with a spell prepped to it, gain an 
+          additional 1 <span class=""aether"">&AElig;</span>.
+        </p>
+      ",[]
+Spell,OD,Scorch,Scorch,5,"
+        <p>
+          <b>Cast:</b> Deal 4 damage.<br/>
+          If this damage causes a minion from the nemesis deck to be discarded, 
+          any ally gains 2 charges.
+        </p>
+      ",[]
+Spell,OD,Pyromancy,Pyromancy,7,"
+        <b>Cast:</b> Deal 1 damage.<br/>
+        Allies may collectively discard up to two cards in hand. For each card 
+        discarded this way, deal 3 additional damage.
+      ",[]
+Spell,OD,Feedback Aura,FeedbackAura,5,"
+        <p>
+          <b>Cast:</b> Deal 3 damage.<br/>
+          If you have 4 or more charges, deal 3 additional damage.
+        </p>
+          ",[]
+Spell,OD,Catalyst,Catalyst,6,"
+        <p>
+          <b>Cast:</b> Deal 2 damage.<br/>
+          If you have 2 life or less, deal 5 additional damage.
+        </p>
+      ",[]
+Gem,OD,Pain Stone,PainStone,6,"
+        <p>
+          Gain 3 <span class=""aether"">&AElig;</span>.
+          <span class=""or"">OR</span>
+          Gain 2 <span class=""aether"">&AElig;</span> and deal 1 damage.
+        </p>
+      ",[]
+Relic,OD,Astral Cube,AstralCube,5,"
+        <p>
+          Return a gem you played this turn to your hand.<br/>
+          Reveal the top card of the turn order deck. If you revealed a 
+          player's turn order card, that player gains 1 life.
+        </p>
+      ",[]
+Relic,OD,Riddle Sphere,RiddleSphere,3,"
+        <p>
+          Gain 1 charge.
+          <span class=""or"">OR</span>
+          You may lose 2 charges. If you do, gain 5 <span class=""aether"">&AElig;</span>.
+        </p>
+      ",[]
+Spell,OD,Nether Conduit,NetherConduit,7,"
+        <b>Cast:</b> Reveal a card in hand that costs 2 <span class=""aether"">&AElig;</span> 
+        or more.<br/>
+        If you do, deal damage equal to the number of cards missing in 
+        that card's supply pile. Then, any ally may gain a card from that supply
+        pile.<br/>
+        <span class=""hint"">(Gem supply piles start with 7 cards. Relic and 
+        spell supply piles start with 5 cards)</span>
+      ",[]
+Gem,OD,Haunted Berylite,HauntedBerylite,3,"
+        <p>
+          Gain 2 <span class=""aether"">&AElig;</span>.
+          <span class=""or"">OR</span>
+          Discard a card in hand. If you do, gain 2 charges.
+        </p>
+      ",[]
+Spell,promos,Drown in Flames,DrownInFlames,6,"
+      <p>
+      <b>Cast:</b> Deal 4 damage to a minion or the nemesis.<br/>
+        You may lose 2 charges. If you do, repeat this.<br/>
+        <span class=""hint"">(Effects that modify damage affect each 
+        instance of damage this spell deals)</span>
+        </p>
+        ",[]
+Spell,promos,Fleeting Vision,FleetingVision,3,"
+      <p>
+      <b>Cast:</b> Deal 2 damage.<br/>
+      Each player may reveal the top two cards of their deck and may discard 
+      any of those cards.
+        </p>
+      ",[]
+Spell,promos,Splinter Missile,SplinterMissile,5,"
+      <p>
+      <b>Cast:</b> Deal 4 damage.<br/>
+      Any ally may discard a card in hand. 
+      If they do, divide this damage however you choose among the nemesis 
+      and any number of minions.
+        </p>
+      ",[]
+Gem,promos,Echo Stone,EchoStone,4,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      If you have played another Echo Stone this turn, gain an additional 
+      1 <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Spell,promos,Thieving Spirit,ThievingSpirit,5,"
+      <p>
+        <b>Cast:</b> Deal 4 damage.<br/>
+        Gain 1 <span class=""aether"">&AElig;</span>.
+        </p>
+        ",[]
+Gem,promos,Fractured Quartz,FracturedQuartz,4,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      You may destroy two cards in this card's supply pile. If you do, 
+      gain an additional 1 <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Relic,promos,Rock Launcher,RockLauncher,3,"
+      <p>
+      Discard or destroy a card in hand. If you do, deal damage equal to its cost.
+      </p>
+      ",[]
+Relic,promos,Abacus of Ignition,AbacusOfIgnition,4,"
+      <p>
+      You may casdt any ally's prepped spell.<br/>
+      Any ally draws a card.
+      </p>
+      ",[]
+Spell,promos,Illuminating Flame,IlluminatingFlame,6,"
+      <p>
+      <b>Cast:</b> Deal 5 damage.<br/>
+      If this was cast from an opened III or IV breach, you may destroy this.
+        If you do, gain 3 charges.
+        </p>
+      ",[]
+Spell,promos,Chronal Arc,ChronalArc,7,"
+      <p>
+        This spell must be prepped to two adjacent breaches so that this card 
+        touches both breaches. This fully occupies both breaches.<br/>
+        <b>Cast:</b> Deal 4 damage.<br/>
+        You may place this card into your hand.
+        </p>
+        ",[]
+Gem,SD,Olivinite,Olivinite,3,"
+      <p>
+      Gain 2 <span class="aether">&AElig;</span>.
+        <span class=""or"">OR</span>
+      Deal 1 damage to a minion.
+      </p>
+      ",[]
+Gem,SD,Cache Glass,CacheGlass,4,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      If there is a Cache Glass in your discard pile, you may destroy a card 
+      in your discard pile.
+      </p>
+      ",[]
+Relic,SD,Reflective Conduit,ReflectiveConduit,3,"
+      <p>
+      <b>Attach</b> this to any player's breach.
+      </p>
+      <p>
+      When a spell is cast from this breach, the player who cast that spell may 
+      return it to their hand instead of discarding it. If they do, discard this.
+      </p>
+      ","[""attach""]"
+Relic,SD,Will Weaver,WillWeaver,7,"
+      <p>
+      Gain 2 charges.<br/>
+      After the next time you activate your ability this turn, deal 3 damage.
+      </p>
+      ",[]
+Spell,SD,Breach Seeker,BreachSeeker,5,"
+      <p>
+      <b>Echo</b>
+      </p>
+      <p>
+      <b>Cast:</b> Deal 1 damage.<br/>
+      Focus any ally's breach.
+        </p>
+      ","[""echo""]"
+Spell,SD,Crescendo Ray,CrescendoRay,4,"
+      <p>
+      <b>Cast:</b> Deal 3 damage.<br/>
+      Gain 1 <span class=""aether"">&AElig;</span> for each other spell you have 
+        prepped.
+        </p>
+      ",[]
+Spell,SD,Storm Vapors,StormVapors,4,"
+      <p>
+      <b>Cast:</b> Deal 3 damage.<br/>
+      If there is another Storm Vapors in any player's discard pile, 
+      focus any player's breach.
+        </p>
+      ",[]
+Spell,SD,Mantra of Strength,MantraOfStrength,3,"
+      <p>
+      <b>Cast:</b> Any player focuses their closed breach wich the highest 
+      focus cost.<br/>
+      Deal 1 damage.<br/>
+      You may destroy this. If you do, deal 2 additional damage.
+        </p>
+      ",[]
+Spell,SD,Embody Flame,EmbodyFlame,7,"
+      <p>
+      <b>Cast:</b> Deal 5 damage.<br/>
+      You may destroy a card in this card's supply pile. If you do deal 3 
+      additional damage.
+        </p>
+      ",[]
+Spell,SD,Snap Ritual,SnapRitual,6,"
+      <p>
+      While prepped once per turn during your main phase, you may discard 
+      a card in hand to deal 2 damage.<br/>
+        <b>Cast:</b> Deal 3 damage.
+        </p>
+        ",[]
+Gem,TA,Shining Fluorite,ShiningFluorite,7,"
+      <p>
+      Gain 3 <span class=""aether"">&AElig;</span>.<br/>
+      Place the next spell you gain this turn into your hand.
+      </p>
+      ",[]
+Relic,TA,Polyphase Turbine,PolyphaseTurbine,3,"
+      <p>
+        If this is the first time you've played a Polyphase Turbine this turn, 
+        gain 2 <span class=""aether"">&AElig;</span>. Otherwise, gain 1 charge 
+        and 1 <span class=""aether"">&AElig;</span>.
+      </p>
+        ",[]
+Relic,TA,Breach Extractor,BreachExtractor,5,"
+      <p>
+      Any player destroys up to two cards in hand.
+        <span class=""or"">OR</span>
+      Destroy this. Gravehold gains 3 life.
+      </p>
+      ",[]
+Relic,TA,Focusing Conduit,FocusingConduit,5,"
+      <p>
+        <b>Attach</b> this to any player's breach.
+      </p>
+      <p>
+        At the end of that player's casting phase, focus this breach.
+        When this breach is opened, destroy this card.
+      </p>
+        ",[]
+Spell,TA,Dual Flash,DualFlash,3,"
+      <p>
+      <b>Cast:</b> Deal 2 damage.<br/>
+      If this is the first time you have cast Dual Flash during your casting 
+      phase this turn, you may cast any player's prepped Dual Flash without
+      discarding it.
+        </p>
+      ",[]
+Spell,TA,Dust Caller,DustCaller,5,"
+      <p>
+      <b>Cast:</b> Deal 4 damage.<br/>
+      Any ally returns a card that costs 0 <span class=""aether"">&AElig;</span> 
+      from their discard pile to their hand.
+        </p>
+      ",[]
+Spell,TA,Symbiotic Synapse,SymbioticSynapse,7,"
+      <p>
+        If there is another Symbiotic Synapse in any player's discard pile, this
+        gains <b>Echo</b>.
+        </p>
+        <p>
+        <b>Cast:</b> Deal 4 damage.
+        </p>
+        ","[""echo""]"
+Spell,Depths,Void Bond,VoidBond,4,"
+      <p>
+      <b>Cast:</b> Deal 3 damage.<br/>
+      You may cast any player's prepped spell.
+        </p>
+      ",[]
+Spell,Depths,Combustion,Combustion,5,"
+      <p>
+      <b>Cast:</b> Deal 2 damage to a minion.<br/>
+      Deal 2 damage to a different minion or the nemesis.<br/>
+      <span class=""hint"">Effects that modify damage affect both instances 
+      of damage this spell deals.
+      </span>
+        </p>
+        ",[]
+Relic,Depths,Vim Dynamo,VimDynamo,4,"
+      <p>
+        Suffer 1 damage. Any player draws two cards.
+          <span class=""or"">OR</span>
+        Destroy this. Any player gains 2 life and 1 charge.
+      </p>
+        ",[]
+Spell,Depths,Disintegrating Scythe,DisintegratingScythe,7,"
+      <p>
+      <b>Cast:</b> Deal 8 damage.<br/>
+        Suffer 1 damage. Instead of discarding this, destroy it or place it 
+        on top of any player's discard pile.
+        </p>
+        ",[]
+Spell,Depths,Monstrous Inferno,MonstrousInferno,8,"
+      <p>
+        This spell must be prepped to two adjacent breaches so that this card 
+        touches both breaches. This fully occupies both breaches.<br/>
+        <b>Cast:</b> Deal 7 damage divided however you choose to the nemesis 
+        and any number of minions.
+        </p>
+        ",[]
+Spell,Depths,Devouring Shadow,DevouringShadow,6,"
+      <p>
+        While prepped, once per turn during your main phase you may 
+        destroy a card in hand.<br/>
+        <b>Cast:</b> Deal 3 damage.
+        </p>
+        ",[]
+Gem,Depths,Banishing Topaz,BanishingTopaz,5,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      You may place any card in hand on top of your deck. If you do, 
+      gain an additional 2 <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Relic,Depths,Transmogrifier,Transmogrifier,4,"
+      <p>
+        Destroy a card in hand.<br/>
+        You may gain a card from any supply pile that costs up to 
+        3 <span class=""aether"">&AElig;</span> more than the destroyed card.
+      </p>
+        ",[]
+Relic,Nameless,Molten Hammer,MoltenHammer,5,"
+      <p>
+        Gain 1 charge.<br/>
+        You may destroy a card in hand or on top of any player's discard pile.
+      </p>
+        ",[]
+Spell,Nameless,Radiance,Radiance,8,"
+      <p>
+      <b>Cast:</b> Deal 5 damage.<br/>
+      Each ally draws a card.
+        </p>
+      ",[]
+Spell,Nameless,Blaze,Blaze,4,"
+      <p>
+        When you gain this, you may place it on top of any player's discard pile.<br/>
+          <b>Cast:</b> Deal 2 damage.<br/>
+        Deal 1 additional damage for each other time you have cast Blaze this 
+          turn and for each other Blaze you currently have prepped.
+        </p>
+            ",[]
+Spell,Nameless,Scrying Bolt,ScryingBolt,6,"
+      <p>
+      <b>Cast:</b> Deal 5 damage.<br/>
+      You may lose 1 charge. If you do, reveal the top two cards of the 
+      nemesis deck. Return them in any order.
+        </p>
+      ",[]
+Spell,Nameless,Sages Brand,SagesBrand,7,"
+      <p>
+        This spell must be prepped to two adjacent breaches so that this card 
+        touches both breaches. This fully occupies both breaches.<br/>
+        While prepped, draw an additional card during your draw phase.<br/>
+        <b>Cast:</b> Deal 6 damage.
+        </p>
+        ",[]
+Gem,Nameless,Leeching Agate,LeechingAgate,3,"
+      <p>
+        When you gain this, gain 1 charge.<br/>
+        Gain 2 <span class=""aether"">&AElig;</span>.
+      </p>
+        ",[]
+Relic,Nameless,Temporal Helix,TemporalHelix,7,"
+      <p>
+      Cast any player's prepped spell without discarding it.
+      </p>
+      ",[]
+Gem,NA,Lurking Sionite,LurkingSionite,3,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      If there is a Lurking Sionite in any ally's discard pile, gain an 
+      additional 1 <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Gem,NA,Unrefined Blaststone,UnrefinedBlaststone,6,"
+      <p>
+      Gain 3 <span class=""aether"">&AElig;</span>.
+        <span class=""or"">OR</span>
+      Destroy a card in this card's supply pile. If you do, deal 3 damage.
+      </p>
+      ",[]
+Gem,NA,Exogranite,Exogranite,3,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>
+      <span class=""or"">OR</span>
+      Destroy this. Gain 3 <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Gem,NA,Recurring Jasper,RecurringJasper,4,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      If the top card of your discard pile is a spell, you may place this 
+      gem on top of your deck.
+      </p>
+      ",[]
+Gem,NA,Energized Rubidium,EnergizedRubidium,5,"
+      <p>
+      Gain 3 <span class=""aether"">&AElig;</span>.<br/>
+      Any ally may discard a card in hand. If they do, that player gains 
+      1 charge.
+      </p>
+      ",[]
+Gem,NA,Resonant Pearl,ResonantPearl,3,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      Any ally may discard a Resonant Pearl in hand and draw a card. 
+        If they do, gain an additional 1 <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Relic,NA,Caged Fire,CagedFire,3,"
+      <p>
+      Destroy the top card of any player's discard pile.
+        <span class=""or"">OR</span>
+      Destroy this. Gain 2 life.
+      </p>
+      ",[]
+Relic,NA,Galvanized Bauble,GalvanizedBauble,3,"
+      <p>
+      Focus any ally's breach.
+        <span class=""or"">OR</span>
+      Cast any player's prepped spell. You may destroy it.
+      </p>
+      ",[]
+Relic,NA,Aether Conduit,AetherConduit,4,"
+      <p>
+      <b>Attach</b> this to any player's breach.
+      </p>
+      <p>
+      When a spell is cast from this breach, the player who cast that spell 
+      gains 1 <span class=""aether"">&AElig;</span>.
+      </p>
+      ","[""attach""]"
+Relic,NA,Well of Energy,WellOfEnergy,7,"
+      <p>
+      Gravehold gains 2 life.
+        <span class=""or"">OR</span>
+      Any player gains 2 life.
+      </p>
+      ",[]
+Relic,NA,Pain Conduit,PainConduit,3,"
+      <p>
+      <b>Attach</b> this to any player's breach.
+      </p>
+      <p>
+      When a spell is cast from this breach, it deals 2 additional damage, 
+      and discard this card.
+      </p>
+      ","[""attach""]"
+Relic,NA,Link Conduit,LinkConduit,6,"
+      <p>
+      <b>Attach</b> this to any player's breach.
+      </p>
+      <p>
+      Two spells may be prepped to this breach.
+      </p>
+      ","[""attach""]"
+Relic,NA,Marble Galaxy,MarbleGalaxy,2,"
+      <p>
+      Any ally may discard a Marble Galaxy in hand and draw a card.<br/>
+      Gain 1 charge or focus your closed breach with the lowest focus cost.
+        If an ally discarded Marble Galaxy, resolve both effects.
+      </p>
+      ",[]
+Spell,NA,Deluge of Power,DelugeOfPower,6,"
+      <p>
+        <b>Cast:</b> Deal 4 damage.<br/>
+        Any ally may discard up to two cards in hand. They draw a card for each 
+        card discarded this way.
+      </p>
+      ",[]
+Spell,NA,Reverberating Shock,ReverberatingShock,4,"
+      <p>
+        <b>Echo</b>
+      </p>
+      <p>
+        <b>Cast:</b> Deal 1 damage.<br/>
+        Gain 1 <span class=""aether"">&AElig;</span> that can only be used to 
+        gain cards.
+      </p>
+      ","[""echo""]"
+Spell,NA,Fatal Harmony,FatalHarmony,5,"
+      <p>
+      <b>Cast:</b> Deal 4 damage.<br/>
+      Any ally may discard a Fatal Harmony in hand and draw a card.<br/>
+      If they do, deal 3 damage.<br/>
+      <span class=""hint"">(Effects that 
+      modify damage affect both instances of damage.)</span>
+        </p>
+        ",[]
+Spell,NA,Bouncing Boom,BouncingBoom,6,"
+      <p>
+      <b>Echo</b>
+      </p>
+      <p>
+        <b>Cast:</b> Deal 2 damage.
+        </p>
+        ","[""echo""]"
+Spell,NA,Spirit Lift,SpiritLift,8,"
+      <p>
+        While prepped once during your turn when you gain a charge, any ally 
+        gains 2 charges.<br/>
+        <b>Cast:</b> Deal 5 damage.
+        </p>
+        ",[]
+Spell,NA,Tethered Darts,Tethered Darts,3,"
+      <p>
+      <b>Cast:</b> Deal 2 damage.<br/>
+      If this was cast from an opened III or IV breach, you may place this 
+      into any ally's hand.
+        </p>
+      ",[]
+Spell,NA,Force Amplifier,ForceAmplifier,4,"
+      <p>
+      <b>Cast:</b> Deal 3 damage.<br/>
+      If this was cast from an opened III or IV breach, deal 1 additional 
+      damage.
+        </p>
+      ",[]
+Spell,NA,Imbued Smash,ImbuedSmash,5,"
+      <p>
+      <b>Cast:</b> Deal 4 damage.<br/>
+      You may discard a card in hand. If you do, deal 2 damage to the nemesis.<br/>
+        <span class=""hint"">(Effects that modify damage affect both 
+        instances of damage.)</span>
+        </p>
+        ",[]
+Spell,NA,Pattern Strike,PatternStrike,7,"
+      <p>
+      <b>Cast:</b> Deal 4 damage.<br/>
+      You may return to your hand up to two cards in your discard pile 
+      that cost 0 <span class=""aether"">&AElig;</span>.
+        </p>
+      ",[]
+Gem,TV,Fossilized Scarab,FossilizedScarab,3,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.
+        <span class=""or"">OR</span>
+      Destroy a card in hand.
+      </p>
+      ",[]
+Spell,TV,Thermal Dart,ThermalDart,4,"
+      <p>
+      <b>Link</b> <span class=""hint"">(Two spells with Link may be prepped to the same breach.)</span>
+      </p>
+      <p>
+      <b>Cast:</b> Deal 3 damage.<br/>
+      If this is not the first Thermal Dart you have cast this turn, gain 1 charge.
+        </p>
+      ","[""link""]"
+Spell,TV,Resonate,Resonate,6,"
+      <p>
+      <b>Cast:</b> Deal 4 damage.<br/>
+      If there are six or more other cards in your discard pile, deal 3 
+      additional damage.
+        </p>
+      ",[]
+Spell,TV,Conflagration,Conflagration,3,"
+      <p>
+      <b>Link</b> <span class=""hint"">(Two spells with Link may be prepped to the same breach.)</span>
+      </p>
+      <p>
+      <b>Cast:</b> Deal 2 damage.<br/>
+      Gain 1 <span class=""aether"">&AElig;</span>.
+        </p>
+      ","[""link""]"
+Relic,TV,Dimensional Key,DimensionalKey,8,"
+      <p>
+      Any ally draws two cards.
+        <span class=""or"">OR</span>
+      Destroy this. Suffer 1 damage. Place a card in play from the nemesis deck
+      on top of the nemesis deck.
+      </p>
+      ",[]
+Spell,TV,Inner Fire,InnerFire,2,"
+      <p>
+        <b>Link</b> <span class=""hint"">(Two spells with Link may be prepped to the same breach.)</span>
+      </p>
+      <p>
+        <b>Cast:</b> Deal 1 damage.<br/>
+        If the nemesis tier is 2 or higher, deal 1 additional damage.
+        </p>
+        ","[""link""]"
+Spell,TV,Fulminate,Fulminate,5,"
+      <p>
+      While prepped, other spells you cast deal 1 additional damage.
+      </p>
+      <p>
+      <b>Link</b> <span class=""hint"">(Two spells with Link may be prepped to the same breach.)</span>
+      </p>  
+      <b>Cast:</b> Deal 3 damage.
+        </p>
+        ","[""link""]"
+Relic,TV,Eternity Charm,EternityCharm,3,"
+      <p>
+        Focus your closed breach with the lowest focus cost. Reveal the top 
+        three cards of your deck. You may prep on of the revealed cards.
+      </p>
+        ",[]
+Gem,WE,Erratic Ingot,ErraticIngot,5,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      Gain an additional 2 <span class=""aether"">&AElig;</span> if there is 
+        at least one nemesis turn order card in the turn order discard pile.
+      </p>
+      ",[]
+Spell,WE,Reduce To Ash,ReduceToAsh,7,"
+      <p>
+      While prepped, at the start of your casting phase reveal the top card 
+      of your deck. You may destroy the revealed card.<br/>
+        <b>Cast:</b> Deal 4 damage.
+        </p>
+        ",[]
+Relic,WE,Vortex Gauntlet,VortexGauntlet,6,"
+      <p>
+      Cast any player's prepped spell.<br/>
+      Return that spell to that player's hand.
+      </p>
+      ",[]
+Spell,WE,Carbonize,Carbonize,4,"
+      <p>
+      <b>Cast:</b> Deal 3 damage.<br/>
+      Reveal the top card of the turn order deck. You may place that card on 
+      the bottom of the turn order deck.
+        </p>
+      ",[]
+Spell,WE,Equilibrium,Equilibrium,7,"
+      <p>
+      While prepped, when you suffer damage reduce that damage by 1, to a 
+      minimum of 1.<br/>
+        <b>Cast:</b> Deal 4 damage.
+        </p>
+        ",[]
+Gem,WE,Volcanic Glass,VolcanicGlass,3,"
+      <p>
+      When you gain this on your turn, you may spend 2 <span class=""aether"">&AElig;</span>. 
+        If you do, any ally also gains a Volcanic Glass and places it on top 
+      of their deck.<br/>
+      Gain 2 <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Spell,WE,Convection Field,ConvectionField,5,"
+      <p>
+      <b>Cast:</b> Deal 4 damage.
+        <span class=""or"">OR</span>
+      <b>Cast:</b> Deal 2 damage. Any ally day destroy a card in hand.
+        </p>
+      ",[]
+Spell,WE,Jagged Lightning,JaggedLightning,4,"
+      <p>
+      <b>Cast:</b> Deal 3 damage.<br/>
+      You may discard a card in hand. If you do, any player focuses their 
+      closed breach with the lowest focus cost.
+        </p>
+      ",[]
+Gem,WE,Bloodstone Jewel,BloodstoneJewel,6,"
+      <p>
+      When you gain a Bloodstone Jewel for the first time on you turn, gain
+        3 <span class=""aether"">&AElig;</span>. <br/>
+      Gain 3 <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Spell,WE,Kindle,Kindle,4,"
+      <p>
+      While prepped, during your main phase you may also prep on Spark to the 
+      breach this spell is prepped to.<br/>
+        <b>Cast:</b> Deal 3 damage.
+        </p>
+        ",[]
+Spell,WE,Thoughtform Familiar,ThoughtformFamiliar,3,"
+      <p>
+      <b>Cast:</b> Deal 2 damage.<br/>
+      Deal 1 additional damage for each of your other prepped spells.
+        </p>
+        ",[]
+Spell,WE,Crystallize,Crystallize,8,"
+      <p>
+      This spell must be prepped to two adjacent breaches so that this card 
+      touches both breaches. This fully occupies both breaches.<br/>
+      <b>Cast:</b> Any ally reveals their hand.<br/>
+      Deal 2 damage for each gem in that ally's hand.
+        </p>
+        ",[]
+Spell,WE,Fiery Torrent,FieryTorrent,5,"
+      <p>
+      <b>Cast:</b> Deal 2 damage.<br/>
+      Deal 2 additional damage for each other Fiery Torrent prepped by any 
+        player.
+        </p>
+      ",[]
+Spell,WE,Celestial Spire,CelestialSpire,5,"
+      <p>
+      <b>Cast:</b> Deal 3 damage.<br/>
+      If this card's supply pile is empty, any ally draws a card.
+        </p>
+      ",[]
+Spell,WE,Conjure The Lost,ConjureTheLost,6,"
+      <p>
+      <b>Cast:</b> Deal 5 damage.<br/>
+      You may destroy this. If you do, Gravehold gains 4 life.
+        </p>
+      ",[]
+Spell,WE,Nova Forge,NovaForge,6,"
+      <p>
+      While prepped, once per turn during your main phase you may gain 2 
+      <span class=""aether"">&AElig;</span> that can only be used to gain a spell.<br/>
+        <b>Cast:</b> Deal 4 damage.
+        </p>
+        ",[]
+Gem,WE,Dread Diamond,DreadDiamond,3,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      You may discard a prepped spell. If you do, gain an additional 1 
+      <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Relic,WE,Cairn Compass,CairnCompass,4,"
+      <p>
+      Any ally may prep a spell in their discard pile to their opened or 
+      closed breach(es).
+      </p>
+      ",[]
+Gem,WE,Scoria Slag,ScoriaSlag,4,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      If the nemesis tier is 2 or higher, gain an additional 1 <span class=""aether"">&AElig;</span>.
+      </p>
+      ",[]
+Gem,WE,Breach Ore,BreachOre,4,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      <span class=""or"">OR</span>
+      Focus your closed breach with the lowest focus cost.
+      </p>
+      ",[]
+Relic,WE,Fiend Catcher,FiendCatcher,3,"
+      <p>
+      You may destroy a card in your hand or discard pile.<br/>
+      Reveal the top card of the turn order deck. If you revealed a nemesis 
+      turn order card, you may place that card on the bottom of the turn order deck.
+      </p>
+      ",[]
+Spell,WE,Pyrotechnic Surge,PyrotechnicSurge,4,"
+      <p>
+      This spell must be prepped to two adjacent breaches so that this card 
+      touches both breaches. This fully occupies both breaches.<br/>
+      <b>Cast:</b> Deal 4 damage.<br/>
+      You may destroy a card in your discard pile.
+        </p>
+      ",[]
+Spell,WE,Aurora,Aurora,5,"
+      <p>
+      While prepped, once per turn during your main phase you may gain 1 charge.<br/>
+        <b>Cast:</b> Deal 3 damage.
+        </p>
+        ",[]
+Relic,WE,Conclave Scroll,ConclaveScroll,3,"
+      <p>
+      Gain 1 charge.<br/>
+      If this card's supply pile is empty, you may destroy the top card of 
+      any ally's discard pile.
+      </p>
+      ",[]
+Relic,WE,Primordial Fetish,PrimordialFetish,4,"
+      <p>
+      Focus any player's breach.
+        <span class=""or"">OR</span>
+      Destroy this. Gain 3 life.
+      </p>
+      ",[]
+Gem,WE,Frozen Magmite,FrozenMagmite,3,"
+      <p>
+      Gain 2 <span class=""aether"">&AElig;</span>.<br/>
+      You may place the next card you gain this turn on top of your deck.
+      </p>
+      ",[]
+Relic,WE,Mages Totem,MagesTotem,2,"
+      <p>
+      Destroy a gem or relic you played this turn.
+        <span class=""or"">OR</span>
+      Destroy this. Gravehold gains 1 life.
+      </p>
+      ",[]

@@ -1,0 +1,255 @@
+{
+  "name": "Into the wild",
+  "bigPocketVariantConfig": false,
+  "initialBarracksConfig": {
+    "mageIds": ["Inco"]
+  },
+  "sequenceConfig": {
+    "firstBranchId": "ITW-02-FRONT",
+    "branches": {
+      "ITW-02-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "As you finish your report to the council, a panicked young breach mage bursts in. He speaks quickly, stumbling over his words in a panic. \"Slowly, Inco. What's wrong?\" Brama asks. \"Leaves wilt, plants are no more than carrion. The decay is coming.\" Inco has always had a special sensitivity and control over plants. \"What's causing this, Inco? How can we stop it?\" Brama asks. \"It's far away, but a Nameless is coming, wilting everything in its wake.\" He replies. \"Thank you, Inco. This recently returned team is ready to be dispatched if it comes too close.\" Brama turns back toward the council. \"It moves too quickly. There is no 'if'.\" \"We will not rush into danger.\" Inco scowls and turns to leave. \"Hold on, Inky,\" Talix, who adopted Inco years ago when he found him in the forest, kneels and musses Inco's hair. \"Trust us. We're your family. We'll keep you safe.\" Inco sighs and leaves with one final remark. \"When the sun rises again, I will leave, no matter what.\" In the morning, you go to Talix and Inco's home. A pleading Inco approaches you. \"Where have you been? Help me find her, please.\" He paces anxiously for a moment longer and then turns to you. \"While the sun slept, I told Razra of the infection that threatens us. Now she and Rip have vanished.\" As he gestures, you notice the plants around him sway and grow. Inco is the only mage you know who can control plants in this way. \"We've been practicing breach magic together since I arrived here. She is stubborn, very very stubborn. Help me find her.\" Inco thrusts a note in your face. \"Dear Inco, catch up if you can, Rip and I will fix the crops before you even arraive.\" Now, not only do you need to find whatever is killing the plants, but you must also rein in the headstrong young breach mage Razra. \"The plants will guide me to her.\" Inco says as he rushes out of Gravehold, leaving you to catch up. You've never seen Inco bring such...growth. You watch in fascination as the surrounding plants sprout to life behind him. After New Gravehol has been out of sight for some time, you realize just how dire the situation is. The council was wrong to wait. Inco's path stands instark contrast to the death all around you. His eyes soften with relief each time he rejuvenates a nearby dying tree. He revives what he can, but it is only a fraction of all the endangered plants. You swat at swarms of buzzing insects drawn by the decaying plants while following Inco deeper into the dying vegetation. \"We will find Razra on this path.\" As he says her name, a mass of colorful flowers bloom around Inco's feet, oddly hopeful against your bleak surroudings. Suddenly, you stop, engulfed in silence. When did it get so quiet? The droning insects are gone. A heavy thudding shakes the ground. Whatever it is, it's big and has friends. Your team opens breaches and prepares for battle.",
+          "decisions": ["Fight Nemesis"]
+        },
+        "nextBranchId": ["battle-1"]
+      },
+      "battle-1": {
+        "type": "battle",
+        "config": {
+          "specialRules": "If you've lost twice, pretend that you have won and continue!",
+          "tier": 1,
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "regular",
+            "addRandom": false
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "ITW-17-FRONT"
+      },
+      "ITW-17-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "With your hard fought battle over, you rest uneasily knowing that Razra is still out there somewhere, potentially fighting Nameless just like this one with only Rip at her side. While resting, you notice several strange glyphs in the area. Reflecting on the fight, you realize these glyphs seemed to trap Nameless. It was clearly drawn to them against its will. making and maintaining Nameless-attracting glyphs cannot be an easy task, they must require a massive amount of aether to maintain. These glyphs complicate your mission even more. You need to find Razra, share information, and come up with a plan. \"Come. Move your roots.\" Inco says as he hurries back to the path. Finding the glyphs has unnerved him. As you follow, a plant's branch tunnels directly into the dirt below his feet. You jump over a root that's suddenly grown in front of you. A tree collapses as its branches grow massive while its trunk remains the same. You hanve back a safe distance as Inco leaves more and more chaos in his wake. Intent on the mission, Inco is oblivious to the massive lopsided growth he has subconsciously created. Suddenly, he motions you to stop and be silent. Just ahead, you see a gouge in the earth filled with ash, its edges charred. As you peer through thetall brush, you see several cloaked figures laying on the ground. No one is moving. After waiting several minutes, tense and ready for another fight, Inco parts the brush with his hand and walks into the clearing. The bodies strewn about are followers of Xaxos. The scarred landscape indicates a recent battle. As you search the area, you spot valuable artifacts imbued with a strange energy. On closer inspection, you realize the artifacts belong to mages of New Gravehold. As you're collection them, Razra's animal companion, Rip, stumbles into the clearing, bleeding and whimpering. Inco rushes to embrace his lost friend. The large, sleek, metallic creature nuzzles Inco. After their quick reunion, Rip dashes away and then stops and turns, waiting for you to follow. ",
+          "decisions": ["Loot"]
+        },
+        "nextBranchId": ["treasures-1"]
+      },
+      "treasures-1": {
+        "type": "reward",
+        "config": {
+          "type": "custom",
+          "treasure": {
+            "ids": [
+              "DezmodiasOblivionShard",
+              "IndirasLoneOpal",
+              "MalastarsImmolate",
+              "MistsAmethystParagon",
+              "YanMagdasIlluminate"
+            ]
+          },
+          "supply": {
+            "ids": [
+              {
+                "type": "Gem",
+                "operation": "ANY"
+              },
+              {
+                "type": "Relic",
+                "operation": "ANY"
+              },
+              {
+                "type": "Spell",
+                "operation": "ANY"
+              }
+            ]
+          }
+        },
+        "nextBranchId": "ITW-24-FRONT"
+      },
+      "ITW-24-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "You struggle to keep up with the re-energized Inco and Rip. Sqaying limbs of willows gently part and collide in the breeze, as if to guide you. Something in this grove holds fearsome power. What if Razra was overcome in this stifling place? walking along, you catch a glimpse of a carving in the trunk of a tree through the willows. You briefly pause and notice it's similar to the glyphs you saw after defeating the last Nameless. Deep int thought, you barely notice the wind pick up and a thrumming begin. As you feel the familiar crackle of breach energy in the air, you pivot around and around, trying to identify where the attack will come from. Suddenly a fearsome Nameless emerges from the nearby brush. You can unravel the mystery of this place later. Filled with adrenaline, you and Inco have only a moment to prepare for battle. Through clenched teeth, you prepare your first spell.",
+          "decisions": ["Fight Nemesis"]
+        },
+        "nextBranchId": ["battle-2"]
+      },
+      "battle-2": {
+        "type": "battle",
+        "config": {
+          "tier": 2,
+          "specialRules": "If you've lost twice, pretend that you have won and continue!",
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "regular",
+            "addRandom": true
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "ITW-25-FRONT"
+      },
+      "ITW-25-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "The nearby glyphs glow brighter, somehow siphoning the leftover breach magic from your battle. It's strange that someone would make so many of these glyphs. Each one takes untold energy and you've already seen two large groups of them. Why are they doing this? While you ponder this question, Rip nips at your hand, eager to lead you farther into the willows. The glyphs near the battle stop glowing as you walk away. The farther you walk, the more anxious and excited Rip becomes. Finally, Rip leads you to a clearing where you discover Razra. The now familiar glyphs are scattered around her, once more glowing brilliantly. She's held in some kind of organic prision, completely immobilized by a criss-crossing network of vines. Tendrils of breach energy spill from Razra's mouth directly into an object perched atop a pedestal. Distressed, rip lets out a low rumbling. Inco, normally reverent toward all plants, runs to the wall and attempts to tear the vines apart with his hands. Rip joins Inco in trying to free Razra from her plant prision, but his teeth can't find purchase. Razra is woven into the wicker wall itself, semi-conscious and babbling in a low voice. The glyphs engraved on the stone pedestal are brighter than any of the others you've seen. Frustrated by the strength of the prision, Inco takes a step back, breathes deeply and calls a mass of thrones from below his feet that quickly eviscerate the magical plant shackles. Inco catches Razra as she stumbles free. They embrace, trembling. \"What took you so long?\" Her hands betray her bravado. \"Ugh, Now I know how breaches feel. I have been literally sucked dry.\" She picks up the brilliant artifact from its pedestal. Sensing Inco's hesitance to leave with the strange object, she insists, \"Come on! I basically made it.\" As you leave with your new treasure, you notice the glyphs fade. ",
+          "decisions": ["Loot"]
+        },
+        "nextBranchId": ["treasures-2"]
+      },
+      "treasures-2": {
+        "type": "reward",
+        "config": {
+          "type": "custom",
+          "mage": {
+            "ids": ["Razra"]
+          },
+          "treasure": {
+            "ids": [
+              "CronesAmulet",
+              "TheBrokenMask",
+              "EyeOfTheMaelstrom",
+              "EdibleFungusChunks",
+              "WellOfDespair"
+            ]
+          },
+          "supply": {
+            "ids": [
+              {
+                "type": "Gem",
+                "operation": "ANY"
+              },
+              {
+                "type": "Relic",
+                "operation": "ANY"
+              },
+              {
+                "type": "Spell",
+                "operation": "ANY"
+              }
+            ]
+          }
+        },
+        "nextBranchId": "ITW-42-FRONT"
+      },
+      "ITW-42-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "Wit a slight tremble in her voice, Razra recounts what happened. \"The flora came to life, stalking me. I incinerated one, but two more came. The fight was totally unfair. I would've been fine if they didn't explode. What sort of strategy is that? They're like living bombs. Ridiculous. We tried escaping through this grove, but Rip's leg was hurt. The plants grabbed me, and there was a lady...\" Razra trails off. Rip presses against her leg, rumbling comfortingly. \"She must have been a breach mage, but that doesn't make any sense because the Nameless was helping her. They never help humans,\" Razra glances over at Inco, \"not usually, at least. Last thin I remember is sending rip to --\" The echoing snap of trees interrupts Razra. As the sound grows in volume, you flee the grove and spot a gargantuan Nameless through the low canopy. The ground shakes and begins cracking under the massive weight of the oncoming army. Breaches open all around and minions rush out, eager to serve their master. Finding whoever captured Razra will have to wait. ",
+          "decisions": ["Fight Nemesis"]
+        },
+        "nextBranchId": ["battle-3"]
+      },
+      "battle-3": {
+        "type": "battle",
+        "config": {
+          "tier": 3,
+          "specialRules": "If you've lost twice, pretend that you have won and continue!",
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "regular",
+            "addRandom": true
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "ITW-43-FRONT"
+      },
+      "ITW-43-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "Stillness claims the willows for a moment as the battle ends. Then, the wildlife slowly reemerges. Razra starts investigating the area, hoping to find anything that might identify the woman from her memory. More glyphs litter this battlefield. You're sure of it now, the Nameless are drawn to these glyphs like some sort of beacon. Inco trails behind examining the dead plants more closely, muttering to himself, \"It can't be. I won't believe it.\" With Razra safe, you expected Inco to be more like his usual self, but he's still staring at the ground, downcast. When he notices you staring, he stares back, as if challengeing you to ask what's wrong. Before you can, Razra calls you over. She's found something. Xaxos' insignia is scratched into the ground at her feet. She signals Rip to dig. For a moment, Razra is showered by dirt from an overly ethusiastic Rip, before she gives him a playful reprimand. Near where Rip is digging, the now familiar glyphs radiate brilliantly. You lift various objects from the hole. Horror grips Razra as she sees exactly what's been unearthed. \"My sister, Mazra mentioned reading about these priceless objects of power. The are supposed to be locked up back home.\" New Gravehold is either much less secure than you thought, or there's a traitor among your ranks, Your party stops, deflated. \"What's one more problema at this point? We'll handle it like all the rest.\" Razra scratches Rip's head encouragingly. As you leave with the artifacts, the glyphs fade, as if losing their power. ",
+          "decisions": ["Loot"]
+        },
+        "nextBranchId": ["treasures-3"]
+      },
+      "treasures-3": {
+        "type": "reward",
+        "config": {
+          "type": "custom",
+          "treasure": {
+            "ids": [
+              "Quicksilver",
+              "PurifiedBangle",
+              "SuppressingPin",
+              "AlchemistsAlembic",
+              "SoothsayersPouch"
+            ]
+          },
+          "supply": {
+            "ids": [
+              {
+                "type": "Gem",
+                "operation": "ANY"
+              },
+              {
+                "type": "Relic",
+                "operation": "ANY"
+              },
+              {
+                "type": "Spell",
+                "operation": "ANY"
+              }
+            ]
+          }
+        },
+        "nextBranchId": "ITW-44-BACK"
+      },
+      "ITW-44-BACK": {
+        "type": "narrative",
+        "config": {
+          "text": "\"The dawn approaches, we are close.\" Inco's hands shake with each word. To you, the land has looked the same for hours. Somehow, the plants tell him where to go. As you exit the willows, your path suddenly becomes obvious. A scar of blight stretches out toward an outpost of New Gravehold in the distance. he points. \"That is Southpost, the soil where Talix sprouted.\" You focus on reaching the outpost as quickly as possible, hoping that you're not too late. with each step, the rot around you grows worse and worse. Suddenly, a guard tower in the distance crashes to the ground, creating a cloud of dust and debris. A shambling army of Nameless creatures led by a massive vine-covered bull slowly advances toward the outpost. Inco gasps. \"No!\" He rushes forward. \"Why are you doing this? This isn't you.\" The Nameless, which seems to be made entirely of plants, bellows a challenge and knocks you off your feet. Deadly green gunk and plant bits rain down from the sky, decaying everything they touch. whoever remains in the outpost needs your help. The creature's army of living brambles, infused with an unstable green pus, marches forward. When you see one explode into a green mist, you realize they cannot be allowed to reach the outpost. Around the outskirts of the battle, cloaked humanoid figures maintain the now familiar glyphs. As you ready for battle, Inco beseeches the creature one more time before resigning himself to fight next to Razra. ",
+          "decisions": ["Fight Nemesis"]
+        },
+        "nextBranchId": ["battle-4"]
+      },
+      "battle-4": {
+        "type": "battle",
+        "config": {
+          "specialRules": "If you've lost twice, pretend that you have won and continue!",
+          "tier": 4,
+          "nemesisId": "Necroswarm",
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "regular",
+            "addRandom": true
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "ITW-70-FRONT"
+      },
+      "ITW-70-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "As Necroswarm collapses, the plants look a little less sick, but the land is still barren and gray. You look to Inco to restore them, but he's staring at the fallen Nameless, tears running down his cheeks. Razra gasps and points at a fleeing cloaked figure. She and Rip charge across the battlefield as Razra's captor darts into the trees, leaving a wall of flame behind her. As Razra works a spell to extinguish the fire, Rip, sensing her intent, approaches the wall and takes a bite. Two bites. Three bites. Somehow, Rip chomps a hole right through the wall of fire. A deluge of water spills from Razra's hands as she abandons her spell to dive throught the temporary hole Rip made. Inco, refusing to be left behind again, slams the ground with his palms and rapidly lifts himself and you into the air on enormous leaves. Higher and higher Inco lifts you, trying to get over the massive wall of flames. An errant branch strays too close and the fire begins consuming Inco's transport vince. Together, you leap from the unstable structure, clear the fire, and crash to the groundl. As the fleeing woman darts away, you see Xaxos' insigina on her robe. What you aren't prepared for is the tattoo you spot on her ankle. Surely, it's a coincidence, a ploy. Only veteran breach mages of Gravehold receive that mark. You thought that Xaxos' followers attracted the desperate, the new mages, the failed mages - the ones who didn't know better. You don't want to imagine one of your friends, one of your mentors, being this mage fleeing from you. You can't imagine one of them working to destroy New Gravehold. You slow briefly, stunned by the possibilities, which allows her to gain additional ground. She stops for a moment, turns and leaves a massive blue sphere behind her that pulls in and consumes everything it touches. As you take stock of the blue void, a scythe of pure electricity flies past your head, thrown by the running breach mage. You hear it carvin through the trees behind you, destroying everything in its path. While you were busy fighting Necroswarm, this mage must have been maintaining the glyphs. \"Blast it all. She's too strong and too far away now.\" Razra grinds her teeth and lets out a wordless scream. It's time for a new plan. You decide to return to New Gravehold immediately. The council must know of the traitor in your ranks. Inco lags behind, kicking the ground occasionally. His gaze wanders, searching for an answer. You move to comfort him, but Razra gently touches your shoulder. \"He was raised by that creature. It lived in peace, far away from any humans. He left to find people like him. No one else knows except Talix.\" Inco sighs, \"My old family just wanted to survive. That traitor must have found a way to control them. They must have made my family attack us. If it got much closer, it could've destroyed all of our crops, all our food. We would've been helpless.\" The trek home is spent in silence as attempts to start conversation are met with apathetic mumblingl. Upon returning to New Gravehold, you report to the council. \"I can save the crops, but there's a bigger problem.\" Inco says, \"A veteran mage of Gravehold betrayed us.\" He scans the council's eyes. Seeing no surprise, he tightens his hands into fists. \"My home is carrion. You could've stopped this!\" Brama treads carefully, \"If the people knew about this traitor, your new home, our home, would be in chaos. We would fall to the next Nameless attack.\" You feat that this new foe may be more dangerous than any Nameless you've ever fought before. ",
+          "decisions": ["Finish Expedition"]
+        },
+        "nextBranchId": ["lastBranch"]
+      },
+      "lastBranch": {
+        "type": "narrative",
+        "config": {
+          "text": "Congratulations, you finished \"Into The Wild\"! ",
+          "decisions": []
+        }
+      }
+    }
+  }
+}

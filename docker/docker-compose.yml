@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  aeons-end-randomizer:
+    container_name: aeons-end-randomizer
+    image: aeons-end-randomizer
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+
+    # Port. Aeons End Randomizer will be available on http://localhost:8080
+    # Change only the first port (8080) if you want it to be available on a different port.
+    # E.g. if you want to access it on http://localhost change the value to: '80:8080'
+    ports:
+      - '8080:8080'
+
+    # Security Options
+    security_opt:
+      - no-new-privileges
+    cap_drop:
+      - NET_ADMIN
+      - SYS_ADMIN
+
+    # Optional Healthcheck:
+    #healthcheck:
+    #  test: ["CMD", "curl", "--insecure", "-f", "http://localhost:80"]
+    #  interval: 1m
+    #  timeout: 10s
+    #  retries: 3
+    #  start_period: 1m
+
+    restart: unless-stopped

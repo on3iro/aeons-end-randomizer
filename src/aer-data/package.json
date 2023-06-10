@@ -1,0 +1,20 @@
+{
+  "name": "aer-data",
+  "version": "3.10.1-fixup",
+  "description": "Data for aeons-end-randomizer",
+  "main": "dist/cjs/index.js",
+  "module": "dist/index.js",
+  "repository": "https://github.com/on3iro/aer-data",
+  "author": "Theo Salzmann",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig.cjs.json"
+  },
+  "keywords": [
+    "aeons-end-ranzomizer",
+    "aer",
+    "data"
+  ],
+  "devDependencies": {}
+}

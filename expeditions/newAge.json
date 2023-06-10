@@ -1,0 +1,298 @@
+{
+  "name": "The New Age",
+  "bigPocketVariantConfig": true,
+  "sequenceConfig": {
+    "firstBranchId": "NA-Ex-02-FRONT",
+    "branches": {
+      "NA-Ex-02-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "It has been a week since Commander Soskel, one of New Gravehold's most decorated breach mages, led an expedition to the north. They were scheduled to return days ago, and the Council fears the worst. You are called upon to go after them. The loss of good mages is already painful enough, they explain, but Soskel and his party carried some of New Gravehold's rarest and most powerful artifacts. No matter what, you must find and return these treasures. You gather your gear and set out at once. The familiar trails of New Greavehold slowly give way to swampland. The air is muggy and thick in your lungs. You feel a strange sensation of being watched. You scan the dense underbrush and notice movement as someone turns and flees. Without hesitation, you chase them deeper into the swamp. Someone shouts, \"Release it!\" To your right a gigantic insectoid Nameless crashes through the underbrush towards you. The man you're chasing ignores the creature and continues into the swamp. He'll have to wait. A Nameless this close to New Gravehold mus be stopped.",
+          "decisions": ["Fight Nameless"]
+        },
+        "nextBranchId": ["battle-1"]
+      },
+      "battle-1": {
+        "type": "battle",
+        "config": {
+          "tier": 1,
+          "nemesisId": "Maggoth",
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "regular",
+            "addRandom": false
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "NA-Ex-03-FRONT"
+      },
+      "NA-Ex-03-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "As the fight ends, you finally relax. The man and his allies have vanished, but during the battle you saw them watching and taking notes from a distance. You recognized the symbol on their cloaks. These are followers of Xaxos, the same ones who were exiled to these woods years ago. Could they and this strange pet Nameless have had something to do with the disappearance of Soskel's Team? you tense up, seeing a burst of fire in the corner of your eye. You turn to see a woman with strange crystalline hair torching the corpse of one of Maggoths' minions until the ground arount it is charred and blackened. \"Nameless scum.\" She spits on the ground. \"If you let 'em sit, they fester and poison the soil. They're no good even when they're dead.\" You recognize her as Rhia, a fellow breach mage, a master in the study of relics, and a member of the missing expedition! Rhia finishes disposing of the corpses and explains how her team was ambushed by a strange, spiderlike Nameless. \"It was wrong,\" she says, bluntly. \"I've fought plenty of Nameless but none of 'em coordinated their minions like this. way too smart for those buggers. Buncha monsers shouldn't've been able to get the jump on us. We trief to retreat but Commander Soskel got captured and without a leader the orders got jumbled. We retreated different directions.\" She rubs her arm. \"I dunno who else is alive or where they are.\" Rhia explains that, due to her expertise, she was in charge of holding her team's magical artifacts. She distributes them amongst your group, scowling. \"If those monsers are still out here you're gonna need 'em.\" Rhia leads you back towards where her expedition was ambushed to beginn looking for survivors. The swamp gives way to trees as you trek farther north. You keep an eye out fo the Xaxos followers from earlier, but the woods seem empty.",
+          "decisions": ["Loot"]
+        },
+        "nextBranchId": ["treasures-1"]
+      },
+      "treasures-1": {
+        "type": "reward",
+        "config": {
+          "type": "custom",
+          "supply": {
+            "ids": ["ResonantPearl", "CagedFire", "WellOfEnergy", "SpiritLift"]
+          },
+          "mage": {
+            "ids": ["Rhia"]
+          },
+          "treasure": {
+            "ids": [
+              "BramasBuriedLight",
+              "GarusTorch",
+              "KadirsEmeraldShard",
+              "MistsGarnetShard",
+              "XaxosPyre"
+            ]
+          }
+        },
+        "nextBranchId": "NA-Ex-04-BACK"
+      },
+      "NA-Ex-04-BACK": {
+        "type": "narrative",
+        "config": {
+          "text": "The thick branches creak in the wind, and even the midday sun struggles to pierce their oppressive shade. The thick crackling energy in the air makes your hair stand on end. Something dangerous is near. You crest a hill and spot a massive swirling breach with a twisted shape kneeling before it. Inside the portal, your barely make out the shape of a gigantic shadoy spider. You inch closer, unable to comprehend what you're watching. The kneeling creature seems humanoid, except for a mass of arachnid legs bursting from its spine. Breach energy flows into its skin as it communes with the portal. \"Tha's the Nameless we fought, \" Rhia whispers beside you. \"I am not mere Nameless. They bow to me now.\" Rhia goes rigid with shock. It can speak? The spider creature twists around towards you. His face iswarped, but undeniably human. \"Why have you returned? I don't want to have to kill you. Let me finish my experiment in peace.\" The creature stands, his segmented legs snapping into place one by one. The portal behind him wavers, opening briefly to reveal a man within, bound and gagged by spiderwebs. Commander Soskel. He struggles against the voide energy seeping from the breach into his skin. \"Let him go!\" Rhia barks, taking a step forward. The creature slams his foot down, blocking her path. \"You foolish mages. You scorn Xaxos for daring to evolve. We can use the power of the Nameless to become stronger. I can save Gravehold!\" He spreads his arms. \"Then the people will worship their true saviors, my master Xaxos and hist faithful student, the great Arachnos!\" ",
+          "decisions": ["Fight Nameless"]
+        },
+        "nextBranchId": ["battle-2"]
+      },
+      "battle-2": {
+        "type": "battle",
+        "config": {
+          "tier": 2,
+          "nemesisId": "Arachnos",
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "custom",
+            "ids": [
+              "Wreck",
+              "SkyTremor",
+              "EngulfingMadness",
+              "Separate",
+              "RayOfDesolation",
+              "Sacrifice",
+              "Eradicate"
+            ]
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "NA-Ex-06-FRONT"
+      },
+      "NA-Ex-06-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "As silence falls over the battlefield, you inspect your adversary, Arachnos. His ambition to become more powerful than the Nameless made him the eneymy of the very people he was trying to protect, just like Xaxos. It pains you to see promising mages lost to the temptation of breach magic. Rhia rushes towards the still-swirling breach and grabs Soskel, pulling him free. After concentrating briefly you force the portal closed behind him. Rhia gently frees him from his restraints as his limp body sinks to the ground. He looks drained, but alive. Soskel's chest rises and falls with shaky breath. Tears brim in his eyes as he rubs at his wrists. \"Brama was wrong, I'm a failure as a leader. Arachnos catpured me and I could do nothing but watch my friends fall one by one.\" As he calms down, you notice that you can't see his pupils. When you mention it, Soskel touches his face gently. \"It must be the voide energy starting to warp me. This kind of power is more than any human should bear. Even the amount inside of me...\" Soskel grips his arms and shudders. \"It's almost too much.\" Soskel tries to gather himself as he leads you to his companions who fell in battle. He leans heavily against Rhia with tears streaming down his face as they prepare the ritual for the fallen of Gravehold. \"If Dezmodia were still here, she could've stopped all this. She would've stopped him long ago,\" he curses. Nearby, you see what must have been one of Arachnos' experiments. A strange object is outlined with glowing runes. You immediately recoil from the Nameless energy you can feel radiating out of it. \"We should take it.\" Soskel walks past you and grabs the artifact, undeterred by its dark aura. His strength returned faster than you thought was possible. \"When I was captured I saw Talix escaping further north. If he's still alive we need to find him. This Nameless energy in me... it's powerful. And I'm not going to ignore power when one of my team is in danger.\" He pauses, growing more serious. \"I promised his son I'd bring him home.\" ",
+          "decisions": ["Loot"]
+        },
+        "nextBranchId": ["treasures-2"]
+      },
+      "treasures-2": {
+        "type": "reward",
+        "config": {
+          "type": "custom",
+          "supply": {
+            "ids": ["PainConduit", "FatalHarmony", "BouncingBoom"]
+          },
+          "mage": {
+            "ids": ["Soskel"]
+          },
+          "treasure": {
+            "ids": [
+              "CarapaceFragement",
+              "ImbuedShackles",
+              "ShimmeringCloakOfTheMagus",
+              "BonesOfDeathmind"
+            ]
+          }
+        },
+        "nextBranchId": "NA-Ex-8-FRONT"
+      },
+      "NA-Ex-8-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "You trek through the woods for hours before Rhia spots something odd. An old man, collapsed by a tree a few yards ahead, surrounded by piles of yellowing bones. The man looks haggard, his skin gray and drooping. If he hadn't been clutching his distinctive chain you might not have recognized Talix, but the Talix you know is a young man in his prime. Soskel rushes over and kneels beside Talix, laying a hand on the side of his face. \"Commander.\" Talix's voice is a pained wheeze. \"Be careful. It's still nearby.\" He points a withered finger towards the skeletons. You recognize the symbol of Xaxos on their cloaks, the same cloaks the men who set Maggoth on you wore. Talix is overcome by coughing. You look up to see leaves age and disintegrate before your eyes. As their branches grow thin and gray, you stand and turn to see askeletal creature, almost human-shaped, dripping with voide essence. Where it steps, the grass withers and dies. You move in front of Talix, ready to defend him. ",
+          "decisions": ["Fight Nameless"]
+        },
+        "nextBranchId": ["battle-3"]
+      },
+      "battle-3": {
+        "type": "battle",
+        "config": {
+          "tier": 1,
+          "nemesisId": "AgelessWalker",
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "custom",
+            "ids": ["HissingAcid", "Marked", "FlashOfDecay", "Terrify"]
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "NA-Ex-09-FRONT"
+      },
+      "NA-Ex-09-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "After you finish your battle with the source of the surrouding blight, Rhia steps forward, ready to incinerate the remains, but you hold her back long enough to examine what is left of the creature. Its skeletal body looks older than the world itself., the face sunken beyond recognition. On its cloak is the symbol of Xaxos. Just like Arachnos, this man was a mage once, but now he is more Nameless than human. The thought chills you. You had no idea that there were so many followers of Xaxos still out there, or just how dangerous they had become. You are pulled from your reverie by Talix sauntering up to you, restored from his untimely aging. \"I thought I was done for when I ran into a bunch of Xaxos's cronies, but this thing showed up and killed everyone, event its own brothers. Well, it would have been everyone if you hadn't saved me.\" Talix nudges the creature's body with his foot. \"That thing walked like a human, dressed like one of theirs, but there was no humanity behind those eyes.\" Commander Soskel grows serious. \"Perhaps that was what Arachnos wanted me to become.\" Silence falls across your group as you all pause to consider what might have happened if no one had come to his rescue. Talix breaks the unhappy silence with his usual exuberance. \"But hey! We won!\" He throws himself around Soksel's shoulders in a dramatic embrace. \"I never thought I'd see you again, Sos--I mean, Commander.\" With his chin still on Soskel's shoulder, Talix tosses an irreverent salute. Soskel shakes his head and pushes Talix off of him. Rhia pats her lost companion roughly on the back twice, barely concealing her amusement. \"I can't leave you alone for two minutes, can I.\" After the reunion, Talix begins, \"When my squad went down against that spider, I was helpless. Soskel had been taken and all I could do was run. I took what treasures I could from my fallen teammmates for safekeeping. I'll show you where they're buried.\" You follow Talix, enjoying his energetic chatter. Finally, he stops beneath a strange tree, digs a little and comes up with his hands full of treasures. He hands them out to your party. ",
+          "decisions": ["Loot"]
+        },
+        "nextBranchId": ["treasures-3"]
+      },
+      "treasures-3": {
+        "type": "reward",
+        "config": {
+          "type": "custom",
+          "supply": {
+            "ids": ["UnrefinedBlaststone", "LinkConduit", "ReverberatingShock"]
+          },
+          "mage": {
+            "ids": ["Talix"]
+          },
+          "treasure": {
+            "ids": [
+              "VerdantStaff",
+              "FlowingMantle",
+              "ForgottenTrinket",
+              "AcceleratingGauntlets",
+              "ShroudOfObfucation",
+              "PrecisionMagnifier"
+            ]
+          }
+        },
+        "nextBranchId": "NA-Ex-11-FRONT"
+      },
+      "NA-Ex-11-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "With the final treasures and Talix recovered, you realize this means the end of your long and dangerous journey. Soskel confirms that everyone missing from his team is accounted for, and all of you are relieved to finally head home. You turn back towards New Gravehold, but only make it a few steps out of the clrearing before you stumble on a divot in the ground. Pushing away the ded leaves, you see a gigantic paw print, as wide across as your arm. You shiver as a snowflake lands on your cheek. Snow? In this climate? Suddenly, the wind picks up and the gentle snow turns into a raging blizzard. Squinting against the storm you see six glowing eyes. Your blood turns to ice as the Nameless lets out a mind-shattering howl.",
+          "decisions": ["Fight Nameless"]
+        },
+        "nextBranchId": ["battle-4"]
+      },
+      "battle-4": {
+        "type": "battle",
+        "config": {
+          "tier": 1,
+          "nemesisId": "Fenrix",
+          "lossRewards": "skip",
+          "winRewards": "skip",
+          "newUBNCards": {
+            "type": "custom",
+            "ids": [
+              "ThunderousTempest",
+              "Burialskulk",
+              "BaneCommander",
+              "NeedleDoom"
+            ]
+          },
+          "treasure": {
+            "level": 1,
+            "hasTreasure": false
+          }
+        },
+        "nextBranchId": "NA-Ex-12-FRONT"
+      },
+      "NA-Ex-12-FRONT": {
+        "type": "narrative",
+        "config": {
+          "text": "Your team's final spells dissipate as the battle draws to a close. This fight took a lot out of you. Even Talix's unlimited energy is flagging. Commander Soskel calls for a rest and you sink gratefully to the forest floor, leaning back against a tree. \"Commander, I've found something odd.\" Rhia presses her ear to the ground and knocks on it three times. The noise reverberates strangely, as if she's hitting something hollow. \"I hear banging in here.\" Rhia feels along the ground and pulls open a hidden trap door, revealing an underground bunker. You leap to your feet, ready for yet another battle. Inside is a massive metal figure with tongues of flame spilling from its joints. The armor lifts a hefty blacksmith's hammer and brings it down on the glowing edge of a blade. A squirrel-like creature is curled up on its shoulder, unafraid. The armor seems friendly enough, so you cautiously introduce yourself and it rumbles back, \"I am Lost.\" It points to the squirrel. \"Meek.\" All around the little room are weapons and equipment radiating with power. This... being must understand breach magic. You try to question Lost further but you're met with sad confusion. Each word seems like a struggle. \"My mind is damaged. I was a man but now... I do not know what I am. Who I am. I am from far away, from my coffin home.\" \"Coffin home...\" Soskel muses. \"Do you mean Gravehold?\" Lost nods slowly. Soskel's eyes widen, \"Are you a breach mage?\" Lost nods again and Soskel steps forward, laying a comforting hand on Lost's arm. \"You are not staying here another second, Lost. We're taking you home.\" It's impossible to  tell from the armor, but you think Lost is smiling. You help gather the artifacts and weapons scattered around this odd forgemaster's abode. Lost grabs his hammer and scratches Meek affectionately on the head. You lead Lost out of the bunker and turn towards home, finally ready to head back to New Gravehold. He doesn't look back once. You report to the Council of Elders upon your return to New Gravehold. They listen intently as you recount the fate of Soskel's allies, the rise and fall of Arachnos' plot for power, and the discorvery of the strange mage Lost. The elders thank you for bringing back the treasures Soskel's team had left with, the powerful new weapons from Lost's collection and for rescuing some of the missing mages. It seems, for once, that humanity has the upper hand. Suddenly, you hear a bang from the entrance to the hall as the doors are slammed open. You sigh. The work of a breach mage is never done. ",
+          "decisions": ["Finish Expedition"]
+        },
+        "nextBranchId": ["lastBranch"]
+      },
+      "lastBranch": {
+        "type": "narrative",
+        "config": {
+          "text": "Congratulations, you finished \"The New Age\"! ",
+          "decisions": []
+        }
+      }
+    }
+  },
+  "initialBarracksConfig": {
+    "mageIds": ["Gygar", "Taqren", "Claudia", "Sahala"],
+    "supplyIds": [
+      "Exogranite",
+      "RecurringJasper",
+      "EnergizedRubidium",
+      "GalvanizedBauble",
+      "AetherConduit",
+      "Tethered Darts",
+      "ForceAmplifier",
+      "ImbuedSmash",
+      "PatternStrike"
+    ],
+    "treasureIds": []
+  },
+  "settingsSnapshotConfig": {
+    "supplySetup": {
+      "id": "random",
+      "name": "Random Setup (Default)",
+      "type": "official",
+      "default": true,
+      "active": true,
+      "tiles": [
+        {
+          "type": "Gem",
+          "operation": "ANY"
+        },
+        {
+          "type": "Gem",
+          "operation": "ANY"
+        },
+        {
+          "type": "Gem",
+          "operation": "ANY"
+        },
+        {
+          "type": "Relic",
+          "operation": "ANY"
+        },
+        {
+          "type": "Relic",
+          "operation": "ANY"
+        },
+        {
+          "type": "Spell",
+          "operation": "ANY"
+        },
+        {
+          "type": "Spell",
+          "operation": "ANY"
+        },
+        {
+          "type": "Spell",
+          "operation": "ANY"
+        },
+        {
+          "type": "Spell",
+          "operation": "ANY"
+        }
+      ]
+    },
+    "availableCardIds": [],
+    "availableMageIds": [],
+    "availableNemesisIds": [],
+    "availableTreasureIds": [],
+    "availableUpgradedBasicNemesisCardIds": []
+  }
+}

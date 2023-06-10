@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                          
+    "module": "ESNext",                     
+    "declaration": true,                   
+    "declarationMap": true,               
+    "outDir": "dist",                    
+    "strict": true,                     
+    "moduleResolution": "node",            
+    "esModuleInterop": true,                  
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./types"],
+    "composite": true
+  },
+  "exclude": [
+    "dist",
+    "../../node_modules"
+  ]
+}

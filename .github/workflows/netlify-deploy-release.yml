@@ -1,0 +1,65 @@
+on:
+  release:
+    # Only use the types keyword to narrow down the activity types that will trigger your workflow.
+    types: [published]
+
+name: Deploy release to netlify
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: netlify
+    strategy:
+      matrix:
+        node: [16]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - uses: actions/checkout@master
+        with:
+          ref: 'refs/heads/main'
+          token: ${{ secrets.ACTION_GITHUB_BOT }}
+
+      ##################
+      # Version upping #
+      ##################
+
+      # Note: it's important that this is being run before the version is upped
+      # because a commit will be created during the process
+      - name: Set git config
+        run: |
+          # setup the username and email.
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: Up version
+        run: yarn version --new-version ${{ github.event.release.tag_name }}
+
+      - name: Push version commit
+        run: git push origin main
+
+      ##############
+      # Publishing #
+      ##############
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build app
+        run: yarn build
+
+      - name: Publish app
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --dir=build --prod
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
