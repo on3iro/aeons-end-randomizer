@@ -22,6 +22,8 @@ import Standalones from './Standalones'
 import Mini from './Mini'
 import Promos from './Promos'
 
+import DeselectByKeyword  from './DeselectByKeyword'
+
 import SelectWithTooltipWrapper from '../ContentCustomization/SelectWithTooltipWrapper'
 import Tooltip from 'components/molecules/Tooltip'
 import SelectField from 'components/atoms/SelectField'
@@ -176,6 +178,7 @@ const ActiveSets = ({
             label={allSetsSelected ? 'Deselect All' : 'Select All'}
           />
         </FormGroup>
+        <DeselectByKeyword></DeselectByKeyword>
         <Standalones handleChange={handleChange} />
         <Mini handleChange={handleChange} />
         <Promos handleChange={handleChange} />
