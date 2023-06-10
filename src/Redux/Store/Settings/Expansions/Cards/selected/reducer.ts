@@ -17,6 +17,10 @@ export const Reducer: LoopReducer<State, Action> = (
       return reducerHelpers.toggleCard(state, action)
     }
 
+    case ActionTypes.DESELECT_CARDS: {
+      return reducerHelpers.deselectCards(state, action)
+    }
+
     case ActionTypes.FETCH_FROM_DB: {
       return reducerHelpers.fetchFromDb(state)
     }
