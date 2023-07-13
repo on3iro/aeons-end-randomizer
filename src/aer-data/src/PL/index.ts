@@ -10,6 +10,7 @@ import { warEternalData } from './warEternal'
 import { buriedSecretsData } from './buriedSecrets'
 import { intoTheWildData } from './intoTheWild'
 import { newAgeData } from './theNewAge'
+import { theAncientsData } from './theAncients'
 
 const PL: IExpansionData = {
   AE: aeonsEndData,
@@ -23,6 +24,7 @@ const PL: IExpansionData = {
   TV: theVoidData,
   WE: warEternalData,
   promos: promosData,
+  TA: theAncientsData,
 }
 
 export default PL
