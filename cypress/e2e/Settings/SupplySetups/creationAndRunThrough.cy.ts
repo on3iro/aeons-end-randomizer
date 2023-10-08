@@ -57,6 +57,9 @@ describe('Custom Supply Setup creation and run through', () => {
   })
 
   it('cancels edit of an existing custom supply setup', () => {
+    cy.visit('settings')
+    cy.wait(1000)
+    cy.get('[data-test=SupplySetups]').click({ force: true })
     cy.get('span')
       .contains('Test-Supply-Setup')
       .closest('[data-test=supply-setup-wrapper]')
@@ -73,6 +76,9 @@ describe('Custom Supply Setup creation and run through', () => {
   })
 
   it('deletes an existing custom supply setup', () => {
+    cy.visit('settings')
+    cy.wait(1000)
+    cy.get('[data-test=SupplySetups]').click({ force: true })
     cy.get('span')
       .contains('Test-Supply-Setup')
       .closest('[data-test=supply-setup-wrapper]')
@@ -83,6 +89,9 @@ describe('Custom Supply Setup creation and run through', () => {
   })
 
   it('creates a supply setup with all card types EXCEPT ANY and all different thresholds <,>,=,<=,>=, OR', () => {
+    cy.visit('settings')
+    cy.wait(1000)
+    cy.get('[data-test=SupplySetups]').click({ force: true })
     cy.get('[data-test=btn-add-custom-supply-setup]').click()
 
     // Set supply setup nam

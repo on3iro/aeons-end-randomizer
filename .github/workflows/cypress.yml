@@ -30,7 +30,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v6
         with:
           start: yarn start
           # quote the url to be safe against YML parsing surprises
