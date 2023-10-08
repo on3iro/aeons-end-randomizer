@@ -1,0 +1,58 @@
+import { Nemesis } from '../../../../aer-types/types'
+
+export const nemeses: Nemesis[] = [
+  {
+    expansion: 'PAF',
+    name: 'Stonemonger',
+    id: 'Stonemonger',
+    health: 75,
+    difficulty: 4,
+    expeditionRating: 2,
+    additionalInfo: '',
+  },
+  {
+    expansion: 'PAF',
+    name: 'Infested Mutation',
+    id: 'InfestedMutation',
+    health: 60,
+    difficulty: 6,
+    expeditionRating: 3,
+    additionalInfo: '',
+  },
+  {
+    expansion: 'PAF',
+    name: 'Erythiza, Consumed',
+    id: 'ErythizaConsumed',
+    health: 30,
+    difficulty: 8,
+    expeditionRating: 4,
+    additionalInfo: '',
+  },
+  {
+    expansion: 'PAF',
+    name: 'Herald Of The End',
+    id: 'HeraldOfTheEnd',
+    health: 10,
+    difficulty: 4,
+    expeditionRating: 2,
+    additionalInfo: '',
+  },
+  {
+    expansion: 'PAF',
+    name: 'The Changeling Nest',
+    id: 'TheChangelingNest',
+    health: 40,
+    difficulty: 6,
+    expeditionRating: 3,
+    additionalInfo: '',
+  },
+  {
+    expansion: 'PAF',
+    name: "Corruption's Core",
+    id: 'CorruptionsCore',
+    health: 60,
+    difficulty: 8,
+    expeditionRating: 4,
+    additionalInfo: '',
+  },
+]
