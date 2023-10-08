@@ -48,7 +48,7 @@ describe('seeds', () => {
     cy.get('[data-test="btn-battle-won"]').click()
     cy.get('p').contains('Dread Diamond').click()
     cy.get('p').contains('Reflective Conduit').click()
-    cy.get('p').contains('Psychic Eruption').click()
+    cy.get('p').contains('Combustion').click()
     cy.get('[data-test="btn-continue"]').click()
 
     cy.get('[data-test=btn-battle]').eq(1).click()
@@ -60,6 +60,7 @@ describe('seeds', () => {
   })
 
   it('should produce same results in copy if everything is unchanged and done in the same order', () => {
+    cy.visit('expeditions').wait(1000)
     cy.get('[data-test="Test: Base Expedition"]')
       .get('[data-test=btn-copy]')
       .click()
@@ -82,7 +83,7 @@ describe('seeds', () => {
     cy.get('[data-test="btn-battle-won"]').click()
     cy.get('p').contains('Dread Diamond').click()
     cy.get('p').contains('Reflective Conduit').click()
-    cy.get('p').contains('Psychic Eruption').click()
+    cy.get('p').contains('Combustion').click()
     cy.get('[data-test="btn-continue"]').click()
 
     cy.get('[data-test=btn-battle]').eq(1).click()
@@ -99,6 +100,7 @@ describe('seeds', () => {
   })
 
   it('should produce correct nemesis if seed is identical but things are done differently', () => {
+    cy.visit('expeditions').wait(1000)
     cy.get('[data-test="Test: Base Expedition"]')
       .get('[data-test=btn-copy]')
       .click()
@@ -114,7 +116,7 @@ describe('seeds', () => {
     cy.get('[data-test="btn-battle-won"]').click()
     cy.get('p').contains('Summonite').click()
     cy.get('p').contains('Conclave Scroll').click()
-    cy.get('p').contains('Embody Flame').click()
+    cy.get('p').contains('Storm Vapor').click()
 
     cy.get('[data-test="btn-continue"]').click()
 
@@ -132,6 +134,7 @@ describe('seeds', () => {
   })
 
   it('should procude completely different results when seed is changed', () => {
+    cy.visit('expeditions').wait(1000)
     cy.get('[data-test="Test: Base Expedition"]')
       .get('[data-test=btn-copy]')
       .click()
@@ -146,9 +149,9 @@ describe('seeds', () => {
     cy.get('[data-test="btn-start-battle"]').click()
 
     cy.get('[data-test="btn-battle-won"]').click()
-    cy.get('p').contains('Muted Lacosite').click()
+    cy.get('p').contains('Voidium Spike').click()
     cy.get('p').contains('Caged Fire').scrollIntoView().click()
-    cy.get('p').contains('Jagged Lightning').click()
+    cy.get('p').contains('Convection Field').click()
 
     cy.get('[data-test="btn-continue"]').click()
 

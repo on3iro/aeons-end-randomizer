@@ -28,7 +28,8 @@ describe('Expedition creation and run through', () => {
   })
 
   it('can run through the first battle', () => {
-    cy.get('h2')
+    cy.visit('expeditions')
+      .get('h2')
       .contains('Test-Expedition 1')
       .click()
       .get('[data-test="btn-battle"]')
@@ -60,33 +61,36 @@ describe('Expedition creation and run through', () => {
       .contains('Reflective Conduit')
       .click()
       .get('p')
-      .contains('Psychic Eruption')
+      .contains('Combustion')
       .click()
       .get('[data-test="btn-continue"]')
       .click()
   })
 
   it('can run through the second battle', () => {
+    cy.visit('expeditions').get('h2').contains('Test-Expedition 1').click()
     cy.get('[data-test="btn-battle"]').eq(1).click()
     cy.get('[data-test="btn-start-battle"]').click()
     cy.get('[data-test="btn-battle-won"]').click()
     cy.get('p').contains('Energized Rubidium').click()
     cy.get('p').contains('Primordial Fetish').click()
-    cy.get('p').contains('Char').click()
+    cy.get('p').contains('Catalyst').click()
     cy.get('[data-test="btn-continue"]').click()
   })
 
   it('can run through the third battle', () => {
+    cy.visit('expeditions').get('h2').contains('Test-Expedition 1').click()
     cy.get('[data-test="btn-battle"]').eq(2).click()
     cy.get('[data-test="btn-start-battle"]').click()
     cy.get('[data-test="btn-battle-won"]').click()
     cy.get('p').contains('Searing Ruby').click()
     cy.get('p').contains('Scholars Opus').click()
-    cy.get('p').contains('Carbonize').click()
+    cy.get('p').contains('Reduce To Ash').click()
     cy.get('[data-test="btn-continue"]').click()
   })
 
   it('can run through the last battle', () => {
+    cy.visit('expeditions').get('h2').contains('Test-Expedition 1').click()
     cy.get('[data-test="btn-battle"]').eq(3).click()
     cy.get('[data-test="btn-start-battle"]').click()
     cy.get('[data-test="btn-battle-won"]').click()
@@ -94,6 +98,7 @@ describe('Expedition creation and run through', () => {
   })
 
   it('has correct final barracks', () => {
+    cy.visit('expeditions').get('h2').contains('Test-Expedition 1').click()
     cy.get('[data-test="btn-open-barracks"]').click()
 
     // Mages
@@ -120,16 +125,16 @@ describe('Expedition creation and run through', () => {
 
     // Supply
     cy.get('[data-test="supply"]').click({ force: true })
-    cy.get('p').contains('Volcanic Glass').should('be.visible')
+    cy.get('p').contains('Bloodstone Jewel').should('be.visible')
     cy.get('p').contains('Scoria Slag').should('be.visible')
     cy.get('p').contains('Oblivium Resin').should('be.visible')
     cy.get('p').contains('Transmogrifier').should('be.visible')
     cy.get('p').contains('Breach Extractor').should('be.visible')
-    cy.get('p').contains('Amplify Vision').scrollIntoView()
-    cy.get('p').contains('Amplify Vision').should('be.visible')
     cy.get('p').contains('Feral Lightning').should('be.visible')
+    cy.get('p').contains('Wildfire Whip').scrollIntoView()
+    cy.get('p').contains('Wildfire Whip').should('be.visible')
     cy.get('p').contains('Celestial Spire').should('be.visible')
-    cy.get('p').contains('Scrying Bolt').should('be.visible')
+    cy.get('p').contains('Pyromancy').should('be.visible')
 
     // Treasures
     cy.get('[data-test="treasure"]').click({ force: true })
@@ -177,22 +182,19 @@ describe('Expedition creation and run through', () => {
     cy.get('p').contains('Vriswood Amber').should('be.visible')
     cy.get('p').contains('Dread Diamond').should('be.visible')
     cy.get('p').contains('Reflective Conduit').should('be.visible')
-    cy.get('p')
-      .contains('Psychic Eruption')
-      .scrollIntoView()
-      .should('be.visible')
+    cy.get('p').contains('Combustion').scrollIntoView().should('be.visible')
     cy.get('p').contains('Energized Rubidium').should('be.visible')
     cy.get('p')
       .contains('Primordial Fetish')
       .scrollIntoView()
       .should('be.visible')
-    cy.get('p').contains('Char').should('be.visible')
+    cy.get('p').contains('Catalyst').should('be.visible')
     cy.get('p').contains('Searing Ruby').should('be.visible')
     cy.get('p').contains('Scholars Opus').should('be.visible')
   })
 
   it('shows the correct data inside the overview', () => {
-    cy.get('[data-test="modal__btn-close"]').click()
+    cy.visit('expeditions').get('h2').contains('Test-Expedition 1').click()
     cy.get('[data-test="backlink"]').click()
 
     cy.get('[data-test="info--expedition-finished"]')
