@@ -5,6 +5,7 @@ import { outerDarkData } from './outerDark'
 import { promosData } from './promos'
 import { theDepthsData } from './theDepths'
 import { theNamelessData } from './theNameless'
+import { shatteredDreamsData } from './shatteredDreams'
 import { theVoidData } from './theVoid'
 import { warEternalData } from './warEternal'
 import { buriedSecretsData } from './buriedSecrets'
@@ -18,6 +19,7 @@ const PL: IExpansionData = {
   NA: newAgeData,
   Depths: theDepthsData,
   Legacy: legacyData,
+  SD: shatteredDreamsData,
   Nameless: theNamelessData,
   OD: outerDarkData,
   TV: theVoidData,
