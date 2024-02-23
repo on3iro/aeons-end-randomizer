@@ -118,7 +118,7 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'TV',
-    name: 'Cachet de l''Éternité',
+    name: 'Cachet de l\'Éternité',
     id: 'EternityCharm',
     cost: 3,
     effect: `
