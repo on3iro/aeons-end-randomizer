@@ -90,7 +90,7 @@ export const cards: ICard[] = [
     type: 'Gem',
     expansion: 'PAF',
     name: 'Encased Fossil',
-    id: 'Encased Fossil',
+    id: 'EncasedFossil',
     cost: 4,
     effect: `
       <p>
@@ -118,7 +118,7 @@ export const cards: ICard[] = [
     type: 'Spell',
     expansion: 'PAF',
     name: 'Harbinger Descent',
-    id: 'ResonantPearl',
+    id: 'HarbingerDescent',
     cost: 8,
     effect: `
       <p>
@@ -263,111 +263,16 @@ export const cards: ICard[] = [
   },
   {
     type: 'Spell',
-    expansion: 'NA',
-    name: 'Fatal Harmony',
-    id: 'FatalHarmony',
+    expansion: 'PAF',
+    name: 'Propel',
+    id: 'Propel',
     cost: 5,
     effect: `
       <p>
       <b>Cast:</b> Deal 4 damage.<br/>
-      Any ally may discard a Fatal Harmony in hand and draw a card.<br/>
-      If they do, deal 3 damage.<br/>
-      <span class="hint">(Effects that
-      modify damage affect both instances of damage.)</span>
-        </p>
-        `,
-    keywords: [],
-  },
-  {
-    type: 'Spell',
-    expansion: 'NA',
-    name: 'Bouncing Boom',
-    id: 'BouncingBoom',
-    cost: 6,
-    effect: `
-      <p>
-      <b>Echo</b>
+      If you placed this into your discard pile, swap this card for Gather Force.<br/>
       </p>
-      <p>
-        <b>Cast:</b> Deal 2 damage.
-        </p>
-        `,
-    keywords: ['echo'],
-  },
-  {
-    type: 'Spell',
-    expansion: 'NA',
-    name: 'Spirit Lift',
-    id: 'SpiritLift',
-    cost: 8,
-    effect: `
-      <p>
-        While prepped once during your turn when you gain a charge, any ally
-        gains 2 charges.<br/>
-        <b>Cast:</b> Deal 5 damage.
-        </p>
-        `,
-    keywords: [],
-  },
-  {
-    type: 'Spell',
-    expansion: 'NA',
-    name: 'Tethered Darts',
-    id: 'Tethered Darts',
-    cost: 3,
-    effect: `
-      <p>
-      <b>Cast:</b> Deal 2 damage.<br/>
-      If this was cast from an opened III or IV breach, you may place this
-      into any ally's hand.
-        </p>
       `,
-    keywords: [],
-  },
-  {
-    type: 'Spell',
-    expansion: 'NA',
-    name: 'Force Amplifier',
-    id: 'ForceAmplifier',
-    cost: 4,
-    effect: `
-      <p>
-      <b>Cast:</b> Deal 3 damage.<br/>
-      If this was cast from an opened III or IV breach, deal 1 additional
-      damage.
-        </p>
-      `,
-    keywords: [],
-  },
-  {
-    type: 'Spell',
-    expansion: 'NA',
-    name: 'Imbued Smash',
-    id: 'ImbuedSmash',
-    cost: 5,
-    effect: `
-      <p>
-      <b>Cast:</b> Deal 4 damage.<br/>
-      You may discard a card in hand. If you do, deal 2 damage to the nemesis.<br/>
-        <span class="hint">(Effects that modify damage affect both
-        instances of damage.)</span>
-        </p>
-        `,
-    keywords: [],
-  },
-  {
-    type: 'Spell',
-    expansion: 'NA',
-    name: 'Pattern Strike',
-    id: 'PatternStrike',
-    cost: 7,
-    effect: `
-      <p>
-      <b>Cast:</b> Deal 4 damage.<br/>
-      You may return to your hand up to two cards in your discard pile
-      that cost 0 <span class="aether">&AElig;</span>.
-        </p>
-      `,
-    keywords: [],
+    keywords: ['swap'],
   },
 ]
