@@ -48,7 +48,7 @@ export const cards: ICard[] = [
     type: 'Relic',
     expansion: 'PAF',
     name: 'Inscrutable Artifact',
-    id: 'Inscrutable Artifact',
+    id: 'InscrutableArtifact',
     cost: 6,
     effect: `
       <p> Cast any player's prepped spell that costs 5 <span class="aether">&AElig;</span> or less without discarding it.
