@@ -7,12 +7,12 @@ export const cards: ICard[] = [
     name: 'Citrine Shrapnel',
     id: 'CitrineShrapnel',
     cost: 3,
+    developCost: 3,
     effect: `
       <p>
       Gain 1 <span class="aether">&AElig;</span> for each copy of this card in the Develop zone.
         <span class="or">OR</span>
       Develop a Citrine Shrapnel.
-      Develop cost: 3
       </p>
       `,
     keywords: ['develop'],

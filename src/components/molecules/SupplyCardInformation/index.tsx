@@ -18,6 +18,7 @@ type Props = {
     name: string
     expansion: string
     cost: number
+    developCost?: number
     keywords: string[]
     effect: string
   }
@@ -31,6 +32,9 @@ const Body = ({ card, expansion, theme }: Props) => (
     <InfoItem label="Wave" info={expansion.wave || '-'} />
     <InfoItem label="Type" info={card.type} />
     <InfoItem label="Cost" info={card.cost.toString()} />
+    {card.developCost ? (
+      <InfoItem label="Develop Cost" info={card.developCost.toString()} />
+    ) : null}
 
     <SectionHeadline
       themeColor={theme.colors.cards[card.type.toLowerCase()].color}

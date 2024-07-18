@@ -20,6 +20,7 @@ export type ICard = {
   name: string
   id: string
   cost: number
+  developCost?: number
   effect: string
   keywords: string[]
 }
