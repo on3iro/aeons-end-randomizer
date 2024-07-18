@@ -7,12 +7,12 @@ export const cards: ICard[] = [
     name: 'Feeding Lichen',
     id: 'FeedingLichen',
     cost: 5,
+    developCost: 3,
     effect: `
       <p>
       Gain 2 <span class="aether">&AElig;</span>.<br/>
       If the nemesis tier is 2 or higher, draw an additional card
       at the end of this turn.<br/>
-      Develop cost: 3
       </p>
       `,
     keywords: ['develop'],
@@ -23,12 +23,12 @@ export const cards: ICard[] = [
     name: 'Fall Lantern',
     id: 'FallLantern',
     cost: 5,
+    developCost: 4,
     effect: `
       <p>
       When you Develop this, deal 2 damage.<br/>
       Attach this to any player's breach.
       When a spell is cast from this breach, any ally may prep a spell to one of their closed or opened breaches.<br/>
-      Develop cost: 4
       </p>
       `,
     keywords: ['develop'],
@@ -39,12 +39,12 @@ export const cards: ICard[] = [
     name: 'Crescent Greave',
     id: 'CrescentGreave',
     cost: 8,
+    developCost: 5,
     effect: `
       <p>
       When you Develop this, draw an additional card at the end of this turn.<br/>
       Gain 2 charges.<br/>
       Draw an additional card at the end of this turn.<br/>
-      Develop cost: 5
       </p>
       `,
     keywords: [],

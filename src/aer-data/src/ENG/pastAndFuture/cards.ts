@@ -134,11 +134,11 @@ export const cards: ICard[] = [
     name: 'Splintered Garnet',
     id: 'SplinteredGarnet',
     cost: 5,
+    developCost: 4,
     effect: `
       <p>
       When you Develop this, destroy a gem played this turn.
       Gain 3 <span class="aether">&AElig;</span>.<br/>
-      Develop cost: 4
       </p>
       `,
     keywords: ['develop'],
@@ -149,11 +149,11 @@ export const cards: ICard[] = [
     name: "Seer's Wrath",
     id: 'SeersWrath',
     cost: 5,
+    developCost: 3,
     effect: `
       <p>
       When you Develop this, look at the top card of the turn order deck. You may place that card on the bottom or top of the turn order deck.<br/>
       <b>Cast:</b> Deal 3 damage.<br/>
-      Develop cost: 3
       </p>
       `,
     keywords: ['develop'],
@@ -164,10 +164,10 @@ export const cards: ICard[] = [
     name: 'Tethered Smite',
     id: 'TetheredSmite',
     cost: 7,
+    developCost: 4,
     effect: `
       <p>
       <b>Cast</b> Deal 5 damage divided however you choose the nemesis and any number of minions.<br/>
-      Develop cost: 4
       </p>
       `,
     keywords: ['develop'],
@@ -178,12 +178,12 @@ export const cards: ICard[] = [
     name: 'Taluna Branch',
     id: 'TalunaBranch',
     cost: 6,
+    developCost: 4,
     effect: `
       <p>
       When you Develop this, any ally gains an <span class="aether">&AElig;</span> token.
       Focus any player's breach. <br/>
       Any player may destroy a card in hand or in their discard pile. <br/>
-      Develop cost: 4
       </p>
       `,
     keywords: ['develop'],
@@ -193,12 +193,12 @@ export const cards: ICard[] = [
     expansion: 'PAF',
     name: 'Building Storm',
     id: 'BuildingStorm',
-    cost: 3,
+    cost: 4,
+    developCost: 2,
     effect: `
       <p>
       <b>Cast:</b> Deal 2 damage. <br/>
       Deal 1 additional damage for every copy of this card in the Develop zone.<br/>
-      Develop cost: 2
       </p>
       `,
     keywords: ['develop'],
@@ -216,18 +216,18 @@ export const cards: ICard[] = [
       Gain 3 <span class="aether">&AElig;</span> that can only be used to Develop cards.
       </p>
       `,
-    keywords: [],
+    keywords: ['develop'],
   },
   {
     type: 'Relic',
     expansion: 'PAF',
     name: 'Imbued Pocketwatch',
     id: 'ImbuedPocketwatch',
-    cost: 3,
+    cost: 2,
+    developCost: 3,
     effect: `
       <p>
       Any player gains a charge. If there are two or more Imbued Pocketwatches in the Develop zone, any player gains a life.<br/>
-      Develop cost: 3
       </p>
       `,
     keywords: ['develop'],
@@ -252,11 +252,11 @@ export const cards: ICard[] = [
     name: 'Thistle Spear',
     id: 'ThistleSpear',
     cost: 8,
+    developCost: 5,
     effect: `
       <p>
       <b>Cast:</b> Deal 5 damage.<br/>
       Any ally may gain a card from the Develop zone and place it into their hand.<br/>
-      Develop cost: 5
       </p>
       `,
     keywords: ['develop'],
