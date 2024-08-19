@@ -64,13 +64,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'promos',
-    name: 'Thieving Spirit',
+    name: 'Diebischer Wichtel',
     id: 'ThievingSpirit',
     cost: 5,
     effect: `
       <p>
-        <b>Cast:</b> Deal 4 damage.<br />
-        Gain 1 <span class="aether">&AElig;</span>.
+        <b>Wirken:</b> Füge 4 Schaden zu.<br />
+        Erhalte 1 <span class="aether">&AElig;</span>.
       </p>
     `,
     keywords: [],
