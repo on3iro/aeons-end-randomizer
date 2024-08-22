@@ -356,7 +356,7 @@ export const cards: ICard[] = [
       <p>
         <b>Gebunden:</b> In deinem Schritt <i>Aktionen ausführen</i> darfst du 2 <span class="aether">&AElig;</span> bezahlen, um 1 Spieler zu wählen:<br />
         Wirke 1 seiner gebundenden Zauber.<br />
-        <b>Wirken:</br> Füge 4 Schaden zu.
+        <b>Wirken:</b> Füge 4 Schaden zu.
       </p>
     `,
     keywords: [],

@@ -141,7 +141,7 @@ export const cards: ICard[] = [
         <b>Wirken:</b> Wähle 1 Karte auf der Hand mit <span class="aether">&AElig;</span>-Kosten
         von 2 oder mehr.<br/>
         Füge X Schaden zu. X = Anzahl fehlender Karten im Vorrat dieser Karte.<br/>
-        1 anderer Spieler deiner Wahl erwirbt gratis 1 Karte dieses Vorrats.<br/>
+        Wähle 1 anderen Spieler, der 1 Karte dieses Vorrats gratis erwerben darf.<br/>
         <span class="hint">(Hilfe: Kristall-Vorräte haben 7 Karten. Artefakte und Zauber 5.)</span>
       `,
     keywords: [],
@@ -156,7 +156,8 @@ export const cards: ICard[] = [
         <p>
           Erhalte 2 <span class="aether">&AElig;</span>.
           <span class="or">ODER</span>
-          Wirfst du jetzt 1 Karte deiner Wahl von der Hand ab? Erhalte 2 Energie.
+          Wirf 1 Karte deiner Wahl von der Hand ab. Ist das passiert?
+		  Erhalte 2 Energie.
         </p>
       `,
     keywords: [],

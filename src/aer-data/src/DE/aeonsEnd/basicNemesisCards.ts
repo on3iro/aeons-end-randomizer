@@ -137,7 +137,7 @@ export const basicNemesisCards: BasicNemesisCard[] = [
       <p>
         <b>Dauerhaft:</b> Wenn du diesem Monster Schaden zufügst, fügst du nur 1 Schaden zu.<br />
         <br />
-        <b>Ansturm:</br> Wählt 1 Spieler und fügt ihm Schaden in Höhe des aktuellen Lebens dieses Monsters zu.
+        <b>Ansturm:</b> Wählt 1 Spieler und fügt ihm Schaden in Höhe des aktuellen Lebens dieses Monsters zu.
       </p>
     `,
   },

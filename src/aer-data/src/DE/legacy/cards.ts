@@ -39,7 +39,7 @@ export const cards: ICard[] = [
         <p>
           Erhalte 1 Energie. <br/>
           Wähle 1 anderen Spieler, der seinen dunklen Riss mit den
-		  geringsten <span class="aether">&AElig;</span>-Kosten bündelt.
+          geringsten <span class="aether">&AElig;</span>-Kosten bündelt.
         </p>
       `,
     keywords: ['weak'],
@@ -82,8 +82,8 @@ export const cards: ICard[] = [
     effect: `
         <p>
           Wähle 1 Spieler, der 3 Impulse erhält. Dieser Spieler:
-		  Wirfst du jetzt 1 Impuls ab? Zerstöre 1 Karte deiner Wahl
-		  auf deiner Hand.
+          Wirfst du jetzt 1 Impuls ab? Zerstöre 1 Karte deiner Wahl
+          auf deiner Hand.
         </p>
       `,
     keywords: ['strong', 'pulse'],
@@ -127,9 +127,9 @@ export const cards: ICard[] = [
     effect: `
         <p>
           Wähle 1 anderen Spieler, der 1 Energie erhält. Wähle 1 Spieler,
-		  der 2 Impulse erhält. <br/>
-		  Wirfst du jetzt 2 Impulse ab? Wähle 1 Spieler und wirke 1
-		  seiner gebundenen Zauber mit +1 Schaden.
+          der 2 Impulse erhält. <br/>
+          Wirfst du jetzt 2 Impulse ab? Wähle 1 Spieler und wirke 1
+          seiner gebundenen Zauber mit +1 Schaden.
         </p>
       `,
     keywords: ['pulse', 'strong'],
@@ -241,8 +241,8 @@ export const cards: ICard[] = [
     effect: `
         <p>
           <b>Gebunden (1x pro Zug):</b> In deinem Schritt Aktionen ausführen
-		  darfst du 1 gerade gespieltes Artefakt oder 1 Artefakt in deinem
-		  Ablagestapel oben auf dein Deck legen.<br/>
+          darfst du 1 gerade gespieltes Artefakt oder 1 Artefakt in deinem
+          Ablagestapel oben auf dein Deck legen.<br/>
           <b>Wirken:</b> Füge 4 Schaden zu.
         </p>
       `,
@@ -271,8 +271,8 @@ export const cards: ICard[] = [
     effect: `
         <p>
           <b>Einmalig beim Binden:</b> Füge 1 Schaden zu.<br/>
-          <b>Wirken:</b> Füge 1 Schaden zu. Füge 2 Schaden zu.
-		  (Hinweis: Das sind 2 Schadensquellen.)
+          <b>Wirken:</b> Füge 1 Schaden zu. Füge 2 Schaden zu.<br/>
+          (Hinweis: Das sind 2 Schadensquellen.)
         </p>
       `,
     keywords: [],
@@ -302,7 +302,7 @@ export const cards: ICard[] = [
           <b>Wirken:</b> Füge 6 Schaden zu. <br/> 
           Erhalte 1 Impuls. <br/>
           Wirfst du jetzt X Impulse ab? Wähle 1 anderen
-		  Spieler, der X Karten zieht.
+          Spieler, der X Karten zieht.
         </p>
       `,
     keywords: ['pulse', 'strong'],
@@ -331,7 +331,7 @@ export const cards: ICard[] = [
     effect: `
         <p>
           Erhalte 2 <span class="aether">&AElig;</span>. <br/>
-		  Erhalte 1 Impuls. <br/>
+          Erhalte 1 Impuls. <br/>
           Wirfst du jetzt X Impulse ab? Füge X Schaden zu.
         </p>
       `,
@@ -387,7 +387,7 @@ export const cards: ICard[] = [
     effect: `
         <p>
           <b>Einmalig bei Erwerb:</b> Du darfst diese Karte auf
-		  einen Ablagestapel deiner Wahl legen.<br/>
+          einen Ablagestapel deiner Wahl legen.<br/>
           <b>Wirken:</b> Füge 5 Schaden zu.<br/>
           Die Feste heilt 1 Leben.
         </p>
@@ -418,7 +418,7 @@ export const cards: ICard[] = [
         <p>
           <b>Wirken:</b> Füge 4 Schaden zu.<br/>
           Wirfst du jetzt 1 Zauber deiner Hand ab?
-		  +1 Schaden und erhalte 1 Energie.
+          +1 Schaden und erhalte 1 Energie.
         </p>
       `,
     keywords: ['weak'],
@@ -448,7 +448,7 @@ export const cards: ICard[] = [
         <p>
           Erhalte 1 Energie. <br/>
           Sieh dir die oberste Karte deines Decks an. Du darfst sie zerstören.
-		  Tust du das nicht? Erhalte 1 <span class="aether">&AElig;</span>.
+          Tust du das nicht? Erhalte 1 <span class="aether">&AElig;</span>.
         </p>
       `,
     keywords: ['strong'],
@@ -462,10 +462,10 @@ export const cards: ICard[] = [
     effect: `
         <p>
           Erhalte 2 Impulse. Wirfst du jetzt 4 Impulse ab? Aktiviere 1
-		  dunklen Riss bei 1 Spieler deiner Wahl. Erwirb gratis 1 Zauber
-		  deiner Wahl mit <span class="aether">&AElig;</span>-Kosten von 5
-		  oder weniger. Binde diesen Zauber an 1 aktiven Riss bei 1 Spieler
-		  deiner Wahl.
+          dunklen Riss bei 1 Spieler deiner Wahl. Erwirb gratis 1 Zauber
+          deiner Wahl mit <span class="aether">&AElig;</span>-Kosten von 5
+          oder weniger. Binde diesen Zauber an 1 aktiven Riss bei 1 Spieler
+          deiner Wahl.
         </p>
       `,
     keywords: ['pulse', 'strong'],
@@ -506,8 +506,8 @@ export const cards: ICard[] = [
     cost: 5,
     effect: `
         <p>
-          <b>Wirken:</b> Wirft 1 Spieler deiner Wahl 1 Karte seiner Wahl
-          von der Hand ab? Füge 4 Schaden zu.
+          <b>Wirken:</b> Wähle 1 Spieler, der 1 Karte seiner Wahl von der
+          Hand abwirft. Ist das passiert? Füge 4 Schaden zu.
         </p>
       `,
     keywords: ['weak'],
@@ -521,8 +521,8 @@ export const cards: ICard[] = [
     effect: `
         <p>
           Bündele 1 Riss deiner Wahl (bei 1 Spieler deiner Wahl). <br/>
-          Wähle 1 Spieler, der 1 Zauber auf der Hand an 1 seiner (dunklen oder aktiven)
-          Risse bindet.
+          Wähle 1 Spieler. Dieser Spieler darf 1 Zauber seiner Wahl von der Hand an seine
+          aktiven / gerade gebündelten Risse binden.
         </p>
       `,
     keywords: ['weak'],
@@ -537,7 +537,7 @@ export const cards: ICard[] = [
         <p>
           <b>Wirken:</b> Füge 7 Schaden zu. <br/>
           Zerstört 1 anderer Spieler 1 Karte seiner Wahl auf der Hand?
-		  Dieser Spieler heilt 2 Leben.
+          Dieser Spieler heilt 2 Leben.
         </p>
       `,
     keywords: ['strong'],
