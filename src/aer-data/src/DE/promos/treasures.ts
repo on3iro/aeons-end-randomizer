@@ -3,100 +3,105 @@ import { Treasure } from '../../../../aer-types/types'
 export const treasures: Treasure[] = [
   {
     id: 'ReevesRavenShard',
-    name: "Reeve's Raven Shard",
+    name: 'Reeves Raben-Scherbe',
     expansion: 'promos',
     level: 1,
     subtype: 'Gem',
     effect: `
       <p>
-        Gain 1 <span class="aether">&AElig;</span>. You may discard a card in 
-        hand. If you do, gain and additional 1 <span class="aether">&AElig;</span>.
+        Erhalte 1 <span class="aether">&AElig;</span>. Wirfst du jetzt 1 Karte deiner Wahl
+        von der Hand ab? Erhalte 1 <span class="aether">&AElig;</span>.
       </p>
     `,
   },
   {
     id: 'NymsVision',
-    name: "Nym's Vision",
+    name: 'Nyms Vorhersehung',
     expansion: 'promos',
     level: 1,
     subtype: 'Spell',
     effect: `
       <p>
-        <b>Cast:</b> Deal 1 damage.<br />
-        Reveal the top card of the nemesis deck. If you revealed an attack, gain 
-        2 <span class="aether">&AElig;</span>.
+        <b>Wirken:</b> Füge 1 Schaden zu.<br />
+        Sieh dir die oberste Karte des Erzfeind-Stapels an. Ist es ein ANGRIFF?
+        Ehalte 2 <span class="aether">&AElig;</span>.
       </p>
     `,
   },
   {
     id: 'SparrowsAid',
-    name: "Sparrow's Aid",
+    name: 'Sparrows Hilfe',
     expansion: 'promos',
     level: 1,
     effect: `
       <p>
-        <b>Cast:</b> Deal 1 damage.<br />
-        Any ally may prep a spell in hand to their opened or closed breach(es).
+        <b>Wirken:</b> Füge 1 Schaden zu.<br />
+        Wähle 1 anderen Spieler. Dieser Spieler darf 1 Zauber seiner Wahl von der Hand
+        an seine (auch dunklen) Risse binden.
       </p>
     `,
   },
   {
     id: 'WraithsEssence',
-    name: "Wraith's Essence",
+    name: 'Essenz des Traum-Händlers',
     expansion: 'promos',
     level: 2,
     effect: `
       <p>
-        When a player becomes exhausted, do not resolve any on-exhaust effects.<br />
-        <br />
-        The players do not lose when all players are exhausted.
+      <b>Dauerhaft:</b><br/>
+      Führt keinerlei Schritte aus, wenn ein Spieler ERSCHÖPFT wird.<br/>
+      Ihr verliert nicht, wenn alle Spieler ERSCHÖPFT sind.
       </p>
     `,
   },
   {
     id: 'VolatileClasp',
-    name: 'Volatile Clasp',
+    name: 'Schnapp-Halterung',
     expansion: 'promos',
     level: 3,
     effect: `
       <p>
-        When you play a relic that costs 4 <span class="aether">&AElig;</span> 
-        or more, any ally gains 1 charge.
+      <b>Immer wenn du ein Artefakt mit <span class="aether">&AElig;</span>-Kosten von 4 oder
+      mehr ausspielst:</b><br/>
+      Wähle 1 anderen Spieler, der 1 Energie erhält.
       </p>
     `,
   },
   {
     id: 'BreachStabilizer',
-    name: 'Breach Stabilizer',
+    name: 'Riss-Stabilisator',
     expansion: 'promos',
     level: 3,
     effect: `
       <p>
-        Any number of Sparks may be prepped to your I breach.
+      <b>Dauerhaft:</b><br/>
+      An deinem Riss I dürfen unbegrenzt viele Funken gleichzeitig gebunden sein.
       </p>
     `,
   },
   {
     id: 'FangedChoker',
-    name: 'Fanged Choker',
+    name: 'Stachelbewehrter Halsreif',
     expansion: 'promos',
     level: 3,
     effect: `
       <p>
-        At the end of your draw phase, if the total cost of spells in your hand 
-        is 6 <span class="aether">&AElig;</span> or more, draw a card.
+      <b>Nach deinem Schritt <i>Karten ziehen</i>:</b><br/>
+      Sind die <span class="aether">&AElig;</span>-Kosten der Zauber auf deiner Hand
+      zusammen 6 oder mehr? Ziehe 1 Karte.
       </p>
     `,
   },
   {
     id: 'EndlessBandolier',
-    name: 'Endless Bandolier',
+    name: 'Endloser Brustgürtel',
     expansion: 'promos',
     level: 3,
     effect: `
       <p>
-        Once per turn during your main phase you may discard a card in hand. 
-        If you do, deal 1 damage and gain 1 charge.
+      <b>In deinem Schritt <i>Aktionen ausführen (1x pro Zug):</i></b><br/>
+      Du darfst 1 Karte deiner Wahl von der Hand abwerfen. Tust du das?
+      Füge 1 Schaden zu und erhalte 1 Energie.
       </p>
     `,
   },

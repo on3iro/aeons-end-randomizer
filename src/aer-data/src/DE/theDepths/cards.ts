@@ -10,7 +10,7 @@ export const cards: ICard[] = [
     effect: `
       <p>
         <b>Wirken:</b> Füge 3 Schaden zu.<br />
-        Wähle 1 Spieler und wirke 1 seiner gebundenen Zauber.
+		Du darfst 1 Spieler wählen und 1 seiner gebundenen Zauber wirken.
       </p>
     `,
     keywords: [],
@@ -108,8 +108,9 @@ export const cards: ICard[] = [
     cost: 4,
     effect: `
       <p>
-        Zerstöre 1 Karte deiner Wahl auf deiner Hand.<br />
-        Erwirb 1 Karte gratis, die bis zu 3 <span class="aether">&AElig;</span> mehr kostet als die zerstörte Karte.
+        Zerstöre 1 Karte deiner Wahl auf der Hand.<br />
+        Du darfst jetzt 1 Karte gratis erwerben, die bis zu 3 <span class="aether">&AElig;</span> mehr kostet
+		als die zerstörte Karte.
       </p>
     `,
     keywords: [],
