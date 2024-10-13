@@ -261,4 +261,18 @@ export const cards: ICard[] = [
       `,
     keywords: ['develop'],
   },
+  {
+    type: 'Spell',
+    expansion: 'PAF',
+    name: 'Propel',
+    id: 'Propel',
+    cost: 5,
+    effect: `
+      <p>
+      <b>Cast:</b> Deal 4 damage.<br/>
+      If you placed this into your discard pile, swap this card for Gather Force.<br/>
+      </p>
+      `,
+    keywords: ['swap'],
+  },
 ]
