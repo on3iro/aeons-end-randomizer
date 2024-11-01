@@ -2,9 +2,6 @@
 [![Docs](https://img.shields.io/badge/Docs-on3iro.github.io%2Faeons--end--randomizer-success)](https://on3iro.github.io/aeons-end-randomizer)
 [![Official Aeons End Discord](https://img.shields.io/badge/AE%20Discord-https%3A%2F%2Fdiscord.gg%2FPvjcfPt-%237289DA.svg?style=flat-squar)](https://discord.gg/PvjcfPt)
 
-> [!Warning] 
-> We are currently expecting a DOWNTIME due to a server and DNS migration.
-> The site should be back up soon!
 
 ![AER](./public/images/android-icon-96x96.png)
 
