@@ -1,5 +1,4 @@
 [![CircleCI](https://circleci.com/gh/on3iro/aeons-end-randomizer/tree/dev.svg?style=svg)](https://circleci.com/gh/on3iro/aeons-end-randomizer/tree/dev)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/210c9bd3-9f4d-4554-b9fc-0b319d89b81e/deploy-status)](https://app.netlify.com/sites/aer/deploys)
 [![App](https://img.shields.io/badge/App-aeons--end--randomizer.de-%232196f3)](https://aeons-end-randomizer.de)
 [![Docs](https://img.shields.io/badge/Docs-on3iro.github.io%2Faeons--end--randomizer-success)](https://on3iro.github.io/aeons-end-randomizer)
 [![Official Aeons End Discord](https://img.shields.io/badge/AE%20Discord-https%3A%2F%2Fdiscord.gg%2FPvjcfPt-%237289DA.svg?style=flat-squar)](https://discord.gg/PvjcfPt)
@@ -129,7 +128,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `yarn run build:gh-pages`
 
-This builds the app for github pages. _This should no longer be used, as production moved to netlify!_
+This builds the app for github pages.
 
 ### `yarn run deploy`
 
@@ -160,8 +159,8 @@ The typings and all of our aeons end data are part of this mono-repository.
 However we publish both separately to npm, so they can be easily consumed by other
 applications and libraries.
 
-* [Aeons End data](https://www.npmjs.com/package/aer-data)
-* [Aeons End typescript types](https://www.npmjs.com/package/aer-types)
+- [Aeons End data](https://www.npmjs.com/package/aer-data)
+- [Aeons End typescript types](https://www.npmjs.com/package/aer-types)
 
 ## TODO - writing client side migrations
 
