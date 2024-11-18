@@ -2,6 +2,13 @@
 [![Docs](https://img.shields.io/badge/Docs-on3iro.github.io%2Faeons--end--randomizer-success)](https://on3iro.github.io/aeons-end-randomizer)
 [![Official Aeons End Discord](https://img.shields.io/badge/AE%20Discord-https%3A%2F%2Fdiscord.gg%2FPvjcfPt-%237289DA.svg?style=flat-squar)](https://discord.gg/PvjcfPt)
 
+> [!warning]
+> This repository is currently in maintenance mode.
+> Unfortunately I don't have time to add features to the randomizer myself anymore and I also no longer own the game.
+> However I still welcome pull requests and will try to review them as quickly as possible.
+> So if you would like to see new features/translations, you would either need to provide them yourself or find someone to
+> implement these for you.
+> Also reach out to me, if you would like to help maintain the project.
 
 ![AER](./public/images/android-icon-96x96.png)
 
