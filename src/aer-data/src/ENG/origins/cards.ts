@@ -6,7 +6,7 @@ export const cards: ICard[] = [
     expansion: 'ORI',
     name: 'Rhodonix',
     id: 'Rhodonix',
-    cost: 3,
+    cost: 6,
     effect: `
       <p>
       Gain 3 <span class="aether">&AElig;</span>.<br/>
