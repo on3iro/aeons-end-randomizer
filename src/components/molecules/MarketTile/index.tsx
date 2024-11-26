@@ -25,6 +25,7 @@ type MaybeMarketTile =
       name?: string
       expansion?: string
       cost?: number
+      developCost?: number
       keywords?: string[]
       effect?: string
       canBeLocked?: boolean
@@ -38,6 +39,7 @@ type MaybeOutputMarketTile =
       name: string
       expansion: string
       cost: number
+      developCost?: number
       keywords: string[]
       effect: string
       canBeLocked: boolean
@@ -49,7 +51,7 @@ const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
     return undefined
   }
 
-  const { id, type, name, expansion, cost, keywords, effect, canBeLocked } =
+  const { id, type, name, expansion, cost, developCost = undefined, keywords, effect, canBeLocked } =
     marketTile
 
   return id &&
@@ -67,6 +69,7 @@ const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
         name,
         expansion,
         cost,
+        developCost,
         keywords,
         effect,
         canBeLocked,
@@ -94,6 +97,7 @@ type Props = ReturnType<typeof mapStateToProps> &
       effect?: string
       keywords?: string[]
       cost?: number
+      developCost?: number
       operation?: types.Operation
       threshold?: number
       values?: Array<number>

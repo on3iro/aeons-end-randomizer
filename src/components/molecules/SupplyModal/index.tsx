@@ -17,6 +17,7 @@ export type CardProperties = {
   name: string
   expansion: string
   cost: number
+  developCost?: number,
   keywords: string[]
   effect: string
   selected: boolean
