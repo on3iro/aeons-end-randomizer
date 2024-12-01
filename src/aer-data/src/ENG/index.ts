@@ -53,11 +53,7 @@ const ENG: IExpansionData = {
   promos: promosData,
   PFPromo: pastAndFuturePromosData,
   community: communityData,
-  TD: theDescentData,
   TC: theCavernsData,
-  AB: theAbyssData,
-  TOOG: talesOfOldGraveholdData,
-  TDPromo: theDescentPromosData,
 }
 
 export default ENG
