@@ -4,7 +4,6 @@ import { nemeses } from './nemeses'
 import { mages } from './mages'
 import { cards } from './cards'
 import { treasures } from './treasures'
-import { upgradedBasicNemesisCards } from './upgradedBasicNemesisCards'
 
 export const theCavernsData: IExpansion = {
   id: 'TC',
@@ -15,5 +14,4 @@ export const theCavernsData: IExpansion = {
   mages,
   cards,
   treasures,
-  upgradedBasicNemesisCards,
 }
