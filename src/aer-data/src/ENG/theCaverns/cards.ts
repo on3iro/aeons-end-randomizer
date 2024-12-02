@@ -55,7 +55,7 @@ export const cards: ICard[] = [
     type: 'Spell',
     expansion: 'TC',
     name: 'Expunge Essence',
-    id: 'ElementalConduit',
+    id: 'ExpungeEssence',
     cost: 5,
     effect: `
       <p>
