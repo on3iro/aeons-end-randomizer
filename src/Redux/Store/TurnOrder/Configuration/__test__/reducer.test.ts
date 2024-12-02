@@ -14,6 +14,8 @@ import {
 
 const mockConfiguration: State = {
   Mode: 'Blitz',
+  Friend: false,
+  Foe: false,
   SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
   SelectedSetup: AERData.turnordersetups['fourPlayers'].variations['default'],
 }
@@ -31,6 +33,8 @@ describe('TurnOrder | Configuration | reducer', () => {
   it('should handle SET_MODE', () => {
     const expected = {
       Mode: 'Maelstrom',
+      Friend: false,
+      Foe: false,
       SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
       SelectedSetup:
         AERData.turnordersetups['fourPlayers'].variations['default'],
@@ -41,9 +45,41 @@ describe('TurnOrder | Configuration | reducer', () => {
     expect(getModel(result)).toEqual(expected)
   })
 
+  it('should handle SET_FRIEND', () => {
+    const expected = {
+      Mode: 'Blitz',
+      Friend: true,
+      Foe: false,
+      SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
+      SelectedSetup:
+        AERData.turnordersetups['fourPlayers'].variations['default'],
+    }
+
+    const result = Reducer(mockConfiguration, actions.setFriend(true))
+
+    expect(getModel(result)).toEqual(expected)
+  })
+
+  it('should handle SET_FOE', () => {
+    const expected = {
+      Mode: 'Blitz',
+      Friend: false,
+      Foe: true,
+      SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
+      SelectedSetup:
+        AERData.turnordersetups['fourPlayers'].variations['default'],
+    }
+
+    const result = Reducer(mockConfiguration, actions.setFoe(true))
+
+    expect(getModel(result)).toEqual(expected)
+  })
+
   it('should handle SELECT_PLAYER_COUNT', () => {
     const expected = {
       Mode: 'Blitz',
+      Friend: false,
+      Foe: false,
       SelectedPlayerCount: AERData.turnordersetups['twoPlayers'],
       SelectedSetup:
         AERData.turnordersetups['twoPlayers'].variations['default'],
@@ -60,6 +96,8 @@ describe('TurnOrder | Configuration | reducer', () => {
   it('should handle SELECT_PLAYER_COUNT when player count is undefined', () => {
     const expected = {
       Mode: 'Blitz',
+      Friend: false,
+      Foe: false,
       SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
       SelectedSetup:
         AERData.turnordersetups['fourPlayers'].variations['default'],
@@ -77,6 +115,8 @@ describe('TurnOrder | Configuration | reducer', () => {
   it('should handle SELECT_SETUP', () => {
     const expected = {
       Mode: 'Blitz',
+      Friend: false,
+      Foe: false,
       SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
       SelectedSetup:
         AERData.turnordersetups['fourPlayers'].variations['splitPlayers'],
@@ -93,6 +133,8 @@ describe('TurnOrder | Configuration | reducer', () => {
   it('should handle SELECT_SETUP when setup does not exist for player count', () => {
     const expected = {
       Mode: 'Blitz',
+      Friend: false,
+      Foe: false,
       SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
       SelectedSetup:
         AERData.turnordersetups['fourPlayers'].variations['default'],
