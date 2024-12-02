@@ -339,5 +339,12 @@ Array [
   "ParasiticForce",
   "CitrineShrapnel",
   "CataclysmSeed",
+  "Electinium",
+  "MagneticConduit",
+  "ElementalConduit",
+  "ExpungeEssence",
+  "CombustLegend",
+  "ArchaicDischarge",
+  "MemoryAllocator",
 ]
 `;
