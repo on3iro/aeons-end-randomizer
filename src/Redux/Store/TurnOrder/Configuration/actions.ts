@@ -7,6 +7,8 @@ import { ActionTypes } from './types'
 export const actions = {
   noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),
   setMode: (mode: types.Mode) => createAction(ActionTypes.SET_MODE, mode),
+  setFriend: (friend: boolean) => createAction(ActionTypes.SET_FRIEND, friend),
+  setFoe: (foe: boolean) => createAction(ActionTypes.SET_FOE, foe),
   selectPlayerCount: (playerCountId: types.PlayerCountId) =>
     createAction(ActionTypes.SELECT_PLAYER_COUNT, playerCountId),
   selectSetup: (setupId: types.TurnorderSetupVariationId) =>

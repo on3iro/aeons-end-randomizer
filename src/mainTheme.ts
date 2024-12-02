@@ -133,6 +133,14 @@ export const mainTheme = {
         normal: '#5B5B5B',
         light: '#AEAEAE',
       },
+      friend: {
+        normal: '#006400',
+        light: '#88AA88',
+      },
+      foe: {
+        normal: '#444',
+        light: '#aaa',
+      },
     },
     cards: {
       ...treasureColors,

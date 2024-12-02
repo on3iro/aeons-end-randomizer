@@ -19,10 +19,7 @@ const newStateWithDBWrite = (newState: State) => {
   )
 }
 
-const adjustSetup = (
-  mode: types.Mode,
-  setup: types.ITurnOrderSetup
-): types.ITurnOrderSetup => {
+const baseSetup = (mode: types.Mode, setup: types.ITurnOrderSetup): types.ITurnOrderSetup => {
   switch (mode) {
     case 'Maelstrom': {
       return {
@@ -98,9 +95,25 @@ const adjustSetup = (
 
     case 'Default':
     default: {
-      return setup
+      return {...setup}
     }
   }
+}
+
+const adjustSetup = (
+  mode: types.Mode,
+  friend: boolean,
+  foe: boolean,
+  setup: types.ITurnOrderSetup
+): types.ITurnOrderSetup => {
+  const rawSetup = baseSetup(mode, setup);
+  if (friend) {
+    rawSetup.turnOrderCards = [...rawSetup.turnOrderCards, AERData.turnordercards['friend']]
+  }
+  if (foe) {
+    rawSetup.turnOrderCards = [...rawSetup.turnOrderCards, AERData.turnordercards['foe']]
+  }
+  return rawSetup
 }
 
 export { newStateWithDBWrite, adjustSetup }

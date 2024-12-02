@@ -2,6 +2,8 @@ import AERData from 'aer-data/src/index'
 
 import {
   ModeStateSlice,
+  FriendStateSlice,
+  FoeStateSlice,
   SelectedPlayerCountStateSlice,
   SelectedSetupStateSlice,
 } from '../types'
@@ -9,11 +11,15 @@ import {
 import { selectors } from 'Redux/Store/TurnOrder/Configuration/selectors'
 
 const mockConfiguration: ModeStateSlice &
+  FriendStateSlice &
+  FoeStateSlice &
   SelectedPlayerCountStateSlice &
   SelectedSetupStateSlice = {
   TurnOrder: {
     Configuration: {
       Mode: 'Blitz',
+      Friend: false,
+      Foe: false,
       SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
       SelectedSetup:
         AERData.turnordersetups['fourPlayers'].variations['default'],
@@ -99,6 +105,46 @@ describe('TurnOrder | Configuration | selectors', () => {
     }
 
     const result = selectors.getConfiguration(mockConfiguration)
+
+    expect(result).toEqual(expected)
+  })
+
+  it('should add friend card with getConfiguration()', () => {
+    const expected = {
+      id: 'default',
+      name: 'Default',
+      turnOrderCards: [
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['player3-1'],
+        AERData.turnordercards['player4-1'],
+        AERData.turnordercards['blitz'],
+        AERData.turnordercards['nemesis-2'],
+        AERData.turnordercards['friend'],
+      ],
+    }
+
+    const result = selectors.getConfiguration({TurnOrder: {Configuration: {...mockConfiguration.TurnOrder.Configuration, Friend: true}}})
+
+    expect(result).toEqual(expected)
+  })
+
+  it('should add foe card with getConfiguration()', () => {
+    const expected = {
+      id: 'default',
+      name: 'Default',
+      turnOrderCards: [
+        AERData.turnordercards['player1-1'],
+        AERData.turnordercards['player2-1'],
+        AERData.turnordercards['player3-1'],
+        AERData.turnordercards['player4-1'],
+        AERData.turnordercards['blitz'],
+        AERData.turnordercards['nemesis-2'],
+        AERData.turnordercards['foe'],
+      ],
+    }
+
+    const result = selectors.getConfiguration({TurnOrder: {Configuration: {...mockConfiguration.TurnOrder.Configuration, Foe: true}}})
 
     expect(result).toEqual(expected)
   })

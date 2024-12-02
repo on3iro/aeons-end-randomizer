@@ -14,6 +14,8 @@ import {
 
 const mockConfiguration: State = {
   Mode: 'Blitz',
+  Friend: false,
+  Foe: false,
   SelectedPlayerCount: AERData.turnordersetups['fourPlayers'],
   SelectedSetup: AERData.turnordersetups['fourPlayers'].variations['default'],
 }
@@ -38,6 +40,46 @@ describe('adjustSetup()', () => {
   const defaultVariation =
     AERData.turnordersetups.twoPlayers.variations['default']
 
+    it('should add friend card', () => {
+      const expected = {
+        id: 'default',
+        name: 'Default',
+        turnOrderCards: [
+          AERData.turnordercards['player1-1'],
+          AERData.turnordercards['player1-2'],
+          AERData.turnordercards['player2-1'],
+          AERData.turnordercards['player2-2'],
+          AERData.turnordercards['nemesis-1'],
+          AERData.turnordercards['nemesis-2'],
+          AERData.turnordercards['friend'],
+        ],
+      }
+  
+      const result = adjustSetup('Default', true, false, defaultVariation)
+  
+      expect(result).toEqual(expected)
+    })
+
+    it('should add foe card', () => {
+      const expected = {
+        id: 'default',
+        name: 'Default',
+        turnOrderCards: [
+          AERData.turnordercards['player1-1'],
+          AERData.turnordercards['player1-2'],
+          AERData.turnordercards['player2-1'],
+          AERData.turnordercards['player2-2'],
+          AERData.turnordercards['nemesis-1'],
+          AERData.turnordercards['nemesis-2'],
+          AERData.turnordercards['foe'],
+        ],
+      }
+  
+      const result = adjustSetup('Default', false, true, defaultVariation)
+  
+      expect(result).toEqual(expected)
+    })
+
   it('should return the default variation of tocs for 2 players', () => {
     const expected = {
       id: 'default',
@@ -52,7 +94,7 @@ describe('adjustSetup()', () => {
       ],
     }
 
-    const result = adjustSetup('Default', defaultVariation)
+    const result = adjustSetup('Default', false, false, defaultVariation)
 
     expect(result).toEqual(expected)
   })
@@ -71,7 +113,7 @@ describe('adjustSetup()', () => {
       ],
     }
 
-    const result = adjustSetup('Maelstrom', defaultVariation)
+    const result = adjustSetup('Maelstrom', false, false, defaultVariation)
 
     expect(result).toEqual(expected)
   })
@@ -90,7 +132,7 @@ describe('adjustSetup()', () => {
       ],
     }
 
-    const result = adjustSetup('Blitz', defaultVariation)
+    const result = adjustSetup('Blitz', false, false, defaultVariation)
 
     expect(result).toEqual(expected)
   })
@@ -109,7 +151,7 @@ describe('adjustSetup()', () => {
       ],
     }
 
-    const result = adjustSetup('Blitz + Maelstrom', defaultVariation)
+    const result = adjustSetup('Blitz + Maelstrom', false, false, defaultVariation)
 
     expect(result).toEqual(expected)
   })
@@ -128,7 +170,7 @@ describe('adjustSetup()', () => {
       ],
     }
 
-    const result = adjustSetup('Thief Of Dreams', defaultVariation)
+    const result = adjustSetup('Thief Of Dreams', false, false, defaultVariation)
 
     expect(result).toEqual(expected)
   })
@@ -147,7 +189,7 @@ describe('adjustSetup()', () => {
       ],
     }
 
-    const result = adjustSetup('Paradox of Myth and Bone', defaultVariation)
+    const result = adjustSetup('Paradox of Myth and Bone', false, false, defaultVariation)
 
     expect(result).toEqual(expected)
   })
