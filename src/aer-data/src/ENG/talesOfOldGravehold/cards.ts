@@ -5,7 +5,7 @@ export const cards: ICard[] = [
     type: 'Relic',
     expansion: 'TOG',
     name: 'Blackened Orb',
-    id: 'BlackenedOrd',
+    id: 'BlackenedOrb',
     cost: 4,
     effect: `
       <p>
