@@ -9,6 +9,8 @@ import * as reducerHelpers from './reducerHelpers'
 
 export const initialState: State = {
   Mode: INITIAL_MODE,
+  Friend: false,
+  Foe: false,
   SelectedPlayerCount: INITIAL_PLAYER_SETUP,
   SelectedSetup: INITIAL_VARIATION,
 }
@@ -17,6 +19,14 @@ export const Reducer = (state: State = initialState, action: Action) => {
   switch (action.type) {
     case ActionTypes.SET_MODE: {
       return reducerHelpers.setMode(state, action)
+    }
+
+    case ActionTypes.SET_FRIEND: {
+      return reducerHelpers.setFriend(state, action)
+    }
+
+    case ActionTypes.SET_FOE: {
+      return reducerHelpers.setFoe(state, action)
     }
 
     case ActionTypes.SELECT_PLAYER_COUNT: {

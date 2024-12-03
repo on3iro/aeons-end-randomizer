@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import CardContent from '@material-ui/core/CardContent'
+import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormLabel from '@material-ui/core/FormLabel'
 import Radio from '@material-ui/core/Radio'
@@ -24,15 +25,19 @@ const renderModeOptions = () =>
 
 const mapStateToProps = (state: RootState) => ({
   mode: selectors.TurnOrder.Configuration.getMode(state),
+  friend: selectors.TurnOrder.Configuration.getFriend(state),
+  foe: selectors.TurnOrder.Configuration.getFoe(state),
 })
 
 const mapDispatchToProps = {
   setMode: actions.TurnOrder.Configuration.setMode,
+  setFriend: actions.TurnOrder.Configuration.setFriend,
+  setFoe: actions.TurnOrder.Configuration.setFoe,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
 
-const ModeSelection = ({ mode, setMode }: Props) => (
+const ModeSelection = ({ mode, setMode, friend, setFriend, foe, setFoe }: Props) => (
   <Card>
     <CardContent>
       <FormLabel>Mode</FormLabel>
@@ -46,6 +51,26 @@ const ModeSelection = ({ mode, setMode }: Props) => (
       >
         {renderModeOptions()}
       </RadioGroup>
+      <FormControlLabel
+        control={
+          <Checkbox
+            id="friend"
+            checked={friend}
+            onChange={() => setFriend(!friend)}
+          />
+        }
+        label="Use Friend"
+      />
+      <FormControlLabel
+        control={
+          <Checkbox
+            id="foe"
+            checked={foe}
+            onChange={() => setFoe(!foe)}
+          />
+        }
+        label="Use Foe"
+      />
     </CardContent>
   </Card>
 )

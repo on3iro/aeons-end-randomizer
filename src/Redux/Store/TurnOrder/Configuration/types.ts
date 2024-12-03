@@ -6,12 +6,16 @@ import { actions } from './actions'
 
 export type State = Readonly<{
   Mode: types.Mode
+  Friend: boolean
+  Foe: boolean
   SelectedPlayerCount: types.ITurnOrderPlayerCount
   SelectedSetup: types.ITurnOrderSetup
 }>
 
 export enum ActionTypes {
   SET_MODE = 'TurnOrder/Configuration/SET_MODE',
+  SET_FRIEND = 'TurnOrder/Configuration/SET_FRIEND',
+  SET_FOE = 'TurnOrder/Configuration/SET_FOE',
   SELECT_PLAYER_COUNT = 'TurnOrder/Configuration/SELECT_PLAYER_COUNT',
   SELECT_SETUP = 'TurnOrder/Configuration/SELECT_SETUP',
   SET_TO_DB = 'TurnOrder/Configuration/SET_TO_DB',
@@ -28,6 +32,22 @@ export type ModeStateSlice = {
   TurnOrder: {
     Configuration: {
       Mode: types.Mode
+    }
+  }
+}
+
+export type FriendStateSlice = {
+  TurnOrder: {
+    Configuration: {
+      Friend: boolean
+    }
+  }
+}
+
+export type FoeStateSlice = {
+  TurnOrder: {
+    Configuration: {
+      Foe: boolean
     }
   }
 }

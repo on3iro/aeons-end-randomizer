@@ -14,6 +14,8 @@ export type Player =
   | 'Thief Of Dreams Delirium'
   | 'Myth'
   | 'Bone'
+  | 'Friend'
+  | 'Foe'
 
 export type TurnOrderCardType =
   | 'player1'
@@ -30,6 +32,8 @@ export type TurnOrderCardType =
   | 'thief-of-dreams'
   | 'myth'
   | 'bone'
+  | 'friend'
+  | 'foe'
 
 export interface ITurnOrderCard {
   id: string

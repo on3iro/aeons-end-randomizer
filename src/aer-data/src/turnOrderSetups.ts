@@ -58,6 +58,18 @@ export const TURNORDERCARDS: { [key: string]: ITurnOrderCard } = {
     name: 'Bone',
     type: 'bone',
   },
+
+  friend: {
+    id: 'friend',
+    name: 'Friend',
+    type: 'friend',
+  },
+  
+  foe: {
+    id: 'foe',
+    name: 'Foe',
+    type: 'foe',
+  },
 }
 
 export const TURNORDERSETUPS: ITurnOrderSetups = {
