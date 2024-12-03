@@ -24,6 +24,7 @@ import { pastAndFuturePromosData } from './PFPromos'
 import { evolutionsData } from './evolutions'
 import { originsData } from './origins'
 import { theCavernsData } from './theCaverns'
+import { talesOfOldGraveholdData } from './talesOfOldGravehold'
 
 const ENG: IExpansionData = {
   AE: aeonsEndData,
@@ -50,6 +51,7 @@ const ENG: IExpansionData = {
   PFPromo: pastAndFuturePromosData,
   community: communityData,
   TC: theCavernsData,
+  TOG: talesOfOldGraveholdData,
 }
 
 export default ENG
