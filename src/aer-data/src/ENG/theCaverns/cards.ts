@@ -15,7 +15,7 @@ export const cards: ICard[] = [
       Gain 2 <span class="aether">&AElig;</span>.<br/>
       </p>
       `,
-    keywords: ['elementaltoken', 'develop'],
+    keywords: ['elemental token', 'develop'],
   },
   {
     type: 'Relic',
@@ -32,7 +32,7 @@ export const cards: ICard[] = [
 	  that spell again this casting phase.
       </p>
       `,
-    keywords: ['develop'],
+    keywords: ['develop', 'attach'],
   },
   {
     type: 'Relic',
@@ -49,7 +49,7 @@ export const cards: ICard[] = [
 	  before resolving that spell's effect.
       </p>
       `,
-    keywords: ['develop', 'elementaltoken'],
+    keywords: ['develop', 'elemental token', 'attach'],
   },
   {
     type: 'Spell',
@@ -64,7 +64,7 @@ export const cards: ICard[] = [
 	  <b>Cast:</b> Place an immolate token on an enemy and deal 2 damage to it.
       </p>
       `,
-    keywords: ['elementaltoken'],
+    keywords: ['elemental token'],
   },
   {
     type: 'Spell',
@@ -79,7 +79,7 @@ export const cards: ICard[] = [
 	  <b>Cast:</b> Deal 3 damage. Gain all of the <span class="aether">&AElig;</span> tokens on this.
       </p>
       `,
-    keywords: [''],
+    keywords: [],
   },
   {
     type: 'Spell',
@@ -96,7 +96,7 @@ export const cards: ICard[] = [
 	  discard all of the tokens placed on this.
       </p>
       `,
-    keywords: [''],
+    keywords: [],
   },
   {
     type: 'Spell',
@@ -112,6 +112,6 @@ export const cards: ICard[] = [
 	  the set-aside cards to your hand.
       </p>
       `,
-    keywords: [''],
+    keywords: [],
   },
 ]
