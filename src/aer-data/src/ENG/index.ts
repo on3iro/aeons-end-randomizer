@@ -23,9 +23,11 @@ import { pastAndFutureData } from './pastAndFuture'
 import { pastAndFuturePromosData } from './PFPromos'
 import { evolutionsData } from './evolutions'
 import { originsData } from './origins'
+import { theDescentData } from './theDescent'
 
 const ENG: IExpansionData = {
   AE: aeonsEndData,
+  ATD: theDescentData,
   BS: buriedSecretsData,
   Depths: theDepthsData,
   EVO: evolutionsData,

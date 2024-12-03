@@ -2,6 +2,21 @@
 
 exports[`Settings | Expansions | UpgradedBasicNemesisCards | selected | reducer should handle TOGGLE 1`] = `
 Array [
+  "CrumblingEarth",
+  "Portalsworn",
+  "Surge",
+  "AcidBreath",
+  "Bleed",
+  "DescendingSkies",
+  "MoondrunkMongrel",
+  "WintersBite",
+  "Assassinate",
+  "BroodqueenDrillbeak",
+  "EntropysKiss",
+  "LightningSurge",
+  "MagicSiphon",
+  "RustAway",
+  "Whirlwind",
   "HissingAcid",
   "BaneCommander",
   "SkyTremor",

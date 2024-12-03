@@ -2,6 +2,22 @@
 
 exports[`Settings | Expansions | Treasures | selected | reducer should handle TOGGLE 1`] = `
 Array [
+  "AurensAluminumInfuser",
+  "AurensCopperStructure",
+  "NaftirsVorpalKnife",
+  "NadeasSmoothTourmaline",
+  "OnasOverwhelmingFlame",
+  "ShoshanasBottledInk",
+  "CorruptedPotion",
+  "EssenceMembrane",
+  "GlitteringRubble",
+  "InfusedAether",
+  "CrownOfTheAbyss",
+  "FeatherweaveSatchel",
+  "GuildedCuirass",
+  "HengePendant",
+  "KnittedIron",
+  "SiphonRing",
   "IndirasAetherialGlow",
   "NooksMechanek",
   "ArachnosCobwebs",
