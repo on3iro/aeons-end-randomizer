@@ -79,6 +79,7 @@ export interface IExpansion {
   upgradedBasicNemesisCards?: Array<UpgradedBasicNemesisCard>
   friends?: Array<Friend>
   foes?: Array<Foe>
+  banners?: Array<ICard>
 }
 
 export interface IExpansionData {
@@ -186,6 +187,7 @@ export type NormalizedData = {
   upgradedBasicNemesisCards: UpgradedBasicNemesisCards
   friends: Friends
   foes: Foes
+  banners: Cards
   expansionIds: string[]
   nemesisIds: string[]
   mageIds: string[]
@@ -195,4 +197,5 @@ export type NormalizedData = {
   upgradedBasicNemesisCardIds: string[]
   friendIds: string[]
   foeIds: string[]
+  bannerIds: string[]
 }

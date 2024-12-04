@@ -8,6 +8,7 @@ import { basicNemesisCards } from './basicNemesisCards'
 import { upgradedBasicNemesisCards } from './upgradedBasicNemesisCards'
 import { friends } from './friends'
 import { foes } from './foes'
+import { banners } from './banners'
 
 export const theDescentData: IExpansion = {
   id: 'ATD',
@@ -20,6 +21,7 @@ export const theDescentData: IExpansion = {
   treasures,
   friends,
   foes,
+  banners,
   basicNemesisCards,
   upgradedBasicNemesisCards,
 }
