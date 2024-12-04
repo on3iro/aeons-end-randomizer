@@ -84,7 +84,8 @@ export const foes: Foe[] = [
 		   card in hand. If that card costs
 		   3 <span class="aether">&AElig;</span> or more, destroy this.
           </p>
-        `
+        `,
+		keywords:[],
       },
     ],
   },
