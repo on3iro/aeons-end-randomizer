@@ -74,7 +74,7 @@ export const foes: Foe[] = [
         id: 'Shock',
         expansion: 'TC',
         type: 'Spell',
-        cost: 0
+        cost: 0,
         effect: `
           <p>
            When destoyed, return this
