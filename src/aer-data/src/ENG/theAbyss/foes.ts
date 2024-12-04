@@ -6,7 +6,7 @@ export const foes: Foe[] = [
     id: 'TheTraitor',
     expansion: 'AB',
     charges: 5,
-	rules: 'If the nemesis would draw a card and cannot, the players lose the game.'
+	rules: 'If the nemesis would draw a card and cannot, the players lose the game.',
 	abilityName: 'Bloody Conduit',
     abilityEffect: 'If the turn order discard pile contains a nemesis turn order card, shuffle it into the turn order deck. Otherwise, Unleash three times.',
     deck: [
