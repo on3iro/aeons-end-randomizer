@@ -4,6 +4,9 @@ import { nemeses } from './nemeses'
 import { mages } from './mages'
 import { cards } from './cards'
 import { treasures } from './treasures'
+import { friends } from './friends'
+import { foes } from './foes'
+import { banners } from './banners'
 
 export const theCavernsData: IExpansion = {
   id: 'TC',
@@ -14,4 +17,7 @@ export const theCavernsData: IExpansion = {
   mages,
   cards,
   treasures,
+  friends,
+  foes,
+  banners,
 }

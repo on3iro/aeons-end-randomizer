@@ -6,8 +6,7 @@ export const cards: ICard[] = [
     expansion: 'TDPromo',
     name: 'Glutton\'s Jewel',
     id: 'GluttonsJewel',
-    cost: 4,
-	developCost: 2,
+    cost: 6,
     effect: `
       <p>
 	  Gain 3 <span class="aether">&AElig;</span>.<br/>

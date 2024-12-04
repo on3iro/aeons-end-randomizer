@@ -7,7 +7,6 @@ export const cards: ICard[] = [
     name: 'Spirit Jewel',
     id: 'SpiritJewel',
     cost: 4,
-	developCost: 2,
     effect: `
       <p>
 	  Gain 2 <span class="aether">&AElig;</span>. You may have Gravehold

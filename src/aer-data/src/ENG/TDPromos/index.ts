@@ -2,6 +2,7 @@ import { IExpansion } from '../../../../aer-types/types'
 
 import { cards } from './cards'
 import { treasures } from './treasures'
+import { banners } from './banners'
 
 export const theDescentPromosData: IExpansion = {
   id: 'TDPromo',
@@ -12,4 +13,5 @@ export const theDescentPromosData: IExpansion = {
   nemeses: [],
   cards,
   treasures,
+  banners,
 }
