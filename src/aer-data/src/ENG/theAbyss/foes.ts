@@ -68,4 +68,5 @@ export const foes: Foe[] = [
         `,
       },
     ],
+  }
 ]
