@@ -35,7 +35,7 @@ export type NemesisCardTier = 1 | 2 | 3
 
 export type MinionCard = {
   type: 'Minion'
-  hp: number
+  hp: number | '*'
   shields?: number
 }
 
@@ -48,14 +48,17 @@ export type AttackCard = {
   type: 'Attack'
 }
 
-export type BasicNemesisCard = {
+export type INemesisCard = {
   id: string
   name: string
   expansion: string
-  tier: NemesisCardTier
   effect: string
   // TODO do we already want to add the other optional values from Wills spreadsheet?
 } & (MinionCard | PowerCard | AttackCard)
+
+export type BasicNemesisCard = INemesisCard & {
+  tier: NemesisCardTier
+}
 
 // FIXME should also just be a BasicNemesisCard -> we need to adjust all occurences
 // inside the app, as soon as we added the necessary information to our existing data set
@@ -74,6 +77,9 @@ export interface IExpansion {
   treasures?: Array<Treasure>
   basicNemesisCards?: Array<BasicNemesisCard>
   upgradedBasicNemesisCards?: Array<UpgradedBasicNemesisCard>
+  friends?: Array<Friend>
+  foes?: Array<Foe>
+  banners?: Array<ICard>
 }
 
 export interface IExpansionData {
@@ -110,6 +116,31 @@ export type Mage = ICreature & {
   numberOfOvercharges?: number
 }
 
+export type FriendOrFoeAttack = (INemesisCard & AttackCard)
+
+export type IFriendOrFoe = ICreature & {
+  abilityName: string
+  abilityEffect: string
+  charges: number
+  deck: FriendOrFoeAttack[]
+  rules?: string
+}
+
+export type Boon = {
+  type: 'Boon'
+  name: string
+  id: string
+  effect: string
+}
+
+export type Friend = IFriendOrFoe & {
+  extraCards?: (ICard | Boon)[]
+}
+
+export type Foe = IFriendOrFoe & {
+  extraCards?: (INemesisCard | ICard)[]
+}
+
 export type Nemeses = {
   [id: string]: Nemesis
 }
@@ -120,6 +151,14 @@ export type Mages = {
 
 export type Cards = {
   [id: string]: ICard
+}
+
+export type Friends = {
+  [id: string]: Friend
+}
+
+export type Foes = {
+  [id: string]: Foe
 }
 
 export type TreasureLevel = 1 | 2 | 3
@@ -153,6 +192,9 @@ export type NormalizedData = {
   treasures: Treasures
   basicNemesisCards: BasicNemesisCards
   upgradedBasicNemesisCards: UpgradedBasicNemesisCards
+  friends: Friends
+  foes: Foes
+  banners: Cards
   expansionIds: string[]
   nemesisIds: string[]
   mageIds: string[]
@@ -160,4 +202,7 @@ export type NormalizedData = {
   treasureIds: string[]
   basicNemesisCardIds: string[]
   upgradedBasicNemesisCardIds: string[]
+  friendIds: string[]
+  foeIds: string[]
+  bannerIds: string[]
 }
