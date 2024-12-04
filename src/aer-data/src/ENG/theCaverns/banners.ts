@@ -12,7 +12,7 @@ export const banners: ICard[] = [
       <p>
       While prepped, once per turn,
 	  you may discard a card in hand. If
-	  you do, the friend gains 1 charge.
+	  you do, the friend gains 1 charge.<br/>
 	  <b>Cast:</b> Deal 1 damage.
       </p>
     `,

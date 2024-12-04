@@ -11,7 +11,7 @@ export const foes: Foe[] = [
     deck: [
       {
         name: 'Echoing Thunder',
-        id: 'Echoing Thunder',
+        id: 'EchoingThunder',
         expansion: 'TC',
         type: 'Attack',
         effect: `
@@ -38,7 +38,7 @@ export const foes: Foe[] = [
         `,
       },
       {
-        name: 'Fratctalize',
+        name: 'Fractalize',
         id: 'Fractalize',
         expansion: 'TC',
         type: 'Attack',

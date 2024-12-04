@@ -3,7 +3,7 @@ import { Friend } from '../../../../aer-types/types'
 export const friends: Friend[] = [
   {
     name: 'Joanna, the Merchant',
-    id: 'JoannatheMerchant',
+    id: 'JoannaTheMerchant',
     expansion: 'TC',
     charges: 4,
 	rules: 'The Market is a zone above this mat.',
@@ -68,9 +68,8 @@ export const friends: Friend[] = [
         type: 'Attack',
         effect: `
           <p>
-          Joanna, the Merchant gains 1 charge.
-		  
-		  Any player may place a spell from their hand or discard pile into the Market.
+          Joanna, the Merchant gains 1 charge.</p>
+		  <p>Any player may place a spell from their hand or discard pile into the Market.
           </p>
         `,
       },
