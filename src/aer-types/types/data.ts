@@ -126,12 +126,19 @@ export type IFriendOrFoe = ICreature & {
   rules?: string
 }
 
+export type Boon = {
+  type: 'Boon'
+  name: string
+  id: string
+  effect: string
+}
+
 export type Friend = IFriendOrFoe & {
-  extraCards?: ICard[]
+  extraCards?: (ICard | Boon)[]
 }
 
 export type Foe = IFriendOrFoe & {
-  extraCards?: INemesisCard[]
+  extraCards?: (INemesisCard | ICard)[]
 }
 
 export type Nemeses = {
