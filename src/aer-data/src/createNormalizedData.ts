@@ -36,6 +36,7 @@ export const createNormalizedData = (
       )
       const friends = normalize(expansion.friends || [])
       const foes = normalize(expansion.foes || [])
+      const banners = normalize(expansion.banners || [])
 
       return {
         expansions: {
@@ -79,6 +80,10 @@ export const createNormalizedData = (
           ...acc.foes,
           ...foes.entities,
         },
+        banners: {
+          ...acc.banners,
+          ...banners.entities,
+        },
         expansionIds: [...acc.expansionIds, id],
         nemesisIds: [...acc.nemesisIds, ...nemeses.ids],
         mageIds: [...acc.mageIds, ...mages.ids],
@@ -94,6 +99,7 @@ export const createNormalizedData = (
         ],
         friendIds: [...acc.friendIds, ...friends.ids],
         foeIds: [...acc.foeIds, ...foes.ids],
+        bannerIds: [...acc.bannerIds, ...banners.ids],
       }
     },
     {
@@ -106,6 +112,7 @@ export const createNormalizedData = (
       upgradedBasicNemesisCards: {},
       friends: {},
       foes: {},
+      banners: {},
       expansionIds: [],
       nemesisIds: [],
       mageIds: [],
@@ -115,6 +122,7 @@ export const createNormalizedData = (
       upgradedBasicNemesisCardIds: [],
       friendIds: [],
       foeIds: [],
+      bannerIds: [],
     }
   )
 }
