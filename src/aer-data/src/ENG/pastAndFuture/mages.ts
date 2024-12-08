@@ -116,6 +116,17 @@ export const mages: Mage[] = [
         keywords: ['swap'],
       },
       {
+        type: 'Gem',
+        name: 'Golden Geode',
+        expansion: 'PAF',
+        id: 'GoldenGeode',
+        cost: 0,
+        effect: `<p>Gain 1 <span class="aether">&AElig;</span>.<br/>
+            You may spend 2 Knowledge to swap this card for Destroy.
+            When you open a breach this turn, gain 1 Knowledge.</p>`,
+        keywords: ['swap'],
+      },
+      {
         type: 'Spell',
         name: 'Leeching Beacon',
         expansion: 'PAF',
