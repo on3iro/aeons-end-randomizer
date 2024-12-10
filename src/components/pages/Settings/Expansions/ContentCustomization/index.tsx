@@ -26,6 +26,9 @@ import Spells from './Spells'
 import BasicNemesisCards from './BasicNemesisCards'
 import UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
 import Treasures from './Treasures'
+import Friends from './Friends'
+import Foes from './Foes'
+import Banners from './Banners'
 import Tooltip from 'components/molecules/Tooltip'
 
 type OwnProps = { expansionId: string }
@@ -163,6 +166,9 @@ const ContentCustomization = ({
             <BasicNemesisCards expansionId={expansionId} />
             <UpgradedBasicNemesisCards expansionId={expansionId} />
             <Treasures expansionId={expansionId} />
+            <Friends expansionId={expansionId} />
+            <Foes expansionId={expansionId} />
+            <Banners expansionId={expansionId} />
           </FormControl>
         </Wrapper>
       </CardContent>

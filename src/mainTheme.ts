@@ -166,6 +166,14 @@ export const mainTheme = {
       mage: {
         color: '#E0E0E0',
       },
+      friend: {
+        color: 'royalblue',
+        background: 'dodgerblue',
+      },
+      foe: {
+        color: 'red',
+        background: 'tomato',
+      },
     },
     keywordBg: 'rgba(0,0,0,0.1)',
   },
@@ -176,6 +184,8 @@ export const mainTheme = {
     relic: 'ra-crystal-wand',
     spell: 'ra-scroll-unfurled',
     treasure: 'ra-diamond',
+    friend: 'ra-aura',
+    foe: 'ra-player-pyromaniac',
   },
   snackbar: {
     success: {

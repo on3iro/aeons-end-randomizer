@@ -9,6 +9,9 @@ import * as Mages from './Mages'
 import * as Treasures from './Treasures'
 import * as BasicNemesisCards from './BasicNemesisCards'
 import * as UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
+import * as Foes from './Foes'
+import * as Friends from './Friends'
+import * as Banners from './Banners'
 import * as Languages from './Languages'
 import * as GlobalLanguage from './GlobalLanguage'
 
@@ -30,6 +33,9 @@ export type State = {
   Treasures: Treasures.State
   BasicNemesisCards: BasicNemesisCards.State
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.State
+  Friends: Friends.State
+  Foes: Foes.State
+  Banners: Banners.State
 }
 
 export const initialState: State = {
@@ -42,6 +48,9 @@ export const initialState: State = {
   Treasures: Treasures.initialState,
   BasicNemesisCards: BasicNemesisCards.initialState,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.initialState,
+  Friends: Friends.initialState,
+  Foes: Foes.initialState,
+  Banners: Banners.initialState,
 }
 
 /////////////
@@ -75,6 +84,9 @@ export type Action =
   | Treasures.Action
   | BasicNemesisCards.Action
   | UpgradedBasicNemesisCards.Action
+  | Friends.Action
+  | Foes.Action
+  | Banners.Action
   | MainAction
 
 export const actions = {
@@ -87,6 +99,9 @@ export const actions = {
   Treasures: Treasures.actions,
   BasicNemesisCards: BasicNemesisCards.actions,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.actions,
+  Friends: Friends.actions,
+  Foes: Foes.actions,
+  Banners: Banners.actions,
   main: mainActions,
 }
 
@@ -104,6 +119,9 @@ export const Reducer = combineReducers({
   Treasures: Treasures.Reducer,
   BasicNemesisCards: BasicNemesisCards.Reducer,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.Reducer,
+  Friends: Friends.Reducer,
+  Foes: Foes.Reducer,
+  Banners: Banners.Reducer,
 })
 
 ///////////////
@@ -119,6 +137,9 @@ const getAllContentOfExpansionSelected = createSelector(
     BasicNemesisCards.selectors.getAllBasicNemesisCardsOfExpansionSelected,
     UpgradedBasicNemesisCards.selectors
       .getAllUpgradedBasicNemesisCardsOfExpansionSelected,
+    Friends.selectors.getAllFriendsOfExpansionSelected,
+    Foes.selectors.getAllFoesOfExpansionSelected,
+    Banners.selectors.getAllBannersOfExpansionSelected,
   ],
   (
     allNemesesSelected,
@@ -126,14 +147,20 @@ const getAllContentOfExpansionSelected = createSelector(
     allSupplyCardsSelected,
     allTreasuresSelected,
     allBasicNemesisCardsSelected,
-    allUpgradedBasicNemesisCardsSelected
+    allUpgradedBasicNemesisCardsSelected,
+    allFriendsOfExpansionSelected,
+    allFoesOfExpansionSelected,
+    allBannersOfExpansionSelected,
   ) =>
     allNemesesSelected &&
     allMagesSelected &&
     allSupplyCardsSelected &&
     allTreasuresSelected &&
     allBasicNemesisCardsSelected &&
-    allUpgradedBasicNemesisCardsSelected
+    allUpgradedBasicNemesisCardsSelected &&
+    allFriendsOfExpansionSelected &&
+    allFoesOfExpansionSelected &&
+    allBannersOfExpansionSelected
 )
 
 export const selectors = {
@@ -146,6 +173,9 @@ export const selectors = {
   Treasures: Treasures.selectors,
   BasicNemesisCards: BasicNemesisCards.selectors,
   UpgradedBasicNemesisCards: UpgradedBasicNemesisCards.selectors,
+  Friends: Friends.selectors,
+  Foes: Foes.selectors,
+  Banners: Banners.selectors,
   ...topLevelSelectors,
   getAllContentOfExpansionSelected,
 }

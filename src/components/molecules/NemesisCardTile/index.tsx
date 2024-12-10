@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { withTheme } from 'styled-components/macro'
 
-import { UpgradedBasicNemesisCard } from 'aer-types/types'
+import { INemesisCard } from 'aer-types/types'
 
 import { useModal } from 'hooks/useModal'
 
@@ -12,11 +12,12 @@ import Wrapper from './Wrapper'
 import Body from './Body'
 
 type Props = {
-  nemesisCard: UpgradedBasicNemesisCard
+  nemesisCard: INemesisCard
   theme: any
+  inline?: boolean
 }
 
-const UpgradedBasicNemesisCardTile = ({ nemesisCard, theme }: Props) => {
+const NemesisCardTile = ({ nemesisCard, theme, inline = false }: Props) => {
   const { show, RenderModal } = useModal()
 
   const handleDetails = useCallback(
@@ -30,16 +31,16 @@ const UpgradedBasicNemesisCardTile = ({ nemesisCard, theme }: Props) => {
   return (
     <Wrapper item xs={12} sm={6} md={3}>
       <Tile
-        body={<Body nemesisCard={nemesisCard} />}
+        body={<Body nemesisCard={nemesisCard} inline={inline} />}
         bgColor={theme.colors.turnOrderCards.nemesis.light}
         fontColor={theme.colors.text.primary}
         icon={theme.icons['nemesis']}
         iconColor={theme.colors.turnOrderCards.nemesis.normal}
-        showDetails={handleDetails}
+        showDetails={inline ? undefined : handleDetails}
       />
-      <BasicNemesisCardModal card={nemesisCard} RenderModal={RenderModal} />
+      {inline || <BasicNemesisCardModal card={nemesisCard} RenderModal={RenderModal} />}
     </Wrapper>
   )
 }
 
-export default withTheme(React.memo(UpgradedBasicNemesisCardTile))
+export default withTheme(React.memo(NemesisCardTile))

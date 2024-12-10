@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import Grid from '@material-ui/core/Grid'
 
-import TileWrapper from '../../Tile/Wrapper'
+import TileWrapper from '../Tile/Wrapper'
 
 const Wrapper = styled(Grid)`
   ${TileWrapper} {
