@@ -38,6 +38,7 @@ describe('TurnOrder | Configuration | selectors', () => {
     const expected = {
       id: 'fourPlayers',
       name: '4',
+      amount: 4,
       variations: {
         default: {
           id: 'default',
