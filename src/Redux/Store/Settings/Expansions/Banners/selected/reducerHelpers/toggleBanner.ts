@@ -8,8 +8,6 @@ export const toggle = (
   state: State,
   action: ReturnType<typeof actions.toggle>
 ) => {
-  console.log(state)
-  console.log(action)
   const newState = state.includes(action.payload)
     ? state.filter((id) => id !== action.payload)
     : [...state, action.payload]

@@ -13,6 +13,7 @@ const BottomNavigation = () => (
     />
     <Link to="/randomizer/mages" label="Mages" icon="ra-crystal-wand" />
     <Link to="/randomizer/supply" label="Supply" icon="ra-campfire" />
+    <Link to="/randomizer/friendfoe" label="Friend/Foe" icon="ra-double-team" />
   </Wrapper>
 )
 

@@ -1,3 +1,5 @@
+import { PlayerCount } from "./data"
+
 export type Player =
   | 'Player 1'
   | 'Player 2'
@@ -50,6 +52,7 @@ export interface ITurnOrderSetups {
 export interface ITurnOrderPlayerCount {
   id: string
   name: string
+  amount: PlayerCount
   variations: ITurnOrderVariations
 }
 

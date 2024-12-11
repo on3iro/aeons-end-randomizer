@@ -7,6 +7,7 @@ import Nemeses from './Nemeses'
 import Mages from './Mages'
 import Supply from './Supply'
 import BasicNemesisCards from './BasicNemesisCards'
+import FriendFoe from './FriendFoe'
 
 const Randomizer = () => {
   return (
@@ -23,6 +24,7 @@ const Randomizer = () => {
         />
         <Route exact={true} path="/randomizer/mages" component={Mages} />
         <Route exact={true} path="/randomizer/supply" component={Supply} />
+        <Route exact={true} path="/randomizer/friendfoe" component={FriendFoe} />
       </Switch>
       <BottomNavigation />
     </>

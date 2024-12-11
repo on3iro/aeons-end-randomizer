@@ -21,10 +21,8 @@ type OwnProps = {
 // unfortunately ownProps has to have any type currently.
 // This is probably due to a typscript shortcoming, which is unable to
 // unwrap withTheme() and connect() at once.
-const mapStateToProps = (state: RootState, ownProps: any) => ({
-  friend: ownProps.id
-    ? selectors.Settings.Expansions.Friends.content.getById(state, ownProps)
-    : undefined,
+const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({
+  friend: selectors.Settings.Expansions.Friends.content.getById(state, ownProps)
 })
 
 type Props = ReturnType<typeof mapStateToProps> & OwnProps
@@ -40,12 +38,12 @@ const FriendModal = ({ theme, RenderModal, friend }: Props) => {
   return (
     <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
       <ModalBodyWrapper>
-        <FriendInformation friend={friend} theme={theme} />
+        <FriendInformation friend={friend} />
       </ModalBodyWrapper>
     </RenderModal>
   )
 }
 
 export default withTheme(
-  connect(mapStateToProps, null)(React.memo(FriendModal))
+  connect(mapStateToProps, {})(React.memo(FriendModal))
 )

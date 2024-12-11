@@ -17,6 +17,7 @@ const AbilityText = styled(({ themeColor, isMage, theme, ...rest }) => (
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.01071em;
+  position: relative;
 
   ${props =>
     props.isMage
@@ -27,14 +28,14 @@ const AbilityText = styled(({ themeColor, isMage, theme, ...rest }) => (
     margin: 24px 0 16px;
 
     h2 {
+      position: absolute;
       font-weight: 300;
       font-size: 1.2rem;
       margin-bottom: 0;
-      margin-top: -16px;
+      margin-top: 0;
       background: #fff;
       display: inline-block;
-      position: relative;
-      top: -25px;
+      top: -14px;
       color: ${props.themeColor};
       padding: 0 8px;
       margin-left: -8px;
@@ -42,7 +43,7 @@ const AbilityText = styled(({ themeColor, isMage, theme, ...rest }) => (
 
     .ability-activation {
       text-decoration: underline;
-      margin-top: -16px;
+      margin-top: 0px;
     }
     `
       : null}

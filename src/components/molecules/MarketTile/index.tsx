@@ -59,7 +59,7 @@ const getCard = (marketTile: MaybeMarketTile): MaybeOutputMarketTile => {
     type &&
     name &&
     expansion &&
-    cost &&
+    cost !== undefined &&
     keywords &&
     effect !== undefined &&
     canBeLocked !== undefined

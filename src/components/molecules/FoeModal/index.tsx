@@ -21,7 +21,7 @@ type OwnProps = {
 // unfortunately ownProps has to have any type currently.
 // This is probably due to a typscript shortcoming, which is unable to
 // unwrap withTheme() and connect() at once.
-const mapStateToProps = (state: RootState, ownProps: any) => ({
+const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({
   foe: ownProps.id
     ? selectors.Settings.Expansions.Foes.content.getById(state, ownProps)
     : undefined,
@@ -40,12 +40,12 @@ const FoeModal = ({ theme, RenderModal, foe }: Props) => {
   return (
     <RenderModal titleColor={titleColor} titleLabel={titleLabel}>
       <ModalBodyWrapper>
-        <FoeInformation foe={foe} theme={theme} />
+        <FoeInformation foe={foe} />
       </ModalBodyWrapper>
     </RenderModal>
   )
 }
 
 export default withTheme(
-  connect(mapStateToProps, null)(React.memo(FoeModal))
+  connect(mapStateToProps, {})(React.memo(FoeModal))
 )

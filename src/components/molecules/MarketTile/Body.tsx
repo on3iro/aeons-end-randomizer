@@ -46,7 +46,7 @@ const Body = ({ supplyCard, expansion }: Props) => {
         <InfoItem
           label="Cost"
           info={
-            supplyCard && supplyCard.cost ? supplyCard.cost.toString() : '-'
+            supplyCard && supplyCard.cost !== undefined ? supplyCard.cost.toString() : '-'
           }
           data-test="market-tile-cost"
         />

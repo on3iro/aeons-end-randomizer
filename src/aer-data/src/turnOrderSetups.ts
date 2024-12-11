@@ -76,6 +76,7 @@ export const TURNORDERSETUPS: ITurnOrderSetups = {
   onePlayer: {
     id: 'onePlayer',
     name: '1',
+    amount: 1,
     variations: {
       default: {
         id: 'default',
@@ -117,6 +118,7 @@ export const TURNORDERSETUPS: ITurnOrderSetups = {
   twoPlayers: {
     id: 'twoPlayers',
     name: '2',
+    amount: 2,
     variations: {
       default: {
         id: 'default',
@@ -135,6 +137,7 @@ export const TURNORDERSETUPS: ITurnOrderSetups = {
   threePlayers: {
     id: 'threePlayers',
     name: '3',
+    amount: 3,
     variations: {
       default: {
         id: 'default',
@@ -165,6 +168,7 @@ export const TURNORDERSETUPS: ITurnOrderSetups = {
   fourPlayers: {
     id: 'fourPlayers',
     name: '4',
+    amount: 4,
     variations: {
       default: {
         id: 'default',

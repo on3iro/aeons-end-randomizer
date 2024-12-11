@@ -34,8 +34,6 @@ export const getContentByIdWithLanguageFallback = <T extends Entity>(
   content: ContentStruct<T>,
   id: string
 ) => {
-  console.log(id)
-  console.log(content)
   // Just get the corresponding expansion id from the english version
   const language = languages[content.ENG[id].expansion]
 

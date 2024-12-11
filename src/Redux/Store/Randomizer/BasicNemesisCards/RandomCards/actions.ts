@@ -4,7 +4,7 @@ import * as types from 'aer-types/types'
 
 import { ActionTypes } from './types'
 
-import { PlayerCount } from '../PlayerCount/types'
+import { PlayerCount } from 'aer-types/types/data'
 
 export const actions = {
   noOp: () => createAction('@@REDUX_LOOP/ENFORCE_DEFAULT_HANDLING'),

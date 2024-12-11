@@ -32,14 +32,15 @@ const mapDispatchToProps = {
   selectPlayerCount: actions.TurnOrder.Configuration.selectPlayerCount,
 }
 
-type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {children?: React.ReactNode}
 
-const PlayerCountSelection = ({
+const Control = ({
+  children,
   selectPlayerCount,
   selectedPlayerCount,
 }: Props) => (
   <Card>
-    <CardContent>
+    <CardContent style={{display: "flex", flexDirection:"row", flexWrap: "wrap", alignItems:"center"}}>
       <FormControl component={'fieldset' as 'div'}>
         <FormLabel>Amount of Players</FormLabel>
         <RadioGroup
@@ -54,6 +55,7 @@ const PlayerCountSelection = ({
           {renderPlayerCountOptions()}
         </RadioGroup>
       </FormControl>
+      {children}
     </CardContent>
   </Card>
 )
@@ -61,4 +63,4 @@ const PlayerCountSelection = ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(React.memo(PlayerCountSelection))
+)(React.memo(Control))
