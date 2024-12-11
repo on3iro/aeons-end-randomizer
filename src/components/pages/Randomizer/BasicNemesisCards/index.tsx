@@ -2,13 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState, actions, selectors } from 'Redux/Store'
-import { PlayerCount } from 'Redux/Store/Randomizer/BasicNemesisCards/PlayerCount'
 
 import NoSelectedExpansions from 'components/molecules/NoSelectedExpansions'
 import ShuffleButton from 'components/atoms/ShuffleButton'
 
 import EmptyHint from './EmptyHint'
-import PlayerAmountPicker from './PlayerAmountPicker'
+import PlayerCountSelection from 'components/molecules/PlayerCountSelection'
 import Tier from './Tier'
 
 const mapStateToProps = (state: RootState) => {
@@ -23,7 +22,7 @@ const mapStateToProps = (state: RootState) => {
     availableBasicNemesisCards: selectors.Settings.Expansions.getSelectedBasicNemesisCardsForSelectedExpansions(
       state
     ),
-    playerCount: selectors.Randomizer.BasicNemesisCards.PlayerCount.getCount(
+    playerCount: selectors.TurnOrder.Configuration.getSelectedPlayerCount(
       state
     ),
     randomBasicNemesisCards: {
@@ -49,7 +48,6 @@ const mapStateToProps = (state: RootState) => {
 const mapDispatchToProps = {
   createDeck:
     actions.Randomizer.BasicNemesisCards.RandomCards.createBasicNemesisCardDeck,
-  setPlayerCount: actions.Randomizer.BasicNemesisCards.PlayerCount.setCount,
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & {}
@@ -60,18 +58,13 @@ const BasicNemesisCards = ({
   createDeck,
   randomBasicNemesisCards,
   playerCount,
-  setPlayerCount,
 }: Props) => {
   if (!hasStandaloneExpansionSelected) {
     return <NoSelectedExpansions />
   }
 
   const handleRandomization = () => {
-    createDeck(availableBasicNemesisCards, playerCount)
-  }
-
-  const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPlayerCount(parseInt(event.currentTarget.value) as PlayerCount)
+    createDeck(availableBasicNemesisCards, playerCount.amount)
   }
 
   const noCardsRolled =
@@ -81,10 +74,7 @@ const BasicNemesisCards = ({
 
   return (
     <React.Fragment>
-      <PlayerAmountPicker
-        selectedValue={playerCount.toString()}
-        handleAmountChange={handleAmountChange}
-      />
+      <PlayerCountSelection />
       {noCardsRolled ? (
         <EmptyHint>Tab button to draw new basic nemesis cards!</EmptyHint>
       ) : (

@@ -7,7 +7,7 @@ import ShuffleButton from '../../atoms/ShuffleButton'
 
 import CardNameDisplay from './CardNameDisplay'
 import ModeSelection from './ModeSelection'
-import PlayerCountSelection from './PlayerCountSelection'
+import PlayerCountSelection from '../../molecules/PlayerCountSelection'
 import SetupSelection from './SetupSelection'
 
 const mapStateToProps = (state: RootState) => ({

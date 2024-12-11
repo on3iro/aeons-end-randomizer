@@ -11,6 +11,9 @@ import * as Mages from './Mages'
 import * as Treasures from './Treasures'
 import * as BasicNemesisCards from './BasicNemesisCards'
 import * as UpgradedBasicNemesisCards from './UpgradedBasicNemesisCards'
+import * as Friends from './Friends'
+import * as Foes from './Foes'
+import * as Banners from './Banners'
 
 // FIXME any typing sucks ;)
 export const getSelectedEntitiesForSelectedExpansions = <T>(
@@ -121,4 +124,16 @@ export const getSelectedBasicNemesisCardsForSelectedExpansions = getSelectedEnti
 export const getSelectedBasicNemesisCardIdsForSelectedExpansions = createSelector(
   [getSelectedBasicNemesisCardsForSelectedExpansions],
   (basicNemesisCards) => basicNemesisCards.map((card) => card.id)
+)
+
+export const getSelectedFriendsForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
+  Friends.selectors.getSelectedFriends
+)
+
+export const getSelectedFoesForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
+  Foes.selectors.getSelectedFoes
+)
+
+export const getSelectedBannersForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
+  Banners.selectors.getSelectedBanners
 )

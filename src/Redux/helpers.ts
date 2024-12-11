@@ -266,6 +266,13 @@ export const createIdList = (
   seed?: types.Seed
 ) => generateListFrom(availableIds, slots, getEntity, stringsEqual, seed)
 
+export const createBannerList = (
+  availableBanners: ReadonlyArray<types.ICard>,
+  slots: Array<types.Slot>,
+  getEntity: types.SeededEntityGetter,
+  seed?: types.Seed
+) => generateListFrom(availableBanners, slots, getEntity, entitiesEqual, seed)
+
 /**
  * Gets a random value from a list. (The wording of entities is just used for semantic context)
  * @param availableEntities: List of entities to pick from

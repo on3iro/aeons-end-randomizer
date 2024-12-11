@@ -21,7 +21,7 @@ type OwnProps = {
 // unfortunately ownProps has to have any type currently.
 // This is probably due to a typscript shortcoming, which is unable to
 // unwrap withTheme() and connect() at once.
-const mapStateToProps = (state: RootState, ownProps: any) => ({
+const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({
   nemesis: ownProps.id
     ? selectors.Settings.Expansions.Nemeses.content.getById(state, ownProps)
     : undefined,
@@ -47,5 +47,5 @@ const NemesisModal = ({ theme, RenderModal, nemesis }: Props) => {
 }
 
 export default withTheme(
-  connect(mapStateToProps, null)(React.memo(NemesisModal))
+  connect(mapStateToProps, {})(React.memo(NemesisModal))
 )
