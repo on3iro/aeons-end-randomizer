@@ -61,7 +61,7 @@ export const foes: Foe[] = [
         effect: `
           <p>
           A minion in play from the nemesis deck gains 4 life.
-		  This may cuase it to have more than its maximum life.
+		  This may cause it to have more than its maximum life.
 		  <span class="or">OR</span>
 		  Unleash.
           </p>
