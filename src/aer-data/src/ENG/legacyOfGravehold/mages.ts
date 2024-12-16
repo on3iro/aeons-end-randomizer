@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Arachnos',
     id: 'ArachnosLOG',
     mageTitle: 'Void Weaver',
-    ability: `
-      <h2>Weaver's Web</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Weaver's Web`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Return up to three cards that cost 4 <span class="aether">&AElig;</span> or
         less from your discard pile to your hand.
@@ -41,9 +41,9 @@ export const mages: Mage[] = [
     name: 'Claudia',
     id: 'ClaudiaLOG',
     mageTitle: 'Visionary',
-    ability: `
-      <h2>Aetherial Echo</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Aetherial Echo`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Any player gains 3 life.
         <span class="or">OR</span>
@@ -89,9 +89,9 @@ export const mages: Mage[] = [
     name: 'Dezmodia',
     id: 'DezmodiaLOG',
     mageTitle: 'Void Phantom',
-    ability: `
-      <h2>Void Tear</h2>
-      <p class="ability-activation">Activate during any player's main phase:</p>
+    abilityName: `Void Tear`,
+    abilityActivation: `Activate during any player's main phase:`,
+    abilityEffect: `
       <p>
         Return up to two spells from your discard pile to your hand.<br/>
         You may prep two additional spells to each of your opened breaches this turn.
@@ -137,9 +137,9 @@ export const mages: Mage[] = [
     name: 'Gygar',
     id: 'GygarLOG',
     mageTitle: 'Treasure Hunter',
-    ability: `
-      <h2>Contained Burst</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Contained Burst`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Cast two of your prepped spells without discarding them.
       </p>
@@ -169,9 +169,9 @@ export const mages: Mage[] = [
     name: 'Ilya',
     id: 'IlyaLOG',
     mageTitle: 'Force of Aether',
-    ability: `
-      <h2>Surge of Power</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Surge of Power`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Reveal the top four cards of your deck.
         Place any number of spells revealed this way into you hand.
@@ -219,9 +219,9 @@ export const mages: Mage[] = [
     name: 'Inco',
     id: 'IncoLOG',
     mageTitle: 'Growing Soul',
-    ability: `
-      <h2>Uproot</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Uproot`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Harvest up to two cards in your hand or discard pile.
         Resolve the Harvest effects of these cards twice.
@@ -382,9 +382,9 @@ export const mages: Mage[] = [
     name: 'Indira',
     id: 'IndiraLOG',
     mageTitle: 'Ascended Apprentice',
-    ability: `
-      <h2>Reanimate Magic</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Reanimate Magic`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Cast up to two spells from your discard pile.
         You may destroy a card in your discard pile.
@@ -415,9 +415,9 @@ export const mages: Mage[] = [
     name: 'Kadir',
     id: 'KadirLOG',
     mageTitle: 'Gemcrafter',
-    ability: `
-      <h2>Refine Prototype</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Refine Prototype`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Either choose a side of a path token that is not on your mat and place it on
         you mat, or flip over one of your path tokens on your mat.
@@ -449,9 +449,9 @@ export const mages: Mage[] = [
     name: 'Kel',
     id: 'KelLOG',
     mageTitle: 'Source of Aether',
-    ability: `
-      <h2>Absorb Aether</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Absorb Aether`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Any ally places up to two cards from their hand or discard pile
         into your discard pile. Then, if you have ten or more card in your discard pile,
@@ -498,9 +498,9 @@ export const mages: Mage[] = [
     name: 'Lost',
     id: 'LostLOG',
     mageTitle: 'Forgotten Forge',
-    ability: `
-      <h2>Encase in Steel</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Encase in Steel`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Deal damage equal to the number of spells in your discard pile.
       </p>
@@ -546,9 +546,9 @@ export const mages: Mage[] = [
     name: 'Malastar',
     id: 'MalastarLOG',
     mageTitle: 'Inventor',
-    ability: `
-      <h2>Burst of Inspiration</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Burst of Inspiration`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Draw a card from the top or bottom of the Inventions deck and place
         it into an ally's hand.
@@ -580,9 +580,9 @@ export const mages: Mage[] = [
     name: 'Mazra',
     id: 'MazraLOG',
     mageTitle: 'The Learned',
-    ability: `
-      <h2>Research</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Research`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Destroy a card with "Mazra" in its name in your hand.
         Gain a card with "Mazra" in its name from the personal upgrade deck
@@ -633,9 +633,9 @@ export const mages: Mage[] = [
     name: 'Nook',
     id: 'NookLOG',
     mageTitle: 'Timeless',
-    ability: `
-      <h2>Time Ripple</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Time Ripple`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Return up to three Crystals from your hand or discard pile
         to the Regularity deck. Place up to three Anomaly cards from the Regularity
@@ -727,9 +727,9 @@ export const mages: Mage[] = [
     name: 'Qu',
     id: 'QuLOG',
     mageTitle: 'Builder',
-    ability: `
-      <h2>Feed the Corruption</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Feed the Corruption`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Any ally draws two cards. Any player destroys up to two cards in hand or discard pile.
       </p>
@@ -770,9 +770,9 @@ export const mages: Mage[] = [
     name: 'Razra',
     id: 'RazraLOG',
     mageTitle: 'The Tamer',
-    ability: `
-      <h2>Train Rip</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Train Rip`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Destroy a card with "Rip" in its name in your hand.
         Gain a card with "Rip" in its name from the personal upgrade deck
@@ -811,9 +811,9 @@ export const mages: Mage[] = [
     name: 'Soskel',
     id: 'SoskelLOG',
     mageTitle: 'Tactician',
-    ability: `
-      <h2>Tactician's Gambit</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Tactician's Gambit`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Players collectively return up to two cards from their discard piles
         to their hands. Reveal the turn order deck and return it in any order.
@@ -859,9 +859,9 @@ export const mages: Mage[] = [
     name: 'Talix',
     id: 'TalixLOG',
     mageTitle: 'Heart of Flame',
-    ability: `
-      <h2>Soaring Ash</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Soaring Ash`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Cast any number of your prepped Sparks.<br/>
         Those spells deal 2 additional damage.<br/>
@@ -906,9 +906,9 @@ export const mages: Mage[] = [
     name: 'Taqren',
     id: 'TaqrenLOG',
     mageTitle: 'Reignited Guardian',
-    ability: `
-      <h2>Guardian's Strength</h2>
-      <p class="ability-activation">Activate during your turn:</p>
+    abilityName: `Guardian's Strength`,
+    abilityActivation: `Activate during your turn:`,
+    abilityEffect: `
       <p>
         Focus any player's breach or any ally preps a spell
         to one of their opened or closed breaches. Repeat this three times.
@@ -939,9 +939,9 @@ export const mages: Mage[] = [
     name: 'Thraxir',
     id: 'ThraxirLOG',
     mageTitle: 'The Returned',
-    ability: `
-      <h2>Sever Reality</h2>
-      <p class="ability-activation">Activate after the turn order deck is shuffled:</p>
+    abilityName: `Sever Reality`,
+    abilityActivation: `Activate after the turn order deck is shuffled:`,
+    abilityEffect: `
       <p>
         Reveal cards from the top of the turn order deck equal to the number of open breaches you have.
         Return those cards to the top of the turn order deck in any order.
@@ -974,9 +974,9 @@ export const mages: Mage[] = [
     name: 'Xaxos',
     id: 'XaxosLOG',
     mageTitle: 'Reckoner',
-    ability: `
-      <h2>Expand Potential</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Expand Potential`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Look at and gain the top card of the Reckoning deck. Then, place it on top of your deck.
         <span class="or">OR</span>
@@ -1007,9 +1007,9 @@ export const mages: Mage[] = [
     name: 'Yan Magda',
     id: 'YanMagdaLOG',
     mageTitle: 'Recovered Exile',
-    ability: `
-      <h2>Devour Magic</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Devour Magic`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Cast a spell prepped to an opened Incanted breach three times,
         then reset that breach to its starting position.

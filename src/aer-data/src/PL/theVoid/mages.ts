@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Sparrow',
     id: 'Sparrow',
     mageTitle: 'Żołnierz Magów Bram',
-    ability: `
-        <h2>Niezwykła Więź</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Niezwykła Więź`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Wzmocnij Bramę dowolnego gracza. Powtórz to jeszcze trzy razy.
         <span class="or">ALBO</span>
         Dowolny sojusznik, który nie ma zamkniętych Bram, dobiera trzy karty, a następnie może przygotować do trzech Zaklęć ze swojej ręki.</p>`,
@@ -35,9 +35,9 @@ export const mages: Mage[] = [
     name: 'Xaxos',
     id: 'XaxosTV',
     mageTitle: 'Siewca Pustki',
-    ability: `
-        <h2>Ochrona Poświata</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Ochrona Poświata`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Dowolny sojusznik otrzymuje 1 Ładunek i odrzuca losową kartę z ręki. Wzmocnij jedną ze swoich Bram. Otrzymujesz 1 punkt życia. 
         Zniszcz kartę ze swojej ręki lub stosu kart odrzuconych.</p>`,
     numberOfCharges: 4,

@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Sparrow',
     id: 'Sparrow',
     mageTitle: 'Riss-Magier-Soldatin',
-    ability: `
-        <h2>Arkane Verbindung</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Arkane Verbindung`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Wähle 4x je 1 Spieler und bündele 1 seiner Risse.
         <span class="or">ODER</span>
         Wähle 1 anderen Spieler ohne dunkle Risse. Dieser Spieler zieht 3 Karten und bindet dann bis zu
@@ -36,9 +36,9 @@ export const mages: Mage[] = [
     name: 'Xaxos',
     id: 'XaxosTV',
     mageTitle: 'Herold der Leere',
-    ability: `
-        <h2>Schein der Praetorianer</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Schein der Praetorianer`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Wähle 1 anderen Spieler, der 1 Energie erhält und 1 zufällige Karte von seiner Hand abwirft.
         Bündele 1 deiner Risse. Heile 1 Leben. Zerstöre 1 Karte deiner Wahl auf deiner Hand oder in deinem
         Ablagestapel.</p>`,

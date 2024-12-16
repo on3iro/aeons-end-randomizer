@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Nym',
     id: 'Nym',
     mageTitle: 'Riss-Magier-Lehrling',
-    ability: `
-        <h2>Barriere</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Barriere`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Sieh dir die oberste Erzfeind-Karte an und wirf sie ab.</p>
         <p>Hast du einen ANGRIFF gesehen, wiederhole das (1x).</p>
       `,
@@ -36,9 +36,9 @@ export const mages: Mage[] = [
     name: 'Reeve',
     id: 'Reeve',
     mageTitle: 'Riss-Magier-Elite',
-    ability: `
-        <h2>Quelling Blade</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Quelling Blade`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Füge 1 Monster 5 Schaden zu.</p>
         <p>Füge 1 anderen Monster 3 Schaden zu.</p>
       `,
@@ -65,9 +65,9 @@ export const mages: Mage[] = [
     name: "Z'hana",
     id: 'Zhana',
     mageTitle: 'Abtrünnige Riss-Magierin',
-    ability: `
-        <h2>Das Licht Der Welt, Die War</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Das Licht Der Welt, Die War`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Die <i>Feste der letzten Ruhe</i> heilt 7 Leben.</p>
       `,
     numberOfCharges: 5,

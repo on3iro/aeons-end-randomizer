@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Lucien',
     id: 'Lucien',
     mageTitle: '',
-    ability: `
-      <h2>Magnetism</h2>
-      <p class="ability-activation">Activate during your casting phase:</p>
+    abilityName: `Magnetism`,
+    abilityActivation: `Activate during your casting phase:`,
+    abilityEffect: `
       <p>
         Open all of your breaches. Prep any number of spells in hand to your opened breaches.
       </p>
@@ -38,9 +38,9 @@ export const mages: Mage[] = [
     name: 'Reth',
     id: 'Reth',
     mageTitle: '',
-    ability: `
-      <h2>Missing Half</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Missing Half`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Reveal your deck. Place up to two spells with the same name from your deck into 
         your hand, and up to two spells with that same name from your discard into 

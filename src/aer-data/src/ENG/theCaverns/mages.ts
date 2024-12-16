@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Quilius',
     id: 'QuiliusTC',
     mageTitle: 'The Initiate',
-    ability: `
-        <h2>Acquire Target</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Acquire Target`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Place the top card of the Challenger deck on top of
 		the nemesis deck. Then, resolve any effects added
 		to your ability by minions in your ability zone.</p>`,
@@ -35,9 +35,9 @@ export const mages: Mage[] = [
     name: 'Alcheia',
     id: 'Alcheia',
     mageTitle: 'The Stonecarver',
-    ability: `
-        <h2>Restabilize</h2>
-        <p class="ability-activation">Activate during any ally's casting phase:</p>
+    abilityName: `Restabilize`,
+    abilityActivation: `Activate during any ally's casting phase:`,
+    abilityEffect: `
         <p>Destroy up to three cards in hand. Draw
 		a card for each card destroyed this way.<br/>
 		<span class="or">OR</span><br/>

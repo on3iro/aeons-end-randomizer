@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Indira',
     id: 'Indira',
     mageTitle: 'Breach Apprentice',
-    ability: `
-        <h2>Pyromancer's Guile</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Pyromancer's Guile`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Cast any number of spells in hand. Those spells each 
         deal 1 additional damage.</p>
         <p>You may destroy a card in your discard pile.</p>
@@ -36,9 +36,9 @@ export const mages: Mage[] = [
     name: 'Remnant',
     id: 'Remnant',
     mageTitle: 'Aethereal Entity',
-    ability: `
-        <h2>Ephemera Masque</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Ephemera Masque`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Any ally returns two cards in their discard pile to their hand.
         <span class="or">OR</span>
         Gravehold gains 5 life.</p>

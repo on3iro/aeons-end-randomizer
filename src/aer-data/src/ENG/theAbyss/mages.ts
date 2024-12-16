@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Xaxos',
     id: 'XaxosAB',
     mageTitle: 'The Fledgeling',
-    ability: `
-        <h2>Leech Power</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Leech Power`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Gain 3 <span class="aether">&AElig;</span>. You may place any cards
 		you gain this turn into your hand.<br/>
 		You may place a nemesis turn order card in the

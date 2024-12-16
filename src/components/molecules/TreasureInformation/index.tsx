@@ -7,7 +7,7 @@ import * as types from 'aer-types/types'
 import InfoItem from 'components/molecules/InfoItem'
 
 import SectionHeadline from 'components/atoms/SectionHeadline'
-import AbilityText from 'components/atoms/AbilityText'
+import Effect from 'components/atoms/Effect'
 
 type Props = {
   card: types.Treasure
@@ -25,11 +25,7 @@ const Body = ({ card, expansionName, theme }: Props) => (
       Effect
     </SectionHeadline>
 
-    <AbilityText
-      dangerouslySetInnerHTML={{
-        __html: card.effect || '',
-      }}
-    />
+    <Effect effect={card.effect || ''} />
   </React.Fragment>
 )
 

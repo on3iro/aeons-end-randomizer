@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Moineau',
     id: 'Sparrow',
     mageTitle: 'Mage de la Brèche, Soldat',
-    ability: `
-        <h2>Entrave fantomatique</h2>
-        <p class="ability-activation">S'active durant votre phase principale:</p>
+    abilityName: `Entrave fantomatique`,
+    abilityActivation: `S'active durant votre phase principale:`,
+    abilityEffect: `
         <p>Stabilisez la brèche de n'importe quel joueur. Répétez ceci trois fois.
         <span class="or">OU</span>
         Un allié n'ayant aucune brèche fermée pioche trois  
@@ -37,9 +37,9 @@ export const mages: Mage[] = [
     name: 'Xaxos',
     id: 'XaxosTV',
     mageTitle: 'Héraut du Vide',
-    ability: `
-        <h2>Halo prétorien</h2>
-        <p class="ability-activation">S'active durant votre phase principale:</p>
+    abilityName: `Halo prétorien`,
+    abilityActivation: `S'active durant votre phase principale:`,
+    abilityEffect: `
         <p>Un allié gagne 1 charge et défausse au hasard une carte de sa main. 
         Stabilisez une de vos brèches. Gagnez 1 Vie. Détruisez une carte de 
         votre main ou de votre défausse.</p>`,

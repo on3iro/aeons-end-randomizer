@@ -6,7 +6,7 @@ import { INemesisCard, BasicNemesisCard } from 'aer-types/types'
 import InfoItem from 'components/molecules/InfoItem'
 
 import Name from './Name'
-import AbilityText from 'components/atoms/AbilityText'
+import Effect from 'components/atoms/Effect'
 
 type Props = {
   nemesisCard: INemesisCard | BasicNemesisCard
@@ -23,11 +23,7 @@ const Body = ({ nemesisCard, inline = false }: Props) => (
       {nemesisCard.type === 'Minion' && (
         <InfoItem label="Hp" info={nemesisCard.hp.toString()} />
       )}
-      {inline && <AbilityText
-        dangerouslySetInnerHTML={{
-          __html: nemesisCard.effect || '',
-        }}
-      />}
+      {inline && <Effect effect={nemesisCard.effect || ''} />}
     </List>
   </React.Fragment>
 )

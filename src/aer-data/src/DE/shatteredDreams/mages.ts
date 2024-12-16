@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Nook',
     id: 'Nook',
     mageTitle: 'Orb-Rufer',
-    ability: `
-        <h2>Ätherische Verdichtung</h2>
-        <p class="ability-activation">In deinem Spielzug während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Ätherische Verdichtung`,
+    abilityActivation: `In deinem Spielzug während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Du darfst 1 Karte auf deiner Hand oder in deinem Ablagestapel zerstören.<br/>
         Erhalte 4 <span class="aether">&AElig;</span>.<br/>
         Den nächsten Zauber, den du in diesem Zug erwirbst, darfst du direkt auf die Hand nehmen.</p>`,

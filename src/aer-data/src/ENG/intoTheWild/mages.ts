@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Inco',
     id: 'Inco',
     mageTitle: 'Child Of Green',
-    ability: `
-        <h2>Massive Growth</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Massive Growth`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Cast any number of Rose Thorns prepped by any number of players. 
         Those spells deal 2 additional damage.</p>`,
     numberOfCharges: 5,
@@ -33,9 +33,9 @@ export const mages: Mage[] = [
     name: 'Razra',
     id: 'Razra',
     mageTitle: 'The Trainer',
-    ability: `
-        <h2>Train Rip</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Train Rip`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Destroy a card with "Rip" in its name in your hand. 
         Gain a card with "Rip" in its name from the personal upgrade deck 
         that costs 3 <span class="aether">&AElig;</span> more than the destroyed card 

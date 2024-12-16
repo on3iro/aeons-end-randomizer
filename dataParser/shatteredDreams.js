@@ -19,9 +19,9 @@ const shatteredDreamsData = {
       name: 'Nook',
       id: 'Nook',
       mageTitle: 'Orb Caller',
-      ability: `
-        <h2>Condense Aether</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+      abilityName: `Condense Aether`,
+      abilityActivation: `Activate during your main phase:`,
+      abilityEffect: `
         <p>You my destroy a card in your hand or discard pile.
         Gain 4 <span class="aether">&AElig;</span>.<br/>
         You may place the next spell you gain this turn into your hand.</p>`,

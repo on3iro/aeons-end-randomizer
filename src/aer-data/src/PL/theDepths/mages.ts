@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Nym',
     id: 'Nym',
     mageTitle: 'Nowicjusz Magii Bram',
-    ability: `
-        <h2>Ostateczna Bariera</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Ostateczna Bariera`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Odrzuć wierzchnią kartę z talii Nemezis.</p>
         <p>W przypadku odrzucenia karty Ataku, odrzuć dodatkową kartę.</p>
       `,
@@ -36,9 +36,9 @@ export const mages: Mage[] = [
     name: 'Reeve',
     id: 'Reeve',
     mageTitle: 'Elitarny Mag Bram',
-    ability: `
-        <h2>Rozrywające Ostrze</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Rozrywające Ostrze`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Zadaj 5 obrażeń Poplecznikowi.</p>
         <p>Zadaj 3 obrażenia innemu Poplecznikowi.</p>
       `,
@@ -65,9 +65,9 @@ export const mages: Mage[] = [
     name: "Z'hana",
     id: 'Zhana',
     mageTitle: 'Zbuntowana Magini Bram',
-    ability: `
-        <h2>Glif Strażniczy</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Glif Strażniczy`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Gravehold otrzymuje 7 żywotności.</p>
       `,
     numberOfCharges: 5,

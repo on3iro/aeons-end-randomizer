@@ -5,7 +5,7 @@ import List from '@material-ui/core/List'
 import { Treasure } from 'aer-types/types'
 import { RootState, selectors } from 'Redux/Store'
 
-import AbilityText from 'components/atoms/AbilityText'
+import Effect from 'components/atoms/Effect'
 
 import InfoItem from '../../InfoItem'
 
@@ -38,7 +38,7 @@ const Body = ({ treasure, expansions }: Props) => (
       <InfoItem label="Treasure Level" info={treasure.level.toString()} />
       {treasure.subtype && <InfoItem label="Subtype" info={treasure.subtype} />}
     </List>
-    <AbilityText dangerouslySetInnerHTML={{ __html: treasure.effect }} />
+    <Effect effect={treasure.effect} />
   </React.Fragment>
 )
 

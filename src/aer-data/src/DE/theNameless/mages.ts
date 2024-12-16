@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Malastar',
     id: 'Malastar',
     mageTitle: 'Riss-Magier-Mentor',
-    ability: `
-        <h2>Aetherium-Geschenk</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Aetherium-Geschenk`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>
           Erwirb 1 Zauber deiner Wahl gratis. Du darfst diesen Zauber sofort an den aktiven 
           Riss 1 Spielers deiner Wahl binden.

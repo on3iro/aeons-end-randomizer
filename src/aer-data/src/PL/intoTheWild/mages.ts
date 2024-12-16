@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Inco',
     id: 'Inco',
     mageTitle: 'Dziecię Zieleni',
-    ability: `
-        <h2>Nagły Rozrost</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Nagły Rozrost`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Aktywuj dowolną liczbę Cierni Róży przygotowanych przez dowolną liczbę graczy.
         Każde z tych Zaklęć zadaje dodatkowo 2 obrażenia</p>`,
     numberOfCharges: 5,
@@ -33,9 +33,9 @@ export const mages: Mage[] = [
     name: 'Razra',
     id: 'Razra',
     mageTitle: 'Trenerka',
-    ability: `
-        <h2>Szkolenie Rip</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Szkolenie Rip`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Zniszcz z ręki kartę z "Rip" w nazwie. Z osobistej talii
         Ulepszeń dobierz na rękę kartę z "Rip" w nazwie, której koszt wynosi o 3 <span class="aether">&AElig;</span>
         więcej niż zniszczona karta.

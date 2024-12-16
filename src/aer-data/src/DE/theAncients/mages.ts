@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Mazra',
     id: 'Mazra',
     mageTitle: 'Belesene Riss-Magierin',
-    ability: `
-        <h2>Nachforschungen</h2>
-        <p class="ability-activation">In deinem Spieler-Zug während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Nachforschungen`,
+    abilityActivation: `In deinem Spieler-Zug während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>
         Zerstöre 1 Mazra-Karte auf deiner Hand. Erwirb gratis 1 Mazra-Karte von deinem Forschungs-Stapel,
         die bis zu 3 <span class="aether">&AElig;</span> mehr kostet. Nimm sie direkt auf die Hand.
@@ -36,9 +36,9 @@ export const mages: Mage[] = [
     name: 'Qu',
     id: 'Qu',
     mageTitle: 'Erbauer und Zerstörerin',
-    ability: `
-        <h2>Duale Realität</h2>
-        <p class="ability-activation">In deinem Spieler-Zug während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Duale Realität`,
+    abilityActivation: `In deinem Spieler-Zug während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>
         Bist du in <b>Zerstörerin</b>-Gestalt? Wirke bis zu 2 gebundene Zauber mit unterschiedlichen
         Namen von 1 oder mehr Spielern. Bist du in <b>Erbauerin</b>-Gestalt? Wähle 1 Spieler, der bis zu

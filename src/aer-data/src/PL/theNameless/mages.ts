@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Malastar',
     id: 'Malastar',
     mageTitle: 'Mentor Magów Bram',
-    ability: `
-        <h2>Dar Eteru</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Dar Eteru`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Pozyskaj jedno Zaklęcie z dowolnego stosu zasobów. Możesz przygotować to Zaklęcie na otwartej Bramie dowolnego gracza.</p>
       `,
     numberOfCharges: 6,

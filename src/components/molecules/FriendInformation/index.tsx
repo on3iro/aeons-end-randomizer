@@ -7,7 +7,7 @@ import { RootState, selectors } from 'Redux/Store'
 
 import InfoItem from '../InfoItem'
 
-import AbilityText from '../../atoms/AbilityText'
+import Ability from '../../atoms/Ability'
 import SectionHeadline from '../../atoms/SectionHeadline'
 
 import Grid from '@material-ui/core/Grid'
@@ -65,15 +65,7 @@ const FriendInformation = ({ friend, expansion, theme }: Props) => {
       info={friend.charges.toString()}
     />
 
-    <AbilityText
-      isMage={true}
-      themeColor={theme.colors.cards.friend.color}
-    >
-      <h2>{friend.abilityName}</h2>
-      <p dangerouslySetInnerHTML={{
-        __html: friend.abilityEffect,
-      }} />
-    </AbilityText>
+    <Ability themeColor={theme.colors.cards.friend.color} name={friend.abilityName} effect={friend.abilityEffect} />
 
     <SectionHeadline
       themeColor={theme.colors.cards.friend.color}

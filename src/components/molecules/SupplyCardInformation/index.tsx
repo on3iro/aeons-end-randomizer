@@ -9,7 +9,7 @@ import InfoItem from '../InfoItem'
 import SectionHeadline from '../../atoms/SectionHeadline'
 import Keywords from '../../atoms/Keywords'
 import Keyword from '../../atoms/Keyword'
-import AbilityText from '../../atoms/AbilityText'
+import Effect from '../../atoms/Effect'
 
 type Props = {
   card: {
@@ -42,11 +42,7 @@ const Body = ({ card, expansion, theme }: Props) => (
       Effect
     </SectionHeadline>
 
-    <AbilityText
-      dangerouslySetInnerHTML={{
-        __html: card.effect || '',
-      }}
-    />
+    <Effect effect={card.effect || ''} />
     {card.keywords ? (
       <Keywords>
         {card.keywords.map((keyword) => (

@@ -159,13 +159,13 @@ Mage example:
   name: 'Adelheim',
   id: 'Adelheim',
   mageTitle: 'Breach Mage Weaponsmith',
-  ability: `
-      <h2>Aethereal Ward</h2>
-      <p class="ability-activation">Activate during the nemesis draw phase:</p>
+  abilityName: 'Aetherial Ward'
+  abilityActivation: 'Activate during the nemesis draw phase:'
+  abilityEffect: `
       <p>When a nemesis attack or power card is drawn but before it is resolved,
       you may discard it. It has no effect.
       <span class="hint">(The nemesis does not draw a replacement card)</span></p>
-    `,
+    `
   numberOfCharges: 5,
   uniqueStarters: [
     {
@@ -186,28 +186,28 @@ Mage example:
 },
 ```
 
-For mages we translate the `name`, `mageTitle`, `ability` and the `uniqueStarters`. For the unique starters you can consult the card section.
+For mages we translate the `name`, `mageTitle`, `abilityName`, `abilityActivation`, `abilityEffect`, and the `uniqueStarters`. For the unique starters you can consult the card section.
 
-The template for the `ability` should look like this:
+The template for the `ability*` attributes should look like this:
 
 ```javascript
-ability: `
-  <h2>Aethereal Ward</h2>
-  <p class="ability-activation">Activate during the nemesis draw phase:</p>
-  <p>When a nemesis attack or power card is drawn but before it is resolved,
-  you may discard it. It has no effect.
-  <span class="hint">(The nemesis does not draw a replacement card)</span></p>
-`,
+  abilityName: 'Aetherial Ward'
+  abilityActivation: 'Activate during the nemesis draw phase:'
+  abilityEffect: `
+      <p>When a nemesis attack or power card is drawn but before it is resolved,
+      you may discard it. It has no effect.
+      <span class="hint">(The nemesis does not draw a replacement card)</span></p>
+    `
 ```
 
-In general we have a headline `<h2>...</h2>`, a paragraph for the ability activation text `<p class="ability-activation">...</p>` and a paragraph for the ability description `<p>...</p>` which can contain some of the template snipptes described above.
+In general we have a name, a the ability activation text, and a paragraph for the ability description `<p>...</p>` which can contain some of the template snipptes described above.
 
 Another example with multiple ability description paragraphs:
 
 ```javascript
-ability: `
-  <h2>Quelling Blade</h2>
-  <p class="ability-activation">Activate during your main phase:</p>
+abilityName: 'Quelling Blade'
+abilityActivation: 'Activate during your main phase:'
+abilityEffect: `
   <p>Deal 5 damage to a minion.</p>
   <p>Deal 3 damage to a different minion.</p>
 `,

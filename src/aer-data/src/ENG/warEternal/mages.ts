@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Dezmodia',
     id: 'Dezmodia',
     mageTitle: 'Voidborn Prodigy',
-    ability: `
-        <h2>Tempest Sigil</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Tempest Sigil`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Any player destroys an opened I or II breach and 
         returns any spells prepped to that breach to their hand. 
         That player gains a Sigil breach and places it where the destroyed 
@@ -37,9 +37,9 @@ export const mages: Mage[] = [
     name: 'Garu',
     id: 'Garu',
     mageTitle: 'Oathsworn Protector',
-    ability: `
-        <h2>Colossal Force</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Colossal Force`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Discard up to four of your prepped spells.</p>
         <p>Deal 2 damage plus 4 additional damage for each spell you 
         discarded divided however you choose to the nemesis or any 
@@ -68,9 +68,9 @@ export const mages: Mage[] = [
     name: 'Gex',
     id: 'Gex',
     mageTitle: 'Breach Mage Adviser',
-    ability: `
-        <h2>Vimcraft Oath</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Vimcraft Oath`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Destroy up to two cards in your discard pile that cost 
         0 <span class="aether">&AElig;</span>.</p>
         <p>Any ally draws one card and gains 2 life.</p>`,
@@ -97,9 +97,9 @@ export const mages: Mage[] = [
     name: 'Mazahaedron',
     id: 'Mazahaedron',
     mageTitle: 'Henge Mystic',
-    ability: `
-        <h2>Underearth Mantra</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Underearth Mantra`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>You may gain a gem that costs 4 <span class="aether">&AElig;</span> or 
         less from any supply pile.</p>
         <p>Gravehold gains 4 life.</p>`,
@@ -129,9 +129,9 @@ export const mages: Mage[] = [
     name: 'Mist',
     id: 'MistWE',
     mageTitle: 'Voidwalker',
-    ability: `
-        <h2>Exalted Brand</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Exalted Brand`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Cast up to three different spells prepped by any number of players. 
         For each spell cast this way, place that spell into any ally's hand.</p>`,
     numberOfCharges: 6,
@@ -158,9 +158,9 @@ export const mages: Mage[] = [
     name: 'Quilius',
     id: 'Quilius',
     mageTitle: 'Breach Mage Assassin',
-    ability: `
-        <h2>Quietus Vow</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Quietus Vow`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Deal 2 damage for each Trophy token you have.</p>`,
     numberOfCharges: 5,
     uniqueStarters: [
@@ -186,9 +186,9 @@ export const mages: Mage[] = [
     name: 'Ulgimor',
     id: 'Ulgimor',
     mageTitle: 'Shadowkin Beast',
-    ability: `
-        <h2>Eidolon Shroud</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Eidolon Shroud`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Gain 6 life.</p>
         <p>If you are exhausted, any ally gains 5 life instead.</p>`,
     numberOfCharges: 6,
@@ -215,9 +215,9 @@ export const mages: Mage[] = [
     name: 'Yan Magda',
     id: 'YanMagda',
     mageTitle: 'Enlightened Exile',
-    ability: `
-        <h2>Imperium Ritual</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Imperium Ritual`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Gain a card from any supply pile. If you have four 
         opened breaches, any ally gains a card from any supply pile and 
         places it on top of their deck.</p>`,

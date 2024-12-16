@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Kiri and Phoenix',
     id: 'KiriAndPhoenix',
     mageTitle: 'The First Breach Mage',
-    ability: `
-        <h2>Rain Fire</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Rain Fire`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Prep the top card of the Phoenix deck to the Phoenix breach.
         Cast that spell. Repeat this once.</p>`,
     numberOfCharges: 5,

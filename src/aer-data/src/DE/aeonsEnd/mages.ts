@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Adelheim',
     id: 'Adelheim',
     mageTitle: 'Riss-Magier-Waffenschmied',
-    ability: `
-        <h2>Aetherium Schutzwall</h2>
-        <p class="ability-activation">Im ERZFEIND-ZUG während der <i>Erzfeind-Aktion</i>:</p>
+    abilityName: `Aetherium Schutzwall`,
+    abilityActivation: `Im ERZFEIND-ZUG während der <i>Erzfeind-Aktion</i>:`,
+    abilityEffect: `
         <p>Zieht ihr einen ANGRIFF oder PLAN? Wirf ihn ab. Er wird nicht ausgeführt und ihr zieht keinen Ersatz.</p>
       `,
     numberOfCharges: 5,
@@ -36,9 +36,9 @@ export const mages: Mage[] = [
     name: 'Brama',
     id: 'Brama',
     mageTitle: 'Riss-Magier-Älteste',
-    ability: `
-        <h2>Den Abgrund Abschöpfen</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Den Abgrund Abschöpfen`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Wähle 1 Spieler, der 4 Leben heilt.</p>
       `,
     numberOfCharges: 5,
@@ -64,9 +64,9 @@ export const mages: Mage[] = [
     name: 'Jian',
     id: 'Jian',
     mageTitle: 'Riss-Magier-Waise',
-    ability: `
-        <h2>Schwarzer Spiegel</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Schwarzer Spiegel`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Wähle 1 Spieler und wirke 1 seiner gebundenen Zauber. Der Zauber bleibt gebunden.</p>
         <p>Dann wirke diesen Zauber erneut
         <span class="hint">(und er wird abgelegt, wie üblich).</span></p>
@@ -94,9 +94,9 @@ export const mages: Mage[] = [
     name: 'Kadir',
     id: 'Kadir',
     mageTitle: 'Riss-Magier-Forscherin',
-    ability: `
-        <h2>Tor ins Anderseits</h2>
-        <p class="ability-activation">Im SPIELER-ZUG DEINER WAHL während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Tor ins Anderseits`,
+    abilityActivation: `Im SPIELER-ZUG DEINER WAHL während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Der Spieler darf bis zu 3 Zauber aus seinem Ablagestapel zurück auf die Hand 
           nehmen. Dann darf er bis zu 2 Zauber an jeden seiner 
           aktiven Risse binden.</p>
@@ -125,9 +125,9 @@ export const mages: Mage[] = [
     name: 'Lash',
     id: 'Lash',
     mageTitle: 'Riss-Magier-Späher',
-    ability: `
-        <h2>Blitzschnell Reagieren</h2>
-        <p class="ability-activation">Im SPIELER-ZUG DEINER WAHL während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Blitzschnell Reagieren`,
+    abilityActivation: `Im SPIELER-ZUG DEINER WAHL während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Mische die Spieler-Reihenfolgekarte 1 Spielers deiner 
           Wahl zurück in das Reihenfolgedeck und füge diesem 
           Spieler 1 Schaden zu.
@@ -158,9 +158,9 @@ export const mages: Mage[] = [
     name: 'Mist',
     id: 'Mist',
     mageTitle: 'Kapitänin der Dolchspitze',
-    ability: `
-        <h2>Rat der Zukunft</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Rat der Zukunft`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Wähle 1 anderen Spieler, der 4 Karten zieht.</p>
       `,
     numberOfCharges: 5,
@@ -187,9 +187,9 @@ export const mages: Mage[] = [
     name: 'Phaedraxa',
     id: 'Phaedraxa',
     mageTitle: 'Riss-Magier-Seherin',
-    ability: `
-        <h2>Rune der Vorsicht</h2>
-        <p class="ability-activation">Direkt nachdem ihr eine REIHENFOLGEKARTE GEZOGEN habt:</p>
+    abilityName: `Rune der Vorsicht`,
+    abilityActivation: `Direkt nachdem ihr eine REIHENFOLGEKARTE GEZOGEN habt:`,
+    abilityEffect: `
         <p>Verhindere in diesem Zug allen Schaden, der den Spielern 
           wie auch der <i>Feste der letzten Ruhe</i> zugefügt wird.
         </p>
@@ -218,9 +218,9 @@ export const mages: Mage[] = [
     name: 'Xaxos',
     id: 'Xaxos',
     mageTitle: 'Riss-Magier-Adept',
-    ability: `
-        <h2>Metaphysische Verbindung</h2>
-        <p class="ability-activation">Im SPIELER-ZUG DEINER WAHL während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Metaphysische Verbindung`,
+    abilityActivation: `Im SPIELER-ZUG DEINER WAHL während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Erhalte insgesamt 4 Energie und verteile sie auf andere Spieler deiner Wahl. 
           Decke alle noch verdeckten Reihenfolgekarten auf und lege sie in einer Reihenfolge 
           deiner Wahl verdeckt zurück.

@@ -5244,8 +5244,9 @@ export const rootState: RootState = {
               name: 'Adelheim',
               id: 'Adelheim',
               mageTitle: 'Armurier',
-              ability:
-                '<h2>Gardien étherien</h2>\n<p class="ability-activation">S\'active durant la phase de pioche de la némésis :</p>\n<p>Après qu\'une carte Attaque ou Pouvoir a été piochée, mais avant qu\'elle soit résolue, vous pouvez la défausser sans appliquer son effet.\n<span class="hint">La némésis ne pioche pas de nouvelle carte à la place</span></p>',
+              abilityName: 'Gardien étherien',
+              abilityActivation: 'S\'active durant la phase de pioche de la némésis :',
+              abilityEffect: '<p>Après qu\'une carte Attaque ou Pouvoir a été piochée, mais avant qu\'elle soit résolue, vous pouvez la défausser sans appliquer son effet.\n<span class="hint">La némésis ne pioche pas de nouvelle carte à la place</span></p>',
               numberOfCharges: 5,
               uniqueStarters: [
                 {
@@ -5265,8 +5266,9 @@ export const rootState: RootState = {
               name: 'Brama',
               id: 'Brama',
               mageTitle: 'Ancienne',
-              ability:
-                '<h2>Siphon de la bordure</h2>\n<p class="ability-activation">S\'active durant votre phase principale :</p>\n<p>Un joueur gagne 4 Vie.</p>',
+              abilityName: 'Siphon de la bordure',
+              abilityActivation: 'S\'active durant votre phase principale :',
+              abilityEffect: '<p>Un joueur gagne 4 Vie.</p>',
               numberOfCharges: 5,
               uniqueStarters: [
                 {
@@ -5286,8 +5288,9 @@ export const rootState: RootState = {
               name: 'Jian',
               id: 'Jian',
               mageTitle: 'Orpheline',
-              ability:
-                '<h2>Miroir noir</h2>\n<p class="ability-activation">S\'active durant votre phase principale :</p>\n<p>Lancez le sort préparer d\'un joueur sans le défausser. Puis lancer ce sort à nouveau.\n<span class="hint">Défaussez-le ensuite.</span></p>',
+              abilityName: 'Miroir noir',
+              abilityActivation: 'S\'active durant votre phase principale :',
+              abilityEffect: '<p>Lancez le sort préparer d\'un joueur sans le défausser. Puis lancer ce sort à nouveau.\n<span class="hint">Défaussez-le ensuite.</span></p>',
               numberOfCharges: 4,
               uniqueStarters: [
                 {
@@ -5307,8 +5310,9 @@ export const rootState: RootState = {
               name: 'Kadir',
               id: 'Kadir',
               mageTitle: 'Chercheuse',
-              ability:
-                "<h2>Porte vers l'autre-monde</h2>\n<p class=\"ability-activation\">S'active durant la phase principale d'un joueur :</p>\n<p>Ce joueur peut reprendre en main jusqu'à trois sorts de sa défausse. Durant ce tour, ce joueur peut préparer jusqu'à deux sorts sur chacune de ses brèches ouvertes.</p>",
+              abilityName: "Porte vers l'autre-monde",
+              abilityActivation: "S'active durant la phase principale d'un joueur :",
+              abilityEffect: "<p>Ce joueur peut reprendre en main jusqu'à trois sorts de sa défausse. Durant ce tour, ce joueur peut préparer jusqu'à deux sorts sur chacune de ses brèches ouvertes.</p>",
               numberOfCharges: 5,
               uniqueStarters: [
                 {
@@ -5328,8 +5332,9 @@ export const rootState: RootState = {
               name: 'Lash',
               id: 'Lash',
               mageTitle: 'Éclaireur',
-              ability:
-                '<h2>Accélération mentale</h2>\n<p class="ability-activation">S\'active durant la phase principale d\'un joueur :</p>\n<p>Mélangez la carte Ordre du tour d\'un joueur dans le paquet d\'ordre du tour. Ce joueur subit 1 dégât.\n<span class="hint">Vous ne pouvez pas choisir la carte Ordre du jour Joker.</span></p>',
+              abilityName: 'Accélération mentale',
+              abilityActivation: 'S\'active durant la phase principale d\'un joueur :',
+              abilityEffect: '<p>Mélangez la carte Ordre du tour d\'un joueur dans le paquet d\'ordre du tour. Ce joueur subit 1 dégât.\n<span class="hint">Vous ne pouvez pas choisir la carte Ordre du jour Joker.</span></p>',
               numberOfCharges: 5,
               uniqueStarters: [
                 {
@@ -5349,8 +5354,9 @@ export const rootState: RootState = {
               name: 'Mist',
               id: 'Mist',
               mageTitle: 'Capitaine de la dague',
-              ability:
-                '<h2>Prédiciton divine</h2>\n<p class="ability-activation">S\'active durant votre phase principale :</p>\n<p>Un allié pioche quatre cartes.</p>',
+              abilityName: 'Prédiciton divine',
+              abilityActivation: 'S\'active durant votre phase principale :',
+              abilityEffect: '<p>Un allié pioche quatre cartes.</p>',
               numberOfCharges: 5,
               uniqueStarters: [
                 {
@@ -5370,8 +5376,9 @@ export const rootState: RootState = {
               name: 'Phaedraxa',
               id: 'Phaedraxa',
               mageTitle: 'Voyante',
-              ability:
-                '<h2>Rune des oracles</h2>\n<p class="ability-activation">S\'active au moment où une carte Ordre du tour est révélée :</p>\n<p>Tous les dégâts que les joueurs ou Gravehold devraient subir ce tour-ci sont annulés.</p>',
+              abilityName: 'Rune des oracles',
+              abilityActivation: 'S\'active au moment où une carte Ordre du tour est révélée :',
+              abilityEffect: '<p>Tous les dégâts que les joueurs ou Gravehold devraient subir ce tour-ci sont annulés.</p>',
               numberOfCharges: 5,
               uniqueStarters: [
                 {
@@ -5391,8 +5398,9 @@ export const rootState: RootState = {
               name: 'Xaxos',
               id: 'Xaxos',
               mageTitle: 'Adepte',
-              ability:
-                "<h2>Lien métaphysique</h2>\n<p class=\"ability-activation\">S'active durant la phase principale d'un joueur :</p>\n<p>Les alliés reçoivent collectivement 4 charges. Révélez puis replacez les cartes de la pioche d'Ordre du tour dans l'ordre de votre choix.</p>",
+              abilityName: "Lien métaphysique",
+              abilityActivation: "S'active durant la phase principale d'un joueur :",
+              abilityEffect: "<p>Les alliés reçoivent collectivement 4 charges. Révélez puis replacez les cartes de la pioche d'Ordre du tour dans l'ordre de votre choix.</p>",
               numberOfCharges: 5,
               uniqueStarters: [
                 {

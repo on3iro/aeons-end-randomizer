@@ -28,9 +28,9 @@ const theVoidData = {
       name: 'Sparrow',
       id: 'Sparrow',
       mageTitle: 'Breach Mage Soldier',
-      ability: `
-        <h2>Eldritch Tether</h2>
-        <p class="ability-activation">Activate during your casting or main phase:</p>
+      abilityName: `Eldritch Tether`,
+      abilityActivation: `Activate during your casting or main phase:`,
+      abilityEffect: `
         <p>Focus any player's breach. Repeat this three additional times.
         <span class="or">OR</span>
         Any ally with no closed breaches draws three cards and then 
@@ -58,9 +58,9 @@ const theVoidData = {
       name: 'Xaxos',
       id: 'XaxosTV',
       mageTitle: 'Voidbringer',
-      ability: `
-        <h2>Praetorian Halo</h2>
-        <p class="ability-activation">Activate during your casting or main phase:</p>
+      abilityName: `Praetorian Halo`,
+      abilityActivation: `Activate during your casting or main phase:`,
+      abilityEffect: `
         <p>Any ally gains 1 charge and discards a random card in hand. Focus 
         one of your breaches. Gain 1 life. Destroy a card in your hand or 
         discard pile.</p>`,

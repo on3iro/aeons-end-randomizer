@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Dezmodia',
     id: 'Dezmodia',
     mageTitle: 'Zrodzona z Otchłani',
-    ability: `
-        <h2>Runiczna Nawałnica</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Runiczna Nawałnica`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Dowolny gracz niszczy swoją otwartą Bramę I lub II i bierze z powrotem na rękę Zaklęcie lub Zaklęcia, 
         jeżeli były na niej przygotowane. Ten gracz otrzymuje Bramę Runiczną i umieszcza ją w miejscu zniszczonej Bramy. 
         Następnie może przygotować na dowolnej Bramie Zaklęcie z ręki.</p>`,
@@ -34,9 +34,9 @@ export const mages: Mage[] = [
     name: 'Garu',
     id: 'Garu',
     mageTitle: 'Zaprzysiężony Obrońca',
-    ability: `
-        <h2>Kolosalna Siła</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Kolosalna Siła`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Odrzuć do czterech ze swoich przygotowanych Zaklęć.</p>
         <p>Zadaj 2 obrażenia plus dodatkowe 4 obrażenia za każde odrzucone Zaklęcie. 
         Rozdziel te obrażenia dowolnie pomiędzy Nemezis i Popleczników.</p>
@@ -65,9 +65,9 @@ export const mages: Mage[] = [
     name: 'Gex',
     id: 'Gex',
     mageTitle: 'Doradca Magów Bram',
-    ability: `
-        <h2>Rzemieślniczy etos</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Rzemieślniczy etos`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Zniszcz do dwóch kart o koszcie 0 <span class="aether">&AElig;</span> ze swojego stosu kart odrzuconych.</p>
         <p>Dowolny sojusznik dobiera jedną kartę i otrzymuje 2 punkty życia.</p>`,
     numberOfCharges: 5,
@@ -93,9 +93,9 @@ export const mages: Mage[] = [
     name: 'Mazahaedron',
     id: 'Mazahaedron',
     mageTitle: 'Mistyk Kamiennego Kręgu',
-    ability: `
-        <h2>Podziemna Mantra</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Podziemna Mantra`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Możesz pozyskać Klejnot o koszcie 4 <span class="aether">&AElig;</span> lub 
         mniejszym z dowolnego stosu zasobów.</p>
         <p>Gravehold otrzymuje 4 żywotności.</p>`,
@@ -124,9 +124,9 @@ export const mages: Mage[] = [
     name: 'Mist',
     id: 'MistWE',
     mageTitle: 'Krocząca Przez Otchłań',
-    ability: `
-        <h2>Piętno odmienności</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Piętno odmienności`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Aktywuj do trzech różnych Zaklęć przygotowanych przez dowolnych graczy. 
         Każde z tych aktywowanych Zaklęć umieść na ręce dowolnego sojusznika lub sojuszników.</p>`,
     numberOfCharges: 6,
@@ -152,9 +152,9 @@ export const mages: Mage[] = [
     name: 'Quilius',
     id: 'Quilius',
     mageTitle: 'Zabójczyni Magów Bram',
-    ability: `
-        <h2>Śmiercionośna Przysięga</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Śmiercionośna Przysięga`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Zadaj 2 obrażenia za każdy żeton Trofeum, który posiadasz.</p>`,
     numberOfCharges: 5,
     uniqueStarters: [
@@ -179,9 +179,9 @@ export const mages: Mage[] = [
     name: 'Ulgimor',
     id: 'Ulgimor',
     mageTitle: 'Cienista Bestia',
-    ability: `
-        <h2>Upiorny Całun</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Upiorny Całun`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Odzyskujesz 6 punktów życia.</p>
         <p>Jeżeli jesteś wyczerpany, zamiast ciebie dowolny sojusznik odzyskuje 5 punktów życia.</p>`,
     numberOfCharges: 6,
@@ -207,9 +207,9 @@ export const mages: Mage[] = [
     name: 'Yan Magda',
     id: 'YanMagda',
     mageTitle: 'Oświecony Wygnaniec',
-    ability: `
-        <h2>Cesarski Rytuał</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Cesarski Rytuał`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Pozyskaj kartę z dowolnego stosu zasobów. Jeżeli masz cztery otwarte Bramy, dowolny sojusznik pozyskuje kartę 
         z dowolnego stosu zasobów i umieszcza ją na wierzchu swojej talii.</p>`,
     numberOfCharges: 5,

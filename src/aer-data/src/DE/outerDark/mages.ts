@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Indira',
     id: 'Indira',
     mageTitle: 'Riss-Magier-Lehrling',
-    ability: `
-        <h2>List der Pyromanen</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Zauber wirken</i>:</p>
+    abilityName: `List der Pyromanen`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Zauber wirken</i>:`,
+    abilityEffect: `
         <p>Wirke eine Anzahl Zauber deiner Wahl direkt von deiner Hand. +1 Schaden für jeden so gewirkten
         Zauber. Dann darfst du 1 Karte deiner Wahl in deinem Ablagestapel zerstören.</p>
       `,
@@ -35,9 +35,9 @@ export const mages: Mage[] = [
     name: 'Reliquior',
     id: 'Remnant',
     mageTitle: 'Ätherisches Wesen',
-    ability: `
-        <h2>Hauch des Nichts</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Hauch des Nichts`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Wähle 1 anderen Spieler, der 2 Karten von seinem Ablagestapel zurück auf die Hand nimmt.
         <span class="or">ODER</span>
         Die <i>Feste der letzten Ruhe</i> heilt 5 Leben.</p>
