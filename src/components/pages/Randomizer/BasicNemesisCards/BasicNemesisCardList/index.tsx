@@ -3,14 +3,14 @@ import Grid from '@material-ui/core/Grid'
 
 import * as types from 'aer-types/types'
 
-import BasicNemesisCardTile from './BasicNemesisCardTile'
+import NemesisCardTile from 'components/molecules/NemesisCardTile'
 import BasicNemesisCardGridWrapper from './BasicNemesisCardGridWrapper'
 
 const renderBasicNemesisCards = (
   basicNemesisCards: ReadonlyArray<types.BasicNemesisCard>
 ) =>
   basicNemesisCards.map((basicNemesisCard) => (
-    <BasicNemesisCardTile
+    <NemesisCardTile
       key={basicNemesisCard.id}
       nemesisCard={basicNemesisCard}
     />
