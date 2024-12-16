@@ -18,6 +18,8 @@ type Props = {
 }
 
 const NemesisCardTile = ({ nemesisCard, theme, inline = false }: Props) => {
+  console.log(theme.colors.cards)
+  console.log(theme.icons)
   const { show, RenderModal } = useModal()
 
   const handleDetails = useCallback(
@@ -32,10 +34,10 @@ const NemesisCardTile = ({ nemesisCard, theme, inline = false }: Props) => {
     <Wrapper item xs={12} sm={6} md={3}>
       <Tile
         body={<Body nemesisCard={nemesisCard} inline={inline} />}
-        bgColor={theme.colors.turnOrderCards.nemesis.light}
+        bgColor={theme.colors.cards[nemesisCard.type.toLowerCase()].background}
         fontColor={theme.colors.text.primary}
-        icon={theme.icons['nemesis']}
-        iconColor={theme.colors.turnOrderCards.nemesis.normal}
+        icon={theme.icons[nemesisCard.type.toLowerCase()]}
+        iconColor={theme.colors.cards[nemesisCard.type.toLowerCase()].color}
         showDetails={inline ? undefined : handleDetails}
       />
       {inline || <BasicNemesisCardModal card={nemesisCard} RenderModal={RenderModal} />}

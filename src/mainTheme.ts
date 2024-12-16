@@ -174,6 +174,18 @@ export const mainTheme = {
         color: 'red',
         background: 'tomato',
       },
+      power: {
+        color: '#FFCC80',
+        background: '#FFF3E0',
+      },
+      attack: {
+        color: '#B39DDB',
+        background: '#EDE7F6',
+      },
+      minion: {
+        color: '#90CAF9',
+        background: '#E3F2FD',
+      },
     },
     keywordBg: 'rgba(0,0,0,0.1)',
   },
@@ -186,6 +198,9 @@ export const mainTheme = {
     treasure: 'ra-diamond',
     friend: 'ra-aura',
     foe: 'ra-player-pyromaniac',
+    attack: 'ra-decapitation',
+    minion: 'ra-dragon',
+    power: 'ra-burning-meteor',
   },
   snackbar: {
     success: {
