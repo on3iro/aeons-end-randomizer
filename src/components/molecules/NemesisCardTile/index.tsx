@@ -18,8 +18,6 @@ type Props = {
 }
 
 const NemesisCardTile = ({ nemesisCard, theme, inline = false }: Props) => {
-  console.log(theme.colors.cards)
-  console.log(theme.icons)
   const { show, RenderModal } = useModal()
 
   const handleDetails = useCallback(
