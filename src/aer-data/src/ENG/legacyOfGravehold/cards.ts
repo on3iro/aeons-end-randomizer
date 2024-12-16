@@ -135,7 +135,7 @@ const gems: ICard[] = [
         Each ally gains an <span class="aether">&AElig;</span> token.
       </p>
     `,
-    keywords: [],
+    keywords: ['aether token'],
   },
   {
     type: 'Gem',
@@ -256,7 +256,7 @@ const relics: ICard[] = [
         <b>Recall:</b> Gravehold gains 1 life.
       </p>
     `,
-    keywords: ['recall', 'silence'],
+    keywords: ['aether token', 'recall', 'silence'],
   },
   {
     type: 'Relic',
@@ -320,7 +320,7 @@ const spells: ICard[] = [
         Each ally gains an <span class="aether">&AElig;</span> token.
       </p>
     `,
-    keywords: [],
+    keywords: ['aether token'],
   },
   {
     type: 'Spell',

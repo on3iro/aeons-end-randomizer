@@ -21,7 +21,7 @@ export const mages: Mage[] = [
         cost: 0,
         effect: `<p>Gain 1 <span class="aether">&AElig;</span>.<br/>
             You may suffer 1 damage. If you do, any ally gains an <span class="aether">&AElig;</span> token.`,
-        keywords: [],
+        keywords: ['aether token'],
       },
       {
         type: 'Spell',
@@ -32,7 +32,7 @@ export const mages: Mage[] = [
         effect: `<p>While prepped, when you suffer damage, gain an <span class="aether">&AElig;</span> token.<br/>
             When a player would suffer damage, you may suffer that damage instead.<br/>
             <b>Cast:</b> deal 1 damage.`,
-        keywords: [],
+        keywords: ['aether token'],
       },
     ],
     complexityRating: 2,
@@ -182,7 +182,7 @@ export const mages: Mage[] = [
             If you do, gain 2 <span class="aether">&AElig;</span> tokens.
             <hr>
             Gain 1 <span class="aether">&AElig;</span>.</p>`,
-        keywords: [],
+        keywords: ['aether token'],
       },
     ],
     complexityRating: 3,

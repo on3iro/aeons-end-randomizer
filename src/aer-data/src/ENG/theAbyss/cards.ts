@@ -45,7 +45,7 @@ export const cards: ICard[] = [
 	  any ally gains 2 <span class="aether">&AElig;</span> tokens.
       </p>
       `,
-    keywords: [],
+    keywords: ['aether token'],
   },
   {
     type: 'Relic',
