@@ -20,6 +20,7 @@ const renderOptions = (optionsCount: number) =>
     const optionLabel = (i + 1).toString() // our array starts a 0 -> therefore '+1'
     return (
       <FormControlLabel
+        key={optionLabel}
         value={optionLabel}
         control={<Radio />}
         label={optionLabel}
