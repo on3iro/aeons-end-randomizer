@@ -79,7 +79,7 @@ export const cards: ICard[] = [
 	  <b>Cast:</b> Deal 3 damage. Gain all of the <span class="aether">&AElig;</span> tokens on this.
       </p>
       `,
-    keywords: [],
+    keywords: ['aether token'],
   },
   {
     type: 'Spell',

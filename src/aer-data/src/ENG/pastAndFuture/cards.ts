@@ -186,7 +186,7 @@ export const cards: ICard[] = [
       Any player may destroy a card in hand or in their discard pile. <br/>
       </p>
       `,
-    keywords: ['develop'],
+    keywords: ['aether token', 'develop'],
   },
   {
     type: 'Spell',

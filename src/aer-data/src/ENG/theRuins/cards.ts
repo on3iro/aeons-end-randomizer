@@ -13,7 +13,7 @@ export const cards: ICard[] = [
         You may discard this during an ally's main phase. If you do that player may <b>Conjure</b>.
       </p>
     `,
-    keywords: ['conjure'],
+    keywords: ['aether token', 'conjure'],
   },
   {
     type: 'Gem',
@@ -59,7 +59,7 @@ export const cards: ICard[] = [
 	<b>Recall:</b> Discard a card in hand. If you do, any player gains an <span class="aether">&AElig;</span> token.
       </p>
     `,
-    keywords: ['recall'],
+    keywords: ['aether token', 'recall'],
   },
   {
     type: 'Gem',
@@ -148,7 +148,7 @@ export const cards: ICard[] = [
 	Reveal the top card of the turn order deck. If it is a player card, that player gains an <span class="aether">&AElig;</span> token.
       </p>
     `,
-    keywords: [],
+    keywords: ['aether token'],
   },
   {
     type: 'Spell',
@@ -282,7 +282,7 @@ export const cards: ICard[] = [
 	Any ally gains an <span class="aether">&AElig;</span> token for each spell prepped in an adjacent breach.
       </p>
     `,
-    keywords: [],
+    keywords: ['aether token'],
   },
   {
     type: 'Spell',

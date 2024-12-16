@@ -91,7 +91,7 @@ export const cards: ICard[] = [
       Any ally draws a card and gains an <span class="aether">&AElig;</span> token.
       </p>
       `,
-    keywords: ['elemental token'],
+    keywords: ['aether token', 'elemental token'],
   },
   {
     type: 'Relic',
@@ -122,7 +122,7 @@ export const cards: ICard[] = [
       If you have 3 or more charges, that ally gains an additional <span class="aether">&AElig;</span> token.
       </p>
       `,
-    keywords: [],
+    keywords: ['aether token'],
   },
   {
     type: 'Relic',

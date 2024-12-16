@@ -26,7 +26,7 @@ export const mages: Mage[] = [
 		card in hand. If they do,
 		that player gains an <span class="aether">&AElig;</span> token.
 		</p>`,
-        keywords: [],
+        keywords: ['aether token'],
       },
     ],
     complexityRating: 2,
