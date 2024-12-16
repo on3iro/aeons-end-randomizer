@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Adelheim',
     id: 'Adelheim',
     mageTitle: 'Kowal Magii Bram',
-    ability: `
-        <h2>Eteryczny Krąg</h2>
-        <p class="ability-activation">Użyj podczas fazy dobierania Nemezis:</p>
+    abilityName: `Eteryczny Krąg`,
+    abilityActivation: `Użyj podczas fazy dobierania Nemezis:`,
+    abilityEffect: `
         <p>Po dobraniu karty Mocy lub Ataku możesz ją odrzucić, bez rozpatrywania jej efektu.
         <span class="hint">(Nemezis nie dobiera karty zastępczej)</span></p>
       `,
@@ -35,9 +35,9 @@ export const mages: Mage[] = [
     name: 'Brima',
     id: 'Brama',
     mageTitle: 'Starsza Magini Bram',
-    ability: `
-        <h2>Skraj Wytrzymałości</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Skraj Wytrzymałości`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Dowolny gracz odzyskuje 4 życia.</p>
       `,
     numberOfCharges: 5,
@@ -63,9 +63,9 @@ export const mages: Mage[] = [
     name: 'Jian',
     id: 'Jian',
     mageTitle: 'Osierocona Magini Bram',
-    ability: `
-        <h2>Czarne Lustro</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Czarne Lustro`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Aktywuj przygotowane Zaklęcie dowolnego gracza, bez odrzucania go.</p>
         <p>Następnie, ponownie aktywuj to Zaklęcie.
         <span class="hint">(Po tym należy je odrzucić.)</span></p>
@@ -93,9 +93,9 @@ export const mages: Mage[] = [
     name: 'Kadir',
     id: 'Kadir',
     mageTitle: 'Poszukiwaczka Magów Bram',
-    ability: `
-        <h2>Pozaziemskie Wrota</h2>
-        <p class="ability-activation">Użyj podczas fazy głównej dowolnego gracza:</p>
+    abilityName: `Pozaziemskie Wrota`,
+    abilityActivation: `Użyj podczas fazy głównej dowolnego gracza:`,
+    abilityEffect: `
         <p>Ten gracz może przywrócić na rękę do trzech Zaklęć ze swojego stosu kart odrzuconych.
         Ponadto może podczas tej tury przygotować po dwa Zaklęcia na każdej otwartej Bramie.</p>
       `,
@@ -123,9 +123,9 @@ export const mages: Mage[] = [
     name: 'Lash',
     id: 'Lash',
     mageTitle: 'Zwiadowca Magów Bram',
-    ability: `
-        <h2>Przyspieszone Myśli</h2>
-        <p class="ability-activation">Użyj podczas fazy głównej dowolnego gracza:</p>
+    abilityName: `Przyspieszone Myśli`,
+    abilityActivation: `Użyj podczas fazy głównej dowolnego gracza:`,
+    abilityEffect: `
         <p>Wtasuj kartę tury dowolnego gracza do talii tur. Ten gracz otrzymuje 1 obrażenie. 
         <span class="hint">(Nie możesz wybrać karty tury oznaczonej symbolem "X").</span></p>
       `,
@@ -153,9 +153,9 @@ export const mages: Mage[] = [
     name: 'Mist',
     id: 'Mist',
     mageTitle: 'Kapitan Magów Bram',
-    ability: `
-        <h2>Boska Przepowiednia</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Boska Przepowiednia`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Dowolny sojusznik dobiera cztery karty.</p>
       `,
     numberOfCharges: 5,
@@ -182,9 +182,9 @@ export const mages: Mage[] = [
     name: 'Phaedraxa',
     id: 'Phaedraxa',
     mageTitle: 'Prorokini Magii Bram',
-    ability: `
-        <h2>Runa Augura</h2>
-        <p class="ability-activation">Użyj natychmiast po tym jak zostanie dobrana karta tury:</p>
+    abilityName: `Runa Augura`,
+    abilityActivation: `Użyj natychmiast po tym jak zostanie dobrana karta tury:`,
+    abilityEffect: `
         <p>Anuluj obrażenia zadane graczom i Gravehold podczas tej tury.</p>
       `,
     numberOfCharges: 5,
@@ -210,9 +210,9 @@ export const mages: Mage[] = [
     name: 'Xaxos',
     id: 'Xaxos',
     mageTitle: 'Uczeń Magii Bram',
-    ability: `
-        <h2>Metafizyczne Ogniwo</h2>
-        <p class="ability-activation">Użyj podczas fazy głównej dowolnego gracza:</p>
+    abilityName: `Metafizyczne Ogniwo`,
+    abilityActivation: `Użyj podczas fazy głównej dowolnego gracza:`,
+    abilityEffect: `
         <p>Sojusznicy otrzymują łącznie 4 Ładunki do podziału. Odkryj karty z talii tur, 
         a następnie ułóż z nich talię tur w dowolnej kolejności.</p>
       `,

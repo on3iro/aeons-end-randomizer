@@ -7,9 +7,9 @@ export const mages: Mage[] = [
     id: 'OhatAndUlgimor',
     aliases: ['Ulgimor'],
     mageTitle: '',
-    ability: `
-      <h2>Enrapture</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Enrapture`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Ohat mode: Suffer 2 damage. Any ally draws five cards and discards two cards in hand.<br />
         Ulgimor mode: Cast a spell prepped to Ulgimor's IV breach without discarding it.
@@ -41,9 +41,9 @@ export const mages: Mage[] = [
     name: 'Cairna',
     id: 'Cairna',
     mageTitle: '',
-    ability: `
-      <h2>Energize</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Energize`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Gain a spell that costs 5 <span class="aether">&AElig;</span> or less from a supply pile. 
         You may lose two charges to gain any spell from a supply pile instead. You may 

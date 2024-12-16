@@ -19,9 +19,9 @@ const theAncientsData = {
       name: 'Mazra',
       id: 'Mazra',
       mageTitle: 'The Reader',
-      ability: `
-        <h2>Research</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+      abilityName: `Research`,
+      abilityActivation: `Activate during your main phase:`,
+      abilityEffect: `
         <p>Destroy a card with "Mazra" in its name in your hand. 
         Gain a card with "Mazra" in its name from the personal upgrade deck 
         that costs 3 <span class="aether">&AElig;</span> more than the destroyed card 
@@ -50,9 +50,9 @@ const theAncientsData = {
       name: 'Qu',
       id: 'Qu',
       mageTitle: 'Builder And Destroyer',
-      ability: `
-        <h2>Duality Embrace</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+      abilityName: `Duality Embrace`,
+      abilityActivation: `Activate during your main phase:`,
+      abilityEffect: `
         <p>If you are in Destroyer form, cast up to two different spells prepped 
         by any number of players, and then flip over the Form token. 
         Otherwise, any player preps up to two spells in their discard pile 

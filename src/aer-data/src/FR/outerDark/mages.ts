@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Indira',
     id: 'Indira',
     mageTitle: 'Apprentie de la Brèche',
-    ability: `
-        <h2>Ruse du pyromancien</h2>
-        <p class="ability-activation">S'active durant votre phase principale:</p>
+    abilityName: `Ruse du pyromancien`,
+    abilityActivation: `S'active durant votre phase principale:`,
+    abilityEffect: `
         <p>Lancez autant de sorts que vous le voulez de votre main. Chacun de 
 		ces sorts inflige 1 de dégât supplémentaire.</p>
         <p>Vous pouvez détuire une carte de votre défausse.</p>
@@ -36,9 +36,9 @@ export const mages: Mage[] = [
     name: 'Vestige',
     id: 'Remnant',
     mageTitle: 'Entité Étherienne',
-    ability: `
-        <h2>Masque éphémère</h2>
-        <p class="ability-activation">S'active durant votre phase principale:</p>
+    abilityName: `Masque éphémère`,
+    abilityActivation: `S'active durant votre phase principale:`,
+    abilityEffect: `
         <p>Un allié choisit deux cartes de sa défausse qu'il reprend en main.
         <span class="or">OU</span>
         Gravehold gagne 5 Vie.</p>

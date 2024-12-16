@@ -6,10 +6,11 @@ type Props = {
   themeColor?: string
   isMage?: boolean
   theme: any
+  effect: string
 }
 
-const AbilityText = styled(({ themeColor, isMage, theme, ...rest }) => (
-  <div {...rest} />
+const Effect = styled(({ theme, effect, ...rest }) => (
+  <span {...rest} dangerouslySetInnerHTML={{__html: effect}} />
 ))<Props>`
   color: ${props => props.theme.colors.text.primary};
   font-size: 0.875rem;
@@ -18,35 +19,7 @@ const AbilityText = styled(({ themeColor, isMage, theme, ...rest }) => (
   line-height: 1.5;
   letter-spacing: 0.01071em;
   position: relative;
-
-  ${props =>
-    props.isMage
-      ? `
-    border: 1px solid ${props.themeColor};
-    padding: 16px 24px;
-    border-radius: 4px;
-    margin: 24px 0 16px;
-
-    h2 {
-      position: absolute;
-      font-weight: 300;
-      font-size: 1.2rem;
-      margin-bottom: 0;
-      margin-top: 0;
-      background: #fff;
-      display: inline-block;
-      top: -14px;
-      color: ${props.themeColor};
-      padding: 0 8px;
-      margin-left: -8px;
-    }
-
-    .ability-activation {
-      text-decoration: underline;
-      margin-top: 0px;
-    }
-    `
-      : null}
+  display: contents;
 
   .or {
     display: block;
@@ -76,4 +49,4 @@ const AbilityText = styled(({ themeColor, isMage, theme, ...rest }) => (
   }
 `
 
-export default withTheme(AbilityText)
+export default withTheme(Effect)

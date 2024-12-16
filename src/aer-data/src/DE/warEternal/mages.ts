@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Dezmodia',
     id: 'Dezmodia',
     mageTitle: 'Wunderkind der Leere',
-    ability: `
-        <h2>Sturmwind-Sigille</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Sturmwind-Sigille`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Wähle 1 Spieler, der 1 seiner aktiven Risse I oder II mit 1 deiner entsprechenden
         Sigillen-Risse ersetzt. Gebundene Zauber kommen zurück auf die Hand. Dann darf dieser Spieler
         sofort 1 Zauber seiner Wahl von der Hand an seine Risse binden.</p>`,
@@ -35,9 +35,9 @@ export const mages: Mage[] = [
     name: 'Garu',
     id: 'Garu',
     mageTitle: 'Vereidigter Beschützer',
-    ability: `
-        <h2>Kolossale Kraft</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Kolossale Kraft`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Wirf bis zu 4 deiner gebundenen Zauber ab.</p>
         <p>Füge 2 Schaden zu. +X Schaden. X = 4 pro gerade abgeworfenem Zauber. Dieser Schaden ist aufteilbar.</p>`,
     numberOfCharges: 5,
@@ -64,9 +64,9 @@ export const mages: Mage[] = [
     name: 'Gex',
     id: 'Gex',
     mageTitle: 'Riss-Magier-Beraterin',
-    ability: `
-        <h2>Vimkunst-Schwur</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Vimkunst-Schwur`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Wähle bis zu 2 Karten in deinem Ablagestapel mit <span class="aether">&AElig;</span>-Kosten von 0. Zerstöre sie.</p>
         <p>Wähle 1 anderen Spieler, der 1 Karte zieht und 2 Leben heilt.</p>`,
     numberOfCharges: 5,
@@ -92,9 +92,9 @@ export const mages: Mage[] = [
     name: 'Mazahaedron',
     id: 'Mazahaedron',
     mageTitle: 'Steinkreis-Mystiker',
-    ability: `
-        <h2>Untererde-Mantra</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Untererde-Mantra`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Du darfst gratis 1 Kristall mit <span class="aether">&AElig;</span>-Kosten von 4 oder weniger
         erwerben.</p>
         <p>Die <i>Feste der letzten Ruhe</i> heilt 4 Leben.</p>`,
@@ -123,9 +123,9 @@ export const mages: Mage[] = [
     name: 'Mist',
     id: 'MistWE',
     mageTitle: 'Leeren-Schreiter',
-    ability: `
-        <h2>Gesegnetes Brandmal</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Zauber wirken</i>:</p>
+    abilityName: `Gesegnetes Brandmal`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Zauber wirken</i>:`,
+    abilityEffect: `
         <p>Wähle bis zu 3 gebundene Zauber auf den Rissen der Spieler. Wirke sie. Nach jedem Wirken
         dieser Zauber: Wähle 1 anderen Spieler, der diesen Zauber auf die Hand nimmt (das muss
         nicht der Spieler sein, bei dem er gebunden war).</p>`,
@@ -153,9 +153,9 @@ export const mages: Mage[] = [
     name: 'Quilius',
     id: 'Quilius',
     mageTitle: 'Riss-Magier-Assassine',
-    ability: `
-        <h2>Quietus-Gelübde</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Quietus-Gelübde`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Füge X Schaden zu. X = 2 pro Trophäe.</p>`,
     numberOfCharges: 5,
     uniqueStarters: [
@@ -180,9 +180,9 @@ export const mages: Mage[] = [
     name: 'Ulgimor',
     id: 'Ulgimor',
     mageTitle: 'Schattenhaut-Biest',
-    ability: `
-        <h2>Eidolon-Schleier</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Eidolon-Schleier`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Heile 6 Leben.</p>
         <p>Bist du ERSCHÖPFT? Wähle stattdessen 1 anderen Spieler, der 5 Leben heilt.</p>`,
     numberOfCharges: 6,
@@ -209,9 +209,9 @@ export const mages: Mage[] = [
     name: 'Yan Magda',
     id: 'YanMagda',
     mageTitle: 'Erleuchtete im Exil',
-    ability: `
-        <h2>Kaiserliches Ritual</h2>
-        <p class="ability-activation">In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Kaiserliches Ritual`,
+    abilityActivation: `In DEINEM SPIELER-ZUG während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Erwirb gratis 1 Karte von 1 Vorrat deiner Wahl. Hast du 4 aktive Risse? Wähle 1 anderen Spieler.
         Dieser Spieler erwirbt gratis 1 Karte von 1 Vorrat seiner Wahl, die er oben auf sein Deck legt.</p>`,
     numberOfCharges: 5,

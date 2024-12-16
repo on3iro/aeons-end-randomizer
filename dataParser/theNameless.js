@@ -28,9 +28,9 @@ const theNamelessData = {
       name: 'Malastar',
       id: 'Malastar',
       mageTitle: 'Breach Mage Mentor',
-      ability: `
-        <h2>Gift Of Aether</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+      abilityName: `Gift Of Aether`,
+      abilityActivation: `Activate during your main phase:`,
+      abilityEffect: `
         <p>Gain a spell from any supply pile. You may prep that spell to 
         any player's opened breach.</p>
       `,

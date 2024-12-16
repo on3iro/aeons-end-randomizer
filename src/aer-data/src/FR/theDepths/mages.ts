@@ -6,8 +6,9 @@ export const mages: Mage[] = [
     name: 'Nym',
     id: 'Nym',
     mageTitle: 'Apprenti',
-    ability:
-      '<h2>Barrière définitive</h2>\n<p class="ability-activation">S\'active durant votre phase principale :</p>\n<p>Défaussez la première carte de la pioche Némésis\n<span class="hint">S\'il s\'agit d\'une carte Attaque, défaussez une carte supplémentaire de la pioche Némésis</span></p>',
+    abilityName: 'Barrière définitive',
+    abilityActivation: 'S\'active durant votre phase principale :',
+    abilityEffect: '<p>Défaussez la première carte de la pioche Némésis\n<span class="hint">S\'il s\'agit d\'une carte Attaque, défaussez une carte supplémentaire de la pioche Némésis</span></p>',
     numberOfCharges: 5,
     uniqueStarters: [
       {
@@ -27,8 +28,9 @@ export const mages: Mage[] = [
     name: 'Reeve',
     id: 'Reeve',
     mageTitle: "Mage de la Brèche d'élite",
-    ability:
-      '<h2>Lame de répression</h2>\n<p class="ability-activation">S\'active durant votre phase principale :</p>\n<p>Infligez 5 dégâts à un serviteur\n<span class="hint">Infligez 3 dégâts à un autre serviteur</span></p>',
+    abilityName: 'Lame de répression',
+    abilityActivation: 'S\'active durant votre phase principale :',
+    abilityEffect: '<p>Infligez 5 dégâts à un serviteur\n<span class="hint">Infligez 3 dégâts à un autre serviteur</span></p>',
     numberOfCharges: 4,
     uniqueStarters: [
       {
@@ -48,8 +50,9 @@ export const mages: Mage[] = [
     name: "Z'hana",
     id: 'Zhana',
     mageTitle: 'Renégate',
-    ability:
-      '<h2>Glyphe du Sanctum</h2>\n<p class="ability-activation">S\'active durant votre phase principale :</p>\n<p>Gravehold gagne 7 points de vie</p>',
+    abilityName: 'Glyphe du Sanctum',
+    abilityActivation: 'S\'active durant votre phase principale :',
+    abilityEffect: '<p>Gravehold gagne 7 points de vie</p>',
     numberOfCharges: 5,
     uniqueStarters: [
       {

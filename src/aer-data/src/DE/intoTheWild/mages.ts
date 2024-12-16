@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Inco',
     id: 'Inco',
     mageTitle: 'Kind der Natur',
-    ability: `
-        <h2>Wucherndes Wachstum</h2>
-        <p class="ability-activation">In deinem Spieler-Zug während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Wucherndes Wachstum`,
+    abilityActivation: `In deinem Spieler-Zug während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         Wirke beliebig viele gebundene Rosendornen (bei 1 oder mehr Spielern) mit jeweils +2 Schaden.</p>`,
     numberOfCharges: 5,
     uniqueStarters: [
@@ -31,9 +31,9 @@ export const mages: Mage[] = [
     name: 'Razra',
     id: 'Razra',
     mageTitle: 'Riss-Magier-Bändigerin',
-    ability: `
-        <h2>Reißer abrichten</h2>
-        <p class="ability-activation">In deinem Spieler-Zug während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Reißer abrichten`,
+    abilityActivation: `In deinem Spieler-Zug während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Zerstöre 1 Reißer-Karte auf deiner Hand. Erwirb gratis 1 Reißer-Karte von deinem Reißer-Stapel, die
         bis zu 3 <span class="aether">&AElig;</span> mehr kostet. Nimm sie direkt auf die Hand.
         <span class="or">OR</span>

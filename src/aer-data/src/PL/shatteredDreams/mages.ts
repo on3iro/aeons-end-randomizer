@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Nook',
     id: 'Nook',
     mageTitle: 'Zaklinacz Sfer',
-    ability: `
-        <h2>Eteryczna Kumulacja</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Eteryczna Kumulacja`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Możesz zniszczyć kartę z ręki albo twojego stosu kart odrzuconych.
         Otrzymujesz 4 <span class="aether">&AElig;</span>.<br/>
         Możesz wziąć na rękę następne Zaklęcie, które pozyskasz w tej turze.</p>`,

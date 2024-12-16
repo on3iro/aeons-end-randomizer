@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Brama',
     id: 'BramaATD',
     mageTitle: 'The Leader',
-    ability: `
-        <h2>Regenerate</h2>
-        <p class="ability-activation">Activate during any player's main phase:</p>
+    abilityName: `Regenerate`,
+    abilityActivation: `Activate during any player's main phase:`,
+    abilityEffect: `
         <p>Gain 4 life.<br/>
         You may suffer 2 damage. If you do, Gravehold gains 4 life.</p>`,
     numberOfCharges: 5,
@@ -42,9 +42,9 @@ export const mages: Mage[] = [
     name: 'Janti',
     id: 'Janti',
     mageTitle: 'The Breachspeaker',
-    ability: `
-        <h2>Interlace</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Interlace`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Gain the top card of the Infusion dek and place it into your hand.
         <span class="or">OR</span>
         Destroy an Infusion in play. If you do, deal 8 damage.</p>`,
@@ -68,9 +68,9 @@ export const mages: Mage[] = [
     name: 'Leisan',
     id: 'Leisan',
     mageTitle: 'The Huntress',
-    ability: `
-        <h2>Manifest Monstrosity</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Manifest Monstrosity`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Place the Manifest token on your player mat so it covers this ability
         and resolve its &ldquo;<b>IMMEDIATELY</b>&rdquo; effects.
         You cannot activate this ability again this game.</p>`,
@@ -95,9 +95,9 @@ export const mages: Mage[] = [
     name: 'Mazahaedron',
     id: 'MazahaedronATD',
     mageTitle: 'The Monk',
-    ability: `
-        <h2>Mantra of Earth</h2>
-        <p class="ability-activation">Activate during any player's main phase:</p>
+    abilityName: `Mantra of Earth`,
+    abilityActivation: `Activate during any player's main phase:`,
+    abilityEffect: `
         <p>Gain a card that costs 4 <span class="aether">&AElig;</span>
         or less from any supply pile. Any ally gains a destiny token.
         <span class="or">OR</span>
@@ -125,9 +125,9 @@ export const mages: Mage[] = [
     name: 'Raven',
     id: 'Raven',
     mageTitle: 'The Lone Survivor',
-    ability: `
-        <h2>Exhume</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Exhume`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Gain 4 knowledge. Reveal the top three cards of the Forgotten Ritual deck.
         You may gain any number of the revealed cards by paying their cost using Knowledge.
         Place the gained cards into your hand. Place the rest on the bottom of the Forgotten Ritual deck.</p>`,
@@ -163,9 +163,9 @@ export const mages: Mage[] = [
     name: 'Thraxir',
     id: 'ThraxirATD',
     mageTitle: 'The Commander',
-    ability: `
-        <h2>Reality Warp</h2>
-        <p class="ability-activation">Activate during any player's main phase:</p>
+    abilityName: `Reality Warp`,
+    abilityActivation: `Activate during any player's main phase:`,
+    abilityEffect: `
         <p>That player focuses a breach. Then, you gain a card from the supply that
         costs up to twice the focus cost of their opened breach with the highest focus cost.
         <span class="or">OR</span>

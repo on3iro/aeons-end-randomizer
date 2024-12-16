@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Dorian',
     id: 'Dorian',
     mageTitle: 'Magic Theorist',
-    ability: `
-        <h2>Redesign</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Redesign`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Gain 3 <span class="aether">&AElig;</span>.<br/>
         The next time you gain a spell this turn,
         prep it to any player's opened breach.

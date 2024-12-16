@@ -110,7 +110,9 @@ export type Mage = ICreature & {
   uniqueStarters: ICard[]
   mageTitle: string | 'Custom'
   aliases?: string[]
-  ability: string | 'Custom'
+  abilityName: string
+  abilityActivation: string
+  abilityEffect: string
   complexityRating?: number // keep this optional
   numberOfCharges: number | 'Custom'
   numberOfOvercharges?: number

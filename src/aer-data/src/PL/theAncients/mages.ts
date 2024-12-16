@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Mazra',
     id: 'Mazra',
     mageTitle: 'Oczytana magini bram',
-    ability: `
-        <h2>Magiczny umysł</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Magiczny umysł`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Zniszcz z ręki kartę z Mazrą w nazwie. Z osobistej talii Ulepszeń dobierz na rękę kartę z Mazrą w nazwie, 
         której koszt wynosi 3 <span class="aether">&AElig;</span> więcej niż zniszczona karta
         <span class="or">ALBO</span>
@@ -34,9 +34,9 @@ export const mages: Mage[] = [
     name: 'Qu',
     id: 'Qu',
     mageTitle: 'Twórczyni i niszczycielka',
-    ability: `
-        <h2>Harmonia Przeciwieństw</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Harmonia Przeciwieństw`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Gdy znacznik Oblicza znajduje się stroną Niszczycielki ku górze, aktywuj do dwóch różnych Zaklęć
         przygotowanych przez dowolnych graczy, a następnie odwróć znacznik Oblicza.
         W innym przypadku dowolny gracz przygotowuje na swoich otwartych Bramach do 

@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Sahala',
     id: 'Sahala',
     mageTitle: 'Wyrocznia Magów Bram',
-    ability: `
-        <h2>Gwiezdna Więź</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy aktywacji albo fazy głównej:</p>
+    abilityName: `Gwiezdna Więź`,
+    abilityActivation: `Użyj podczas swojej fazy aktywacji albo fazy głównej:`,
+    abilityEffect: `
         <p>Odkryj trzy wierzchnie karty ze swojej talii.
         Weź na rękę odkryte w ten sposób Zaklęcie.
         Jeśli na Niebiańskiej Bramie nie masz przygotowanych Zaklęć,
@@ -34,9 +34,9 @@ export const mages: Mage[] = [
     name: 'Gygar',
     id: 'Gygar',
     mageTitle: 'Mistrz Pływów',
-    ability: `
-        <h2>Wezbranie Mocy</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Wezbranie Mocy`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Umieść żeton Wezbrania na twojej Starożytnej Bramie.
         <span class="or">ALBO</span>
         Aktywuj Zaklęcie przygotowane na twojej Starożytnej Bramie. Otrzymujesz 2 Ładunki.</p>`,
@@ -59,9 +59,9 @@ export const mages: Mage[] = [
     name: 'Soskel',
     id: 'Soskel',
     mageTitle: 'Arystokrata',
-    ability: `
-        <h2>Pieczęć Energii</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Pieczęć Energii`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Umieść żeton Energii na Bramie dowolnego gracza, na której nie ma takiego żetonu.
         <span class="or">ALBO</span>
         Odrzuć żeton Energii z Bramy dowolnego gracza. Ten gracz odzyskuje 4 punkty życia.</p>`,
@@ -85,9 +85,9 @@ export const mages: Mage[] = [
     name: 'Taqren',
     id: 'Taqren',
     mageTitle: 'Tarcza Magów Bram',
-    ability: `
-        <h2>Ogniskowanie Bramy</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Ogniskowanie Bramy`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Wzmocnij Bramę dowolnego gracza.
         Dowolny gracz odzyskuje 1 punkt życia za każdą twoją Otwartą Bramę.</p>`,
     numberOfCharges: 4,
@@ -111,9 +111,9 @@ export const mages: Mage[] = [
     name: 'Talix',
     id: 'Talix',
     mageTitle: 'Sługa Gorejącego Łańcucha',
-    ability: `
-        <h2>Podniebny Popiół</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Podniebny Popiół`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Zniszcz dwie Iskry z ręki. Jeśli to zrobisz, wtasuj swoją kartę tury do talii tur.
         <span class="or">ALBO</span>
         Gravehold odzyskuje 5 żywotności.</p>`,
@@ -139,9 +139,9 @@ export const mages: Mage[] = [
     name: 'Rhia',
     id: 'Rhia',
     mageTitle: 'Łowczyni Artefaktów',
-    ability: `
-        <h2>Uszlachetnienie</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Uszlachetnienie`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Odłóż kartę z ręki albo stosu kart odrzuconych na odpowiedni stos zasobów. Jeśli odłożysz Artefakt,
         pozyskaj kartę z dowolnego stosu zasobów, której wartość jest o maksymalnie 
         3 <span class="aether">&AElig;</span> większa od wartości odłożonej karty. 
@@ -168,9 +168,9 @@ export const mages: Mage[] = [
     name: 'Claudia',
     id: 'Claudia',
     mageTitle: 'Rzeźbiąca w Eterze',
-    ability: `
-        <h2>Eteryczna Eksplozja</h2>
-        <p class="ability-activation">Użyj podczas fazy głównej dowolnego sojusznika:</p>
+    abilityName: `Eteryczna Eksplozja`,
+    abilityActivation: `Użyj podczas fazy głównej dowolnego sojusznika:`,
+    abilityEffect: `
         <p>Ten sojusznik otrzymuje 2 <span class="aether">&AElig;</span>. Następnym razem, gdy w tej turze
         ten sojusznik zdobędzie kartę ze stosu zasobów, otrzymasz kopię tej karty ze stosu zasobów.
         <span class="or">ALBO</span>
@@ -196,9 +196,9 @@ export const mages: Mage[] = [
     name: 'Zgubiony',
     id: 'Lost',
     mageTitle: 'Żywa Kuźnia',
-    ability: `
-        <h2>Moc Skrom'N'Ości</h2>
-        <p class="ability-activation">Użyj podczas swojej fazy głównej:</p>
+    abilityName: `Moc Skrom'N'Ości`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
+    abilityEffect: `
         <p>Dobierz na rękę do czterech kart o koszcie 0 <span class="aether">&AElig;</span> 
         ze stosu kart odrzuconych.</p>`,
     numberOfCharges: 5,

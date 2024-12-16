@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Auren',
     id: 'Auren',
     mageTitle: 'Mechanic',
-    ability: `
-        <h2>Execute Program</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Execute Program`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Cast any number of spells prepped to breaches with relics attached to them without discarding those spells.</p>`,
     numberOfCharges: 5,
     uniqueStarters: [
@@ -60,9 +60,9 @@ export const mages: Mage[] = [
     name: 'Willow',
     id: 'Willow',
     mageTitle: 'Neophyte',
-    ability: `
-        <h2>Flash of Genius</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Flash of Genius`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Gain 5 Knowledge Cards you gain this turn may be placed on top of your deck.
         <span class="or">OR</span>
         Gravehold gains 5 life</p>`,
@@ -97,9 +97,9 @@ export const mages: Mage[] = [
     name: 'Ona',
     id: 'Ona',
     mageTitle: 'Wraithtouched Elder',
-    ability: `
-        <h2>Building Power</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Building Power`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Cast one of your prepped spells without discarding it.
         Then, resolve all effects on cards in the ability zone in any order.</p>`,
     numberOfCharges: 4,
@@ -145,9 +145,9 @@ export const mages: Mage[] = [
     name: 'Nadea',
     id: 'Nadea',
     mageTitle: 'Town Guard',
-    ability: `
-        <h2>Wall Off</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Wall Off`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Any player gains 3 life.<br/>
         If you have five or more cards that cost more than 0 <span class="aether">&AElig;</span> in your discard pile, any ally gains a spell and places it into their hand.</p>`,
     numberOfCharges: 5,
@@ -180,9 +180,9 @@ export const mages: Mage[] = [
     name: 'Kavoc',
     id: 'Kavoc',
     mageTitle: 'Breach Scholar',
-    ability: `
-        <h2>Experiment</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Experiment`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Any ally draws two cards. Gain 3 Knowledge.</p>`,
     numberOfCharges: 4,
     uniqueStarters: [
@@ -224,9 +224,9 @@ export const mages: Mage[] = [
     name: 'Bayli',
     id: 'Bayli',
     mageTitle: 'Beacon',
-    ability: `
-        <h2>Fusion Reaction</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Fusion Reaction`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Return up to two spells from your discard pile to your hand.
         Choose up to two of your prepped spells. Cast those spells.
         Then, cast one of your prepped spells.</p>`,
@@ -250,9 +250,9 @@ export const mages: Mage[] = [
     name: 'Shoshana',
     id: 'Shoshana',
     mageTitle: 'Ultimate Tether',
-    ability: `
-        <h2>Redirect Flow</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Redirect Flow`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>After the end of your turn, before another card is drawn from the turn order deck, your Tether takes a turn.</p>`,
     numberOfCharges: 6,
     uniqueStarters: [
@@ -286,9 +286,9 @@ export const mages: Mage[] = [
     name: 'Rhys',
     id: 'Rhys',
     mageTitle: 'Artificial Breach Mage',
-    ability: `
-        <h2>Loop Data</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Loop Data`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Gain up to two spells from the supply that cost 5 <span class="aether">&AElig;</span> or less.
         You may place up to two spells from your discard pile into your hand.</p>`,
     numberOfCharges: 6,
@@ -312,9 +312,9 @@ export const mages: Mage[] = [
     name: 'Naftir',
     id: 'Naftir',
     mageTitle: 'Void Inheritor',
-    ability: `
-        <h2>Amplify</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Amplify`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Place a Link token on any opened breach.
         <span class="or">OR</span>
         Cast all the spells prepped to one breach with a Link token on it.</p>`,
@@ -337,9 +337,9 @@ export const mages: Mage[] = [
     name: 'Lilly',
     id: 'Lilly',
     mageTitle: 'Beast Master',
-    ability: `
-        <h2>Pack Tactics</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Pack Tactics`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Return up to two minions from your discard pile to your hand. you may prep up to two spells to each of your opened breaches this turn.
         <span class="or">OR</span>
         Deal 3 damage to a minion. If you defeat a minion from the nemesis deck this way, place it into your discard pile.</p>`,

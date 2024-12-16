@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Ilya',
     id: 'Ilya',
     mageTitle: '',
-    ability: `
-      <h2>Life Embrace</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Life Embrace`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Cast all of your prepped spells without discarding them. 
         Any ally returns a card in their discard pile to their hand.
@@ -82,9 +82,9 @@ export const mages: Mage[] = [
     name: 'Kel',
     id: 'Kel',
     mageTitle: '',
-    ability: `
-      <h2>Soul Invigoration</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Soul Invigoration`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Return up to two gems or relics you played this turn to your hand. 
         Any ally draws a card and may prep a spell in hand to an opened or closed breach.
@@ -158,9 +158,9 @@ export const mages: Mage[] = [
     name: "Z'hana",
     id: 'ZhanaO',
     mageTitle: '',
-    ability: `
-      <h2>Inscribe</h2>
-      <p class="ability-activation">Activate during any player's main phase:</p>
+    abilityName: `Inscribe`,
+    abilityActivation: `Activate during any player's main phase:`,
+    abilityEffect: `
       <p>
         Gravehold gains 5 life. Place two glyph tokens on top of any card in the supply.
       </p>
@@ -205,9 +205,9 @@ export const mages: Mage[] = [
     name: 'Taqren',
     id: 'TaqrenO',
     mageTitle: '',
-    ability: `
-      <h2>Sustain</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Sustain`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         If you are not exhausted, gain 3 life.<br />
         Otherwise, Gravehold gains 3 life.
@@ -237,9 +237,9 @@ export const mages: Mage[] = [
     name: 'Qu',
     id: 'QuO',
     mageTitle: '',
-    ability: `
-      <h2>Combust Aether</h2>
-      <p class="ability-activation">Activate at the end of your draw phase:</p>
+    abilityName: `Combust Aether`,
+    abilityActivation: `Activate at the end of your draw phase:`,
+    abilityEffect: `
       <p>
         Draw three cards.
       </p>
@@ -269,9 +269,9 @@ export const mages: Mage[] = [
     name: 'Thraxir',
     id: 'Thraxir',
     mageTitle: '',
-    ability: `
-      <h2>Shackles Unleashed</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Shackles Unleashed`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Cast up to three spells prepped by any players. If you have three opened breaches, 
         those spells deal 1 additional damage. If you have four opened breaches, 
@@ -303,9 +303,9 @@ export const mages: Mage[] = [
     name: 'Dezmodia',
     id: 'DezmodiaO',
     mageTitle: '',
-    ability: `
-      <h2>Void Vortex</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Void Vortex`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Any ally draws three cards. Then, place any number of cards in your hand into their hand. 
         Then, that ally places the same number of cards in their hand into your hand.
@@ -335,9 +335,9 @@ export const mages: Mage[] = [
     name: 'Arachnos',
     id: 'Arachnos',
     mageTitle: '',
-    ability: `
-      <h2>Expunge</h2>
-      <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Expunge`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
       <p>
         Cast any player's prepped spell. That spell deals 3 additional damage.
       </p>

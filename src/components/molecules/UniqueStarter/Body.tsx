@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICard } from 'aer-types/types'
 
-import AbilityText from '../../atoms/AbilityText'
+import Effect from '../../atoms/Effect'
 import InfoItem from '../../molecules/InfoItem'
 
 import Name from './Name'
@@ -21,11 +21,7 @@ const Body = ({ card }: Props) => (
       <InfoItem label="Cost" info={card.cost.toString()} />
     </List>
 
-    <AbilityText
-      dangerouslySetInnerHTML={{
-        __html: card.effect || '',
-      }}
-    />
+    <Effect effect={card.effect || ''} />
     {card.keywords ? card.keywords.map((keyword: string) => keyword) : null}
   </React.Fragment>
 )

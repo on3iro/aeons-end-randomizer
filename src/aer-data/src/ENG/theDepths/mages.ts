@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Nym',
     id: 'Nym',
     mageTitle: 'Breach Mage Apprentice',
-    ability: `
-        <h2>Terminus Barrier</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Terminus Barrier`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Discard the top card of the nemesis deck.</p>
         <p>If you discarded an attack card, discard an additional card.</p>
       `,
@@ -36,9 +36,9 @@ export const mages: Mage[] = [
     name: 'Reeve',
     id: 'Reeve',
     mageTitle: 'Breach Mage Elite',
-    ability: `
-        <h2>Quelling Blade</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Quelling Blade`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Deal 5 damage to a minion.</p>
         <p>Deal 3 damage to a different minion.</p>
       `,
@@ -65,9 +65,9 @@ export const mages: Mage[] = [
     name: "Z'hana",
     id: 'Zhana',
     mageTitle: 'Breach Mage Renegade',
-    ability: `
-        <h2>Sanctum Glyph</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+    abilityName: `Sanctum Glyph`,
+    abilityActivation: `Activate during your main phase:`,
+    abilityEffect: `
         <p>Gravehold gains 7 life.</p>
       `,
     numberOfCharges: 5,

@@ -6,9 +6,9 @@ export const mages: Mage[] = [
     name: 'Sahala',
     id: 'Sahala',
     mageTitle: 'Riss-Magier-Orakel',
-    ability: `
-        <h2>Sternenband</h2>
-        <p class="ability-activation">In deinem Spieler-Zug während <i>Zauber wirken</i> oder <i>Aktionen ausführen</i>:</p>
+    abilityName: `Sternenband`,
+    abilityActivation: `In deinem Spieler-Zug während <i>Zauber wirken</i> oder <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Sieh dir die obersten 3 Karten deines Decks an. Siehst du Zauber? Nimm 1 davon auf die Hand.
         Ist kein Zauber an deinen Gestirn-Riss gebunden? Binde bis zu 2 Zauber von deiner Hand an deinen aktiven Gestirn-Riss.</p>`,
     numberOfCharges: 4,
@@ -32,9 +32,9 @@ export const mages: Mage[] = [
     name: 'Gygar',
     id: 'Gygar',
     mageTitle: 'Herr der Gezeiten',
-    ability: `
-        <h2>Flutwelle</h2>
-        <p class="ability-activation">In deinem Spieler-Zug während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Flutwelle`,
+    abilityActivation: `In deinem Spieler-Zug während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Lege 1 Flut-Plättchen auf deinen Gezeiten-Riss.
         <span class="or">OR</span>
         Wirke 1 an deinen Gezeiten-Riss gebundenen Zauber. Erhalte 2 Energie.</p>`,
@@ -57,9 +57,9 @@ export const mages: Mage[] = [
     name: 'Soskel',
     id: 'Soskel',
     mageTitle: 'Riss-Magier-Aristokrat',
-    ability: `
-        <h2>Augeladenes Siegel</h2>
-        <p class="ability-activation">In deinem Spieler-Zug während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Augeladenes Siegel`,
+    abilityActivation: `In deinem Spieler-Zug während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Wähle 1 Spieler. Dann wähle:<br/>
         Lege 1 Aufladung auf einen seiner Risse ohne Aufladung.
         <span class="or">OR</span>
@@ -84,9 +84,9 @@ export const mages: Mage[] = [
     name: 'Taqren',
     id: 'Taqren',
     mageTitle: 'Der Schild',
-    ability: `
-        <h2>Essenz-Manipulation</h2>
-        <p class="ability-activation">In deinem Spieler-Zug während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Essenz-Manipulation`,
+    abilityActivation: `In deinem Spieler-Zug während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Bündele 1 Riss deiner Wahl (bei 1 Spieler deiner Wahl). Wähle 1 Spieler, der 1 Leben für jeden deiner aktiven Risse heilt.</p>`,
     numberOfCharges: 4,
     uniqueStarters: [
@@ -109,9 +109,9 @@ export const mages: Mage[] = [
     name: 'Talix',
     id: 'Talix',
     mageTitle: 'Die Kette',
-    ability: `
-        <h2>Aufsteigende Asche</h2>
-        <p class="ability-activation">In deinem Spieler-Zug während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Aufsteigende Asche`,
+    abilityActivation: `In deinem Spieler-Zug während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Die <i>Feste</i> heilt 5 Leben.
         <span class="or">OR</span>
         Zerstöre 2 Funken auf deiner Hand. Ist das passiert? Mische deine Reihenfolgekarte in
@@ -137,9 +137,9 @@ export const mages: Mage[] = [
     name: 'Rhia',
     id: 'Rhia',
     mageTitle: 'Riss-Magier-Schatzjägerin',
-    ability: `
-        <h2>Transformation</h2>
-        <p class="ability-activation">In deinem Spieler-Zug während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Transformation`,
+    abilityActivation: `In deinem Spieler-Zug während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Lege 1 Karte von deiner Hand oder deinem Ablagestapel zurück auf ihren Vorrat.
         War es ein Artefakt? Erwirb gratis 1 Karte, die bis zu 3 <span class="aether">&AElig;</span>
         mehr kostet. Andernfalls erwirb gratis 1 Karte, die bis zu 2 <span class="aether">&AElig;</span>
@@ -164,9 +164,9 @@ export const mages: Mage[] = [
     name: 'Claudia',
     id: 'Claudia',
     mageTitle: 'Riss-Magier-Prospektorin',
-    ability: `
-        <h2>Ätherplosion</h2>
-        <p class="ability-activation">Im Spieler-Zug eines anderen Spielers während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Ätherplosion`,
+    abilityActivation: `Im Spieler-Zug eines anderen Spielers während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Dieser Spieler erhält 2 <span class="aether">&AElig;</span>. Wenn er das nächste Mal in diesem Zug
         eine Karte erwirbt, erwirbst du gratis 1 Karte des gleichen Vorrats.
         <span class="or">OR</span>
@@ -192,9 +192,9 @@ export const mages: Mage[] = [
     name: 'Lost',
     id: 'Lost',
     mageTitle: 'Lebendige Schmiede',
-    ability: `
-        <h2>Hörnchens Stärke</h2>
-        <p class="ability-activation">In deinem Spieler-Zug während <i>Aktionen ausführen</i>:</p>
+    abilityName: `Hörnchens Stärke`,
+    abilityActivation: `In deinem Spieler-Zug während <i>Aktionen ausführen</i>:`,
+    abilityEffect: `
         <p>Nimm bis zu 4 Karten mit Kosten von 0 <span class="aether">&AElig;</span> aus deinem
         Ablagestapel zurück auf die Hand.</p>`,
     numberOfCharges: 5,

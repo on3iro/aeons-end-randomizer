@@ -6,8 +6,9 @@ export const mages: Mage[] = [
     name: 'Malastar',
     id: 'Malastar',
     mageTitle: 'Mentor',
-    ability:
-      "<h2>Don de l'éther</h2>\n<p class=\"ability-activation\">S'active durant votre phase principale :</p>\n<p>Gagnez un sort de n'importe quelle pile de la réserve. Vous pouvez préparer ce sort sur une brèche ouverte de n'importe quel joueur.</p>",
+    abilityName: "Don de l'éther",
+    abilityActivation: "S'active durant votre phase principale :",
+    abilityEffect: "<p>Gagnez un sort de n'importe quelle pile de la réserve. Vous pouvez préparer ce sort sur une brèche ouverte de n'importe quel joueur.</p>",
     numberOfCharges: 6,
     uniqueStarters: [
       {

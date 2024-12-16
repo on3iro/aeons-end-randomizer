@@ -5,7 +5,7 @@ import { Mage, ICard, Expansion } from 'aer-types/types'
 
 import InfoItem from '../InfoItem'
 
-import AbilityText from '../../atoms/AbilityText'
+import Ability from '../../atoms/Ability'
 import SectionHeadline from '../../atoms/SectionHeadline'
 
 import UniqueStarter from '../UniqueStarter'
@@ -47,16 +47,15 @@ const MageInformation = ({ mage, player, expansion, theme }: Props) => (
       <InfoItem label="Complexity" info={mage.complexityRating.toString()} />
     ) : null}
 
-    <AbilityText
-      isMage={true}
+    <Ability
       themeColor={
         player
           ? theme.colors.playerColors[player].normal
           : theme.colors.playerColors['player1'].normal
       }
-      dangerouslySetInnerHTML={{
-        __html: mage.ability,
-      }}
+      name={mage.abilityName}
+      activation={mage.abilityActivation}
+      effect={mage.abilityEffect}
     />
 
     <SectionHeadline

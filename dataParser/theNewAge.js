@@ -46,9 +46,9 @@ const newAgeData = {
       name: 'Sahala',
       id: 'Sahala',
       mageTitle: 'Oracle',
-      ability: `
-        <h2>Star Bind</h2>
-        <p class="ability-activation">Activate during your casting or main phase:</p>
+      abilityName: `Star Bind`,
+      abilityActivation: `Activate during your casting or main phase:`,
+      abilityEffect: `
         <p>Reveal the top three cards of your deck. 
         Place a spell revealed this way into your hand. 
         If there are no spells prepped to your Celestial Breach, 
@@ -74,9 +74,9 @@ const newAgeData = {
       name: 'Gygar',
       id: 'Gygar',
       mageTitle: 'Tide Master',
-      ability: `
-        <h2>High Tide</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+      abilityName: `High Tide`,
+      abilityActivation: `Activate during your main phase:`,
+      abilityEffect: `
         <p>Place a Surge token on your Ancient Breach.
         <span class="or">OR</span>
         Cast a spell prepped to your Ancient Breach. Gain 2 charges.</p>`,
@@ -99,9 +99,9 @@ const newAgeData = {
       name: 'Soskel',
       id: 'Soskel',
       mageTitle: 'Aristocrat',
-      ability: `
-        <h2>Energized Sigil</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+      abilityName: `Energized Sigil`,
+      abilityActivation: `Activate during your main phase:`,
+      abilityEffect: `
         <p>Place an Energize token on any player's breach that doesn't have one.
         <span class="or">OR</span>
         Discard an Energize token on any player's breach. 
@@ -126,9 +126,9 @@ const newAgeData = {
       name: 'Taqren',
       id: 'Taqren',
       mageTitle: 'The Shield',
-      ability: `
-        <h2>Breach Siphon</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+      abilityName: `Breach Siphon`,
+      abilityActivation: `Activate during your main phase:`,
+      abilityEffect: `
         <p>Focus any player's breach. 
         Any player gains 1 life for each opened breach you have.</p>`,
       numberOfCharges: 4,
@@ -152,9 +152,9 @@ const newAgeData = {
       name: 'Talix',
       id: 'Talix',
       mageTitle: 'The Chain',
-      ability: `
-        <h2>Soaring Ash</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+      abilityName: `Soaring Ash`,
+      abilityActivation: `Activate during your main phase:`,
+      abilityEffect: `
         <p>Destroy two sparks in hand. If you do, 
         shuffle your turn order card into the turn order deck.
         <span class="or">OR</span>
@@ -181,9 +181,9 @@ const newAgeData = {
       name: 'Rhia',
       id: 'Rhia',
       mageTitle: 'Relic Hunter',
-      ability: `
-        <h2>Sublimate</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+      abilityName: `Sublimate`,
+      abilityActivation: `Activate during your main phase:`,
+      abilityEffect: `
         <p>Return a card in your hand or discard pile to its supply pile. 
         If you returned a relic, gain a card from any supply pile 
         that costs up to 3 <span class="aether">&AElig;</span> more than the returned card. 
@@ -210,9 +210,9 @@ const newAgeData = {
       name: 'Claudia',
       id: 'Claudia',
       mageTitle: 'Prospector',
-      ability: `
-        <h2>Aeplosion</h2>
-        <p class="ability-activation">Activate during any ally's main phase:</p>
+      abilityName: `Aeplosion`,
+      abilityActivation: `Activate during any ally's main phase:`,
+      abilityEffect: `
         <p>That ally gains 2 <span class="aether">&AElig;</span>. The next time that ally 
         gains a card from a supply pile this turn, 
         you gain a copy of that card from that supply pile.
@@ -239,9 +239,9 @@ const newAgeData = {
       name: 'Lost',
       id: 'Lost',
       mageTitle: 'Living Forge',
-      ability: `
-        <h2>Meek's Might</h2>
-        <p class="ability-activation">Activate during your main phase:</p>
+      abilityName: `Meek's Might`,
+      abilityActivation: `Activate during your main phase:`,
+      abilityEffect: `
         <p>Return up to four cards that cost 0 <span class="aether">&AElig;</span> 
         in your discard pile to your hand.</p>`,
       numberOfCharges: 5,
