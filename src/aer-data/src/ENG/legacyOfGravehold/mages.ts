@@ -407,6 +407,20 @@ export const mages: Mage[] = [
         `,
         keywords: [],
       },
+      {
+        type: 'Gem',
+        id: 'MagnificentOpal',
+        name: 'Magnificent Opal',
+        expansion: 'LOG',
+        cost: 0,
+        effect: `
+          <p>
+            Gain 1 <span class="aether">&AElig;</span>.<br/>
+            You may cast a spell from your discard pile.
+          </p>
+        `,
+        keywords: [],
+      },
     ],
     complexityRating: 5,
   },

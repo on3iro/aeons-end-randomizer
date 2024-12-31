@@ -160,7 +160,7 @@ const shatteredDreamsData = {
       cost: 3,
       effect: `
       <p>
-      <b>Cast:</b> Any player focuses their closed breach wich the highest 
+      <b>Cast:</b> Any player focuses their closed breach with the highest 
       focus cost.<br/>
       Deal 1 damage.<br/>
       You may destroy this. If you do, deal 2 additional damage.

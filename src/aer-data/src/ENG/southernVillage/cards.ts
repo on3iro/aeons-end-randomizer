@@ -115,7 +115,7 @@ export const cards: ICard[] = [
     effect: `
       <p>
         While prepped, when you gain a card, deal 1 damage.<br />
-        <b>Cast:</br> Deal 3 damage.
+        <b>Cast:</b> Deal 3 damage.
       </p>
     `,
     keywords: [],
@@ -130,7 +130,7 @@ export const cards: ICard[] = [
       <p>
         While prepped, once per turn when you cast another spell, you may gain a card that costs 
         5 <span class="aether">&AElig;</span> or less from any supply pile.<br />
-        <b>Cast:</br> Deal 5 damage.
+        <b>Cast:</b> Deal 5 damage.
       </p>
     `,
     keywords: [],

@@ -182,6 +182,7 @@ export const cards: ICard[] = [
     effect: `
       <p>
       When you Develop this, any ally gains an <span class="aether">&AElig;</span> token.
+      <hr />
       Focus any player's breach. <br/>
       Any player may destroy a card in hand or in their discard pile. <br/>
       </p>

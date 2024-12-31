@@ -45,7 +45,7 @@ export const mages: Mage[] = [
     abilityName: `Interlace`,
     abilityActivation: `Activate during your main phase:`,
     abilityEffect: `
-        <p>Gain the top card of the Infusion dek and place it into your hand.
+        <p>Gain the top card of the Infusion deck and place it into your hand.
         <span class="or">OR</span>
         Destroy an Infusion in play. If you do, deal 8 damage.</p>`,
     numberOfCharges: 4,

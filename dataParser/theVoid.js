@@ -209,7 +209,7 @@ const theVoidData = {
       effect: `
       <p>
         Focus your closed breach with the lowest focus cost. Reveal the top 
-        three cards of your deck. You may prep on of the revealed cards.
+        three cards of your deck. You may prep one of the revealed cards.
       </p>
         `,
       keywords: [],
