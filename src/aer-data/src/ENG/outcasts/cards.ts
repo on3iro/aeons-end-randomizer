@@ -192,7 +192,7 @@ export const cards: ICard[] = [
       <p>
         Any ally may destroy a card in hand. That player may gain a card that costs 
         up to 2 <span class="aether">&AElig;</span> more than the destroyed card and 
-        place it into their hands.
+        place it into their hand.
         <span class="or">OR</span>
         Destroy this. Gain 2 charges.
       </p>
@@ -418,7 +418,7 @@ export const cards: ICard[] = [
     effect: `
       <p>
         While prepped, when you gain a card, you may place that card on top 
-        of your deck.
+        of your deck.<br />
         <b>Cast:</b> Deal 4 damage.
       </p>
     `,

@@ -2021,7 +2021,7 @@ export const rootState: RootState = {
               id: 'MantraOfStrength',
               cost: 3,
               effect:
-                '\n      <p>\n      <b>Cast:</b> Any player focuses their closed breach wich the highest \n      focus cost.<br/>\n      Deal 1 damage.<br/>\n      You may destroy this. If you do, deal 2 additional damage.\n        </p>\n      ',
+                '\n      <p>\n      <b>Cast:</b> Any player focuses their closed breach with the highest \n      focus cost.<br/>\n      Deal 1 damage.<br/>\n      You may destroy this. If you do, deal 2 additional damage.\n        </p>\n      ',
               keywords: [],
             },
             EmbodyFlame: {
@@ -2191,7 +2191,7 @@ export const rootState: RootState = {
               id: 'EternityCharm',
               cost: 3,
               effect:
-                '\n      <p>\n        Focus your closed breach with the lowest focus cost. Reveal the top \n        three cards of your deck. You may prep on of the revealed cards.\n      </p>\n        ',
+                '\n      <p>\n        Focus your closed breach with the lowest focus cost. Reveal the top \n        three cards of your deck. You may prep one of the revealed cards.\n      </p>\n        ',
               keywords: [],
             },
             ErraticIngot: {
@@ -2261,7 +2261,7 @@ export const rootState: RootState = {
               id: 'ConvectionField',
               cost: 5,
               effect:
-                '\n      <p>\n      <b>Cast:</b> Deal 4 damage.\n        <span class="or">OR</span>\n      <b>Cast:</b> Deal 2 damage. Any ally day destroy a card in hand.\n        </p>\n      ',
+                '\n      <p>\n      <b>Cast:</b> Deal 4 damage.\n        <span class="or">OR</span>\n      <b>Cast:</b> Deal 2 damage. Any ally may destroy a card in hand.\n        </p>\n      ',
               keywords: [],
             },
             JaggedLightning: {
@@ -2291,7 +2291,7 @@ export const rootState: RootState = {
               id: 'Kindle',
               cost: 4,
               effect:
-                '\n      <p>\n      While prepped, during your main phase you may also prep on Spark to the \n      breach this spell is prepped to.<br/>\n        <b>Cast:</b> Deal 3 damage.\n        </p>\n        ',
+                '\n      <p>\n      While prepped, during your main phase you may also prep one Spark to the \n      breach this spell is prepped to.<br/>\n        <b>Cast:</b> Deal 3 damage.\n        </p>\n        ',
               keywords: [],
             },
             ThoughtformFamiliar: {
@@ -5245,8 +5245,10 @@ export const rootState: RootState = {
               id: 'Adelheim',
               mageTitle: 'Armurier',
               abilityName: 'Gardien étherien',
-              abilityActivation: 'S\'active durant la phase de pioche de la némésis :',
-              abilityEffect: '<p>Après qu\'une carte Attaque ou Pouvoir a été piochée, mais avant qu\'elle soit résolue, vous pouvez la défausser sans appliquer son effet.\n<span class="hint">La némésis ne pioche pas de nouvelle carte à la place</span></p>',
+              abilityActivation:
+                "S'active durant la phase de pioche de la némésis :",
+              abilityEffect:
+                '<p>Après qu\'une carte Attaque ou Pouvoir a été piochée, mais avant qu\'elle soit résolue, vous pouvez la défausser sans appliquer son effet.\n<span class="hint">La némésis ne pioche pas de nouvelle carte à la place</span></p>',
               numberOfCharges: 5,
               uniqueStarters: [
                 {
@@ -5267,7 +5269,7 @@ export const rootState: RootState = {
               id: 'Brama',
               mageTitle: 'Ancienne',
               abilityName: 'Siphon de la bordure',
-              abilityActivation: 'S\'active durant votre phase principale :',
+              abilityActivation: "S'active durant votre phase principale :",
               abilityEffect: '<p>Un joueur gagne 4 Vie.</p>',
               numberOfCharges: 5,
               uniqueStarters: [
@@ -5289,8 +5291,9 @@ export const rootState: RootState = {
               id: 'Jian',
               mageTitle: 'Orpheline',
               abilityName: 'Miroir noir',
-              abilityActivation: 'S\'active durant votre phase principale :',
-              abilityEffect: '<p>Lancez le sort préparer d\'un joueur sans le défausser. Puis lancer ce sort à nouveau.\n<span class="hint">Défaussez-le ensuite.</span></p>',
+              abilityActivation: "S'active durant votre phase principale :",
+              abilityEffect:
+                '<p>Lancez le sort préparer d\'un joueur sans le défausser. Puis lancer ce sort à nouveau.\n<span class="hint">Défaussez-le ensuite.</span></p>',
               numberOfCharges: 4,
               uniqueStarters: [
                 {
@@ -5311,8 +5314,10 @@ export const rootState: RootState = {
               id: 'Kadir',
               mageTitle: 'Chercheuse',
               abilityName: "Porte vers l'autre-monde",
-              abilityActivation: "S'active durant la phase principale d'un joueur :",
-              abilityEffect: "<p>Ce joueur peut reprendre en main jusqu'à trois sorts de sa défausse. Durant ce tour, ce joueur peut préparer jusqu'à deux sorts sur chacune de ses brèches ouvertes.</p>",
+              abilityActivation:
+                "S'active durant la phase principale d'un joueur :",
+              abilityEffect:
+                "<p>Ce joueur peut reprendre en main jusqu'à trois sorts de sa défausse. Durant ce tour, ce joueur peut préparer jusqu'à deux sorts sur chacune de ses brèches ouvertes.</p>",
               numberOfCharges: 5,
               uniqueStarters: [
                 {
@@ -5333,8 +5338,10 @@ export const rootState: RootState = {
               id: 'Lash',
               mageTitle: 'Éclaireur',
               abilityName: 'Accélération mentale',
-              abilityActivation: 'S\'active durant la phase principale d\'un joueur :',
-              abilityEffect: '<p>Mélangez la carte Ordre du tour d\'un joueur dans le paquet d\'ordre du tour. Ce joueur subit 1 dégât.\n<span class="hint">Vous ne pouvez pas choisir la carte Ordre du jour Joker.</span></p>',
+              abilityActivation:
+                "S'active durant la phase principale d'un joueur :",
+              abilityEffect:
+                '<p>Mélangez la carte Ordre du tour d\'un joueur dans le paquet d\'ordre du tour. Ce joueur subit 1 dégât.\n<span class="hint">Vous ne pouvez pas choisir la carte Ordre du jour Joker.</span></p>',
               numberOfCharges: 5,
               uniqueStarters: [
                 {
@@ -5355,7 +5362,7 @@ export const rootState: RootState = {
               id: 'Mist',
               mageTitle: 'Capitaine de la dague',
               abilityName: 'Prédiciton divine',
-              abilityActivation: 'S\'active durant votre phase principale :',
+              abilityActivation: "S'active durant votre phase principale :",
               abilityEffect: '<p>Un allié pioche quatre cartes.</p>',
               numberOfCharges: 5,
               uniqueStarters: [
@@ -5377,8 +5384,10 @@ export const rootState: RootState = {
               id: 'Phaedraxa',
               mageTitle: 'Voyante',
               abilityName: 'Rune des oracles',
-              abilityActivation: 'S\'active au moment où une carte Ordre du tour est révélée :',
-              abilityEffect: '<p>Tous les dégâts que les joueurs ou Gravehold devraient subir ce tour-ci sont annulés.</p>',
+              abilityActivation:
+                "S'active au moment où une carte Ordre du tour est révélée :",
+              abilityEffect:
+                '<p>Tous les dégâts que les joueurs ou Gravehold devraient subir ce tour-ci sont annulés.</p>',
               numberOfCharges: 5,
               uniqueStarters: [
                 {
@@ -5398,9 +5407,11 @@ export const rootState: RootState = {
               name: 'Xaxos',
               id: 'Xaxos',
               mageTitle: 'Adepte',
-              abilityName: "Lien métaphysique",
-              abilityActivation: "S'active durant la phase principale d'un joueur :",
-              abilityEffect: "<p>Les alliés reçoivent collectivement 4 charges. Révélez puis replacez les cartes de la pioche d'Ordre du tour dans l'ordre de votre choix.</p>",
+              abilityName: 'Lien métaphysique',
+              abilityActivation:
+                "S'active durant la phase principale d'un joueur :",
+              abilityEffect:
+                "<p>Les alliés reçoivent collectivement 4 charges. Révélez puis replacez les cartes de la pioche d'Ordre du tour dans l'ordre de votre choix.</p>",
               numberOfCharges: 5,
               uniqueStarters: [
                 {

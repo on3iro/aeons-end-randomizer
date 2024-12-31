@@ -465,7 +465,7 @@ Spell,Legacy,Arcane Salvo,ArcaneSalvo,5,"
 Gem,Legacy,Phased Portalite,PhasedPortalite,4,"
         <p>
           Gain 2 <span class=""aether"">&AElig;</span>. If your III breach is 
-          opened, gain and additional 1 <span class=""aether"">&AElig;</span>.
+          opened, gain an additional 1 <span class=""aether"">&AElig;</span>.
         </p>
           ",[]
 Spell,Legacy,Pyro Geist,PyroGeist,6,"
@@ -792,7 +792,7 @@ Spell,SD,Storm Vapors,StormVapors,4,"
       ",[]
 Spell,SD,Mantra of Strength,MantraOfStrength,3,"
       <p>
-      <b>Cast:</b> Any player focuses their closed breach wich the highest 
+      <b>Cast:</b> Any player focuses their closed breach with the highest 
       focus cost.<br/>
       Deal 1 damage.<br/>
       You may destroy this. If you do, deal 2 additional damage.
@@ -1197,7 +1197,7 @@ Spell,TV,Fulminate,Fulminate,5,"
 Relic,TV,Eternity Charm,EternityCharm,3,"
       <p>
         Focus your closed breach with the lowest focus cost. Reveal the top 
-        three cards of your deck. You may prep on of the revealed cards.
+        three cards of your deck. You may prep one of the revealed cards.
       </p>
         ",[]
 Gem,WE,Erratic Ingot,ErraticIngot,5,"
@@ -1246,7 +1246,7 @@ Spell,WE,Convection Field,ConvectionField,5,"
       <p>
       <b>Cast:</b> Deal 4 damage.
         <span class=""or"">OR</span>
-      <b>Cast:</b> Deal 2 damage. Any ally day destroy a card in hand.
+      <b>Cast:</b> Deal 2 damage. Any ally may destroy a card in hand.
         </p>
       ",[]
 Spell,WE,Jagged Lightning,JaggedLightning,4,"
@@ -1265,7 +1265,7 @@ Gem,WE,Bloodstone Jewel,BloodstoneJewel,6,"
       ",[]
 Spell,WE,Kindle,Kindle,4,"
       <p>
-      While prepped, during your main phase you may also prep on Spark to the 
+      While prepped, during your main phase you may also prep onn Spark to the 
       breach this spell is prepped to.<br/>
         <b>Cast:</b> Deal 3 damage.
         </p>

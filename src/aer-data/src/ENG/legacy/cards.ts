@@ -258,7 +258,7 @@ export const cards: ICard[] = [
     effect: `
         <p>
           Gain 2 <span class="aether">&AElig;</span>. If your III breach is 
-          opened, gain and additional 1 <span class="aether">&AElig;</span>.
+          opened, gain an additional 1 <span class="aether">&AElig;</span>.
         </p>
           `,
     keywords: [],

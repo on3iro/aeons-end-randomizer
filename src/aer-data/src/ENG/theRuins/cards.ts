@@ -26,7 +26,7 @@ export const cards: ICard[] = [
         Gain 2 <span class="aether">&AElig;</span>.
       </p>
       <p>
-        <b>Recall:</b> Il you have activated your ability this turn, gain 1 life.
+        <b>Recall:</b> If you have activated your ability this turn, gain 1 life.
       </p>
     `,
     keywords: ['recall'],
@@ -79,7 +79,7 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'RU',
-    name: "Aether Widget",
+    name: 'Aether Widget',
     id: 'AetherWidget',
     cost: 2,
     effect: `
@@ -158,7 +158,7 @@ export const cards: ICard[] = [
     cost: 2,
     effect: `
       <p>
-        While prepped, an additional spell that costs 2 <span class="aether">&AElig;</span> or less may be prepped to this brech.<br />
+        While prepped, an additional spell that costs 2 <span class="aether">&AElig;</span> or less may be prepped to this breach.<br />
         <b>Cast:</b> Deal 1 damage.
       </p>
     `,
