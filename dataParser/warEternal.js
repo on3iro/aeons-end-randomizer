@@ -387,7 +387,7 @@ const warEternalData = {
       <p>
       <b>Cast:</b> Deal 4 damage.
         <span class="or">OR</span>
-      <b>Cast:</b> Deal 2 damage. Any ally day destroy a card in hand.
+      <b>Cast:</b> Deal 2 damage. Any ally may destroy a card in hand.
         </p>
       `,
       keywords: [],
@@ -430,7 +430,7 @@ const warEternalData = {
       cost: 4,
       effect: `
       <p>
-      While prepped, during your main phase you may also prep on Spark to the 
+      While prepped, during your main phase you may also prep one Spark to the 
       breach this spell is prepped to.<br/>
         <b>Cast:</b> Deal 3 damage.
         </p>

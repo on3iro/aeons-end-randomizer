@@ -209,7 +209,7 @@ const relics: ICard[] = [
     cost: 3,
     effect: `
       <p>
-        Focus one of your breaches of <b>Conjure</b>.<br/>
+        Focus one of your breaches or <b>Conjure</b>.<br/>
         You may lose 1 charge to do both.
       </p>
     `,
@@ -266,7 +266,7 @@ const relics: ICard[] = [
     cost: 6,
     effect: `
       <p>
-        The players collectively destroy up to to cards in their hands.
+        The players collectively destroy up to two cards in their hands.
         <span class="or">OR</span>
         Silence up to two minions.
         <span class="or">OR</span>
@@ -509,7 +509,7 @@ const spells: ICard[] = [
     effect: `
       <p>
         <b>Cast:</b> Deal 1 damage. Deal 1 damage. Deal 1 damage.<br/>
-        You may return to your hand up to two card from your discard pile
+        You may return to your hand up to two cards from your discard pile
         that cost 0 <span class="aether">&AElig;</span>.
       </p>
     `,
