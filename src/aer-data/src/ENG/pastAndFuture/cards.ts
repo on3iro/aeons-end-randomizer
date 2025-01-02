@@ -118,7 +118,7 @@ export const cards: ICard[] = [
     type: 'Spell',
     expansion: 'PAF',
     name: 'Harbinger Descent',
-    id: 'ResonantPearl',
+    id: 'HarbingerDescent',
     cost: 8,
     effect: `
       <p>
