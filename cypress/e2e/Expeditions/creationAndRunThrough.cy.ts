@@ -125,7 +125,7 @@ describe('Expedition creation and run through', () => {
 
     // Supply
     cy.get('[data-test="supply"]').click({ force: true })
-    cy.get('p').contains('Bloodstone Jewel').should('be.visible')
+    cy.get('p').contains('Volcanic Glass').should('be.visible')
     cy.get('p').contains('Scoria Slag').should('be.visible')
     cy.get('p').contains('Oblivium Resin').should('be.visible')
     cy.get('p').contains('Transmogrifier').should('be.visible')
