@@ -133,7 +133,7 @@ describe('seeds', () => {
     cy.get('[data-test="YES"]').click()
   })
 
-  it('should procude completely different results when seed is changed', () => {
+  it('should produce completely different results when seed is changed', () => {
     cy.visit('expeditions').wait(1000)
     cy.get('[data-test="Test: Base Expedition"]')
       .get('[data-test=btn-copy]')
@@ -149,7 +149,7 @@ describe('seeds', () => {
     cy.get('[data-test="btn-start-battle"]').click()
 
     cy.get('[data-test="btn-battle-won"]').click()
-    cy.get('p').contains('Voidium Spike').click()
+    cy.get('p').contains('Muted Lacosite').click()
     cy.get('p').contains('Caged Fire').scrollIntoView().click()
     cy.get('p').contains('Jagged Lightning').click()
 
