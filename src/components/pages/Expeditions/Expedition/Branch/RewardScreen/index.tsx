@@ -8,6 +8,7 @@ import ModalFooterWrapper from 'components/atoms/ModalFooterWrapper'
 
 import * as helpers from '../helpers'
 
+import BannerReward from '../BannerReward'
 import SupplyReward from '../SupplyReward'
 import TreasureReward from '../TreasureReward'
 import MageReward from '../MageReward'
@@ -56,6 +57,9 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
         })
       : []
 
+  const newBannerIds = ownProps.branch.rewards?.bannerIds ?? []
+  const newBanners = newBannerIds.map(id => selectors.Settings.Expansions.Banners.content.getById(state, { id }))
+
   const lists = [
     {
       id: 'newSupply',
@@ -79,6 +83,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
     treasures,
     newSupplyCards,
     newMages,
+    newBanners,
     lists,
   }
 }
@@ -97,6 +102,7 @@ const RewardScreen = ({
   lists,
   newMages,
   newSupplyCards,
+  newBanners,
   showNext,
   treasures,
 }: Props) => {
@@ -179,6 +185,7 @@ const RewardScreen = ({
         />
         <TreasureReward treasures={treasures} />
         <MageReward mages={newMages} />
+        <BannerReward banners={newBanners} />
       </ModalBodyWrapper>
       <ModalFooterWrapper>
         <ContinueButton

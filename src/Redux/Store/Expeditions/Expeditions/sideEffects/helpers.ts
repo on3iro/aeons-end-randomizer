@@ -13,6 +13,7 @@ import { TreasureIdsStateSlice } from 'Redux/Store/Settings/Expansions/Treasures
 import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/content'
 import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
 import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
+import { BannersContentStateSlice } from 'Redux/Store/Settings/Expansions/Banners/content'
 import { SelectedLanguagesStateSlice } from 'Redux/Store/Settings/Expansions/Languages'
 
 export const rollNewEntity = (
@@ -210,6 +211,54 @@ export const getMageIds = ({
   }
 }
 
+export const getBannerIds = ({
+  banner,
+  stillAvailableBannerIds,
+  seed,
+}: {
+  banner: types.BannerRewardConfig | undefined
+  seed: types.Seed
+  stillAvailableBannerIds: string[]
+}) => {
+  const baseResult = {
+    result: [],
+    seed,
+  }
+
+  if (banner === undefined) {
+    return baseResult
+  }
+  const ids = banner.ids.filter((idOrRandom) => typeof idOrRandom === 'string')
+  const randomBannerConfigs = banner.ids.filter(
+    (idOrRandom): idOrRandom is { random: true } =>
+      typeof idOrRandom !== 'string'
+  )
+
+  return randomBannerConfigs.reduce(
+    (acc: RewardResult, _) => {
+      const filteredBannerIds = stillAvailableBannerIds.filter(
+        (bannerId) => ids.indexOf(bannerId) === -1
+      )
+
+      const bannerIdsResult = createIdList(
+        filteredBannerIds,
+        ['EMPTY'],
+        undefined,
+        acc.seed
+      )
+
+      return {
+        result: [...acc.result, ...bannerIdsResult.result],
+        seed: bannerIdsResult.seed,
+      }
+    },
+    {
+      ...baseResult,
+      result: ids,
+    } as RewardResult // FIXME casting should technically not be necessary (but i could make it work without)
+  )
+}
+
 // TODO add tests
 export const handleCustomRewards = (
   state: ExpeditionsStateSlice &
@@ -217,12 +266,14 @@ export const handleCustomRewards = (
     TreasureContentStateSlice &
     TreasureIdsStateSlice &
     MagesContentStateSlice &
+    BannersContentStateSlice &
     SelectedLanguagesStateSlice,
   rewardConfig: {
     type: 'custom'
     treasure?: types.TreasureRewardConfig
     mage?: types.MageRewardConfig
     supply?: types.SupplyRewardConfig
+    banner?: types.BannerRewardConfig
   },
   expedition: types.Expedition
 ) => {
@@ -265,6 +316,10 @@ export const handleCustomRewards = (
     expeditionId,
   })
 
+  const stillAvailableBannerIds = selectors.getStillAvailableBannerIds(state, {
+    expeditionId,
+  })
+
   ////////////
   // Supply //
   ////////////
@@ -301,12 +356,20 @@ export const handleCustomRewards = (
     stillAvailableTreasureIdsByLevel,
   })
 
+  const { banner } = rewardConfig
+  const bannerIdsResult = getBannerIds({
+    banner,
+    seed: treasureIdsResult.seed,
+    stillAvailableBannerIds,
+  })
+
   return {
     rewards: {
       supplyIds: supplyIdsResult.result,
       treasure: treasureIdsResult.result,
       mages: mageIdsResult.result,
+      bannerIds: bannerIdsResult.result,
     },
-    seed: treasureIdsResult.seed,
+    seed: bannerIdsResult.seed,
   }
 }

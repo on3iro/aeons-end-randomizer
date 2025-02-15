@@ -15,6 +15,7 @@ export const convertExpeditionToConfig = (
     uniqueMageNamesConfig: expedition.uniqueMageNames || false,
     initialBarracksConfig: expedition?.initialBarracksConfig,
     initialUBNCardsConfig: expedition?.initialUBNCardsConfig,
+    friendsAndFoesConfig: expedition.friendsAndFoesConfig,
     settingsSnapshotConfig,
     sequenceConfig: {
       firstBranchId: expedition.sequence.firstBranchId,

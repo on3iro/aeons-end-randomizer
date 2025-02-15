@@ -12,6 +12,7 @@ export const convertExpeditionFromConfig = (
     name: config.name,
     bigPocketVariant: config.bigPocketVariantConfig,
     uniqueMageNames: config.uniqueMageNamesConfig || false,
+    friendsAndFoesConfig: config.friendsAndFoesConfig,
     score: 0,
     seed: {
       seed: config.seedConfig || shortid.generate(),
@@ -22,6 +23,7 @@ export const convertExpeditionFromConfig = (
       supplyIds: config.initialBarracksConfig?.supplyIds || [],
       mageIds: config.initialBarracksConfig?.mageIds || [],
       treasureIds: config.initialBarracksConfig?.treasureIds || [],
+      bannerIds: config.initialBarracksConfig?.bannerIds || [],
     },
     banished: [],
     finished: false,

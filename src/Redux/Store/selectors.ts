@@ -53,6 +53,18 @@ export const getExpeditionTreasure = createSelector(
     )
 )
 
+export const getExpeditionBanners = createSelector(
+  [
+    Expeditions.selectors.Expeditions.getExpeditionById,
+    Settings.selectors.Expansions.Banners.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
+  ],
+  (expedition, content, languages) =>
+    expedition.barracks.bannerIds?.map((id) =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    ) ?? []
+)
+
 export const getExpeditionUpgradedBasicNemesis = createSelector(
   [
     Expeditions.selectors.Expeditions.getExpeditionById,
@@ -123,6 +135,18 @@ export const getAvailableTreasureForExpeditionId = createSelector(
     settingsSnapshot.availableTreasureIds.map((id) =>
       getContentByIdWithLanguageFallback(languages, content, id)
     )
+)
+
+export const getAvailableBannersForExpeditionId = createSelector(
+  [
+    Expeditions.selectors.Expeditions.getSettingsSnapshotByExpeditionId,
+    Settings.selectors.Expansions.Banners.content.getContent,
+    Settings.selectors.Expansions.Languages.getLanguagesByExpansion,
+  ],
+  (settingsSnapshot, content, languages) =>
+    settingsSnapshot.availableBannerIds?.map((id) =>
+      getContentByIdWithLanguageFallback(languages, content, id)
+    ) ?? []
 )
 
 export const getAvailableUpgradedBasicNemesisCardsForExpeditionId =
@@ -257,4 +281,15 @@ export const getStillAvailableTreasureIdsByLevel = createSelector(
 
     return $getTreasuresByLevelFrom(stillAvailable)
   }
+)
+
+export const getStillAvailableBannerIds = createSelector(
+  [
+    getAvailableBannersForExpeditionId,
+    Expeditions.selectors.Expeditions.getExpeditionById,
+  ],
+  (availableBanners, expedition) =>
+    availableBanners
+      .map((banner) => banner.id)
+      .filter((id) => !expedition.barracks.bannerIds?.includes(id))
 )

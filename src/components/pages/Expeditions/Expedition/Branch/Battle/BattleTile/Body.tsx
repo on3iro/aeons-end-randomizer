@@ -11,14 +11,18 @@ import Name from './Name'
 type Props = {
   battle: Battle
   nemesis: string
+  friend: string | undefined
+  foe: string | undefined
 }
 
-const Body = ({ battle, nemesis }: Props) => (
+const Body = ({ battle, nemesis, friend, foe }: Props) => (
   <BodyWrapper status={battle.status}>
     <Name variant="h6" component="h2">
       Battle: {nemesis}
     </Name>
     <List>
+      {foe && <InfoItem label="Foe" info={foe} />}
+      {friend && <InfoItem label="Friend" info={friend} />}
       <InfoItem label="Tier" info={battle.config.tier.toString()} />
       <InfoItem label="Status" info={battle.status} />
       <InfoItem label="Tries" info={battle.tries.toString()} />
