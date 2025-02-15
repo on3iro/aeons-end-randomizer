@@ -10,9 +10,11 @@ import {
 import { handleMage } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollLossRewards/handleMage'
 import { handleTreasure } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollLossRewards/handleTreasure'
 import { handleSupply } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollLossRewards/handleSupply'
+import { handleBanner } from 'Redux/Store/Expeditions/Expeditions/sideEffects/rollLossRewards/handleBanner'
 import { TreasureIdsStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/ids'
 import { TreasureContentStateSlice } from 'Redux/Store/Settings/Expansions/Treasures/content'
 import { MagesContentStateSlice } from 'Redux/Store/Settings/Expansions/Mages/content'
+import { BannersContentStateSlice } from 'Redux/Store/Settings/Expansions/Banners/content'
 import { handleCustomRewards } from '../helpers'
 import { CardsContentStateSlice } from 'Redux/Store/Settings/Expansions/Cards/content'
 import { SelectedLanguagesStateSlice } from 'Redux/Store/Settings/Expansions/Languages'
@@ -26,6 +28,7 @@ export const handleRewardType = ({
   gemIds,
   relicIds,
   spellIds,
+  bannerIds,
   treasure1Ids,
   treasure2Ids,
   treasure3Ids,
@@ -37,6 +40,7 @@ export const handleRewardType = ({
   gemIds: string[]
   relicIds: string[]
   spellIds: string[]
+  bannerIds: string[]
   treasure1Ids: string[]
   treasure2Ids: string[]
   treasure3Ids: string[]
@@ -70,6 +74,10 @@ export const handleRewardType = ({
       return handleTreasure(battle, treasure3Ids, seed)
     }
 
+    case 'banner': {
+      return handleBanner(battle, bannerIds, seed)
+    }
+
     default: {
       return { ...battle, seed }
     }
@@ -82,6 +90,7 @@ const rollLossRewards = (
     TreasureContentStateSlice &
     TreasureIdsStateSlice &
     MagesContentStateSlice &
+    BannersContentStateSlice &
     SelectedLanguagesStateSlice,
   battle: types.Battle,
   rewardType: RewardType
@@ -120,6 +129,7 @@ const rollLossRewards = (
     treasureLevel: 3,
     expeditionId,
   })
+  const bannerIds = selectors.getStillAvailableBannerIds(state, { expeditionId })
 
   const mageIds = expedition.uniqueMageNames
     ? selectors.getStillAvailableMageWithUniqueNameIds(state, { expeditionId })
@@ -136,6 +146,7 @@ const rollLossRewards = (
     treasure1Ids,
     treasure2Ids,
     treasure3Ids,
+    bannerIds,
   })
 }
 
@@ -146,6 +157,7 @@ const handleRewardsFromConfig = (
     TreasureContentStateSlice &
     TreasureIdsStateSlice &
     MagesContentStateSlice &
+    BannersContentStateSlice &
     SelectedLanguagesStateSlice,
   battle: types.Battle,
   rewardsConfig?: types.RewardsConfig,
@@ -174,6 +186,7 @@ const handleRewardsFromConfig = (
         treasure: [],
         mages: [],
         supplyIds: [],
+        bannerIds: [],
       },
       seed,
     }
@@ -195,6 +208,7 @@ const handleRewardsFromConfig = (
       treasure: [],
       mages: [],
       supplyIds: [],
+      bannerIds: [],
     },
     seed,
   }

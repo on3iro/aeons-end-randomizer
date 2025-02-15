@@ -43,6 +43,8 @@ export const acceptRewards = (
   const newMageIds =
     reward.rewards && reward.rewards.mages ? reward.rewards.mages : []
 
+  const newBannerIds = reward.rewards?.bannerIds ?? []
+
   const newState = {
     ...state,
     expeditions: {
@@ -61,6 +63,7 @@ export const acceptRewards = (
           ],
           supplyIds: newSupplyIds,
           mageIds: [...oldExpedition.barracks.mageIds, ...newMageIds],
+          bannerIds: [...oldExpedition.barracks.bannerIds ?? [], ...newBannerIds],
         },
         banished: [...oldExpedition.banished, ...banished],
       },

@@ -126,6 +126,9 @@ export type SettingsSnapshotConfig = {
   availableNemesisIds: string[]
   availableTreasureIds: string[]
   availableUpgradedBasicNemesisCardIds: string[]
+  availableBannerIds?: string[]
+  availableFriendIds?: string[]
+  availableFoeIds?: string[]
 }
 
 export type SettingsSnapshot = SettingsSnapshotConfig & {
@@ -181,6 +184,7 @@ export type Barracks = {
   mageIds: string[]
   supplyIds: string[]
   treasureIds: string[]
+  bannerIds?: string[]
 }
 
 export type OnLoss = 'skip'
@@ -199,6 +203,10 @@ export type MageRewardConfig = {
   ids: Array<string | { random: true }>
 }
 
+export type BannerRewardConfig = {
+  ids: Array<string | { random: true }>
+}
+
 export type SupplyRewardConfig = {
   ids: Array<string | IBluePrint>
   bigPocket?: boolean
@@ -210,12 +218,15 @@ export type RewardsConfig =
       treasure?: TreasureRewardConfig
       mage?: MageRewardConfig
       supply?: SupplyRewardConfig
+      banner?: BannerRewardConfig
     }
   | { type: 'regular' }
 
 export type BattleConfig = {
   tier: NemesisTier
   nemesisId?: string
+  friendId?: string
+  foeId?: string
   newUBNCards:
     | { ids: string[]; type: 'custom' }
     | { type: 'regular'; addRandom: boolean }
@@ -258,12 +269,17 @@ export type SequenceConfig = {
   branches: BranchesConfig
 }
 
+export type FriendsAndFoesConfig = {
+  playerCountForBanners: 1 | 2 | 3 | 4
+}
+
 export type BaseExpeditionConfig = {
   name: string
   seedConfig?: string
   sequenceConfig: SequenceConfig
   bigPocketVariantConfig: boolean
   uniqueMageNamesConfig: boolean
+  friendsAndFoesConfig?: FriendsAndFoesConfig
   initialBarracksConfig?: Partial<Barracks>
   initialUBNCardsConfig?: string[]
 }
@@ -284,12 +300,15 @@ export type Rewards = {
   treasure: string[]
   mages: string[]
   supplyIds: string[]
+  bannerIds?: string[]
 }
 
 export type Battle = BattleBranch & {
   id: string
   expeditionId: string
   nemesisId?: string
+  friendId?: string
+  foeId?: string
   status: BattleStatus
   // These are actual rewards which where rolled, not config
   rewards?: Rewards
@@ -324,6 +343,7 @@ export type BaseExpedition = {
   name: string
   bigPocketVariant: boolean
   uniqueMageNames?: boolean
+  friendsAndFoesConfig?: FriendsAndFoesConfig
   score: number
   seed: ExpeditionSeed
   sequence: Sequence

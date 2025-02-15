@@ -14,6 +14,8 @@ type OwnProps = {
   showNext?: () => void
   battle: types.Battle
   nemesis?: types.Nemesis
+  foe?: types.Foe
+  friend?: types.Friend
 }
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({
@@ -35,6 +37,8 @@ const BeforeBattle = ({
   hide,
   battle,
   nemesis,
+  foe,
+  friend,
   startBattle,
   showNext,
   upgradedBasicNemsisCards,
@@ -56,6 +60,8 @@ const BeforeBattle = ({
           specialRules={battle.config.specialRules}
           onLoss={battle.config.onLoss}
           nemesis={nemesis}
+          foe={foe}
+          friend={friend}
           upgradedBasicNemsisCards={upgradedBasicNemsisCards}
         />
       </ModalBodyWrapper>

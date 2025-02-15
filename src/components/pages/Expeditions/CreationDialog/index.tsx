@@ -11,6 +11,7 @@ import BigPocketSelect from 'components/pages/Expeditions/CreationDialog/BigPock
 import UniqueMageNamesSelect from 'components/pages/Expeditions/CreationDialog/UniqueMageNamesSelect'
 import ConfigImport from './ConfigImport'
 import CreateButton from 'components/pages/Expeditions/CreationDialog/CreateButton'
+import FriendFoeSelect from './FriendFoeSelect'
 import MarketSelect from './MarketSelect'
 import NameInput from 'components/pages/Expeditions/CreationDialog/NameInput'
 import SeedInput from 'components/pages/Expeditions/CreationDialog/SeedInput'
@@ -49,6 +50,9 @@ const CreationDialog = ({
   const [uniqueMageNames, changeUniqueMageNames] = useState(
     expeditionConfig?.uniqueMageNamesConfig || false
   )
+  const [friendFoeConfig, setFriendFoeConfig] = useState(
+    expeditionConfig?.friendsAndFoesConfig || undefined
+  )
   const [selectedMarketId, selectMarketId] = useState(
     expeditionConfig?.settingsSnapshotConfig?.supplySetup?.id || 'random'
   )
@@ -79,6 +83,7 @@ const CreationDialog = ({
       name: expeditionName,
       bigPocketVariant,
       uniqueMageNames,
+      friendsAndFoesConfig: friendFoeConfig,
       marketId: selectedMarketId,
       seedValue,
     })
@@ -137,6 +142,11 @@ const CreationDialog = ({
         <UniqueMageNamesSelect
           uniqueMageNames={uniqueMageNames}
           changeUniqueMageNames={changeUniqueMageNames}
+        />
+
+        <FriendFoeSelect
+          friendFoeConfig={friendFoeConfig}
+          setFriendFoeConfig={setFriendFoeConfig}
         />
 
         {selectedVariant && (

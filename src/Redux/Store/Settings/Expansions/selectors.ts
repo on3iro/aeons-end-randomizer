@@ -130,10 +130,25 @@ export const getSelectedFriendsForSelectedExpansions = getSelectedEntitiesForSel
   Friends.selectors.getSelectedFriends
 )
 
+export const getSelectedFriendIdsForSelectedExpansions = createSelector(
+  [getSelectedFriendsForSelectedExpansions],
+  (friends) => friends.map(friend => friend.id)
+)
+
 export const getSelectedFoesForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
   Foes.selectors.getSelectedFoes
 )
 
+export const getSelectedFoeIdsForSelectedExpansions = createSelector(
+  [getSelectedFoesForSelectedExpansions],
+  (foes) => foes.map(foe => foe.id)
+)
+
 export const getSelectedBannersForSelectedExpansions = getSelectedEntitiesForSelectedExpansions(
   Banners.selectors.getSelectedBanners
+)
+
+export const getSelectedBannerIdsForSelectedExpansions = createSelector(
+  [getSelectedBannersForSelectedExpansions],
+  (banners) => banners.map(banner => banner.id)
 )

@@ -10,12 +10,14 @@ import ModalBodyWrapper from 'components/atoms/ModalBodyWrapper'
 import Mages from './Mages'
 import Supply from './Supply'
 import Treasure from './Treasure'
+import Banner from './Banner'
 import UpgradedBasicNemeses from './UpgradedBasicNemeses'
 import Banished from './Banished'
 
 const mageKey = 'mages'
 const supplyKey = 'supply'
 const treasureKey = 'treasures'
+const bannerKey = 'banners'
 const banishedKey = 'banished'
 const upgradedBasicNemsisCardsKey = 'upgradedBasicNemsisCards'
 
@@ -30,6 +32,7 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
     cards: selectors.getExpeditionSupply(state, { expeditionId }),
     mages: selectors.getExpeditionMages(state, { expeditionId }),
     treasures: selectors.getExpeditionTreasure(state, { expeditionId }),
+    banners: selectors.getExpeditionBanners(state, { expeditionId }),
     upgradedBasicNemsisCards: selectors.getExpeditionUpgradedBasicNemesis(
       state,
       { expeditionId }
@@ -50,6 +53,7 @@ const BarracksContent = ({
   cards,
   mages,
   treasures,
+  banners,
   upgradedBasicNemsisCards,
   banishedCards,
 }: Props) => {
@@ -64,6 +68,10 @@ const BarracksContent = ({
   ])
 
   const treasureHandler = useMemo(() => createExpansionHandler(treasureKey), [
+    createExpansionHandler,
+  ])
+
+  const bannerHandler = useMemo(() => createExpansionHandler(bannerKey), [
     createExpansionHandler,
   ])
 
@@ -94,6 +102,12 @@ const BarracksContent = ({
         treasures={treasures}
         expansionKey={treasureKey}
         expansionHandler={treasureHandler}
+        expanded={expanded}
+      />
+      <Banner
+        banners={banners}
+        expansionKey={bannerKey}
+        expansionHandler={bannerHandler}
         expanded={expanded}
       />
       <UpgradedBasicNemeses
