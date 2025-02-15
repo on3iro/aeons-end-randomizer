@@ -6727,6 +6727,36 @@ export const rootState: RootState = {
           },
         },
       },
+      Friends: {
+        selected: [],
+        ids: [],
+        content: {
+          ENG: {},
+          PL: {},
+          DE: {},
+          FR: {},
+        },
+      },
+      Foes: {
+        selected: [],
+        ids: [],
+        content: {
+          ENG: {},
+          PL: {},
+          DE: {},
+          FR: {},
+        },
+      },
+      Banners: {
+        selected: [],
+        ids: [],
+        content: {
+          ENG: {},
+          PL: {},
+          DE: {},
+          FR: {},
+        },
+      },
       BasicNemesisCards: {
         selected: [
           'AgonyField-AE',

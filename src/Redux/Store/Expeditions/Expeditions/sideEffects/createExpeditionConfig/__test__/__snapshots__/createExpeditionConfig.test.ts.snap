@@ -4,6 +4,7 @@ exports[`createExpeditionConfig() should produce correct result 1`] = `
 Object {
   "banished": Array [],
   "barracks": Object {
+    "bannerIds": Array [],
     "mageIds": Array [
       "Ulgimor",
       "Reeve",
@@ -25,6 +26,7 @@ Object {
   },
   "bigPocketVariant": true,
   "finished": false,
+  "friendsAndFoesConfig": undefined,
   "id": "TEST_EXPEDITION_ID",
   "migrationVersion": 2020030401,
   "name": "Test expedition config",
@@ -318,6 +320,7 @@ Object {
     "firstBranchId": "TEST_EXPEDITION_ID",
   },
   "settingsSnapshot": Object {
+    "availableBannerIds": Array [],
     "availableCardIds": Array [
       "FeralLightning",
       "PlanarInsight",
@@ -510,6 +513,8 @@ Object {
       "ChronalArc",
       "SymbioticSynapse",
     ],
+    "availableFoeIds": Array [],
+    "availableFriendIds": Array [],
     "availableMageIds": Array [
       "Kadir",
       "Lash",
