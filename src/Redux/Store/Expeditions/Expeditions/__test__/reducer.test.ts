@@ -639,6 +639,7 @@ describe('Reducer()', () => {
               'IndirasLoneOpal',
               'AlchemistsAlembic',
             ],
+            bannerIds: [],
           },
           bigPocketVariant: false,
           finished: false,

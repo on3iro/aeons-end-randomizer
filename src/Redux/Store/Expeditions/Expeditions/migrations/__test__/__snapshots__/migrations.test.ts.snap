@@ -2912,6 +2912,7 @@ Object {
         "firstBranchId": "4tihtCjRTv",
       },
       "settingsSnapshot": Object {
+        "availableBannerIds": Array [],
         "availableCardIds": Array [
           "FeralLightning",
           "PlanarInsight",
@@ -3104,6 +3105,8 @@ Object {
           "ChronalArc",
           "SymbioticSynapse",
         ],
+        "availableFoeIds": Array [],
+        "availableFriendIds": Array [],
         "availableMageIds": Array [
           "Kadir",
           "Lash",
