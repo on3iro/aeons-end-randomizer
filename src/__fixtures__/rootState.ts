@@ -6,6 +6,7 @@ export const rootState: RootState = {
     Expansions: {
       Languages: {
         AE: 'ENG',
+        ATD: 'ENG',
         BS: 'ENG',
         Depths: 'ENG',
         IW: 'ENG',
@@ -22,6 +23,7 @@ export const rootState: RootState = {
       Expansions: {
         selected: [
           'AE',
+          'ATD',
           'BS',
           'Depths',
           'IW',
@@ -37,6 +39,7 @@ export const rootState: RootState = {
         ],
         ids: [
           'AE',
+          'ATD',
           'BS',
           'Depths',
           'IW',
@@ -55,6 +58,11 @@ export const rootState: RootState = {
             AE: {
               id: 'AE',
               name: 'Aeons End',
+              type: 'standalone',
+            },
+            ATD: {
+              id: 'ATD',
+              name: 'The Descent',
               type: 'standalone',
             },
             BS: {
@@ -6728,30 +6736,774 @@ export const rootState: RootState = {
         },
       },
       Friends: {
-        selected: [],
-        ids: [],
+        selected: [
+          'AdelheimTheBlacksmith',
+          'DalanaTheHealer',
+          'FawnTheAlchemist',
+          'MyrnaTheScholar',
+        ],
+        ids: [
+          'AdelheimTheBlacksmith',
+          'DalanaTheHealer',
+          'FawnTheAlchemist',
+          'MyrnaTheScholar',
+        ],
         content: {
-          ENG: {},
+          ENG: {
+            AdelheimTheBlacksmith: {
+              name: 'Adelheim, the Blacksmith',
+              id: 'AdelheimTheBlacksmith',
+              expansion: 'ATD',
+              charges: 4,
+              abilityName: 'Gather Scrap',
+              abilityEffect: `
+                Each player may return up to three cards in their discard pile
+                that cost 0 <span class="aether">&AElig;</span> to their hand.
+              `,
+              deck: [
+                {
+                  name: 'Amplify',
+                  id: 'Amplify',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Adelheim, the Blacksmith gains 2 charges.
+                    <span class="or">OR</span>
+                    Any player destroys a Spark in hand or discard pile and gains a Forged Spark.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Blazing Furnace',
+                  id: 'BlazingFurnace',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Any player destroys a Crystal in hand or discard pile and gains a Forged Crystal.
+                    <span class="or">OR</span>
+                    Any player returns up to two cards from their discard pile
+                    that cost 0 <span class="aether">&AElig;</span> to their hand.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Burnish',
+                  id: 'Burnish',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Any player destroys a Crystal or Spark in hand.
+                    That player gains the corresponding Forged card and places it in their hand.
+                    <span class="or">OR</span>
+                    Any player loses 2 charges. If they do, Adelheim, the Blacksmith gains 4 charges.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Polished Steel',
+                  id: 'PolishedSteel',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Adelheim, the Blacksmith gains 2 charges.
+                    <span class="or">OR</span>
+                    Any player discards a card in hand that costs
+                    2 <span class="aether">&AElig;</span> or more.
+                    If they do, they gain 3 charges.
+                    </p>
+                  `,
+                },
+              ],
+              extraCards: [
+                {
+                  type: 'Gem',
+                  cost: 0,
+                  name: 'Forged Crystal',
+                  id: 'ForgedCrystal',
+                  effect: '<p>Gain 2 <span class="aether">&AElig;</span>.</p>',
+                  expansion: 'ATD',
+                  keywords: [],
+                },
+                {
+                  type: 'Spell',
+                  cost: 0,
+                  name: 'Forged Spark',
+                  id: 'ForgedSpark',
+                  effect: '<p><b>Cast:</b> Deal 2 damage.</p>',
+                  expansion: 'ATD',
+                  keywords: [],
+                },
+              ],
+            },
+            DalanaTheHealer: {
+              name: 'Dalana, the Healer',
+              id: 'DalanaTheHealer',
+              expansion: 'ATD',
+              charges: 5,
+              abilityName: 'Bandage',
+              abilityEffect: 'Any player or Gravehold gains 4 life.',
+              deck: [
+                {
+                  name: 'Energize',
+                  id: 'Energize',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Dalana, the Healer gains 2 charges.
+                    <span class="or">OR</span>
+                    Any player gains 1 charge.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Enhance',
+                  id: 'Enhance',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Any player focuses a breach
+                    <span class="or">OR</span>
+                    Any player discards a prepped spell.
+                    If they do, Dalana, the Healer gains 3 charges.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Restore',
+                  id: 'Restore',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Dalana, the Healer gains 2 charges.
+                    <span class="or">OR</span>
+                    Any player returns a card from their discard pile to their hand.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Soothing Aura',
+                  id: 'SoothingAura',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Any player draws a card.
+                    <span class="or">OR</span>
+                    Any player gains 2 <span class="aether">&AElig;</span> tokens.
+                    </p>
+                  `,
+                },
+              ],
+            },
+            FawnTheAlchemist: {
+              name: 'Fawn, the Alchemist',
+              id: 'FawnTheAlchemist',
+              expansion: 'ATD',
+              charges: 6,
+              rules: 'The Cauldron is a zone above this mat.',
+              abilityName: 'Caustic Brew',
+              abilityEffect: `
+                For each spell in the Cauldron, deal damage equal to its cost twice.
+                Then, destroy a spell in the Cauldron.
+              `,
+              deck: [
+                {
+                  name: 'Arcane Infusion',
+                  id: 'ArcaneInfusion',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Any player may gain an Incendiary Catalyst and place it on top of their deck.
+                    <span class="or">OR</span>
+                    Any player casts a prepped spell. That spell deals an additional 1 damage.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Bubbling Brew',
+                  id: 'BubblingBrew',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Fawn, the Alchemist gains 2 charges.
+                    <span class="or">OR</span>
+                    Any player places a spell that costs 2 <span class="aether">&AElig;</span>
+                    or more from their hand into the Cauldron and draws a card.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Gather Ingredients',
+                  id: 'GatherIngredients',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Any player gains a spell that costs 5 <span class="aether">&AElig;</span> or less from the supply.
+                    <span class="or">OR</span>
+                    Any player gains 1 charge.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Prepare',
+                  id: 'Prepare',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Fawn, the Alchemist gains 2 charges.
+                    <span class="or">OR</span>
+                    Any player gains an Incendiary Catalyst and an <span class="aether">&AElig;</span> token.
+                    </p>
+                  `,
+                },
+              ],
+              extraCards: [
+                {
+                  type: 'Spell',
+                  cost: 4,
+                  name: 'IncendiaryCatalyst',
+                  id: 'IncendiaryCatalyst',
+                  effect: `
+                    <p>
+                    <b>Cast:</b> Deal 3 damage. You may place a spell that costs
+                    2 <span class="aether">&AElig;</span> or more from your hand
+                    or discard pile into the Cauldron.
+                    </p>
+                  `,
+                  expansion: 'ATD',
+                  keywords: [],
+                },
+              ],
+            },
+            MyrnaTheScholar: {
+              name: 'Myrna, the Scholar',
+              id: 'MyrnaTheScholar',
+              expansion: 'ATD',
+              charges: 4,
+              abilityName: 'Study the Ancients',
+              abilityEffect: 'Myrna gains 4 Knowledge.',
+              deck: [
+                {
+                  name: 'Ancient Secrets',
+                  id: 'AncientSecrets',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Myrna, the Scholar gains 2 charges.
+                    <span class="or">OR</span>
+                    Myrna, the Scholar loses 1 Knowledge. If she does,
+                    reveal the turn order deck and return it in any order.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Archive',
+                  id: 'Archive',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Any player draws three cards and discards any cards drawn this
+                    way that cost 3 <span class="aether">&AElig;</span> or more.
+                    <span class="or">OR</span>
+                    Myrna loses any amount of Knowledge. The players collectively
+                    draw cards equal to the Knowledge lost in this way.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Delve',
+                  id: 'Delve',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Myrna, the Scholar gains 2 charges.
+                    <span class="or">OR</span>
+                    Myrna, the Scholar loses 1 Knowledge. If she does, any player
+                    gains 4 <span class="aether">&AElig;</span> tokens.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Study',
+                  id: 'Study',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Myrna, the Scholar gains 1 charge.
+                    You may have the foe gain 1 charge.
+                    If you do, Myrna gains an additional 2 charges.
+                    <span class="or">OR</span>
+                    Myrna, the Scholar loses 2 Knowledge. If she does,
+                    any player casts a prepped spell without discarding it.
+                    </p>
+                  `,
+                },
+              ],
+            },
+          },
           PL: {},
           DE: {},
           FR: {},
         },
       },
       Foes: {
-        selected: [],
-        ids: [],
+        selected: [
+          'TheCorrosion',
+          'TheCultist',
+          'TheScavenger',
+          'TheSwarm',
+        ],
+        ids: [
+          'TheCorrosion',
+          'TheCultist',
+          'TheScavenger',
+          'TheSwarm',
+        ],
         content: {
-          ENG: {},
+          ENG: {
+            TheCorrosion: {
+              name: 'The Corrosion',
+              id: 'TheCorrosion',
+              expansion: 'ATD',
+              charges: 5,
+              abilityName: 'Return to Dust',
+              abilityEffect: 'Remove 2 power tokens from each power in play. Gravehold suffers 5 damage.',
+              deck: [
+                {
+                  name: 'Diminish',
+                  id: 'Diminish',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: '<p>Place a Draining Sign into play.</p>',
+                },
+                {
+                  name: 'Empower',
+                  id: 'Empower',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Remove 1 power token from each power in play, and the nemesis gains 6 life.
+                    <span class="or">OR</span>
+                    Place a Draining Sign into play.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Imbue Inevitability',
+                  id: 'ImbueInevitability',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    The Corrosion gains 2 charges.
+                    <span class="or">OR</span>
+                    Place the bottommost power card from the nemesis discard pile into play.
+                    Any player gains 2 charges.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Leech',
+                  id: 'Leech',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    The Corrosion gains 2 charges.
+                    <span class="or">OR</span>
+                    Any player discards a gem in hand that costs
+                    3 <span class="aether">&AElig;</span> or more.
+                    </p>
+                  `,
+                },
+              ],
+              extraCards: [
+                {
+                  name: 'Draining Sign',
+                  id: 'DrainingSign',
+                  expansion: 'ATD',
+                  type: 'Power',
+                  power: 3,
+                  effect: `
+                    <p>
+                      <b>To Discard:</b> Spend 5 <span class="aether">&AElig;</span>.
+                      Return this card to the Draining Sign pile.
+                    </p>
+                    <p>
+                      <b>Power 3:</b> Any player suffers 4 damage.
+                      Return this to the Draining Sign pile.
+                    </p>
+                  `
+                },
+              ],
+            },
+            TheCultist: {
+              name: 'The Cultist',
+              id: 'TheCultist',
+              expansion: 'ATD',
+              charges: 4,
+              abilityName: 'Feed the Ritual',
+              abilityEffect: 'Volatile Pylon gains 2 life. Then, remove a power token from Ritual of Flame three times.',
+              deck: [
+                {
+                  name: 'Burn Bright',
+                  id: 'BurnBright',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    The Cultist gains 2 charges.
+                    <span class="or">OR</span>
+                    Volatile Pylon gains 4 life.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Feed the Flames',
+                  id: 'FeedTheFlames',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    The Cultist gains 1 charge.
+                    </p>
+                    <p>
+                    Any player may discard a gem in hand that costs
+                    3 <span class="aether">&AElig;</span> or more.
+                    If they don't, Volatile Pylon gains 3 life.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Melt',
+                  id: 'Melt',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    If Volatile Pylon has 5 or more life, any player discards two cards in hand.
+                    Otherwise, Volatile Pylon gains 4 life.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Smothering Smog',
+                  id: 'SmotheringSmog',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Volatile Pylon gains 2 life and any player loses 1 charge.
+                    <span class="or">OR</span>
+                    The Cultist gains 3 charges and the friend gains 1 charge.
+                    </p>
+                  `,
+                },
+              ],
+              extraCards: [
+                {
+                  name: 'Ritual of Flame',
+                  id: 'RitualOfFlame',
+                  expansion: 'ATD',
+                  type: 'Power',
+                  power: 5,
+                  effect: `
+                    <p>
+                      <b>Power 5:</b> Any player suffers damage equal to the life of Volatile Pylon minus 1.
+                    </p>
+                    <p>
+                      Place 5 power tokens on this instead of discarding it.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Volatile Pylon',
+                  id: 'VolatilePylon',
+                  expansion: 'ATD',
+                  type: 'Minion',
+                  hp: '*',
+                  effect: `
+                    <p>
+                     This enters play with 4 life.<br/>
+                     This minion has no maximum life.<br/>
+                     This minion's life cannot be reduced below 1.
+                    </p>
+                  `,
+                },
+              ],
+            },
+            TheScavenger: {
+              name: 'The Scavenger',
+              id: 'TheScavenger',
+              expansion: 'ATD',
+              charges: 4,
+              abilityName: 'Cull the Stragglers',
+              abilityEffect: 'The player with the lowest life suffers 4 damage.',
+              deck: [
+                {
+                  name: 'Carrion Claw',
+                  id: 'CarrionClaw',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    The Scavenger gains 2 charges.
+                    <span class="or">OR</span>
+                    Any player loses 2 charges.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Reclaim',
+                  id: 'Reclaim',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Any player discards their two most expensive cards in hand and then draws a card.
+                    </p>
+                    <p>
+                    Gravehold suffers 3 damage.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Screeching Wail',
+                  id: 'ScreechingWail',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    The Scavenger gains 1 charge. Any player may discard a prepped spell
+                    that costs 3 <span class="aether">&AElig;</span> or more.
+                    If they don't, the Scavenger gains an additional 2 charges.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Shadow Slash',
+                  id: 'ShadowSlash',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Gravehold suffers 3 damage.
+                    <span class="or">OR</span>
+                    The Scavenger gains 3 charges and the friend gains 1 charge.
+                    </p>
+                  `,
+                },
+              ],
+            },
+            TheSwarm: {
+              name: 'The Swarm',
+              id: 'TheSwarm',
+              expansion: 'ATD',
+              charges: 5,
+              abilityName: 'Call the Hive',
+              abilityEffect: `
+                Place the bottommost minion from the nemesis discard pile back into play.
+                If there are no minions in the nemesis discard pile, place two Broodlings into play instead.
+              `,
+              deck: [
+                {
+                  name: 'Blistered Flesh',
+                  id: 'BlisteredFlesh',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Place a Broodling into play and Gravehold suffers 2 damage.
+                    <span class="or">OR</span>
+                    The Swarm gains 3 charges and the friend gains 1 charge.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Descend and Devour',
+                  id: 'DescendAndDevour',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>Place a Broodling into play.</p>
+                    <p>The Swarm gains 1 charge.</p>
+                  `,
+                },
+                {
+                  name: 'Summoning Screech',
+                  id: 'SummoningScreech',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    Place a Broodling into play with 4 life.
+                    <span class="or">OR</span>
+                    Any player discards a relic in hand that costs
+                    2 <span class="aether">&AElig;</span> or more.
+                    </p>
+                  `,
+                },
+                {
+                  name: 'Wriggle',
+                  id: 'Wriggle',
+                  expansion: 'ATD',
+                  type: 'Attack',
+                  effect: `
+                    <p>
+                    The Swarm gains 2 charges.
+                    <span class="or">OR</span>
+                    Gravehold suffers 3 damage.
+                    </p>
+                  `,
+                },
+              ],
+              extraCards: [
+                {
+                  name: 'Broodling',
+                  id: 'Broodling',
+                  expansion: 'ATD',
+                  type: 'Minion',
+                  hp: 3,
+                  effect: `
+                    <p>When this is discarded, return it to the Broodling deck.</p>
+                    <p><b>Persistent:</b> Any player siffers 1 damage and discards a card.</p>
+                  `,
+                },
+              ],
+            },
+          },
           PL: {},
           DE: {},
           FR: {},
         },
       },
       Banners: {
-        selected: [],
-        ids: [],
+        selected: [
+          'BannerOfChronicles',
+          'BannerOfEnergy',
+          'BannerOfInfusion',
+          'BannerOfSagas',
+          'BannerOfSiphon',
+          'BannerOfVolt',
+        ],
+        ids: [
+          'BannerOfChronicles',
+          'BannerOfEnergy',
+          'BannerOfInfusion',
+          'BannerOfSagas',
+          'BannerOfSiphon',
+          'BannerOfVolt',
+        ],
         content: {
-          ENG: {},
+          ENG: {
+            BannerOfChronicles: {
+              name: 'Banner of Chronicles',
+              id: 'BannerOfChronicles',
+              type: 'Gem',
+              cost: 0,
+              expansion: 'ATD',
+              keywords: [],
+              effect: `
+                <p>
+                Gain 1 <span class="aether">&AElig;</span>.
+                <span class="or">OR</span>
+                The foe loses 1 charge.
+                </p>
+              `,
+            },
+            BannerOfEnergy: {
+              name: 'Banner of Energy',
+              id: 'BannerOfEnergy',
+              type: 'Gem',
+              cost: 0,
+              expansion: 'ATD',
+              keywords: [],
+              effect: `
+                <p>
+                Gain 1 <span class="aether">&AElig;</span>.
+                <span class="or">OR</span>
+                You may discard a card in hand that costs 2 <span class="aether">&AElig;</span> or more.
+                If you do, the friend gains 2 charges.
+                </p>
+              `,
+            },
+            BannerOfInfusion: {
+              name: 'Banner of Infusion',
+              id: 'BannerOfInfusion',
+              type: 'Gem',
+              cost: 0,
+              expansion: 'ATD',
+              keywords: [],
+              effect: `
+                <p>
+                Gain 1 <span class="aether">&AElig;</span>.
+                <span class="or">OR</span>
+                Any player loses 1 charge. If they do, the friend gains 2 charges.
+                </p>
+              `,
+            },
+            BannerOfSagas: {
+              name: 'Banner of Sagas',
+              id: 'BannerOfSagas',
+              type: 'Gem',
+              cost: 0,
+              expansion: 'ATD',
+              keywords: [],
+              effect: `
+                <p>
+                Gain 1 <span class="aether">&AElig;</span>.
+                <span class="or">OR</span>
+                The friend gains 1 charge.
+                </p>
+              `,
+            },
+            BannerOfSiphon: {
+              name: 'Banner of Siphon',
+              id: 'BannerOfSiphon',
+              type: 'Spell',
+              cost: 0,
+              expansion: 'ATD',
+              keywords: [],
+              effect: `
+                <p>
+                <b>Cast:</b> Deal 1 damage.
+                <span class="or">OR</span>
+                <b>Cast:</b> The foe loses 1 charge.
+                </p>
+              `,
+            },
+            BannerOfVolt: {
+              name: 'Banner of Volt',
+              id: 'BannerOfVolt',
+              type: 'Spell',
+              cost: 0,
+              expansion: 'ATD',
+              keywords: [],
+              effect: `
+                <p>
+                <b>Cast:</b> Deal 1 damage.
+                <span class="or">OR</span>
+                <b>Cast:</b> The friend gains 1 charge.
+                </p>
+              `,
+            },
+          },
           PL: {},
           DE: {},
           FR: {},
