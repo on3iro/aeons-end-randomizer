@@ -2912,7 +2912,14 @@ Object {
         "firstBranchId": "4tihtCjRTv",
       },
       "settingsSnapshot": Object {
-        "availableBannerIds": Array [],
+        "availableBannerIds": Array [
+          "BannerOfChronicles",
+          "BannerOfEnergy",
+          "BannerOfInfusion",
+          "BannerOfSagas",
+          "BannerOfSiphon",
+          "BannerOfVolt",
+        ],
         "availableCardIds": Array [
           "FeralLightning",
           "PlanarInsight",
@@ -3105,8 +3112,18 @@ Object {
           "ChronalArc",
           "SymbioticSynapse",
         ],
-        "availableFoeIds": Array [],
-        "availableFriendIds": Array [],
+        "availableFoeIds": Array [
+          "TheCorrosion",
+          "TheCultist",
+          "TheScavenger",
+          "TheSwarm",
+        ],
+        "availableFriendIds": Array [
+          "AdelheimTheBlacksmith",
+          "DalanaTheHealer",
+          "FawnTheAlchemist",
+          "MyrnaTheScholar",
+        ],
         "availableMageIds": Array [
           "Kadir",
           "Lash",
