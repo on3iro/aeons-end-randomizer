@@ -217,11 +217,13 @@ describe('convertFromConfig()', () => {
         mageIds: [],
         supplyIds: [],
         treasureIds: [],
+        bannerIds: [],
       },
       upgradedBasicNemesisCards: [],
       banished: [],
       bigPocketVariant: false,
       uniqueMageNames: true,
+      friendsAndFoesConfig: undefined,
       sequence: {
         firstBranchId: 'wLZW1WbKvj',
         branches: {

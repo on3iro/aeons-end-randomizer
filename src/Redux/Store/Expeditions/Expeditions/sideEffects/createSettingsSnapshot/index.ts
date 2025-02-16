@@ -25,6 +25,9 @@ export const createSettingsSnapshot = (
   const availableUpgradedBasicNemesisCardIds = selectors.Settings.Expansions.getSelectedUpgradedBasicNemesisCardIdsForSelectedExpansions(
     state
   )
+  const availableBannerIds = selectors.Settings.Expansions.getSelectedBannerIdsForSelectedExpansions(state)
+  const availableFriendIds = selectors.Settings.Expansions.getSelectedFriendIdsForSelectedExpansions(state)
+  const availableFoeIds = selectors.Settings.Expansions.getSelectedFoeIdsForSelectedExpansions(state)
 
   const customAndPredefinedSetups = getCustomAndPredefined(state)
 
@@ -45,6 +48,9 @@ export const createSettingsSnapshot = (
       availableNemesisIds,
       availableTreasureIds,
       availableUpgradedBasicNemesisCardIds,
+      availableFriendIds,
+      availableFoeIds,
+      availableBannerIds,
     })
   }
 }

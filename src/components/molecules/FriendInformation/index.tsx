@@ -31,6 +31,7 @@ const renderExtraCards = (friendCards: (ICard | Boon)[]) => {
 
 type OwnProps = {
   friend: Friend
+  simple?: boolean
   theme: any
 }
 
@@ -52,19 +53,18 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const FriendInformation = ({ friend, expansion, theme }: Props) => {
+const FriendInformation = ({ friend, expansion, theme, simple = false }: Props) => {
   if (!friend || !expansion) {
     return null
   }
   return (<React.Fragment>
-    <InfoItem label="Title" info={friend.name} />
     <InfoItem label="Expansion" info={expansion.name} />
     <InfoItem label="Wave" info={expansion.wave || '-'} />
     <InfoItem
       label="Charges"
       info={friend.charges.toString()}
     />
-
+    {simple || <>
     <Ability themeColor={theme.colors.cards.friend.color} name={friend.abilityName} effect={friend.abilityEffect} />
 
     <SectionHeadline
@@ -88,6 +88,7 @@ const FriendInformation = ({ friend, expansion, theme }: Props) => {
         </Grid>
       </>
     }
+  </>}
 
     
   </React.Fragment>)

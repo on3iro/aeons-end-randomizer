@@ -13,6 +13,7 @@ describe('handleMage', () => {
         treasure: [],
         mages: [],
         supplyIds: [],
+        bannerIds: [],
       },
       seed: { seed: 'test', state: expect.any(Object) },
     })
@@ -29,6 +30,7 @@ describe('handleMage', () => {
         treasure: [],
         mages: ['mage1'],
         supplyIds: [],
+        bannerIds: [],
       },
       seed: { seed: 'test', state: expect.any(Object) },
     })

@@ -47,6 +47,7 @@ export type BaseConfig = {
   name: string
   bigPocketVariant: boolean
   uniqueMageNames?: boolean
+  friendsAndFoesConfig?: types.FriendsAndFoesConfig
   marketId: string
   expeditionConfig?: types.ImportedExpeditionConfig
   seedValue?: string
@@ -68,6 +69,7 @@ export type RewardType =
   | 'treasure1'
   | 'treasure2'
   | 'treasure3'
+  | 'banner'
 
 export type BattleRewardsResult = types.Battle & {
   seed: types.Seed
@@ -83,6 +85,7 @@ export type LossConfig = {
   treasure1Ids: string[]
   treasure2Ids: string[]
   treasure3Ids: string[]
+  bannerIds: string[]
 }
 
 export type ExpeditionsStateSlice = {

@@ -27,6 +27,7 @@ export const createRewards = (getState: GetStateFn, reward: types.Reward) => {
         treasure: [],
         mages: [],
         supplyIds: [],
+        bannerIds: [],
       },
       seed: {
         seed: expedition.seed.seed,

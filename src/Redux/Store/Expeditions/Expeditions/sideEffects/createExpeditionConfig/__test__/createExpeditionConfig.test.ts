@@ -33,6 +33,20 @@ describe('createExpeditionConfig()', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('should consider friends and foes', () => {
+    const result = createExpedition(getState, {
+      variantId: 'SHORT',
+      name: 'Test expedition config',
+      bigPocketVariant: false,
+      uniqueMageNames: true,
+      friendsAndFoesConfig: { playerCountForBanners: 3 },
+      marketId: 'market1',
+      seedValue: 'TEST',
+    })
+
+    expect(result).toMatchSnapshot()
+  })
+
   it('should use provided seedValue', () => {
     const createIdListSpy = jest.spyOn(helpersModule, 'createIdList')
 

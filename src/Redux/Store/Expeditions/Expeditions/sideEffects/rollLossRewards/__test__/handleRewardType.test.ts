@@ -5,6 +5,7 @@ import { handleRewardType } from '../index'
 import * as handleSupplyModule from '../handleSupply'
 import * as handleMageModule from '../handleMage'
 import * as handleTreasureModule from '../handleTreasure'
+import * as handleBannerModule from '../handleBanner'
 
 describe('handleRewardType()', () => {
   it('should handle Gem', () => {
@@ -18,6 +19,7 @@ describe('handleRewardType()', () => {
       gemIds: [],
       relicIds: [],
       spellIds: [],
+      bannerIds: [],
       treasure1Ids: [],
       treasure2Ids: [],
       treasure3Ids: [],
@@ -39,6 +41,7 @@ describe('handleRewardType()', () => {
       gemIds: [],
       relicIds: [],
       spellIds: [],
+      bannerIds: [],
       treasure1Ids: [],
       treasure2Ids: [],
       treasure3Ids: [],
@@ -60,6 +63,7 @@ describe('handleRewardType()', () => {
       gemIds: [],
       relicIds: [],
       spellIds: [],
+      bannerIds: [],
       treasure1Ids: [],
       treasure2Ids: [],
       treasure3Ids: [],
@@ -81,6 +85,7 @@ describe('handleRewardType()', () => {
       gemIds: [],
       relicIds: [],
       spellIds: [],
+      bannerIds: [],
       treasure1Ids: [],
       treasure2Ids: [],
       treasure3Ids: [],
@@ -102,6 +107,7 @@ describe('handleRewardType()', () => {
       gemIds: [],
       relicIds: [],
       spellIds: [],
+      bannerIds: [],
       treasure1Ids: [],
       treasure2Ids: [],
       treasure3Ids: [],
@@ -123,6 +129,7 @@ describe('handleRewardType()', () => {
       gemIds: [],
       relicIds: [],
       spellIds: [],
+      bannerIds: [],
       treasure1Ids: [],
       treasure2Ids: [],
       treasure3Ids: [],
@@ -144,6 +151,29 @@ describe('handleRewardType()', () => {
       gemIds: [],
       relicIds: [],
       spellIds: [],
+      bannerIds: [],
+      treasure1Ids: [],
+      treasure2Ids: [],
+      treasure3Ids: [],
+    })
+
+    expect(spy).toHaveBeenCalled()
+
+    spy.mockRestore()
+  })
+
+  it('should handle banner', () => {
+    const spy = jest.spyOn(handleBannerModule, 'handleBanner')
+
+    handleRewardType({
+      rewardType: 'banner',
+      battle: {} as types.Battle,
+      seed: {} as types.Seed,
+      mageIds: [],
+      gemIds: [],
+      relicIds: [],
+      spellIds: [],
+      bannerIds: [],
       treasure1Ids: [],
       treasure2Ids: [],
       treasure3Ids: [],
@@ -164,6 +194,7 @@ describe('handleRewardType()', () => {
       gemIds: [],
       relicIds: [],
       spellIds: [],
+      bannerIds: [],
       treasure1Ids: [],
       treasure2Ids: [],
       treasure3Ids: [],

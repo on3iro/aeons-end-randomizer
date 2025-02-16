@@ -14,6 +14,7 @@ Object {
         "DiamondCluster",
       ],
       "barracks": Object {
+        "bannerIds": Array [],
         "mageIds": Array [
           "Qu",
           "Mazra",
@@ -540,6 +541,7 @@ Object {
         "DiamondCluster",
       ],
       "barracks": Object {
+        "bannerIds": Array [],
         "mageIds": Array [
           "Qu",
           "Mazra",
@@ -1062,6 +1064,7 @@ Object {
         "Jade",
       ],
       "barracks": Object {
+        "bannerIds": Array [],
         "mageIds": Array [
           "Qu",
           "Mazra",
@@ -1585,6 +1588,7 @@ Object {
         "PainStone",
       ],
       "barracks": Object {
+        "bannerIds": Array [],
         "mageIds": Array [
           "Qu",
           "Mazra",
@@ -2115,6 +2119,7 @@ Object {
         "PainStone",
       ],
       "barracks": Object {
+        "bannerIds": Array [],
         "mageIds": Array [
           "Qu",
           "Mazra",
@@ -2644,6 +2649,7 @@ Object {
         "PainStone",
       ],
       "barracks": Object {
+        "bannerIds": Array [],
         "mageIds": Array [
           "Qu",
           "Mazra",
@@ -3188,6 +3194,7 @@ Object {
         "PainStone",
       ],
       "barracks": Object {
+        "bannerIds": Array [],
         "mageIds": Array [
           "Qu",
           "Mazra",
@@ -3717,6 +3724,7 @@ Object {
         "PainStone",
       ],
       "barracks": Object {
+        "bannerIds": Array [],
         "mageIds": Array [
           "Qu",
           "Mazra",

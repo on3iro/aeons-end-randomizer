@@ -553,6 +553,7 @@ export const ExampleExpeditionConfigFull: types.ExpeditionConfig = {
     mageIds: ['Adelheim', 'Jian', 'Brama', 'Kadir'],
     supplyIds: [],
     treasureIds: [],
+    bannerIds: [],
   },
   settingsSnapshotConfig: {
     supplySetup: {

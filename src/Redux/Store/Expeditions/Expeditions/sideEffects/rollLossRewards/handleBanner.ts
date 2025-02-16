@@ -3,22 +3,22 @@ import * as types from 'aer-types/types'
 import { getRandomEntity } from 'Redux/helpers'
 import { rollNewEntity } from '../helpers'
 
-export const handleMage = (
+export const handleBanner = (
   battle: types.Battle,
-  mageIds: string[],
+  bannerIds: string[],
   seed: types.Seed
 ) => {
-  const newMageResult = rollNewEntity(mageIds, getRandomEntity, seed)
-  const newMage = newMageResult.result
+  const newBannerResult = rollNewEntity(bannerIds, getRandomEntity, seed)
+  const newBanner = newBannerResult.result
 
   return {
     ...battle,
     rewards: {
       treasure: [],
-      mages: newMage ? [newMage] : [],
+      mages: [],
       supplyIds: [],
-      bannerIds: [],
+      bannerIds: newBanner ? [newBanner] : [],
     },
-    seed: newMageResult.seed,
+    seed: newBannerResult.seed,
   }
 }

@@ -7,10 +7,14 @@ import NemesisInformation from 'components/molecules/NemesisInformation'
 import InfoItem from 'components/molecules/InfoItem'
 import SectionHeadline from 'components/atoms/SectionHeadline'
 import SpecialRules from '../SpecialRules'
+import FriendInformation from 'components/molecules/FriendInformation'
+import FoeInformation from 'components/molecules/FoeInformation'
 
 type Props = {
   info: string
   nemesis?: types.Nemesis
+  foe?: types.Foe
+  friend?: types.Friend
   specialRules?: string
   onLoss?: string
   upgradedBasicNemsisCards: types.UpgradedBasicNemesisCard[]
@@ -19,6 +23,8 @@ type Props = {
 const BattleOverview = ({
   info,
   nemesis,
+  friend,
+  foe,
   upgradedBasicNemsisCards,
   specialRules,
   onLoss,
@@ -30,6 +36,14 @@ const BattleOverview = ({
         {nemesis ? nemesis.name : 'Nemesis'}
       </SectionHeadline>
       <NemesisInformation nemesis={nemesis} />
+      {friend && <>
+        <SectionHeadline data-test="friend">Friend: {friend.name}</SectionHeadline>
+        <FriendInformation friend={friend} simple={true} />
+      </>}
+      {foe && <>
+        <SectionHeadline data-test="foe">Foe: {foe.name}</SectionHeadline>
+        <FoeInformation foe={foe} simple={true} />
+      </>}
       {(specialRules || onLoss) && (
         <SpecialRules
           rules={[

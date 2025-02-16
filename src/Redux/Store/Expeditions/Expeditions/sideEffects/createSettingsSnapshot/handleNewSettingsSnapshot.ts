@@ -20,6 +20,9 @@ export const handleNewSettingsSnapshot = (
     availableNemesisIds: string[]
     availableTreasureIds: string[]
     availableUpgradedBasicNemesisCardIds: string[]
+    availableFriendIds: string[]
+    availableFoeIds: string[]
+    availableBannerIds: string[]
   }
 ): types.SettingsSnapshot => {
   const usedExpansions = determineUsedExpansions(state, baseSnapshot)

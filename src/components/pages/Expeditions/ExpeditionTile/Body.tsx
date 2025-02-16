@@ -53,6 +53,19 @@ const Body = ({ expedition, usedExpansions }: Props) => (
         data-test="info--unique-mage-names"
       />
       <InfoItem
+        label="Friends and Foes"
+        info={expedition.friendsAndFoesConfig ? `Yes` : 'No'}
+        data-test="info--friends-and-foes"
+      />
+      {
+        expedition.friendsAndFoesConfig && 
+        <InfoItem
+          label="Banners"
+          info={`${expedition.friendsAndFoesConfig.playerCountForBanners + 2}`}
+          data-test="info--banners"
+        />
+      }
+      <InfoItem
         label="Seed"
         info={expedition.seed.seed}
         data-test="info--seed"

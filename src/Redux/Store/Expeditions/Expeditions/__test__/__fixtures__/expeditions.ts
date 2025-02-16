@@ -409,6 +409,7 @@ export const expedition1: types.Expedition = {
       'XaxosPyre',
       'IndirasLoneOpal',
     ],
+    bannerIds: [],
   },
   upgradedBasicNemesisCards: [],
   banished: ['SearingRuby', 'RecurringJasper', 'PainStone'],

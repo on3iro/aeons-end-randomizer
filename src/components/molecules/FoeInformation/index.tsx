@@ -32,6 +32,7 @@ const renderExtraCards = (foeCards: (ICard | INemesisCard)[]) => {
 
 type OwnProps = {
   foe: Foe
+  simple?: boolean
   theme: any
 }
 
@@ -53,12 +54,11 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const FoeInformation = ({ foe, expansion, theme }: Props) => {
+const FoeInformation = ({ foe, expansion, theme, simple = false }: Props) => {
   if (!foe || !expansion) {
     return null
   }
   return (<React.Fragment>
-    <InfoItem label="Title" info={foe.name} />
     <InfoItem label="Expansion" info={expansion.name} />
     <InfoItem label="Wave" info={expansion.wave || '-'} />
     <InfoItem
@@ -66,29 +66,31 @@ const FoeInformation = ({ foe, expansion, theme }: Props) => {
       info={foe.charges.toString()}
     />
 
-    <Ability themeColor={theme.colors.cards.foe.color} name={foe.abilityName} effect={foe.abilityEffect} />
+    {simple || <>
+      <Ability themeColor={theme.colors.cards.foe.color} name={foe.abilityName} effect={foe.abilityEffect} />
 
-    <SectionHeadline
-      themeColor={theme.colors.cards.foe.color}
-    >
-      Foe Deck
-    </SectionHeadline>
+      <SectionHeadline
+        themeColor={theme.colors.cards.foe.color}
+      >
+        Foe Deck
+      </SectionHeadline>
 
-    <Grid container spacing={16}>
-      {renderFoeCards(foe.deck)}
-    </Grid>
-    {foe.extraCards && <>
-        <SectionHeadline
-          themeColor={theme.colors.cards.foe.color}
-        >
-          Extra Cards
-        </SectionHeadline>
+      <Grid container spacing={16}>
+        {renderFoeCards(foe.deck)}
+      </Grid>
+      {foe.extraCards && <>
+          <SectionHeadline
+            themeColor={theme.colors.cards.foe.color}
+          >
+            Extra Cards
+          </SectionHeadline>
 
-        <Grid container spacing={16}>
-          {renderExtraCards(foe.extraCards)}
-        </Grid>
-      </>
-    }
+          <Grid container spacing={16}>
+            {renderExtraCards(foe.extraCards)}
+          </Grid>
+        </>
+      }
+    </>}
 
     
   </React.Fragment>)

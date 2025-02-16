@@ -127,13 +127,37 @@ export const handleExistingConfig = (
 
   const treasureIds = treasureIdsResult.result
 
+  const bannersResult = (() => {
+    const { friendsAndFoesConfig } = baseExpeditionFromConfig
+    if (!friendsAndFoesConfig) {
+      return { result: [], seed: treasureIdsResult.seed }
+    }
+    const bannersToDraw = friendsAndFoesConfig.playerCountForBanners + 2 - (baseExpeditionFromConfig.barracks.bannerIds?.length ?? 0)
+    if (bannersToDraw <= 0) {
+      return { result: baseExpeditionFromConfig.barracks.bannerIds?.slice(0, friendsAndFoesConfig.playerCountForBanners + 2) ?? [], seed: treasureIdsResult.seed }
+    }
+    const availableBanners = settingsSnapshot.availableBannerIds?.filter(
+      banner => !baseExpeditionFromConfig.barracks.bannerIds?.includes(banner))  ?? []
+    
+    const newBanners = createIdList(
+      availableBanners,
+      createArrayWithDefaultValues(bannersToDraw, 'EMPTY'),
+      getRandomEntity,
+      treasureIdsResult.seed
+    )
+
+    return { result: [...baseExpeditionFromConfig.barracks.bannerIds ?? [], ...newBanners.result], seed: newBanners.seed}
+  })()
+
+  const bannerIds = bannersResult.result
+
   ////////////////
   // Expedition //
   ////////////////
 
   const newSeed = {
-    seed: treasureIdsResult.seed.seed,
-    supplyState: treasureIdsResult.seed.state || true,
+    seed: bannersResult.seed.seed,
+    supplyState: bannersResult.seed.state || true,
     // this means that as soon as nemesis and nemesis cards are getting rolled
     // state will be used
     nemesisState: true,
@@ -147,6 +171,7 @@ export const handleExistingConfig = (
       mageIds,
       supplyIds,
       treasureIds,
+      bannerIds,
     },
   }
 }
