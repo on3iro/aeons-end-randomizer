@@ -289,7 +289,9 @@ export const getStillAvailableBannerIds = createSelector(
     Expeditions.selectors.Expeditions.getExpeditionById,
   ],
   (availableBanners, expedition) =>
+    expedition.friendsAndFoesConfig ?
     availableBanners
       .map((banner) => banner.id)
-      .filter((id) => !expedition.barracks.bannerIds?.includes(id))
+      .filter((id) => !expedition.barracks.bannerIds?.includes(id)) :
+    []
 )
