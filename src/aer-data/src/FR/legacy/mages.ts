@@ -1,0 +1,48 @@
+import { Mage } from '../../../../aer-types/types'
+
+export const mages: Mage[] = [
+  {
+    expansion: 'Legacy',
+    name: 'Vert Legacy',
+    id: 'LegacyGreen',
+    abilityName: 'Custom',
+    abilityActivation: 'Activate during your main phase:',
+    abilityEffect: 'Custom',
+    numberOfCharges: 'Custom',
+    mageTitle: 'Custom',
+    uniqueStarters: [],
+  },
+  {
+    expansion: 'Legacy',
+    name: 'Jaune Legacy',
+    id: 'LegacyYellow',
+    abilityName: 'Custom',
+    abilityActivation: 'Activate during your main phase:',
+    abilityEffect: 'Custom',
+    numberOfCharges: 'Custom',
+    uniqueStarters: [],
+    mageTitle: 'Custom',
+  },
+  {
+    expansion: 'Legacy',
+    name: 'Orange Legacy',
+    id: 'LegacyOrange',
+    abilityName: 'Custom',
+    abilityActivation: 'Activate during your main phase:',
+    abilityEffect: 'Custom',
+    numberOfCharges: 'Custom',
+    uniqueStarters: [],
+    mageTitle: 'Custom',
+  },
+  {
+    expansion: 'Legacy',
+    name: 'Bleu Legacy',
+    id: 'LegacyBlue',
+    abilityName: 'Custom',
+    abilityActivation: 'Activate during your main phase:',
+    abilityEffect: 'Custom',
+    numberOfCharges: 'Custom',
+    uniqueStarters: [],
+    mageTitle: 'Custom',
+  },
+]
