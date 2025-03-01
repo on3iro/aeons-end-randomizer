@@ -25,9 +25,19 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
         id: nemesisId,
       })
     : null
+  const friendId = ownProps.battle.friendId
+  const friend = friendId
+    ? selectors.Settings.Expansions.Friends.content.getById(state, { id: friendId })
+    : undefined
+  const foeId = ownProps.battle.foeId
+  const foe = foeId
+    ? selectors.Settings.Expansions.Foes.content.getById(state, { id: foeId })
+    : undefined
 
   return {
     nemesis,
+    friend,
+    foe,
     expeditionIsFinished:
       selectors.Expeditions.Expeditions.getExpeditionIsFinished(state, {
         expeditionId: ownProps.battle.expeditionId,
@@ -47,6 +57,8 @@ const Battle = ({
   battle,
   expeditionIsFinished,
   nemesis,
+  friend,
+  foe,
   rollBattle,
   ...rest
 }: Props) => {
@@ -100,7 +112,7 @@ const Battle = ({
         onClick={handleClick}
         data-test="btn-battle"
       >
-        <BattleTile battle={battle} nemesis={nemesis?.name || '?'} />
+        <BattleTile battle={battle} nemesis={nemesis?.name || '?'} friend={friend?.name} foe={foe?.name} />
       </BranchWrapper>
 
       <beforeBattle.RenderModal titleColor="#333" titleLabel="Before Fight">
@@ -108,6 +120,8 @@ const Battle = ({
           hide={beforeBattle.hide}
           battle={battle}
           nemesis={nemesis ? nemesis : undefined}
+          foe={foe}
+          friend={friend}
           showNext={battleStarted.show}
         />
       </beforeBattle.RenderModal>

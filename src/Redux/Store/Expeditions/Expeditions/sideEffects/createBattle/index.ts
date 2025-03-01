@@ -10,6 +10,8 @@ import { getUpgradedBasicNemesisCardsResult } from './getUpgradedBasicNemesisCar
 export const generateResult = (
   battle: types.Battle,
   nemesisId: string | undefined,
+  friendId: string | undefined,
+  foeId: string | undefined,
   upgradedBasicNemesisCardIds: string[],
   nemesisSeedState?: Object
 ): {
@@ -21,6 +23,8 @@ export const generateResult = (
     battle: {
       ...battle,
       nemesisId,
+      friendId,
+      foeId,
       status: 'before_battle',
     },
     upgradedBasicNemesisCardIds,
@@ -93,10 +97,28 @@ export const createBattle = (
     nemesisIdResult.seed
   )
 
+  const friendIdResult = battle.config.friendId
+    ? {
+        entity: battle.config.friendId,
+        seed: upgradedBasicNemesisCardIdsResult.seed,
+    } : expedition.friendsAndFoesConfig
+      ? getRandomEntity(expedition.settingsSnapshot.availableFriendIds ?? [], upgradedBasicNemesisCardIdsResult.seed)
+      : { entity: undefined, seed: upgradedBasicNemesisCardIdsResult.seed }
+
+  const foeIdResult = battle.config.foeId
+    ? {
+        entity: battle.config.foeId,
+        seed: friendIdResult.seed,
+    } : expedition.friendsAndFoesConfig
+      ? getRandomEntity(expedition.settingsSnapshot.availableFoeIds ?? [], friendIdResult.seed)
+      : { entity: undefined, seed: friendIdResult.seed }
+
   return generateResult(
     battle,
     nemesisIdResult.result,
+    friendIdResult.entity,
+    foeIdResult.entity,
     upgradedBasicNemesisCardIdsResult.result,
-    upgradedBasicNemesisCardIdsResult.seed.state
+    friendIdResult.seed.state
   )
 }

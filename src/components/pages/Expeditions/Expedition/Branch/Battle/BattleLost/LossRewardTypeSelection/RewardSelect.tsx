@@ -49,6 +49,8 @@ const mapStateToProps = (state: RootState, ownProps: OwnProps) => {
         expeditionId,
         treasureLevel: 3,
       }).length > 0,
+    hasBannersLeft:
+      selectors.getStillAvailableBannerIds(state, { expeditionId }).length > 0,
   }
 }
 
@@ -69,6 +71,7 @@ const RewardSelect = ({
   hasLvl1TreasureLeft,
   hasLvl2TreasureLeft,
   hasLvl3TreasureLeft,
+  hasBannersLeft,
   ...rest
 }: Props) => {
   return (
@@ -100,6 +103,11 @@ const RewardSelect = ({
         {hasSpellsLeft && (
           <MenuItem value="spell" data-test="option-spell">
             Spell
+          </MenuItem>
+        )}
+        {hasBannersLeft && (
+          <MenuItem value="banner" data-test="option-banner">
+            Banner
           </MenuItem>
         )}
 

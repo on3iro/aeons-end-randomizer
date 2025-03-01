@@ -15,10 +15,12 @@ import LockIcon from '@material-ui/icons/Lock'
 type Props = {
   battle: types.Battle
   nemesis: string
+  friend: string | undefined
+  foe: string | undefined
   theme?: any
 }
 
-const RenderBody = ({ battle, nemesis }: Props) => {
+const RenderBody = ({ battle, nemesis, friend, foe }: Props) => {
   switch (battle.status) {
     case 'locked':
       return (
@@ -33,13 +35,13 @@ const RenderBody = ({ battle, nemesis }: Props) => {
         </Unlocked>
       )
     default:
-      return <Body battle={battle} nemesis={nemesis} />
+      return <Body battle={battle} nemesis={nemesis} friend={friend} foe={foe} />
   }
 }
 
-const ExpeditionTile = ({ battle, nemesis, theme }: Props) => (
+const ExpeditionTile = ({ battle, nemesis, friend, foe, theme }: Props) => (
   <Tile
-    body={<RenderBody battle={battle} nemesis={nemesis} />}
+    body={<RenderBody battle={battle} nemesis={nemesis} friend={friend} foe={foe} />}
     bgColor={
       battle.status === 'finished'
         ? theme.colors.turnOrderCards.nemesis.light

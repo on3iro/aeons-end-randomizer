@@ -17,6 +17,7 @@ export const handleSupply = (
       treasure: [],
       mages: [],
       supplyIds: newSupplyItemId ? [newSupplyItemId] : [],
+      bannerIds: [],
     },
     seed: newSupplyItemResult.seed,
   }

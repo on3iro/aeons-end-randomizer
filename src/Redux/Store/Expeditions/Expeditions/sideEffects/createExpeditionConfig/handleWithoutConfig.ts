@@ -18,7 +18,7 @@ import {
 } from 'Redux/helpers'
 
 export const handleWithoutConfig = (
-  { variantId, name, bigPocketVariant, uniqueMageNames, marketId, seedValue }: BaseConfig,
+  { variantId, name, bigPocketVariant, uniqueMageNames, marketId, seedValue, friendsAndFoesConfig }: BaseConfig,
   state: RootState
 ) => {
   /////////////////////////
@@ -95,6 +95,16 @@ export const handleWithoutConfig = (
 
   const treasureIds = treasureIdsResult.result
 
+  const bannersResult = friendsAndFoesConfig ?
+      createIdList(
+        settingsSnapshot.availableBannerIds ?? [],
+        createArrayWithDefaultValues(friendsAndFoesConfig.playerCountForBanners + 2, 'EMPTY'),
+        getRandomEntity,
+        treasureIdsResult.seed
+      ) : { result: [], seed: treasureIdsResult.seed }
+
+  const bannerIds = bannersResult.result
+
   /////////////
   // Battles //
   /////////////
@@ -106,8 +116,8 @@ export const handleWithoutConfig = (
   ////////////////
 
   const newSeed = {
-    seed: treasureIdsResult.seed.seed,
-    supplyState: treasureIdsResult.seed.state || true,
+    seed: bannersResult.seed.seed,
+    supplyState: bannersResult.seed.state || true,
     // this means that as soon as nemesis and nemesis cards are getting rolled
     // state will be used
     nemesisState: true,
@@ -123,7 +133,9 @@ export const handleWithoutConfig = (
       mageIds,
       supplyIds,
       treasureIds,
+      bannerIds,
     },
+    friendsAndFoesConfig,
     upgradedBasicNemesisCards: [],
     banished: [],
     bigPocketVariant: bigPocketVariant,

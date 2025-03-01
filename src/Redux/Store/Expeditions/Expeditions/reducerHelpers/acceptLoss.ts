@@ -46,6 +46,8 @@ const handleSkip = (
   const newMageIds =
     battle.rewards && battle.rewards.mages ? battle.rewards.mages : []
 
+  const newBannerIds = battle.rewards?.bannerIds ?? []
+
   const newState = {
     ...state,
     expeditions: {
@@ -64,6 +66,7 @@ const handleSkip = (
           ],
           supplyIds: newSupplyIds,
           mageIds: [...oldExpedition.barracks.mageIds, ...newMageIds],
+          bannerIds: [...oldExpedition.barracks.bannerIds ?? [], ...newBannerIds]
         },
         banished: [...oldExpedition.banished, ...banished],
       },
@@ -106,6 +109,8 @@ const handleRegular = (
   const newMageIds =
     battle.rewards && battle.rewards.mages ? battle.rewards.mages : []
 
+  const newBannerIds = battle.rewards?.bannerIds ?? []
+
   const newState = {
     ...state,
     expeditions: {
@@ -124,6 +129,7 @@ const handleRegular = (
           ],
           supplyIds: newSupplyIds,
           mageIds: [...oldExpedition.barracks.mageIds, ...newMageIds],
+          bannerIds: [...oldExpedition.barracks.bannerIds ?? [], ...newBannerIds],
         },
         banished: [...oldExpedition.banished, ...banished],
       },
