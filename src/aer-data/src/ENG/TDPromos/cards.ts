@@ -23,7 +23,7 @@ export const cards: ICard[] = [
     expansion: 'TDPromo',
     name: 'Rebound Spike',
     id: 'ReboundSpike',
-    cost: 6,
+    cost: 5,
     effect: `
       <p>
       Set aside two gems or relics played
