@@ -4,13 +4,13 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'O',
-    name: 'Unstable Pyrite',
+    name: 'Niestabilny Piryt',
     id: 'UnstablePyrite',
     cost: 2,
     effect: `
       <p>
-        Gain 1 <span class="aether">&AElig;</span>.<br />
-        You may destroy this. If you do, gain an additional 2 <span class="aether">&AElig;</span>.
+        Otrzymujesz 1 <span class="aether">&AElig;</span>.<br />
+        Możesz zniszczyć tę kartę. Jeśli tak zrobisz, otrzymujesz dodatkowo 2 <span class="aether">&AElig;</span>.
       </p>
     `,
     keywords: [],
@@ -18,15 +18,15 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'O',
-    name: 'Molten Peridot',
+    name: 'Stopiony Oliwin',
     id: 'MoltenPeridot',
     cost: 3,
     effect: `
       <p>
-        Gain 2 <span class="aether">&AElig;</span>.<br />
-        If this is the second time you have played Molten Peridot this turn, 
-        you may destroy this. If you do, gain a card that costs 4 <span class="aether">&AElig;</span> 
-        or less from any supply pile.
+        Otrzymujesz 2 <span class="aether">&AElig;</span>.<br />
+        Jeśli zagrałeś Stopiony Oliwin po raz DRUGI w tej turze, 
+        możesz go zniszczyć. Jeśli tak zrobisz, pozyskaj kartę o koszcie 4 <span class="aether">&AElig;</span> 
+        lub mniej z dowolnego stosu zasobów.
       </p>
     `,
     keywords: [],
@@ -34,14 +34,14 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'O',
-    name: 'Helix Of Amber',
+    name: 'Bursztynowa Spirala',
     id: 'HelixOfAmber',
     cost: 3,
     effect: `
       <p>
-        Gain 2 <span class="aether">&AElig;</span>.<br />
-        You may suffer 1 damage. If you do, destroy a card that costs 0 <span class="aether">&AElig;</span> 
-        in your hand.
+        Otrzymujesz 2 <span class="aether">&AElig;</span>.<br />
+        Możesz otrzymać 1 obrażenie. Jeśli tak zrobisz, zniszcz kartę o koszcie 0 <span class="aether">&AElig;</span> 
+        ze swojej ręki.
       </p>
     `,
     keywords: [],
@@ -49,13 +49,13 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'O',
-    name: 'Petrified Phoenixium',
+    name: 'Skamieniały Feniks',
     id: 'PetrifiedPhoenixium',
     cost: 4,
     effect: `
       <p>
-        Gain 2 <span class="aether">&AElig;</span>.<br />
-        The next time you gain a card this turn, you may cast any player's prepped spell.
+        Otrzymujesz 2 <span class="aether">&AElig;</span>.<br />
+        Następnym razem, gdy w tej turze pozyskasz kartę, możesz aktywować przygotowane zaklęcie dowolnego gracza.
       </p>
     `,
     keywords: [],
@@ -63,13 +63,13 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'O',
-    name: 'Galvanized Sapphire',
+    name: 'Ocynkowany Szafir',
     id: 'GalvanizedSapphire',
     cost: 4,
     effect: `
       <p>
-        Gain 2 <span class="aether">&AElig;</span>.<br />
-        Xaxos: Outcast gains 1 charge.
+        Otrzymujesz 2 <span class="aether">&AElig;</span>.<br />
+        Xaxos Wygnaniec otrzymuje 1 Ładunek.
       </p>
     `,
     keywords: ['xaxos'],
@@ -77,13 +77,13 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'O',
-    name: 'Elongated Looq',
+    name: 'Wydłużony Looq',
     id: 'ElongatedLooq',
     cost: 4,
     effect: `
       <p>
-        Gain 2 <span class="aether">&AElig;</span>.<br />
-        The next time you focus or open a breach this turn, gain 1 charge.
+        Otrzymujesz 2 <span class="aether">&AElig;</span>.<br />
+        Gdy następnym razem w tej turze wzmocnisz albo otworzysz Bramę, otrzymujesz 1 Ładunek.
       </p>
     `,
     keywords: [],
@@ -91,14 +91,14 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'O',
-    name: 'Vigorous Sunstone',
+    name: 'Energetyczny Kamień Słoneczny',
     id: 'VigorousSunstone',
     cost: 5,
     effect: `
       <p>
-        When you gain this, if this is the second card you gained this turn, 
-        place it into your hand.<br />
-        Gain 3 <span class="aether">&AElig;</span>.
+        Jeśli pozyskujesz tę kartę jako drugą kartę w tej turze, 
+        weź ją na rękę.<br />
+        Otrzymujesz 3 <span class="aether">&AElig;</span>.
       </p>
     `,
     keywords: [],
@@ -106,16 +106,16 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'O',
-    name: 'Duplicating Sazite',
+    name: 'Powielający się Sazyt',
     id: 'DuplicatingSazite',
     cost: 6,
     effect: `
       <p>
-        Gain 3 <span class="aether">&AElig;</span>.<br />
-        The next time you gain a card this turn, you may discard a prepped spell 
-        that costs 1 <span class="aether">&AElig;</span> or more. If you do, 
-        any ally gains a card from the supply that costs less than or equal to the card 
-        you gained.
+        Otrzymujesz 3 <span class="aether">&AElig;</span>.<br />
+        Następnym razem, gdy pozyskasz kartę w tej turze, możesz odrzucić przygotowane Zaklęcie
+        o koszcie 1 <span class="aether">&AElig;</span> lub więcej. Jeśli tak zrobisz, 
+        dowolny sojusznik pozyskuje kartę z rynku zasobów, której koszt nie jest większy od kosztu karty 
+        którą pozyskałeś.
       </p>
     `,
     keywords: [],
@@ -123,14 +123,14 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'O',
-    name: 'Orb Of The Deep',
+    name: 'Sfera Głębin',
     id: 'OrbOfTheDeep',
     cost: 2,
     effect: `
       <p>
-        Focus your closed breach with the lowest focus cost.
-        <span class="or">OR</span>
-        Destroy this. Gain 1 charge.
+        Wzmocnij swoją zamkniętą Bramę o najniższym koszcie wzmocnienia.
+        <span class="or">ALBO</span>
+        Zniszcz tę kartę. Otrzymujesz 1 Ładunek.
       </p>
     `,
     keywords: [],
@@ -138,15 +138,15 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'O',
-    name: 'Carnivorous Roox',
+    name: 'Mięsożerny Roox',
     id: 'CarnivorousRoox',
     cost: 3,
     effect: `
       <p>
-        Gain 1 <span class="aether">&AElig;</span>. You may destroy a card in hand 
-        to gain <span class="aether">&AElig;</span> equal to its cost.
-        <span class="or">OR</span>
-        Destroy this. Focus your closed breach with the lowest focus cost twice.
+        Otrzymujesz 1 <span class="aether">&AElig;</span>. Możesz zniszczyć kartę z ręki, 
+        aby otrzymać <span class="aether">&AElig;</span> w liczbie równej jej kosztowi.
+        <span class="or">ALBO</span>
+        Zniszcz tę kartę. Dwukrotnie wzmocnij swoją zamkniętą Bramę o najniższym koszcie wzmocnienia.
       </p>
     `,
     keywords: [],
@@ -154,16 +154,16 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'O',
-    name: 'Rift Dagger',
+    name: 'Sztylet Szczeliny',
     id: 'RiftDagger',
     cost: 3,
     effect: `
       <p>
-        Gain a card from any other supply pile that costs 3 <span class="aether">&AElig;</span> 
-        or less. You may destroy this to gain a card that costs up to 4 <span class="aether">&AElig;</span> 
-        instead.<br />
-        You may spend 1 <span class="aether">&AElig;</span>. If you do, place that card 
-        into your hand.
+        Pozyskaj kartę z dowolnego, innego stosu zasobów, która kosztuje nie więcej niż 3 <span class="aether">&AElig;</span>. 
+        Możesz zamiast tego zniszczyć tę kartę, aby pozyskać kartę, która kosztuje nie więcej niż 4 <span class="aether">&AElig;</span>. 
+        <br />
+        Możesz wydać 1 <span class="aether">&AElig;</span>. Jeśli tak zrobisz,
+        weź pozyskaną kartę na rękę.
       </p>
     `,
     keywords: [],
@@ -171,13 +171,13 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'O',
-    name: 'Reconstituting Circuit',
+    name: 'Odtwarzający Obwód',
     id: 'ReconstitutingCircuit',
     cost: 3,
     effect: `
       <p>
-        Xaxos: Outcast gains 1 charge.<br />
-        You may destroy a card in hand.
+        Xaxos Wygnaniec otrzymuje 1 Ładunek.<br />
+        Możesz zniszczyć kartę z ręki.
       </p>
     `,
     keywords: ['xaxos'],
@@ -185,16 +185,16 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'O',
-    name: 'Destiny Forger',
+    name: 'Fałszerz Przeznaczenia',
     id: 'DestinyForger',
     cost: 4,
     effect: `
       <p>
-        Any ally may destroy a card in hand. That player may gain a card that costs 
-        up to 2 <span class="aether">&AElig;</span> more than the destroyed card and 
-        place it into their hand.
-        <span class="or">OR</span>
-        Destroy this. Gain 2 charges.
+        Dowolny sojusznik może zniszczyć kartę z ręki. Ten gracz może pozyskać i wziąć
+        na rękę kartę, która kosztuje maksymalnie o 2 <span class="aether">&AElig;</span>  
+        więcej niż zniszczona karta.
+        <span class="or">ALBO</span>
+        Zniszcz tę kartę. Otrzymujesz 2 Ładunki.
       </p>
     `,
     keywords: [],
@@ -202,15 +202,15 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'O',
-    name: 'Chain Of Retrieval',
+    name: 'Łańcuch Odzyskania',
     id: 'ChainOfRetrieval',
     cost: 4,
     effect: `
       <p>
-        Focus any ally's breach.
-        <span class="or">OR</span>
-        Return a card in your discard pile to your hand that costs 
-        6 <span class="aether">&AElig;</span> or less.
+        Wzmocnij Bramę dowolnego sojusznika.
+        <span class="or">ALBO</span>
+        Przywróć na rękę kartę ze swojego stosu kart odrzuconych
+        o koszcie 6 <span class="aether">&AElig;</span> lub mniej.
       </p>
     `,
     keywords: [],
@@ -218,12 +218,12 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'O',
-    name: 'Bottled Sun',
+    name: 'Słońce w Butelce',
     id: 'BottledSun',
     cost: 6,
     effect: `
       <p>
-        Xaxos: Outcast gains 3 charges.
+        Xaxos Wygnaniec otrzymuje 3 Ładunki.
       </p>
     `,
     keywords: ['xaxos'],
@@ -231,15 +231,15 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'O',
-    name: "Transmuter's Lens",
+    name: "Soczewki Transmutera",
     id: 'TransmutersLens',
     cost: 5,
     effect: `
       <p>
-        Destroy this.<br />
-        You may destroy a card in your hand or discard pile.<br />
-        Gain a card that costs up to 6 <span class="aether">&AElig;</span> from 
-        any supply pile.
+        Zniszcz tę kartę.<br />
+        Możesz zniszczyć kartę na swojej ręce albo ze swojego stosu kart odrzuconych.<br />
+        Pozyskaj kartę z dowolnego stosu zasobów, której koszt to 
+        nie więcej niż 6 <span class="aether">&AElig;</span>. 
       </p>
     `,
     keywords: [],
@@ -247,15 +247,15 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'O',
-    name: 'Unhinged Vortex',
+    name: 'Rozszalały Wir',
     id: 'UnhingedVortex',
     cost: 7,
     effect: `
       <p>
-        Any ally draws three cards. Then, they discard a card in hand.
-        <span class="or">OR</span>
-        You may focus any ally's breach. Any ally may return a card in their discard pile 
-        to their hand.
+        Dowolny sojusznik dobiera trzy karty. Następnie odrzuca kartę z ręki.
+        <span class="or">ALBO</span>
+        Możesz wzmocnić Bramę dowolnego sojusznika. Dowolny sojusznik może 
+        przywrócić na rękę kartę ze swojego stosu kart odrzuconych.
       </p>
     `,
     keywords: [],
@@ -263,13 +263,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Fortified Frost',
+    name: 'Obronny Mróz',
     id: 'FortifiedFrost',
     cost: 2,
     effect: `
       <p>
-        <b>Cast:</b> Deal 2 damage.<br />
-        You may discard a card in hand. If you do, deal 1 additional damage.
+        <b>Aktywacja:</b> Zadaj 2 obrażenia.<br />
+        Możesz odrzucić kartę z ręki. Jeśli to zrobisz, zadaj 1 dodatkowe obrażenie.
       </p>
     `,
     keywords: [],
@@ -277,17 +277,17 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Paired Storm',
+    name: 'Złączona Burza',
     id: 'PairedStorm',
     cost: 3,
     effect: `
       <p>
-        <b>Link</b> <span class="hint">(Two spells with Link may be prepped to the same breach.)</span>
+        <b>Więż</b> <span class="hint">(Dwa Zaklęcia z cechą Więź mogą zostać przygotowane na tej samej Bramie.)</span>
       </p>
       <p>
-        <b>Cast:</b> Deal 2 damage.<br />
-        If this is the second time you have cast a Paired Storm this turn, 
-        deal 2 additional damage.
+        <b>Aktywacja:</b> Zadaj 2 obrażenia.<br />
+        Jeśli aktywowałeś Złączoną Burzę po raz DRUGI w tej turze, 
+        zadaj dodatkowe 2 obrażenia.
       </p>
     `,
     keywords: ['link'],
@@ -295,13 +295,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Twisted Fang',
+    name: 'Wykrzywione Kły',
     id: 'TwistedFang',
     cost: 4,
     effect: `
       <p>
-        <b>Cast:</b> Deal 3 damage.<br />
-        If this card's supply pile is empty, deal 1 additional damage.
+        <b>Aktywacja:</b> Zadaj 3 obrażenia.<br />
+        Jeśli stos zasobów tej karty jest wyczerpany, zadaj 1 dodatkowe obrażenie.
       </p>
     `,
     keywords: [],
@@ -309,16 +309,16 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Shattering Bolt',
+    name: 'Roztrzaskujący Pocisk',
     id: 'ShatteringBolt',
     cost: 4,
     effect: `
       <p>
-        <b>Cast:</b> Deal 2 damage.<br />
-        You may destroy a card in your hand.
-        <span class="or">OR</span>
-        <b>Cast:</b> Discard a gem in hand.<br />
-        If you do, deal 4 damage.
+        <b>Aktywacja:</b> Zadaj 2 obrażenia.<br />
+        Możesz zniszczyć kartę ze swojej ręki.
+        <span class="or">ALBO</span>
+        <b>Aktywacja:</b> Odrzuć Klejnot z ręki.<br />
+        Jeśli to zrobisz, zadaj 4 obrażenia.
       </p>
     `,
     keywords: [],
@@ -326,13 +326,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Infused Ignition',
+    name: 'Wewnętrzny Zapłon',
     id: 'InfusedIgnition',
     cost: 4,
     effect: `
       <p>
-        <b>Cast:</b> Deal 3 damage.<br />
-        If Xaxos: Outcast has 4 or less charges, he gains 1 charge.
+        <b>Aktywacja:</b> Zadaj 3 obrażenia.<br />
+        Jeśli Xaxos Wygnaniesz ma nie więcej niż 4 Ładunki, otrzymuje 1 Ładunek.
       </p>
     `,
     keywords: ['xaxos'],
@@ -340,13 +340,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Lightning Arrow',
+    name: 'Błyskawica',
     id: 'LightningArrow',
     cost: 5,
     effect: `
       <p>
-        <b>Cast:</b> Deal 3 damage.<br />
-        You may discard a card in hand. If you do, Gravehold gains 1 life.
+        <b>Aktywacja:</b> Zadaj 3 obrażenia.<br />
+        Możesz odrzucić kartę z ręki. Jeśli to zrobisz, Gravehold otrzymuje 1 żywotności.
       </p>
     `,
     keywords: [],
@@ -354,13 +354,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Radiant Conflux',
+    name: 'Promienisty Przepływ',
     id: 'RadiantConflux',
     cost: 5,
     effect: `
       <p>
-        <b>Cast:</b> Deal 3 damage.<br />
-        Any ally may draw a card and then discard a card in hand.
+        <b>Aktywacja:</b> Zadaj 3 obrażenia.<br />
+        Dowolny sojusznik może dobrać kartę, a następnie odrzuca kartę z ręki.
       </p>
     `,
     keywords: [],
@@ -368,14 +368,14 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Unstable Rift',
+    name: 'Niestabilna Szczelina',
     id: 'UnstableRift',
     cost: 5,
     effect: `
       <p>
-        While prepped, at the end of your casting phase deal 1 damage and 
-        gain 1 <span class="aether">&AElig;</span>.<br />
-        <b>Cast:</b> Deal 4 damage.
+        Gdy przygotowane: na koniec swojej fazy aktywacji 
+        zadaj 1 obrażenie i otrzymaj 1 <span class="aether">&AElig;</span>.<br />
+        <b>Aktywacja:</b> Zadaj 4 obrażenia.
       </p>
     `,
     keywords: [],
@@ -383,14 +383,14 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Gathered Will',
+    name: 'Zgromadzona Wola',
     id: 'GatheredWill',
     cost: 5,
     effect: `
       <p>
-        <b>Cast:</b> Deal 2 damage.<br />
-        You may gain a spell from any supply pile that costs 4 <span class="aether">&AElig;</span> 
-        or less and place it on top of your deck.
+        <b>Aktywacja:</b> Zadaj 2 obrażenia.<br />
+        Możesz pozyskać Zaklęcie z dowolnego stosu zasobów, o koszcie 4 <span class="aether">&AElig;</span> 
+        lub mniej i umieścić je na wierzchu swojej talii.
       </p>
     `,
     keywords: [],
@@ -398,13 +398,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Tornado Of Insight',
+    name: 'Tornado Przenikliwości',
     id: 'TornadoOfInsight',
     cost: 6,
     effect: `
       <p>
-        <b>Cast:</b> Deal 5 damage.<br />
-        If you have no closed breaches, gain 1 charge.
+        <b>Aktywacja:</b> Zadaj 5 obrażeń.<br />
+        Jeśli masz wszystkie Bramy otwarte, otrzymujesz 1 Ładunek.
       </p>
     `,
     keywords: [],
@@ -412,14 +412,14 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Hasted Intellect',
+    name: 'Usprawniony Intelekt',
     id: 'HastedIntellect',
     cost: 6,
     effect: `
       <p>
-        While prepped, when you gain a card, you may place that card on top 
-        of your deck.<br />
-        <b>Cast:</b> Deal 4 damage.
+        Gdy przygotowane: kiedy pozyskujesz kartę, możesz ją umieścić
+        na wierzchu swojej talii.<br />
+        <b>Aktywacja:</b> Zadaj 4 obrażenia.
       </p>
     `,
     keywords: [],
@@ -427,13 +427,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Swarm Of Flame',
+    name: 'Rój Płomieni',
     id: 'SwarmOfFlame',
     cost: 6,
     effect: `
       <p>
-        <b>Cast:</b> Deal 5 damage.<br />
-        You may cast any player's prepped spell that costs 5 <span class="aether">&AElig;</span> or less.
+        <b>Aktywacja:</b> Zadaj 5 obrażeń.<br />
+        Możesz aktywować przygotowane Zaklęcie dowolnego gracza o koszcie 5 <span class="aether">&AElig;</span> lub mniej.
       </p>
     `,
     keywords: [],
@@ -441,14 +441,14 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Arcane Relay',
+    name: 'Tajemny Przekaźnik',
     id: 'ArcaneRelay',
     cost: 8,
     effect: `
       <p>
-        <b>Cast:</b> Any ally draws a card then reveals their hand.<br />
-        Deal 4 damage. Deal 1 additional damage for each card in that ally's 
-        hand that costs 1 <span class="aether">&AElig;</span> or more.
+        <b>Aktywacja:</b> Dowolny sojusznik dobiera kartę, a następnie ujawnia swoją rękę.<br />
+        Zadaj 4 obrażenia. Zadaj 1 dodatkowe obrażenie za każdą kartę na ręce tego sojusznika,
+        której koszt to 1 <span class="aether">&AElig;</span> lub więcej.
       </p>
     `,
     keywords: [],
@@ -456,14 +456,14 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'O',
-    name: 'Dizzying Burst',
+    name: 'Oszałamiający Wybuch',
     id: 'DizzyingBurst',
     cost: 8,
     effect: `
       <p>
-        <b>Cast:</b> Deal 6 damage.<br />
-        Reveal the turn order deck.<br />
-        Return it in any order.
+        <b>Aktywacja:</b> Zadaj 6 obrażeń.<br />
+        Odkryj karty z talii tur.<br />
+        Odłóż je w dowolnej kolejności.
       </p>
     `,
     keywords: [],
