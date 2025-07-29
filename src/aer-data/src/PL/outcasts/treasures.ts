@@ -38,7 +38,7 @@ export const treasures: Treasure[] = [
     effect: `
       <p>
         <span class="hint">(Na początku gdy dodaj Kryształ do swojego stosu kart odrzuconych.)</span><br />
-        <b>Aktywacja:</br> Zadaj 2 obrażenia.
+        <b>Aktywacja:</b> Zadaj 2 obrażenia.
       </p>
     `,
   },
@@ -50,7 +50,7 @@ export const treasures: Treasure[] = [
     subtype: 'Spell',
     effect: `
       <p>
-        <b>Aktywacja:</br> Zadaj 1 obrażenie.<br />
+        <b>Aktywacja:</b> Zadaj 1 obrażenie.<br />
         Wzmocnij Bramę III dowolnego gracza.
       </p>
     `,
