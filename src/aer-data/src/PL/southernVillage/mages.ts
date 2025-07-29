@@ -6,26 +6,26 @@ export const mages: Mage[] = [
     name: 'Lucien',
     id: 'Lucien',
     mageTitle: '',
-    abilityName: `Magnetism`,
-    abilityActivation: `Activate during your casting phase:`,
+    abilityName: `Magnetyzm`,
+    abilityActivation: `Użyj podczas swojej fazy aktywacji:`,
     abilityEffect: `
       <p>
-        Open all of your breaches. Prep any number of spells in hand to your opened breaches.
+        Otwórz wszystkie swoje Bramy. Przygotuj dowolną liczbę Zaklęć z ręki na swoich otwartych Bramach.
       </p>
     `,
     numberOfCharges: 5,
     uniqueStarters: [
       {
         type: 'Gem',
-        name: 'Sun Shard',
+        name: 'Odłamek Słońca',
         expansion: 'SV',
         id: 'SunShard',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.
-            <span class="or">OR</span>
-            Gain 3 <span class="aether">&AElig;</span> that can only be used to open a breach.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.
+            <span class="or">ALBO</span>
+            Otrzymujesz 3 <span class="aether">&AElig;</span>, które mogą zostać wykorzystane wyłącznie do otwarcia Bramy.
           </p>
         `,
         keywords: [],
@@ -38,29 +38,29 @@ export const mages: Mage[] = [
     name: 'Reth',
     id: 'Reth',
     mageTitle: '',
-    abilityName: `Missing Half`,
-    abilityActivation: `Activate during your main phase:`,
+    abilityName: `Brakująca Połówka`,
+    abilityActivation: `Aktywuj podczas swojej fazy głównej:`,
     abilityEffect: `
       <p>
-        Reveal your deck. Place up to two spells with the same name from your deck into 
-        your hand, and up to two spells with that same name from your discard into 
-        your hand. Return your deck in the same order.
+        Odkryj swoją talię. Weź do czterech kart Zaklęć o tej samej nazwie na swoją rękę:
+        do dwóch kart ze swojej talii oraz do dwóch kart ze swojego stosu kart odrzuconych.
+        Odłóż swoją talię, zachowując kolejność kart.
       </p>
     `,
     numberOfCharges: 5,
     uniqueStarters: [
       {
         type: 'Spell',
-        name: 'Fossilized Rose',
+        name: 'Skamieniała Róża',
         expansion: 'SV',
         id: 'FossilizedRose',
         cost: 0,
         effect: `
           <p>
-            <b>Cast:</b> Discard a card in hand. If you do, gain a spell that costs 
-            5 <span class="aether">&AElig;</span> or less from any supply pile.
-            <span class="or">OR</span>
-            <b>Cast:</b> Deal 1 damage.
+            <b>Aktywacja:</b> Odrzuć kartę z ręki. Jeśli to zrobisz, pozyskaj Zaklęcie o koszcie 
+            5 <span class="aether">&AElig;</span> lub mniej z dowolnego stosu zasobów.
+            <span class="or">ALBO</span>
+            <b>Aktywacja:</b> Zadaj 1 obrażenie.
           </p>
         `,
         keywords: [],

@@ -3,32 +3,32 @@ import { Mage } from '../../../../aer-types/types'
 export const mages: Mage[] = [
   {
     expansion: 'RTG',
-    name: 'Ohat And Ulgimor',
+    name: 'Ohat i Ulgimor',
     id: 'OhatAndUlgimor',
     aliases: ['Ulgimor'],
     mageTitle: '',
-    abilityName: `Enrapture`,
-    abilityActivation: `Activate during your main phase:`,
+    abilityName: `Oczarowanie`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
     abilityEffect: `
       <p>
-        Ohat mode: Suffer 2 damage. Any ally draws five cards and discards two cards in hand.<br />
-        Ulgimor mode: Cast a spell prepped to Ulgimor's IV breach without discarding it.
+        Postać Ohata: Otrzymujesz 2 obrażenia. Dowolny sojusznik dobiera pięć kart i odrzuca dwie karty z ręki.<br />
+        Postać Ulgimora: Aktywuj Zaklęcie przygotowane na Bramie IV, bez jego odrzucania.
       </p>
     `,
     numberOfCharges: 4,
     uniqueStarters: [
       {
         type: 'Spell',
-        name: 'Shower Of Coals',
+        name: 'Deszcz Odkłamków',
         expansion: 'RTG',
         id: 'ShowerOfCoals',
         cost: 0,
         effect: `
           <p>
-            Ohat Mode:<br />
-            <b>Cast:</b> Suffer 1 damage and gain 2 <span class="aether">&AElig;</span>.<br />
-            Ulgimor Mode:<br />
-            <b>Cast:</b> Deal 3 damage.
+            Postać Ohata:<br />
+            <b>Aktywacja:</b> Otrzymujesz 2 <span class="aether">&AElig;</span> i 1 obrażenie<br />
+            Postać Ulgimora:<br />
+            <b>Aktywacja:</b> Zadaj 3 obrażenia.
           </p>
         `,
         keywords: [],
@@ -41,13 +41,13 @@ export const mages: Mage[] = [
     name: 'Cairna',
     id: 'Cairna',
     mageTitle: '',
-    abilityName: `Energize`,
-    abilityActivation: `Activate during your main phase:`,
+    abilityName: `Napełnienie Energią`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
     abilityEffect: `
       <p>
-        Gain a spell that costs 5 <span class="aether">&AElig;</span> or less from a supply pile. 
-        You may lose two charges to gain any spell from a supply pile instead. You may 
-        lose a charge to prep a spell in your discard pile to one of your opened breaches.
+        Pozyskaj Zaklęcie ze stosu zasobów, o koszcie 5 <span class="aether">&AElig;</span> lub mniej. 
+        Zamiast tego możesz odrzucić dwa Ładunki, aby pozyskać dowolne Zaklęcie ze stosu zasobów. Możesz odrzucić Ładunek, 
+        aby przygotować Zaklęcie ze swojego stosu kart odrzuconych na jednej ze swoich otwartych Bram.
       </p>
     `,
     numberOfCharges: 3,
@@ -55,15 +55,15 @@ export const mages: Mage[] = [
     uniqueStarters: [
       {
         type: 'Spell',
-        name: 'Invigorate',
+        name: 'Pokrzepienie',
         expansion: 'RTG',
         id: 'Invigorate',
         cost: 0,
         effect: `
           <p>
-            <b>Cast:</b> Deal 1 damage.
-            <span class="or">OR</span>
-            <b>Cast:</b> Return a spell in your discard pile to your hand.
+            <b>Aktywacja:</b> Zadaj 1 obrażenie.
+            <span class="or">ALBO</span>
+            <b>Aktywacja:</b> Weź Zaklęcie ze swojego stosu kart odrzuconych na rękę.
           </p>
         `,
         keywords: [],

@@ -6,70 +6,70 @@ export const mages: Mage[] = [
     name: 'Ilya',
     id: 'Ilya',
     mageTitle: '',
-    abilityName: `Life Embrace`,
-    abilityActivation: `Activate during your main phase:`,
+    abilityName: `Objęcia Życia`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
     abilityEffect: `
       <p>
-        Cast all of your prepped spells without discarding them. 
-        Any ally returns a card in their discard pile to their hand.
+        Aktywuj wszystkie swoje przygotowane Zaklęcia, bez odrzucania ich. 
+        Dowolny sojusznik bierze z powrotem na rękę kartę ze swojego stosu kart odrzuconych.
       </p>
     `,
     numberOfCharges: 5,
     uniqueStarters: [
       {
         type: 'Gem',
-        name: 'Entwined Amethyst',
+        name: 'Spleciony Ametyst',
         expansion: 'O',
         id: 'EntwinedAmethyst',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.<br/>
-            When you discard this during an ally's turn, you gain 1 charge.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.<br/>
+            Gdy odrzucisz tę kartę w trakcie tury sojusznika, otrzymujesz 1 Ładunek.
           </p>
         `,
         keywords: [],
       },
       {
         type: 'Gem',
-        name: 'Entwined Amethyst',
+        name: 'Spleciony Ametyst',
         expansion: 'O',
         id: 'EntwinedAmethyst',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.<br/>
-            When you discard this during an ally's turn, you gain 1 charge.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.<br/>
+            Gdy odrzucisz tę kartę w trakcie tury sojusznika, otrzymujesz 1 Ładunek.
           </p>
         `,
         keywords: [],
       },
       {
         type: 'Gem',
-        name: 'Trulite Of Force',
+        name: 'Okruch Mocy',
         expansion: 'O',
         id: 'TruliteOfForce',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.<br/>
-            Any ally may discard a card in hand. If they do, gain 1 <span class="aether">&AElig;</span> that 
-            can only be used to gain a spell or to focus or open a breach.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.<br/>
+            Dowolny sojusznik może odrzucić kartę z ręki. Jeśli tak zrobi, otrzymujesz 1 <span class="aether">&AElig;</span>, 
+            który może być wykorzystany wyłącznie do pozyskania Zaklęcia albo wzmocnienia lub otwarcia Bramy.
           </p>
         `,
         keywords: [],
       },
       {
         type: 'Gem',
-        name: 'Trulite Of Force',
+        name: 'Okruch Mocy',
         expansion: 'O',
         id: 'TruliteOfForce',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.<br/>
-            Any ally may discard a card in hand. If they do, gain 1 <span class="aether">&AElig;</span> that 
-            can only be used to gain a spell or to focus or open a breach.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.<br/>
+            Dowolny sojusznik może odrzucić kartę z ręki. Jeśli tak zrobi, otrzymujesz 1 <span class="aether">&AElig;</span>, 
+            który może być wykorzystany wyłącznie do pozyskania Zaklęcia albo wzmocnienia lub otwarcia Bramy.
           </p>
         `,
         keywords: [],
@@ -82,70 +82,70 @@ export const mages: Mage[] = [
     name: 'Kel',
     id: 'Kel',
     mageTitle: '',
-    abilityName: `Soul Invigoration`,
-    abilityActivation: `Activate during your main phase:`,
+    abilityName: `Pokrzepienie Duszy`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
     abilityEffect: `
       <p>
-        Return up to two gems or relics you played this turn to your hand. 
-        Any ally draws a card and may prep a spell in hand to an opened or closed breach.
+        Zabierz z powrotem na rękę do dwóch Klejnotów lub Artefaktów, które zagrałeś w tej turze.
+        Dowolny sojusznik dobiera kartę i może przygotować Zaklęcie z ręki na otwartej albo zamkniętej Bramie.
       </p>
     `,
     numberOfCharges: 6,
     uniqueStarters: [
       {
         type: 'Gem',
-        name: 'Entwined Amethyst',
+        name: 'Spleciony Ametyst',
         expansion: 'O',
         id: 'EntwinedAmethyst',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.<br/>
-            When you discard this during an ally's turn, you gain 1 charge.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.<br/>
+            Gdy odrzucisz tę kartę w trakcie tury sojusznika, otrzymujesz 1 Ładunek.
           </p>
         `,
         keywords: [],
       },
       {
         type: 'Gem',
-        name: 'Entwined Amethyst',
+        name: 'Spleciony Ametyst',
         expansion: 'O',
         id: 'EntwinedAmethyst',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.<br/>
-            When you discard this during an ally's turn, you gain 1 charge.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.<br/>
+            Gdy odrzucisz tę kartę w trakcie tury sojusznika, otrzymujesz 1 Ładunek.
           </p>
         `,
         keywords: [],
       },
       {
         type: 'Gem',
-        name: 'Trulite Of Energy',
+        name: 'Okruch Energii',
         expansion: 'O',
         id: 'TruliteOfEnergy',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.<br/>
-            Any ally may discard a card in hand. If they do, gain 1 <span class="aether">&AElig;</span> that 
-            can only be used to gain a gem or relic.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.<br/>
+            Dowolny sojusznik może odrzucić kartę z ręki. Jeśli tak zrobi, otrzymujesz 1 <span class="aether">&AElig;</span>, 
+            który można wykorzystać tylko do pozyskania Klejnotu albo Artefaktu.
           </p>
         `,
         keywords: [],
       },
       {
         type: 'Gem',
-        name: 'Trulite Of Energy',
+        name: 'Okruch Energii',
         expansion: 'O',
         id: 'TruliteOfEnergy',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.<br/>
-            Any ally may discard a card in hand. If they do, gain 1 <span class="aether">&AElig;</span> that 
-            can only be used to gain a gem or relic.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.<br/>
+            Dowolny sojusznik może odrzucić kartę z ręki. Jeśli tak zrobi, otrzymujesz 1 <span class="aether">&AElig;</span>, 
+            który można wykorzystać tylko do pozyskania Klejnotu albo Artefaktu.
           </p>
         `,
         keywords: [],
@@ -158,41 +158,41 @@ export const mages: Mage[] = [
     name: "Z'hana",
     id: 'ZhanaO',
     mageTitle: '',
-    abilityName: `Inscribe`,
-    abilityActivation: `Activate during any player's main phase:`,
+    abilityName: `Zapisanie`,
+    abilityActivation: `Użyj podczas fazy głównej dowolnego gracza:`,
     abilityEffect: `
       <p>
-        Gravehold gains 5 life. Place two glyph tokens on top of any card in the supply.
+        Gravehold otrzymuje 5 punktów żywotności. Umieść 2 żetony Glifu na wierzchu dowolnego stosu na rynku zasobów.
       </p>
     `,
     numberOfCharges: 5,
     uniqueStarters: [
       {
         type: 'Gem',
-        name: 'Glyph Carver',
+        name: 'Rzeźbiarz Glifów',
         expansion: 'O',
         id: 'GlyphCarver',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.
-            <span class="or">OR</span>
-            Place 1 glyph token on top of any card in the supply.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.
+            <span class="or">ALBO</span>
+            Umieść 1 żeton Glifu na wierzchu dowolnego stosu na rynku zasobów.
           </p>
         `,
         keywords: [],
       },
       {
         type: 'Gem',
-        name: 'Glyph Carver',
+        name: 'Rzeźbiarz Glifów',
         expansion: 'O',
         id: 'GlyphCarver',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.
-            <span class="or">OR</span>
-            Place 1 glyph token on top of any card in the supply.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.
+            <span class="or">ALBO</span>
+            Umieść 1 żeton Glifu na wierzchu dowolnego stosu na rynku zasobów.
           </p>
         `,
         keywords: [],
@@ -205,26 +205,26 @@ export const mages: Mage[] = [
     name: 'Taqren',
     id: 'TaqrenO',
     mageTitle: '',
-    abilityName: `Sustain`,
-    abilityActivation: `Activate during your main phase:`,
+    abilityName: `Podtrzymanie`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
     abilityEffect: `
       <p>
-        If you are not exhausted, gain 3 life.<br />
-        Otherwise, Gravehold gains 3 life.
+        Jeśli nie jesteś wyczerpany, otrzymujesz 3 punkty życia.<br />
+        W przeciwnym razie Gravehold otrzymuje 3 punkty żywotności.
       </p>
     `,
     numberOfCharges: 5,
     uniqueStarters: [
       {
         type: 'Gem',
-        name: 'Esoteric Amplifier',
+        name: 'Wzmacniacz Mocy',
         expansion: 'O',
         id: 'EsotericAmplifier',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.<br />
-            You may suffer 1 damage.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.<br />
+            Możesz otrzymać 1 obrażenie.
           </p>
         `,
         keywords: [],
@@ -237,26 +237,26 @@ export const mages: Mage[] = [
     name: 'Qu',
     id: 'QuO',
     mageTitle: '',
-    abilityName: `Combust Aether`,
-    abilityActivation: `Activate at the end of your draw phase:`,
+    abilityName: `Spalanie Eteru`,
+    abilityActivation: `Użyj na koniec swojej fazy dobierania:`,
     abilityEffect: `
       <p>
-        Draw three cards.
+        Dobierz trzy karty.
       </p>
     `,
     numberOfCharges: 4,
     uniqueStarters: [
       {
         type: 'Spell',
-        name: 'Call Of The Void',
+        name: 'Zew Pustki',
         expansion: 'O',
         id: 'CallOfTheVoid',
         cost: 0,
         effect: `
           <p>
-            While prepped, the first time you play a gem or relic that costs 1 <span class="aether">&AElig;</span> or more 
-            each turn, play that card twice and then return it to the supply.<br/>
-            <b>Cast:</b> Deal 1 damage.
+            Gdy przygotowane: gdy po raz PIERWSZY w turze zagrywasz Klejnot albo Artefakt o koszcie 1 <span class="aether">&AElig;</span> 
+            lub więcej, zagraj tę kartę dwukrotnie i odłóż ją na rynek zasobów.<br/>
+            <b>Aktywacja:</b> Zadaj 1 obrażenie.
           </p>
         `,
         keywords: [],
@@ -269,28 +269,28 @@ export const mages: Mage[] = [
     name: 'Thraxir',
     id: 'Thraxir',
     mageTitle: '',
-    abilityName: `Shackles Unleashed`,
-    abilityActivation: `Activate during your main phase:`,
+    abilityName: `Zrzucone Kajdany`,
+    abilityActivation: `Aktywuj podczas swojej fazy głównej:`,
     abilityEffect: `
       <p>
-        Cast up to three spells prepped by any players. If you have three opened breaches, 
-        those spells deal 1 additional damage. If you have four opened breaches, 
-        you may cast up to four spells and those spells deal 2 additional damage instead.
+        Aktywuj do trzech Zaklęć przygotowanych przez dowolnych graczy. Jeśli masz trzy otwarte bramy, 
+        te Zaklęcia zadają po 1 dodatkowym obrażeniu.Jeśli masz cztery otwarte Bramy, 
+        możesz zamiast tego aktywować do czterech Zaklęć, które zadają po 2 dodatkowe obrażenia.
       </p>
     `,
     numberOfCharges: 5,
     uniqueStarters: [
       {
         type: 'Gem',
-        name: 'Nameless Siphon',
+        name: 'Wtłoczenie Bezimiennego',
         expansion: 'O',
         id: 'NamelessSiphon',
         cost: 0,
         effect: `
           <p>
-            Gain 1 <span class="aether">&AElig;</span>.
-            <span class="or">OR</span>
-            Any ally may discard a card in hand. If they do, focus one of your breaches.
+            Otrzymujesz 1 <span class="aether">&AElig;</span>.
+            <span class="or">ALBO</span>
+            Dowolny sojusznik może odrzucić kartę z ręki. Jeśli tak zrobi, wzmocnij jedną ze swoich Bram.
           </p>
         `,
         keywords: [],
@@ -303,26 +303,26 @@ export const mages: Mage[] = [
     name: 'Dezmodia',
     id: 'DezmodiaO',
     mageTitle: '',
-    abilityName: `Void Vortex`,
-    abilityActivation: `Activate during your main phase:`,
+    abilityName: `Wir Pustki`,
+    abilityActivation: `Aktywuj podczas swojej fazy głównej:`,
     abilityEffect: `
       <p>
-        Any ally draws three cards. Then, place any number of cards in your hand into their hand. 
-        Then, that ally places the same number of cards in their hand into your hand.
+        Dowolny sojusznik dobiera trzy karty. Następnie umieść dowolną liczbę kart ze swojej ręki na jego ręce. 
+        Na koniec, ten sojusznik umieszcza taką samą liczbę kart ze swojej ręki na twojej ręce.
       </p>
     `,
     numberOfCharges: 4,
     uniqueStarters: [
       {
         type: 'Spell',
-        name: 'Swirling Darkness',
+        name: 'Kłębiąca się Ciemność',
         expansion: 'O',
         id: 'SwirlingDarkness',
         cost: 0,
         effect: `
           <p>
-            This may be prepped to closed breaches.<br />
-            <b>Cast:</b> Focus the breach this was cast from.
+            To Zaklęcie może być przygotowane na zamkniętej Bramie.<br />
+            <b>Aktywacja:</b> Wzmocnij Bramę, z której zostało ono aktywowane.
           </p>
         `,
         keywords: [],
@@ -335,26 +335,26 @@ export const mages: Mage[] = [
     name: 'Arachnos',
     id: 'Arachnos',
     mageTitle: '',
-    abilityName: `Expunge`,
-    abilityActivation: `Activate during your main phase:`,
+    abilityName: `Wymazanie`,
+    abilityActivation: `Użyj podczas swojej fazy głównej:`,
     abilityEffect: `
       <p>
-        Cast any player's prepped spell. That spell deals 3 additional damage.
+        Aktywuj przygotowane Zaklęcie dowolnego gracza. To Zaklęcie zadaje 3 dodatkowe obrażenia.
       </p>
     `,
     numberOfCharges: 6,
     uniqueStarters: [
       {
         type: 'Spell',
-        name: 'Convergence',
+        name: 'Harmonia',
         expansion: 'O',
         id: 'Convergence',
         cost: 0,
         effect: `
           <p>
-            While prepped, when you play a gem or relic that costs 3 <span class="aether">&AElig;</span> or more, 
-            gain 1 charge.<br />
-            <b>Cast:</b> Deal 1 damage.
+            Gdy przygotowane: kiedy zagrywasz Klejnot albo Artefakt o koszcie 3 <span class="aether">&AElig;</span> lub więcej, 
+            otrzymujesz 1 Ładunek.<br />
+            <b>Aktywacja:</b> Zadaj 1 obrażenie.
           </p>
         `,
         keywords: [],
