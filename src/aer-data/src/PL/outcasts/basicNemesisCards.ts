@@ -6,10 +6,10 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 1,
     type: 'Attack',
-    name: 'Withering Rot',
+    name: 'Zaschnięta Zgnilizna',
     effect: `
       <p>
-        Any player suffers 3 damage and gains a Curse of Rot from the Curse deck.
+        Dowolny gracz otrzymuje 3 obrażenia i pozyskuje Klątwę Zgnilizny z talii Klątw.
       </p>
     `,
   },
@@ -18,13 +18,13 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 1,
     type: 'Attack',
-    name: 'Weeping Hex',
+    name: 'Szlochająca Klątwa',
     effect: `
       <p>
-        Unleash.<br />
+        Wyzwolenie.<br />
         <br />
-        Any player suffers 2 damage, gains a Cursed Shard from the Curse deck, and 
-        places it on top of their deck.
+        Dowolny gracz otrzymuje 2 obrażenia oraz pozyskuje Przeklęty Odłamek z talii Klątw
+        i umieszcza go na wierzchu swojej talii.
       </p>
     `,
   },
@@ -33,19 +33,20 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 1,
     type: 'Attack',
-    name: 'Hemorrhage',
+    name: 'Krwotok',
     effect: `
       <p>
-        Unleash.<br />
+        Wyzwolenie.<br />
         <br />
-        Gravehold suffers 1 damage.<br />
+        Gravehold otrzymuje 1 obrażenie.<br />
         <br />
-        Place this in front of the player with the most opened breaches.<br />
+        Umieść tę kartę przed graczem z największą liczbą otwartych Bram.<br />
         <br />
-        At the start of that player's turn they suffer 1 damage. When that player gains a card 
-        that costs 5 <span class="aether">&AElig;</span> or more, this card is discarded.<br />
-        If there are no cards in the supply that cost 5 <span class="aether">&AElig;</span> or more, 
-        discard this when they gain a card with the highest cost in the supply.
+        Na początku tury tego gracza otrzymuje on 1 obrażenie. Kiedy ten gracz pozyskuje
+        kartę o koszcie 5 <span class="aether">&AElig;</span> lub więcej, ta karta zostaje odrzucona.<br />
+        Jeśli na rynku zasobów nie ma już kart o koszcie 5 <span class="aether">&AElig;</span> lub więcej, 
+        niniejszą kartę należy odrzucić, gdy ten gracz pozyska kartę o najwyższym koszcie 
+        dostępnym na rynku zasobów.
       </p>
     `,
   },
@@ -54,13 +55,13 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 1,
     type: 'Minion',
-    name: 'Moonstruck Hound',
+    name: 'Ogar Księżycowego Zewu',
     hp: 5,
     effect: `
       <p>
-        Reduce to 1 all damage dealt to this minion by spells that cost 5 <span class="aether">&AElig;</span> 
-        or more.<br />
-        <b>Persistent:</b> Gravehold suffers 2 damage.
+        Obniż do 1 wszystkie obrażenia zadawane temu Poplecznikowi przez Zaklęcia, których koszt to 5 <span class="aether">&AElig;</span> 
+        lub więcej.<br />
+        <b>TRWAŁY:</b> Gravehold otrzymuje 2 obrażenia.
       </p>
     `,
   },
@@ -69,15 +70,14 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 1,
     type: 'Minion',
-    name: 'Wandering Lasher',
+    name: 'Tułacz Biczownik',
     hp: 6,
     effect: `
       <p>
-        <b>Wandering</b> <span class="hint">(Reduce to 1 all damage that is dealt to this 
-        by abilities and player cards. During any player's main phase, that player 
-        may spend any amount of <span class="aether">&AElig;</span> to deal an 
-        equal amount of damage to this.)</span><br />
-        <b>Persistent:</b> Unleash.
+        <b>Tułacz</b> <span class="hint">(Obniż do 1 wszystkie obrażenia zadawane mu obrażenia 
+        przez zdolności i karty gracza. W swojej fazie głównej dowolny gracz może wydać dowolną liczbę <span class="aether">&AElig;</span>, 
+        aby zadać Tułaczowi obrażenia równe wydanej liczbie <span class="aether">&AElig;</span>.)</span><br />
+        <b>TRWAŁY:</b> Wyzwolenie.
       </p>
     `,
   },
@@ -86,15 +86,15 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 1,
     type: 'Power',
-    name: 'Aura Drain',
+    name: 'Wyssanie Aury',
     power: 2,
     effect: `
       <p>
-        When a power token is removed from this, any player suffers 2 damage.<br />
+        Kiedy żeton Mocy zostaje usunięty z tej karty, dowolny gracz otrzymuje 2 obrażenia.<br />
         <br />
-        <b>To Discard:</b> Spend 5 <span class="aether">&AElig;</span>.<br />
+        <b>ABY ODRZUCIĆ:</b> Wydaj 5 <span class="aether">&AElig;</span>.<br />
         <br />
-        <b>Power 2:</b> Unleash.
+        <b>MOC 2:</b> Wyzwolenie.
       </p>
     `,
   },
@@ -103,12 +103,12 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 1,
     type: 'Power',
-    name: 'Haunted Force',
+    name: 'Nawiedzona Siła',
     power: 2,
     effect: `
       <p>
-        <b>Power 2:</b> Unleash. Gravehold suffers 2 damage. Any player gaines 
-        a Cursed Bolt from the Curse deck.
+        <b>MOC 2:</b> Wyzwolenie. Gravehold otrzymuje 2 obrażenia. Dowolny gracz pozyskuje 
+        Przeklęty Pocisk z talii Klątw.
       </p>
     `,
   },
@@ -117,14 +117,14 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 1,
     type: 'Power',
-    name: 'Noxious Winds',
+    name: 'Niezdrowy Wiatr',
     power: 2,
     effect: `
       <p>
-        <b>To Discard:</b> Spend 5 <span class="aether">&AElig;</span>.<br />
+        <b>ABY ODRZUCIĆ:</b> Wydaj 5 <span class="aether">&AElig;</span>.<br />
         <br />
-        <b>Power 2:</b> Gravehold suffers 3 damage. Any player gains a Cursed Shard 
-        from the Curse deck. Any player gains a Cursed Bolt from the Curse deck.
+        <b>MOC 2:</b> Gravehold otrzymuje 3 obrażenia. Dowolny gracz pozyskuje Przeklęty Odłamek
+        z talii Klątw. Dowolny gracz pozyskuje Przeklęty Pocisk z talii Klątw.
       </p>
     `,
   },
@@ -133,17 +133,17 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 2,
     type: 'Attack',
-    name: 'Marked For Death',
+    name: 'Naznaczony, by Umrzeć',
     effect: `
       <p>
-        Unleash twice.<br />
+        Dwukrotne wyzwolenie.<br />
         <br />
-        Place this card in front of any player.<br />
+        Umieść tę kartę przed dowolnym graczem.<br />
         <br />
-        For the rest of the game, when a nemesis card specifies 'any player' 
-        the player with this card must resolve that effect if possible.<br />
+        Do końca gry, kiedy karta Nemesis wskazuje na "dowolnego gracza",
+        gracz posiadający tę kartę musi rozpatrzeć ten efekt, jeśli to możliwe.<br />
         <br />
-        When the player with this card becomes exhausted, discard this.
+        Kiedy gracz z tą kartą zostanie Wyczerpany, odrzuć tę kartę.
       </p>
     `,
   },
@@ -152,14 +152,13 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 2,
     type: 'Attack',
-    name: 'Conjured Grapple',
+    name: 'Magiczny Chwyt',
     effect: `
       <p>
-        Unleash twice.<br />
+        Dwukrotne Wyzwolenie.<br />
         <br />
-        Any player suffers 2 damage and discards two cards in hand. That 
-        player gains a Cursed Manacles from the Curse deck and places it into 
-        their hand.
+        Dowolny gracz otrzymuje 2 obrażenia i odrzuca dwie karty z ręki. Ten 
+        gracz pozyskuje Przeklęte Kajdany z talii Klątw i bierze je na rękę.
       </p>
     `,
   },
@@ -168,15 +167,15 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 2,
     type: 'Minion',
-    name: 'Chitin Crawler',
+    name: 'Chitynowy Pełzacz',
     hp: 9,
     effect: `
       <p>
-        Reduce to 1 all damage dealt to this minion by spells that cost 3 <span class="aether">&AElig;</span> 
-        or less.<br />
-        <b>Persistent:</b> Any player suffers 3 damage.
-        <span class="or">OR</span>
-        Unleash.
+        Obniż do 1 wszystkie obrażenia zadawane temu Poplecznikowi przez Zaklęcia, których koszt to 3 <span class="aether">&AElig;</span> 
+        lub mniej.<br />
+        <b>TRWAŁY:</b> Dowolny gracz otrzymuje 3 obrażenia.
+        <span class="or">ALBO</span>
+        Wyzwolenie.
       </p>
     `,
   },
@@ -185,15 +184,14 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 2,
     type: 'Minion',
-    name: 'Wandering Observer',
+    name: 'Tułacz Obserwator',
     hp: 11,
     effect: `
       <p>
-        <b>Wandering</b> <span class="hint">(Reduce to 1 all damage that is dealt to this 
-        by abilities and player cards. During any player's main phase, that player 
-        may spend any amount of <span class="aether">&AElig;</span> to deal an 
-        equal amount of damage to this.)</span><br />
-        <b>Persistent:</b> Gravehold suffers 2 damage.
+        <b>Tułacz</b> <span class="hint">(Obniż do 1 wszystkie obrażenia zadawane mu obrażenia 
+        przez zdolności i karty gracza. W swojej fazie głównej dowolny gracz może wydać dowolną liczbę <span class="aether">&AElig;</span>, 
+        aby zadać Tułaczowi obrażenia równe wydanej liczbie <span class="aether">&AElig;</span>.)</span><br />
+        <b>TRWAŁY:</b> Gravehold otrzymuje 2 obrażenia.
       </p>
     `,
   },
@@ -202,17 +200,16 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 2,
     type: 'Power',
-    name: 'Seeking Destruction',
+    name: 'Poszukiwanie Zniszczenia',
     power: 3,
     effect: `
       <p>
-        <b>Immediately:</b> Place the player number token of the player with the most opened breaches 
-        on this.<br />
+        <b>NATYCHMIAST:</b> Umieść na tej karcie żeton kolejności gracza z największą liczbą otwartych Bram.<br />
         <br />
-        <b>To Discard:</br> Spend 7 <span class="aether">&AElig;</span>.<br />
+        <b>ABY ODRZUCIĆ:</br> Wydaj 7 <span class="aether">&AElig;</span>.<br />
         <br />
-        <b>Power 3:</b> If the player whose player token is on this has the most opened breaches, 
-        that player suffers 5 damage. Otherwise, Unleash twice.
+        <b>MOC 3:</b> Jeśli gracz, którego żeton znajduje się na tej karcie, ma najwięcej otwartych Bram, 
+        ten gracz otrzymuje 5 obrażeń. W przeciwnym razie następuje dwukrotne Wyzwolenie.
       </p>
     `,
   },
@@ -221,13 +218,13 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 2,
     type: 'Power',
-    name: 'Suffocating Haze',
+    name: 'Duszący Opar',
     power: 3,
     effect: `
       <p>
-        Reduce by 1 all damage dealt to minions from the nemesis deck, to a minimum of 1.<br />
+        Obniż o 1 wszystkie obrażenia zadawane Poplecznikom z talii Nemezis, ale do minimum 1.<br />
         <br />
-        <b>Power 3:</b> Unleash twice. Gravehold suffers 2 damage.
+        <b>MOC 3:</b> Dwukrotne Wyzwolenie. Gravehold otrzymuje 2 obrażenia.
       </p>
     `,
   },
@@ -236,15 +233,15 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 2,
     type: 'Power',
-    name: 'Toxic Subterfuge',
+    name: 'Toksyczny Podstęp',
     power: 3,
     effect: `
       <p>
-        When a power token is removed from this, Gravehold suffers 2 damage.<br />
+        Kiedy żeton Mocy zostaje usunięty z tej karty, Gravehold otrzymuje 2 obrażenia.<br />
         <br />
-        <b>To Discard:</b> Spend 7 <span class="aether">&AElig;</span>.<br />
+        <b>ABY ODRZUCIĆ:</b> Wydaj 7 <span class="aether">&AElig;</span>.<br />
         <br />
-        <b>Power 3:</b> Unleash.
+        <b>MOC 3:</b> Wyzwolenie.
       </p>
     `,
   },
@@ -253,12 +250,12 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 3,
     type: 'Attack',
-    name: 'Throttle',
+    name: 'Przyspieszenie',
     effect: `
       <p>
-        Unleash twice.<br />
+        Dwukrotne Wyzwolenie.<br />
         <br />
-        Any player destroys their three most expensive cards in hand.
+        Dowolny gracz niszczy trzy najdroższe karty z ręki.
       </p>
     `,
   },
@@ -267,12 +264,12 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 3,
     type: 'Attack',
-    name: 'Topple',
+    name: 'Powalenie',
     effect: `
       <p>
-        Unleash twice.<br />
+        Dwukrotne Wyzwolenie.<br />
         <br />
-        Gravehold suffers 4 damage.
+        Gravehold otrzymuje 4 obrażenia.
       </p>
     `,
   },
@@ -281,12 +278,12 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 3,
     type: 'Attack',
-    name: 'Breach Spike',
+    name: 'Kolec z Bramy',
     effect: `
       <p>
-        Unleash twice.<br />
+        Dwukrotne Wyzwolenie.<br />
         <br />
-        The player with the most prepped spells suffers 3 damage.
+        Gracz z największą liczbą przygotowanych Zaklęć otrzymuje 3 obrażenia.
       </p>
     `,
   },
@@ -295,11 +292,11 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 3,
     type: 'Minion',
-    name: 'Nyx, The Spine Cruncher',
+    name: 'Nyx, Pożeracz Kręgosłupów',
     hp: 14,
     effect: `
       <p>
-        <b>Persistent:</b> Unleash. Any player suffers 2 damage.      
+        <b>TRWAŁY:</b> Wyzwolenie. Dowolny gracz otrzymuje 2 obrażenia.      
       </p>
     `,
   },
@@ -308,15 +305,15 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 3,
     type: 'Power',
-    name: 'Endless Torment',
+    name: 'Nieskończona Udręka',
     power: 2,
     effect: `
       <p>
-        <b>To Discard:</br> Spend 8 <span class="aether">&AElig;</span>.<br />
+        <b>ABY ODRZUCIĆ:</br> Wydaj 8 <span class="aether">&AElig;</span>.<br />
         <br />
-        <b>Power 2:</b> Unleash three times.
-        <span class="or">OR</span>
-        Any player suffers 6 damage.
+        <b>MOC 2:</b> Trzykrotne Wyzwolenie.
+        <span class="or">ALBO</span>
+        Dowolny gracz otrzymuje 6 obrażeń.
       </p>
     `,
   },
@@ -325,14 +322,14 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 3,
     type: 'Power',
-    name: 'Darkening Depths',
+    name: 'Mroczne Głębiny',
     power: 1,
     effect: `
       <p>
-        <b>To Discard:</br> Destroy a prepped spell that costs 3 <span class="aether">&AElig;</span> 
-        or more and a breach in which it was prepped.<br />
+        <b>ABY ODRZUCIĆ:</br> Zniszcz przygotowane Zaklęcie o koszcie 3 <span class="aether">&AElig;</span> 
+        lub więcej oraz Bramę, na której zostało ono przygotowane.<br />
         <br />
-        <b>Power 1:</b> Unleash. The player with the lowest life suffers 3 damage.
+        <b>MOC 1:</b> Wyzwolenie. Gracz z najmniejszą liczbą punktów życia otrzymuje 3 obrażenia.
       </p>
     `,
   },
@@ -341,14 +338,14 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     expansion: 'O',
     tier: 3,
     type: 'Power',
-    name: 'Apocalypse Ritual',
+    name: 'Rytuał Apokalipsy',
     power: 2,
     effect: `
       <p>
-        <b>To Discard:</br> Spend 8 <span class="aether">&AElig;</span>.<br />
+        <b>ABY ODRZUCIĆ:</br> Wydaj 8 <span class="aether">&AElig;</span>.<br />
         <br />
-        <b>Power 2:</b> Gravehold suffers 5 damage for each nemesis turn order card in the turn order 
-        discard pile.
+        <b>MOC 2:</b> Gravehold otrzymuje 5 obrażeń za każdą kartę tury Nemezis w stosie 
+        kart odrzuconych talii tur.
       </p>
     `,
   },
