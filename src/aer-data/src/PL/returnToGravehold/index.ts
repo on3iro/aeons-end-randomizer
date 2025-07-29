@@ -7,8 +7,8 @@ import { treasures } from './treasures'
 
 export const returnToGraveholdData: IExpansion = {
   id: 'RTG',
-  name: 'Return To Gravehold',
-  wave: 'W5 - Outcasts',
+  name: 'Powrót do Gravehold',
+  wave: 'W5 - Wygnańcy',
   type: 'mini',
   nemeses,
   mages,

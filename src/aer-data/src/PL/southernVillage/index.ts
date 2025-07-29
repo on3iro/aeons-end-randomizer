@@ -7,8 +7,8 @@ import { treasures } from './treasures'
 
 export const southernVillageData: IExpansion = {
   id: 'SV',
-  name: 'Southern Village',
-  wave: 'W5 - Outcasts',
+  name: 'Wioska na Południu',
+  wave: 'W5 - Wygnańcy',
   type: 'mini',
   nemeses,
   mages,
