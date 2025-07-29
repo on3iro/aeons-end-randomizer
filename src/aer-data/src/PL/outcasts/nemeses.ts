@@ -3,7 +3,7 @@ import { Nemesis } from '../../../../aer-types/types'
 export const nemeses: Nemesis[] = [
   {
     expansion: 'O',
-    name: 'Experiment 153',
+    name: 'Eksperyment 153',
     id: 'Experiment153',
     health: '*',
     difficulty: 3,
@@ -12,7 +12,7 @@ export const nemeses: Nemesis[] = [
   },
   {
     expansion: 'O',
-    name: 'Thief Of Dreams',
+    name: 'Złodziej Snów',
     id: 'ThiefOfDreams',
     health: 80,
     difficulty: 4,
@@ -21,7 +21,7 @@ export const nemeses: Nemesis[] = [
   },
   {
     expansion: 'O',
-    name: 'Risen Thrall',
+    name: 'Ożywiony Sługa',
     id: 'RisenThrall',
     health: 50,
     difficulty: 5,
@@ -30,7 +30,7 @@ export const nemeses: Nemesis[] = [
   },
   {
     expansion: 'O',
-    name: 'Fountain Of Souls',
+    name: 'Fontanna Dusz',
     id: 'FountainOfSouls',
     health: 70,
     difficulty: 8,
