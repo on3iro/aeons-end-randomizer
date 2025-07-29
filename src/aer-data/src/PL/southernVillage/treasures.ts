@@ -3,76 +3,76 @@ import { Treasure } from '../../../../aer-types/types'
 export const treasures: Treasure[] = [
   {
     id: 'IncosSpreadingEmerald',
-    name: "Inco's Spreading Emerald",
+    name: "Szmaragd Bujności Inca",
     expansion: 'SV',
     level: 1,
     subtype: 'Gem',
     effect: `
       <p>
-        Gain 1 <span class="aether">&AElig;</span>.
-        <span class="or">OR</span>
-        The next time you gain a card that costs 3 <span class="aether">&AElig;</span> 
-        or less this turn, any ally gains a copy of that card from the supply.
+        Otrzymujesz 1 <span class="aether">&AElig;</span>.
+        <span class="or">ALBO</span>
+        Następnym razem, gdy w tej turze pozyskasz kartę o koszcie 3 <span class="aether">&AElig;</span> 
+        lub mniej, dowolny sojusznik pozyskuje kopię tej karty z rynku zasobów.
       </p>
     `,
   },
   {
     id: 'LostsForgedCrystal',
-    name: "Lost's Forged Crystal",
+    name: "Hartowany Kryształ Zgubionego",
     expansion: 'SV',
     level: 1,
     subtype: 'Gem',
     effect: `
       <p>
-        <span class="hint">(When the game starts, add a Crystal to your discard pile.)</span><br />
-        Gain 2 <span class="aether">&AElig;</span>.
+        <span class="hint">(Na początku gry, dodaj Kryształ do swojego stosu kart odrzuconych.)</span><br />
+        Otrzymujesz 2 <span class="aether">&AElig;</span>.
       </p>
     `,
   },
   {
     id: 'OnyxElixir',
-    name: 'Onyx Elixir',
+    name: 'Onyxowy Eliksir',
     expansion: 'SV',
     level: 2,
     effect: `
       <p>
-        At the start of the game, set this next to a supply pile that costs 
-        7 <span class="aether">&AElig;</span> or more. When a player gains a card 
-        from that supply pile, that player gains 2 life.
+        Na początku rozgrywki umieść tę kartę obok stosu zasobów o koszcie 
+        7 <span class="aether">&AElig;</span> lub więcej. Gdy gracz pozyskuje kartę z tego stosu, 
+        otrzymuje również 2 punkty życia.
       </p>
     `,
   },
   {
     id: 'AshenRib',
-    name: 'Ashen Rib',
+    name: 'Spopielone Żebro',
     expansion: 'SV',
     level: 2,
     effect: `
       <p>
-        Once per turn after a player plays their second relic, any ally draws a card.
+        Raz na turę, po tym, jak gracz zagra swój drugi Artefakt, dowolny sojusznik dobiera kartę.
       </p>
     `,
   },
   {
     id: 'MassacreHelm',
-    name: 'Massacre Helm',
+    name: 'Hełm Masakry',
     expansion: 'SV',
     level: 3,
     effect: `
       <p>
-        When you cast three or more spells during your casting phase, deal 3 damage.
+        Gdy w fazie aktywacji aktywujesz co najmniej trzy Zaklęcia, zadaj 3 obrażenia.
       </p>
     `,
   },
   {
     id: 'CloakOfWisdom',
-    name: 'Cloak Of Wisdom',
+    name: 'Płaszcz Mądrości',
     expansion: 'SV',
     level: 3,
     effect: `
       <p>
-        At the start of tyour main phase, if there are five or more cards in your 
-        discard pile, focus one of your closed breaches.
+        Jeśli na początku twojej fazy głównej masz na stosie kart odrzuconych co najmniej pięć kart,
+        wzmocnij jedną ze swoich zamkniętych Bram.
       </p>
     `,
   },

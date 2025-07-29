@@ -3,142 +3,143 @@ import { Treasure } from '../../../../aer-types/types'
 export const treasures: Treasure[] = [
   {
     id: 'ClaudiasAetherscope',
-    name: "Claudia's Aetherscope",
+    name: "Eteroskop Claudii",
     expansion: 'RTG',
     level: 1,
     subtype: 'Gem',
     effect: `
       <p>
-        Gain 1 <span class="aether">&AElig;</span>.
-        <span class="or">OR</span>
-        Any ally may lose 1 charge. If they do, gain 2 charges.
+        Otrzymujesz 1 <span class="aether">&AElig;</span>.
+        <span class="or">ALBO</span>
+        Dowolny sojusznik może odrzucić 1 Ładunek. Jeśli to zrobi, otrzymujesz 2 Ładunki.
       </p>
     `,
   },
   {
     id: 'SoskelsLuckyCoin',
-    name: "Soskel's Lucky Coin",
+    name: "Szczęśliwa Moneta Soskela",
     expansion: 'RTG',
     level: 1,
     subtype: 'Gem',
     effect: `
       <p>
-        Gain 1 <span class="aether">&AElig;</span>.<br />
-        You may lose 1 charge. If you do, gain an additional 2 <span class="aether">&AElig;</span>.
+        Otrzymujesz 1 <span class="aether">&AElig;</span>.<br />
+        Możesz odrzucić 1 Ładunek. Jeśli to zrobisz, otrzymujesz dodatkowo 2 <span class="aether">&AElig;</span>.
       </p>
     `,
   },
   {
     id: 'QusVoidRadite',
-    name: "Qu's Void Radite",
+    name: "Zespolony Radyt Qu",
     expansion: 'RTG',
     level: 1,
     subtype: 'Gem',
     effect: `
       <p>
-        Gain 1 <span class="aether">&AElig;</span>.<br />
-        You may cast any player's prepped spell. That spell deals 1 less damage, minimum 1.
+        Otrzymujesz 1 <span class="aether">&AElig;</span>.<br />
+        Możesz aktywować przygotowane Zaklęcie dowolnego gracza. To Zaklęcie zadaje o 1 obrażenie mniej, minimum 1.
       </p>
     `,
   },
   {
     id: 'TaqrensGiftOfSpirit',
-    name: "Taqren's Gift Of Spirit",
+    name: "Dar Ducha Taqrena",
     expansion: 'RTG',
     level: 1,
     subtype: 'Spell',
     effect: `
       <p>
-        <b>Cast:</b> Deal 1 damage.
-        <span class="or">OR</span>
-        <b>Cast:</b> Any ally draws a card.
+        <b>Aktywacja:</b> Zadaj 1 obrażenie.
+        <span class="or">ALBO</span>
+        <b>Aktywacja:</b> Dowolny sojusznik dobiera kartę.
       </p>
     `,
   },
   {
     id: 'GygarsTsunami',
-    name: "Gygar's Tsunami",
+    name: "Przepływ Energii Gygara",
     expansion: 'RTG',
     level: 1,
     subtype: 'Spell',
     effect: `
       <p>
-        <b>Cast:</b> Deal 1 damage.<br />
-        >ou may lose 1 charge. If you do, deal 3 additional damage.
+        <b>Aktywacja:</b> Zadaj 1 obrażenie.<br />
+        Możesz odrzucić 1 Ładunek. Jeśli to zrobisz, zadaj dodatkowe 3 obrażenia.
       </p>
     `,
   },
   {
     id: 'EnergizedHusk',
-    name: 'Energized Husk',
+    name: 'Łuska Energii',
     expansion: 'RTG',
     level: 2,
     effect: `
       <p>
-        After a player finishes resolving their ability, any ally draws a card.
+        Po tym, jak gracz zakończy rozpatrywanie swojej zdolności, dowolny sojusznik dobiera kartę.
       </p>
     `,
   },
   {
     id: 'SparkingShards',
-    name: 'Sparking Shards',
+    name: 'Iskrzący Odłamek',
     expansion: 'RTG',
     level: 2,
     effect: `
       <p>
-        At the start of the game, set this next to a gem supply pile. When a player gains 
-        a card from that supply pile, that player gains 1 charge.
+        Na początku gry umieść tę kartę obok stosu Klejnotów. Gdy gracz pozyskuje kartę 
+        z tego stosu, otrzymuje również 1 Ładunek.
       </p>
     `,
   },
   {
     id: 'SigilPendant',
-    name: 'Sigil Pendant',
+    name: 'Wisior Pieczęci',
     expansion: 'RTG',
     level: 2,
     effect: `
       <p>
-        Once per turn during any player's main phase that player may spend 3 <span class="aether">&AElig;</span> 
-        to have each player gain a charge.
+        Raz na turę, dowolny gracz podczas swojej fazy głównej może wydać 3 <span class="aether">&AElig;</span>, 
+        aby każdy gracz otrzymał po 1 Ładunku.
       </p>
     `,
   },
   {
     id: 'HornOfPlenty',
-    name: 'Horn Of Plenty',
+    name: 'Róg Obfitości',
     expansion: 'RTG',
     level: 3,
     effect: `
       <p>
-        Draw two cards from level 1 treasure deck and add them to the Barracks.<br />
+        Dobierz dwie karty z talii Skarbów poziomu 1 i dodaj je do Koszar.<br />
         <br />
-        Add two additional level 1 treasures to your starting deck using the level 1 
-        treasure rules.
+        Dodaj dwa dodatkowe Skarby poziomu 1 do swojej talii początkowej, stosując się do zasad
+        dotyczących Skarbów poziomu 1..
       </p>
     `,
   },
   {
     id: 'ImbuedCirclet',
-    name: 'Imbued Circlet',
+    name: 'Przepełniony Diadem',
     expansion: 'RTG',
     level: 3,
     effect: `
       <p>
-        When you gain a gem, Gravehold gains 1 life.<br />
+        Gdy pozyskujesz Klejnot, Gravehold otrzymuje 1 punkt żywotności.<br />
         <br />
-        This can cause Gravehold to have more than its maximum life.
+        Może to spowodować, że Gravehold będzie miało więcej punktów żywotności, 
+        niż wynosi jego maksimum.
       </p>
     `,
   },
   {
     id: 'BurstingBracelet',
-    name: 'Bursting Bracelet',
+    name: 'Pękająca Bransoletka',
     expansion: 'RTG',
     level: 3,
     effect: `
       <p>
-        When you focus or open a breach, you may cast any player's prepped spell. 
-        That spell deals 1 additional damage.
+        Kiedy wzmacniasz albo otwierasz Bramę, możesz aktywować przygotowane Zaklęcie dowolnego gracza. 
+        To Zaklęcie zadaje 1 dodatkowe obrażenie.
       </p>
     `,
   },

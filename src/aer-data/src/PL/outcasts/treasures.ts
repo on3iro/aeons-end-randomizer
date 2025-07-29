@@ -3,163 +3,163 @@ import { Treasure } from '../../../../aer-types/types'
 export const treasures: Treasure[] = [
   {
     id: 'RhiasPlanarPocket',
-    name: "Rhia's Planar Pocket",
+    name: "Kieszeń Międzywymiarowa Rhia'i",
     expansion: 'O',
     level: 1,
     subtype: 'Gem',
     effect: `
       <p>
-        Gain 1 <span class="aether">&AElig;</span>.<br />
-        Gain an additional <span class="aether">&AElig;</span> that can only be used 
-        to gain a relic.
+        Otrzymujesz 1 <span class="aether">&AElig;</span>.<br />
+        Zyskaj dodatkowo 1 <span class="aether">&AElig;</span>, który
+        może zostać wykorzystany wyłącznie do pozyskania Artefaktu.
       </p>
     `,
   },
   {
     id: 'TalixsEverburn',
-    name: "Talix's Everburn",
+    name: "Ogniwo Talixa",
     expansion: 'O',
     level: 1,
     subtype: 'Gem',
     effect: `
       <p>
-        Gain 1 <span class="aether">&AElig;</span>.<br />
-        Discard up to three spells in hand. Gain 1 <span class="aether">&AElig;</span> 
-        for each spell discarded this way.
+        Otrzymujesz 1 <span class="aether">&AElig;</span>.<br />
+        Odrzuć do trzeć Zaklęć z ręki. Otrzymujesz 1 <span class="aether">&AElig;</span> 
+        za każde Zaklęcie odrzucone w ten sposób.
       </p>
     `,
   },
   {
     id: 'LostsForgedSpark',
-    name: "Lost's Forged Spark",
+    name: "Hartowana Iskra Zgubionego",
     expansion: 'O',
     level: 1,
     subtype: 'Spell',
     effect: `
       <p>
-        <span class="hint">(When the game starts, add a Crystal to your discard pile.)</span><br />
-        <b>Cast:</br> Deal 2 damage.
+        <span class="hint">(Na początku gdy dodaj Kryształ do swojego stosu kart odrzuconych.)</span><br />
+        <b>Aktywacja:</br> Zadaj 2 obrażenia.
       </p>
     `,
   },
   {
     id: 'MazrasThesis',
-    name: "Mazra's Thesis",
+    name: "Badania Mazry",
     expansion: 'O',
     level: 1,
     subtype: 'Spell',
     effect: `
       <p>
-        <b>Cast:</br> Deal 1 damage.<br />
-        Focus any player's III breach.
+        <b>Aktywacja:</br> Zadaj 1 obrażenie.<br />
+        Wzmocnij Bramę III dowolnego gracza.
       </p>
     `,
   },
   {
     id: 'RazrasTrainingWhistle',
-    name: "Razra's Training Whistle",
+    name: "Gwizdek Treningowy Razry",
     expansion: 'O',
     level: 1,
     subtype: 'Gem',
     effect: `
       <p>
-        Gain 1 <span class="aether">&AElig;</span>. 
-        <span class="or">OR</span>
-        Gain 1 charge.
+        Otrzymujesz 1 <span class="aether">&AElig;</span>. 
+        <span class="or">ALBO</span>
+        Otrzymujesz 1 Ładunek.
       </p>
     `,
   },
   {
     id: 'RejuvenatingDiamond',
-    name: 'Rejuvenating Diamond',
+    name: 'Odmładzający Diament',
     expansion: 'O',
     level: 2,
     effect: `
       <p>
-        When Gravehold gains life, Gravehold gains an additional 1 life.
+        Kiedy Gravehold zyskuje żywotność, otrzymuje dodatkowo 1 punkt żywotności.
       </p>
     `,
   },
   {
     id: 'BrokenTooth',
-    name: 'Broken Tooth',
+    name: 'Złamany Ząb',
     expansion: 'O',
     level: 2,
     effect: `
       <p>
-        When a player opens a breach, any ally draws a card.
+        Kiedy gracz otwiera Bramę, dowolny sojusznik dobiera kartę.
       </p>
     `,
   },
   {
     id: 'PoisonHeart',
-    name: 'Poison Heart',
+    name: 'Trucizna Serca',
     expansion: 'O',
     level: 2,
     effect: `
       <p>
-        At the start of the game, set this next to a spell supply pile that 
-        costs 5 <span class="aether">&AElig;</span> or less. Those spells deal 
-        1 additional damage when cast.
+        Na początku rozgrywki umieść tę kartę obok stosu zasobów Zaklęć 
+        o koszcie 5 <span class="aether">&AElig;</span> lub mniej. Te Zaklęcia zadają
+        1 dodatkowe obrażenie podczas aktywacji.
       </p>
     `,
   },
   {
     id: 'WorldMarble',
-    name: 'World Marble',
+    name: 'Marmur Świata',
     expansion: 'O',
     level: 3,
     effect: `
       <p>
-        At the start of your first turn of the game, focus one of your breaches 
-        three times.
+        Na początku twojej pierwszej turzy w grze 
+        wzmocnij trzykrotnie jedną ze swoich Bram.
       </p>
     `,
   },
   {
     id: 'ArmoredPauldrons',
-    name: 'Armored Pauldrons',
+    name: 'Pancerne Naramienniki',
     expansion: 'O',
     level: 3,
     effect: `
       <p>
-        When you play a relic that costs 3 <span class="aether">&AElig;</span> 
-        or more, deal 1 damage.
+        Kiedy zagrywasz Artefakt o koszcie 3 <span class="aether">&AElig;</span> 
+        lub więcej, zadaj 1 obrażenie.
       </p>
     `,
   },
   {
     id: 'BloodshotGeode',
-    name: 'Bloodshot Geode',
+    name: 'Przekrwiona Geoda',
     expansion: 'O',
     level: 3,
     effect: `
       <p>
-        When you play a gem that costs 5 <span class="aether">&AElig;</span> 
-        or more, deal 2 damage.
+        Kiedy zagrywasz Klejnot o koszcie 5 <span class="aether">&AElig;</span> 
+        lub więcej, zadaj 2 obrażenia.
       </p>
     `,
   },
   {
     id: 'TreasuredStone',
-    name: 'Treasured Stone',
+    name: 'Cenny Kamień',
     expansion: 'O',
     level: 3,
     effect: `
       <p>
-        At the start of your first turn of the game, gain a gem from any supply pile.
+        Na początku swojje pierwszej tury w grze, pozyskujesz Klejnot z dowolnego stosu zasobów.
       </p>
     `,
   },
   {
     id: 'ReboundGauntlet',
-    name: 'Rebound Gauntlet',
+    name: 'Rękawica Odbicia',
     expansion: 'O',
     level: 3,
     effect: `
       <p>
-        Once per turn, when you cast a spell that costs 5 <span class="aether">&AElig;</span> 
-        or less, you may discard a spell in hand to return the cast spell to your hand.
+        Raz na turę, kiedy aktywujesz Zaklęcie o koszcie 5 <span class="aether">&AElig;</span> 
+        lub mniej, możesz odrzucić z ręki Zaklęcie, aby zabrać z powrotem na rękę aktywowane Zaklęcie.
       </p>
     `,
   },
