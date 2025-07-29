@@ -38,7 +38,7 @@ export const treasures: Treasure[] = [
     effect: `
       <p>
         <span class="hint">(When the game starts, add a Crystal to your discard pile.)</span><br />
-        <b>Cast:</br> Deal 2 damage.
+        <b>Cast:</b> Deal 2 damage.
       </p>
     `,
   },
@@ -50,7 +50,7 @@ export const treasures: Treasure[] = [
     subtype: 'Spell',
     effect: `
       <p>
-        <b>Cast:</br> Deal 1 damage.<br />
+        <b>Cast:</b> Deal 1 damage.<br />
         Focus any player's III breach.
       </p>
     `,
