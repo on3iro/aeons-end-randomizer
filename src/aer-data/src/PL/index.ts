@@ -12,6 +12,9 @@ import { buriedSecretsData } from './buriedSecrets'
 import { intoTheWildData } from './intoTheWild'
 import { newAgeData } from './theNewAge'
 import { theAncientsData } from './theAncients'
+import { outcastsData } from './outcasts'
+import { returnToGraveholdData } from './returnToGravehold'
+import { southernVillageData } from './southernVillage'
 
 const PL: IExpansionData = {
   AE: aeonsEndData,
@@ -27,6 +30,9 @@ const PL: IExpansionData = {
   WE: warEternalData,
   promos: promosData,
   TA: theAncientsData,
+  O: outcastsData,
+  RTG: returnToGraveholdData,
+  SV: southernVillageData,
 }
 
 export default PL
