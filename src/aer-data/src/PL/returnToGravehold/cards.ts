@@ -4,15 +4,15 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'RTG',
-    name: 'Glass-Eyed Oracle',
+    name: 'Wyrocznia o Szklanym Oku',
     id: 'GlassEyedOracle',
     cost: 1,
     effect: `
       <p>
-        Gain 1 <span class="aether">&AElig;</span>.
-        <span class="or">OR</span>
-        Destroy this and any number of copies of this card in hand. You may gain a card with cost 
-        up to three times the number of copies destroyed.
+        Otrzymujesz 1 <span class="aether">&AElig;</span>.
+        <span class="or">ALBO</span>
+        Zniszcz tę kartę i dowolną liczbę kopii tej karty z ręki. Możesz pozyskać kartę, której koszt 
+        jest maksymalnie trzykrotnie większy od liczby zniszczonych kopii.
       </p>
     `,
     keywords: [],
@@ -20,13 +20,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'RTG',
-    name: 'Cleanse',
+    name: 'Oczyszczenie',
     id: 'Cleanse',
     cost: 4,
     effect: `
       <p>
-        <b>Cast:</b> Deal 3 damage.<br />
-        If you have 3 or less life, gain 1 life.
+        <b>Aktywacja:</b> Zadaj 3 obrażenia.<br />
+        Jeśli masz nie więcej niż 3 punkty życia, zyskaj 1 punkt życia.
       </p>
     `,
     keywords: [],
@@ -34,14 +34,14 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'RTG',
-    name: 'Memory Break',
+    name: 'Uszkodzenie Pamięci',
     id: 'MemoryBreak',
     cost: 6,
     effect: `
       <p>
-        <b>Cast:</b> Deal 3 damage.<br />
-        You may destroy a card in hand. If you do, deal additional damage equal 
-        to the cost of the destroyed card.
+        <b>Aktywacja:</b> Zadaj 3 obrażenia.<br />
+        Możesz zniszczyć kartę z ręki. Jeśli to zrobisz, zadaj
+        dodatkowe obrażenia równe kosztowi zniszczonej karty.
       </p>
     `,
     keywords: [],

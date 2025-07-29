@@ -4,13 +4,13 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'SV',
-    name: 'Quickening Qitite',
+    name: 'Pył Szybkości',
     id: 'QuickeningQitite',
     cost: 3,
     effect: `
       <p>
-        Gain 2 <span class="aether">&AElig;</span>.<br />
-        You may discard a card in hand. If you do, focus any player's II breach.
+        Otrzymujesz 2 <span class="aether">&AElig;</span>.<br />
+        Możesz odrzucić kartę z ręki. Jeśli to zrobisz, wzmocnij Bramę II dowolnego gracza.
       </p>
     `,
     keywords: [],
@@ -18,16 +18,16 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'SV',
-    name: 'Jeweled Urup',
+    name: 'Szlifowany Szmaragd',
     id: 'JeweledUrup',
     cost: 5,
     effect: `
       <p>
-        Gain 3 <span class="aether">&AElig;</span>.
-        <span class="or">OR</span>
-        If this is the second time you have played Jeweled Urup this turn, 
-        you may destroy this. If you do, gain a card from any supply pile 
-        that costs 7 <span class="aether">&AElig;</span> or less.
+        Otrzymujesz 3 <span class="aether">&AElig;</span>.
+        <span class="or">ALBO</span>
+        Jeśli zagrałeś Szlifowany Szmaragd po raz DRUGI w tej turze, 
+        możesz go zniszczyć. Jeśli to zrobisz, pozyskaj kartę ze stosu zasobów,
+        o koszcie nie większym niż 7 <span class="aether">&AElig;</span>.
       </p>
     `,
     keywords: [],
@@ -35,14 +35,14 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'SV',
-    name: "Cat's Eye",
+    name: "Kocie Oko",
     id: 'CatsEye',
     cost: 1,
     effect: `
       <p>
-        You cannot gain this card if you have gained another card this turn. You cannot 
-        gain any other cards the turn you gain this.<br />
-        Gain 1 charge. You may destroy this. If you do, gain 1 <span class="aether">&AElig;</span>.
+        Nie możesz pozyskać tej karty, jeśli pozyskałeś inną kartę w tej turze. Nie możesz 
+        pozyskać innej karty w turze, w której pozyskałeś tę kartę.<br />
+        Otrzymujesz 1 Ładunek. Możesz zniszczyć tę kartę. Jeśli to zrobisz, otrzymujesz 1 <span class="aether">&AElig;</span>.
       </p>
     `,
     keywords: [],
@@ -50,14 +50,14 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'SV',
-    name: 'Volt Replicator',
+    name: 'Uzdatniacz Energii',
     id: 'VoltReplicator',
     cost: 4,
     effect: `
       <p>
-        Any ally gains a card that costs 5 <span class="aether">&AElig;</span> or less. 
-        If there are two or fewer Volt Replicator in the supply, you may destroy this. If you do, 
-        place the gained card into that ally's hand instead.
+        Dowolny sojusznik pozyskuje kartę, o koszcie 5 <span class="aether">&AElig;</span> lub mniej. 
+        Jeśli na rynku zasobów są co najwyżej dwa Uzdatniacze Energii, możesz zniszczyć tę kartę. 
+        Jeśli to zrobisz, zamiast tego umieść pozyskaną kartę na ręce tego sojusznika. 
       </p>
     `,
     keywords: [],
@@ -65,15 +65,15 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'SV',
-    name: 'Energized Conduit',
+    name: 'Przepływ Energii',
     id: 'EnergizedConduit',
     cost: 7,
     effect: `
       <p>
-        <b>Attach</b> this to any player's breach.
+        <b>Przyłącz</b> tę kartę do Bramy dowolnego gracza.
       </p>
       <p>
-        When a spell is cast from this breach, the player who cast that spell gains 1 charge.
+        Gdy na tej Bramie zostanie aktywowane Zaklęcie, gracz, który je aktywował, otrzymuje 1 Ładunek.
       </p>
     `,
     keywords: ['attach'],
@@ -81,13 +81,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'SV',
-    name: 'Flame Jab',
+    name: 'Ognisty Lewy',
     id: 'FlameJab',
     cost: 1,
     effect: `
       <p>
-        <b>Cast:</b> Deal 2 damage to a minion.<br />
-        You may destroy this. If you do, gain 1 <span class="aether">&AElig;</span>.
+        <b>Aktywacja:</b> Zadaj 2 obrażenia Poplecznikowi.<br />
+        Możesz zniszczyć tę kartę. Jeśli to zrobisz, otrzymujesz 1 <span class="aether">&AElig;</span>.
       </p>
     `,
     keywords: [],
@@ -95,13 +95,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'SV',
-    name: 'Gathering Winds',
+    name: 'Potęga Wiatrów',
     id: 'GatheringWinds',
     cost: 3,
     effect: `
       <p>
-        <b>Cast:</b> Deal 2 damage.<br />
-        If there are six or more other cards in your discard pile, focus any player's breach.
+        <b>Aktywacja:</b> Zadaj 2 obrażenia.<br />
+        Jeśli w twoim stosie kart odrzuconych jest co najmniej sześć kart, wzmocnij Bramę dowolnego gracza.
       </p>
     `,
     keywords: [],
@@ -109,13 +109,13 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'SV',
-    name: 'Cinder Shower',
+    name: 'Deszcz Meteorytów',
     id: 'CinderShower',
     cost: 5,
     effect: `
       <p>
-        While prepped, when you gain a card, deal 1 damage.<br />
-        <b>Cast:</b> Deal 3 damage.
+        Gdy przygotowane: gdy pozyskujesz kartę, zadaj 1 obrażenie.<br />
+        <b>Aktywacja:</b> Zadaj 3 obrażenia.
       </p>
     `,
     keywords: [],
@@ -123,14 +123,14 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'SV',
-    name: "Reaper's Flame",
+    name: "Płomień Żniwiarza",
     id: 'ReapersFlame',
     cost: 7,
     effect: `
       <p>
-        While prepped, once per turn when you cast another spell, you may gain a card that costs 
-        5 <span class="aether">&AElig;</span> or less from any supply pile.<br />
-        <b>Cast:</b> Deal 5 damage.
+        Gdy przygotowane: raz na turę, gdy aktywujesz Zaklęcie, możesz pozyskać kartę o koszcie 
+        5 <span class="aether">&AElig;</span> lub mniej z dowolnego stosu zasobów.<br />
+        <b>Aktywacja:</b> Zadaj 5 obrażeń.
       </p>
     `,
     keywords: [],
@@ -138,16 +138,16 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'SV',
-    name: 'Erasure Of Mind',
+    name: 'Wymazanie Umysłu',
     id: 'ErasureOfMind',
     cost: 7,
     effect: `
       <p>
-        <b>Cast:</b> Destroy a card in hand that costs 3<span class="aether">&AElig;</span> or more. 
-        If you do, deal 10 damage.
-        <span class="or">OR</span>
-        <b>Cast:</b> Deal 5 damage. Reveal the top two cards of your deck and place any number on top 
-        of your discard pile.
+        <b>Aktywacja:</b> Zniszcz kartę z ręki o koszcie 3<span class="aether">&AElig;</span> lub więcej. 
+        Jeśli to zrobisz, zadaj 10 obrażeń.
+        <span class="or">ALBO</span>
+        <b>Aktywacja:</b> Zadaj 5 obrażeń. Odkryj dwie wierzchnie karty ze swojej talii i połóż je na swój stos kart odrzuconych
+        lub odłóż je z powrotem w dowolnej kombinacji.
       </p>
     `,
     keywords: [],
