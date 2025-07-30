@@ -26,7 +26,7 @@ export const mages: Mage[] = [
         effect: `
           <p>
             Postać Ohata:<br />
-            <b>Aktywacja:</b> Otrzymujesz 2 <span class="aether">&AElig;</span> i 1 obrażenie<br />
+            <b>Aktywacja:</b> Otrzymujesz 2 <span class="aether">&AElig;</span> i 1 obrażenie.<br />
             Postać Ulgimora:<br />
             <b>Aktywacja:</b> Zadaj 3 obrażenia.
           </p>

@@ -113,7 +113,7 @@ export const treasures: Treasure[] = [
         Dobierz dwie karty z talii Skarbów poziomu 1 i dodaj je do Koszar.<br />
         <br />
         Dodaj dwa dodatkowe Skarby poziomu 1 do swojej talii początkowej, stosując się do zasad
-        dotyczących Skarbów poziomu 1..
+        dotyczących Skarbów poziomu 1.
       </p>
     `,
   },

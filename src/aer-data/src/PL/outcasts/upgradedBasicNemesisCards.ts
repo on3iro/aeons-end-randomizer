@@ -214,7 +214,7 @@ export const upgradedBasicNemesisCards: UpgradedBasicNemesisCard[] = [
     effect: `
       <p>
         <b>MOC 2:</b> Wyzwolenie. Gracz z najdroższym przygotowanym Zaklęciem niszczy je. 
-        Inny gracz niszczy dwie karty ze swojej ręki o koszcie <span class="aether">&AElig;</span> 
+        Inny gracz niszczy dwie karty ze swojej ręki o koszcie 1 <span class="aether">&AElig;</span> 
         lub więcej.
       </p>
     `,
