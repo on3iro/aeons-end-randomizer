@@ -309,7 +309,7 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     power: 2,
     effect: `
       <p>
-        <b>ABY ODRZUCIĆ:</br> Wydaj 8 <span class="aether">&AElig;</span>.<br />
+        <b>ABY ODRZUCIĆ:</b> Wydaj 8 <span class="aether">&AElig;</span>.<br />
         <br />
         <b>MOC 2:</b> Trzykrotne Wyzwolenie.
         <span class="or">ALBO</span>
@@ -326,7 +326,7 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     power: 1,
     effect: `
       <p>
-        <b>ABY ODRZUCIĆ:</br> Zniszcz przygotowane Zaklęcie o koszcie 3 <span class="aether">&AElig;</span> 
+        <b>ABY ODRZUCIĆ:</b> Zniszcz przygotowane Zaklęcie o koszcie 3 <span class="aether">&AElig;</span> 
         lub więcej oraz Bramę, na której zostało ono przygotowane.<br />
         <br />
         <b>MOC 1:</b> Wyzwolenie. Gracz z najmniejszą liczbą punktów życia otrzymuje 3 obrażenia.
@@ -342,7 +342,7 @@ export const basicNemesisCards: BasicNemesisCard[] = [
     power: 2,
     effect: `
       <p>
-        <b>ABY ODRZUCIĆ:</br> Wydaj 8 <span class="aether">&AElig;</span>.<br />
+        <b>ABY ODRZUCIĆ:</b> Wydaj 8 <span class="aether">&AElig;</span>.<br />
         <br />
         <b>MOC 2:</b> Gravehold otrzymuje 5 obrażeń za każdą kartę tury Nemezis w stosie 
         kart odrzuconych talii tur.

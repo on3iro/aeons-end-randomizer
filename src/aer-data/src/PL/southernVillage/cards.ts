@@ -101,7 +101,7 @@ export const cards: ICard[] = [
     effect: `
       <p>
         <b>Aktywacja:</b> Zadaj 2 obrażenia.<br />
-        Jeśli w twoim stosie kart odrzuconych jest co najmniej sześć kart, wzmocnij Bramę dowolnego gracza.
+        Jeśli w twoim stosie kart odrzuconych jest co najmniej sześć innych kart, wzmocnij Bramę dowolnego gracza.
       </p>
     `,
     keywords: [],
