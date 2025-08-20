@@ -1,6 +1,6 @@
 {
   "name": "aeons-randomizer",
-  "version": "v3.29.1",
+  "version": "v3.30.0",
   "private": true,
   "babelMacros": {
     "styledComponents": {
