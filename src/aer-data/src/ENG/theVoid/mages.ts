@@ -7,7 +7,7 @@ export const mages: Mage[] = [
     id: 'Sparrow',
     mageTitle: 'Breach Mage Soldier',
     abilityName: `Eldritch Tether`,
-    abilityActivation: `Activate during your casting or main phase:`,
+    abilityActivation: `Activate during your main phase:`,
     abilityEffect: `
         <p>Focus any player's breach. Repeat this three additional times.
         <span class="or">OR</span>
