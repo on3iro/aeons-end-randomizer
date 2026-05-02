@@ -22,8 +22,8 @@ export const treasures: Treasure[] = [
     effect: `
 	<p>
 	  When the game starts, place a nemesis token on your ability.
-	  When you use your ability, remove it.<hr/>
-	  Gain 1 <span class="aether">&AElig;</span>. If your ability doesn't have
+	  When you use your ability, remove it.</p>
+	  <p>Gain 1 <span class="aether">&AElig;</span>. If your ability doesn't have
 	  a nemesis token on it, gain an additional 1 <span class="aether">&AElig;</span>.
     </p>
       `,
