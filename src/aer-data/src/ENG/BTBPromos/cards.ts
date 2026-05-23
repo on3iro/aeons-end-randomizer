@@ -28,7 +28,7 @@ export const cards: ICard[] = [
 	  Recall: Discard a card in hand. If you do, any ally gains 1 charge.
       </p>
       `,
-    keywords: ['aether token'],
+    keywords: ['aether token', 'recall'],
   },
   {
     type: 'Spell',
@@ -43,6 +43,6 @@ export const cards: ICard[] = [
 	  Deal an additional 2 damage for each card destroyed this way.
       </p>
       `,
-    keywords: [],
+    keywords: ['trinket'],
   },
 ]
