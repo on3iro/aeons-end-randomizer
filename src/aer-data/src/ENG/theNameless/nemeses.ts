@@ -9,6 +9,11 @@ export const nemeses: Nemesis[] = [
     difficulty: 4,
     expeditionRating: 2,
     additionalInfo: '',
+    fightFiveAdditionalInfo: `
+    <p>During setup, swap one of the nemesis turn order cards for the Unleash turn order card.
+       The unleash from this card resolves after checking to see if the Tainted Track advances.</p>
+    <p>SETUP: Gravehold suffers 5 damage. Two different players each suffer 2 damage.</p>
+    `,
   },
   {
     expansion: 'Nameless',
