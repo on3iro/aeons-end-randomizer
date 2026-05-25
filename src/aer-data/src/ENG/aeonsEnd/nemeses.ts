@@ -9,6 +9,12 @@ export const nemeses: Nemesis[] = [
     difficulty: 3,
     expeditionRating: 1,
     additionalInfo: '',
+    fightFiveAdditionalInfo: `
+    <p>During setup, swap one of the nemesis turn order cards for the Unleash turn order card.</p>
+    <p>The nemesis starts with 15 additional life.</p>
+    <p>Place Endless Throng on top of the nemesis deck instead of shuffling it into Tier 1.</p>
+    <p>Play using Increased Difficulty.</p>
+    `,
   },
   {
     expansion: 'AE',
@@ -18,6 +24,11 @@ export const nemeses: Nemesis[] = [
     difficulty: 5,
     expeditionRating: 2,
     additionalInfo: '',
+    fightFiveAdditionalInfo: `
+    <p>During setup, swap one of the nemesis turn order cards for the Unleash turn order card.</p>
+    <p>The nemesis starts with 10 additional life.</p>
+    <p>Play using Increased Difficulty.</p>
+    `,
   },
   {
     expansion: 'AE',

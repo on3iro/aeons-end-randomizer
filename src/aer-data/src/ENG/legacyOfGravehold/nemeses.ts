@@ -41,6 +41,10 @@ export const nemeses: Nemesis[] = [
     difficulty: 8,
     expeditionRating: 4,
     additionalInfo: '',
+    fightFiveAdditionalInfo: `
+    <p>During setup, swap one of the nemesis turn order cards for the Unleash turn order card.</p>
+    <p>Play using Increased Difficulty.</p>
+    `,
   },
   {
     expansion: 'LOG',
@@ -55,6 +59,12 @@ export const nemeses: Nemesis[] = [
         Mist Revealed cards when constructing the nemesis deck.
       </p>
     `,
+    fightFiveAdditionalInfo: `
+    <p>When playing outside of the legacy campaign, use three random tier 3
+        Mist Revealed cards when constructing the nemesis deck.</p>
+    <p>During setup, swap one of the nemesis turn order cards for the Unleash turn order card.</p>
+    <p>Play using Increased Difficulty.</p>
+    `
   },
   {
     expansion: 'LOG',

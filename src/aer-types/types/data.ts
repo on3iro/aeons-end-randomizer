@@ -104,6 +104,7 @@ export type Nemesis = ICreature & {
   additionalInfo: string
   difficulty: number
   expeditionRating: ExpeditionRating
+  fightFiveAdditionalInfo?: string
 }
 
 export type Mage = ICreature & {

@@ -9,5 +9,9 @@ export const nemeses: Nemesis[] = [
     difficulty: 5,
     expeditionRating: 3,
     additionalInfo: '',
+    fightFiveAdditionalInfo: `
+    <p>During setup, swap one of the nemesis turn order cards for the Unleash turn order card.</p>
+    <p>SETUP: Put Atrophy into play from the Entropy deck.</p>
+    `,
   },
 ]

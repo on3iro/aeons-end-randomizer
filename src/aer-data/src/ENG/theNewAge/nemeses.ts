@@ -18,6 +18,14 @@ export const nemeses: Nemesis[] = [
     difficulty: 4,
     expeditionRating: 2,
     additionalInfo: '',
+    fightFiveAdditionalInfo: `
+    <p>During setup, swap one of the nemesis turn order cards for the Unleash turn order card.</p>
+    <p>The nemesis starts with 15 additional life.</p>
+    <p>SETUP: Gravehold suffers 4 damage.
+       Two different players each suffer 2 damage.
+       Arachnos gains four nemesis tokens.
+       Unleash twice.</p>
+    `,
   },
   {
     expansion: 'NA',
