@@ -163,7 +163,7 @@ export type Foes = {
   [id: string]: Foe
 }
 
-export type TreasureLevel = 1 | 2 | 3
+export type TreasureLevel = 1 | 2 | 3 | 4
 
 export type Treasure = {
   id: string

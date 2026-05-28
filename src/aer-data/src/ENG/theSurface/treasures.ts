@@ -76,4 +76,52 @@ export const treasures: Treasure[] = [
       </p>
       `,
   },
+  {
+    id: 'AstralTesseract',
+    name: 'Astral Tesseract',
+    expansion: 'TS',
+    level: 4,
+	subtype: 'Relic',
+    effect: `
+      <p>
+		Any ally may destroy a card in hand to gain 1 life.<br/>Return a gem you played this turn to your hand.<br/>You may destroy a card in your hand.
+      </p>
+      `,
+  },
+  {
+    id: 'CelestialSlayer',
+    name: 'Celestial Slayer',
+    expansion: 'TS',
+    level: 4,
+	subtype: 'Spell',
+    effect: `
+      <p>
+		<b>Cast:</b> Deal 4 damage.<br/>Any ally draws a card.
+      </p>
+      `,
+  },
+  {
+    id: 'PlanarVisions',
+    name: 'Planar Visions',
+    expansion: 'TS',
+    level: 4,
+	subtype: 'Spell',
+    effect: `
+      <p>
+		<b>Cast:</b> Deal 2 damage.<br/>Focus your closed breach with the lowest focus cost.<br/>Deal 1 additional damage for each of your opened breaches.
+      </p>
+      `,
+  },
+  {
+    id: 'PrismaticCluster',
+    name: 'Prismatic Cluster',
+    expansion: 'TS',
+    level: 4,
+	subtype: 'Spell',
+    effect: `
+      <p>
+		Gain 3 <span class="aether">&AElig;</span>.<br/>For each other gem in your hand that costs 1 <span class="aether">&AElig;</span> or more, gain an additional 1 <span class="aether">&AElig;</span>.
+      </p>
+      `,
+  },
 ]

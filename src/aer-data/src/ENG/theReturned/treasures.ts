@@ -9,7 +9,7 @@ export const treasures: Treasure[] = [
     subtype: 'Spell',
     effect: `
 	<p>
-       <b>Cast:</b> Deal 2 damage to a minion.<br/>
+      <b>Cast:</b> Deal 2 damage to a minion.<br/>
       <span class="or">OR</span><br/>
 	  <b>Cast:</b> Deal 1 damage.
       </p>
@@ -86,6 +86,59 @@ export const treasures: Treasure[] = [
      At the start of the game, choose an ally.
 	 At the end of your turn, if that ally has
 	 two or more prepped spells, draw a card.
+      </p>
+      `,
+  },
+  {
+    id: 'BurningPhoenix',
+    name: 'Burning Phoenix',
+    expansion: 'TR',
+    level: 4,
+	subtype: 'Spell',
+    effect: `
+      <p>
+		<b>Cast:</b> Deal 3 damage and gain 1 charge.</p>
+		<span class="or">OR</span><br/>
+		<p><b>Cast:</b> Lose 1 charge to deal 6 damage.
+      </p>
+      `,
+  },
+  {
+    id: 'FiendNeutralizer',
+    name: 'Fiend Neutralizer',
+    expansion: 'TR',
+    level: 4,
+	subtype: 'Relic',
+    effect: `
+      <p>
+		Gain 1 charge. Any player may destroy a card in their hand or discard pile.</p>
+		<span class="or">OR</span><br/>
+		<p>Lose 3 charges and destroy this card. If you do, defeat a minion from the nemesis deck.
+      </p>
+      `,
+  },
+  {
+    id: 'FiendNeutralizer',
+    name: 'Fiend Neutralizer',
+    expansion: 'TR',
+    level: 4,
+	subtype: 'Gem',
+    effect: `
+      <p>
+		Gain 2 <span class="aether">&AElig;</span>. Gain additional <span class="aether">&AElig;</span> equal to the nemesis tier.
+      </p>
+      `,
+  },
+  {
+    id: 'QuasarForge',
+    name: 'Quasar Forge',
+    expansion: 'TR',
+    level: 4,
+	subtype: 'Spell',
+    effect: `
+      <p>
+		While prepped, once per turn during your main phase, gain 3 <span class="aether">&AElig;</span> that can only be used to gain a spell.</p>
+		<p><b>Cast:</b> Deal 6 damage.
       </p>
       `,
   },

@@ -127,4 +127,70 @@ export const treasures: Treasure[] = [
       </p>
       `,
   },
+  {
+    id: 'AgonyStone',
+    name: "Agony Stone",
+    expansion: 'BTBPromo',
+    level: 4,
+    subtype: 'Gem',
+    effect: `
+	<p>
+      Gain 3 <span class="aether">&AElig;</span> and deal 1 damage.</p>
+	  <span class="or">OR</span>
+	  <p>Gain 1 <span class="aether">&AElig;</span> and deal 3 damage.
+    </p>
+      `,
+  },
+  {
+    id: 'CrystallizedHeart',
+    name: "Crystallized Heart",
+    expansion: 'BTBPromo',
+    level: 4,
+    subtype: 'Spell',
+    effect: `
+	<p>
+      <b>Cast:</b> Any player gains a gem from any supply pile and places it into their hand.</p>
+	  <span class="or">OR</span>
+	  <p><b>Cast:</b> Any player discards a gem. Deal damage equal to that gem's cost plus 6.
+    </p>
+      `,
+  },
+  {
+    id: 'JiansFocusingOrb',
+    name: "Jian's Focusing Orb",
+    expansion: 'BTBPromo',
+    level: 4,
+    subtype: 'Relic',
+    effect: `
+	<p>
+      Focus any player's breach. Any ally draws a card.</p>
+	  <span class="or">OR</span>
+	  <p>Destroy this. Gravehold gains 5 life.
+    </p>
+      `,
+  },
+  {
+    id: 'RealityKey',
+    name: "Reality Key",
+    expansion: 'BTBPromo',
+    level: 4,
+    subtype: 'Relic',
+    effect: `
+	<p>
+      Any ally draws three cards, then discards a card.<br/>You may destroy this to put a card in play from the nemesis deck on top of the nemesis deck.
+    </p>
+      `,
+  },
+  {
+    id: 'ViridescentJade',
+    name: "Viridescent Jade",
+    expansion: 'BTBPromo',
+    level: 4,
+    subtype: 'Gem',
+    effect: `
+	<p>
+      Gain 2 <span class="aether">&AElig;</span>.<br/>Any player gains 2 <span class="aether">&AElig;</span> tokens.
+    </p>
+      `,
+  },
 ]
