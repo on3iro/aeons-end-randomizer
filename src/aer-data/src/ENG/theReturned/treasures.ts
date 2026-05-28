@@ -118,8 +118,8 @@ export const treasures: Treasure[] = [
       `,
   },
   {
-    id: 'FiendNeutralizer',
-    name: 'Fiend Neutralizer',
+    id: 'PyroclasticSlag',
+    name: 'Pyroclastic Slag',
     expansion: 'TR',
     level: 4,
 	subtype: 'Gem',
