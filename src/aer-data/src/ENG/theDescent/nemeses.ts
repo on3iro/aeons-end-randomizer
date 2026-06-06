@@ -36,5 +36,9 @@ export const nemeses: Nemesis[] = [
     difficulty: 8,
     expeditionRating: 4,
     additionalInfo: '',
+    fightFiveAdditionalInfo: `
+    <p>Play using Increased Difficulty.</p>
+    <p>SETUP: Two different players each suffer 3 damage.</p>
+    `,
   },
 ]

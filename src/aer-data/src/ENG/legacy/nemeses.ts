@@ -18,6 +18,10 @@ export const nemeses: Nemesis[] = [
     difficulty: 6,
     expeditionRating: 4,
     additionalInfo: '',
+    fightFiveAdditionalInfo: `
+    <p>During setup, swap one of the nemesis turn order cards for the Unleash turn order card.</p>
+    <p>Play using Increased Difficulty.</p>
+    `,
   },
   {
     expansion: 'Legacy',
@@ -62,5 +66,9 @@ export const nemeses: Nemesis[] = [
           During setup, include three less upgraded basic nemesis cards in each tier.
         </p>
       `,
+    fightFiveAdditionalInfo: `
+    <p>SETUP: After the spell deck is set up, destroy the top three cards of the spell deck. 
+       Then, the nemesis Concentrates three times.</p>
+    `
   },
 ]

@@ -14,6 +14,10 @@ export const nemeses: Nemesis[] = [
           instead of four nemesis tokens.
         </p>
       `,
+    fightFiveAdditionalInfo: `
+    <p>The nemesis starts with 20 additional life.</p>
+    <p>SETUP: Gate Witch starts with 4 nemesis tokens instead of 1.</p>
+    `,
   },
   {
     expansion: 'WE',
