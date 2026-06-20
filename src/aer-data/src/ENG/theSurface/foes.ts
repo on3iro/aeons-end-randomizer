@@ -6,7 +6,7 @@ export const foes: Foe[] = [
     id: 'TheMask',
     expansion: 'TS',
     charges: 5,
-	rules: 'Whenever a player would gain a second nemesis token (third in solo), they suffer 10 damage instead.'
+	rules: 'Whenever a player would gain a second nemesis token (third in solo), they suffer 10 damage instead.',
     abilityName: 'Pay Your Due',
     abilityEffect: '<p>Any player loses a nemesis token and deals 4 damage to the nemesis. Draw and resolve the top card of the nemesis deck.</p><span class="or">OR</span><p>Any player gains a nemesis token. Repeat this.</p>',
     deck: [
