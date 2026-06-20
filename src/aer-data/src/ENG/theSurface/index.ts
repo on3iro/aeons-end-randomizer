@@ -7,7 +7,7 @@ import { treasures } from './treasures'
 import { friends } from './friends'
 import { foes } from './foes'
 
-export const theReturnedData: IExpansion = {
+export const theSurfaceData: IExpansion = {
   id: 'TS',
   name: 'The Surface',
   wave: 'W9 - Beyond the Breach',
