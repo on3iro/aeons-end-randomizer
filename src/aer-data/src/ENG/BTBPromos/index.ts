@@ -13,4 +13,5 @@ export const beyondTheBreachPromosData: IExpansion = {
   nemeses: [],
   cards,
   treasures,
+  basicNemesisCards,
 }
