@@ -62,9 +62,10 @@ const ENG: IExpansionData = {
   AB: theAbyssData,
   TOG: talesOfOldGraveholdData,
   TDPromo: theDescentPromosData,
+  BTB: beyondTheBreachData,
   TS: theSurfaceData,
   TR: theReturnedData,
-  BTBPromo: beyondTheBreachPromosData
+  BTBPromo: beyondTheBreachPromosData,
 }
 
 export default ENG
