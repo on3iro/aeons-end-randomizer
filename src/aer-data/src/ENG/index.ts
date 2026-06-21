@@ -28,6 +28,10 @@ import { theCavernsData } from './theCaverns'
 import { theAbyssData } from './theAbyss'
 import { talesOfOldGraveholdData } from './talesOfOldGravehold'
 import { theDescentPromosData } from './TDPromos'
+import { beyondTheBreachData } from './beyondTheBreach'
+import { theSurfaceData } from './theSurface'
+import { theReturnedData } from './theReturned'
+import { beyondTheBreachPromosData } from './BTBPromos'
 
 const ENG: IExpansionData = {
   AE: aeonsEndData,
@@ -58,6 +62,10 @@ const ENG: IExpansionData = {
   AB: theAbyssData,
   TOG: talesOfOldGraveholdData,
   TDPromo: theDescentPromosData,
+  BTB: beyondTheBreachData,
+  TS: theSurfaceData,
+  TR: theReturnedData,
+  BTBPromo: beyondTheBreachPromosData,
 }
 
 export default ENG
