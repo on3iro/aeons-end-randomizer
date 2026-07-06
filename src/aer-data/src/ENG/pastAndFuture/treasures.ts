@@ -202,8 +202,8 @@ export const treasures: Treasure[] = [
       `,
   },
   {
-    id: 'TalixsEverlight',
-    name: "Talix's Everlight",
+    id: 'NooksZeronia',
+    name: "Nook's Zeronia",
     expansion: 'PAF',
     level: 1,
     subtype: 'Gem',
