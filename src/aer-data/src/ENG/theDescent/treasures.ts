@@ -162,7 +162,7 @@ export const treasures: Treasure[] = [
   },
   {
     id: 'GuildedCuirass',
-    name: 'Guilded Cuirass',
+    name: 'Gilded Cuirass',
     expansion: 'ATD',
     level: 3,
     effect: `

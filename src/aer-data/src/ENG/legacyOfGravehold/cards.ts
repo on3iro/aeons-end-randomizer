@@ -429,7 +429,7 @@ const spells: ICard[] = [
   {
     type: 'Spell',
     expansion: 'LOG',
-    name: 'Flame Quake',
+    name: 'Flamequake',
     id: 'FlameQuake',
     cost: 6,
     effect: `

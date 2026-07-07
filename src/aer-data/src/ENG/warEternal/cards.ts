@@ -389,7 +389,7 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'WE',
-    name: 'Mages Totem',
+    name: "Mage's Totem",
     id: 'MagesTotem',
     cost: 2,
     effect: `

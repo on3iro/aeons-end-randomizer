@@ -200,7 +200,7 @@ export const treasures: Treasure[] = [
   },
   {
     id: 'CarapaceFragement',
-    name: 'Carapace Fragement',
+    name: 'Carapace Fragment',
     expansion: 'NA',
     level: 2,
     effect: `
@@ -321,7 +321,7 @@ export const treasures: Treasure[] = [
   },
   {
     id: 'ShroudOfObfucation',
-    name: 'Shroud of Obfucation',
+    name: 'Shroud of Obfuscation',
     expansion: 'NA',
     level: 3,
     effect: `
