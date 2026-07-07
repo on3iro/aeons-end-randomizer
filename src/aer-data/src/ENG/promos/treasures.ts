@@ -339,7 +339,7 @@ export const treasures: Treasure[] = [
   },
   {
     id: 'ArachnosSpellbook',
-    name: "Arachnos's Speelbook",
+    name: "Arachnos's Spellbook",
     expansion: 'promos',
     level: 1,
     effect: `

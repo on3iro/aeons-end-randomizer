@@ -120,7 +120,7 @@ export const treasures: Treasure[] = [
   },
   {
     id: 'FleshGauntlets',
-    name: 'Flesh Gauntlets',
+    name: 'Flash Gauntlets',
     expansion: 'TDPromo',
     level: 3,
     effect: `

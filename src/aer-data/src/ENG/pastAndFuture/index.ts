@@ -7,8 +7,8 @@ import { treasures } from './treasures'
 
 export const pastAndFutureData: IExpansion = {
   id: 'PAF',
-  name: 'Past And Future',
-  wave: 'W7 - Past And Future',
+  name: 'Past and Future',
+  wave: 'W7 - Past and Future',
   type: 'standalone',
   nemeses,
   mages,

@@ -7,7 +7,7 @@ import { upgradedBasicNemesisCards } from './upgradedBasicNemesisCards'
 export const pastAndFuturePromosData: IExpansion = {
   id: 'PFPromo',
   name: 'Promos for Past and Future',
-  wave: 'W7 - Past And Future',
+  wave: 'W7 - Past and Future',
   type: 'promo',
   mages: [],
   nemeses: [],

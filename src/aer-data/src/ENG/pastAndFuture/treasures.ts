@@ -3,7 +3,7 @@ import { Treasure } from '../../../../aer-types/types'
 export const treasures: Treasure[] = [
   {
     id: 'IncosCarnivorousSunflower',
-    name: "Inco's Carnivours Sunflower",
+    name: "Inco's Carnivorous Sunflower",
     expansion: 'PAF',
     level: 1,
     subtype: 'Gem',

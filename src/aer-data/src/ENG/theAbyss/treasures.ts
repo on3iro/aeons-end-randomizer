@@ -89,7 +89,7 @@ export const treasures: Treasure[] = [
   },
   {
     id: 'ThunderstrikeSigil',
-    name: 'Thunderstrike Sigil',
+    name: 'Thunderstrike Sygil',
     expansion: 'AB',
     level: 3,
     effect: `

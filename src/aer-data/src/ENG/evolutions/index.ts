@@ -8,7 +8,7 @@ import { treasures } from './treasures'
 export const evolutionsData: IExpansion = {
   id: 'EVO',
   name: 'Evolution',
-  wave: 'W7 - Past And Future',
+  wave: 'W7 - Past and Future',
   type: 'mini',
   nemeses,
   mages,

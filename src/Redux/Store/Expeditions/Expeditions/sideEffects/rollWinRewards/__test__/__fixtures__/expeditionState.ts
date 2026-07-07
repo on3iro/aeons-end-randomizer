@@ -699,7 +699,7 @@ export const state = {
             MagesTalisman: {
               type: 'Relic',
               expansion: 'AE',
-              name: 'Mages Talisman',
+              name: "Mage's Talisman",
               id: 'MagesTalisman',
               cost: 5,
               effect:
@@ -1918,7 +1918,7 @@ export const state = {
             RiddleSphere: {
               type: 'Relic',
               expansion: 'OD',
-              name: 'Riddle Sphere',
+              name: 'Riddlesphere',
               id: 'RiddleSphere',
               cost: 3,
               effect:
@@ -2458,7 +2458,7 @@ export const state = {
             MagesTotem: {
               type: 'Relic',
               expansion: 'WE',
-              name: 'Mages Totem',
+              name: "Mage's Totem",
               id: 'MagesTotem',
               cost: 2,
               effect:
@@ -6363,7 +6363,7 @@ export const state = {
             },
             CarapaceFragement: {
               id: 'CarapaceFragement',
-              name: 'Carapace Fragement',
+              name: 'Carapace Fragment',
               expansion: 'NA',
               level: 2,
               effect:
@@ -6443,7 +6443,7 @@ export const state = {
             },
             ShroudOfObfucation: {
               id: 'ShroudOfObfucation',
-              name: 'Shroud of Obfucation',
+              name: 'Shroud of Obfuscation',
               expansion: 'NA',
               level: 3,
               effect:

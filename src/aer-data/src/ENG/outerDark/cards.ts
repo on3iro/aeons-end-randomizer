@@ -119,7 +119,7 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'OD',
-    name: 'Riddle Sphere',
+    name: 'Riddlesphere',
     id: 'RiddleSphere',
     cost: 3,
     effect: `

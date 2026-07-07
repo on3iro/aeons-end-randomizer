@@ -176,7 +176,7 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'AE',
-    name: 'Mages Talisman',
+    name: "Mage's Talisman",
     id: 'MagesTalisman',
     cost: 5,
     effect: `
