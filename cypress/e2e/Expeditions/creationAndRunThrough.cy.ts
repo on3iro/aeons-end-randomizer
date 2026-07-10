@@ -156,7 +156,7 @@ describe('Expedition creation and run through', () => {
       .should('be.visible')
     cy.get('p').contains('Band of Retrieval').should('be.visible')
     cy.get('p').contains('Siphoning Blade').should('be.visible')
-    cy.get('p').contains('Shroud of Obfucation').should('be.visible')
+    cy.get('p').contains('Shroud of Obfuscation').should('be.visible')
     cy.get('p').contains('Prism Of Destruction').should('be.visible')
 
     // Upgraded basic nemesis cards
