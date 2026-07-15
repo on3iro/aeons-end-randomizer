@@ -8,7 +8,7 @@ export const rollNewUpgradedNemesisCards = (
     tier: types.NemesisCardTier
   }[],
   previousUpgradedBasicNemesisCards: string[],
-  nemesisTier: 1 | 2 | 3 | 4,
+  nemesisTier: types.NemesisTier,
   getEntity: types.SeededEntityGetter,
   seed: types.Seed
 ) => {

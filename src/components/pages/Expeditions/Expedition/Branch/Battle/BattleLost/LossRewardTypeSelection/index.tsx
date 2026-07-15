@@ -13,10 +13,11 @@ import SectionHeadline from 'components/atoms/SectionHeadline'
 import RewardSelect from './RewardSelect'
 import ConfirmButton from './ConfirmButton'
 
-const getTreasureOptionsByTier = (tier: 1 | 2 | 3 | 4) => [
-  ...([2, 3, 4].includes(tier) ? [{ level: 1 }] : []),
-  ...([3, 4].includes(tier) ? [{ level: 2 }] : []),
-  ...([4].includes(tier) ? [{ level: 3 }] : []),
+const getTreasureOptionsByTier = (tier: 1 | 2 | 3 | 4 | 5) => [
+  ...([2, 3, 4, 5].includes(tier) ? [{ level: 1 }] : []),
+  ...([3, 4, 5].includes(tier) ? [{ level: 2 }] : []),
+  ...([4, 5].includes(tier) ? [{ level: 3 }] : []),
+  ...([5].includes(tier) ? [{ level: 4 }] : []),
 ]
 
 type OwnProps = {

@@ -69,6 +69,7 @@ export type RewardType =
   | 'treasure1'
   | 'treasure2'
   | 'treasure3'
+  | 'treasure4'
   | 'banner'
 
 export type BattleRewardsResult = types.Battle & {
@@ -85,6 +86,7 @@ export type LossConfig = {
   treasure1Ids: string[]
   treasure2Ids: string[]
   treasure3Ids: string[]
+  treasure4Ids: string[]
   bannerIds: string[]
 }
 

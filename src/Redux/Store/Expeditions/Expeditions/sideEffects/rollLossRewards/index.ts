@@ -32,6 +32,7 @@ export const handleRewardType = ({
   treasure1Ids,
   treasure2Ids,
   treasure3Ids,
+  treasure4Ids,
 }: {
   rewardType: RewardType
   battle: types.Battle
@@ -44,6 +45,7 @@ export const handleRewardType = ({
   treasure1Ids: string[]
   treasure2Ids: string[]
   treasure3Ids: string[]
+  treasure4Ids: string[]
 }) => {
   switch (rewardType) {
     case 'mage': {
@@ -72,6 +74,10 @@ export const handleRewardType = ({
 
     case 'treasure3': {
       return handleTreasure(battle, treasure3Ids, seed)
+    }
+
+    case 'treasure4': {
+      return handleTreasure(battle, treasure4Ids, seed)
     }
 
     case 'banner': {
@@ -129,6 +135,10 @@ const rollLossRewards = (
     treasureLevel: 3,
     expeditionId,
   })
+  const treasure4Ids = selectors.getStillAvailableTreasureIdsByLevel(state, {
+    treasureLevel: 4,
+    expeditionId,
+  })
   const bannerIds = selectors.getStillAvailableBannerIds(state, { expeditionId })
 
   const mageIds = expedition.uniqueMageNames
@@ -146,6 +156,7 @@ const rollLossRewards = (
     treasure1Ids,
     treasure2Ids,
     treasure3Ids,
+    treasure4Ids,
     bannerIds,
   })
 }

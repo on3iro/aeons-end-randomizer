@@ -62,6 +62,7 @@ const BeforeBattle = ({
           nemesis={nemesis}
           foe={foe}
           friend={friend}
+          tier={battle.config.tier}
           upgradedBasicNemsisCards={upgradedBasicNemsisCards}
         />
       </ModalBodyWrapper>

@@ -20,7 +20,7 @@ export const rollTreasureIdsByLevel = (
           getEntity,
           seed
         )
-      : { result: [], seed }
+      : { availableEntities: [], result: [], seed }
 
   return newTreasures
 }

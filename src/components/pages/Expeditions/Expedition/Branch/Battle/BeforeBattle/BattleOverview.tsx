@@ -18,6 +18,7 @@ type Props = {
   specialRules?: string
   onLoss?: string
   upgradedBasicNemsisCards: types.UpgradedBasicNemesisCard[]
+  tier: types.NemesisTier
 }
 
 const BattleOverview = ({
@@ -28,6 +29,7 @@ const BattleOverview = ({
   upgradedBasicNemsisCards,
   specialRules,
   onLoss,
+  tier,
 }: Props) => {
   return (
     <>
@@ -35,7 +37,7 @@ const BattleOverview = ({
       <SectionHeadline data-test={`${nemesis?.name}`}>
         {nemesis ? nemesis.name : 'Nemesis'}
       </SectionHeadline>
-      <NemesisInformation nemesis={nemesis} />
+      <NemesisInformation nemesis={nemesis} fightFive={tier === 5} />
       {friend && <>
         <SectionHeadline data-test="friend">Friend: {friend.name}</SectionHeadline>
         <FriendInformation friend={friend} simple={true} />

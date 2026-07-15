@@ -21,12 +21,13 @@ export const getUpgradedBasicNemesisIdsByBattleTier = ({
   availableTier1Ids: string[]
   availableTier2Ids: string[]
   availableTier3Ids: string[]
-  battleTier: 1 | 2 | 3 | 4
+  battleTier: types.NemesisTier
   getEntity: types.SeededEntityGetter
   seed: types.Seed
 }): { result: string[]; seed: types.Seed } => {
   switch (battleTier) {
-    case 1: {
+    case 1:
+    case 5: {
       return { result: [], seed } // No upgraded cards are added on tier 1
     }
 
