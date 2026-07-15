@@ -9,7 +9,7 @@ export const rollSupplyRewards = (
   relicIds: string[],
   spellIds: string[],
   seed: types.Seed,
-  rollNewEntityFn: Function = rollNewEntity
+  rollNewEntityFn: typeof rollNewEntity = rollNewEntity
 ) => {
   // We pack the values into arrays to make it possible to get empty values
   // which are not null below

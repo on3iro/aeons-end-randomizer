@@ -27,6 +27,7 @@ const mapDispatchToProps = {}
 
 type OwnProps = {
   nemesis?: Nemesis
+  fightFive?: boolean
   theme: any
 }
 
@@ -34,10 +35,11 @@ type Props = ReturnType<typeof mapStateToProps> &
   typeof mapDispatchToProps &
   OwnProps
 
-const NemesisInformation = ({ nemesis, expansion, theme }: Props) => {
+const NemesisInformation = ({ nemesis, fightFive = false, expansion, theme }: Props) => {
   if (!expansion || !nemesis) {
     return null
   }
+  const additionalInfo = fightFive ? nemesis.fightFiveAdditionalInfo : nemesis.additionalInfo
 
   return (
     <React.Fragment>
@@ -47,9 +49,9 @@ const NemesisInformation = ({ nemesis, expansion, theme }: Props) => {
       <InfoItem label="Difficulty" info={nemesis.difficulty.toString()} />
       <InfoItem
         label="Expedition tier"
-        info={nemesis.expeditionRating.toString()}
+        info={fightFive ? "5" : nemesis.expeditionRating.toString()}
       />
-      {nemesis.additionalInfo ? (
+      {additionalInfo ? (
         <React.Fragment>
           <SectionHeadline
             themeColor={theme.colors.turnOrderCards['nemesis'].normal}
@@ -58,7 +60,7 @@ const NemesisInformation = ({ nemesis, expansion, theme }: Props) => {
           </SectionHeadline>
           <AdditionalInfo
             dangerouslySetInnerHTML={{
-              __html: nemesis.additionalInfo,
+              __html: additionalInfo,
             }}
           />
         </React.Fragment>

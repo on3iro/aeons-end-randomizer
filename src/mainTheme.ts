@@ -56,12 +56,16 @@ const treasureColors = {
     light: '#ffddb2',
   },
   treasure2: {
-    normal: '#aaa9ad',
-    light: '#ece8f5',
+    normal: '#5a59ad',
+    light: '#bcb8f5',
   },
   treasure3: {
     normal: '#d4af37',
     light: '#fbecbb',
+  },
+  treasure4: {
+    normal: '#aaa9ad',
+    light: '#ece8f5',
   },
 }
 

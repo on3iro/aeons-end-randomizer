@@ -41,6 +41,37 @@ export const variants: { [id: string]: Variant } = {
       },
     ],
   },
+  FIGHT_FIVE: {
+    id: 'FIGHT_FIVE',
+    name: 'Fight Five',
+    configList: [
+      {
+        tier: 1,
+        newUBNCards: { type: 'regular', addRandom: false },
+        treasure: { level: 1, hasTreasure: true },
+      },
+      {
+        tier: 2,
+        newUBNCards: { type: 'regular', addRandom: true },
+        treasure: { level: 2, hasTreasure: true },
+      },
+      {
+        tier: 3,
+        newUBNCards: { type: 'regular', addRandom: true },
+        treasure: { level: 3, hasTreasure: true },
+      },
+      {
+        tier: 4,
+        newUBNCards: { type: 'regular', addRandom: true },
+        treasure: { level: 4, hasTreasure: true },
+      },
+      {
+        tier: 5,
+        newUBNCards: { type: 'regular', addRandom: true },
+        treasure: { hasTreasure: false },
+      },
+    ],
+  },
   SHORT: {
     id: 'SHORT',
     name: 'Short',
@@ -189,7 +220,7 @@ export type Barracks = {
 
 export type OnLoss = 'skip'
 
-export type NemesisTier = 1 | 2 | 3 | 4
+export type NemesisTier = 1 | 2 | 3 | 4 | 5
 
 ///////////////////
 // Configuration //
