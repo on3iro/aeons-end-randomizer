@@ -78,14 +78,14 @@ export const cards: ICard[] = [
   {
     type: 'Gem',
     expansion: 'promos',
-    name: 'Fractured Quartz',
+    name: 'Gesplitterter Quarz',
     id: 'FracturedQuartz',
     cost: 4,
     effect: `
       <p>
-        Gain 2 <span class="aether">&AElig;</span>.<br />
-        You may destroy two cards in this card's supply pile. If you do, 
-        gain an additional 1 <span class="aether">&AElig;</span>.
+        Erhalte 2 <span class="aether">&AElig;</span>.<br />
+        Zerstörst du jetzt 2 Karten dieses Vorrats?
+        Erhalte 1 <span class="aether">&AElig;</span>.
       </p>
     `,
     keywords: [],
@@ -93,12 +93,15 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'promos',
-    name: 'Rock Launcher',
+    name: 'Kristallwerfer',
     id: 'RockLauncher',
     cost: 3,
     effect: `
       <p>
-        Discard or destroy a card in hand. If you do, deal damage equal to its cost.
+        Wähle 1 Karte von deiner Hand.<br />
+        Wirf sie ab <b>ODER</b> zerstöre sie.<br />
+        Ist das passiert? Füge X Schaden zu.<br />
+        X = Kosten der abgeworfenen/zerstörten Karte.
       </p>
     `,
     keywords: [],
@@ -106,13 +109,16 @@ export const cards: ICard[] = [
   {
     type: 'Relic',
     expansion: 'promos',
-    name: 'Abacus of Ignition',
+    name: 'Flammakus',
     id: 'AbacusOfIgnition',
     cost: 4,
     effect: `
       <p>
-        You may casdt any ally's prepped spell.<br />
-        Any ally draws a card.
+        Wähle 1 anderen Spieler. Du darfst 1 seiner gebundenen Zauber wirken.<br />
+        Wähle erneut 1 anderen Spieler, der 1 Karte zieht.
+      </p>
+      <p>
+        <span class="hint">(Du darfst bei beiden Effekten denselben Spieler wählen.)</span>
       </p>
     `,
     keywords: [],
@@ -120,14 +126,14 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'promos',
-    name: 'Illuminating Flame',
+    name: 'Erleuchtende Flamme',
     id: 'IlluminatingFlame',
     cost: 6,
     effect: `
       <p>
-        <b>Cast:</b> Deal 5 damage.<br/>
-        If this was cast from an opened III or IV breach, you may destroy this.
-        If you do, gain 3 charges.
+        <b>Wirken:</b> Füge 5 Schaden zu.<br />
+        Ist dieser Zauber an einen aktiven Riss III oder IV gebunden?
+        Du darfst diesen Zauber zerstören. Tust du das? Erhalte 3 Energie.
       </p>
     `,
     keywords: [],
@@ -135,15 +141,17 @@ export const cards: ICard[] = [
   {
     type: 'Spell',
     expansion: 'promos',
-    name: 'Chronal Arc',
+    name: 'Zeitbogen',
     id: 'ChronalArc',
     cost: 7,
     effect: `
       <p>
-        This spell must be prepped to two adjacent breaches so that this card 
-        touches both breaches. This fully occupies both breaches.<br />
-        <b>Cast:</b> Deal 4 damage.<br />
-        You may place this card into your hand.
+        <b>Dauerhaft:</b> Dieser Zauber muss auf 2 aneinandergrenzende Risse
+        gebunden werden. Beide Risse sind damit nicht mehr frei.
+      </p>
+      <p>
+        <b>Wirken:</b> Füge 4 Schaden zu.<br />
+        Du darfst diesen Zauber zurück auf die Hand nehmen.
       </p>
     `,
     keywords: [],
